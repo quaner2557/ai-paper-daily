@@ -894,57 +894,116 @@ Provide your analysis strictly in the following JSON format.
             except Exception as e:
                 logger.error(f"DingTalk notification error: {e}")
     
+    def send_error_notification(self, error_msg: str, date_str: str):
+        """发送错误通知"""
+        date_obj = datetime.strptime(date_str, "%Y%m%d")
+        date_display = date_obj.strftime("%Y-%m-%d")
+        
+        error_text = f"""⚠️ **AI Paper Daily 运行异常 - {date_display}**
+
+**错误信息**:
+{error_msg[:500]}
+
+**请检查**:
+1. API Key 是否有效
+2. 网络连接是否正常
+3. arXiv API 是否可访问
+4. LLM 服务是否正常
+
+**运行日志**: 请查看 GitHub Actions 日志获取详细信息。
+"""
+        
+        # 钉钉错误通知
+        if self.dingtalk_urls:
+            import hmac
+            import hashlib
+            import base64
+            import urllib.parse
+            import time
+            
+            for i, url in enumerate(self.dingtalk_urls):
+                try:
+                    secret = self.dingtalk_secrets[i] if i < len(self.dingtalk_secrets) else None
+                    if secret:
+                        timestamp = str(round(time.time() * 1000))
+                        secret_enc = secret.encode('utf-8')
+                        string_to_sign = f'{timestamp}\n{secret}'
+                        string_to_sign_enc = string_to_sign.encode('utf-8')
+                        hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+                        sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
+                        url = f"{url}&timestamp={timestamp}&sign={sign}"
+                    
+                    payload = {
+                        "msgtype": "text",
+                        "text": {
+                            "content": error_text
+                        }
+                    }
+                    
+                    response = requests.post(url, json=payload, timeout=10)
+                    logger.info(f"Error notification sent: {response.status_code}")
+                except Exception as e:
+                    logger.error(f"Failed to send error notification: {e}")
+    
     def run(self):
         """运行完整流程"""
         logger.info("=" * 60)
         logger.info("AI Paper Daily - Starting")
         logger.info("=" * 60)
         
-        # 获取今天的日期字符串
         date_str = datetime.now().strftime("%Y%m%d")
+        error_msg = None
         
-        # 1. 从 arXiv 获取论文
-        papers = self.fetch_arxiv_papers(days_back=1)
-        if not papers:
-            logger.error("No papers fetched from arXiv, exiting")
-            return
-        
-        # 2. 使用大模型评分和总结
-        scored_papers = self.score_and_summarize_papers(papers)
-        if not scored_papers:
-            logger.warning("No papers passed the relevance threshold")
-            # 即使没有高分论文，也保存空报告
-            scored_papers = []
-        
-        # 3. 保存 JSON 数据
-        json_path = self.output_dir / f"{date_str}.json"
-        with open(json_path, 'w', encoding='utf-8') as f:
-            json.dump(scored_papers, f, ensure_ascii=False, indent=2)
-        logger.info(f"Saved JSON: {json_path}")
-        
-        # 4. 生成 Markdown
-        md_content = self.generate_markdown(scored_papers, date_str)
-        md_path = self.output_dir / f"{date_str}.md"
-        with open(md_path, 'w', encoding='utf-8') as f:
-            f.write(md_content)
-        logger.info(f"Saved Markdown: {md_path}")
-        
-        # 5. 生成 HTML
-        html_content = self.generate_html(scored_papers, date_str)
-        html_path = self.output_dir / f"{date_str}.html"
-        with open(html_path, 'w', encoding='utf-8') as f:
-            f.write(html_content)
-        logger.info(f"Saved HTML: {html_path}")
-        
-        # 6. 飞书推送
-        self.send_to_feishu(scored_papers, date_str)
-        
-        # 7. 钉钉推送
-        self.send_to_dingtalk(scored_papers, date_str)
-        
-        logger.info("=" * 60)
-        logger.info(f"AI Paper Daily - Complete! Processed {len(scored_papers)} papers")
-        logger.info("=" * 60)
+        try:
+            # 1. 从 arXiv 获取论文
+            papers = self.fetch_arxiv_papers(days_back=1)
+            if not papers:
+                error_msg = "❌ 无法从 arXiv 获取论文，请检查网络连接或 arXiv API 是否正常"
+                logger.error(error_msg)
+                self.send_error_notification(error_msg, date_str)
+                return
+            
+            # 2. 使用大模型评分和总结
+            scored_papers = self.score_and_summarize_papers(papers)
+            if not scored_papers:
+                logger.warning("No papers passed the relevance threshold")
+                scored_papers = []
+            
+            # 3. 保存 JSON 数据
+            json_path = self.output_dir / f"{date_str}.json"
+            with open(json_path, 'w', encoding='utf-8') as f:
+                json.dump(scored_papers, f, ensure_ascii=False, indent=2)
+            logger.info(f"Saved JSON: {json_path}")
+            
+            # 4. 生成 Markdown
+            md_content = self.generate_markdown(scored_papers, date_str)
+            md_path = self.output_dir / f"{date_str}.md"
+            with open(md_path, 'w', encoding='utf-8') as f:
+                f.write(md_content)
+            logger.info(f"Saved Markdown: {md_path}")
+            
+            # 5. 生成 HTML
+            html_content = self.generate_html(scored_papers, date_str)
+            html_path = self.output_dir / f"{date_str}.html"
+            with open(html_path, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+            logger.info(f"Saved HTML: {html_path}")
+            
+            # 6. 飞书推送
+            self.send_to_feishu(scored_papers, date_str)
+            
+            # 7. 钉钉推送
+            self.send_to_dingtalk(scored_papers, date_str)
+            
+            logger.info("=" * 60)
+            logger.info(f"AI Paper Daily - Complete! Processed {len(scored_papers)} papers")
+            logger.info("=" * 60)
+            
+        except Exception as e:
+            error_msg = f"❌ 运行过程中发生异常：\n{str(e)}\n\n请查看 GitHub Actions 日志获取详细堆栈信息。"
+            logger.error(error_msg)
+            logger.exception("Detailed exception:")
+            self.send_error_notification(error_msg, date_str)
 
 
 if __name__ == "__main__":

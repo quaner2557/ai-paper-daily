@@ -226,37 +226,76 @@ Provide your analysis strictly in the following JSON format.
     def _build_llm_finerank_prompt(self, paper: Dict) -> str:
         """构建精排提示词（基于标题 + 摘要详细分析）"""
         
-        # 判断是否是国内互联网公司
-        china_companies = [
-            "Alibaba", "Alibaba Group", "Alibaba Cloud", "Ant Group", "Ant Financial",
-            "Tencent", "WeChat", "Weixin", "QQ",
-            "ByteDance", "ByteDance Research", "Douyin", "Toutiao",
-            "Baidu", "Baidu Research",
-            "JD", "JD.com",
-            "Meituan",
-            "Pinduoduo",
-            "Kuaishou", "Kwai",
-            "Huawei", "Huawei Cloud",
-            "Xiaomi",
-            "NetEase", "163.com",
-            "Zhihu",
-            "Bilibili",
-            "Zhipu AI", "智谱 AI",
-            "Baichuan", "百川智能",
-            "Moonshot AI", "月之暗面",
-            "MiniMax",
-            "01.AI", "零一万物",
-            "iFlytek", "科大讯飞",
-            "SenseTime", "商汤科技",
-            "Megvii", "旷视科技"
-        ]
+        # 中国公司列表（来自 paperBotV2 industry_practice，使用英文名称匹配）
+        # 参考：https://github.com/Doragd/Algorithm-Practice-in-Industry/blob/main/paperBotV2/industry_practice/data/article.json
+        china_companies_en = {
+            # 互联网大厂
+            "Alibaba": "阿里", "Alibaba Health": "阿里健康", "Alibaba Mom": "阿里妈妈", 
+            "Alibaba Culture": "阿里文娱", "Alibaba DAMO": "阿里达摩院", "Taobao": "淘宝", 
+            "Tmall": "天猫", "Lazada": "Lazada", "Ele.me": "饿了么", "Fliggy": "飞猪",
+            "Tencent": "腾讯", "WeChat": "微信", "QQ": "QQ", "Tencent Music": "腾讯音乐",
+            "ByteDance": "字节跳动", "Douyin": "抖音", "Toutiao": "头条", "BIGO": "BIGO",
+            "Baidu": "百度", "Xiaomi": "小米", "JD": "京东", "Meituan": "美团",
+            "Pinduoduo": "拼多多", "Kuaishou": "快手", "NetEase": "网易",
+            "Zhihu": "知乎", "Bilibili": "B 站", "iQiyi": "爱奇艺", "Sina": "新浪",
+            "Sohu": "搜狐", "Weibo": "微博", "Douyu": "斗鱼", "Huya": "虎牙",
+            # AI/科技公司
+            "Huawei": "华为", "OPPO": "OPPO", "vivo": "vivo", "Honor": "荣耀",
+            "SenseTime": "商汤", "Megvii": "旷视", "Yitu": "依图", "CloudWalk": "云从",
+            "iFlytek": "科大讯飞", "Zhipu AI": "智谱 AI", "Baichuan": "百川智能",
+            "Moonshot AI": "月之暗面", "MiniMax": "MiniMax", "01.AI": "零一万物",
+            # 其他公司
+            "Ctrip": "携程", "Trip.com": "Trip.com", "Qunar": "去哪儿", "Tongcheng": "同程",
+            "Didi": "滴滴", "Uber China": "优步中国", "Meituan Bike": "美团单车",
+            "Hello TransTech": "哈啰出行", "AutoNavi": "高德", "Tencent Map": "腾讯地图",
+            "Dianping": "大众点评", "Elema": "饿了么", "Meituan Select": "美团优选",
+            "Xiaohongshu": "小红书", "Hupo": "虎扑", "Zhihu": "知乎",
+            "DingTalk": "钉钉", "WeChat Work": "企业微信", "Feishu": "飞书",
+            "Tencent Cloud": "腾讯云", "Alibaba Cloud": "阿里云", "Huawei Cloud": "华为云",
+            # 金融/房产/其他
+            "Ant Group": "蚂蚁集团", "MyBank": "网商银行", "WeBank": "微众银行",
+            "Lufax": "陆金所", "CreditEase": "宜信", "51 Credit Card": "51 信用卡",
+            "Beike": "贝壳", "Lianjia": "链家", "Tujia": "途家", "Ganji": "赶集",
+            "58.com": "58 同城", "Anjuke": "安居客", "Fang.com": "房天下",
+            # 医疗/教育/文娱
+            "DXY": "丁香园", "Ping An Good Doctor": "平安好医生", "WeDoctor": "微医",
+            "Yuanfudao": "猿辅导", "Zuoyebang": "作业帮", "TAL": "好未来", "New Oriental": "新东方",
+            "iQIYI": "爱奇艺", "Youku": "优酷", "Tencent Video": "腾讯视频",
+            "Mango TV": "芒果 TV", "Bilibili": "哔哩哔哩",
+            # 游戏
+            "Tencent Games": "腾讯游戏", "NetEase Games": "网易游戏", "miHoYo": "米哈游",
+            "Lilith": "莉莉丝", "FunPlus": "趣加", "IGG": "IGG",
+            # 硬件/制造
+            "DJI": "大疆", "Hisense": "海信", "Haier": "海尔", "Gree": "格力",
+            "Midea": "美的", "Lenovo": "联想", "TP-Link": "普联",
+            # 物流
+            "SF Express": "顺丰", "YTO": "圆通", "ZTO": "中通", "STO": "申通",
+            "Yunda": "韵达", "Cainiao": "菜鸟网络", "JD Logistics": "京东物流",
+            # 餐饮/零售
+            "Luckin Coffee": "瑞幸咖啡", "Starbucks China": "星巴克中国",
+            "Haidilao": "海底捞", "Xiabu Xiabu": "呷哺呷哺",
+            "Yonghui": "永辉", "RT-Mart": "大润发", "Walmart China": "沃尔玛中国",
+            "Carrefour China": "家乐福中国", "Costco China": "开市客中国",
+            # 其他
+            "360": "360", "Kingsoft": "金山", "UCWeb": "UC 浏览器",
+            "PPTV": "PPTV", "YY": "YY 直播", "Momo": "陌陌", "Tantan": "探探",
+            "Soul": "Soul", "Ximalaya": "喜马拉雅", "Qingting FM": "蜻蜓 FM",
+            "Dianping": "点评", "Meituan": "美团", "Ele.me": "饿了么"
+        }
         
-        is_china_company = any(
-            company.lower() in f"{paper['title']} {paper['summary']}".lower()
-            for company in china_companies
-        )
+        # 检查论文是否与中国公司相关（匹配英文关键词）
+        paper_text = f"{paper['title']} {paper['summary']}"
+        matched_companies = []
         
-        china_company_bonus = "本文来自**中国公司**，请在评分时给予**额外 +1 分**的加分。" if is_china_company else ""
+        for company_en in china_companies_en.keys():
+            if company_en.lower() in paper_text.lower():
+                matched_companies.append(company_en)
+        
+        # 构建加分说明
+        if matched_companies:
+            china_company_bonus = f"""本文来自**中国公司**（{', '.join(matched_companies[:3])}{'...' if len(matched_companies) > 3 else ''}），请在评分时给予**额外 +1 分**的加分。"""
+        else:
+            china_company_bonus = ""
         
         return f"""
 # Role

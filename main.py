@@ -145,7 +145,7 @@ class AIPaperDaily:
                     break
                     
                 start += max_results
-                time.sleep(3)  # arXiv API 限制：每秒最多 1 次请求
+                # 移除 sleep，加快获取速度
                 
             except Exception as e:
                 logger.error(f"Error fetching arXiv papers: {e}")
@@ -469,8 +469,7 @@ Provide your analysis strictly in the following JSON format.
             else:
                 logger.info(f"  -> Filtered out (prerank score: {paper['prerank_score']})")
             
-            # 避免 API 限流
-            time.sleep(0.3)
+            # 移除 sleep，加快处理速度
         
         logger.info(f"Preranking complete: {len(preranked_papers)}/{len(papers)} papers passed (threshold: 4)")
         
@@ -502,8 +501,7 @@ Provide your analysis strictly in the following JSON format.
             
             logger.info(f"  -> Fine-ranked (score: {paper['relevance_score']})")
             
-            # 避免 API 限流
-            time.sleep(0.3)
+            # 移除 sleep，加快处理速度
         
         # 按精排分数排序
         scored_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)

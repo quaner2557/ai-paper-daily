@@ -225,6 +225,39 @@ Provide your analysis strictly in the following JSON format.
 
     def _build_llm_finerank_prompt(self, paper: Dict) -> str:
         """构建精排提示词（基于标题 + 摘要详细分析）"""
+        
+        # 判断是否是国内互联网公司
+        china_companies = [
+            "Alibaba", "Alibaba Group", "Alibaba Cloud", "Ant Group", "Ant Financial",
+            "Tencent", "WeChat", "Weixin", "QQ",
+            "ByteDance", "ByteDance Research", "Douyin", "Toutiao",
+            "Baidu", "Baidu Research",
+            "JD", "JD.com",
+            "Meituan",
+            "Pinduoduo",
+            "Kuaishou", "Kwai",
+            "Huawei", "Huawei Cloud",
+            "Xiaomi",
+            "NetEase", "163.com",
+            "Zhihu",
+            "Bilibili",
+            "Zhipu AI", "智谱 AI",
+            "Baichuan", "百川智能",
+            "Moonshot AI", "月之暗面",
+            "MiniMax",
+            "01.AI", "零一万物",
+            "iFlytek", "科大讯飞",
+            "SenseTime", "商汤科技",
+            "Megvii", "旷视科技"
+        ]
+        
+        is_china_company = any(
+            company.lower() in f"{paper['title']} {paper['summary']}".lower()
+            for company in china_companies
+        )
+        
+        china_company_bonus = "本文来自**中国公司**，请在评分时给予**额外 +1 分**的加分。" if is_china_company else ""
+        
         return f"""
 # Role
 You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
@@ -236,6 +269,33 @@ You are a highly experienced Research Engineer specializing in Large Language Mo
 - **Enabling Transformer Tech:** Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
 - **Direct LLM Applications:** Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
 - **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
+
+# Scoring Guidelines (1-10 分)
+请严格按照以下标准评分，控制高分比例：
+
+- **9-10 分**（占比<5%）: 核心领域突破性工作，必须关注
+  - 提出全新的架构/方法/理论
+  - 解决长期存在的开放性问题
+  - 具有重大工业应用前景
+  
+- **7-8 分**（占比~20%）: 强相关工作，有明确创新
+  - 在现有方法上有显著改进
+  - 实验充分，结论可靠
+  - 对实际系统有指导意义
+  
+- **5-6 分**（占比~50%）: 中等相关，方法有借鉴意义
+  - 问题有一定相关性
+  - 方法有一定新意但不够突破
+  - 可作为参考文献
+  
+- **3-4 分**（占比~20%）: 弱相关，仅部分概念相关
+  - 仅边缘相关
+  - 方法较为常规
+  - 参考价值有限
+  
+- **1-2 分**（占比<5%）: 几乎不相关（应在粗排被过滤）
+  - 不属于关注领域
+  - 纯理论或无实际应用
 
 # Goal
 Perform a detailed analysis of the provided paper based on its title and abstract. Identify its core contributions and relevance to my focus areas.
@@ -253,6 +313,9 @@ Based on the paper's **Title** and **Abstract**, provide a comprehensive analysi
 # Input Paper
 - **Title**: {paper['title']}
 - **Abstract**: {paper['summary'][:2000]}
+
+# Additional Notes
+{china_company_bonus}
 
 # Output Format
 Provide your analysis strictly in the following JSON format.

@@ -183,27 +183,36 @@ class AIPaperDaily:
         """构建粗排提示词（基于标题快速筛选）- 只输出分数"""
         return f"""
 # Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems.
+You are a highly experienced Research Engineer specializing in Recommendation Systems and Search Engines.
 
-# My Current Focus
-- RecSys, Search, Ads core advances
-- LLM/Transformer tech for RecSys/Search/Ads
-- Direct LLM applications in ranking/retrieval
+# Priority Topics (score 8-10)
+**Give HIGH scores to papers about:**
+- **E-commerce scenarios**: product recommendation, search, ranking, personalization in online shopping
+- **Social media scenarios**: feed ranking, content recommendation, social search, user engagement
+- **Local-life services**: food delivery, ride-hailing, travel recommendation
+- **Core RecSys/Search**: collaborative filtering, deep learning ranking, retrieval, matching
+- **LLM for RecSys/Search**: LLM-based ranking, retrieval, recommendation, search
 
-# Irrelevant Topics (score 1-3)
+# Medium Priority (score 5-7)
+- Ads ranking, bidding optimization
+- General ML/DL methods with potential RecSys application
+- User modeling, behavior prediction
+- Multi-modal recommendation/search
+
+# Low Priority (score 1-4)
 - Security, Privacy, Fairness, Ethics
-- Medical, Biology, Chemistry, Physics
+- Medical, Biology, Chemistry, Physics applications
 - Pure vision/speech without ranking relevance
-- Pure RL without RecSys/Search/Ads application
+- Pure RL without RecSys/Search application
 - AIGC, Content generation without ranking
 
 # Task
 Based ONLY on the paper's title, provide a relevance score (1-10).
 
 # Scoring Guidelines
-- **9-10**: Breakthrough work in RecSys/Search/Ads
-- **7-8**: Strong relevance, clear innovation
-- **5-6**: Moderate relevance, useful method
+- **9-10**: E-commerce/Social RecSys/Search with LLM/Deep Learning
+- **7-8**: Core RecSys/Search advances, clear business scenario
+- **5-6**: General ML methods, potential application
 - **3-4**: Weak relevance, edge case
 - **1-2**: Irrelevant (filter out)
 
@@ -286,7 +295,19 @@ Based ONLY on the paper's title, provide a relevance score (1-10).
         
         # 构建加分说明
         if matched_companies:
-            china_company_bonus = f"""本文来自**中国公司**（{', '.join(matched_companies[:3])}{'...' if len(matched_companies) > 3 else ''}），请在评分时给予**额外 +1 分**的加分。"""
+            # 电商/社交/本地生活公司额外加分
+            ecommerce_social = [
+                "Alibaba", "Taobao", "Tmall", "JD", "Pinduoduo", "Meituan", "Ele.me",
+                "ByteDance", "Douyin", "Toutiao", "Kuaishou", "BIGO",
+                "Tencent", "WeChat", "QQ", "Xiaohongshu",
+                "Baidu", "Didi", "Trip.com", "Ctrip"
+            ]
+            is_priority = any(comp in matched_companies for comp in ecommerce_social)
+            
+            if is_priority:
+                china_company_bonus = f"""本文来自**中国电商/社交/本地生活公司**（{', '.join(matched_companies[:3])}{'...' if len(matched_companies) > 3 else ''}），请在评分时给予**额外 +2 分**的加分（优先推荐）！"""
+            else:
+                china_company_bonus = f"""本文来自**中国公司**（{', '.join(matched_companies[:3])}{'...' if len(matched_companies) > 3 else ''}），请在评分时给予**额外 +1 分**的加分。"""
         else:
             china_company_bonus = ""
         
@@ -303,31 +324,39 @@ You are a highly experienced Research Engineer specializing in Large Language Mo
 - **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
 
 # Scoring Guidelines (1-10 分)
-请严格按照以下标准评分，控制高分比例：
+请严格按照以下标准评分，**优先推荐电商/社交场景的论文**：
 
-- **9-10 分**（占比<5%）: 核心领域突破性工作，必须关注
-  - 提出全新的架构/方法/理论
-  - 解决长期存在的开放性问题
-  - 具有重大工业应用前景
-  
-- **7-8 分**（占比~20%）: 强相关工作，有明确创新
-  - 在现有方法上有显著改进
-  - 实验充分，结论可靠
-  - 对实际系统有指导意义
-  
-- **5-6 分**（占比~50%）: 中等相关，方法有借鉴意义
-  - 问题有一定相关性
-  - 方法有一定新意但不够突破
-  - 可作为参考文献
-  
-- **3-4 分**（占比~20%）: 弱相关，仅部分概念相关
-  - 仅边缘相关
-  - 方法较为常规
-  - 参考价值有限
-  
-- **1-2 分**（占比<5%）: 几乎不相关（应在粗排被过滤）
-  - 不属于关注领域
-  - 纯理论或无实际应用
+## 高优先级（9-10 分，占比~10%）
+**电商/社交 + 推荐搜索 + 深度学习/LLM**
+- 电商平台：淘宝、京东、拼多多、Amazon 等的推荐/搜索系统
+- 社交平台：抖音、快手、小红书、Facebook、Instagram 等的信息流/推荐
+- 本地生活：美团、饿了么、滴滴等的生活服务推荐
+- 核心创新：提出新架构/方法，解决实际问题，有显著效果提升
+
+## 中高优先级（7-8 分，占比~25%）
+**核心推荐搜索技术，有明确业务场景**
+- 召回、匹配、排序、重排序等核心环节
+- 用户建模、行为预测、序列推荐
+- 多模态推荐/搜索（图文、视频）
+- LLM/Transformer 在推荐搜索中的应用
+
+## 中优先级（5-6 分，占比~40%）
+**通用 ML 方法，可应用于推荐搜索**
+- 深度学习、强化学习方法
+- 表征学习、图神经网络
+- 有一定创新性，但非核心场景
+
+## 低优先级（3-4 分，占比~20%）
+**弱相关，仅部分概念相关**
+- 边缘相关，方法较为常规
+- 参考价值有限
+
+## 排除（1-2 分，占比<5%）
+**几乎不相关**
+- 安全、隐私、公平、伦理
+- 医疗、生物、化学、物理应用
+- 纯视觉/语音（无推荐搜索关联）
+- 纯 RL（无推荐搜索应用）
 
 # Goal
 Perform a detailed analysis of the provided paper based on its title and abstract. Identify its core contributions and relevance to my focus areas.

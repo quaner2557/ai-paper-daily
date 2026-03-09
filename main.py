@@ -81,81 +81,138 @@ class AIPaperDaily:
                 return yaml.safe_load(f)
         return {}
     
-    def fetch_arxiv_papers(self, days_back: int = 2) -> List[Dict]:
+    def load_processed_ids(self) -> set:
+        """加载已处理的 arxiv_id（从 output 目录的 JSON 文件）"""
+        processed_ids = set()
+        try:
+            # 读取最近 7 天的 JSON 文件
+            for i in range(7):
+                date = datetime.now() - timedelta(days=i)
+                json_file = self.output_dir / f"{date.strftime('%Y%m%d')}.json"
+                if json_file.exists():
+                    with open(json_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                        # JSON 可能是列表或字典
+                        if isinstance(data, list):
+                            for paper in data:
+                                if 'arxiv_id' in paper:
+                                    processed_ids.add(paper['arxiv_id'])
+                        elif isinstance(data, dict):
+                            processed_ids.update(data.keys())
+                    logger.info(f"Loaded {len(processed_ids)} processed IDs from {json_file}")
+        except Exception as e:
+            logger.error(f"Error loading processed IDs: {e}")
+        return processed_ids
+    
+    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int) -> List[Dict]:
+        """批量获取 arXiv 论文（内部方法）"""
+        papers = []
+        try:
+            query = f"({categories_query})"
+            url = f"{self.ARXIV_API_BASE}?search_query={query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+            
+            logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}")
+            response = requests.get(url, timeout=60)
+            
+            if response.status_code != 200:
+                logger.error(f"arXiv API error: {response.status_code}")
+                return papers
+            
+            feed = feedparser.parse(response.content)
+            
+            for entry in feed.entries:
+                paper = {
+                    'arxiv_id': entry.id.split('/abs/')[-1] if '/abs/' in entry.id else entry.id,
+                    'title': entry.title,
+                    'authors': [author.name for author in entry.authors] if hasattr(entry, 'authors') else [],
+                    'summary': entry.summary,
+                    'categories': [tag.term for tag in entry.tags] if hasattr(entry, 'tags') else [],
+                    'published': entry.published,
+                    'updated': entry.updated if hasattr(entry, 'updated') else entry.published,
+                    'url': entry.id,
+                    'pdf_url': entry.id.replace('/abs/', '/pdf/') + '.pdf',
+                }
+                papers.append(paper)
+            
+            time.sleep(3)  # arXiv API 限制
+            
+        except Exception as e:
+            logger.error(f"Error fetching arXiv papers: {e}")
+        
+        return papers
+    
+    def fetch_arxiv_papers(self, target_count: int = 300) -> List[Dict]:
         """
-        从 arXiv API 获取论文
+        从 arXiv API 获取论文（去重后自动补充，保证候选集数量）
         
         Args:
-            days_back: 获取过去几天的论文（默认 2 天，因为时区差异）
+            target_count: 目标论文数量（默认 300 篇）
             
         Returns:
-            论文列表
+            去重后的论文列表
         """
-        papers = []
-        
         if not self.arxiv_categories:
-            self.arxiv_categories = ["cs.IR", "cs.LG", "cs.AI", "cs.CL", "cs.DB"]
+            self.arxiv_categories = ["cs.IR", "cs.LG", "cs.AI", "cs.CL"]
         
-        # 构建搜索查询 - arXiv 使用 ALL 字段搜索
+        # 1. 加载已处理的 arxiv_id
+        processed_ids = self.load_processed_ids()
+        logger.info(f"Loaded {len(processed_ids)} processed arxiv IDs")
+        
+        # 2. 构建搜索查询
         categories_query = " OR ".join([f"cat:{cat.strip()}" for cat in self.arxiv_categories])
         
-        # 计算日期范围 - arXiv 日期格式：YYYYMMDDHHMMSS
-        end_date = datetime.now(timezone.utc)
-        start_date = end_date - timedelta(days=days_back)
+        # 3. 动态扩展时间范围，直到获取足够的论文
+        all_papers = []
+        days_back = 2  # 从 2 天开始
         
-        # arXiv API 每次最多返回 2000 条，我们分批次获取
-        start = 0
-        max_results = min(self.max_papers_fetch, 500)  # 每次最多 500 条
-        
-        while start < self.max_papers_fetch:
-            try:
-                # 构建查询 URL - 使用简化的查询语法
-                query = f"({categories_query})"
-                url = f"{self.ARXIV_API_BASE}?search_query={query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
-                
-                logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}, categories={self.arxiv_categories}")
-                response = requests.get(url, timeout=60)
-                
-                if response.status_code != 200:
-                    logger.error(f"arXiv API error: {response.status_code} - {response.text[:200]}")
-                    break
-                    
-                response.raise_for_status()
-                
-                # 解析 XML 响应
-                feed = feedparser.parse(response.content)
-                
-                if not feed.entries:
-                    logger.info("No more papers found")
+        while len(all_papers) < target_count and days_back <= 7:
+            logger.info(f"Fetching papers from past {days_back} days (target: {target_count}, current: {len(all_papers)})")
+            
+            # 计算日期范围
+            end_date = datetime.now(timezone.utc)
+            start_date = end_date - timedelta(days=days_back)
+            
+            # 获取论文（分批获取）
+            batch_papers = []
+            start = 0
+            max_results = 500  # 每批 500 篇
+            
+            while start < (days_back * 200):  # 假设每天最多 200 篇
+                papers = self._fetch_arxiv_batch(categories_query, start, max_results)
+                if not papers:
                     break
                 
-                for entry in feed.entries:
-                    paper = {
-                        'arxiv_id': entry.id.split('/abs/')[-1] if '/abs/' in entry.id else entry.id,
-                        'title': entry.title,
-                        'authors': [author.name for author in entry.authors] if hasattr(entry, 'authors') else [],
-                        'summary': entry.summary,
-                        'categories': [tag.term for tag in entry.tags] if hasattr(entry, 'tags') else [],
-                        'published': entry.published,
-                        'updated': entry.updated if hasattr(entry, 'updated') else entry.published,
-                        'url': entry.id,
-                        'pdf_url': entry.id.replace('/abs/', '/pdf/') + '.pdf',
-                    }
-                    papers.append(paper)
+                # 过滤日期范围
+                for paper in papers:
+                    try:
+                        published = datetime.fromisoformat(paper['published'].replace('Z', '+00:00'))
+                        if start_date <= published <= end_date:
+                            batch_papers.append(paper)
+                    except:
+                        batch_papers.append(paper)  # 无法解析日期的也保留
                 
-                # 如果返回的数量少于请求的数量，说明已经到头了
-                if len(feed.entries) < max_results:
-                    break
-                    
                 start += max_results
-                time.sleep(3)  # arXiv API 限制：每秒最多 1 次请求
-                
-            except Exception as e:
-                logger.error(f"Error fetching arXiv papers: {e}")
-                break
+                if len(papers) < max_results:
+                    break
+            
+            logger.info(f"Fetched {len(batch_papers)} papers from {days_back} days")
+            
+            # 4. 去重
+            new_papers = [p for p in batch_papers if p['arxiv_id'] not in processed_ids]
+            logger.info(f"After deduplication: {len(new_papers)} new papers")
+            
+            all_papers.extend(new_papers)
+            
+            # 5. 如果不够，扩大时间范围
+            if len(all_papers) < target_count:
+                days_back += 1
+                logger.info(f"Need more papers, expanding to {days_back} days")
         
-        logger.info(f"Fetched {len(papers)} papers from arXiv")
-        return papers
+        # 6. 限制返回数量
+        result = all_papers[:target_count]
+        logger.info(f"Returning {len(result)} papers for preranking (from {len(all_papers)} total)")
+        
+        return result
     
     def _is_industry_paper(self, paper: Dict) -> Tuple[bool, List[str]]:
         """
@@ -1118,8 +1175,8 @@ Provide your analysis strictly in the following JSON format.
         error_msg = None
         
         try:
-            # 1. 从 arXiv 获取论文
-            papers = self.fetch_arxiv_papers(days_back=1)
+            # 1. 从 arXiv 获取论文（去重后自动补充到 300 篇）
+            papers = self.fetch_arxiv_papers(target_count=self.max_papers_fetch)
             if not papers:
                 error_msg = "❌ 无法从 arXiv 获取论文，请检查网络连接或 arXiv API 是否正常"
                 logger.error(error_msg)

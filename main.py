@@ -49,9 +49,9 @@ class AIPaperDaily:
         # 环境变量
         self.llm_api_key = os.getenv("LLM_API_KEY", "")
         self.llm_base_url = os.getenv("LLM_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
-        # 双模型配置：粗排用 Flash（便宜快速），精排用 Plus（效果好）
-        self.prerank_model = os.getenv("LLM_PRERANK_MODEL", "qwen-flash")
-        self.finerank_model = os.getenv("LLM_FINERANK_MODEL", "qwen-plus")
+        # 双模型配置：粗排用 qwen3.5-flash（便宜快速），精排用 qwen3.5-plus（效果好）
+        self.prerank_model = os.getenv("LLM_PRERANK_MODEL", "qwen3.5-flash")
+        self.finerank_model = os.getenv("LLM_FINERANK_MODEL", "qwen3.5-plus")
         self.feishu_urls = [url.strip() for url in os.getenv("FEISHU_URL", "").split(",") if url.strip()]
         self.dingtalk_urls = [url.strip() for url in os.getenv("DINGTALK_URL", "").split(",") if url.strip()]
         self.dingtalk_secrets = [s.strip() for s in os.getenv("DINGTALK_SECRET", "").split(",") if s.strip()]

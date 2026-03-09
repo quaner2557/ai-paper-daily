@@ -54,14 +54,14 @@ class AIPaperDaily:
         self.dingtalk_urls = [url.strip() for url in os.getenv("DINGTALK_URL", "").split(",") if url.strip()]
         self.dingtalk_secrets = [s.strip() for s in os.getenv("DINGTALK_SECRET", "").split(",") if s.strip()]
         
-        # arXiv 配置
+        # arXiv 配置（参考 paperBotV2）
         arxiv_cats = os.getenv("ARXIV_CATEGORIES", "").strip()
         if not arxiv_cats:
             arxiv_cats = "cs.IR,cs.LG,cs.AI,cs.CL,cs.DB"
         self.arxiv_categories = [cat.strip() for cat in arxiv_cats.split(",") if cat.strip()]
-        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "200")
-        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "50")
-        self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "3")
+        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "100")  # paperBotV2: 100
+        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "20")  # paperBotV2: 20 (精排数量)
+        self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "4")  # paperBotV2: 4 (粗排阈值)
         
         # 输出目录
         self.output_dir = Path(self.config.get("output", {}).get("directory", "./output"))
@@ -321,6 +321,10 @@ Provide your analysis strictly in the following JSON format.
     def score_and_summarize_papers(self, papers: List[Dict]) -> List[Dict]:
         """
         使用大模型对论文进行两阶段评分（粗排 + 精排）和总结
+        参考 paperBotV2 的筛选逻辑：
+        - 粗排阈值：4 分（≥4 分通过粗排）
+        - 精排数量：只对粗排后的前 20 篇进行精排
+        - 最终输出：20 篇
         
         Args:
             papers: 论文列表
@@ -329,7 +333,12 @@ Provide your analysis strictly in the following JSON format.
             评分后的论文列表
         """
         scored_papers = []
+        preranked_papers = []
         
+        logger.info(f"Starting two-stage ranking (prerank threshold: 4, finerank top: {self.max_papers_output})")
+        
+        # ========== 阶段 1: 粗排（所有论文）==========
+        logger.info(f"=== Stage 1: Rough Ranking ({len(papers)} papers) ===")
         for i, paper in enumerate(papers):
             logger.info(f"Processing paper {i+1}/{len(papers)}: {paper['title'][:50]}...")
             
@@ -338,7 +347,7 @@ Provide your analysis strictly in the following JSON format.
             paper['is_industry'] = is_industry
             paper['matched_companies'] = matched_companies
             
-            # 阶段 1: 粗排（基于标题快速筛选）
+            # 粗排（基于标题快速筛选）
             prerank_prompt = self._build_llm_prerank_prompt(paper)
             prerank_result = self._call_llm(prerank_prompt)
             
@@ -351,12 +360,28 @@ Provide your analysis strictly in the following JSON format.
                 paper['prerank_score'] = self._simple_score(paper)
                 paper['prerank_reasoning'] = "Auto-scored (LLM unavailable)"
             
-            # 如果粗排分数太低，跳过精排
-            if paper['prerank_score'] < 4:
-                logger.info(f"  -> Skipped (prerank score: {paper['prerank_score']})")
-                continue
+            # 粗排过滤（阈值：4 分）
+            if paper['prerank_score'] >= 4:
+                preranked_papers.append(paper)
+                logger.info(f"  -> Passed prerank (score: {paper['prerank_score']})")
+            else:
+                logger.info(f"  -> Filtered out (prerank score: {paper['prerank_score']})")
             
-            # 阶段 2: 精排（基于标题 + 摘要详细分析）
+            # 避免 API 限流
+            time.sleep(0.3)
+        
+        logger.info(f"Preranking complete: {len(preranked_papers)}/{len(papers)} papers passed (threshold: 4)")
+        
+        # ========== 阶段 2: 精排（只精排前 N 篇）==========
+        # 按粗排分数排序，只精排前 max_papers_output 篇
+        preranked_papers.sort(key=lambda p: p.get('prerank_score', 0), reverse=True)
+        papers_to_finerank = preranked_papers[:self.max_papers_output]
+        
+        logger.info(f"=== Stage 2: Fine Ranking (top {len(papers_to_finerank)} papers) ===")
+        for i, paper in enumerate(papers_to_finerank):
+            logger.info(f"Fine-ranking paper {i+1}/{len(papers_to_finerank)}: {paper['title'][:50]}...")
+            
+            # 精排（基于标题 + 摘要详细分析）
             finerank_prompt = self._build_llm_finerank_prompt(paper)
             finerank_result = self._call_llm(finerank_prompt)
             
@@ -371,24 +396,19 @@ Provide your analysis strictly in the following JSON format.
             
             # 生成关键点
             paper['key_points'] = self._extract_key_points(paper)
+            scored_papers.append(paper)
             
-            # 过滤低分论文
-            if paper['relevance_score'] >= self.min_relevance_score:
-                scored_papers.append(paper)
-                logger.info(f"  -> Accepted (score: {paper['relevance_score']})")
-            else:
-                logger.info(f"  -> Rejected (score: {paper['relevance_score']})")
+            logger.info(f"  -> Fine-ranked (score: {paper['relevance_score']})")
             
             # 避免 API 限流
             time.sleep(0.3)
         
-        # 按分数排序
-        scored_papers.sort(key=lambda p: p['relevance_score'], reverse=True)
+        # 按精排分数排序
+        scored_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
         
-        logger.info(f"Selected {len(scored_papers)} papers out of {len(papers)}")
+        logger.info(f"Two-stage ranking complete: {len(scored_papers)} papers selected")
         
-        # 限制输出数量
-        return scored_papers[:self.max_papers_output]
+        return scored_papers
     
     def _extract_key_points(self, paper: Dict) -> List[str]:
         """从摘要中提取关键点（简单实现）"""

@@ -106,11 +106,16 @@ categories:
   - cs.SE      # 软件工程
   - cs.DC      # 分布式计算
 
-# 输出配置
+# 输出配置（参考 paperBotV2）
 output:
   directory: ./output
-  max_papers: 50
+  max_papers: 20  # paperBotV2: 20 篇精排论文
   language: zh  # zh 或 en
+
+# 评分阈值配置（参考 paperBotV2）
+ranking:
+  prerank_threshold: 4  # 粗排阈值：≥4 分通过
+  finerank_top_n: 20    # 精排数量：只对粗排后的前 N 篇精排
 
 # 大模型配置
 llm:

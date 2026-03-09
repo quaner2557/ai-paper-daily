@@ -757,7 +757,7 @@ Provide your analysis strictly in the following JSON format.
         return html
     
     def send_to_feishu(self, papers: List[Dict], date_str: str):
-        """发送飞书消息"""
+        """发送飞书消息 - 卡片模板格式"""
         if not self.feishu_urls or not papers:
             logger.info("No Feishu URL configured or no papers, skipping notification")
             return
@@ -765,47 +765,143 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 构建消息内容
-        industry_count = sum(1 for p in papers if p.get('is_industry', False))
+        # 分离工业界论文和其他论文
+        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]
+        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]
         
-        text = f"""📚 arxiv AI Paper Daily - {date_display}
-
-📊 今日概览：
-• 论文总数：{len(papers)}
-• 工业界论文：{industry_count}
-• 平均评分：{sum(p.get('relevance_score', 0) for p in papers) / len(papers):.1f}
-
-🏢 Top 3 工业界论文：
-"""
+        total_displayed = len(industry_papers) + len(other_papers)
+        avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
         
-        industry_papers = [p for p in papers if p.get('is_industry', False)][:3]
-        for i, p in enumerate(industry_papers, 1):
-            score_stars = "⭐" * min(p.get('relevance_score', 0), 10)
-            display_title = p.get('translation', p['title'])[:50]
-            text += f"{i}. {score_stars} [{display_title}...]({p['url']})\n"
+        # 构建飞书卡片
+        card_elements = []
         
-        text += f"\n🔬 Top 3 其他论文：\n"
-        other_papers = [p for p in papers if not p.get('is_industry', False)][:3]
-        for i, p in enumerate(other_papers, 1):
-            score_stars = "⭐" * min(p.get('relevance_score', 0), 10)
-            display_title = p.get('translation', p['title'])[:50]
-            text += f"{i}. {score_stars} [{display_title}...]({p['url']})\n"
+        # 卡片标题
+        card_elements.append({
+            "tag": "header",
+            "template": "blue",
+            "title": {
+                "content": f"📚 arXiv AI Paper Daily @ {date_display}",
+                "tag": "plain_text"
+            }
+        })
         
-        text += f"\n完整报告：output/{date_str}.html"
+        # 今日概览
+        card_elements.append({
+            "tag": "div",
+            "text": {
+                "content": f"**📊 今日概览**\n展示论文：{total_displayed} 篇 | 工业界：{len(industry_papers)} 篇 | 其他：{len(other_papers)} 篇 | 平均评分：{avg_score:.1f}",
+                "tag": "lark_md"
+            }
+        })
+        
+        # 工业界论文
+        if industry_papers:
+            card_elements.append({
+                "tag": "hr"
+            })
+            card_elements.append({
+                "tag": "div",
+                "text": {
+                    "content": "**🏢 工业界论文（最多 5 篇）**",
+                    "tag": "lark_md"
+                }
+            })
+            
+            for i, p in enumerate(industry_papers, 1):
+                score = p.get('relevance_score', 0)
+                score_stars = "⭐" * min(score, 10)
+                display_title = p.get('translation', p['title'])
+                summary_zh = p.get('summary_zh', p.get('summary', '')[:100])
+                companies = ", ".join(p.get('matched_companies', []))
+                
+                card_elements.append({
+                    "tag": "div",
+                    "text": {
+                        "content": f"**{i}. [{display_title}]({p['url']})**\n{score_stars} {score}/10 | 🏢 {companies}\n📝 {summary_zh[:150]}...",
+                        "tag": "lark_md"
+                    }
+                })
+        
+        # 其他论文
+        if other_papers:
+            card_elements.append({
+                "tag": "hr"
+            })
+            card_elements.append({
+                "tag": "div",
+                "text": {
+                    "content": "**🔬 其他精选论文（最多 10 篇）**",
+                    "tag": "lark_md"
+                }
+            })
+            
+            for i, p in enumerate(other_papers, 1):
+                score = p.get('relevance_score', 0)
+                score_stars = "⭐" * min(score, 10)
+                display_title = p.get('translation', p['title'])
+                summary_zh = p.get('summary_zh', p.get('summary', '')[:100])
+                
+                card_elements.append({
+                    "tag": "div",
+                    "text": {
+                        "content": f"**{i}. [{display_title}]({p['url']})**\n{score_stars} {score}/10\n📝 {summary_zh[:150]}...",
+                        "tag": "lark_md"
+                    }
+                })
+        
+        # 底部链接
+        card_elements.append({
+            "tag": "hr"
+        })
+        card_elements.append({
+            "tag": "action",
+            "actions": [
+                {
+                    "tag": "button",
+                    "text": {
+                        "content": "📄 查看完整 Markdown",
+                        "tag": "plain_text"
+                    },
+                    "url": f"https://github.com/quaner2557/ai-paper-daily/blob/main/output/{date_str}.md",
+                    "type": "default"
+                },
+                {
+                    "tag": "button",
+                    "text": {
+                        "content": "🌐 查看完整 HTML",
+                        "tag": "plain_text"
+                    },
+                    "url": f"https://github.com/quaner2557/ai-paper-daily/blob/main/output/{date_str}.html",
+                    "type": "primary"
+                }
+            ]
+        })
+        
+        # 构建卡片数据
+        card_data = {
+            "config": {
+                "wide_screen_mode": True
+            },
+            "header": {
+                "template": "blue",
+                "title": {
+                    "content": f"📚 arXiv AI Paper Daily @ {date_display}",
+                    "tag": "plain_text"
+                }
+            },
+            "elements": card_elements
+        }
         
         # 发送消息
         for url in self.feishu_urls:
             try:
-                # 飞书 Webhook 格式
                 payload = {
-                    "msg_type": "text",
-                    "content": {
-                        "text": text
-                    }
+                    "msg_type": "interactive",
+                    "card": card_data
                 }
                 
                 response = requests.post(url, json=payload, timeout=10)
-                logger.info(f"Feishu notification sent: {response.status_code}")
+                logger.info(f"Feishu card notification sent: {response.status_code}")
                 
                 if response.status_code != 200:
                     logger.error(f"Feishu notification failed: {response.text}")

@@ -286,9 +286,11 @@ Provide your analysis strictly in the following JSON format.
                 "max_tokens": self.config.get("llm", {}).get("max_tokens", 2000),
             }
             
-            # 通义千问支持 response_format 强制 JSON
+            # 通义千问/阿里云百炼配置
             if "aliyuncs" in self.llm_base_url or "dashscope" in self.llm_base_url:
                 payload["response_format"] = {"type": "json_object"}
+                # 禁用 thinking，让模型直接输出结果
+                payload["enable_thinking"] = False
             
             url = f"{self.llm_base_url.rstrip('/')}/chat/completions"
             logger.info(f"Calling LLM API: {url}")

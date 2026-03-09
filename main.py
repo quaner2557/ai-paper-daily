@@ -56,10 +56,10 @@ class AIPaperDaily:
         self.dingtalk_urls = [url.strip() for url in os.getenv("DINGTALK_URL", "").split(",") if url.strip()]
         self.dingtalk_secrets = [s.strip() for s in os.getenv("DINGTALK_SECRET", "").split(",") if s.strip()]
         
-        # arXiv 配置（参考 paperBotV2）
+        # arXiv 配置（推荐系统 + 机器学习 + AI + NLP）
         arxiv_cats = os.getenv("ARXIV_CATEGORIES", "").strip()
         if not arxiv_cats:
-            arxiv_cats = "cs.IR,cs.LG,cs.AI,cs.CL,cs.DB"
+            arxiv_cats = "cs.IR,cs.LG,cs.AI,cs.CL"
         self.arxiv_categories = [cat.strip() for cat in arxiv_cats.split(",") if cat.strip()]
         self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "300")  # 最多获取 300 篇
         self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "20")  # paperBotV2: 20 (精排数量)

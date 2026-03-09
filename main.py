@@ -55,10 +55,10 @@ class AIPaperDaily:
         self.dingtalk_secrets = [s.strip() for s in os.getenv("DINGTALK_SECRET", "").split(",") if s.strip()]
         
         # arXiv 配置
-        self.arxiv_categories = os.getenv("ARXIV_CATEGORIES", "cs.IR,cs.LG,cs.AI,cs.CL,cs.DB").split(",")
-        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH", "200"))
-        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT", "50"))
-        self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE", "3"))
+        self.arxiv_categories = [cat.strip() for cat in os.getenv("ARXIV_CATEGORIES", "cs.IR,cs.LG,cs.AI,cs.CL,cs.DB").split(",") if cat.strip()]
+        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "200")
+        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "50")
+        self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "3")
         
         # 输出目录
         self.output_dir = Path(self.config.get("output", {}).get("directory", "./output"))

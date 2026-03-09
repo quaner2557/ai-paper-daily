@@ -553,6 +553,12 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
+        # 分离工业界论文和其他论文（互斥）
+        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]  # 最多 5 篇
+        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
+        
+        total_displayed = len(industry_papers) + len(other_papers)
+        
         md = f"""# AI Paper Daily - {date_display}
 
 > 每日 AI 论文精选 | 完全自主生成
@@ -561,18 +567,17 @@ Provide your analysis strictly in the following JSON format.
 
 ## 📊 今日概览
 
-- **论文总数**: {len(papers)}
-- **工业界论文**: {sum(1 for p in papers if p.get('is_industry', False))}
-- **平均评分**: {sum(p.get('relevance_score', 0) for p in papers) / len(papers):.1f} (if papers else 0)
+- **展示论文数**: {total_displayed}
+- **工业界论文**: {len(industry_papers)} 篇
+- **其他论文**: {len(other_papers)} 篇
+- **平均评分**: {sum(p.get('relevance_score', 0) for p in papers) / len(papers):.1f if papers else 0}
 
 ---
 
-## 🏢 工业界论文
+## 🏢 工业界论文（最多 5 篇）
 
 """
         
-        # 工业界论文
-        industry_papers = [p for p in papers if p.get('is_industry', False)]
         if industry_papers:
             for i, paper in enumerate(industry_papers, 1):
                 md += self._paper_to_markdown(paper, i)
@@ -581,12 +586,10 @@ Provide your analysis strictly in the following JSON format.
         
         md += """---
 
-## 🔬 其他精选论文
+## 🔬 其他精选论文（最多 10 篇）
 
 """
         
-        # 其他论文
-        other_papers = [p for p in papers if not p.get('is_industry', False)]
         if other_papers:
             for i, paper in enumerate(other_papers, 1):
                 md += self._paper_to_markdown(paper, i)
@@ -632,7 +635,11 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        industry_count = sum(1 for p in papers if p.get('is_industry', False))
+        # 分离工业界论文和其他论文（互斥）
+        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]  # 最多 5 篇
+        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
+        
+        total_displayed = len(industry_papers) + len(other_papers)
         avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
         
         html = f"""<!DOCTYPE html>
@@ -661,15 +668,15 @@ Provide your analysis strictly in the following JSON format.
     
     <div class="summary">
         <strong>📊 今日概览</strong><br>
-        论文总数：{len(papers)} | 
-        工业界论文：{industry_count} | 
+        展示论文：{total_displayed} | 
+        工业界：{len(industry_papers)} 篇 | 
+        其他：{len(other_papers)} 篇 | 
         平均评分：{avg_score:.1f}
     </div>
     
-    <h2>🏢 工业界论文</h2>
+    <h2>🏢 工业界论文（最多 5 篇）</h2>
 """
         
-        industry_papers = [p for p in papers if p.get('is_industry', False)]
         if industry_papers:
             for i, paper in enumerate(industry_papers, 1):
                 html += self._paper_to_html(paper, i, is_industry=True)
@@ -677,10 +684,9 @@ Provide your analysis strictly in the following JSON format.
             html += "<p><em>今日无工业界相关论文</em></p>\n"
         
         html += """
-    <h2>🔬 其他精选论文</h2>
+    <h2>🔬 其他精选论文（最多 10 篇）</h2>
 """
         
-        other_papers = [p for p in papers if not p.get('is_industry', False)]
         if other_papers:
             for i, paper in enumerate(other_papers, 1):
                 html += self._paper_to_html(paper, i, is_industry=False)
@@ -796,16 +802,20 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 构建消息内容（必须包含 arxiv 关键词）
-        industry_count = sum(1 for p in papers if p.get('is_industry', False))
+        # 分离工业界论文和其他论文（互斥）
+        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]  # 最多 5 篇
+        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
+        
+        total_displayed = len(industry_papers) + len(other_papers)
         avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
         
         # 使用 Markdown 格式，更丰富的展示
         md_content = f"""# 📚 arxiv AI Paper Daily - {date_display}
 
 ## 📊 今日概览
-- **论文总数**: {len(papers)}
-- **工业界论文**: {industry_count}
+- **展示论文**: {total_displayed} 篇
+- **工业界**: {len(industry_papers)} 篇
+- **其他**: {len(other_papers)} 篇
 - **平均评分**: {avg_score:.1f}
 
 ---
@@ -813,10 +823,9 @@ Provide your analysis strictly in the following JSON format.
 """
         
         # 工业界论文（详细展示）
-        industry_papers = [p for p in papers if p.get('is_industry', False)]
         if industry_papers:
-            md_content += "## 🏢 工业界论文\n\n"
-            for i, p in enumerate(industry_papers[:8], 1):  # 最多 8 篇
+            md_content += "## 🏢 工业界论文（最多 5 篇）\n\n"
+            for i, p in enumerate(industry_papers, 1):  # 最多 5 篇
                 score = p.get('relevance_score', 0)
                 score_stars = "⭐" * min(score, 10)
                 companies = ", ".join(p.get('matched_companies', []))
@@ -829,10 +838,9 @@ Provide your analysis strictly in the following JSON format.
 """
         
         # 其他论文
-        other_papers = [p for p in papers if not p.get('is_industry', False)]
         if other_papers:
-            md_content += "---\n\n## 🔬 其他精选论文\n\n"
-            for i, p in enumerate(other_papers[:8], 1):  # 最多 8 篇
+            md_content += "---\n\n## 🔬 其他精选论文（最多 10 篇）\n\n"
+            for i, p in enumerate(other_papers, 1):  # 最多 10 篇
                 score = p.get('relevance_score', 0)
                 score_stars = "⭐" * min(score, 10)
                 

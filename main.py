@@ -262,37 +262,6 @@ Provide your analysis strictly in the following JSON format.
   "summary": "..."
 }}
 """
-        else:
-            prompt = f"""Please rate and summarize the following arXiv paper.
-
-## Paper Information
-- Title: {paper['title']}
-- Authors: {', '.join(paper['authors'][:5])}{'...' if len(paper['authors']) > 5 else ''}
-- Categories: {', '.join(paper['categories'])}
-- Abstract: {paper['summary'][:1000]}{'...' if len(paper['summary']) > 1000 else ''}
-- URL: {paper['url']}
-
-## Industry Relevance
-{'Yes' if is_industry else 'No'}, Companies: {', '.join(matched_companies) if matched_companies else 'None'}
-
-## Rating Criteria (1-10)
-- 10: Breakthrough work, must-read
-- 8-9: High quality, highly recommended
-- 6-7: Valuable work, worth reading
-- 4-5: Average, optional
-- 1-3: Not relevant, skip
-
-## Output Format (JSON only)
-{{
-    "relevance_score": 8,
-    "reasoning": "Brief reasoning (50 words)",
-    "summary_en": "English summary (100 words)",
-    "key_points": ["Point 1", "Point 2", "Point 3"]
-}}
-
-Output JSON only, no other text."""
-        
-        return prompt
     
     def _call_llm(self, prompt: str) -> Optional[Dict]:
         """调用大模型 API（兼容通义千问/DeepSeek）"""

@@ -59,7 +59,7 @@ class AIPaperDaily:
         if not arxiv_cats:
             arxiv_cats = "cs.IR,cs.LG,cs.AI,cs.CL,cs.DB"
         self.arxiv_categories = [cat.strip() for cat in arxiv_cats.split(",") if cat.strip()]
-        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "100")  # paperBotV2: 100
+        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "300")  # 最多获取 300 篇
         self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "20")  # paperBotV2: 20 (精排数量)
         self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "4")  # paperBotV2: 4 (粗排阈值)
         

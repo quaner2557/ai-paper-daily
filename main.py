@@ -78,22 +78,25 @@ class AIPaperDaily:
                 return yaml.safe_load(f)
         return {}
     
-    def fetch_arxiv_papers(self, days_back: int = 1) -> List[Dict]:
+    def fetch_arxiv_papers(self, days_back: int = 2) -> List[Dict]:
         """
         从 arXiv API 获取论文
         
         Args:
-            days_back: 获取过去几天的论文
+            days_back: 获取过去几天的论文（默认 2 天，因为时区差异）
             
         Returns:
             论文列表
         """
         papers = []
         
-        # 构建搜索查询
+        if not self.arxiv_categories:
+            self.arxiv_categories = ["cs.IR", "cs.LG", "cs.AI", "cs.CL", "cs.DB"]
+        
+        # 构建搜索查询 - arXiv 使用 ALL 字段搜索
         categories_query = " OR ".join([f"cat:{cat.strip()}" for cat in self.arxiv_categories])
         
-        # 计算日期范围
+        # 计算日期范围 - arXiv 日期格式：YYYYMMDDHHMMSS
         end_date = datetime.now(timezone.utc)
         start_date = end_date - timedelta(days=days_back)
         
@@ -103,12 +106,17 @@ class AIPaperDaily:
         
         while start < self.max_papers_fetch:
             try:
-                # 构建查询 URL
-                query = f"({categories_query}) AND submittedDate:[{start_date.strftime('%Y%m%d')}000000 TO {end_date.strftime('%Y%m%d')}235959]"
+                # 构建查询 URL - 使用简化的查询语法
+                query = f"({categories_query})"
                 url = f"{self.ARXIV_API_BASE}?search_query={query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
                 
-                logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}")
+                logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}, categories={self.arxiv_categories}")
                 response = requests.get(url, timeout=60)
+                
+                if response.status_code != 200:
+                    logger.error(f"arXiv API error: {response.status_code} - {response.text[:200]}")
+                    break
+                    
                 response.raise_for_status()
                 
                 # 解析 XML 响应

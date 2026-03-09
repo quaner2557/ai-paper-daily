@@ -556,6 +556,7 @@ Provide your analysis strictly in the following JSON format.
         other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
         
         total_displayed = len(industry_papers) + len(other_papers)
+        avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
         
         md = f"""# AI Paper Daily - {date_display}
 
@@ -568,7 +569,7 @@ Provide your analysis strictly in the following JSON format.
 - **展示论文数**: {total_displayed}
 - **工业界论文**: {len(industry_papers)} 篇
 - **其他论文**: {len(other_papers)} 篇
-- **平均评分**: {sum(p.get('relevance_score', 0) for p in papers) / len(papers):.1f if papers else 0}
+- **平均评分**: {avg_score:.1f}
 
 ---
 

@@ -613,11 +613,14 @@ Provide your analysis strictly in the following JSON format.
         return md
     
     def _paper_to_markdown(self, paper: Dict, index: int) -> str:
-        """将单篇论文转换为 Markdown"""
+        """将单篇论文转换为 Markdown（参考 paperBotV2 格式）"""
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
-        md = f"""### {index}. [{paper['title']}]({paper['url']})
+        # 使用翻译后的中文标题，如果没有则用英文原标题
+        display_title = paper.get('translation', paper['title'])
+        
+        md = f"""### {index}. [{display_title}]({paper['url']})
 
 **评分**: {stars} {score}/10  
 **作者**: {', '.join(paper['authors'][:5])}{'...' if len(paper['authors']) > 5 else ''}  
@@ -627,13 +630,9 @@ Provide your analysis strictly in the following JSON format.
         if paper.get('is_industry'):
             md += f"**关联公司**: {', '.join(paper.get('matched_companies', []))}  \n"
         
-        md += f"\n**总结**: {paper.get('summary_zh', paper['summary'][:200])}  \n\n"
-        
-        if paper.get('key_points'):
-            md += "**关键点**:\n"
-            for point in paper['key_points'][:3]:
-                md += f"- {point}\n"
-            md += "\n"
+        # 使用精排的中文总结
+        summary_zh = paper.get('summary_zh', paper.get('summary', '')[:200])
+        md += f"\n**摘要**: {summary_zh}  \n\n"
         
         md += "---\n\n"
         
@@ -712,13 +711,16 @@ Provide your analysis strictly in the following JSON format.
         return html
     
     def _paper_to_html(self, paper: Dict, index: int, is_industry: bool = False) -> str:
-        """将单篇论文转换为 HTML"""
+        """将单篇论文转换为 HTML（参考 paperBotV2 格式）"""
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
+        # 使用翻译后的中文标题
+        display_title = paper.get('translation', paper['title'])
+        
         html = f"""
     <div class="paper {'industry' if is_industry else ''}">
-        <h3>{index}. <a href="{paper['url']}" target="_blank">{paper['title']}</a></h3>
+        <h3>{index}. <a href="{paper['url']}" target="_blank">{display_title}</a></h3>
         <p class="score">评分：{stars} {score}/10</p>
         <p class="meta"><strong>作者</strong>: {', '.join(paper['authors'][:5])}{'...' if len(paper['authors']) > 5 else ''}</p>
         <p class="meta"><strong>分类</strong>: {', '.join(paper['categories'][:3])}{'...' if len(paper['categories']) > 3 else ''}</p>
@@ -727,15 +729,11 @@ Provide your analysis strictly in the following JSON format.
         if is_industry:
             html += f"        <p class=\"meta\"><strong>关联公司</strong>: {', '.join(paper.get('matched_companies', []))}</p>\n"
         
+        # 使用精排的中文总结
+        summary_zh = paper.get('summary_zh', paper.get('summary', '')[:200])
         html += f"""
-        <p><strong>总结</strong>: {paper.get('summary_zh', paper['summary'][:200])}</p>
+        <p><strong>摘要</strong>: {summary_zh}</p>
 """
-        
-        if paper.get('key_points'):
-            html += "        <div class=\"key-points\">\n"
-            for point in paper['key_points'][:3]:
-                html += f"            <div>• {point}</div>\n"
-            html += "        </div>\n"
         
         html += "    </div>\n"
         
@@ -839,10 +837,14 @@ Provide your analysis strictly in the following JSON format.
                 score_stars = "⭐" * min(score, 10)
                 companies = ", ".join(p.get('matched_companies', []))
                 
-                md_content += f"""### {i}. [{p['title'][:60]}{'...' if len(p['title']) > 60 else ''}]({p['url']})
+                # 使用翻译后的中文标题
+                display_title = p.get('translation', p['title'])
+                summary_zh = p.get('summary_zh', p.get('summary', '')[:150])
+                
+                md_content += f"""### {i}. [{display_title}]({p['url']})
 **评分**: {score_stars} {score}/10  
 **公司**: {companies}  
-**摘要**: {p.get('summary_zh', p['summary'][:150])}{'...' if len(p.get('summary_zh', p['summary'])) > 150 else ''}  
+**摘要**: {summary_zh}  
 
 """
         
@@ -853,9 +855,13 @@ Provide your analysis strictly in the following JSON format.
                 score = p.get('relevance_score', 0)
                 score_stars = "⭐" * min(score, 10)
                 
-                md_content += f"""### {i}. [{p['title'][:60]}{'...' if len(p['title']) > 60 else ''}]({p['url']})
+                # 使用翻译后的中文标题
+                display_title = p.get('translation', p['title'])
+                summary_zh = p.get('summary_zh', p.get('summary', '')[:150])
+                
+                md_content += f"""### {i}. [{display_title}]({p['url']})
 **评分**: {score_stars} {score}/10  
-**摘要**: {p.get('summary_zh', p['summary'][:150])}{'...' if len(p.get('summary_zh', p['summary'])) > 150 else ''}  
+**摘要**: {summary_zh}  
 
 """
         

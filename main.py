@@ -51,6 +51,8 @@ class AIPaperDaily:
         self.llm_base_url = os.getenv("LLM_BASE_URL", "https://api.deepseek.com/v1")
         self.llm_model = os.getenv("LLM_MODEL", "deepseek-chat")
         self.feishu_urls = [url.strip() for url in os.getenv("FEISHU_URL", "").split(",") if url.strip()]
+        self.dingtalk_urls = [url.strip() for url in os.getenv("DINGTALK_URL", "").split(",") if url.strip()]
+        self.dingtalk_secrets = [s.strip() for s in os.getenv("DINGTALK_SECRET", "").split(",") if s.strip()]
         
         # arXiv 配置
         self.arxiv_categories = os.getenv("ARXIV_CATEGORIES", "cs.IR,cs.LG,cs.AI,cs.CL,cs.DB").split(",")
@@ -577,6 +579,81 @@ Output JSON only, no other text."""
             except Exception as e:
                 logger.error(f"Feishu notification error: {e}")
     
+    def send_to_dingtalk(self, papers: List[Dict], date_str: str):
+        """发送钉钉消息"""
+        if not self.dingtalk_urls or not papers:
+            logger.info("No DingTalk URL configured or no papers, skipping notification")
+            return
+        
+        import hmac
+        import hashlib
+        import base64
+        import urllib.parse
+        import time
+        
+        date_obj = datetime.strptime(date_str, "%Y%m%d")
+        date_display = date_obj.strftime("%Y-%m-%d")
+        
+        # 构建消息内容
+        industry_count = sum(1 for p in papers if p.get('is_industry', False))
+        
+        text = f"""📚 AI Paper Daily - {date_display}
+
+📊 今日概览：
+• 论文总数：{len(papers)}
+• 工业界论文：{industry_count}
+• 平均评分：{sum(p.get('relevance_score', 0) for p in papers) / len(papers):.1f}
+
+🏢 Top 3 工业界论文：
+"""
+        
+        industry_papers = [p for p in papers if p.get('is_industry', False)][:3]
+        for i, p in enumerate(industry_papers, 1):
+            score_stars = "⭐" * min(p.get('relevance_score', 0), 10)
+            text += f"{i}. {score_stars} {p['title'][:50]}...\n{p['url']}\n"
+        
+        text += f"\n🔬 Top 3 其他论文：\n"
+        other_papers = [p for p in papers if not p.get('is_industry', False)][:3]
+        for i, p in enumerate(other_papers, 1):
+            score_stars = "⭐" * min(p.get('relevance_score', 0), 10)
+            text += f"{i}. {score_stars} {p['title'][:50]}...\n{p['url']}\n"
+        
+        text += f"\n完整报告：output/{date_str}.html"
+        
+        # 发送消息
+        for i, url in enumerate(self.dingtalk_urls):
+            try:
+                # 检查是否有对应的 secret（加签）
+                secret = self.dingtalk_secrets[i] if i < len(self.dingtalk_secrets) else None
+                
+                # 如果需要加签，生成签名
+                if secret:
+                    timestamp = str(round(time.time() * 1000))
+                    secret_enc = secret.encode('utf-8')
+                    string_to_sign = f'{timestamp}\n{secret}'
+                    string_to_sign_enc = string_to_sign.encode('utf-8')
+                    hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+                    sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
+                    url = f"{url}&timestamp={timestamp}&sign={sign}"
+                
+                # 钉钉 Webhook 格式
+                payload = {
+                    "msgtype": "text",
+                    "text": {
+                        "content": text
+                    }
+                }
+                
+                response = requests.post(url, json=payload, timeout=10)
+                logger.info(f"DingTalk notification sent: {response.status_code}")
+                
+                result = response.json()
+                if result.get('errcode', 0) != 0:
+                    logger.error(f"DingTalk notification failed: {response.text}")
+                    
+            except Exception as e:
+                logger.error(f"DingTalk notification error: {e}")
+    
     def run(self):
         """运行完整流程"""
         logger.info("=" * 60)
@@ -621,6 +698,9 @@ Output JSON only, no other text."""
         
         # 6. 飞书推送
         self.send_to_feishu(scored_papers, date_str)
+        
+        # 7. 钉钉推送
+        self.send_to_dingtalk(scored_papers, date_str)
         
         logger.info("=" * 60)
         logger.info(f"AI Paper Daily - Complete! Processed {len(scored_papers)} papers")

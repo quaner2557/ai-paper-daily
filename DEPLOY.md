@@ -29,6 +29,8 @@ git push -u origin main
 | `LLM_BASE_URL` | 大模型 API 基础 URL（可选） | `https://api.deepseek.com/v1` |
 | `LLM_MODEL` | 模型名称（可选） | `deepseek-chat` |
 | `FEISHU_URL` | 飞书机器人 Webhook（可选） | `https://open.feishu.cn/open-apis/bot/v2/hook/xxx` |
+| `DINGTALK_URL` | 钉钉机器人 Webhook（可选） | `https://oapi.dingtalk.com/robot/send?access_token=xxx` |
+| `DINGTALK_SECRET` | 钉钉加签密钥（可选，如果开启了加签） | `SECxxx` |
 
 ### 3. 配置 Variables（可选）
 
@@ -119,6 +121,32 @@ python main.py
 1. 在飞书群中添加机器人
 2. 复制 Webhook 地址
 3. 填入 `FEISHU_URL` 环境变量或 GitHub Secret
+
+## 钉钉机器人配置
+
+1. 在钉钉群中添加机器人
+   - 群设置 → 智能群助手 → 添加机器人 → 自定义（通过 Webhook 接入）
+   
+2. 安全设置（三选一）：
+   - **自定义关键词**（推荐）：添加关键词如 "AI Paper"、"论文"
+   - **加签密钥**：复制 Secret，填入 `DINGTALK_SECRET`
+   - **IP 地址**：添加 GitHub Actions 的 IP 段
+
+3. 复制 Webhook 地址，填入 `DINGTALK_URL` 环境变量或 GitHub Secret
+
+### 钉钉 Webhook 格式
+
+- 不加签：`https://oapi.dingtalk.com/robot/send?access_token=xxx`
+- 加签：代码会自动处理签名，只需提供原始 URL 和 Secret
+
+### 多个机器人
+
+支持多个钉钉/飞书机器人，用逗号分隔：
+
+```
+DINGTALK_URL=https://oapi.dingtalk.com/robot/send?access_token=xxx1,https://oapi.dingtalk.com/robot/send?access_token=xxx2
+DINGTALK_SECRET=SECxxx1,SECxxx2
+```
 
 ## 定时任务时间
 

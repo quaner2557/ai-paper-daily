@@ -1,0 +1,78 @@
+name: AI Paper Daily
+
+on:
+  schedule:
+    # 每天北京时间 7:30 运行 (UTC 23:30，前一天)
+    - cron: '30 23 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: '获取最近几天的论文'
+        required: false
+        default: '1'
+        type: string
+
+jobs:
+  daily-papers:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Cache pip packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        
+    - name: Run AI Paper Daily
+      env:
+        LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+        LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        FEISHU_URL: ${{ secrets.FEISHU_URL }}
+        ARXIV_CATEGORIES: ${{ vars.ARXIV_CATEGORIES }}
+        MAX_PAPERS_FETCH: ${{ vars.MAX_PAPERS_FETCH }}
+        MAX_PAPERS_OUTPUT: ${{ vars.MAX_PAPERS_OUTPUT }}
+        MIN_RELEVANCE_SCORE: ${{ vars.MIN_RELEVANCE_SCORE }}
+      run: |
+        python main.py
+        
+    - name: Commit and push results
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # 创建 output 目录如果不存在
+        mkdir -p output
+        
+        # 添加输出文件
+        git add output/
+        
+        # 检查是否有变更
+        if git diff --staged --quiet; then
+          echo "No new papers to commit"
+        else
+          git commit -m "Update AI papers $(date +%Y-%m-%d)"
+          git push
+        fi
+      continue-on-error: true
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ai-papers-${{ github.run_id }}
+        path: output/
+        retention-days: 30

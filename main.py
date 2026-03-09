@@ -180,48 +180,39 @@ class AIPaperDaily:
         return len(matched_companies) > 0, matched_companies
     
     def _build_llm_prerank_prompt(self, paper: Dict) -> str:
-        """构建粗排提示词（基于标题快速筛选）"""
+        """构建粗排提示词（基于标题快速筛选）- 只输出分数"""
         return f"""
 # Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
+You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems.
 
 # My Current Focus
+- RecSys, Search, Ads core advances
+- LLM/Transformer tech for RecSys/Search/Ads
+- Direct LLM applications in ranking/retrieval
 
-- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
-- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
-- **Enabling Transformer Tech:** Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
-- **Direct LLM Applications:** Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
-- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
-
-# Irrelevant Topics
-- Fingerprint, Federated learning, Security, Privacy, Fairness, Ethics, or other non-technical topics
-- Medical, Biology, Chemistry, Physics or other domain-specific applications
-- Neural Architectures Search (NAS) or general AutoML
-- Purely theoretical papers without clear practical implications
-- Hallucination, Evaluation benchmarks, or other purely NLP-centric topics
-- Purely Vision、3D Vision, Graphic or Speech papers without clear relevance to RecSys/Search/Ads
-- Ads creative generation, auction, bidding or other Non-Ranking Ads topics 
-- AIGC, Content generation, Summarization, or other purely LLM-centric topics
-- Reinforcement Learning (RL) papers without clear relevance to RecSys/Search/Ads
-
-# Goal
-Screen new papers based on my focus. **DO NOT include irrelevant topics**.
+# Irrelevant Topics (score 1-3)
+- Security, Privacy, Fairness, Ethics
+- Medical, Biology, Chemistry, Physics
+- Pure vision/speech without ranking relevance
+- Pure RL without RecSys/Search/Ads application
+- AIGC, Content generation without ranking
 
 # Task
-Based ONLY on the paper's title, provide a quick evaluation.
-1. **Academic Translation**: Translate the title into professional Chinese, prioritizing accurate technical terms and faithful meaning.
-2. **Relevance Score (1-10)**: How relevant is it to **My Current Focus**?
-3. **Reasoning**: A 2-3 sentence explanation for your score in Chinese. **For "Enabling Tech" papers, you MUST explain their potential application in RecSys/Search/Ads.**
+Based ONLY on the paper's title, provide a relevance score (1-10).
+
+# Scoring Guidelines
+- **9-10**: Breakthrough work in RecSys/Search/Ads
+- **7-8**: Strong relevance, clear innovation
+- **5-6**: Moderate relevance, useful method
+- **3-4**: Weak relevance, edge case
+- **1-2**: Irrelevant (filter out)
 
 # Input Paper
 - **Title**: {paper['title']}
 
-# Output Format
-Provide your analysis strictly in the following JSON format.
+# Output Format (JSON only)
 {{
-  "translation": "...",
-  "relevance_score": <integer>,
-  "reasoning": "..."
+  "score": <integer>
 }}
 """
 
@@ -363,6 +354,7 @@ Provide your analysis strictly in the following JSON format.
 {{
   "rerank_relevance_score": <integer>,
   "rerank_reasoning": "...",
+  "translation": "...",
   "summary": "..."
 }}
 """
@@ -459,18 +451,14 @@ Provide your analysis strictly in the following JSON format.
             paper['is_industry'] = is_industry
             paper['matched_companies'] = matched_companies
             
-            # 粗排（基于标题快速筛选）- 使用 Flash 模型
+            # 粗排（基于标题快速筛选）- 使用 Flash 模型，只输出分数
             prerank_prompt = self._build_llm_prerank_prompt(paper)
             prerank_result = self._call_llm(prerank_prompt, model=self.prerank_model)
             
             if prerank_result:
-                paper['translation'] = prerank_result.get('translation', paper['title'])
-                paper['prerank_score'] = prerank_result.get('relevance_score', 5)
-                paper['prerank_reasoning'] = prerank_result.get('reasoning', '')
+                paper['prerank_score'] = prerank_result.get('score', 5)
             else:
-                paper['translation'] = paper['title']
                 paper['prerank_score'] = self._simple_score(paper)
-                paper['prerank_reasoning'] = "Auto-scored (LLM unavailable)"
             
             # 粗排过滤（阈值：4 分）
             if paper['prerank_score'] >= 4:
@@ -498,11 +486,13 @@ Provide your analysis strictly in the following JSON format.
             
             if finerank_result:
                 paper['relevance_score'] = finerank_result.get('rerank_relevance_score', finerank_result.get('relevance_score', paper['prerank_score']))
-                paper['reasoning'] = finerank_result.get('rerank_reasoning', finerank_result.get('reasoning', paper['prerank_reasoning']))
+                paper['reasoning'] = finerank_result.get('rerank_reasoning', '')
+                paper['translation'] = finerank_result.get('translation', paper['title'])  # 精排统一翻译
                 paper['summary_zh'] = finerank_result.get('summary', paper['summary'][:200])
             else:
                 paper['relevance_score'] = paper['prerank_score']
-                paper['reasoning'] = paper['prerank_reasoning']
+                paper['reasoning'] = ''
+                paper['translation'] = paper['title']
                 paper['summary_zh'] = paper['summary'][:200] + '...'
             
             # 生成关键点
@@ -617,7 +607,7 @@ Provide your analysis strictly in the following JSON format.
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
-        # 使用翻译后的中文标题，如果没有则用英文原标题
+        # 使用精排的中文翻译标题
         display_title = paper.get('translation', paper['title'])
         
         md = f"""### {index}. [{display_title}]({paper['url']})
@@ -630,7 +620,6 @@ Provide your analysis strictly in the following JSON format.
         if paper.get('is_industry'):
             md += f"**关联公司**: {', '.join(paper.get('matched_companies', []))}  \n"
         
-        # 使用精排的中文总结
         summary_zh = paper.get('summary_zh', paper.get('summary', '')[:200])
         md += f"\n**摘要**: {summary_zh}  \n\n"
         
@@ -715,7 +704,7 @@ Provide your analysis strictly in the following JSON format.
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
-        # 使用翻译后的中文标题
+        # 使用精排的中文翻译标题
         display_title = paper.get('translation', paper['title'])
         
         html = f"""
@@ -729,7 +718,6 @@ Provide your analysis strictly in the following JSON format.
         if is_industry:
             html += f"        <p class=\"meta\"><strong>关联公司</strong>: {', '.join(paper.get('matched_companies', []))}</p>\n"
         
-        # 使用精排的中文总结
         summary_zh = paper.get('summary_zh', paper.get('summary', '')[:200])
         html += f"""
         <p><strong>摘要</strong>: {summary_zh}</p>

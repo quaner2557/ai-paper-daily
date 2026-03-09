@@ -177,45 +177,91 @@ class AIPaperDaily:
         
         return len(matched_companies) > 0, matched_companies
     
-    def _build_llm_prompt(self, paper: Dict, is_industry: bool, matched_companies: List[str]) -> str:
-        """构建大模型评分提示词"""
-        if self.language == 'zh':
-            prompt = f"""你是一位推荐系统和搜索领域的专家，请对以下 arXiv 论文进行相关性评分和中文总结。
+    def _build_llm_prerank_prompt(self, paper: Dict) -> str:
+        """构建粗排提示词（基于标题快速筛选）"""
+        return f"""
+# Role
+You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
 
-## 论文信息
-- 标题：{paper['title']}
-- 作者：{', '.join(paper['authors'][:5])}{'...' if len(paper['authors']) > 5 else ''}
-- 分类：{', '.join(paper['categories'])}
-- 摘要：{paper['summary'][:1500]}{'...' if len(paper['summary']) > 1500 else ''}
-- 链接：{paper['url']}
+# My Current Focus
 
-## 工业界关联
-{'是' if is_industry else '否'}，关联公司：{', '.join(matched_companies) if matched_companies else '无'}
+- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
+- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
+- **Enabling Transformer Tech:** Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
+- **Direct LLM Applications:** Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
+- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
 
-## 评分标准（1-10 分）- 重点关注推荐/搜索/LLM 应用
-- **9-10 分**：推荐系统、搜索、信息检索、LLM 应用的突破性工作，或大厂核心成果
-- **7-8 分**：与推荐/搜索强相关，或有明确的工业界应用价值
-- **5-6 分**：与推荐/搜索弱相关，但方法有借鉴意义
-- **3-4 分**：机器学习/深度学习相关，但与应用层较远
-- **1-2 分**：完全不相关（如纯理论、生物、物理等）
+# Irrelevant Topics
+- Fingerprint, Federated learning, Security, Privacy, Fairness, Ethics, or other non-technical topics
+- Medical, Biology, Chemistry, Physics or other domain-specific applications
+- Neural Architectures Search (NAS) or general AutoML
+- Purely theoretical papers without clear practical implications
+- Hallucination, Evaluation benchmarks, or other purely NLP-centric topics
+- Purely Vision、3D Vision, Graphic or Speech papers without clear relevance to RecSys/Search/Ads
+- Ads creative generation, auction, bidding or other Non-Ranking Ads topics 
+- AIGC, Content generation, Summarization, or other purely LLM-centric topics
+- Reinforcement Learning (RL) papers without clear relevance to RecSys/Search/Ads
 
-## 重点关注方向
-- 推荐系统、搜索引擎、信息检索
-- 大语言模型（LLM）在推荐/搜索中的应用
-- 排序学习、匹配算法、召回策略
-- 用户画像、个性化、上下文感知
-- 知识图谱、多模态检索
-- RAG、Agent、强化学习在推荐中的应用
+# Goal
+Screen new papers based on my focus. **DO NOT include irrelevant topics**.
 
-## 输出格式（严格 JSON）
+# Task
+Based ONLY on the paper's title, provide a quick evaluation.
+1. **Academic Translation**: Translate the title into professional Chinese, prioritizing accurate technical terms and faithful meaning.
+2. **Relevance Score (1-10)**: How relevant is it to **My Current Focus**?
+3. **Reasoning**: A 2-3 sentence explanation for your score in Chinese. **For "Enabling Tech" papers, you MUST explain their potential application in RecSys/Search/Ads.**
+
+# Input Paper
+- **Title**: {paper['title']}
+
+# Output Format
+Provide your analysis strictly in the following JSON format.
 {{
-    "relevance_score": 8,
-    "reasoning": "简短的评分理由（50 字以内，说明为何给这个分数）",
-    "summary_zh": "中文总结（150 字以内，突出核心方法、创新点、实验效果）",
-    "key_points": ["核心方法/创新点 1", "技术亮点 2", "实验效果/应用价值 3"]
+  "translation": "...",
+  "relevance_score": <integer>,
+  "reasoning": "..."
 }}
+"""
 
-请直接输出 JSON，不要有其他内容。"""
+    def _build_llm_finerank_prompt(self, paper: Dict) -> str:
+        """构建精排提示词（基于标题 + 摘要详细分析）"""
+        return f"""
+# Role
+You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
+
+# My Current Focus
+
+- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
+- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
+- **Enabling Transformer Tech:** Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
+- **Direct LLM Applications:** Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
+- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
+
+# Goal
+Perform a detailed analysis of the provided paper based on its title and abstract. Identify its core contributions and relevance to my focus areas.
+
+# Task
+Based on the paper's **Title** and **Abstract**, provide a comprehensive analysis.
+1.  **Relevance Score (1-10)**: Re-evaluate the relevance score (1-10) based on the detailed information in the abstract.
+2.  **Reasoning**: A 1-2 sentence explanation for your score in Chinese, direct and compact, no filter phrases.
+3.  **Summary**: Generate a 1-2 sentence, ultra-high-density Chinese summary focusing solely on the paper's core idea, to judge if its "idea" is interesting. The summary must precisely distill and answer these two questions:
+    1.  **Topic:** What core problem is the paper studying or solving?
+    2.  **Core Idea:** What is its core method, key idea, or main analytical conclusion?
+    **STRICTLY IGNORE EXPERIMENTAL RESULTS:** Do not include any information about performance, SOTA, dataset metrics, or numerical improvements.
+    **FOCUS ON THE "IDEA":** Your sole purpose is to clearly convey the paper's "core idea," not its "experimental achievements."
+
+# Input Paper
+- **Title**: {paper['title']}
+- **Abstract**: {paper['summary'][:2000]}
+
+# Output Format
+Provide your analysis strictly in the following JSON format.
+{{
+  "rerank_relevance_score": <integer>,
+  "rerank_reasoning": "...",
+  "summary": "..."
+}}
+"""
         else:
             prompt = f"""Please rate and summarize the following arXiv paper.
 
@@ -303,7 +349,7 @@ Output JSON only, no other text."""
     
     def score_and_summarize_papers(self, papers: List[Dict]) -> List[Dict]:
         """
-        使用大模型对论文进行评分和总结
+        使用大模型对论文进行两阶段评分（粗排 + 精排）和总结
         
         Args:
             papers: 论文列表
@@ -318,38 +364,78 @@ Output JSON only, no other text."""
             
             # 判断是否是工业界论文
             is_industry, matched_companies = self._is_industry_paper(paper)
-            
-            # 构建提示词并调用大模型
-            prompt = self._build_llm_prompt(paper, is_industry, matched_companies)
-            llm_result = self._call_llm(prompt)
-            
-            if llm_result:
-                paper['relevance_score'] = llm_result.get('relevance_score', 5)
-                paper['reasoning'] = llm_result.get('reasoning', '')
-                paper['summary_zh'] = llm_result.get('summary_zh', llm_result.get('summary_en', ''))
-                paper['key_points'] = llm_result.get('key_points', [])
-            else:
-                # 如果 LLM 调用失败，使用简单的基于规则的评分
-                paper['relevance_score'] = self._simple_score(paper)
-                paper['reasoning'] = "Auto-scored (LLM unavailable)"
-                paper['summary_zh'] = paper['summary'][:200] + '...'
-                paper['key_points'] = []
-            
             paper['is_industry'] = is_industry
             paper['matched_companies'] = matched_companies
+            
+            # 阶段 1: 粗排（基于标题快速筛选）
+            prerank_prompt = self._build_llm_prerank_prompt(paper)
+            prerank_result = self._call_llm(prerank_prompt)
+            
+            if prerank_result:
+                paper['translation'] = prerank_result.get('translation', paper['title'])
+                paper['prerank_score'] = prerank_result.get('relevance_score', 5)
+                paper['prerank_reasoning'] = prerank_result.get('reasoning', '')
+            else:
+                paper['translation'] = paper['title']
+                paper['prerank_score'] = self._simple_score(paper)
+                paper['prerank_reasoning'] = "Auto-scored (LLM unavailable)"
+            
+            # 如果粗排分数太低，跳过精排
+            if paper['prerank_score'] < 4:
+                logger.info(f"  -> Skipped (prerank score: {paper['prerank_score']})")
+                continue
+            
+            # 阶段 2: 精排（基于标题 + 摘要详细分析）
+            finerank_prompt = self._build_llm_finerank_prompt(paper)
+            finerank_result = self._call_llm(finerank_prompt)
+            
+            if finerank_result:
+                paper['relevance_score'] = finerank_result.get('rerank_relevance_score', paper['prerank_score'])
+                paper['reasoning'] = finerank_result.get('rerank_reasoning', paper['prerank_reasoning'])
+                paper['summary_zh'] = finerank_result.get('summary', paper['summary'][:200])
+            else:
+                paper['relevance_score'] = paper['prerank_score']
+                paper['reasoning'] = paper['prerank_reasoning']
+                paper['summary_zh'] = paper['summary'][:200] + '...'
+            
+            # 生成关键点
+            paper['key_points'] = self._extract_key_points(paper)
             
             # 过滤低分论文
             if paper['relevance_score'] >= self.min_relevance_score:
                 scored_papers.append(paper)
+                logger.info(f"  -> Accepted (score: {paper['relevance_score']})")
+            else:
+                logger.info(f"  -> Rejected (score: {paper['relevance_score']})")
             
             # 避免 API 限流
-            time.sleep(0.5)
+            time.sleep(0.3)
         
         # 按分数排序
         scored_papers.sort(key=lambda p: p['relevance_score'], reverse=True)
         
+        logger.info(f"Selected {len(scored_papers)} papers out of {len(papers)}")
+        
         # 限制输出数量
         return scored_papers[:self.max_papers_output]
+    
+    def _extract_key_points(self, paper: Dict) -> List[str]:
+        """从摘要中提取关键点（简单实现）"""
+        key_points = []
+        
+        # 如果有中文总结，提取前 3 个句子
+        summary = paper.get('summary_zh', '')
+        sentences = [s.strip() for s in re.split(r'[。！？.!?]', summary) if s.strip()]
+        key_points = sentences[:3]
+        
+        # 如果没有中文总结，使用分类和标题
+        if not key_points:
+            if paper.get('categories'):
+                key_points.append(f"领域：{', '.join(paper['categories'][:3])}")
+            if paper.get('is_industry'):
+                key_points.append(f"工业界相关：{', '.join(paper.get('matched_companies', []))}")
+        
+        return key_points
     
     def _simple_score(self, paper: Dict) -> int:
         """简单的基于规则的评分（LLM 不可用时使用）"""

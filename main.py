@@ -145,7 +145,7 @@ class AIPaperDaily:
                     break
                     
                 start += max_results
-                # 移除 sleep，加快获取速度
+                time.sleep(3)  # arXiv API 限制：每秒最多 1 次请求
                 
             except Exception as e:
                 logger.error(f"Error fetching arXiv papers: {e}")

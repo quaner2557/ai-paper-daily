@@ -536,7 +536,7 @@ Output JSON only, no other text."""
         # 构建消息内容
         industry_count = sum(1 for p in papers if p.get('is_industry', False))
         
-        text = f"""📚 AI Paper Daily - {date_display}
+        text = f"""📚 arxiv AI Paper Daily - {date_display}
 
 📊 今日概览：
 • 论文总数：{len(papers)}
@@ -594,10 +594,10 @@ Output JSON only, no other text."""
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 构建消息内容
+        # 构建消息内容（必须包含 arxiv 关键词）
         industry_count = sum(1 for p in papers if p.get('is_industry', False))
         
-        text = f"""📚 AI Paper Daily - {date_display}
+        text = f"""📚 arxiv AI Paper Daily - {date_display}
 
 📊 今日概览：
 • 论文总数：{len(papers)}

@@ -180,38 +180,39 @@ class AIPaperDaily:
     def _build_llm_prompt(self, paper: Dict, is_industry: bool, matched_companies: List[str]) -> str:
         """构建大模型评分提示词"""
         if self.language == 'zh':
-            prompt = f"""请对以下 arXiv 论文进行相关性评分和总结。
+            prompt = f"""你是一位推荐系统和搜索领域的专家，请对以下 arXiv 论文进行相关性评分和中文总结。
 
 ## 论文信息
 - 标题：{paper['title']}
 - 作者：{', '.join(paper['authors'][:5])}{'...' if len(paper['authors']) > 5 else ''}
 - 分类：{', '.join(paper['categories'])}
-- 摘要：{paper['summary'][:1000]}{'...' if len(paper['summary']) > 1000 else ''}
+- 摘要：{paper['summary'][:1500]}{'...' if len(paper['summary']) > 1500 else ''}
 - 链接：{paper['url']}
 
 ## 工业界关联
 {'是' if is_industry else '否'}，关联公司：{', '.join(matched_companies) if matched_companies else '无'}
 
-## 评分标准（1-10 分）
-- 10 分：突破性工作，必须关注
-- 8-9 分：高质量工作，强烈推荐
-- 6-7 分：有价值的工作，值得关注
-- 4-5 分：一般，可选读
-- 1-3 分：不相关，可忽略
+## 评分标准（1-10 分）- 重点关注推荐/搜索/LLM 应用
+- **9-10 分**：推荐系统、搜索、信息检索、LLM 应用的突破性工作，或大厂核心成果
+- **7-8 分**：与推荐/搜索强相关，或有明确的工业界应用价值
+- **5-6 分**：与推荐/搜索弱相关，但方法有借鉴意义
+- **3-4 分**：机器学习/深度学习相关，但与应用层较远
+- **1-2 分**：完全不相关（如纯理论、生物、物理等）
 
-## 关注方向
-- 推荐系统、搜索、信息检索
-- 大语言模型（LLM）、生成式 AI
-- 排序、匹配、召回
-- 知识图谱、多模态
-- 工业界应用实践
+## 重点关注方向
+- 推荐系统、搜索引擎、信息检索
+- 大语言模型（LLM）在推荐/搜索中的应用
+- 排序学习、匹配算法、召回策略
+- 用户画像、个性化、上下文感知
+- 知识图谱、多模态检索
+- RAG、Agent、强化学习在推荐中的应用
 
 ## 输出格式（严格 JSON）
 {{
     "relevance_score": 8,
-    "reasoning": "简短的评分理由（50 字以内）",
-    "summary_zh": "中文总结（100 字以内，突出核心贡献和创新点）",
-    "key_points": ["关键点 1", "关键点 2", "关键点 3"]
+    "reasoning": "简短的评分理由（50 字以内，说明为何给这个分数）",
+    "summary_zh": "中文总结（150 字以内，突出核心方法、创新点、实验效果）",
+    "key_points": ["核心方法/创新点 1", "技术亮点 2", "实验效果/应用价值 3"]
 }}
 
 请直接输出 JSON，不要有其他内容。"""
@@ -248,7 +249,7 @@ Output JSON only, no other text."""
         return prompt
     
     def _call_llm(self, prompt: str) -> Optional[Dict]:
-        """调用大模型 API"""
+        """调用大模型 API（兼容通义千问/DeepSeek）"""
         if not self.llm_api_key:
             logger.warning("LLM_API_KEY not set, skipping LLM scoring")
             return None
@@ -259,18 +260,29 @@ Output JSON only, no other text."""
                 "Authorization": f"Bearer {self.llm_api_key}"
             }
             
+            # 通义千问需要 response_format 参数来强制 JSON 输出
             payload = {
                 "model": self.llm_model,
                 "messages": [
-                    {"role": "system", "content": "You are an AI research assistant. Output JSON only."},
+                    {"role": "system", "content": "你是一个 AI 研究助手。请只输出 JSON，不要有其他内容。"},
                     {"role": "user", "content": prompt}
                 ],
                 "temperature": self.config.get("llm", {}).get("temperature", 0.3),
                 "max_tokens": self.config.get("llm", {}).get("max_tokens", 2000),
             }
             
+            # 通义千问支持 response_format 强制 JSON
+            if "aliyuncs" in self.llm_base_url or "dashscope" in self.llm_base_url:
+                payload["response_format"] = {"type": "json_object"}
+            
             url = f"{self.llm_base_url.rstrip('/')}/chat/completions"
+            logger.info(f"Calling LLM API: {url}")
             response = requests.post(url, json=payload, headers=headers, timeout=60)
+            
+            if response.status_code != 200:
+                logger.error(f"LLM API error: {response.status_code} - {response.text[:300]}")
+                return None
+                
             response.raise_for_status()
             
             result = response.json()

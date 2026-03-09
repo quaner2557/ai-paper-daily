@@ -577,16 +577,26 @@ Provide your analysis strictly in the following JSON format.
         return min(score, 10)
     
     def generate_markdown(self, papers: List[Dict], date_str: str) -> str:
-        """生成 Markdown 格式的日报"""
+        """生成 Markdown 格式的日报（推送论文的平均分）"""
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 分离工业界论文和其他论文（互斥）
-        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]  # 最多 5 篇
-        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
+        # 1. 过滤>6 分的论文并排序
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
+        
+        # 2. 分离工业界和其他论文
+        all_industry = [p for p in filtered_papers if p.get('is_industry', False)]
+        all_other = [p for p in filtered_papers if not p.get('is_industry', False)]
+        
+        # 3. 工业界 Top5，其他 Top10
+        industry_papers = all_industry[:5]
+        other_papers = all_other[:10]
         
         total_displayed = len(industry_papers) + len(other_papers)
-        avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
+        # 计算推送论文的平均分
+        push_papers = industry_papers + other_papers
+        avg_score = sum(p.get('relevance_score', 0) for p in push_papers) / len(push_papers) if push_papers else 0
         
         md = f"""# AI Paper Daily - {date_display}
 
@@ -653,16 +663,26 @@ Provide your analysis strictly in the following JSON format.
         return md
     
     def generate_html(self, papers: List[Dict], date_str: str) -> str:
-        """生成 HTML 格式的日报"""
+        """生成 HTML 格式的日报（推送论文的平均分）"""
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 分离工业界论文和其他论文（互斥）
-        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]  # 最多 5 篇
-        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
+        # 1. 过滤>6 分的论文并排序
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
+        
+        # 2. 分离工业界和其他论文
+        all_industry = [p for p in filtered_papers if p.get('is_industry', False)]
+        all_other = [p for p in filtered_papers if not p.get('is_industry', False)]
+        
+        # 3. 工业界 Top5，其他 Top10
+        industry_papers = all_industry[:5]
+        other_papers = all_other[:10]
         
         total_displayed = len(industry_papers) + len(other_papers)
-        avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
+        # 计算推送论文的平均分
+        push_papers = industry_papers + other_papers
+        avg_score = sum(p.get('relevance_score', 0) for p in push_papers) / len(push_papers) if push_papers else 0
         
         html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -774,7 +794,9 @@ Provide your analysis strictly in the following JSON format.
         other_papers = all_other[:10]
         
         total_displayed = len(industry_papers) + len(other_papers)
-        avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
+        # 计算推送论文的平均分（不是所有论文）
+        push_papers = industry_papers + other_papers
+        avg_score = sum(p.get('relevance_score', 0) for p in push_papers) / len(push_papers) if push_papers else 0
         
         # 构建飞书卡片
         card_elements = []
@@ -943,7 +965,9 @@ Provide your analysis strictly in the following JSON format.
         other_papers = all_other[:10]
         
         total_displayed = len(industry_papers) + len(other_papers)
-        avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
+        # 计算推送论文的平均分（不是所有论文）
+        push_papers = industry_papers + other_papers
+        avg_score = sum(p.get('relevance_score', 0) for p in push_papers) / len(push_papers) if push_papers else 0
         
         # 使用 Markdown 格式，更丰富的展示
         md_content = f"""# 📚 arxiv AI Paper Daily - {date_display}

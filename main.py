@@ -386,8 +386,8 @@ Provide your analysis strictly in the following JSON format.
             finerank_result = self._call_llm(finerank_prompt)
             
             if finerank_result:
-                paper['relevance_score'] = finerank_result.get('rerank_relevance_score', paper['prerank_score'])
-                paper['reasoning'] = finerank_result.get('rerank_reasoning', paper['prerank_reasoning'])
+                paper['relevance_score'] = finerank_result.get('rerank_relevance_score', finerank_result.get('relevance_score', paper['prerank_score']))
+                paper['reasoning'] = finerank_result.get('rerank_reasoning', finerank_result.get('reasoning', paper['prerank_reasoning']))
                 paper['summary_zh'] = finerank_result.get('summary', paper['summary'][:200])
             else:
                 paper['relevance_score'] = paper['prerank_score']

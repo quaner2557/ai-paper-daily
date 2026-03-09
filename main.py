@@ -48,8 +48,10 @@ class AIPaperDaily:
         
         # 环境变量
         self.llm_api_key = os.getenv("LLM_API_KEY", "")
-        self.llm_base_url = os.getenv("LLM_BASE_URL", "https://api.deepseek.com/v1")
-        self.llm_model = os.getenv("LLM_MODEL", "deepseek-chat")
+        self.llm_base_url = os.getenv("LLM_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
+        # 双模型配置：粗排用 Flash（便宜快速），精排用 Plus（效果好）
+        self.prerank_model = os.getenv("LLM_PRERANK_MODEL", "qwen-flash")
+        self.finerank_model = os.getenv("LLM_FINERANK_MODEL", "qwen-plus")
         self.feishu_urls = [url.strip() for url in os.getenv("FEISHU_URL", "").split(",") if url.strip()]
         self.dingtalk_urls = [url.strip() for url in os.getenv("DINGTALK_URL", "").split(",") if url.strip()]
         self.dingtalk_secrets = [s.strip() for s in os.getenv("DINGTALK_SECRET", "").split(",") if s.strip()]
@@ -365,11 +367,19 @@ Provide your analysis strictly in the following JSON format.
 }}
 """
     
-    def _call_llm(self, prompt: str) -> Optional[Dict]:
-        """调用大模型 API（兼容通义千问/DeepSeek）"""
+    def _call_llm(self, prompt: str, model: str = None) -> Optional[Dict]:
+        """调用大模型 API（兼容通义千问/DeepSeek）
+        
+        Args:
+            prompt: 提示词
+            model: 模型名称，默认使用 finerank_model
+        """
         if not self.llm_api_key:
             logger.warning("LLM_API_KEY not set, skipping LLM scoring")
             return None
+        
+        # 使用传入的模型，或使用默认模型
+        model_to_use = model or self.finerank_model
         
         try:
             headers = {
@@ -379,7 +389,7 @@ Provide your analysis strictly in the following JSON format.
             
             # 通义千问需要 response_format 参数来强制 JSON 输出
             payload = {
-                "model": self.llm_model,
+                "model": model_to_use,
                 "messages": [
                     {"role": "system", "content": "你是一个 AI 研究助手。请只输出 JSON，不要有其他内容。"},
                     {"role": "user", "content": prompt}
@@ -449,9 +459,9 @@ Provide your analysis strictly in the following JSON format.
             paper['is_industry'] = is_industry
             paper['matched_companies'] = matched_companies
             
-            # 粗排（基于标题快速筛选）
+            # 粗排（基于标题快速筛选）- 使用 Flash 模型
             prerank_prompt = self._build_llm_prerank_prompt(paper)
-            prerank_result = self._call_llm(prerank_prompt)
+            prerank_result = self._call_llm(prerank_prompt, model=self.prerank_model)
             
             if prerank_result:
                 paper['translation'] = prerank_result.get('translation', paper['title'])
@@ -482,9 +492,9 @@ Provide your analysis strictly in the following JSON format.
         for i, paper in enumerate(papers_to_finerank):
             logger.info(f"Fine-ranking paper {i+1}/{len(papers_to_finerank)}: {paper['title'][:50]}...")
             
-            # 精排（基于标题 + 摘要详细分析）
+            # 精排（基于标题 + 摘要详细分析）- 使用 Plus 模型
             finerank_prompt = self._build_llm_finerank_prompt(paper)
-            finerank_result = self._call_llm(finerank_prompt)
+            finerank_result = self._call_llm(finerank_prompt, model=self.finerank_model)
             
             if finerank_result:
                 paper['relevance_score'] = finerank_result.get('rerank_relevance_score', finerank_result.get('relevance_score', paper['prerank_score']))

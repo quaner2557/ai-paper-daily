@@ -62,8 +62,9 @@ class AIPaperDaily:
             arxiv_cats = "cs.IR,cs.LG,cs.AI,cs.CL"
         self.arxiv_categories = [cat.strip() for cat in arxiv_cats.split(",") if cat.strip()]
         self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "300")  # 最多获取 300 篇
-        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "20")  # paperBotV2: 20 (精排数量)
-        self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "4")  # paperBotV2: 4 (粗排阈值)
+        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "40")  # 精排候选集 40 篇
+        self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "4")  # 粗排阈值 4 分
+        self.push_threshold = int(os.getenv("PUSH_THRESHOLD") or "6")  # 推送阈值 6 分
         
         # 输出目录
         self.output_dir = Path(self.config.get("output", {}).get("directory", "./output"))
@@ -757,7 +758,7 @@ Provide your analysis strictly in the following JSON format.
         return html
     
     def send_to_feishu(self, papers: List[Dict], date_str: str):
-        """发送飞书消息 - 卡片模板格式"""
+        """发送飞书消息 - 卡片模板格式（全局 Top10 + 工业界 Top5，分数>6）"""
         if not self.feishu_urls or not papers:
             logger.info("No Feishu URL configured or no papers, skipping notification")
             return
@@ -765,9 +766,19 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 分离工业界论文和其他论文
-        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]
-        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]
+        # 1. 先过滤分数>6 的论文
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        
+        # 2. 按分数全局排序
+        filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
+        
+        # 3. 分离工业界和其他论文
+        all_industry = [p for p in filtered_papers if p.get('is_industry', False)]
+        all_other = [p for p in filtered_papers if not p.get('is_industry', False)]
+        
+        # 4. 工业界 Top5，其他 Top10
+        industry_papers = all_industry[:5]
+        other_papers = all_other[:10]
         
         total_displayed = len(industry_papers) + len(other_papers)
         avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0
@@ -910,7 +921,7 @@ Provide your analysis strictly in the following JSON format.
                 logger.error(f"Feishu notification error: {e}")
     
     def send_to_dingtalk(self, papers: List[Dict], date_str: str):
-        """发送钉钉消息 - Markdown 格式"""
+        """发送钉钉消息 - Markdown 格式（全局 Top10 + 工业界 Top5，分数>6）"""
         if not self.dingtalk_urls or not papers:
             logger.info("No DingTalk URL configured or no papers, skipping notification")
             return
@@ -924,9 +935,19 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 分离工业界论文和其他论文（互斥）
-        industry_papers = [p for p in papers if p.get('is_industry', False)][:5]  # 最多 5 篇
-        other_papers = [p for p in papers if not p.get('is_industry', False)][:10]  # 最多 10 篇
+        # 1. 先过滤分数>6 的论文
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        
+        # 2. 按分数全局排序
+        filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
+        
+        # 3. 分离工业界和其他论文
+        all_industry = [p for p in filtered_papers if p.get('is_industry', False)]
+        all_other = [p for p in filtered_papers if not p.get('is_industry', False)]
+        
+        # 4. 工业界 Top5，其他 Top10
+        industry_papers = all_industry[:5]
+        other_papers = all_other[:10]
         
         total_displayed = len(industry_papers) + len(other_papers)
         avg_score = sum(p.get('relevance_score', 0) for p in papers) / len(papers) if papers else 0

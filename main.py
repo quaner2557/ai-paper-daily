@@ -752,13 +752,15 @@ Provide your analysis strictly in the following JSON format.
         industry_papers = [p for p in papers if p.get('is_industry', False)][:3]
         for i, p in enumerate(industry_papers, 1):
             score_stars = "⭐" * min(p.get('relevance_score', 0), 10)
-            text += f"{i}. {score_stars} [{p['title'][:50]}...]({p['url']})\n"
+            display_title = p.get('translation', p['title'])[:50]
+            text += f"{i}. {score_stars} [{display_title}...]({p['url']})\n"
         
         text += f"\n🔬 Top 3 其他论文：\n"
         other_papers = [p for p in papers if not p.get('is_industry', False)][:3]
         for i, p in enumerate(other_papers, 1):
             score_stars = "⭐" * min(p.get('relevance_score', 0), 10)
-            text += f"{i}. {score_stars} [{p['title'][:50]}...]({p['url']})\n"
+            display_title = p.get('translation', p['title'])[:50]
+            text += f"{i}. {score_stars} [{display_title}...]({p['url']})\n"
         
         text += f"\n完整报告：output/{date_str}.html"
         

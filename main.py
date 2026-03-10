@@ -162,63 +162,56 @@ class AIPaperDaily:
         # 2. 构建搜索查询
         categories_query = " OR ".join([f"cat:{cat.strip()}" for cat in self.arxiv_categories])
         
-        # 3. 动态扩展时间范围，直到获取足够的论文
-        all_papers = []
-        seen_ids = set()  # 本次运行内去重
-        days_back = 2  # 从 2 天开始
-        
+        # 3. 固定时间窗口：获取过去 2 天的论文（给 arXiv 时间稳定）
         # 使用北京时间（Asia/Shanghai）计算日期范围，确保与推送日期一致
         tz_shanghai = timezone(timedelta(hours=8))
         
-        while len(all_papers) < target_count and days_back <= 7:
-            logger.info(f"Fetching papers from past {days_back} days (target: {target_count}, current: {len(all_papers)})")
-            
-            # 计算日期范围（北京时间）
-            end_date = datetime.now(tz_shanghai)
-            start_date = end_date - timedelta(days=days_back)
-            
-            # 获取论文（分批获取）
-            batch_papers = []
-            start = 0
-            max_results = 500  # 每批 500 篇
-            
-            while start < (days_back * 200):  # 假设每天最多 200 篇
-                papers = self._fetch_arxiv_batch(categories_query, start, max_results)
-                if not papers:
-                    break
-                
-                # 过滤日期范围 + 本次运行内去重
-                for paper in papers:
-                    arxiv_id = paper['arxiv_id']
-                    # 跳过已处理的（历史去重 + 本次运行内去重）
-                    if arxiv_id in processed_ids or arxiv_id in seen_ids:
-                        continue
-                    
-                    try:
-                        published = datetime.fromisoformat(paper['published'].replace('Z', '+00:00'))
-                        if start_date <= published <= end_date:
-                            batch_papers.append(paper)
-                            seen_ids.add(arxiv_id)  # 标记为已见
-                    except:
-                        batch_papers.append(paper)  # 无法解析日期的也保留
-                        seen_ids.add(arxiv_id)
-                
-                start += max_results
-                if len(papers) < max_results:
-                    break
-            
-            logger.info(f"Fetched {len(batch_papers)} papers from {days_back} days (after dedup: {len(seen_ids)})")
-            
-            all_papers.extend(batch_papers)
-            
-            # 4. 如果不够，扩大时间范围
-            if len(all_papers) < target_count:
-                days_back += 1
-                logger.info(f"Need more papers, expanding to {days_back} days")
+        # 固定获取过去 2 天的论文（end_date=昨天，start_date=前天）
+        # 这样可以避免当天论文还在持续提交导致的波动
+        end_date = datetime.now(tz_shanghai) - timedelta(days=1)
+        start_date = end_date - timedelta(days=2)
         
-        # 5. 限制返回数量
+        logger.info(f"Fetching papers from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (fixed 2-day window)")
+        
+        all_papers = []
+        seen_ids = set()  # 本次运行内去重
+        
+        # 获取论文（分批获取）
+        batch_papers = []
+        start = 0
+        max_results = 500  # 每批 500 篇
+        
+        while start < (days_back * 200):  # 假设每天最多 200 篇
+            papers = self._fetch_arxiv_batch(categories_query, start, max_results)
+            if not papers:
+                break
+            
+            # 过滤日期范围 + 本次运行内去重
+            for paper in papers:
+                arxiv_id = paper['arxiv_id']
+                # 跳过已处理的（历史去重 + 本次运行内去重）
+                if arxiv_id in processed_ids or arxiv_id in seen_ids:
+                    continue
+                
+                try:
+                    published = datetime.fromisoformat(paper['published'].replace('Z', '+00:00'))
+                    if start_date <= published <= end_date:
+                        batch_papers.append(paper)
+                        seen_ids.add(arxiv_id)  # 标记为已见
+                except:
+                    batch_papers.append(paper)  # 无法解析日期的也保留
+                    seen_ids.add(arxiv_id)
+            
+            start += max_results
+            if len(papers) < max_results:
+                break
+        
+        logger.info(f"Fetched {len(batch_papers)} papers (after dedup: {len(seen_ids)})")
+        all_papers.extend(batch_papers)
+        
+        # 限制返回数量
         result = all_papers[:target_count]
-        logger.info(f"Returning {len(result)} papers for preranking (from {len(all_papers)} total, unique: {len(seen_ids)})")
+        logger.info(f"Returning {len(result)} papers for preranking (unique: {len(seen_ids)})")
         
         return result
     
@@ -280,7 +273,7 @@ class AIPaperDaily:
     
     def _extract_affiliations_from_pdf(self, paper: Dict) -> List[str]:
         """
-        从 PDF 第一页提取作者单位信息
+        从 PDF 第一页提取作者单位信息（带重试机制）
         
         Args:
             paper: 论文信息字典，包含 pdf_url
@@ -292,13 +285,28 @@ class AIPaperDaily:
         if not pdf_url:
             return []
         
-        try:
-            # 下载 PDF
-            logger.info(f"Downloading PDF: {pdf_url}")
-            pdf_response = requests.get(pdf_url, timeout=60)
-            if pdf_response.status_code != 200:
-                logger.warning(f"Failed to download PDF: {pdf_response.status_code}")
-                return []
+        # 重试机制：最多重试 3 次，指数退避
+        max_retries = 3
+        pdf_response = None
+        
+        for attempt in range(max_retries):
+            try:
+                logger.info(f"Downloading PDF: {pdf_url} (attempt {attempt+1}/{max_retries})")
+                pdf_response = requests.get(pdf_url, timeout=60)
+                if pdf_response.status_code == 200:
+                    break
+                else:
+                    logger.warning(f"Failed to download PDF: {pdf_response.status_code}, retrying...")
+            except Exception as e:
+                logger.warning(f"PDF download error (attempt {attempt+1}): {e}")
+            
+            if attempt < max_retries - 1:
+                wait_time = 2 ** attempt  # 指数退避：1s, 2s, 4s
+                time.sleep(wait_time)
+        
+        if pdf_response is None or pdf_response.status_code != 200:
+            logger.error(f"Failed to download PDF after {max_retries} attempts")
+            return []
             
             # 保存到临时文件
             import tempfile

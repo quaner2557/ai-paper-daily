@@ -440,37 +440,43 @@ Only extract companies from this list: {companies_str}
         return f"""
 # Role
 You are a highly experienced Research Engineer specializing in Recommendation Systems and Search Engines.
+Your goal is to find papers directly applicable to RecSys/Search products.
 
-# Priority Topics (score 8-10)
-**Give HIGH scores to papers about:**
+# Priority Topics (score 8-10) - MUST BE RecSys/Search RELATED
+**Give HIGH scores ONLY to papers about:**
 - **E-commerce scenarios**: product recommendation, search, ranking, personalization in online shopping
 - **Social media scenarios**: feed ranking, content recommendation, social search, user engagement
 - **Local-life services**: food delivery, ride-hailing, travel recommendation
-- **Core RecSys/Search**: collaborative filtering, deep learning ranking, retrieval, matching
-- **LLM for RecSys/Search**: LLM-based ranking, retrieval, recommendation, search
+- **Core RecSys/Search**: collaborative filtering, deep learning ranking, retrieval, matching, re-ranking
+- **LLM for RecSys/Search**: LLM-based ranking, retrieval, recommendation, search (NOT pure LLM research)
 
-# Medium Priority (score 5-7)
+# Medium Priority (score 5-7) - Must have clear RecSys/Search connection
 - Ads ranking, bidding optimization
-- General ML/DL methods with potential RecSys application
-- User modeling, behavior prediction
+- User modeling, behavior prediction FOR RecSys
 - Multi-modal recommendation/search
+- Retrieval augmentation FOR search/recsys
 
-# Low Priority (score 1-4)
-- Security, Privacy, Fairness, Ethics
+# Low Priority (score 1-4) - Filter these out
+- Security, Privacy, Fairness, Ethics (unless directly for RecSys)
 - Medical, Biology, Chemistry, Physics applications
 - Pure vision/speech without ranking relevance
 - Pure RL without RecSys/Search application
-- AIGC, Content generation without ranking
+- **Pure LLM research** (training, alignment, reasoning) without RecSys application
+- **Pure NLP tasks** (translation, summarization, QA) without search/recsys
+- **Pure CV tasks** (detection, segmentation) without recommendation
+- Agent, Planning, Tool-use without RecSys/Search relevance
+- Knowledge graphs without recommendation application
 
 # Task
 Based ONLY on the paper's title, provide a relevance score (1-10).
+**Be strict: if the paper is NOT about RecSys/Search, give low score (1-3).**
 
 # Scoring Guidelines
-- **9-10**: E-commerce/Social RecSys/Search with LLM/Deep Learning
-- **7-8**: Core RecSys/Search advances, clear business scenario
-- **5-6**: General ML methods, potential application
-- **3-4**: Weak relevance, edge case
-- **1-2**: Irrelevant (filter out)
+- **9-10**: E-commerce/Social RecSys/Search with LLM/Deep Learning - DIRECT APPLICATION
+- **7-8**: Core RecSys/Search advances, clear business scenario - DIRECT RELEVANCE
+- **5-6**: General ML methods with CLEAR RecSys application
+- **3-4**: Weak relevance, edge case, tangential connection
+- **1-2**: Pure LLM/NLP/CV/RL research WITHOUT RecSys/Search application - FILTER OUT
 
 # Input Paper
 - **Title**: {paper['title']}
@@ -569,64 +575,64 @@ Based ONLY on the paper's title, provide a relevance score (1-10).
         
         return f"""
 # Role
-You are a highly experienced Research Engineer specializing in Large Language Models (LLMs) and Large-Scale Recommendation Systems, with deep knowledge of the search, recommendation, and advertising domains.
+You are a highly experienced Research Engineer specializing in Recommendation Systems and Search Engines.
+Your goal is to find papers directly applicable to RecSys/Search products.
 
-# My Current Focus
+# My Current Focus - STRICTLY RecSys/Search RELATED
 
-- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself, even if they do not involve LLMs.
-- **Enabling LLM Tech:** Trends and Foundational progress in the core LLM which must have potential applications in RecSys, Search or Ads.
-- **Enabling Transformer Tech:** Advances in Transformer architecture (e.g., efficiency, new attention mechanisms, MoE, etc.).
-- **Direct LLM Applications:** Novel ideas and direct applications of LLM technology for RecSys, Search or Ads.
-- **VLM Analogy for Heterogeneous Data:** Ideas inspired by **Vision-Language Models** that treat heterogeneous data (like context features and user sequences) as distinct modalities for unified modeling. 
+- **Core Domain Advances:** Core advances within RecSys, Search, or Ads itself (retrieval, matching, ranking, re-ranking, personalization)
+- **LLM for RecSys/Search:** LLM applications DIRECTLY for recommendation, search, or ads (NOT pure LLM research)
+- **User Modeling:** User behavior modeling, sequence modeling, preference learning FOR RecSys
+- **Multi-modal RecSys/Search:** Image/video/text recommendation and search
 
-# Scoring Guidelines (1-10 分)
-请严格按照以下标准评分，**优先推荐电商/社交场景的论文**：
+# Scoring Guidelines (1-10 分) - BE STRICT!
+**关键原则：纯 LLM 研究不给高分，必须与推荐/搜索直接相关**
 
-## 高优先级（9-10 分，占比~10%）
+## 高优先级（9-10 分，占比~10%）- 必须与推荐/搜索直接相关
 **电商/社交 + 推荐搜索 + 深度学习/LLM**
 - 电商平台：淘宝、京东、拼多多、Amazon 等的推荐/搜索系统
 - 社交平台：抖音、快手、小红书、Facebook、Instagram 等的信息流/推荐
 - 本地生活：美团、饿了么、滴滴等的生活服务推荐
-- 核心创新：提出新架构/方法，解决实际问题，有显著效果提升
+- 核心创新：提出新架构/方法，解决推荐/搜索实际问题
 
-## 中高优先级（7-8 分，占比~25%）
+## 中高优先级（7-8 分，占比~25%）- 明确推荐/搜索应用
 **核心推荐搜索技术，有明确业务场景**
 - 召回、匹配、排序、重排序等核心环节
 - 用户建模、行为预测、序列推荐
 - 多模态推荐/搜索（图文、视频）
-- LLM/Transformer 在推荐搜索中的应用
+- LLM/Transformer 在推荐搜索中的 DIRECT 应用
 
-## 中优先级（5-6 分，占比~40%）
-**通用 ML 方法，可应用于推荐搜索**
-- 深度学习、强化学习方法
-- 表征学习、图神经网络
-- 有一定创新性，但非核心场景
+## 中优先级（5-6 分，占比~40%）- 有潜力的方法
+**通用 ML 方法，但明确说明用于推荐搜索**
+- 深度学习、表征学习、图神经网络 FOR RecSys
+- 有一定创新性，有 RecSys 应用场景
 
-## 低优先级（3-4 分，占比~20%）
-**弱相关，仅部分概念相关**
-- 边缘相关，方法较为常规
+## 低优先级（3-4 分，占比~20%）- 弱相关
+**边缘相关，方法较为常规**
+- 通用 ML 方法，无明确 RecSys 应用
 - 参考价值有限
 
-## 排除（1-2 分，占比<5%）
-**几乎不相关**
-- 安全、隐私、公平、伦理
+## 排除（1-2 分，占比<5%）- 纯 LLM/其他领域研究
+**几乎不相关 - 必须给低分！**
+- **纯 LLM 研究**（训练、对齐、推理、Agent）无推荐搜索应用
+- **纯 NLP 任务**（翻译、摘要、QA）无搜索推荐应用
+- **纯 CV 任务**（检测、分割）无推荐应用
+- 安全、隐私、公平、伦理（除非直接针对 RecSys）
 - 医疗、生物、化学、物理应用
-- 纯视觉/语音（无推荐搜索关联）
 - 纯 RL（无推荐搜索应用）
 
 # Goal
-Perform a detailed analysis of the provided paper based on its title and abstract. Identify its core contributions and relevance to my focus areas.
+Perform a detailed analysis of the provided paper based on its title and abstract.
+**Be strict: if the paper is NOT about RecSys/Search, give low score (1-3).**
 
 # Task
 Based on the paper's **Title** and **Abstract**, provide a comprehensive analysis.
-1.  **Relevance Score (1-10)**: Re-evaluate the relevance score (1-10) based on the detailed information in the abstract.
-2.  **Reasoning**: A 1-2 sentence explanation for your score in Chinese, direct and compact, no filter phrases.
+1.  **Relevance Score (1-10)**: Re-evaluate the relevance score (1-10). **Give LOW score (1-3) for pure LLM/NLP/CV research without RecSys application.**
+2.  **Reasoning**: A 1-2 sentence explanation for your score in Chinese, direct and compact. **Mention if it's pure LLM research without RecSys application.**
 3.  **Translation**: Translate the paper title to **Chinese** (简洁、准确、专业，不超过 50 字).
-4.  **Summary**: Generate a 1-2 sentence, ultra-high-density Chinese summary focusing solely on the paper's core idea, to judge if its "idea" is interesting. The summary must precisely distill and answer these two questions:
-    1.  **Topic:** What core problem is the paper studying or solving?
-    2.  **Core Idea:** What is its core method, key idea, or main analytical conclusion?
+4.  **Summary**: Generate a 1-2 sentence, ultra-high-density Chinese summary focusing solely on the paper's core idea.
     **STRICTLY IGNORE EXPERIMENTAL RESULTS:** Do not include any information about performance, SOTA, dataset metrics, or numerical improvements.
-    **FOCUS ON THE "IDEA":** Your sole purpose is to clearly convey the paper's "core idea," not its "experimental achievements."
+    **FOCUS ON THE "IDEA":** Your sole purpose is to clearly convey the paper's "core idea", not its "experimental achievements."
 
 # Input Paper
 - **Title**: {paper['title']}

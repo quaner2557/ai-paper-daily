@@ -703,7 +703,7 @@ Provide your analysis strictly in the following JSON format.
         logger.info(f"=== Stage 2: Fine Ranking (top {len(papers_to_finerank)} papers) ===")
         
         # 对前 N 篇论文解析 PDF 提取作者单位（用于工业界论文检测）
-        pdf_parse_limit = min(20, len(papers_to_finerank))  # 只解析前 20 篇，避免太慢
+        pdf_parse_limit = min(50, len(papers_to_finerank))  # 解析所有精排候选
         logger.info(f"Extracting affiliations from PDF for top {pdf_parse_limit} papers...")
         for i, paper in enumerate(papers_to_finerank[:pdf_parse_limit]):
             logger.info(f"Parsing PDF for paper {i+1}/{pdf_parse_limit}")

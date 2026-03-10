@@ -163,13 +163,17 @@ class AIPaperDaily:
         
         # 3. 动态扩展时间范围，直到获取足够的论文
         all_papers = []
+        seen_ids = set()  # 本次运行内去重
         days_back = 2  # 从 2 天开始
+        
+        # 使用北京时间（Asia/Shanghai）计算日期范围，确保与推送日期一致
+        tz_shanghai = timezone(timedelta(hours=8))
         
         while len(all_papers) < target_count and days_back <= 7:
             logger.info(f"Fetching papers from past {days_back} days (target: {target_count}, current: {len(all_papers)})")
             
-            # 计算日期范围
-            end_date = datetime.now(timezone.utc)
+            # 计算日期范围（北京时间）
+            end_date = datetime.now(tz_shanghai)
             start_date = end_date - timedelta(days=days_back)
             
             # 获取论文（分批获取）
@@ -182,35 +186,38 @@ class AIPaperDaily:
                 if not papers:
                     break
                 
-                # 过滤日期范围
+                # 过滤日期范围 + 本次运行内去重
                 for paper in papers:
+                    arxiv_id = paper['arxiv_id']
+                    # 跳过已处理的（历史去重 + 本次运行内去重）
+                    if arxiv_id in processed_ids or arxiv_id in seen_ids:
+                        continue
+                    
                     try:
                         published = datetime.fromisoformat(paper['published'].replace('Z', '+00:00'))
                         if start_date <= published <= end_date:
                             batch_papers.append(paper)
+                            seen_ids.add(arxiv_id)  # 标记为已见
                     except:
                         batch_papers.append(paper)  # 无法解析日期的也保留
+                        seen_ids.add(arxiv_id)
                 
                 start += max_results
                 if len(papers) < max_results:
                     break
             
-            logger.info(f"Fetched {len(batch_papers)} papers from {days_back} days")
+            logger.info(f"Fetched {len(batch_papers)} papers from {days_back} days (after dedup: {len(seen_ids)})")
             
-            # 4. 去重
-            new_papers = [p for p in batch_papers if p['arxiv_id'] not in processed_ids]
-            logger.info(f"After deduplication: {len(new_papers)} new papers")
+            all_papers.extend(batch_papers)
             
-            all_papers.extend(new_papers)
-            
-            # 5. 如果不够，扩大时间范围
+            # 4. 如果不够，扩大时间范围
             if len(all_papers) < target_count:
                 days_back += 1
                 logger.info(f"Need more papers, expanding to {days_back} days")
         
-        # 6. 限制返回数量
+        # 5. 限制返回数量
         result = all_papers[:target_count]
-        logger.info(f"Returning {len(result)} papers for preranking (from {len(all_papers)} total)")
+        logger.info(f"Returning {len(result)} papers for preranking (from {len(all_papers)} total, unique: {len(seen_ids)})")
         
         return result
     
@@ -423,7 +430,8 @@ Perform a detailed analysis of the provided paper based on its title and abstrac
 Based on the paper's **Title** and **Abstract**, provide a comprehensive analysis.
 1.  **Relevance Score (1-10)**: Re-evaluate the relevance score (1-10) based on the detailed information in the abstract.
 2.  **Reasoning**: A 1-2 sentence explanation for your score in Chinese, direct and compact, no filter phrases.
-3.  **Summary**: Generate a 1-2 sentence, ultra-high-density Chinese summary focusing solely on the paper's core idea, to judge if its "idea" is interesting. The summary must precisely distill and answer these two questions:
+3.  **Translation**: Translate the paper title to **Chinese** (简洁、准确、专业，不超过 50 字).
+4.  **Summary**: Generate a 1-2 sentence, ultra-high-density Chinese summary focusing solely on the paper's core idea, to judge if its "idea" is interesting. The summary must precisely distill and answer these two questions:
     1.  **Topic:** What core problem is the paper studying or solving?
     2.  **Core Idea:** What is its core method, key idea, or main analytical conclusion?
     **STRICTLY IGNORE EXPERIMENTAL RESULTS:** Do not include any information about performance, SOTA, dataset metrics, or numerical improvements.
@@ -441,7 +449,7 @@ Provide your analysis strictly in the following JSON format.
 {{
   "rerank_relevance_score": <integer>,
   "rerank_reasoning": "...",
-  "translation": "...",
+  "translation": "论文标题的中文翻译（必填，不能为空）",
   "summary": "..."
 }}
 """
@@ -574,12 +582,16 @@ Provide your analysis strictly in the following JSON format.
             if finerank_result:
                 paper['relevance_score'] = finerank_result.get('rerank_relevance_score', finerank_result.get('relevance_score', paper['prerank_score']))
                 paper['reasoning'] = finerank_result.get('rerank_reasoning', '')
-                paper['translation'] = finerank_result.get('translation', paper['title'])  # 精排统一翻译
+                # 翻译字段：优先使用 LLM 返回的中文翻译，如果为空或缺失则使用简单翻译
+                translation = finerank_result.get('translation', '').strip()
+                if not translation or translation == paper['title']:
+                    translation = self._simple_translate_title(paper['title'])
+                paper['translation'] = translation
                 paper['summary_zh'] = finerank_result.get('summary', paper['summary'][:200])
             else:
                 paper['relevance_score'] = paper['prerank_score']
                 paper['reasoning'] = ''
-                paper['translation'] = paper['title']
+                paper['translation'] = self._simple_translate_title(paper['title'])
                 paper['summary_zh'] = paper['summary'][:200] + '...'
             
             # 生成关键点
@@ -633,13 +645,24 @@ Provide your analysis strictly in the following JSON format.
         
         return min(score, 10)
     
+    def _simple_translate_title(self, title: str) -> str:
+        """
+        简单的标题翻译（LLM 失败时的 fallback）
+        策略：保留英文标题，添加 [待翻译] 标记
+        """
+        # 如果标题本身包含中文字符，直接返回
+        if any('\u4e00' <= c <= '\u9fff' for c in title):
+            return title
+        # 否则标记为待翻译
+        return f"[待翻译] {title}"
+    
     def generate_markdown(self, papers: List[Dict], date_str: str) -> str:
         """生成 Markdown 格式的日报（推送论文的平均分）"""
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 1. 过滤>6 分的论文并排序
-        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        # 1. 过滤>=6 分的论文并排序（推送阈值包含边界）
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) >= self.push_threshold]
         filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
         
         # 2. 分离工业界和其他论文
@@ -724,8 +747,8 @@ Provide your analysis strictly in the following JSON format.
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 1. 过滤>6 分的论文并排序
-        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        # 1. 过滤>=6 分的论文并排序（推送阈值包含边界）
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) >= self.push_threshold]
         filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
         
         # 2. 分离工业界和其他论文
@@ -828,16 +851,17 @@ Provide your analysis strictly in the following JSON format.
         return html
     
     def send_to_feishu(self, papers: List[Dict], date_str: str):
-        """发送飞书消息 - 卡片模板格式（全局 Top10 + 工业界 Top5，分数>6）"""
+        """发送飞书消息 - 卡片模板格式（全局 Top10 + 工业界 Top5，分数>=6）"""
         if not self.feishu_urls or not papers:
             logger.info("No Feishu URL configured or no papers, skipping notification")
             return
         
+        # date_str 已经是北京时间格式 (YYYYMMDD)，直接转换显示格式
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 1. 先过滤分数>6 的论文
-        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        # 1. 先过滤分数>=6 的论文（包含边界）
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) >= self.push_threshold]
         
         # 2. 按分数全局排序
         filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
@@ -993,7 +1017,7 @@ Provide your analysis strictly in the following JSON format.
                 logger.error(f"Feishu notification error: {e}")
     
     def send_to_dingtalk(self, papers: List[Dict], date_str: str):
-        """发送钉钉消息 - Markdown 格式（全局 Top10 + 工业界 Top5，分数>6）"""
+        """发送钉钉消息 - Markdown 格式（全局 Top10 + 工业界 Top5，分数>=6）"""
         if not self.dingtalk_urls or not papers:
             logger.info("No DingTalk URL configured or no papers, skipping notification")
             return
@@ -1004,11 +1028,12 @@ Provide your analysis strictly in the following JSON format.
         import urllib.parse
         import time
         
+        # date_str 已经是北京时间格式 (YYYYMMDD)，直接转换显示格式
         date_obj = datetime.strptime(date_str, "%Y%m%d")
         date_display = date_obj.strftime("%Y-%m-%d")
         
-        # 1. 先过滤分数>6 的论文
-        filtered_papers = [p for p in papers if p.get('relevance_score', 0) > self.push_threshold]
+        # 1. 先过滤分数>=6 的论文（包含边界）
+        filtered_papers = [p for p in papers if p.get('relevance_score', 0) >= self.push_threshold]
         
         # 2. 按分数全局排序
         filtered_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)
@@ -1171,7 +1196,9 @@ Provide your analysis strictly in the following JSON format.
         logger.info("AI Paper Daily - Starting")
         logger.info("=" * 60)
         
-        date_str = datetime.now().strftime("%Y%m%d")
+        # 使用北京时间（Asia/Shanghai）生成日期，确保推送日期正确
+        tz_shanghai = timezone(timedelta(hours=8))
+        date_str = datetime.now(tz_shanghai).strftime("%Y%m%d")
         error_msg = None
         
         try:

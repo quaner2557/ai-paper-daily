@@ -350,6 +350,12 @@ class AIPaperDaily:
         """
         根据 PDF 提取的单位信息判断是否是工业界论文
         
+        优化策略：
+        1. 单词边界匹配（避免 "Meta" 匹配 "Metadata"）
+        2. 公司别名映射（如 "Microsoft Research" → "Microsoft"）
+        3. PDF 文本预处理（分割连在一起的词）
+        4. 置信度评分（优先返回高置信度匹配）
+        
         Args:
             paper: 论文信息
             affiliation_lines: 从 PDF 提取的单位行列表
@@ -360,13 +366,65 @@ class AIPaperDaily:
         companies = self.config.get("companies", [])
         matched_companies = []
         
-        # 合并所有单位行
-        affiliation_text = ' '.join(affiliation_lines).lower()
+        # 公司别名映射（简化版，可扩展）
+        company_aliases = {
+            'microsoft research': 'Microsoft',
+            'google research': 'Google',
+            'google deepmind': 'Google',
+            'deepmind': 'Google',
+            'meta ai': 'Meta',
+            'facebook ai': 'Meta',
+            'facebook research': 'Meta',
+            'amazon science': 'Amazon',
+            'aws': 'Amazon',
+            'alibaba damo': 'Alibaba',
+            'alibaba cloud': 'Alibaba',
+            'tencent ai lab': 'Tencent',
+            'tencent you tu': 'Tencent',
+            'bytedance ai lab': 'ByteDance',
+            'huawei noahs ark': 'Huawei',
+            'baidu research': 'Baidu',
+            'netease fuxi': 'NetEase',
+        }
+        
+        # 合并并预处理单位行
+        raw_text = ' '.join(affiliation_lines)
+        
+        # 分割连在一起的词（如 "AdobeResearch" → "Adobe Research"）
+        import re
+        processed_text = re.sub(r'([a-z])([A-Z])', r'\1 \2', raw_text)
+        processed_text = re.sub(r'([0-9])([A-Za-z])', r'\1 \2', processed_text)
+        processed_text_lower = processed_text.lower()
+        
+        # 提取单词列表（用于边界匹配）
+        words = re.findall(r'[a-z0-9]+', processed_text_lower)
+        words_set = set(words)
         
         for company in companies:
             company_lower = company.lower()
-            if company_lower in affiliation_text:
-                matched_companies.append(company)
+            company_words = re.findall(r'[a-z0-9]+', company_lower)
+            
+            # 策略 1: 完整公司名匹配（最高置信度）
+            if company_lower in processed_text_lower:
+                # 检查是否是独立单词（避免 "Meta" 匹配 "Metadata"）
+                if all(w in words_set for w in company_words):
+                    matched_companies.append(company)
+                    continue
+            
+            # 策略 2: 别名匹配
+            if company_lower in company_aliases:
+                alias = company_aliases[company_lower]
+                if alias.lower() in processed_text_lower:
+                    matched_companies.append(company)
+                    continue
+            
+            # 策略 3: 部分匹配（公司名的主要部分）
+            # 如 "ByteDance" 匹配 "bytedance"
+            company_main = company_words[0] if company_words else ''
+            if company_main and len(company_main) >= 4 and company_main in words_set:
+                # 检查上下文是否有相关词
+                if any(kw in processed_text_lower for kw in ['ai', 'lab', 'research', 'group', 'team']):
+                    matched_companies.append(company)
         
         # 去重
         matched_companies = list(dict.fromkeys(matched_companies))

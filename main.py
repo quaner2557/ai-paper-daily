@@ -225,18 +225,55 @@ class AIPaperDaily:
         """
         判断论文是否是工业界相关
         
+        检测策略：
+        1. 标题和摘要中匹配公司名（主要来源）
+        2. 摘要中搜索机构表述（如 "We at Google propose..."）
+        
         Returns:
             (是否是工业界论文，匹配到的公司列表)
         """
         companies = self.config.get("companies", [])
         matched_companies = []
         
-        # 只检查标题和摘要，不检查作者名字（避免误匹配）
-        text_to_check = f"{paper['title']} {paper['summary']}".lower()
+        # 标题和摘要
+        title = paper['title'].lower()
+        summary = paper['summary'].lower()
         
         for company in companies:
-            if company.lower() in text_to_check:
+            company_lower = company.lower()
+            
+            # 1. 标题中匹配（权重最高）
+            if company_lower in title:
                 matched_companies.append(company)
+                continue
+            
+            # 2. 摘要中匹配，检查是否是机构表述
+            if company_lower in summary:
+                # 检查上下文，避免匹配到无关内容
+                # 查找公司名在摘要中的位置
+                idx = summary.find(company_lower)
+                if idx >= 0:
+                    # 检查前后文是否有机构相关词汇
+                    context_start = max(0, idx - 50)
+                    context_end = min(len(summary), idx + len(company) + 50)
+                    context = summary[context_start:context_end]
+                    
+                    # 机构表述关键词
+                    institution_keywords = [
+                        ' at ', ' from ', ' of ', 'research', 'labs', 'lab',
+                        'team', 'group', 'we propose', 'we present', 'our work',
+                        'university', 'institute', 'center', 'centre'
+                    ]
+                    
+                    # 如果上下文中有关键词，或者是公司名直接出现（可能是作者单位）
+                    if any(kw in context for kw in institution_keywords):
+                        matched_companies.append(company)
+                    elif company_lower in summary.split()[:100] or company_lower in summary.split()[-100:]:
+                        # 公司名出现在摘要开头或结尾，很可能是作者单位
+                        matched_companies.append(company)
+        
+        # 去重
+        matched_companies = list(dict.fromkeys(matched_companies))
         
         return len(matched_companies) > 0, matched_companies
     

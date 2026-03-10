@@ -18,6 +18,7 @@ import time
 import logging
 import requests
 import feedparser
+import pdfplumber
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple
@@ -276,6 +277,101 @@ class AIPaperDaily:
         matched_companies = list(dict.fromkeys(matched_companies))
         
         return len(matched_companies) > 0, matched_companies
+    
+    def _extract_affiliations_from_pdf(self, paper: Dict) -> List[str]:
+        """
+        从 PDF 第一页提取作者单位信息
+        
+        Args:
+            paper: 论文信息字典，包含 pdf_url
+            
+        Returns:
+            提取到的单位文本列表
+        """
+        pdf_url = paper.get('pdf_url', '')
+        if not pdf_url:
+            return []
+        
+        try:
+            # 下载 PDF
+            logger.info(f"Downloading PDF: {pdf_url}")
+            pdf_response = requests.get(pdf_url, timeout=60)
+            if pdf_response.status_code != 200:
+                logger.warning(f"Failed to download PDF: {pdf_response.status_code}")
+                return []
+            
+            # 保存到临时文件
+            import tempfile
+            with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as f:
+                f.write(pdf_response.content)
+                temp_path = f.name
+            
+            try:
+                # 解析 PDF 第一页
+                with pdfplumber.open(temp_path) as pdf:
+                    if len(pdf.pages) == 0:
+                        return []
+                    
+                    first_page = pdf.pages[0]
+                    text = first_page.extract_text()
+                    
+                    if not text:
+                        return []
+                    
+                    # 提取前 2000 个字符（通常包含作者和单位）
+                    header_text = text[:2000]
+                    
+                    # 按行分割，提取包含机构关键词的行
+                    lines = header_text.split('\n')
+                    affiliation_lines = []
+                    
+                    for line in lines:
+                        line_lower = line.lower()
+                        # 检查是否包含机构相关关键词
+                        if any(kw in line_lower for kw in ['university', 'institute', 'lab', 'research', 'center', 'dept', 'department']):
+                            affiliation_lines.append(line.strip())
+                    
+                    logger.info(f"Extracted {len(affiliation_lines)} affiliation lines from PDF")
+                    return affiliation_lines
+                    
+            finally:
+                # 清理临时文件
+                import os
+                try:
+                    os.unlink(temp_path)
+                except:
+                    pass
+                    
+        except Exception as e:
+            logger.error(f"Error extracting affiliations from PDF: {e}")
+            return []
+    
+    def _is_industry_paper_from_pdf(self, paper: Dict, affiliation_lines: List[str]) -> List[str]:
+        """
+        根据 PDF 提取的单位信息判断是否是工业界论文
+        
+        Args:
+            paper: 论文信息
+            affiliation_lines: 从 PDF 提取的单位行列表
+            
+        Returns:
+            匹配到的公司列表
+        """
+        companies = self.config.get("companies", [])
+        matched_companies = []
+        
+        # 合并所有单位行
+        affiliation_text = ' '.join(affiliation_lines).lower()
+        
+        for company in companies:
+            company_lower = company.lower()
+            if company_lower in affiliation_text:
+                matched_companies.append(company)
+        
+        # 去重
+        matched_companies = list(dict.fromkeys(matched_companies))
+        
+        return matched_companies
     
     def _build_llm_prerank_prompt(self, paper: Dict) -> str:
         """构建粗排提示词（基于标题快速筛选）- 只输出分数"""
@@ -605,6 +701,21 @@ Provide your analysis strictly in the following JSON format.
         papers_to_finerank = preranked_papers[:self.max_papers_output]
         
         logger.info(f"=== Stage 2: Fine Ranking (top {len(papers_to_finerank)} papers) ===")
+        
+        # 对前 N 篇论文解析 PDF 提取作者单位（用于工业界论文检测）
+        pdf_parse_limit = min(20, len(papers_to_finerank))  # 只解析前 20 篇，避免太慢
+        logger.info(f"Extracting affiliations from PDF for top {pdf_parse_limit} papers...")
+        for i, paper in enumerate(papers_to_finerank[:pdf_parse_limit]):
+            logger.info(f"Parsing PDF for paper {i+1}/{pdf_parse_limit}")
+            affiliation_lines = self._extract_affiliations_from_pdf(paper)
+            if affiliation_lines:
+                pdf_companies = self._is_industry_paper_from_pdf(paper, affiliation_lines)
+                if pdf_companies:
+                    paper['is_industry'] = True
+                    paper['matched_companies'] = pdf_companies
+                    paper['affiliation_lines'] = affiliation_lines
+                    logger.info(f"  -> Found industry affiliation: {pdf_companies}")
+        
         for i, paper in enumerate(papers_to_finerank):
             logger.info(f"Fine-ranking paper {i+1}/{len(papers_to_finerank)}: {paper['title'][:50]}...")
             

@@ -62,8 +62,8 @@ class AIPaperDaily:
         if not arxiv_cats:
             arxiv_cats = "cs.IR,cs.LG,cs.AI,cs.CL"
         self.arxiv_categories = [cat.strip() for cat in arxiv_cats.split(",") if cat.strip()]
-        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "300")  # 最多获取 300 篇
-        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "40")  # 精排候选集 40 篇
+        self.max_papers_fetch = int(os.getenv("MAX_PAPERS_FETCH") or "400")  # 最多获取 400 篇
+        self.max_papers_output = int(os.getenv("MAX_PAPERS_OUTPUT") or "50")  # 精排候选集 50 篇
         self.min_relevance_score = int(os.getenv("MIN_RELEVANCE_SCORE") or "4")  # 粗排阈值 4 分
         self.push_threshold = int(os.getenv("PUSH_THRESHOLD") or "6")  # 推送阈值 6 分
         

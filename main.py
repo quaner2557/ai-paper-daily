@@ -231,12 +231,8 @@ class AIPaperDaily:
         companies = self.config.get("companies", [])
         matched_companies = []
         
-        # 检查标题和摘要
+        # 只检查标题和摘要，不检查作者名字（避免误匹配）
         text_to_check = f"{paper['title']} {paper['summary']}".lower()
-        
-        # 检查作者单位（arXiv 数据中可能包含）
-        authors_text = " ".join(paper.get('authors', [])).lower()
-        text_to_check += " " + authors_text
         
         for company in companies:
             if company.lower() in text_to_check:

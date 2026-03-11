@@ -105,6 +105,29 @@ class AIPaperDaily:
             logger.error(f"Error loading processed IDs: {e}")
         return processed_ids
     
+    def load_prerank_cache(self) -> Dict[str, int]:
+        """加载已粗排过的论文缓存（arxiv_id -> prerank_score）"""
+        cache = {}
+        cache_file = self.output_dir / "prerank_cache.json"
+        try:
+            if cache_file.exists():
+                with open(cache_file, 'r', encoding='utf-8') as f:
+                    cache = json.load(f)
+                logger.info(f"Loaded {len(cache)} prerank scores from cache")
+        except Exception as e:
+            logger.error(f"Error loading prerank cache: {e}")
+        return cache
+    
+    def save_prerank_cache(self, cache: Dict[str, int]):
+        """保存粗排缓存到文件"""
+        cache_file = self.output_dir / "prerank_cache.json"
+        try:
+            with open(cache_file, 'w', encoding='utf-8') as f:
+                json.dump(cache, f, ensure_ascii=False, indent=2)
+            logger.info(f"Saved {len(cache)} prerank scores to cache")
+        except Exception as e:
+            logger.error(f"Error saving prerank cache: {e}")
+    
     def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int) -> List[Dict]:
         """批量获取 arXiv 论文（内部方法）"""
         papers = []
@@ -757,6 +780,10 @@ Provide your analysis strictly in the following JSON format.
         scored_papers = []
         preranked_papers = []
         
+        # 加载粗排缓存
+        prerank_cache = self.load_prerank_cache()
+        new_prerank_cache = dict(prerank_cache)  # 复制一份用于保存新结果
+        
         logger.info(f"Starting two-stage ranking (prerank threshold: 4, finerank top: {self.max_papers_output})")
         
         # ========== 阶段 1: 粗排（所有论文）==========
@@ -769,14 +796,23 @@ Provide your analysis strictly in the following JSON format.
             paper['is_industry'] = is_industry
             paper['matched_companies'] = matched_companies
             
-            # 粗排（基于标题快速筛选）- 使用 Flash 模型，只输出分数
-            prerank_prompt = self._build_llm_prerank_prompt(paper)
-            prerank_result = self._call_llm(prerank_prompt, model=self.prerank_model)
-            
-            if prerank_result:
-                paper['prerank_score'] = prerank_result.get('score', 5)
+            # 粗排（基于标题快速筛选）- 优先使用缓存
+            arxiv_id = paper.get('arxiv_id', '')
+            if arxiv_id in prerank_cache:
+                paper['prerank_score'] = prerank_cache[arxiv_id]
+                logger.info(f"  -> Using cached prerank score: {paper['prerank_score']}")
             else:
-                paper['prerank_score'] = self._simple_score(paper)
+                # 缓存未命中，调用 LLM 粗排
+                prerank_prompt = self._build_llm_prerank_prompt(paper)
+                prerank_result = self._call_llm(prerank_prompt, model=self.prerank_model)
+                
+                if prerank_result:
+                    paper['prerank_score'] = prerank_result.get('score', 5)
+                else:
+                    paper['prerank_score'] = self._simple_score(paper)
+                
+                # 保存到缓存
+                new_prerank_cache[arxiv_id] = paper['prerank_score']
             
             # 粗排过滤（阈值：4 分）
             if paper['prerank_score'] >= 4:
@@ -784,8 +820,9 @@ Provide your analysis strictly in the following JSON format.
                 logger.info(f"  -> Passed prerank (score: {paper['prerank_score']})")
             else:
                 logger.info(f"  -> Filtered out (prerank score: {paper['prerank_score']})")
-            
-            # 移除 sleep，加快处理速度
+        
+        # 保存粗排缓存
+        self.save_prerank_cache(new_prerank_cache)
         
         logger.info(f"Preranking complete: {len(preranked_papers)}/{len(papers)} papers passed (threshold: 4)")
         

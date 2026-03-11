@@ -788,20 +788,6 @@ Provide your analysis strictly in the following JSON format.
         
         # ========== 阶段 1: 粗排（所有论文）==========
         logger.info(f"=== Stage 1: Rough Ranking ({len(papers)} papers) ===")
-        
-        # 先解析所有论文的 PDF 提取作者单位（用于工业界论文检测）
-        logger.info("Extracting affiliations from PDF for all papers (industry detection)...")
-        for i, paper in enumerate(papers):
-            logger.info(f"Parsing PDF for paper {i+1}/{len(papers)}")
-            affiliation_lines = self._extract_affiliations_from_pdf(paper)
-            if affiliation_lines:
-                pdf_companies = self._is_industry_paper_from_pdf(paper, affiliation_lines)
-                if pdf_companies:
-                    paper['is_industry'] = True
-                    paper['matched_companies'] = pdf_companies
-                    paper['affiliation_lines'] = affiliation_lines
-                    logger.info(f"  -> Found industry affiliation: {pdf_companies}")
-        
         for i, paper in enumerate(papers):
             logger.info(f"Processing paper {i+1}/{len(papers)}: {paper['title'][:50]}...")
             
@@ -828,12 +814,7 @@ Provide your analysis strictly in the following JSON format.
                 else:
                     paper['prerank_score'] = self._simple_score(paper)
                 
-                # 工业界论文自动 +2 分，确保通过粗排
-                if paper.get('is_industry', False):
-                    paper['prerank_score'] += 2
-                    logger.info(f"  -> Industry paper bonus: +2 (new score: {paper['prerank_score']})")
-                
-                # 保存到缓存
+                # 保存到缓存（只保存原始分数，不保存加分）
                 new_prerank_cache[arxiv_id] = paper['prerank_score']
             
             # 粗排过滤（阈值：4 分）
@@ -855,7 +836,20 @@ Provide your analysis strictly in the following JSON format.
         
         logger.info(f"=== Stage 2: Fine Ranking (top {len(papers_to_finerank)} papers) ===")
         
-        # PDF 解析已在粗排前完成，直接使用结果
+        # 对前 N 篇论文解析 PDF 提取作者单位（用于工业界论文检测）
+        pdf_parse_limit = min(50, len(papers_to_finerank))  # 解析所有精排候选
+        logger.info(f"Extracting affiliations from PDF for top {pdf_parse_limit} papers...")
+        for i, paper in enumerate(papers_to_finerank[:pdf_parse_limit]):
+            logger.info(f"Parsing PDF for paper {i+1}/{pdf_parse_limit}")
+            affiliation_lines = self._extract_affiliations_from_pdf(paper)
+            if affiliation_lines:
+                pdf_companies = self._is_industry_paper_from_pdf(paper, affiliation_lines)
+                if pdf_companies:
+                    paper['is_industry'] = True
+                    paper['matched_companies'] = pdf_companies
+                    paper['affiliation_lines'] = affiliation_lines
+                    logger.info(f"  -> Found industry affiliation: {pdf_companies}")
+        
         for i, paper in enumerate(papers_to_finerank):
             logger.info(f"Fine-ranking paper {i+1}/{len(papers_to_finerank)}: {paper['title'][:50]}...")
             
@@ -877,6 +871,15 @@ Provide your analysis strictly in the following JSON format.
                 paper['reasoning'] = ''
                 paper['translation'] = self._simple_translate_title(paper['title'])
                 paper['summary_zh'] = paper['summary'][:200] + '...'
+            
+            # 精排后再次检查工业界属性（基于标题/摘要的文本匹配）
+            is_industry, matched_companies = self._is_industry_paper(paper)
+            if is_industry:
+                paper['is_industry'] = True
+                # 合并匹配到的公司
+                existing = paper.get('matched_companies', [])
+                paper['matched_companies'] = list(set(existing + matched_companies))
+                logger.info(f"  -> Post-finerank industry check: {matched_companies}")
             
             # 生成关键点
             paper['key_points'] = self._extract_key_points(paper)

@@ -1195,7 +1195,7 @@ Provide your analysis strictly in the following JSON format.
             for i, p in enumerate(industry_papers, 1):
                 score = p.get('relevance_score', 0)
                 score_stars = "⭐" * min(score, 10)
-                display_title = p.get('translation', p['title'])
+                display_title = p['title']  # 使用英文标题
                 summary_zh = p.get('summary_zh', p.get('summary', '')[:100])
                 companies = ", ".join(p.get('matched_companies', []))
                 
@@ -1223,7 +1223,7 @@ Provide your analysis strictly in the following JSON format.
             for i, p in enumerate(other_papers, 1):
                 score = p.get('relevance_score', 0)
                 score_stars = "⭐" * min(score, 10)
-                display_title = p.get('translation', p['title'])
+                display_title = p['title']  # 使用英文标题
                 summary_zh = p.get('summary_zh', p.get('summary', '')[:100])
                 
                 card_elements.append({
@@ -1350,8 +1350,8 @@ Provide your analysis strictly in the following JSON format.
                 score_stars = "⭐" * min(score, 10)
                 companies = ", ".join(p.get('matched_companies', []))
                 
-                # 使用翻译后的中文标题
-                display_title = p.get('translation', p['title'])
+                # 使用英文标题
+                display_title = p['title']
                 summary_zh = p.get('summary_zh', p.get('summary', '')[:150])
                 
                 md_content += f"""### {i}. [{display_title}]({p['url']})
@@ -1368,8 +1368,8 @@ Provide your analysis strictly in the following JSON format.
                 score = p.get('relevance_score', 0)
                 score_stars = "⭐" * min(score, 10)
                 
-                # 使用翻译后的中文标题
-                display_title = p.get('translation', p['title'])
+                # 使用英文标题
+                display_title = p['title']
                 summary_zh = p.get('summary_zh', p.get('summary', '')[:150])
                 
                 md_content += f"""### {i}. [{display_title}]({p['url']})

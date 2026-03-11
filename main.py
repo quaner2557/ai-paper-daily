@@ -189,10 +189,10 @@ class AIPaperDaily:
         # 使用北京时间（Asia/Shanghai）计算日期范围，确保与推送日期一致
         tz_shanghai = timezone(timedelta(hours=8))
         
-        # 固定获取过去 2 天的论文（end_date=昨天，start_date=前天）
+        # 固定获取过去 2 天的论文（end_date=昨天，start_date=昨天 -1 天=前天）
         # 这样可以避免当天论文还在持续提交导致的波动
         end_date = datetime.now(tz_shanghai) - timedelta(days=1)
-        start_date = end_date - timedelta(days=2)
+        start_date = end_date - timedelta(days=1)
         
         logger.info(f"Fetching papers from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (fixed 2-day window)")
         

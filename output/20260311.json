@@ -1,0 +1,169 @@
+[
+  {
+    "arxiv_id": "2603.08924v1",
+    "title": "Quantifying Uncertainty in AI Visibility: A Statistical Framework for Generative Search Measurement",
+    "authors": [
+      "Ronald Sielinski"
+    ],
+    "summary": "AI-powered answer engines are inherently non-deterministic: identical queries submitted at different times can produce different responses and cite different sources. Despite this stochastic behavior, current approaches to measuring domain visibility in generative search typically rely on single-run point estimates of citation share and prevalence, implicitly treating them as fixed values. This paper argues that citation visibility metrics should be treated as sample estimators of an underlying response distribution rather than fixed values. We conduct an empirical study of citation variability across three generative search platforms--Perplexity Search, OpenAI SearchGPT, and Google Gemini--using repeated sampling across three consumer product topics. Two sampling regimes are employed: daily collections over nine days and high-frequency sampling at ten-minute intervals. We show that citation distributions follow a power-law form and exhibit substantial variability across repeated samples. Bootstrap confidence intervals reveal that many apparent differences between domains fall within the noise floor of the measurement process. Distribution-wide rank stability analysis further demonstrates that citation rankings are unstable across samples, not only among top-ranked domains but throughout the frequently cited domain set. These findings demonstrate that single-run visibility metrics provide a misleadingly precise picture of domain performance in generative search. We argue that citation visibility must be reported with uncertainty estimates and provide practical guidance for sample sizes required to achieve interpretable confidence intervals.",
+    "categories": [
+      "stat.AP",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-03-09T20:47:22Z",
+    "updated": "2026-03-09T20:47:22Z",
+    "url": "http://arxiv.org/abs/2603.08924v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.08924v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google",
+      "OpenAI"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦生成式搜索的评估方法论，虽非核心排序算法创新，但直接解决了生成式搜索产品中的关键度量问题；因来自中国公司额外加 1 分。",
+    "translation": "量化 AI 可见性的不确定性：生成式搜索测量的统计框架",
+    "summary_zh": "提出将生成式搜索中的引用可见性指标视为潜在响应分布的样本估计而非固定值，通过统计框架量化其随机波动并提供置信区间计算方法。",
+    "key_points": [
+      "提出将生成式搜索中的引用可见性指标视为潜在响应分布的样本估计而非固定值，通过统计框架量化其随机波动并提供置信区间计算方法"
+    ]
+  },
+  {
+    "arxiv_id": "2603.08001v1",
+    "title": "Amortizing Maximum Inner Product Search with Learned Support Functions",
+    "authors": [
+      "Theo X. Olausson",
+      "João Monteiro",
+      "Michal Klein",
+      "Marco Cuturi"
+    ],
+    "summary": "Maximum inner product search (MIPS) is a crucial subroutine in machine learning, requiring the identification of key vectors that align best with a given query. We propose amortized MIPS: a learning-based approach that trains neural networks to directly predict MIPS solutions, amortizing the computational cost of matching queries (drawn from a fixed distribution) to a fixed set of keys. Our key insight is that the MIPS value function, the maximal inner product between a query and keys, is also known as the support function of the set of keys. Support functions are convex, 1-homogeneous and their gradient w.r.t. the query is exactly the optimal key in the database. We approximate the support function using two complementary approaches: (1) we train an input-convex neural network (SupportNet) to model the support function directly; the optimal key can be recovered via (autodiff) gradient computation, and (2) we regress directly the optimal key from the query using a vector valued network (KeyNet), bypassing gradient computation entirely at inference time. To learn a SupportNet, we combine score regression with gradient matching losses, and propose homogenization wrappers that enforce the positive 1-homogeneity of a neural network, theoretically linking function values to gradients. To train a KeyNet, we introduce a score consistency loss derived from the Euler theorem for homogeneous functions. Our experiments show that learned SupportNet or KeyNet achieve high match rates and open up new directions to compress databases with a specific query distribution in mind.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-03-09T06:09:20Z",
+    "updated": "2026-03-09T06:09:20Z",
+    "url": "http://arxiv.org/abs/2603.08001v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.08001v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种基于学习的方法来解决最大内积搜索（MIPS）问题，这是推荐系统召回阶段的核心技术，但文章侧重于通用机器学习算法优化，未明确展示在具体 RecSys 业务场景中的应用或验证。",
+    "translation": "利用学习到的支持函数摊销最大内积搜索",
+    "summary_zh": "该论文提出通过训练神经网络直接预测最大内积搜索的解或利用支持函数的梯度性质恢复最优键，从而将匹配查询的计算成本摊销到模型推理中。",
+    "key_points": [
+      "该论文提出通过训练神经网络直接预测最大内积搜索的解或利用支持函数的梯度性质恢复最优键，从而将匹配查询的计算成本摊销到模型推理中"
+    ]
+  },
+  {
+    "arxiv_id": "2603.08012v1",
+    "title": "Structure-Preserving Graph Contrastive Learning for Mathematical Information Retrieval",
+    "authors": [
+      "Chun-Hsi Ku",
+      "Hung-Hsuan Chen"
+    ],
+    "summary": "This paper introduces Variable Substitution as a domain-specific graph augmentation technique for graph contrastive learning (GCL) in the context of searching for mathematical formulas. Standard GCL augmentation techniques often distort the semantic meaning of mathematical formulas, particularly for small and highly structured graphs. Variable Substitution, on the other hand, preserves the core algebraic relationships and formula structure. To demonstrate the effectiveness of our technique, we apply it to a classic GCL-based retrieval model. Experiments show that this straightforward approach significantly improves retrieval performance compared to generic augmentation strategies. We release the code on GitHub.\\footnote{https://github.com/lazywulf/formula_ret_aug}.",
+    "categories": [
+      "cs.IR",
+      "cs.DL"
+    ],
+    "published": "2026-03-09T06:36:34Z",
+    "updated": "2026-03-09T06:36:34Z",
+    "url": "http://arxiv.org/abs/2603.08012v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.08012v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文针对数学公式检索（搜索的垂直领域）提出图对比学习增强方法，属于多模态/特定域搜索应用，但非通用推荐系统核心进展；虽为纯搜索技术研究，但符合'明确搜索应用'的中高优先级定义，结合中国公司背景额外 +1 分后定为 6 分。",
+    "translation": "面向数学信息检索的结构保持图对比学习",
+    "summary_zh": "提出一种名为变量替换的领域专用图增强技术，用于在数学公式检索的图对比学习中保留代数关系与公式结构语义。",
+    "key_points": [
+      "提出一种名为变量替换的领域专用图增强技术，用于在数学公式检索的图对比学习中保留代数关系与公式结构语义"
+    ]
+  },
+  {
+    "arxiv_id": "2603.08252v2",
+    "title": "FedPrism: Adaptive Personalized Federated Learning under Non-IID Data",
+    "authors": [
+      "Prakash Kumbhakar",
+      "Shrey Srivastava",
+      "Haroon R Lone"
+    ],
+    "summary": "Federated Learning (FL) suffers significant performance degradation in real-world deployments characterized by moderate to extreme statistical heterogeneity (non-IID client data). While global aggregation strategies promote broad generalization, they often fail to capture the diversity of local data distributions, leading to suboptimal personalization.\n  We address this problem with FedPrism, a framework that uses two main strategies. First, it uses a Prism Decomposition method that builds each client's model from three parts: a global foundation, a shared group part for similar clients, and a private part for unique local data. This allows the system to group similar users together automatically and adapt if their data changes. Second, we include a Dual-Stream design that runs a general model alongside a local specialist. The system routes predictions between the general model and the local specialist based on the specialist's confidence.\n  Through systematic experiments on non-IID data partitions, we demonstrate that FedPrism exceeds static aggregation and hard-clustering baselines, achieving significant accuracy gains under high heterogeneity. These results establish FedPrism as a robust and flexible solution for federated learning in heterogeneous environments, effectively balancing generalizable knowledge with adaptive personalization.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-03-09T11:23:32Z",
+    "updated": "2026-03-10T06:22:54Z",
+    "url": "http://arxiv.org/abs/2603.08252v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.08252v2.pdf",
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该文提出了一种通用的联邦学习个性化框架，虽提及用户分组但未明确针对推荐/搜索场景，属于有潜力但弱相关的通用 ML 方法。",
+    "translation": "FedPrism：非独立同分布数据下的自适应个性化联邦学习",
+    "summary_zh": "提出 FedPrism 框架，通过棱镜分解构建包含全局、群组及私有部分的模型，并结合双流路由机制，以在非独立同分布数据下实现自适应的个性化联邦学习。",
+    "key_points": [
+      "提出 FedPrism 框架，通过棱镜分解构建包含全局、群组及私有部分的模型，并结合双流路由机制，以在非独立同分布数据下实现自适应的个性化联邦学习"
+    ]
+  },
+  {
+    "arxiv_id": "2603.08251v1",
+    "title": "Not All Queries Need Deep Thought: CoFiCot for Adaptive Coarse-to-fine Stateful Refinement",
+    "authors": [
+      "Dongxu Zhang",
+      "Hongqiang Lin",
+      "Yiding Sun",
+      "Pengyu Wang",
+      "Qirui Wang",
+      "Ning Yang",
+      "Jihua Zhu"
+    ],
+    "summary": "Scaling test-time computation enhances LLM reasoning ability but faces a uniform computation paradox. Allocating identical resources leads to over-correction on simple tasks and insufficient refinement on complex ones. To address this, we propose CoFiCot, a coarse-to-fine adaptive framework that dynamically tailors inference strategies to problem difficulty. Specifically, we implement a multi-metric classifier that triages queries by synthesizing semantic entropy, consensus reliability, and predicted reasoning depth . This enables a differentiated refinement stage that applies efficient aggregation for simple queries while routing complex ones to a context-aware correction loop . We formalize correction as a stateful sequential propagation process , where each repair is strictly conditioned on the verified history of prior rectifications. By integrating Process Reward Models (PRMs) within this state-dependent trajectory, CoFiCot effectively bridges the gap between granular error localization and global logical coherence, preventing the context fragmentation typical of stateless refinement methods.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-03-09T11:23:07Z",
+    "updated": "2026-03-09T11:23:07Z",
+    "url": "http://arxiv.org/abs/2603.08251v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.08251v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 推理优化研究，专注于自适应计算和错误修正，未涉及推荐系统或搜索引擎的具体应用场景。尽管来自中国公司，但因缺乏 RecSys/Search 核心关联，基础分较低，加分后仍属低优先级。",
+    "translation": "并非所有查询都需要深度思考：用于自适应粗到细状态化精炼的 CoFiCot",
+    "summary_zh": "提出 CoFiCot 框架，通过多指标分类器动态区分查询难度，对简单查询采用高效聚合，对复杂查询执行基于历史验证的状态化序列修正。",
+    "key_points": [
+      "提出 CoFiCot 框架，通过多指标分类器动态区分查询难度，对简单查询采用高效聚合，对复杂查询执行基于历史验证的状态化序列修正"
+    ]
+  },
+  {
+    "arxiv_id": "2603.08819v1",
+    "title": "Beyond Relevance: On the Relationship Between Retrieval and RAG Information Coverage",
+    "authors": [
+      "Saron Samuel",
+      "Alexander Martin",
+      "Eugene Yang",
+      "Andrew Yates",
+      "Dawn Lawrie",
+      "Ian Soborof",
+      "Laura Dietz",
+      "Benjamin Van Durme"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) systems combine document retrieval with a generative model to address complex information seeking tasks like report generation. While the relationship between retrieval quality and generation effectiveness seems intuitive, it has not been systematically studied. We investigate whether upstream retrieval metrics can serve as reliable early indicators of the final generated response's information coverage. Through experiments across two text RAG benchmarks (TREC NeuCLIR 2024 and TREC RAG 2024) and one multimodal benchmark (WikiVideo), we analyze 15 text retrieval stacks and 10 multimodal retrieval stacks across four RAG pipelines and multiple evaluation frameworks (Auto-ARGUE and MiRAGE). Our findings demonstrate strong correlations between coverage-based retrieval metrics and nugget coverage in generated responses at both topic and system levels. This relationship holds most strongly when retrieval objectives align with generation goals, though more complex iterative RAG pipelines can partially decouple generation quality from retrieval effectiveness. These findings provide empirical support for using retrieval metrics as proxies for RAG performance.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-03-09T18:20:20Z",
+    "updated": "2026-03-09T18:20:20Z",
+    "url": "http://arxiv.org/abs/2603.08819v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.08819v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 RAG/检索增强生成研究，聚焦于通用报告生成任务而非推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），缺乏直接的 RecSys 应用。",
+    "translation": "超越相关性：检索与 RAG 信息覆盖率之间的关系研究",
+    "summary_zh": "本文研究了检索质量指标能否作为 RAG 系统生成内容信息覆盖率的早期预测代理，发现两者在目标对齐时存在强相关性。",
+    "key_points": [
+      "本文研究了检索质量指标能否作为 RAG 系统生成内容信息覆盖率的早期预测代理，发现两者在目标对齐时存在强相关性"
+    ]
+  }
+]

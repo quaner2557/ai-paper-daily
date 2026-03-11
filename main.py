@@ -307,52 +307,51 @@ class AIPaperDaily:
         if pdf_response is None or pdf_response.status_code != 200:
             logger.error(f"Failed to download PDF after {max_retries} attempts")
             return []
-            
-            # 保存到临时文件
-            import tempfile
-            with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as f:
-                f.write(pdf_response.content)
-                temp_path = f.name
-            
-            try:
-                # 解析 PDF 第一页
-                with pdfplumber.open(temp_path) as pdf:
-                    if len(pdf.pages) == 0:
-                        return []
-                    
-                    first_page = pdf.pages[0]
-                    text = first_page.extract_text()
-                    
-                    if not text:
-                        return []
-                    
-                    # 提取前 2000 个字符（通常包含作者和单位）
-                    header_text = text[:2000]
-                    
-                    # 按行分割，提取包含机构关键词的行
-                    lines = header_text.split('\n')
-                    affiliation_lines = []
-                    
-                    for line in lines:
-                        line_lower = line.lower()
-                        # 检查是否包含机构相关关键词
-                        if any(kw in line_lower for kw in ['university', 'institute', 'lab', 'research', 'center', 'dept', 'department']):
-                            affiliation_lines.append(line.strip())
-                    
-                    logger.info(f"Extracted {len(affiliation_lines)} affiliation lines from PDF")
-                    return affiliation_lines
-                    
-            finally:
-                # 清理临时文件
-                import os
-                try:
-                    os.unlink(temp_path)
-                except:
-                    pass
-                    
+        
+        # 保存到临时文件
+        import tempfile
+        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as f:
+            f.write(pdf_response.content)
+            temp_path = f.name
+        
+        try:
+            # 解析 PDF 第一页
+            with pdfplumber.open(temp_path) as pdf:
+                if len(pdf.pages) == 0:
+                    return []
+                
+                first_page = pdf.pages[0]
+                text = first_page.extract_text()
+                
+                if not text:
+                    return []
+                
+                # 提取前 2000 个字符（通常包含作者和单位）
+                header_text = text[:2000]
+                
+                # 按行分割，提取包含机构关键词的行
+                lines = header_text.split('\n')
+                affiliation_lines = []
+                
+                for line in lines:
+                    line_lower = line.lower()
+                    # 检查是否包含机构相关关键词
+                    if any(kw in line_lower for kw in ['university', 'institute', 'lab', 'research', 'center', 'dept', 'department']):
+                        affiliation_lines.append(line.strip())
+                
+                logger.info(f"Extracted {len(affiliation_lines)} affiliation lines from PDF")
+                return affiliation_lines
+                
         except Exception as e:
             logger.error(f"Error extracting affiliations from PDF: {e}")
             return []
+        finally:
+            # 清理临时文件
+            import os
+            try:
+                os.unlink(temp_path)
+            except:
+                pass
     
     def _extract_companies_from_affiliations(self, paper: Dict, affiliation_lines: List[str]) -> List[str]:
         """
@@ -942,8 +941,8 @@ Provide your analysis strictly in the following JSON format.
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
-        # 使用精排的中文翻译标题
-        display_title = paper.get('translation', paper['title'])
+        # 使用英文标题
+        display_title = paper['title']
         
         md = f"""### {index}. [{display_title}]({paper['url']})
 

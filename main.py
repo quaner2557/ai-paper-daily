@@ -180,8 +180,9 @@ class AIPaperDaily:
         batch_papers = []
         start = 0
         max_results = 500  # 每批 500 篇
+        max_batches = 10  # 最多获取 10 批（5000 篇）
         
-        while start < (days_back * 200):  # 假设每天最多 200 篇
+        while start < (max_batches * max_results):
             papers = self._fetch_arxiv_batch(categories_query, start, max_results)
             if not papers:
                 break

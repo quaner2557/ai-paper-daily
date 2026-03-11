@@ -659,12 +659,13 @@ Provide your analysis strictly in the following JSON format.
 }}
 """
     
-    def _call_llm(self, prompt: str, model: str = None) -> Optional[Dict]:
-        """调用大模型 API（兼容通义千问/DeepSeek）
+    def _call_llm(self, prompt: str, model: str = None, max_retries: int = 3) -> Optional[Dict]:
+        """调用大模型 API（兼容通义千问/DeepSeek，带重试机制）
         
         Args:
             prompt: 提示词
             model: 模型名称，默认使用 finerank_model
+            max_retries: 最大重试次数（默认 3 次）
         """
         if not self.llm_api_key:
             logger.warning("LLM_API_KEY not set, skipping LLM scoring")
@@ -673,54 +674,71 @@ Provide your analysis strictly in the following JSON format.
         # 使用传入的模型，或使用默认模型
         model_to_use = model or self.finerank_model
         
-        try:
-            headers = {
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.llm_api_key}"
-            }
-            
-            # 通义千问需要 response_format 参数来强制 JSON 输出
-            payload = {
-                "model": model_to_use,
-                "messages": [
-                    {"role": "system", "content": "你是一个 AI 研究助手。请只输出 JSON，不要有其他内容。"},
-                    {"role": "user", "content": prompt}
-                ],
-                "temperature": self.config.get("llm", {}).get("temperature", 0.3),
-                "max_tokens": self.config.get("llm", {}).get("max_tokens", 2000),
-            }
-            
-            # 通义千问/阿里云百炼配置
-            if "aliyuncs" in self.llm_base_url or "dashscope" in self.llm_base_url:
-                payload["response_format"] = {"type": "json_object"}
-                # 禁用 thinking，让模型直接输出结果
-                payload["enable_thinking"] = False
-            
-            url = f"{self.llm_base_url.rstrip('/')}/chat/completions"
-            logger.info(f"Calling LLM API: {url}")
-            response = requests.post(url, json=payload, headers=headers, timeout=60)
-            
-            if response.status_code != 200:
-                logger.error(f"LLM API error: {response.status_code} - {response.text[:300]}")
-                return None
+        for attempt in range(max_retries):
+            try:
+                headers = {
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.llm_api_key}"
+                }
                 
-            response.raise_for_status()
-            
-            result = response.json()
-            content = result['choices'][0]['message']['content']
-            
-            # 解析 JSON 响应
-            # 处理可能的 markdown 代码块标记
-            content = re.sub(r'^```json\s*', '', content)
-            content = re.sub(r'\s*```$', '', content)
-            content = content.strip()
-            
-            llm_result = json.loads(content)
-            return llm_result
-            
-        except Exception as e:
-            logger.error(f"LLM API call failed: {e}")
-            return None
+                # 通义千问需要 response_format 参数来强制 JSON 输出
+                payload = {
+                    "model": model_to_use,
+                    "messages": [
+                        {"role": "system", "content": "你是一个 AI 研究助手。请只输出 JSON，不要有其他内容。"},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "temperature": self.config.get("llm", {}).get("temperature", 0.3),
+                    "max_tokens": self.config.get("llm", {}).get("max_tokens", 2000),
+                }
+                
+                # 通义千问/阿里云百炼配置
+                if "aliyuncs" in self.llm_base_url or "dashscope" in self.llm_base_url:
+                    payload["response_format"] = {"type": "json_object"}
+                    # 禁用 thinking，让模型直接输出结果
+                    payload["enable_thinking"] = False
+                
+                url = f"{self.llm_base_url.rstrip('/')}/chat/completions"
+                logger.info(f"Calling LLM API: {url}")
+                response = requests.post(url, json=payload, headers=headers, timeout=60)
+                
+                # 处理 503/429 限流错误，指数退避重试
+                if response.status_code in [429, 503]:
+                    wait_time = (2 ** attempt) + random.uniform(0, 1)  # 指数退避 + 随机抖动
+                    logger.warning(f"LLM API rate limited ({response.status_code}), retrying in {wait_time:.1f}s (attempt {attempt+1}/{max_retries})")
+                    time.sleep(wait_time)
+                    continue
+                
+                if response.status_code != 200:
+                    logger.error(f"LLM API error: {response.status_code} - {response.text[:300]}")
+                    return None
+                    
+                response.raise_for_status()
+                
+                result = response.json()
+                content = result['choices'][0]['message']['content']
+                
+                # 解析 JSON 响应
+                # 处理可能的 markdown 代码块标记
+                content = re.sub(r'^```json\s*', '', content)
+                content = re.sub(r'\s*```$', '', content)
+                content = content.strip()
+                
+                llm_result = json.loads(content)
+                return llm_result
+                
+            except json.JSONDecodeError as e:
+                logger.error(f"LLM API response parse error: {e}")
+                return None
+            except Exception as e:
+                logger.error(f"LLM API call failed (attempt {attempt+1}): {e}")
+                if attempt < max_retries - 1:
+                    wait_time = (2 ** attempt) + random.uniform(0, 1)
+                    time.sleep(wait_time)
+                else:
+                    return None
+        
+        return None
     
     def score_and_summarize_papers(self, papers: List[Dict]) -> List[Dict]:
         """
@@ -820,7 +838,10 @@ Provide your analysis strictly in the following JSON format.
             
             logger.info(f"  -> Fine-ranked (score: {paper['relevance_score']})")
             
-            # 移除 sleep，加快处理速度
+            # 添加请求间隔，避免 API 限流（每 5 个请求暂停 2 秒）
+            if (i + 1) % 5 == 0 and i < len(papers_to_finerank) - 1:
+                logger.info("Pausing 2s to avoid rate limiting...")
+                time.sleep(2)
         
         # 按精排分数排序
         scored_papers.sort(key=lambda p: p.get('relevance_score', 0), reverse=True)

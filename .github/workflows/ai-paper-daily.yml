@@ -15,10 +15,14 @@ on:
 jobs:
   daily-papers:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        persist-credentials: true
       
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -68,7 +72,8 @@ jobs:
           echo "No new papers to commit"
         else
           git commit -m "Update AI papers $(date +%Y-%m-%d)"
-          git push
+          # 使用 GITHUB_TOKEN 推送
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
         fi
       continue-on-error: true
     

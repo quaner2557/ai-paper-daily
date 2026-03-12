@@ -210,7 +210,8 @@ class AIPaperDaily:
         batch_papers = []
         start = 0
         max_results = 500  # 每批 500 篇
-        max_batches = 10  # 最多获取 10 批（5000 篇）
+        # 回刷模式需要获取更多批次才能找到历史日期的论文
+        max_batches = 100 if target_date else 10  # 回刷时最多 100 批（50000 篇），默认 10 批（5000 篇）
         
         while start < (max_batches * max_results):
             papers = self._fetch_arxiv_batch(categories_query, start, max_results)

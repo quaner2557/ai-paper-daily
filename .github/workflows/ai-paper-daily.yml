@@ -6,10 +6,17 @@ on:
     - cron: '30 23 * * *'
   workflow_dispatch:
     inputs:
-      days:
-        description: '获取最近几天的论文'
+      mode:
+        description: '运行模式：daily(日常) 或 backfill(回刷)'
         required: false
-        default: '1'
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - backfill
+      backfill_date:
+        description: '回刷日期 (YYYYMMDD 格式，仅在 mode=backfill 时使用)'
+        required: false
         type: string
 
 jobs:
@@ -41,11 +48,14 @@ jobs:
       run: |
         pip install -r requirements.txt
         
-    - name: Run AI Paper Daily
+    - name: Run AI Paper Daily (Daily Mode)
+      if: github.event.inputs.mode == 'daily' || github.event.inputs.mode == ''
       env:
         LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
         LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        LLM_PRERANK_MODEL: ${{ secrets.LLM_PRERANK_MODEL }}
+        LLM_FINERANK_MODEL: ${{ secrets.LLM_FINERANK_MODEL }}
         FEISHU_URL: ${{ secrets.FEISHU_URL }}
         DINGTALK_URL: ${{ secrets.DINGTALK_URL }}
         DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
@@ -55,6 +65,30 @@ jobs:
         MIN_RELEVANCE_SCORE: ${{ vars.MIN_RELEVANCE_SCORE }}
       run: |
         python main.py
+    
+    - name: Run AI Paper Daily (Backfill Mode)
+      if: github.event.inputs.mode == 'backfill'
+      env:
+        LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+        LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        LLM_PRERANK_MODEL: ${{ secrets.LLM_PRERANK_MODEL }}
+        LLM_FINERANK_MODEL: ${{ secrets.LLM_FINERANK_MODEL }}
+        FEISHU_URL: ${{ secrets.FEISHU_URL }}
+        DINGTALK_URL: ${{ secrets.DINGTALK_URL }}
+        DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+        ARXIV_CATEGORIES: ${{ vars.ARXIV_CATEGORIES }}
+        MAX_PAPERS_FETCH: ${{ vars.MAX_PAPERS_FETCH }}
+        MAX_PAPERS_OUTPUT: ${{ vars.MAX_PAPERS_OUTPUT }}
+        MIN_RELEVANCE_SCORE: ${{ vars.MIN_RELEVANCE_SCORE }}
+        BACKFILL_DATE: ${{ github.event.inputs.backfill_date }}
+      run: |
+        if [ -z "$BACKFILL_DATE" ]; then
+          echo "❌ Error: backfill_date is required for backfill mode"
+          exit 1
+        fi
+        echo "🚀 Backfilling date: $BACKFILL_DATE"
+        python backfill_date.py --start $BACKFILL_DATE --end $BACKFILL_DATE
         
     - name: Commit and push results
       run: |

@@ -165,12 +165,13 @@ class AIPaperDaily:
         
         return papers
     
-    def fetch_arxiv_papers(self, target_count: int = 300) -> List[Dict]:
+    def fetch_arxiv_papers(self, target_count: int = 300, target_date: Optional[datetime] = None) -> List[Dict]:
         """
         从 arXiv API 获取论文（去重后自动补充，保证候选集数量）
         
         Args:
             target_count: 目标论文数量（默认 300 篇）
+            target_date: 目标日期（用于回刷历史数据），None 表示使用默认逻辑（获取昨天）
             
         Returns:
             去重后的论文列表
@@ -185,16 +186,22 @@ class AIPaperDaily:
         # 2. 构建搜索查询
         categories_query = " OR ".join([f"cat:{cat.strip()}" for cat in self.arxiv_categories])
         
-        # 3. 固定时间窗口：获取过去 2 天的论文（给 arXiv 时间稳定）
+        # 3. 时间窗口
         # 使用北京时间（Asia/Shanghai）计算日期范围，确保与推送日期一致
         tz_shanghai = timezone(timedelta(hours=8))
         
-        # 固定获取过去 2 天的论文（end_date=昨天，start_date=昨天 -1 天=前天）
-        # 这样可以避免当天论文还在持续提交导致的波动
-        end_date = datetime.now(tz_shanghai) - timedelta(days=1)
-        start_date = end_date - timedelta(days=1)
-        
-        logger.info(f"Fetching papers from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (fixed 2-day window)")
+        if target_date:
+            # 回刷模式：获取指定日期的论文（该日期 00:00 到 23:59）
+            start_date = target_date.replace(hour=0, minute=0, second=0, tzinfo=tz_shanghai)
+            end_date = target_date.replace(hour=23, minute=59, second=59, tzinfo=tz_shanghai)
+            logger.info(f"Backfill mode: Fetching papers for {target_date.strftime('%Y-%m-%d')}")
+        else:
+            # 默认模式：获取过去 2 天的论文（给 arXiv 时间稳定）
+            # 固定获取过去 2 天的论文（end_date=昨天，start_date=昨天 -1 天=前天）
+            # 这样可以避免当天论文还在持续提交导致的波动
+            end_date = datetime.now(tz_shanghai) - timedelta(days=1)
+            start_date = end_date - timedelta(days=1)
+            logger.info(f"Fetching papers from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (fixed 2-day window)")
         
         all_papers = []
         seen_ids = set()  # 本次运行内去重

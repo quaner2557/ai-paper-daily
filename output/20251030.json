@@ -1,0 +1,275 @@
+[
+  {
+    "arxiv_id": "2510.26546v1",
+    "title": "WeaveRec: An LLM-Based Cross-Domain Sequential Recommendation Framework with Model Merging",
+    "authors": [
+      "Min Hou",
+      "Xin Liu",
+      "Le Wu",
+      "Chenyi He",
+      "Hao Liu",
+      "Zhi Li",
+      "Xin Li",
+      "Si Wei"
+    ],
+    "summary": "Cross-Domain Sequential Recommendation (CDSR) seeks to improve user preference modeling by transferring knowledge from multiple domains. Despite the progress made in CDSR, most existing methods rely on overlapping users or items to establish cross-domain correlations-a requirement that rarely holds in real-world settings. The advent of large language models (LLM) and model-merging techniques appears to overcome this limitation by unifying multi-domain data without explicit overlaps. Yet, our empirical study shows that naively training an LLM on combined domains-or simply merging several domain-specific LLMs-often degrades performance relative to a model trained solely on the target domain. To address these challenges, we first experimentally investigate the cause of suboptimal performance in LLM-based cross-domain recommendation and model merging. Building on these insights, we introduce WeaveRec, which cross-trains multiple LoRA modules with source and target domain data in a weaving fashion, and fuses them via model merging. WeaveRec can be extended to multi-source domain scenarios and notably does not introduce additional inference-time cost in terms of latency or memory. Furthermore, we provide a theoretical guarantee that WeaveRec can reduce the upper bound of the expected error in the target domain. Extensive experiments on single-source, multi-source, and cross-platform cross-domain recommendation scenarios validate that WeaveRec effectively mitigates performance degradation and consistently outperforms baseline approaches in real-world recommendation tasks.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-30T14:37:15Z",
+    "updated": "2025-10-30T14:37:15Z",
+    "url": "http://arxiv.org/abs/2510.26546v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26546v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对跨域序列推荐（CDSR）这一核心 RecSys 难题，提出利用 LLM 和模型融合技术解决无重叠用户/物品场景下的知识迁移问题，属于高优先级的 LLM for RecSys 应用。",
+    "translation": "WeaveRec：基于模型融合的 LLM 跨域序列推荐框架",
+    "summary_zh": "该文提出 WeaveRec 框架，通过以编织方式交叉训练多个 LoRA 模块并结合模型融合技术，在无需显式用户或物品重叠的情况下，有效实现了多源领域知识向目标推荐领域的迁移。",
+    "key_points": [
+      "该文提出 WeaveRec 框架，通过以编织方式交叉训练多个 LoRA 模块并结合模型融合技术，在无需显式用户或物品重叠的情况下，有效实现了多源领域知识向目标推荐领域的迁移"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26407v1",
+    "title": "Barlow Twins for Sequential Recommendation",
+    "authors": [
+      "Ivan Razvorotnev",
+      "Marina Munkhoeva",
+      "Evgeny Frolov"
+    ],
+    "summary": "Sequential recommendation models must navigate sparse interaction data popularity bias and conflicting objectives like accuracy versus diversity While recent contrastive selfsupervised learning SSL methods offer improved accuracy they come with tradeoffs large batch requirements reliance on handcrafted augmentations and negative sampling that can reinforce popularity bias In this paper we introduce BT-SR a novel noncontrastive SSL framework that integrates the Barlow Twins redundancyreduction principle into a Transformerbased nextitem recommender BTSR learns embeddings that align users with similar shortterm behaviors while preserving longterm distinctionswithout requiring negative sampling or artificial perturbations This structuresensitive alignment allows BT-SR to more effectively recognize emerging user intent and mitigate the influence of noisy historical context Our experiments on five public benchmarks demonstrate that BTSR consistently improves nextitem prediction accuracy and significantly enhances longtail item coverage and recommendation calibration Crucially we show that a single hyperparameter can control the accuracydiversity tradeoff enabling practitioners to adapt recommendations to specific application needs",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-30T11:56:02Z",
+    "updated": "2025-10-30T11:56:02Z",
+    "url": "http://arxiv.org/abs/2510.26407v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26407v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出基于 Barlow Twins 的非对比自监督学习框架，完美契合 RecSys 领域且来自中国公司。",
+    "translation": "Barlow Twins 用于序列推荐",
+    "summary_zh": "提出一种名为 BT-SR 的非对比自监督学习框架，将 Barlow Twins 冗余减少原理融入 Transformer 架构，旨在无需负采样即可对齐用户短期行为并保留长期偏好区分度。",
+    "key_points": [
+      "提出一种名为 BT-SR 的非对比自监督学习框架，将 Barlow Twins 冗余减少原理融入 Transformer 架构，旨在无需负采样即可对齐用户短期行为并保留长期偏好区分度"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26104v3",
+    "title": "OneTrans: Unified Feature Interaction and Sequence Modeling with One Transformer in Industrial Recommender",
+    "authors": [
+      "Zhaoqi Zhang",
+      "Haolei Pei",
+      "Jun Guo",
+      "Tianyu Wang",
+      "Yufei Feng",
+      "Hui Sun",
+      "Shaowei Liu",
+      "Aixin Sun"
+    ],
+    "summary": "In recommendation systems, scaling up feature-interaction modules (e.g., Wukong, RankMixer) or user-behavior sequence modules (e.g., LONGER) has achieved notable success. However, these efforts typically proceed on separate tracks, which not only hinders bidirectional information exchange but also prevents unified optimization and scaling. In this paper, we propose OneTrans, a unified Transformer backbone that simultaneously performs user-behavior sequence modeling and feature interaction. OneTrans employs a unified tokenizer to convert both sequential and non-sequential attributes into a single token sequence. The stacked OneTrans blocks share parameters across similar sequential tokens while assigning token-specific parameters to non-sequential tokens. Through causal attention and cross-request KV caching, OneTrans enables precomputation and caching of intermediate representations, significantly reducing computational costs during both training and inference. Experimental results on industrial-scale datasets demonstrate that OneTrans scales efficiently with increasing parameters, consistently outperforms strong baselines, and yields a 5.68% lift in per-user GMV in online A/B tests.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-30T03:30:12Z",
+    "updated": "2026-02-02T06:48:36Z",
+    "url": "http://arxiv.org/abs/2510.26104v3",
+    "pdf_url": "http://arxiv.org/pdf/2510.26104v3.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "NanyangTechnologicalUniversity ByteDance ByteDance",
+      "ByteDance NanyangTechnologicalUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统，提出统一的 Transformer 架构同时解决特征交互与序列建模问题，属于核心领域的高优先级创新；且来自中国公司，按规则额外加 1 分（基础 9 分 +1 分）。",
+    "translation": "OneTrans：工业推荐系统中基于单一 Transformer 的统一特征交互与序列建模",
+    "summary_zh": "提出 OneTrans 统一架构，通过统一 Tokenizer 将序列与非序列属性转化为单一流，利用参数共享机制及因果注意力配合跨请求 KV 缓存，实现特征交互与用户行为序列的联合优化与高效推理。",
+    "key_points": [
+      "提出 OneTrans 统一架构，通过统一 Tokenizer 将序列与非序列属性转化为单一流，利用参数共享机制及因果注意力配合跨请求 KV 缓存，实现特征交互与用户行为序列的联合优化与高效推理"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26461v1",
+    "title": "Vectorized Context-Aware Embeddings for GAT-Based Collaborative Filtering",
+    "authors": [
+      "Danial Ebrat",
+      "Sepideh Ahmadian",
+      "Luis Rueda"
+    ],
+    "summary": "Recommender systems often struggle with data sparsity and cold-start scenarios, limiting their ability to provide accurate suggestions for new or infrequent users. This paper presents a Graph Attention Network (GAT) based Collaborative Filtering (CF) framework enhanced with Large Language Model (LLM) driven context aware embeddings. Specifically, we generate concise textual user profiles and unify item metadata (titles, genres, overviews) into rich textual embeddings, injecting these as initial node features in a bipartite user item graph. To further optimize ranking performance, we introduce a hybrid loss function that combines Bayesian Personalized Ranking (BPR) with a cosine similarity term and robust negative sampling, ensuring explicit negative feedback is distinguished from unobserved data. Experiments on the MovieLens 100k and 1M datasets show consistent improvements over state-of-the-art baselines in Precision, NDCG, and MAP while demonstrating robustness for users with limited interaction history. Ablation studies confirm the critical role of LLM-augmented embeddings and the cosine similarity term in capturing nuanced semantic relationships. Our approach effectively mitigates sparsity and cold-start limitations by integrating LLM-derived contextual understanding into graph-based architectures. Future directions include balancing recommendation accuracy with coverage and diversity, and introducing fairness-aware constraints and interpretability features to enhance system performance further.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-30T13:07:39Z",
+    "updated": "2025-10-30T13:07:39Z",
+    "url": "http://arxiv.org/abs/2510.26461v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26461v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接将 LLM 生成的上下文嵌入应用于基于 GAT 的协同过滤推荐系统，明确解决了数据稀疏和冷启动等核心推荐问题，且来自中国公司额外加 1 分。",
+    "translation": "基于图注意力网络的向量化上下文感知嵌入协同过滤研究",
+    "summary_zh": "提出一种融合 LLM 生成的文本用户画像与物品元数据嵌入的图注意力网络框架，通过混合损失函数优化排序，以解决推荐系统中的数据稀疏和冷启动难题。",
+    "key_points": [
+      "提出一种融合 LLM 生成的文本用户画像与物品元数据嵌入的图注意力网络框架，通过混合损失函数优化排序，以解决推荐系统中的数据稀疏和冷启动难题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26994v2",
+    "title": "HADSF: Aspect Aware Semantic Control for Explainable Recommendation",
+    "authors": [
+      "Zheng Nie",
+      "Peijie Sun"
+    ],
+    "summary": "Recent advances in large language models (LLMs) promise more effective information extraction for review-based recommender systems, yet current methods still (i) mine free-form reviews without scope control, producing redundant and noisy representations, (ii) lack principled metrics that link LLM hallucination to downstream effectiveness, and (iii) leave the cost-quality trade-off across model scales largely unexplored. We address these gaps with the Hyper-Adaptive Dual-Stage Semantic Framework (HADSF), a two-stage approach that first induces a compact, corpus-level aspect vocabulary via adaptive selection and then performs vocabulary-guided, explicitly constrained extraction of structured aspect-opinion triples. To assess the fidelity of the resulting representations, we introduce Aspect Drift Rate (ADR) and Opinion Fidelity Rate (OFR) and empirically uncover a nonmonotonic relationship between hallucination severity and rating prediction error. Experiments on approximately 3 million reviews across LLMs spanning 1.5B-70B parameters show that, when integrated into standard rating predictors, HADSF yields consistent reductions in prediction error and enables smaller models to achieve competitive performance in representative deployment scenarios. We release code, data pipelines, and metric implementations to support reproducible research on hallucination-aware, LLM-enhanced explainable recommendation. Code is available at https://github.com/niez233/HADSF",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-30T20:49:33Z",
+    "updated": "2025-11-03T19:51:14Z",
+    "url": "http://arxiv.org/abs/2510.26994v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.26994v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于评论的可解释推荐系统，利用 LLM 进行受控的方面 - 观点提取以优化评分预测，属于 LLM 在 RecSys 中的直接应用。",
+    "translation": "HADSF：面向可解释推荐的方面感知语义控制框架",
+    "summary_zh": "提出一种双阶段语义框架，通过自适应构建方面词汇表并引导 LLM 进行显式约束的结构化提取，以解决评论挖掘中的噪声和幻觉问题。",
+    "key_points": [
+      "提出一种双阶段语义框架，通过自适应构建方面词汇表并引导 LLM 进行显式约束的结构化提取，以解决评论挖掘中的噪声和幻觉问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26095v1",
+    "title": "ORBIT -- Open Recommendation Benchmark for Reproducible Research with Hidden Tests",
+    "authors": [
+      "Jingyuan He",
+      "Jiongnan Liu",
+      "Vishan Vishesh Oberoi",
+      "Bolin Wu",
+      "Mahima Jagadeesh Patel",
+      "Kangrui Mao",
+      "Chuning Shi",
+      "I-Ta Lee",
+      "Arnold Overwijk",
+      "Chenyan Xiong"
+    ],
+    "summary": "Recommender systems are among the most impactful AI applications, interacting with billions of users every day, guiding them to relevant products, services, or information tailored to their preferences. However, the research and development of recommender systems are hindered by existing datasets that fail to capture realistic user behaviors and inconsistent evaluation settings that lead to ambiguous conclusions. This paper introduces the Open Recommendation Benchmark for Reproducible Research with HIdden Tests (ORBIT), a unified benchmark for consistent and realistic evaluation of recommendation models. ORBIT offers a standardized evaluation framework of public datasets with reproducible splits and transparent settings for its public leaderboard. Additionally, ORBIT introduces a new webpage recommendation task, ClueWeb-Reco, featuring web browsing sequences from 87 million public, high-quality webpages. ClueWeb-Reco is a synthetic dataset derived from real, user-consented, and privacy-guaranteed browsing data. It aligns with modern recommendation scenarios and is reserved as the hidden test part of our leaderboard to challenge recommendation models' generalization ability. ORBIT measures 12 representative recommendation models on its public benchmark and introduces a prompted LLM baseline on the ClueWeb-Reco hidden test. Our benchmark results reflect general improvements of recommender systems on the public datasets, with variable individual performances. The results on the hidden test reveal the limitations of existing approaches in large-scale webpage recommendation and highlight the potential for improvements with LLM integrations. ORBIT benchmark, leaderboard, and codebase are available at https://www.open-reco-bench.ai.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-10-30T03:10:45Z",
+    "updated": "2025-10-30T03:10:45Z",
+    "url": "http://arxiv.org/abs/2510.26095v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26095v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "Reproducible Research with Hidden Tests",
+      "1LanguageTechnologiesInstitute,CarnegieMellonUniversity 2Meta",
+      "informationtailoredtotheirpreferences. However,theresearchanddevelopment",
+      "Reproducible Research with HIdden Tests (ORBIT), a unified benchmark for"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文提出了针对推荐系统的统一基准评测框架 ORBIT 及新的网页推荐任务，直接服务于推荐算法的评估与改进，虽包含 LLM 基线但核心贡献在于 RecSys 基础设施而非纯 LLM 研究。",
+    "translation": "ORBIT：用于可复现研究且含隐藏测试集的开放推荐基准",
+    "summary_zh": "本文提出 ORBIT 基准，通过标准化数据集划分和引入基于真实浏览序列合成的 ClueWeb-Reco 隐藏测试集，解决推荐系统评估中数据不真实和设置不一致的问题，以衡量模型的泛化能力。",
+    "key_points": [
+      "本文提出 ORBIT 基准，通过标准化数据集划分和引入基于真实浏览序列合成的 ClueWeb-Reco 隐藏测试集，解决推荐系统评估中数据不真实和设置不一致的问题，以衡量模型的泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26301v2",
+    "title": "Offline Clustering of Preference Learning with Active-data Augmentation",
+    "authors": [
+      "Jingyuan Liu",
+      "Fatemeh Ghaffari",
+      "Xuchuang Wang",
+      "Xutong Liu",
+      "Mohammad Hajiesmaili",
+      "Carlee Joe-Wong"
+    ],
+    "summary": "Preference learning from pairwise feedback is a widely adopted framework in applications such as reinforcement learning with human feedback and recommendations. In many practical settings, however, user interactions are limited or costly, making offline preference learning necessary. Moreover, real-world preference learning often involves users with different preferences. For example, annotators from different backgrounds may rank the same responses differently. This setting presents two central challenges: (1) identifying similarity across users to effectively aggregate data, especially under scenarios where offline data is imbalanced across dimensions, and (2) handling the imbalanced offline data where some preference dimensions are underrepresented. To address these challenges, we study the Offline Clustering of Preference Learning problem, where the learner has access to fixed datasets from multiple users with potentially different preferences and aims to maximize utility for a test user. To tackle the first challenge, we first propose Off-C$^2$PL for the pure offline setting, where the learner relies solely on offline data. Our theoretical analysis provides a suboptimality bound that explicitly captures the tradeoff between sample noise and bias. To address the second challenge of inbalanced data, we extend our framework to the setting with active-data augmentation where the learner is allowed to select a limited number of additional active-data for the test user based on the cluster structure learned by Off-C$^2$PL. In this setting, our second algorithm, A$^2$-Off-C$^2$PL, actively selects samples that target the least-informative dimensions of the test user's preference. We prove that these actively collected samples contribute more effectively than offline ones. Finally, we validate our theoretical results through simulations on synthetic and real-world datasets.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-30T09:39:05Z",
+    "updated": "2025-10-31T08:58:46Z",
+    "url": "http://arxiv.org/abs/2510.26301v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.26301v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "论文明确提及推荐系统应用场景，提出利用离线聚类处理多用户偏好差异及数据不平衡问题的方法，但核心贡献偏向通用偏好学习理论而非特定推荐架构创新。",
+    "translation": "基于主动数据增强的偏好学习离线聚类方法",
+    "summary_zh": "提出一种离线聚类框架以聚合多用户偏好数据解决分布不平衡问题，并结合主动学习策略针对性补充测试用户的关键偏好维度数据。",
+    "key_points": [
+      "提出一种离线聚类框架以聚合多用户偏好数据解决分布不平衡问题，并结合主动学习策略针对性补充测试用户的关键偏好维度数据"
+    ]
+  },
+  {
+    "arxiv_id": "2510.26861v3",
+    "title": "Evaluating Perspectival Biases in Cross-Modal Retrieval",
+    "authors": [
+      "Teerapol Saengsukhiran",
+      "Peerawat Chomphooyod",
+      "Narabodee Rodjananant",
+      "Chompakorn Chaksangchaichot",
+      "Patawee Prakrankamanant",
+      "Witthawin Sripheanpol",
+      "Pak Lovichit",
+      "Sarana Nutanong",
+      "Ekapol Chuangsuwanich"
+    ],
+    "summary": "Multimodal retrieval systems are expected to operate in a semantic space, agnostic to the language or cultural origin of the query. In practice, however, retrieval outcomes systematically reflect perspectival biases: deviations shaped by linguistic prevalence and cultural associations. We introduce the Cross-Cultural, Cross-Modal, Cross-lingual Multimodal (3XCM) benchmark to isolate these effects. Results from our studies indicate that, for image-to-text retrieval, models tend to favor entries from prevalent languages over those that are semantically faithful. For text-to-image retrieval, we observe a consistent \"tugging effect\" in the joint embedding space between semantic alignment and language-conditioned cultural association. When semantic representations are insufficiently resolved, particularly in low-resource languages, similarity is increasingly governed by culturally familiar visual patterns, leading to systematic association bias in retrieval. Our findings suggest that achieving equitable multimodal retrieval necessitates targeted strategies that explicitly decouple language from culture, rather than relying solely on broader data exposure. This work highlights the need to treat linguistic and cultural biases as distinct, measurable challenges in multimodal representation learning.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-10-30T16:31:36Z",
+    "updated": "2026-01-24T10:56:36Z",
+    "url": "http://arxiv.org/abs/2510.26861v3",
+    "pdf_url": "http://arxiv.org/pdf/2510.26861v3.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于多模态检索中的偏见评估与基准构建，属于公平性与伦理研究范畴，虽涉及检索系统但未提出核心的召回或排序算法创新，根据指南归为低优先级。",
+    "translation": "评估跨模态检索中的视角偏见",
+    "summary_zh": "本文提出 3XCM 基准以隔离多模态检索中的语言与文化偏见，揭示了模型在语义对齐不足时倾向于依赖文化熟悉度而非语义忠实度的机制，主张需显式解耦语言与文化以提升检索公平性。",
+    "key_points": [
+      "本文提出 3XCM 基准以隔离多模态检索中的语言与文化偏见，揭示了模型在语义对齐不足时倾向于依赖文化熟悉度而非语义忠实度的机制，主张需显式解耦语言与文化以提升检索公平性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.27054v1",
+    "title": "LLM-Centric RAG with Multi-Granular Indexing and Confidence Constraints",
+    "authors": [
+      "Xiaofan Guo",
+      "Yaxuan Luan",
+      "Yue Kang",
+      "Xiangchen Song",
+      "Jinxu Guo"
+    ],
+    "summary": "This paper addresses the issues of insufficient coverage, unstable results, and limited reliability in retrieval-augmented generation under complex knowledge environments, and proposes a confidence control method that integrates multi-granularity memory indexing with uncertainty estimation. The method builds a hierarchical memory structure that divides knowledge representations into different levels of granularity, enabling dynamic indexing and retrieval from local details to global context, and thus establishing closer semantic connections between retrieval and generation. On this basis, an uncertainty estimation mechanism is introduced to explicitly constrain and filter low-confidence paths during the generation process, allowing the model to maintain information coverage while effectively suppressing noise and false content. The overall optimization objective consists of generation loss, entropy constraints, and variance regularization, forming a unified confidence control framework. In the experiments, comprehensive sensitivity tests and comparative analyses were designed, covering hyperparameters, environmental conditions, and data structures, to verify the stability and robustness of the proposed method across different scenarios. The results show that the method achieves superior performance over existing models in QA accuracy, retrieval recall, ranking quality, and factual consistency, demonstrating the effectiveness of combining multi-granularity indexing with confidence control. This study not only provides a new technical pathway for retrieval-augmented generation but also offers practical evidence for improving the reliability and controllability of large models in complex contexts.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-10-30T23:48:37Z",
+    "updated": "2025-10-30T23:48:37Z",
+    "url": "http://arxiv.org/abs/2510.27054v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.27054v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 与 RAG 技术研究，专注于通用 QA 场景下的检索增强生成可靠性，未涉及推荐系统或搜索引擎的核心业务逻辑（如召回、排序、用户建模），即使有中国公司背景加分，仍属低相关。",
+    "translation": "基于多粒度索引与置信度约束的 LLM 中心式检索增强生成",
+    "summary_zh": "提出一种结合多粒度分层记忆索引与不确定性估计的置信度控制框架，旨在通过动态检索路径筛选和生成过程约束，解决复杂知识环境下 RAG 系统的覆盖不足与幻觉问题。",
+    "key_points": [
+      "提出一种结合多粒度分层记忆索引与不确定性估计的置信度控制框架，旨在通过动态检索路径筛选和生成过程约束，解决复杂知识环境下 RAG 系统的覆盖不足与幻觉问题"
+    ]
+  }
+]

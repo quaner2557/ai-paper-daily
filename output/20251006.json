@@ -1,0 +1,352 @@
+[
+  {
+    "arxiv_id": "2510.05396v2",
+    "title": "Scalable In-context Ranking with Generative Models",
+    "authors": [
+      "Nilesh Gupta",
+      "Chong You",
+      "Srinadh Bhojanapalli",
+      "Sanjiv Kumar",
+      "Inderjit Dhillon",
+      "Felix Yu"
+    ],
+    "summary": "In-context Ranking (ICR) is an emerging paradigm for Information Retrieval (IR), which leverages contextual understanding of LLMs by directly incorporating the task description, candidate documents, and the query into the model's input prompt and tasking the LLM to identify relevant document(s). While it is effective, efficiency is a significant challenge in this paradigm, especially as the candidate list grows due to quadratic/super-linear scaling of attention operation with context length. To this end, this paper first identifies inherent and exploitable structures in the attention of LLMs finetuned for ICR: (1) inter-document block sparsity: attention is dense within each document block but sparse across different documents in the context; and (2) query-document block relevance: the attention scores from certain query tokens to a document block in middle layers strongly correlate with that document's actual relevance. Motivated by these observations, we introduce BlockRank (Blockwise In-context Ranking), a novel method that adapts the attention operation in an LLM by (a) architecturally enforcing the observed inter-document block sparsity, reducing attention complexity from quadratic to linear without loss in performance, and (b) optimizing query-document block relevance for true relevant documents during fine-tuning using an auxiliary contrastive training objective, improving retrieval in attention. Experiments on BEIR, MSMarco and NQ with Mistral-7B demonstrate that BlockRank Mistral matches or outperforms existing SOTA listwise rankers and controlled fine-tuned baseline while being significantly more efficient at inference (4.7x for 100 MSMarco documents in context) and scaling gracefully to long-context shortlists, around 500 documents in-context (approximately 100K context length) within a second, presenting a scalable and effective solution for ICR.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-06T21:41:58Z",
+    "updated": "2025-10-08T02:02:37Z",
+    "url": "http://arxiv.org/abs/2510.05396v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.05396v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心重排序（Re-ranking）环节，提出利用 LLM 进行上下文排序的高效架构 BlockRank，解决了长列表排序的效率瓶颈，属于 LLM 在搜索领域的直接高价值应用。",
+    "translation": "基于生成模型的可扩展上下文排序方法",
+    "summary_zh": "本文提出 BlockRank 方法，通过利用大语言模型注意力机制中的文档块稀疏性和查询 - 文档相关性结构，将上下文排序的计算复杂度从二次方降低至线性，实现了高效且可扩展的长列表重排序。",
+    "key_points": [
+      "本文提出 BlockRank 方法，通过利用大语言模型注意力机制中的文档块稀疏性和查询 - 文档相关性结构，将上下文排序的计算复杂度从二次方降低至线性，实现了高效且可扩展的长列表重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04551v1",
+    "title": "Fine-grained auxiliary learning for real-world product recommendation",
+    "authors": [
+      "Mario Almagro",
+      "Diego Ortego",
+      "David Jimenez"
+    ],
+    "summary": "Product recommendation is the task of recovering the closest items to a given query within a large product corpora. Generally, one can determine if top-ranked products are related to the query by applying a similarity threshold; exceeding it deems the product relevant, otherwise manual revision is required. Despite being a well-known problem, the integration of these models in real-world systems is often overlooked. In particular, production systems have strong coverage requirements, i.e., a high proportion of recommendations must be automated. In this paper we propose ALC , an Auxiliary Learning strategy that boosts Coverage through learning fine-grained embeddings. Concretely, we introduce two training objectives that leverage the hardest negatives in the batch to build discriminative training signals between positives and negatives. We validate ALC using three extreme multi-label classification approaches in two product recommendation datasets; LF-AmazonTitles-131K and Tech and Durables (proprietary), demonstrating state-of-the-art coverage rates when combined with a recent threshold-consistent margin loss.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-10-06T07:34:06Z",
+    "updated": "2025-10-06T07:34:06Z",
+    "url": "http://arxiv.org/abs/2510.04551v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.04551v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商产品推荐系统中的覆盖率问题，提出了一种细粒度辅助学习策略，属于核心推荐领域的实际应用创新。",
+    "translation": "面向真实世界产品推荐的细粒度辅助学习",
+    "summary_zh": "本文提出一种利用批次内最难负样本构建判别信号的辅助学习策略，旨在通过优化细粒度嵌入表示来解决工业级推荐系统中的自动化覆盖率瓶颈。",
+    "key_points": [
+      "本文提出一种利用批次内最难负样本构建判别信号的辅助学习策略，旨在通过优化细粒度嵌入表示来解决工业级推荐系统中的自动化覆盖率瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04502v1",
+    "title": "Causality-aware Graph Aggregation Weight Estimator for Popularity Debiasing in Top-K Recommendation",
+    "authors": [
+      "Yue Que",
+      "Yingyi Zhang",
+      "Xiangyu Zhao",
+      "Chen Ma"
+    ],
+    "summary": "Graph-based recommender systems leverage neighborhood aggregation to generate node representations, which is highly sensitive to popularity bias, resulting in an echo effect during information propagation. Existing graph-based debiasing solutions refine the aggregation process with attempts such as edge reconstruction or weight adjustment. However, these methods remain inadequate in fully alleviating popularity bias. Specifically, this is because 1) they provide no insights into graph aggregation rationality, thus lacking an optimality guarantee; 2) they fail to well balance the training and debiasing process, which undermines the effectiveness. In this paper, we propose a novel approach to mitigate popularity bias through rational modeling of the graph aggregation process. We reveal that graph aggregation is a special form of backdoor adjustment in causal inference, where the aggregation weight corresponds to the historical interaction likelihood distribution. Based on this insight, we devise an encoder-decoder architecture, namely Causality-aware Graph Aggregation Weight Estimator for Debiasing (CAGED), to approximate the unbiased aggregation weight by optimizing the evidence lower bound of the interaction likelihood. In order to enhance the debiasing effectiveness during early training stages, we further design a momentum update strategy that incrementally refines the aggregation weight matrix. Extensive experiments on three datasets demonstrate that CAGED outperforms existing graph-based debiasing methods. Our implementation is available at https://github.com/QueYork/CAGED.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-06T05:33:37Z",
+    "updated": "2025-10-06T05:33:37Z",
+    "url": "http://arxiv.org/abs/2510.04502v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.04502v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的流行度偏差问题，提出基于因果推断的图聚合权重估计方法，属于核心推荐算法创新；虽非大厂出品，但方法本身极具价值，符合高分标准。",
+    "translation": "用于 Top-K 推荐中流行度去偏的因果感知图聚合权重估计器",
+    "summary_zh": "本文揭示图聚合是因果推断中后门调整的特殊形式，提出一种编码器 - 解码器架构来估计无偏聚合权重，并通过动量更新策略在训练早期增强去偏效果。",
+    "key_points": [
+      "本文揭示图聚合是因果推断中后门调整的特殊形式，提出一种编码器 - 解码器架构来估计无偏聚合权重，并通过动量更新策略在训练早期增强去偏效果"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04816v1",
+    "title": "On Predicting Post-Click Conversion Rate via Counterfactual Inference",
+    "authors": [
+      "Junhyung Ahn",
+      "Sanghack Lee"
+    ],
+    "summary": "Accurately predicting conversion rate (CVR) is essential in various recommendation domains such as online advertising systems and e-commerce. These systems utilize user interaction logs, which consist of exposures, clicks, and conversions. CVR prediction models are typically trained solely based on clicked samples, as conversions can only be determined following clicks. However, the sparsity of clicked instances necessitates the collection of a substantial amount of logs for effective model training. Recent works address this issue by devising frameworks that leverage non-clicked samples. While these frameworks aim to reduce biases caused by the discrepancy between clicked and non-clicked samples, they often rely on heuristics. Against this background, we propose a method to counterfactually generate conversion labels for non-clicked samples by using causality as a guiding principle, attempting to answer the question, \"Would the user have converted if he or she had clicked the recommended item?\" Our approach is named the Entire Space Counterfactual Inference Multi-task Model (ESCIM). We initially train a structural causal model (SCM) of user sequential behaviors and conduct a hypothetical intervention (i.e., click) on non-clicked items to infer counterfactual CVRs. We then introduce several approaches to transform predicted counterfactual CVRs into binary counterfactual conversion labels for the non-clicked samples. Finally, the generated samples are incorporated into the training process. Extensive experiments on public datasets illustrate the superiority of the proposed algorithm. Online A/B testing further empirically validates the effectiveness of our proposed algorithm in real-world scenarios. In addition, we demonstrate the improved performance of the proposed method on latent conversion data, showcasing its robustness and superior generalization capabilities.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-10-06T13:57:49Z",
+    "updated": "2025-10-06T13:57:49Z",
+    "url": "http://arxiv.org/abs/2510.04816v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.04816v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统和广告中的核心转化率（CVR）预估问题，提出利用反事实推断解决样本选择偏差和数据稀疏问题，具有明确的业务应用场景。",
+    "translation": "基于反事实推断预测点击后转化率",
+    "summary_zh": "本文提出 ESCIM 模型，通过构建用户行为结构因果模型并对未点击样本进行假设性干预，反事实生成转化标签以扩充训练数据，从而解决 CVR 预估中的样本选择偏差问题。",
+    "key_points": [
+      "本文提出 ESCIM 模型，通过构建用户行为结构因果模型并对未点击样本进行假设性干预，反事实生成转化标签以扩充训练数据，从而解决 CVR 预估中的样本选择偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04508v1",
+    "title": "MARCO: A Cooperative Knowledge Transfer Framework for Personalized Cross-domain Recommendations",
+    "authors": [
+      "Lili Xie",
+      "Yi Zhang",
+      "Ruihong Qiu",
+      "Jiajun Liu",
+      "Sen Wang"
+    ],
+    "summary": "Recommender systems frequently encounter data sparsity issues, particularly when addressing cold-start scenarios involving new users or items. Multi-source cross-domain recommendation (CDR) addresses these challenges by transferring valuable knowledge from multiple source domains to enhance recommendations in a target domain. However, existing reinforcement learning (RL)-based CDR methods typically rely on a single-agent framework, leading to negative transfer issues caused by inconsistent domain contributions and inherent distributional discrepancies among source domains. To overcome these limitations, MARCO, a Multi-Agent Reinforcement Learning-based Cross-Domain recommendation framework, is proposed. It leverages cooperative multi-agent reinforcement learning, where each agent is dedicated to estimating the contribution from an individual source domain, effectively managing credit assignment and mitigating negative transfer. In addition, an entropy-based action diversity penalty is introduced to enhance policy expressiveness and stabilize training by encouraging diverse agents' joint actions. Extensive experiments across four benchmark datasets demonstrate MARCO's superior performance over state-of-the-art methods, highlighting its robustness and strong generalization capabilities. The code is at https://github.com/xiewilliams/MARCO.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-06T05:49:47Z",
+    "updated": "2025-10-06T05:49:47Z",
+    "url": "http://arxiv.org/abs/2510.04508v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.04508v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的跨域推荐和冷启动问题，提出了一种基于多智能体强化学习的新框架，属于核心推荐技术范畴。",
+    "translation": "MARCO：一种用于个性化跨域推荐的协作知识迁移框架",
+    "summary_zh": "本文提出 MARCO 框架，利用协作多智能体强化学习机制，让每个智能体独立评估源域贡献以解决跨域推荐中的负迁移和信用分配问题。",
+    "key_points": [
+      "本文提出 MARCO 框架，利用协作多智能体强化学习机制，让每个智能体独立评估源域贡献以解决跨域推荐中的负迁移和信用分配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.06275v1",
+    "title": "Reproducibility Study of \"XRec: Large Language Models for Explainable Recommendation\"",
+    "authors": [
+      "Ranjan Mishra",
+      "Julian I. Bibo",
+      "Quinten van Engelen",
+      "Henk Schaapman"
+    ],
+    "summary": "In this study, we reproduced the work done in the paper \"XRec: Large Language Models for Explainable Recommendation\" by Ma et al. (2024). The original authors introduced XRec, a model-agnostic collaborative instruction-tuning framework that enables large language models (LLMs) to provide users with comprehensive explanations of generated recommendations. Our objective was to replicate the results of the original paper, albeit using Llama 3 as the LLM for evaluation instead of GPT-3.5-turbo. We built on the source code provided by Ma et al. (2024) to achieve our goal. Our work extends the original paper by modifying the input embeddings or deleting the output embeddings of XRec's Mixture of Experts module. Based on our results, XRec effectively generates personalized explanations and its stability is improved by incorporating collaborative information. However, XRec did not consistently outperform all baseline models in every metric. Our extended analysis further highlights the importance of the Mixture of Experts embeddings in shaping the explanation structures, showcasing how collaborative signals interact with language modeling. Through our work, we provide an open-source evaluation implementation that enhances accessibility for researchers and practitioners alike. Our complete code repository can be found at https://github.com/julianbibo/xrec-reproducibility.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-10-06T15:07:32Z",
+    "updated": "2025-10-06T15:07:32Z",
+    "url": "http://arxiv.org/abs/2510.06275v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.06275v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文虽涉及推荐系统中的可解释性应用，但核心工作是对现有 LLM 推荐模型的重现与微调分析，缺乏针对推荐/搜索核心环节（如召回、排序）的原创架构创新。",
+    "translation": "XRec：大型语言模型用于可解释推荐的重现性研究",
+    "summary_zh": "本文复现并扩展了 XRec 框架，通过替换基础大模型及调整混合专家模块嵌入，分析了协作信号与大语言模型结合在生成个性化推荐解释中的稳定性与结构影响。",
+    "key_points": [
+      "本文复现并扩展了 XRec 框架，通过替换基础大模型及调整混合专家模块嵌入，分析了协作信号与大语言模型结合在生成个性化推荐解释中的稳定性与结构影响"
+    ]
+  },
+  {
+    "arxiv_id": "2510.05038v2",
+    "title": "Guided Query Refinement: Multimodal Hybrid Retrieval with Test-Time Optimization",
+    "authors": [
+      "Omri Uzan",
+      "Asaf Yehudai",
+      "Roi pony",
+      "Eyal Shnarch",
+      "Ariel Gera"
+    ],
+    "summary": "Multimodal encoders have pushed the boundaries of visual document retrieval, matching textual query tokens directly to image patches and achieving state-of-the-art performance on public benchmarks. Recent models relying on this paradigm have massively scaled the sizes of their query and document representations, presenting obstacles to deployment and scalability in real-world pipelines. Furthermore, purely vision-centric approaches may be constrained by the inherent modality gap still exhibited by modern vision-language models. In this work, we connect these challenges to the paradigm of hybrid retrieval, investigating whether a lightweight dense text retriever can enhance a stronger vision-centric model. Existing hybrid methods, which rely on coarse-grained fusion of ranks or scores, fail to exploit the rich interactions within each model's representation space. To address this, we introduce Guided Query Refinement (GQR), a novel test-time optimization method that refines a primary retriever's query embedding using guidance from a complementary retriever's scores. Through extensive experiments on visual document retrieval benchmarks, we demonstrate that GQR allows vision-centric models to match the performance of models with significantly larger representations, while being up to 14x faster and requiring 54x less memory. Our findings show that GQR effectively pushes the Pareto frontier for performance and efficiency in multimodal retrieval. We release our code at https://github.com/IBM/test-time-hybrid-retrieval",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-10-06T17:12:53Z",
+    "updated": "2025-12-05T19:30:16Z",
+    "url": "http://arxiv.org/abs/2510.05038v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.05038v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "1StanfordUniversity 2IBMResearch 3TheHebrewUniversityofJerusalem",
+      "tions, presentingobstaclestodeploymentandscalabilityinreal-worldpipelines."
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种多模态检索优化方法，虽属于搜索核心技术范畴，但主要基于通用视觉文档基准测试，缺乏明确的电商、社交或广告等具体推荐/搜索业务场景应用。",
+    "translation": "引导式查询优化：基于测试时优化的多模态混合检索",
+    "summary_zh": "提出引导式查询优化（GQR）方法，利用轻量级文本检索器的得分指导，在测试时动态优化视觉中心模型的查询嵌入，以解决多模态检索中模型过大及模态差距问题。",
+    "key_points": [
+      "提出引导式查询优化（GQR）方法，利用轻量级文本检索器的得分指导，在测试时动态优化视觉中心模型的查询嵌入，以解决多模态检索中模型过大及模态差距问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04633v2",
+    "title": "Topic-Specific Classifiers are Better Relevance Judges than Prompted LLMs",
+    "authors": [
+      "Lukas Gienapp",
+      "Martin Potthast",
+      "Andrew Yates",
+      "Harrisen Scells",
+      "Eugene Yang"
+    ],
+    "summary": "The unjudged document problem, where systems that did not contribute to the original judgement pool may retrieve documents without a relevance judgement, is a key obstacle to the reuseability of test collections in information retrieval. While the de facto standard to deal with the problem is to treat unjudged documents as non-relevant, many alternatives have been proposed, such as the use of large language models (LLMs) as a relevance judge (LLM-as-a-judge). However, this has been criticized, among other things, as circular, since the same LLM can be used as the ranker and the judge. We propose to train topic-specific relevance classifiers instead: By finetuning monoT5 with independent LoRA weight adaptation on the judgments of a single assessor for a single topic's pool, we align it to that assessor's notion of relevance for the topic. The system rankings obtained through our classifier's relevance judgments achieve a Spearmans' $ρ$ correlation of $>0.94$ with ground truth system rankings. As little as 128 initial human judgments per topic suffice to improve the comparability of models, compared to treating unjudged documents as non-relevant, while achieving more reliability than existing LLM-as-a-judge approaches. Topic-specific relevance classifiers are thus a lightweight and straightforward way to tackle the unjudged document problem, while maintaining human judgments as the gold standard for retrieval evaluation. Code, models, and data are made openly available.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-06T09:38:13Z",
+    "updated": "2026-01-23T14:11:22Z",
+    "url": "http://arxiv.org/abs/2510.04633v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.04633v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于信息检索测试集的评估方法（解决未判断文档问题），属于 IR 评估基础设施研究，而非直接提升推荐或搜索产品核心链路（召回/排序）的算法创新。",
+    "translation": "特定主题分类器比提示式大语言模型更适合作为相关性评判者",
+    "summary_zh": "提出利用少量人工标注微调特定主题的轻量级分类器来替代大语言模型进行相关性评判，以解决信息检索测试集中未判断文档的评估难题并保持与人类标准的一致性。",
+    "key_points": [
+      "提出利用少量人工标注微调特定主题的轻量级分类器来替代大语言模型进行相关性评判，以解决信息检索测试集中未判断文档的评估难题并保持与人类标准的一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04624v1",
+    "title": "Fairness in Repeated Matching: A Maximin Perspective",
+    "authors": [
+      "Eugene Lim",
+      "Tzeh Yuan Neoh",
+      "Nicholas Teh"
+    ],
+    "summary": "We study a sequential decision-making model where a set of items is repeatedly matched to the same set of agents over multiple rounds. The objective is to determine a sequence of matchings that either maximizes the utility of the least advantaged agent at the end of all rounds (optimal) or at the end of every individual round (anytime optimal). We investigate the computational challenges associated with finding (anytime) optimal outcomes and demonstrate that these problems are generally computationally intractable. However, we provide approximation algorithms, fixed-parameter tractable algorithms, and identify several special cases whereby the problem(s) can be solved efficiently. Along the way, we also establish characterizations of Pareto-optimal/maximum matchings, which may be of independent interest to works in matching theory and house allocation.",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "cs.LG",
+      "cs.MA",
+      "econ.TH"
+    ],
+    "published": "2025-10-06T09:32:40Z",
+    "updated": "2025-10-06T09:32:40Z",
+    "url": "http://arxiv.org/abs/2510.04624v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.04624v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文研究重复匹配中的公平性问题，虽与推荐系统中的重排序或资源分配有潜在理论联系，但缺乏明确的 RecSys/Search 应用场景，属于通用算法/博弈论研究。",
+    "translation": "重复匹配中的公平性：一种最大最小视角",
+    "summary_zh": "提出了一种在多轮次中将物品反复匹配给代理的序列决策模型，旨在通过最大化最劣势代理的效用来实现公平性，并提供了相应的近似算法和特定情况下的高效解法。",
+    "key_points": [
+      "提出了一种在多轮次中将物品反复匹配给代理的序列决策模型，旨在通过最大化最劣势代理的效用来实现公平性，并提供了相应的近似算法和特定情况下的高效解法"
+    ]
+  },
+  {
+    "arxiv_id": "2510.05014v4",
+    "title": "Think Then Embed: Generative Context Improves Multimodal Embedding",
+    "authors": [
+      "Xuanming Cui",
+      "Jianpeng Cheng",
+      "Hong-you Chen",
+      "Satya Narayan Shukla",
+      "Abhijeet Awasthi",
+      "Xichen Pan",
+      "Chaitanya Ahuja",
+      "Shlok Kumar Mishra",
+      "Yonghuan Yang",
+      "Jun Xiao",
+      "Qi Guo",
+      "Ser-Nam Lim",
+      "Aashu Singh",
+      "Xiangjun Fan"
+    ],
+    "summary": "There is a growing interest in Universal Multimodal Embeddings (UME), where models are required to generate task-specific representations. While recent studies show that Multimodal Large Language Models (MLLMs) perform well on such tasks, they treat MLLMs solely as encoders, overlooking their generative capacity. However, such an encoding paradigm becomes less effective as instructions become more complex and require compositional reasoning. Inspired by the proven effectiveness of chain-of-thought reasoning, we propose a general Think-Then-Embed (TTE) framework for UME, composed of a reasoner and an embedder. The reasoner MLLM first generates reasoning traces that explain complex queries, followed by an embedder that produces representations conditioned on both the original query and the intermediate reasoning. This explicit reasoning step enables more nuanced understanding of complex multimodal instructions. Our contributions are threefold. First, by leveraging a powerful MLLM reasoner, we achieve state-of-the-art performance on the MMEB-V2 benchmark, surpassing proprietary models trained on massive in-house datasets. Second, to reduce the dependency on large MLLM reasoners, we finetune a smaller MLLM reasoner using high-quality embedding-centric reasoning traces, achieving the best performance among open-source models with a 7% absolute gain over recently proposed models. Third, we investigate strategies for integrating the reasoner and embedder into a unified model for improved efficiency without sacrificing performance.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-10-06T16:53:56Z",
+    "updated": "2026-01-19T16:13:58Z",
+    "url": "http://arxiv.org/abs/2510.05014v4",
+    "pdf_url": "http://arxiv.org/pdf/2510.05014v4.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1AIatMeta,2UniversityofCentralFlorida,3NewYorkUniversity"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究通用多模态嵌入（UME）的生成式增强方法，属于基础表征学习，虽提及可处理复杂指令，但未明确针对推荐或搜索系统的具体应用场景，非直接相关的 RecSys 研究。",
+    "translation": "先思考后嵌入：生成式上下文提升多模态嵌入效果",
+    "summary_zh": "提出“先思考后嵌入”框架，利用多模态大模型生成推理轨迹作为中间步骤，以增强对复杂多模态指令的理解并生成更精准的嵌入表示。",
+    "key_points": [
+      "提出“先思考后嵌入”框架，利用多模态大模型生成推理轨迹作为中间步骤，以增强对复杂多模态指令的理解并生成更精准的嵌入表示"
+    ]
+  },
+  {
+    "arxiv_id": "2510.05080v1",
+    "title": "MICROTRIPS: MICRO-geography TRavel Intelligence and Pattern Synthesis",
+    "authors": [
+      "Yangyang Wang",
+      "Tayo Fabusuyi"
+    ],
+    "summary": "This study presents a novel small-area estimation framework to enhance urban transportation planning through detailed characterization of travel behavior. Our approach improves on the four-step travel model by employing publicly available microdata files and machine learning methods to predict travel behavior for a representative, synthetic population at small geographic areas. This approach enables high-resolution estimation of trip generation, trip distribution, mode choice, and route assignment. Validation using ACS/PUMS work-commute datasets demonstrates that our framework achieves higher accuracy compared to conventional approaches. The resulting granular insights enable the tailoring of interventions to address localized situations and support a range of policy applications and targeted interventions, including the optimal placement of micro-fulfillment centers, effective curb-space management, and the design of more inclusive transportation solutions particularly for vulnerable communities.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-06T17:50:56Z",
+    "updated": "2025-10-06T17:50:56Z",
+    "url": "http://arxiv.org/abs/2510.05080v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.05080v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于城市交通规划与地理空间分析领域，旨在优化公共交通政策，与推荐系统或搜索引擎的核心技术（如召回、排序、用户建模）无直接关联。",
+    "translation": "MICROTRIPS：微观地理旅行智能与模式合成",
+    "summary_zh": "提出一种利用公开微数据和机器学习的小区域估计框架，以高分辨率预测合成人口的出行行为（生成、分布、方式选择及路径分配），从而支持精细化的城市交通规划与政策干预。",
+    "key_points": [
+      "提出一种利用公开微数据和机器学习的小区域估计框架，以高分辨率预测合成人口的出行行为（生成、分布、方式选择及路径分配），从而支持精细化的城市交通规划与政策干预"
+    ]
+  },
+  {
+    "arxiv_id": "2510.05363v1",
+    "title": "MHA-RAG: Improving Efficiency, Accuracy, and Consistency by Encoding Exemplars as Soft Prompts",
+    "authors": [
+      "Abhinav Jain",
+      "Xinyu Yao",
+      "Thomas Reps",
+      "Christopher Jermaine"
+    ],
+    "summary": "Adapting Foundation Models to new domains with limited training data is challenging and computationally expensive. While prior work has demonstrated the effectiveness of using domain-specific exemplars as in-context demonstrations, we investigate whether representing exemplars purely as text is the most efficient, effective, and stable approach. We explore an alternative: representing exemplars as soft prompts with an exemplar order invariant model architecture. To this end, we introduce Multi-Head Attention Retrieval-Augmented Generation (MHA-RAG), a framework with the number of attention heads serving as a simple hyperparameter to control soft prompt-generation across different tasks. Across multiple question-answering benchmarks and model scales, MHA-RAG achieves a 20-point performance gain over standard RAG, while cutting inference costs by a factor of 10X GFLOPs-delivering both higher accuracy and greater efficiency, invariant to exemplar order.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-10-06T20:41:43Z",
+    "updated": "2025-10-06T20:41:43Z",
+    "url": "http://arxiv.org/abs/2510.05363v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.05363v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于改进 RAG 在问答任务中的效率和准确性，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "MHA-RAG：通过将示例编码为软提示来提升效率、准确性和一致性",
+    "summary_zh": "提出 MHA-RAG 框架，利用多头注意力机制将领域示例表示为与顺序无关的软提示，以替代传统文本形式的上下文演示，从而降低推理成本并提升模型在少样本适应中的稳定性。",
+    "key_points": [
+      "提出 MHA-RAG 框架，利用多头注意力机制将领域示例表示为与顺序无关的软提示，以替代传统文本形式的上下文演示，从而降低推理成本并提升模型在少样本适应中的稳定性"
+    ]
+  }
+]

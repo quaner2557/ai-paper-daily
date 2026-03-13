@@ -1,0 +1,417 @@
+[
+  {
+    "arxiv_id": "2510.15299v1",
+    "title": "GRank: Towards Target-Aware and Streamlined Industrial Retrieval with a Generate-Rank Framework",
+    "authors": [
+      "Yijia Sun",
+      "Shanshan Huang",
+      "Zhiyuan Guan",
+      "Qiang Luo",
+      "Ruiming Tang",
+      "Kun Gai",
+      "Guorui Zhou"
+    ],
+    "summary": "Industrial-scale recommender systems rely on a cascade pipeline in which the retrieval stage must return a high-recall candidate set from billions of items under tight latency. Existing solutions ei- ther (i) suffer from limited expressiveness in capturing fine-grained user-item interactions, as seen in decoupled dual-tower architectures that rely on separate encoders, or generative models that lack precise target-aware matching capabilities, or (ii) build structured indices (tree, graph, quantization) whose item-centric topologies struggle to incorporate dynamic user preferences and incur prohibitive construction and maintenance costs.\n  We present GRank, a novel structured-index-free retrieval paradigm that seamlessly unifies target-aware learning with user-centric retrieval. Our key innovations include: (1) A target-aware Generator trained to perform personalized candidate generation via GPU-accelerated MIPS, eliminating semantic drift and maintenance costs of structured indexing; (2) A lightweight but powerful Ranker that performs fine-grained, candidate-specific inference on small subsets; (3) An end-to-end multi-task learning framework that ensures semantic consistency between generation and ranking objectives.\n  Extensive experiments on two public benchmarks and a billion-item production corpus demonstrate that GRank improves Recall@500 by over 30% and 1.7$\\times$ the P99 QPS of state-of-the-art tree- and graph-based retrievers.\n  GRank has been fully deployed in production in our recommendation platform since Q2 2025, serving 400 million active users with 99.95% service availability. Online A/B tests confirm significant improvements in core engagement metrics, with Total App Usage Time increasing by 0.160% in the main app and 0.165% in the Lite version.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-17T04:15:09Z",
+    "updated": "2025-10-17T04:15:09Z",
+    "url": "http://arxiv.org/abs/2510.15299v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15299v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统的召回阶段提出创新的 Generate-Rank 架构，解决了双塔模型表达力不足和结构化索引维护成本高的问题，且已在中国公司大规模部署，完全符合核心领域进展的高优先级标准（基础分 9+ 中国公司加分 1）。",
+    "translation": "GRank：面向目标感知与精简化的工业级检索生成排序框架",
+    "summary_zh": "提出一种无结构化索引的检索范式，通过目标感知的生成器利用 GPU 加速 MIPS 进行个性化候选生成，并结合轻量级排序器实现端到端多任务学习，统一了用户中心检索与细粒度交互建模。",
+    "key_points": [
+      "提出一种无结构化索引的检索范式，通过目标感知的生成器利用 GPU 加速 MIPS 进行个性化候选生成，并结合轻量级排序器实现端到端多任务学习，统一了用户中心检索与细粒度交互建模"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15286v1",
+    "title": "MTmixAtt: Integrating Mixture-of-Experts with Multi-Mix Attention for Large-Scale Recommendation",
+    "authors": [
+      "Xianyang Qi",
+      "Yuan Tian",
+      "Zhaoyu Hu",
+      "Zhirui Kuai",
+      "Chang Liu",
+      "Hongxiang Lin",
+      "Lei Wang"
+    ],
+    "summary": "Industrial recommender systems critically depend on high-quality ranking models. However, traditional pipelines still rely on manual feature engineering and scenario-specific architectures, which hinder cross-scenario transfer and large-scale deployment. To address these challenges, we propose \\textbf{MTmixAtt}, a unified Mixture-of-Experts (MoE) architecture with Multi-Mix Attention, designed for large-scale recommendation tasks. MTmixAtt integrates two key components. The \\textbf{AutoToken} module automatically clusters heterogeneous features into semantically coherent tokens, removing the need for human-defined feature groups. The \\textbf{MTmixAttBlock} module enables efficient token interaction via a learnable mixing matrix, shared dense experts, and scenario-aware sparse experts, capturing both global patterns and scenario-specific behaviors within a single framework. Extensive experiments on the industrial TRec dataset from Meituan demonstrate that MTmixAtt consistently outperforms state-of-the-art baselines including Transformer-based models, WuKong, HiFormer, MLP-Mixer, and RankMixer. At comparable parameter scales, MTmixAtt achieves superior CTR and CTCVR metrics; scaling to MTmixAtt-1B yields further monotonic gains. Large-scale online A/B tests validate the real-world impact: in the \\textit{Homepage} scenario, MTmixAtt increases Payment PV by \\textbf{+3.62\\%} and Actual Payment GTV by \\textbf{+2.54\\%}. Overall, MTmixAtt provides a unified and scalable solution for modeling arbitrary heterogeneous features across scenarios, significantly improving both user experience and commercial outcomes.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-17T03:50:09Z",
+    "updated": "2025-10-17T03:50:09Z",
+    "url": "http://arxiv.org/abs/2510.15286v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15286v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "BeijingUniversityofPostsand Meituan Meituan"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文来自美团，提出 MTmixAtt 架构解决工业界推荐系统中的跨场景迁移和大规模部署问题，属于核心领域的高优先级创新，且符合额外加分条件。",
+    "translation": "MTmixAtt：融合混合专家与多混注意力机制的大规模推荐系统",
+    "summary_zh": "提出一种统一的混合专家（MoE）架构，通过自动令牌聚类模块和包含共享稠密专家及场景感知稀疏专家的多混注意力模块，实现异构特征的自动化建模与跨场景行为捕捉。",
+    "key_points": [
+      "提出一种统一的混合专家（MoE）架构，通过自动令牌聚类模块和包含共享稠密专家及场景感知稀疏专家的多混注意力模块，实现异构特征的自动化建模与跨场景行为捕捉"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15412v2",
+    "title": "Large-scale User Game Lifecycle Representation Learning",
+    "authors": [
+      "Yanjie Gou",
+      "Jiangming Liu",
+      "Kouying Xue",
+      "Yi Hu"
+    ],
+    "summary": "The rapid expansion of video game production necessitates the development of effective advertising and recommendation systems for online game platforms. Recommending and advertising games to users hinges on capturing their interest in games. However, existing representation learning methods crafted for handling billions of items in recommendation systems are unsuitable for game advertising and recommendation. This is primarily due to game sparsity, where the mere hundreds of games fall short for large-scale user representation learning, and game imbalance, where user behaviors are overwhelmingly dominated by a handful of popular games. To address the sparsity issue, we introduce the User Game Lifecycle (UGL), designed to enrich user behaviors in games. Additionally, we propose two innovative strategies aimed at manipulating user behaviors to more effectively extract both short and long-term interests. To tackle the game imbalance challenge, we present an Inverse Probability Masking strategy for UGL representation learning. The offline and online experimental results demonstrate that the UGL representations significantly enhance model by achieving a 1.83% AUC offline increase on average and a 21.67% CVR online increase on average for game advertising and a 0.5% AUC offline increase and a 0.82% ARPU online increase for in-game item recommendation.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-10-17T08:06:18Z",
+    "updated": "2025-10-20T02:26:01Z",
+    "url": "http://arxiv.org/abs/2510.15412v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.15412v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对游戏平台的广告推荐和道具推荐系统，提出了用户游戏生命周期（UGL）表示学习方法以解决数据稀疏和不平衡问题，属于核心领域进展；且来自中国公司，按规则额外 +1 分（基础 9 分 +1 分=10 分）。",
+    "translation": "大规模用户游戏生命周期表示学习",
+    "summary_zh": "提出用户游戏生命周期（UGL）表示学习框架，通过增强用户行为序列和利用逆概率掩码策略，解决游戏推荐中因物品稀疏和行为不平衡导致的用户兴趣建模难题。",
+    "key_points": [
+      "提出用户游戏生命周期（UGL）表示学习框架，通过增强用户行为序列和利用逆概率掩码策略，解决游戏推荐中因物品稀疏和行为不平衡导致的用户兴趣建模难题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15308v1",
+    "title": "Dimension Mask Layer: Optimizing Embedding Efficiency for Scalable ID-based Models",
+    "authors": [
+      "Srijan Saket",
+      "Ikuhiro Ihara",
+      "Vaibhav Sharma",
+      "Danish Kalim"
+    ],
+    "summary": "In modern recommendation systems and social media platforms like Meta, TikTok, and Instagram, large-scale ID-based features often require embedding tables that consume significant memory. Managing these embedding sizes can be challenging, leading to bulky models that are harder to deploy and maintain. In this paper, we introduce a method to automatically determine the optimal embedding size for ID features, significantly reducing the model size while maintaining performance.\n  Our approach involves defining a custom Keras layer called the dimension mask layer, which sits directly after the embedding lookup. This layer trims the embedding vector by allowing only the first N dimensions to pass through. By doing this, we can reduce the input feature dimension by more than half with minimal or no loss in model performance metrics. This reduction helps cut down the memory footprint of the model and lowers the risk of overfitting due to multicollinearity.\n  Through offline experiments on public datasets and an online A/B test on a real production dataset, we demonstrate that using a dimension mask layer can shrink the effective embedding dimension by 40-50\\%, leading to substantial improvements in memory efficiency. This method provides a scalable solution for platforms dealing with a high volume of ID features, optimizing both resource usage and model performance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-17T04:46:10Z",
+    "updated": "2025-10-17T04:46:10Z",
+    "url": "http://arxiv.org/abs/2510.15308v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15308v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中大规模 ID 特征嵌入表的内存效率问题提出创新架构（Dimension Mask Layer），属于核心领域进展，且来自中国公司额外加 1 分后满分。",
+    "translation": "维度掩码层：优化可扩展基于 ID 模型的嵌入效率",
+    "summary_zh": "提出一种位于嵌入查找后的自定义维度掩码层，通过自动裁剪嵌入向量维度来显著降低模型内存占用并防止过拟合，同时保持推荐性能。",
+    "key_points": [
+      "提出一种位于嵌入查找后的自定义维度掩码层，通过自动裁剪嵌入向量维度来显著降低模型内存占用并防止过拟合，同时保持推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15238v1",
+    "title": "HOB: A Holistically Optimized Bidding Strategy under Heterogeneous Auction Mechanisms with Organic Traffic",
+    "authors": [
+      "Qi Li",
+      "Wendong Huang",
+      "Qichen Ye",
+      "Wutong Xu",
+      "Cheems Wang",
+      "Rongquan Bai",
+      "Wei Yuan",
+      "Guan Wang",
+      "Chuan Yu",
+      "Jian Xu"
+    ],
+    "summary": "The E-commerce advertising platforms typically sell commercial traffic through either second-price auction (SPA) or first-price auction (FPA). SPA was historically prevalent due to its dominant strategy incentive-compatible (DSIC) for bidders with quasi-linear utilities, especially when budgets are not a binding constraint, while FPA has gained more prominence for offering higher revenue potential to publishers and avoiding the possibility for discriminatory treatment in personalized reserve prices. Meanwhile, on the demand side, advertisers are increasingly adopting platform-wide marketing solutions akin to QuanZhanTui, shifting from spending budgets solely on commercial traffic to bidding on the entire traffic for the purpose of maximizing overall sales. For automated bidding systems, such a trend poses a critical challenge: determining optimal strategies across heterogeneous auction channels to fulfill diverse advertiser objectives, such as maximizing return (MaxReturn) or meeting target return on ad spend (TargetROAS). To overcome this challenge, this work makes two key contributions. First, we derive an efficient solution for optimal bidding under FPA channels, which takes into account the presence of organic traffic - traffic can be won for free. Second, we introduce a marginal cost alignment (MCA) strategy that provably secures bidding efficiency across heterogeneous auction mechanisms. To validate performance of our developed framework, we conduct comprehensive offline experiments on public datasets and large-scale online A/B testing, which demonstrate consistent improvements over existing methods.",
+    "categories": [
+      "cs.GT",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-17T02:00:09Z",
+    "updated": "2025-10-17T02:00:09Z",
+    "url": "http://arxiv.org/abs/2510.15238v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15238v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "6 AlibabaGroup TsinghuaUniversity AlibabaGroup 64",
+      "13 TsinghuaUniversity GuanWang AlibabaGroup 71"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决电商广告系统中的核心竞价策略问题，针对混合拍卖机制和自然流量场景提出了具体的优化方法，属于 Ads/Search 领域的核心业务创新。",
+    "translation": "HOB：异构拍卖机制下融合自然流量的全局优化竞价策略",
+    "summary_zh": "本文提出一种全局优化竞价框架，通过推导包含免费自然流量的首价拍卖最优解，并引入边际成本对齐策略，以在异构拍卖环境中实现广告主目标的高效达成。",
+    "key_points": [
+      "本文提出一种全局优化竞价框架，通过推导包含免费自然流量的首价拍卖最优解，并引入边际成本对齐策略，以在异构拍卖环境中实现广告主目标的高效达成"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15729v1",
+    "title": "FACE: A General Framework for Mapping Collaborative Filtering Embeddings into LLM Tokens",
+    "authors": [
+      "Chao Wang",
+      "Yixin Song",
+      "Jinhui Ye",
+      "Chuan Qin",
+      "Dazhong Shen",
+      "Lingfeng Liu",
+      "Xiang Wang",
+      "Yanyong Zhang"
+    ],
+    "summary": "Recently, large language models (LLMs) have been explored for integration with collaborative filtering (CF)-based recommendation systems, which are crucial for personalizing user experiences. However, a key challenge is that LLMs struggle to interpret the latent, non-semantic embeddings produced by CF approaches, limiting recommendation effectiveness and further applications. To address this, we propose FACE, a general interpretable framework that maps CF embeddings into pre-trained LLM tokens. Specifically, we introduce a disentangled projection module to decompose CF embeddings into concept-specific vectors, followed by a quantized autoencoder to convert continuous embeddings into LLM tokens (descriptors). Then, we design a contrastive alignment objective to ensure that the tokens align with corresponding textual signals. Hence, the model-agnostic FACE framework achieves semantic alignment without fine-tuning LLMs and enhances recommendation performance by leveraging their pre-trained capabilities. Empirical results on three real-world recommendation datasets demonstrate performance improvements in benchmark models, with interpretability studies confirming the interpretability of the descriptors. Code is available in https://github.com/YixinRoll/FACE.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-17T15:19:54Z",
+    "updated": "2025-10-17T15:19:54Z",
+    "url": "http://arxiv.org/abs/2510.15729v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15729v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中协同过滤嵌入与 LLM 语义对齐的核心难题，提出了将 CF 嵌入映射为 LLM Token 的通用框架 FACE，属于 LLM for RecSys 的高优先级应用。",
+    "translation": "FACE：将协同过滤嵌入映射为大语言模型 Token 的通用框架",
+    "summary_zh": "提出 FACE 框架，通过解耦投影和量化自编码器将非语义的协同过滤嵌入分解并转换为可解释的 LLM Token，利用对比学习目标实现与文本信号的语义对齐，从而在不微调 LLM 的情况下增强推荐能力。",
+    "key_points": [
+      "提出 FACE 框架，通过解耦投影和量化自编码器将非语义的协同过滤嵌入分解并转换为可解释的 LLM Token，利用对比学习目标实现与文本信号的语义对齐，从而在不微调 LLM 的情况下增强推荐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15647v1",
+    "title": "Enhance Large Language Models as Recommendation Systems with Collaborative Filtering",
+    "authors": [
+      "Zhisheng Yang",
+      "Xiaofei Xu",
+      "Ke Deng",
+      "Li Li"
+    ],
+    "summary": "As powerful tools in Natural Language Processing (NLP), Large Language Models (LLMs) have been leveraged for crafting recommendations to achieve precise alignment with user preferences and elevate the quality of the recommendations. The existing approaches implement both non-tuning and tuning strategies. Compared to following the tuning strategy, the approaches following the non-tuning strategy avoid the relatively costly, time-consuming, and expertise-requiring process of further training pre-trained LLMs on task-specific datasets, but they suffer the issue of not having the task-specific business or local enterprise knowledge. To the best of our knowledge, none of the existing approaches following the non-tuning strategy explicitly integrates collaborative filtering, one of the most successful recommendation techniques. This study aims to fill the gap by proposing critique-based LLMs as recommendation systems (Critic-LLM-RS). For our purpose, we train a separate machine-learning model called Critic that implements collaborative filtering for recommendations by learning from the interactions between many users and items. The Critic provides critiques to LLMs to significantly refine the recommendations. Extensive experiments have verified the effectiveness of Critic-LLM-RS on real datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-17T13:35:14Z",
+    "updated": "2025-10-17T13:35:14Z",
+    "url": "http://arxiv.org/abs/2510.15647v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15647v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出了一种无需微调 LLM 即可通过独立 Critic 模型显式融合协同过滤信息的新架构，解决了纯 LLM 缺乏领域知识的问题。",
+    "translation": "利用协同过滤增强大型语言模型作为推荐系统",
+    "summary_zh": "提出 Critic-LLM-RS 架构，通过训练独立的协同过滤 Critic 模型对非微调 LLM 生成的推荐结果进行批判性修正，从而在不重新训练 LLM 的前提下注入用户 - 物品交互知识。",
+    "key_points": [
+      "提出 Critic-LLM-RS 架构，通过训练独立的协同过滤 Critic 模型对非微调 LLM 生成的推荐结果进行批判性修正，从而在不重新训练 LLM 的前提下注入用户 - 物品交互知识"
+    ]
+  },
+  {
+    "arxiv_id": "2510.16076v1",
+    "title": "BPL: Bias-adaptive Preference Distillation Learning for Recommender System",
+    "authors": [
+      "SeongKu Kang",
+      "Jianxun Lian",
+      "Dongha Lee",
+      "Wonbin Kweon",
+      "Sanghwan Jang",
+      "Jaehyun Lee",
+      "Jindong Wang",
+      "Xing Xie",
+      "Hwanjo Yu"
+    ],
+    "summary": "Recommender systems suffer from biases that cause the collected feedback to incompletely reveal user preference. While debiasing learning has been extensively studied, they mostly focused on the specialized (called counterfactual) test environment simulated by random exposure of items, significantly degrading accuracy in the typical (called factual) test environment based on actual user-item interactions. In fact, each test environment highlights the benefit of a different aspect: the counterfactual test emphasizes user satisfaction in the long-terms, while the factual test focuses on predicting subsequent user behaviors on platforms. Therefore, it is desirable to have a model that performs well on both tests rather than only one. In this work, we introduce a new learning framework, called Bias-adaptive Preference distillation Learning (BPL), to gradually uncover user preferences with dual distillation strategies. These distillation strategies are designed to drive high performance in both factual and counterfactual test environments. Employing a specialized form of teacher-student distillation from a biased model, BPL retains accurate preference knowledge aligned with the collected feedback, leading to high performance in the factual test. Furthermore, through self-distillation with reliability filtering, BPL iteratively refines its knowledge throughout the training process. This enables the model to produce more accurate predictions across a broader range of user-item combinations, thereby improving performance in the counterfactual test. Comprehensive experiments validate the effectiveness of BPL in both factual and counterfactual tests. Our implementation is accessible via: https://github.com/SeongKu-Kang/BPL.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-10-17T11:09:04Z",
+    "updated": "2025-10-17T11:09:04Z",
+    "url": "http://arxiv.org/abs/2510.16076v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.16076v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的偏差问题，提出了一种新的去偏学习框架以同时优化事实性和反事实性测试环境，属于核心推荐算法创新。",
+    "translation": "BPL：面向推荐系统的偏差自适应偏好蒸馏学习",
+    "summary_zh": "本文提出偏差自适应偏好蒸馏学习（BPL）框架，通过结合有偏模型的教师 - 学生蒸馏和带可靠性过滤的自蒸馏策略，旨在同时提升推荐系统在事实性及反事实性测试环境中的表现。",
+    "key_points": [
+      "本文提出偏差自适应偏好蒸馏学习（BPL）框架，通过结合有偏模型的教师 - 学生蒸馏和带可靠性过滤的自蒸馏策略，旨在同时提升推荐系统在事实性及反事实性测试环境中的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15683v1",
+    "title": "Mixture of Experts Approaches in Dense Retrieval Tasks",
+    "authors": [
+      "Effrosyni Sokli",
+      "Pranav Kasela",
+      "Georgios Peikos",
+      "Gabriella Pasi"
+    ],
+    "summary": "Dense Retrieval Models (DRMs) are a prominent development in Information Retrieval (IR). A key challenge with these neural Transformer-based models is that they often struggle to generalize beyond the specific tasks and domains they were trained on. To address this challenge, prior research in IR incorporated the Mixture-of-Experts (MoE) framework within each Transformer layer of a DRM, which, though effective, substantially increased the number of additional parameters. In this paper, we propose a more efficient design, which introduces a single MoE block (SB-MoE) after the final Transformer layer. To assess the retrieval effectiveness of SB-MoE, we perform an empirical evaluation across three IR tasks. Our experiments involve two evaluation setups, aiming to assess both in-domain effectiveness and the model's zero-shot generalizability. In the first setup, we fine-tune SB-MoE with four different underlying DRMs on seven IR benchmarks and evaluate them on their respective test sets. In the second setup, we fine-tune SB-MoE on MSMARCO and perform zero-shot evaluation on thirteen BEIR datasets. Additionally, we perform further experiments to analyze the model's dependency on its hyperparameters (i.e., the number of employed and activated experts) and investigate how this variation affects SB-MoE's performance. The obtained results show that SB-MoE is particularly effective for DRMs with lightweight base models, such as TinyBERT and BERT-Small, consistently exceeding standard model fine-tuning across benchmarks. For DRMs with more parameters, such as BERT-Base and Contriever, our model requires a larger number of training samples to achieve improved retrieval performance. Our code is available online at: https://github.com/FaySokli/SB-MoE.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-17T14:23:19Z",
+    "updated": "2025-10-17T14:23:19Z",
+    "url": "http://arxiv.org/abs/2510.15683v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15683v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对密集检索（Dense Retrieval）这一搜索核心环节提出改进架构，属于明确的搜索技术应用，非纯 LLM 基础研究。",
+    "translation": "密集检索任务中的混合专家方法研究",
+    "summary_zh": "提出一种在 Transformer 最终层后引入单一混合专家块（SB-MoE）的高效架构，旨在以较少参数提升密集检索模型的领域泛化能力和零-shot 检索效果。",
+    "key_points": [
+      "提出一种在 Transformer 最终层后引入单一混合专家块（SB-MoE）的高效架构，旨在以较少参数提升密集检索模型的领域泛化能力和零-shot 检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15543v1",
+    "title": "MCA: Modality Composition Awareness for Robust Composed Multimodal Retrieval",
+    "authors": [
+      "Qiyu Wu",
+      "Shuyang Cui",
+      "Satoshi Hayakawa",
+      "Wei-Yao Wang",
+      "Hiromi Wakaki",
+      "Yuki Mitsufuji"
+    ],
+    "summary": "Multimodal retrieval, which seeks to retrieve relevant content across modalities such as text or image, supports applications from AI search to contents production. Despite the success of separate-encoder approaches like CLIP align modality-specific embeddings with contrastive learning, recent multimodal large language models (MLLMs) enable a unified encoder that directly processes composed inputs. While flexible and advanced, we identify that unified encoders trained with conventional contrastive learning are prone to learn modality shortcut, leading to poor robustness under distribution shifts. We propose a modality composition awareness framework to mitigate this issue. Concretely, a preference loss enforces multimodal embeddings to outperform their unimodal counterparts, while a composition regularization objective aligns multimodal embeddings with prototypes composed from its unimodal parts. These objectives explicitly model structural relationships between the composed representation and its unimodal counterparts. Experiments on various benchmarks show gains in out-of-distribution retrieval, highlighting modality composition awareness as a effective principle for robust composed multimodal retrieval when utilizing MLLMs as the unified encoder.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-10-17T11:20:35Z",
+    "updated": "2025-10-17T11:20:35Z",
+    "url": "http://arxiv.org/abs/2510.15543v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15543v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态检索（搜索的核心环节），提出利用 MLLM 作为统一编码器并解决其模态捷径问题的新框架，明确应用于 AI 搜索场景。",
+    "translation": "MCA：面向鲁棒组合多模态检索的模态组合感知框架",
+    "summary_zh": "本文提出一种模态组合感知框架，通过偏好损失和组合正则化目标，强制多模态嵌入优于单模态嵌入并与原型对齐，以解决基于 MLLM 的统一编码器在多模态检索中的模态捷径问题。",
+    "key_points": [
+      "本文提出一种模态组合感知框架，通过偏好损失和组合正则化目标，强制多模态嵌入优于单模态嵌入并与原型对齐，以解决基于 MLLM 的统一编码器在多模态检索中的模态捷径问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.03258v1",
+    "title": "Enhancing Retrieval-Augmented Generation with Two-Stage Retrieval: FlashRank Reranking and Query Expansion",
+    "authors": [
+      "Sherine George"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) couples a retriever with a large language model (LLM) to ground generated responses in external evidence. While this framework enhances factuality and domain adaptability, it faces a key bottleneck: balancing retrieval recall with limited LLM context. Retrieving too few passages risks missing critical context, while retrieving too many overwhelms the prompt window, diluting relevance and increasing cost.\n  We propose a two-stage retrieval pipeline that integrates LLM-driven query expansion to improve candidate recall and FlashRank, a fast marginal-utility reranker that dynamically selects an optimal subset of evidence under a token budget. FlashRank models document utility as a weighted combination of relevance, novelty, brevity, and cross-encoder evidence. Together, these modules form a generalizable solution that increases answer accuracy, faithfulness, and computational efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-17T15:08:17Z",
+    "updated": "2025-10-17T15:08:17Z",
+    "url": "http://arxiv.org/abs/2601.03258v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.03258v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于通用 RAG 系统的检索增强，属于纯 LLM/NLP 应用研究，未明确针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "利用两阶段检索增强检索增强生成：FlashRank 重排序与查询扩展",
+    "summary_zh": "提出一种结合 LLM 驱动查询扩展与 FlashRank 动态重排序的两阶段检索流水线，旨在在有限上下文窗口内优化证据子集的选择以平衡召回率与相关性。",
+    "key_points": [
+      "提出一种结合 LLM 驱动查询扩展与 FlashRank 动态重排序的两阶段检索流水线，旨在在有限上下文窗口内优化证据子集的选择以平衡召回率与相关性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.16232v3",
+    "title": "Personalized Collaborative Learning with Affinity-Based Variance Reduction",
+    "authors": [
+      "Chenyu Zhang",
+      "Navid Azizan"
+    ],
+    "summary": "Multi-agent learning faces a fundamental tension: leveraging distributed collaboration without sacrificing the personalization needed for diverse agents. This tension intensifies when aiming for full personalization while adapting to unknown heterogeneity levels -- gaining collaborative speedup when agents are similar, without performance degradation when they are different. Embracing the challenge, we propose personalized collaborative learning (PCL), a novel framework for heterogeneous agents to collaboratively learn personalized solutions with seamless adaptivity. Through carefully designed bias correction and importance correction mechanisms, our method AffPCL robustly handles both environment and objective heterogeneity. We prove that AffPCL reduces sample complexity over independent learning by a factor of $\\max\\{n^{-1}, δ\\}$, where $n$ is the number of agents and $δ\\in[0,1]$ measures their heterogeneity. This affinity-based acceleration automatically interpolates between the linear speedup of federated learning in homogeneous settings and the baseline of independent learning, without requiring prior knowledge of the system. Our analysis further reveals that an agent may obtain linear speedup even by collaborating with arbitrarily dissimilar agents, unveiling new insights into personalization and collaboration in the high heterogeneity regime.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "cs.MA",
+      "eess.SY"
+    ],
+    "published": "2025-10-17T21:49:51Z",
+    "updated": "2026-03-09T20:43:37Z",
+    "url": "http://arxiv.org/abs/2510.16232v3",
+    "pdf_url": "http://arxiv.org/pdf/2510.16232v3.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究多智能体强化学习中的个性化协作理论，虽来自教育科技公司且用户建模概念有潜在关联，但缺乏明确的推荐/搜索系统应用场景，属于通用机器学习方法。",
+    "translation": "基于亲和方差的个性化协作学习",
+    "summary_zh": "提出一种个性化协作学习框架，通过偏差校正和重要性校正机制，使异构智能体在无需预知差异程度的情况下，自适应地平衡协作加速与个性化性能。",
+    "key_points": [
+      "提出一种个性化协作学习框架，通过偏差校正和重要性校正机制，使异构智能体在无需预知差异程度的情况下，自适应地平衡协作加速与个性化性能"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05253v1",
+    "title": "SP-Rank: A Dataset for Ranked Preferences with Secondary Information",
+    "authors": [
+      "Hadi Hosseini",
+      "Debmalya Mandal",
+      "Amrit Puhan"
+    ],
+    "summary": "We introduce $\\mathbf{SP-Rank}$, the first large-scale, publicly available dataset for benchmarking algorithms that leverage both first-order preferences and second-order predictions in ranking tasks. Each datapoint includes a personal vote (first-order signal) and a meta-prediction of how others will vote (second-order signal), allowing richer modeling than traditional datasets that capture only individual preferences. SP-Rank contains over 12,000 human-generated datapoints across three domains -- geography, movies, and paintings, and spans nine elicitation formats with varying subset sizes. This structure enables empirical analysis of preference aggregation when expert identities are unknown but presumed to exist, and individual votes represent noisy estimates of a shared ground-truth ranking. We benchmark SP-Rank by comparing traditional aggregation methods that use only first-order votes against SP-Voting, a second-order method that jointly reasons over both signals to infer ground-truth rankings. While SP-Rank also supports models that rely solely on second-order predictions, our benchmarks emphasize the gains from combining both signals. We evaluate performance across three core tasks: (1) full ground-truth rank recovery, (2) subset-level rank recovery, and (3) probabilistic modeling of voter behavior. Results show that incorporating second-order signals substantially improves accuracy over vote-only methods. Beyond social choice, SP-Rank supports downstream applications in learning-to-rank, extracting expert knowledge from noisy crowds, and training reward models in preference-based fine-tuning pipelines. We release the dataset, code, and baseline evaluations (available at https://github.com/amrit19/SP-Rank-Dataset ) to foster research in human preference modeling, aggregation theory, and human-AI alignment.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2025-10-17T18:26:40Z",
+    "updated": "2025-10-17T18:26:40Z",
+    "url": "http://arxiv.org/abs/2601.05253v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05253v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文主要发布一个用于社会选择和人类偏好聚合的数据集，虽提及学习排序（Learning-to-Rank）作为潜在应用，但缺乏针对推荐/搜索核心场景（如召回、排序架构）的直接方法创新，属于弱相关的基础资源类研究。",
+    "translation": "SP-Rank：一个包含次要信息的排序偏好数据集",
+    "summary_zh": "本文提出了 SP-Rank 数据集，通过结合个人投票（一阶信号）和对他人的预测（二阶信号），旨在支持对人类偏好聚合及从噪声 crowd 中提取专家知识的研究。",
+    "key_points": [
+      "本文提出了 SP-Rank 数据集，通过结合个人投票（一阶信号）和对他人的预测（二阶信号），旨在支持对人类偏好聚合及从噪声 crowd 中提取专家知识的研究"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15719v1",
+    "title": "Cost-Aware Retrieval-Augmentation Reasoning Models with Adaptive Retrieval Depth",
+    "authors": [
+      "Helia Hashemi",
+      "Victor Rühle",
+      "Saravan Rajmohan"
+    ],
+    "summary": "Reasoning models have gained significant attention due to their strong performance, particularly when enhanced with retrieval augmentation. However, these models often incur high computational costs, as both retrieval and reasoning tokens contribute substantially to the overall resource usage. In this work, we make the following contributions: (1) we propose a retrieval-augmented reasoning model that dynamically adjusts the length of the retrieved document list based on the query and retrieval results; (2) we develop a cost-aware advantage function for training of efficient retrieval-augmented reasoning models through reinforcement learning; and (3) we explore both memory- and latency-bound implementations of the proposed cost-aware framework for both proximal and group relative policy optimization algorithms. We evaluate our approach on seven public question answering datasets and demonstrate significant efficiency gains, without compromising effectiveness. In fact, we observed that the model latency decreases by ~16-20% across datasets, while its effectiveness increases by ~5% on average, in terms of exact match.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-10-17T15:04:03Z",
+    "updated": "2025-10-17T15:04:03Z",
+    "url": "http://arxiv.org/abs/2510.15719v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.15719v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理与强化学习研究，专注于通用问答任务的成本优化，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "具有自适应检索深度的成本感知检索增强推理模型",
+    "summary_zh": "提出一种通过强化学习动态调整检索文档数量并引入成本感知优势函数的推理框架，旨在平衡大模型推理的计算开销与效果。",
+    "key_points": [
+      "提出一种通过强化学习动态调整检索文档数量并引入成本感知优势函数的推理框架，旨在平衡大模型推理的计算开销与效果"
+    ]
+  }
+]

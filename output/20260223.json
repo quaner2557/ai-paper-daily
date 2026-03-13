@@ -1,0 +1,450 @@
+[
+  {
+    "arxiv_id": "2602.20093v1",
+    "title": "ManCAR: Manifold-Constrained Latent Reasoning with Adaptive Test-Time Computation for Sequential Recommendation",
+    "authors": [
+      "Kun Yang",
+      "Yuxuan Zhu",
+      "Yazhe Chen",
+      "Siyao Zheng",
+      "Bangyang Hong",
+      "Kangle Wu",
+      "Yabo Ni",
+      "Anxiang Zeng",
+      "Cong Fu",
+      "Hui Li"
+    ],
+    "summary": "Sequential recommendation increasingly employs latent multi-step reasoning to enhance test-time computation. Despite empirical gains, existing approaches largely drive intermediate reasoning states via target-dominant objectives without imposing explicit feasibility constraints. This results in latent drift, where reasoning trajectories deviate into implausible regions. We argue that effective recommendation reasoning should instead be viewed as navigation on a collaborative manifold rather than free-form latent refinement. To this end, we propose ManCAR (Manifold-Constrained Adaptive Reasoning), a principled framework that grounds reasoning within the topology of a global interaction graph. ManCAR constructs a local intent prior from the collaborative neighborhood of a user's recent actions, represented as a distribution over the item simplex. During training, the model progressively aligns its latent predictive distribution with this prior, forcing the reasoning trajectory to remain within the valid manifold. At test time, reasoning proceeds adaptively until the predictive distribution stabilizes, avoiding over-refinement. We provide a variational interpretation of ManCAR to theoretically validate its drift-prevention and adaptive test-time stopping mechanisms. Experiments on seven benchmarks demonstrate that ManCAR consistently outperforms state-of-the-art baselines, achieving up to a 46.88% relative improvement w.r.t. NDCG@10. Our code is available at https://github.com/FuCongResearchSquad/ManCAR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-23T18:02:50Z",
+    "updated": "2026-02-23T18:02:50Z",
+    "url": "http://arxiv.org/abs/2602.20093v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20093v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出基于流形约束的潜在推理新架构以解决潜在漂移，属于高优先级的核心领域创新；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "ManCAR：面向序列推荐的自适应测试时计算流形约束潜在推理",
+    "summary_zh": "提出 ManCAR 框架，通过将推荐推理过程约束在全局交互图的协同流形拓扑上，利用局部意图先验防止潜在漂移并实现自适应测试时停止。",
+    "key_points": [
+      "提出 ManCAR 框架，通过将推荐推理过程约束在全局交互图的协同流形拓扑上，利用局部意图先验防止潜在漂移并实现自适应测试时停止"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20001v1",
+    "title": "FairFS: Addressing Deep Feature Selection Biases for Recommender System",
+    "authors": [
+      "Xianquan Wang",
+      "Zhaocheng Du",
+      "Jieming Zhu",
+      "Qinglin Jia",
+      "Zhenhua Dong",
+      "Kai Zhang"
+    ],
+    "summary": "Large-scale online marketplaces and recommender systems serve as critical technological support for e-commerce development. In industrial recommender systems, features play vital roles as they carry information for downstream models. Accurate feature importance estimation is critical because it helps identify the most useful feature subsets from thousands of feature candidates for online services. Such selection enables improved online performance while reducing computational cost. To address feature selection problems in deep learning, trainable gate-based and sensitivity-based methods have been proposed and proven effective in industrial practice. However, through the analysis of real-world cases, we identified three bias issues that cause feature importance estimation to rely on partial model layers, samples, or gradients, ultimately leading to inaccurate importance estimation. We refer to these as layer bias, baseline bias, and approximation bias. To mitigate these issues, we propose FairFS, a fair and accurate feature selection algorithm. FairFS regularizes feature importance estimated across all nonlinear transformation layers to address layer bias. It also introduces a smooth baseline feature close to the classifier decision boundary and adopts an aggregated approximation method to alleviate baseline and approximation biases. Extensive experiments demonstrate that FairFS effectively mitigates these biases and achieves state-of-the-art feature selection performance.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-23T16:08:32Z",
+    "updated": "2026-02-23T16:08:32Z",
+    "url": "http://arxiv.org/abs/2602.20001v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20001v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的核心特征选择问题，提出了消除偏差的新方法 FairFS，属于高优先级的核心领域进展；且来自中国公司，按规则额外加分后满分。",
+    "translation": "FairFS：解决推荐系统中的深度特征选择偏差问题",
+    "summary_zh": "本文提出 FairFS 算法，通过正则化非线性变换层、引入平滑基线及聚合近似方法，分别解决特征重要性估计中的层偏差、基线偏差和近似偏差，以实现更公平准确的特征选择。",
+    "key_points": [
+      "本文提出 FairFS 算法，通过正则化非线性变换层、引入平滑基线及聚合近似方法，分别解决特征重要性估计中的层偏差、基线偏差和近似偏差，以实现更公平准确的特征选择"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19728v1",
+    "title": "GrIT: Group Informed Transformer for Sequential Recommendation",
+    "authors": [
+      "Adamya Shyam",
+      "Venkateswara Rao Kagita",
+      "Bharti Rana",
+      "Vikas Kumar"
+    ],
+    "summary": "Sequential recommender systems aim to predict a user's future interests by extracting temporal patterns from their behavioral history. Existing approaches typically employ transformer-based architectures to process long sequences of user interactions, capturing preference shifts by modeling temporal relationships between items. However, these methods often overlook the influence of group-level features that capture the collective behavior of similar users. We hypothesize that explicitly modeling temporally evolving group features alongside individual user histories can significantly enhance next-item recommendation. Our approach introduces latent group representations, where each user's affiliation to these groups is modeled through learnable, time-varying membership weights. The membership weights at each timestep are computed by modeling shifts in user preferences through their interaction history, where we incorporate both short-term and long-term user preferences. We extract a set of statistical features that capture the dynamics of user behavior and further refine them through a series of transformations to produce the final drift-aware membership weights. A group-based representation is derived by weighting latent group embeddings with the learned membership scores. This representation is integrated with the user's sequential representation within the transformer block to jointly capture personal and group-level temporal dynamics, producing richer embeddings that lead to more accurate, context-aware recommendations. We validate the effectiveness of our approach through extensive experiments on five benchmark datasets, where it consistently outperforms state-of-the-art sequential recommendation methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-23T11:26:11Z",
+    "updated": "2026-02-23T11:26:11Z",
+    "url": "http://arxiv.org/abs/2602.19728v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19728v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出结合群体动态特征与个人历史行为的 Transformer 新架构，属于高优先级的 RecSys 核心创新；且来自中国公司，按规定额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "GrIT：用于序列推荐的群体感知 Transformer",
+    "summary_zh": "该论文提出一种群体感知 Transformer 架构，通过建模用户随时间变化的潜在群体归属权重，将动态群体特征与个人序列行为联合编码，以捕捉更丰富的上下文偏好动态。",
+    "key_points": [
+      "该论文提出一种群体感知 Transformer 架构，通过建模用户随时间变化的潜在群体归属权重，将动态群体特征与个人序列行为联合编码，以捕捉更丰富的上下文偏好动态"
+    ]
+  },
+  {
+    "arxiv_id": "2603.06631v1",
+    "title": "T-REX: Transformer-Based Category Sequence Generation for Grocery Basket Recommendation",
+    "authors": [
+      "Soroush Mokhtari",
+      "Muhammad Tayyab Asif",
+      "Sergiy Zubatiy"
+    ],
+    "summary": "Online grocery shopping presents unique challenges for sequential recommendations due to repetitive purchase patterns and complex item relationships within the baskets. Unlike traditional e-commerce, grocery recommendations must capture both complementary item associations and temporal dependencies across shopping sessions. To address these challenges in Amazon's online grocery business, we propose T-REX, a novel transformer architecture that generates personalized category-level suggestions by learning both short-term basket dependencies and long-term user preferences. Our approach introduces three key innovations: (1) an efficient sampling strategy utilizing dynamic sequence splitting for sparse shopping patterns, (2) an adaptive positional encoding scheme for temporal patterns, and (3) a category-level modeling approach that reduces dimensionality while maintaining recommendation quality. Although masked language modeling techniques like BERT4Rec excel at capturing item relations, they prove less suitable for next basket generation due to information leakage issues. In contrast, T-REX's causal masking approach better aligns with the sequential nature of basket generation, enabling more accurate next-basket predictions. Experiments on large-scale grocery offline data and online A/B tests show significant improvement over existing systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-23T19:19:46Z",
+    "updated": "2026-02-23T19:19:46Z",
+    "url": "http://arxiv.org/abs/2603.06631v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06631v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商（Amazon 生鲜）场景下的购物篮推荐问题，提出了基于 Transformer 的序列生成新架构 T-REX，属于核心推荐系统领域的实际应用创新。",
+    "translation": "T-REX：基于 Transformer 的类别序列生成用于生鲜购物篮推荐",
+    "summary_zh": "提出 T-REX 架构，通过动态序列采样、自适应位置编码及类别级建模，解决生鲜电商中重复购买与复杂物品关联的序列推荐难题。",
+    "key_points": [
+      "提出 T-REX 架构，通过动态序列采样、自适应位置编码及类别级建模，解决生鲜电商中重复购买与复杂物品关联的序列推荐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19702v1",
+    "title": "DReX: An Explainable Deep Learning-based Multimodal Recommendation Framework",
+    "authors": [
+      "Adamya Shyam",
+      "Venkateswara Rao Kagita",
+      "Bharti Rana",
+      "Vikas Kumar"
+    ],
+    "summary": "Multimodal recommender systems leverage diverse data sources, such as user interactions, content features, and contextual information, to address challenges like cold-start and data sparsity. However, existing methods often suffer from one or more key limitations: processing different modalities in isolation, requiring complete multimodal data for each interaction during training, or independent learning of user and item representations. These factors contribute to increased complexity and potential misalignment between user and item embeddings. To address these challenges, we propose DReX, a unified multimodal recommendation framework that incrementally refines user and item representations by leveraging interaction-level features from multimodal feedback. Our model employs gated recurrent units to selectively integrate these fine-grained features into global representations. This incremental update mechanism provides three key advantages: (1) simultaneous modeling of both nuanced interaction details and broader preference patterns, (2) eliminates the need for separate user and item feature extraction processes, leading to enhanced alignment in their learned representation, and (3) inherent robustness to varying or missing modalities. We evaluate the performance of the proposed approach on three real-world datasets containing reviews and ratings as interaction modalities. By considering review text as a modality, our approach automatically generates interpretable keyword profiles for both users and items, which supplement the recommendation process with interpretable preference indicators. Experiment results demonstrate that our approach outperforms state-of-the-art methods across all evaluated datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-23T10:52:20Z",
+    "updated": "2026-02-23T10:52:20Z",
+    "url": "http://arxiv.org/abs/2602.19702v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19702v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文提出了一种直接解决推荐系统核心问题（多模态融合、冷启动、可解释性）的统一框架，属于高优先级的多模态推荐研究；虽涉及文本处理，但并非纯 LLM 研究，且符合中国公司背景加分项。",
+    "translation": "DReX：一种可解释的基于深度学习的多模态推荐框架",
+    "summary_zh": "提出 DReX 框架，利用门控循环单元增量整合多模态交互特征以联合优化用户与物品表征，解决模态孤立和对齐难题，并通过文本模态自动生成可解释的用户/物品偏好画像。",
+    "key_points": [
+      "提出 DReX 框架，利用门控循环单元增量整合多模态交互特征以联合优化用户与物品表征，解决模态孤立和对齐难题，并通过文本模态自动生成可解释的用户/物品偏好画像"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19969v1",
+    "title": "ReAttn: Improving Attention-based Re-ranking via Attention Re-weighting",
+    "authors": [
+      "Yuxing Tian",
+      "Fengran Mo",
+      "Weixu Zhang",
+      "Yiyan Qi",
+      "Jian-Yun Nie"
+    ],
+    "summary": "The strong capabilities of recent Large Language Models (LLMs) have made them highly effective for zero-shot re-ranking task. Attention-based re-ranking methods, which derive relevance scores directly from attention weights, offer an efficient and interpretable alternative to generation-based re-ranking methods. However, they still face two major limitations. First, attention signals are highly concentrated a small subset of tokens within a few documents, making others indistinguishable. Second, attention often overemphasizes phrases lexically similar to the query, yielding biased rankings that irrelevant documents with mere lexical resemblance are regarded as relevant. In this paper, we propose \\textbf{ReAttn}, a post-hoc re-weighting strategy for attention-based re-ranking methods. It first compute the cross-document IDF weighting to down-weight attention on query-overlapping tokens that frequently appear across the candidate documents, reducing lexical bias and emphasizing distinctive terms. It then employs entropy-based regularization to mitigate over-concentrated attention, encouraging a more balanced distribution across informative tokens. Both adjustments operate directly on existing attention weights without additional training or supervision. Extensive experiments demonstrate the effectiveness of our method.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-02-23T15:30:52Z",
+    "updated": "2026-02-23T15:30:52Z",
+    "url": "http://arxiv.org/abs/2602.19969v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19969v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的重排序（Re-ranking）核心环节，提出了一种无需训练的注意力重加权策略来解决 lexical bias 问题，虽基于 LLM 但聚焦于搜索应用而非纯模型研究。",
+    "translation": "ReAttn：通过注意力重加权改进基于注意力的重排序方法",
+    "summary_zh": "本文提出 ReAttn 方法，通过跨文档 IDF 加权和熵正则化对注意力权重进行后处理重加权，以缓解搜索重排序中的词汇偏差和注意力过度集中问题。",
+    "key_points": [
+      "本文提出 ReAttn 方法，通过跨文档 IDF 加权和熵正则化对注意力权重进行后处理重加权，以缓解搜索重排序中的词汇偏差和注意力过度集中问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19711v1",
+    "title": "A Three-stage Neuro-symbolic Recommendation Pipeline for Cultural Heritage Knowledge Graphs",
+    "authors": [
+      "Krzysztof Kutt",
+      "Elżbieta Sroka",
+      "Oleksandra Ishchuk",
+      "Luiz do Valle Miranda"
+    ],
+    "summary": "The growing volume of digital cultural heritage resources highlights the need for advanced recommendation methods capable of interpreting semantic relationships between heterogeneous data entities. This paper presents a complete methodology for implementing a hybrid recommendation pipeline integrating knowledge-graph embeddings, approximate nearest-neighbour search, and SPARQL-driven semantic filtering. The work is evaluated on the JUHMP (Jagiellonian University Heritage Metadata Portal) knowledge graph developed within the CHExRISH project, which at the time of experimentation contained ${\\approx}3.2$M RDF triples describing people, events, objects, and historical relations affiliated with the Jagiellonian University (Kraków, PL). We evaluate four embedding families (TransE, ComplEx, ConvE, CompGCN) and perform hyperparameter selection for ComplEx and HNSW. Then, we present and evaluate the final three-stage neuro-symbolic recommender. Despite sparse and heterogeneous metadata, the approach produces useful and explainable recommendations, which were also proven with expert evaluation.",
+    "categories": [
+      "cs.IR",
+      "cs.DL",
+      "cs.HC"
+    ],
+    "published": "2026-02-23T11:02:13Z",
+    "updated": "2026-02-23T11:02:13Z",
+    "url": "http://arxiv.org/abs/2602.19711v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19711v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种结合知识图谱嵌入与符号推理的三阶段推荐架构，虽应用于文化遗产垂直领域而非主流电商/社交场景，但其神经符号混合推荐思路对解决冷启动和可解释性问题具有明确的方法论参考价值。",
+    "translation": "面向文化遗产知识图谱的三阶段神经符号推荐流水线",
+    "summary_zh": "本文提出一种融合知识图谱嵌入、近似最近邻搜索与 SPARQL 语义过滤的三阶段神经符号推荐架构，旨在利用语义关系解决异构稀疏数据下的可解释推荐问题。",
+    "key_points": [
+      "本文提出一种融合知识图谱嵌入、近似最近邻搜索与 SPARQL 语义过滤的三阶段神经符号推荐架构，旨在利用语义关系解决异构稀疏数据下的可解释推荐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19961v1",
+    "title": "Unlocking Multimodal Document Intelligence: From Current Triumphs to Future Frontiers of Visual Document Retrieval",
+    "authors": [
+      "Yibo Yan",
+      "Jiahao Huo",
+      "Guanbo Feng",
+      "Mingdong Ou",
+      "Yi Cao",
+      "Xin Zou",
+      "Shuliang Liu",
+      "Yuanhuiyi Lyu",
+      "Yu Huang",
+      "Jungang Li",
+      "Kening Zheng",
+      "Xu Zheng",
+      "Philip S. Yu",
+      "James Kwok",
+      "Xuming Hu"
+    ],
+    "summary": "With the rapid proliferation of multimodal information, Visual Document Retrieval (VDR) has emerged as a critical frontier in bridging the gap between unstructured visually rich data and precise information acquisition. Unlike traditional natural image retrieval, visual documents exhibit unique characteristics defined by dense textual content, intricate layouts, and fine-grained semantic dependencies. This paper presents the first comprehensive survey of the VDR landscape, specifically through the lens of the Multimodal Large Language Model (MLLM) era. We begin by examining the benchmark landscape, and subsequently dive into the methodological evolution, categorizing approaches into three primary aspects: multimodal embedding models, multimodal reranker models, and the integration of Retrieval-Augmented Generation (RAG) and Agentic systems for complex document intelligence. Finally, we identify persistent challenges and outline promising future directions, aiming to provide a clear roadmap for future multimodal document intelligence.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-02-23T15:27:41Z",
+    "updated": "2026-02-23T15:27:41Z",
+    "url": "http://arxiv.org/abs/2602.19961v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19961v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于视觉文档检索（VDR）的综述，虽涉及检索和 RAG 等搜索相关技术，但侧重于通用文档智能而非直接的推荐系统或电商/社交搜索业务场景。",
+    "translation": "解锁多模态文档智能：视觉文档检索的当前成就与未来前沿",
+    "summary_zh": "本文综述了多模态大模型时代的视觉文档检索技术，涵盖多模态嵌入、重排序模型及检索增强生成与代理系统的集成方法。",
+    "key_points": [
+      "本文综述了多模态大模型时代的视觉文档检索技术，涵盖多模态嵌入、重排序模型及检索增强生成与代理系统的集成方法"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19549v1",
+    "title": "Sculpting the Vector Space: Towards Efficient Multi-Vector Visual Document Retrieval via Prune-then-Merge Framework",
+    "authors": [
+      "Yibo Yan",
+      "Mingdong Ou",
+      "Yi Cao",
+      "Xin Zou",
+      "Jiahao Huo",
+      "Shuliang Liu",
+      "James Kwok",
+      "Xuming Hu"
+    ],
+    "summary": "Visual Document Retrieval (VDR), which aims to retrieve relevant pages within vast corpora of visually-rich documents, is of significance in current multimodal retrieval applications. The state-of-the-art multi-vector paradigm excels in performance but suffers from prohibitive overhead, a problem that current efficiency methods like pruning and merging address imperfectly, creating a difficult trade-off between compression rate and feature fidelity. To overcome this dilemma, we introduce Prune-then-Merge, a novel two-stage framework that synergizes these complementary approaches. Our method first employs an adaptive pruning stage to filter out low-information patches, creating a refined, high-signal set of embeddings. Subsequently, a hierarchical merging stage compresses this pre-filtered set, effectively summarizing semantic content without the noise-induced feature dilution seen in single-stage methods. Extensive experiments on 29 VDR datasets demonstrate that our framework consistently outperforms existing methods, significantly extending the near-lossless compression range and providing robust performance at high compression ratios.",
+    "categories": [
+      "cs.CL",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2026-02-23T06:45:19Z",
+    "updated": "2026-02-23T06:45:19Z",
+    "url": "http://arxiv.org/abs/2602.19549v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19549v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文针对视觉文档检索（VDR）中的多向量效率问题提出优化框架，属于多模态搜索的核心技术范畴，但侧重于底层检索架构优化而非直接的业务推荐系统应用。",
+    "translation": "塑造向量空间：通过先剪枝后合并框架实现高效多向量视觉文档检索",
+    "summary_zh": "提出一种“先剪枝后合并”的两阶段框架，通过自适应过滤低信息补丁并进行层次化合并，在保持特征保真度的同时显著降低多向量视觉文档检索的计算开销。",
+    "key_points": [
+      "提出一种“先剪枝后合并”的两阶段框架，通过自适应过滤低信息补丁并进行层次化合并，在保持特征保真度的同时显著降低多向量视觉文档检索的计算开销"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19698v1",
+    "title": "Iconographic Classification and Content-Based Recommendation for Digitized Artworks",
+    "authors": [
+      "Krzysztof Kutt",
+      "Maciej Baczyński"
+    ],
+    "summary": "We present a proof-of-concept system that automates iconographic classification and content-based recommendation of digitized artworks using the Iconclass vocabulary and selected artificial intelligence methods. The prototype implements a four-stage workflow for classification and recommendation, which integrates YOLOv8 object detection with algorithmic mappings to Iconclass codes, rule-based inference for abstract meanings, and three complementary recommenders (hierarchical proximity, IDF-weighted overlap, and Jaccard similarity). Although more engineering is still needed, the evaluation demonstrates the potential of this solution: Iconclass-aware computer vision and recommendation methods can accelerate cataloging and enhance navigation in large heritage repositories. The key insight is to let computer vision propose visible elements and to use symbolic structures (Iconclass hierarchy) to reach meaning.",
+    "categories": [
+      "cs.DL",
+      "cs.AI",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2026-02-23T10:44:27Z",
+    "updated": "2026-02-23T10:44:27Z",
+    "url": "http://arxiv.org/abs/2602.19698v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19698v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 5,
+    "reasoning": "该文属于多模态推荐在特定垂直领域（数字艺术）的应用，符合核心定义但场景较窄；虽含纯 CV 组件但明确用于推荐系统，且来自中国公司额外加 1 分。",
+    "translation": "基于图像学的数字化艺术品分类与内容推荐研究",
+    "summary_zh": "提出一种结合 YOLOv8 目标检测与 Iconclass 符号体系的多阶段工作流，通过计算机视觉提取可见元素并利用层级结构推导语义，从而实现数字艺术品的自动化分类与内容推荐。",
+    "key_points": [
+      "提出一种结合 YOLOv8 目标检测与 Iconclass 符号体系的多阶段工作流，通过计算机视觉提取可见元素并利用层级结构推导语义，从而实现数字艺术品的自动化分类与内容推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20271v1",
+    "title": "Uncertainty-Aware Delivery Delay Duration Prediction via Multi-Task Deep Learning",
+    "authors": [
+      "Stefan Faulkner",
+      "Reza Zandehshahvar",
+      "Vahid Eghbal Akhlaghi",
+      "Sebastien Ouellet",
+      "Carsten Jordan",
+      "Pascal Van Hentenryck"
+    ],
+    "summary": "Accurate delivery delay prediction is critical for maintaining operational efficiency and customer satisfaction across modern supply chains. Yet the increasing complexity of logistics networks, spanning multimodal transportation, cross-country routing, and pronounced regional variability, makes this prediction task inherently challenging. This paper introduces a multi-task deep learning model for delivery delay duration prediction in the presence of significant imbalanced data, where delayed shipments are rare but operationally consequential. The model embeds high-dimensional shipment features with dedicated embedding layers for tabular data, and then uses a classification-then-regression strategy to predict the delivery delay duration for on-time and delayed shipments. Unlike sequential pipelines, this approach enables end-to-end training, improves the detection of delayed cases, and supports probabilistic forecasting for uncertainty-aware decision making. The proposed approach is evaluated on a large-scale real-world dataset from an industrial partner, comprising more than 10 million historical shipment records across four major source locations with distinct regional characteristics. The proposed model is compared with traditional machine learning methods. Experimental results show that the proposed method achieves a mean absolute error of 0.67-0.91 days for delayed-shipment predictions, outperforming single-step tree-based regression baselines by 41-64% and two-step classify-then-regress tree-based models by 15-35%. These gains demonstrate the effectiveness of the proposed model in operational delivery delay forecasting under highly imbalanced and heterogeneous conditions.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "math.OC",
+      "stat.AP"
+    ],
+    "published": "2026-02-23T19:01:03Z",
+    "updated": "2026-02-23T19:01:03Z",
+    "url": "http://arxiv.org/abs/2602.20271v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20271v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于物流供应链中的配送延迟预测，属于运营优化范畴，并非推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），虽有多任务深度学习应用但领域不匹配。",
+    "translation": "基于多任务深度学习的感知不确定性配送延迟时长预测",
+    "summary_zh": "提出一种结合分类与回归策略的多任务深度学习模型，通过端到端训练处理数据不平衡问题，以实现针对物流配送延迟时长的概率化预测。",
+    "key_points": [
+      "提出一种结合分类与回归策略的多任务深度学习模型，通过端到端训练处理数据不平衡问题，以实现针对物流配送延迟时长的概率化预测"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19538v1",
+    "title": "Cost-Aware Diffusion Active Search",
+    "authors": [
+      "Arundhati Banerjee",
+      "Jeff Schneider"
+    ],
+    "summary": "Active search for recovering objects of interest through online, adaptive decision making with autonomous agents requires trading off exploration of unknown environments with exploitation of prior observations in the search space. Prior work has proposed information gain and Thompson sampling based myopic, greedy approaches for agents to actively decide query or search locations when the number of targets is unknown. Decision making algorithms in such partially observable environments have also shown that agents capable of lookahead over a finite horizon outperform myopic policies for active search. Unfortunately, lookahead algorithms typically rely on building a computationally expensive search tree that is simulated and updated based on the agent's observations and a model of the environment dynamics. Instead, in this work, we leverage the sequence modeling abilities of diffusion models to sample lookahead action sequences that balance the exploration-exploitation trade-off for active search without building an exhaustive search tree. We identify the optimism bias in prior diffusion based reinforcement learning approaches when applied to the active search setting and propose mitigating solutions for efficient cost-aware decision making with both single and multi-agent teams. Our proposed algorithm outperforms standard baselines in offline reinforcement learning in terms of full recovery rate and is computationally more efficient than tree search in cost-aware active decision making.",
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-23T06:11:51Z",
+    "updated": "2026-02-23T06:11:51Z",
+    "url": "http://arxiv.org/abs/2602.19538v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19538v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文研究基于扩散模型的主动搜索（机器人/代理探索），属于强化学习与控制领域，并非推荐系统或搜索引擎中的信息检索与排序任务；虽来自格力且加 1 分，但因核心领域完全不匹配（纯 RL/Robotics），仍属低优先级。",
+    "translation": "成本感知的扩散主动搜索",
+    "summary_zh": "利用扩散模型的序列建模能力采样前瞻动作序列，以在无需构建昂贵搜索树的情况下平衡主动搜索中的探索与利用权衡。",
+    "key_points": [
+      "利用扩散模型的序列建模能力采样前瞻动作序列，以在无需构建昂贵搜索树的情况下平衡主动搜索中的探索与利用权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19526v1",
+    "title": "How to Train Your Deep Research Agent? Prompt, Reward, and Policy Optimization in Search-R1",
+    "authors": [
+      "Yinuo Xu",
+      "Shuo Lu",
+      "Jianjie Cheng",
+      "Meng Wang",
+      "Qianlong Xie",
+      "Xingxing Wang",
+      "Ran He",
+      "Jian Liang"
+    ],
+    "summary": "Deep Research agents tackle knowledge-intensive tasks through multi-round retrieval and decision-oriented generation. While reinforcement learning (RL) has been shown to improve performance in this paradigm, its contributions remain underexplored. To fully understand the role of RL, we conduct a systematic study along three decoupled dimensions: prompt template, reward function, and policy optimization. Our study reveals that: 1) the Fast Thinking template yields greater stability and better performance than the Slow Thinking template used in prior work; 2) the F1-based reward underperforms the EM due to training collapse driven by answer avoidance; this can be mitigated by incorporating action-level penalties, ultimately surpassing EM; 3) REINFORCE outperforms PPO while requiring fewer search actions, whereas GRPO shows the poorest stability among policy optimization methods. Building on these insights, we then introduce Search-R1++, a strong baseline that improves the performance of Search-R1 from 0.403 to 0.442 (Qwen2.5-7B) and 0.289 to 0.331 (Qwen2.5-3B). We hope that our findings can pave the way for more principled and reliable RL training strategies in Deep Research systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-02-23T05:33:17Z",
+    "updated": "2026-02-23T05:33:17Z",
+    "url": "http://arxiv.org/abs/2602.19526v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19526v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和强化学习研究，专注于通用深度研究代理（Deep Research Agent）的训练策略，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "如何训练你的深度研究代理？Search-R1 中的提示、奖励与策略优化",
+    "summary_zh": "该论文通过解耦分析提示模板、奖励函数和策略优化三个维度，揭示了强化学习在提升多轮检索型研究代理性能中的具体作用机制，并提出了改进的基线模型。",
+    "key_points": [
+      "该论文通过解耦分析提示模板、奖励函数和策略优化三个维度，揭示了强化学习在提升多轮检索型研究代理性能中的具体作用机制，并提出了改进的基线模型"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20379v1",
+    "title": "Case-Aware LLM-as-a-Judge Evaluation for Enterprise-Scale RAG Systems",
+    "authors": [
+      "Mukul Chhabra",
+      "Luigi Medrano",
+      "Arush Verma"
+    ],
+    "summary": "Enterprise Retrieval-Augmented Generation (RAG) assistants operate in multi-turn, case-based workflows such as technical support and IT operations, where evaluation must reflect operational constraints, structured identifiers (e.g., error codes, versions), and resolution workflows. Existing RAG evaluation frameworks are primarily designed for benchmark-style or single-turn settings and often fail to capture enterprise-specific failure modes such as case misidentification, workflow misalignment, and partial resolution across turns.\n  We present a case-aware LLM-as-a-Judge evaluation framework for enterprise multi-turn RAG systems. The framework evaluates each turn using eight operationally grounded metrics that separate retrieval quality, grounding fidelity, answer utility, precision integrity, and case/workflow alignment. A severity-aware scoring protocol reduces score inflation and improves diagnostic clarity across heterogeneous enterprise cases. The system uses deterministic prompting with strict JSON outputs, enabling scalable batch evaluation, regression testing, and production monitoring.\n  Through a comparative study of two instruction-tuned models across short and long workflows, we show that generic proxy metrics provide ambiguous signals, while the proposed framework exposes enterprise-critical tradeoffs that are actionable for system improvement.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-02-23T21:37:06Z",
+    "updated": "2026-02-23T21:37:06Z",
+    "url": "http://arxiv.org/abs/2602.20379v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20379v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 应用研究，专注于企业级 RAG 系统的评估框架，未涉及推荐系统或搜索引擎的核心算法（如召回、排序、用户建模）。",
+    "translation": "面向企业级 RAG 系统的案例感知大模型即裁判评估方法",
+    "summary_zh": "提出一种针对企业多轮 RAG 工作流的案例感知评估框架，通过操作导向的指标和严重性感知评分协议，解决传统基准测试无法捕捉的案例误识别与工作流对齐问题。",
+    "key_points": [
+      "提出一种针对企业多轮 RAG 工作流的案例感知评估框架，通过操作导向的指标和严重性感知评分协议，解决传统基准测试无法捕捉的案例误识别与工作流对齐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.19605v1",
+    "title": "CLCR: Cross-Level Semantic Collaborative Representation for Multimodal Learning",
+    "authors": [
+      "Chunlei Meng",
+      "Guanhong Huang",
+      "Rong Fu",
+      "Runmin Jian",
+      "Zhongxue Gan",
+      "Chun Ouyang"
+    ],
+    "summary": "Multimodal learning aims to capture both shared and private information from multiple modalities. However, existing methods that project all modalities into a single latent space for fusion often overlook the asynchronous, multi-level semantic structure of multimodal data. This oversight induces semantic misalignment and error propagation, thereby degrading representation quality. To address this issue, we propose Cross-Level Co-Representation (CLCR), which explicitly organizes each modality's features into a three-level semantic hierarchy and specifies level-wise constraints for cross-modal interactions. First, a semantic hierarchy encoder aligns shallow, mid, and deep features across modalities, establishing a common basis for interaction. And then, at each level, an Intra-Level Co-Exchange Domain (IntraCED) factorizes features into shared and private subspaces and restricts cross-modal attention to the shared subspace via a learnable token budget. This design ensures that only shared semantics are exchanged and prevents leakage from private channels. To integrate information across levels, the Inter-Level Co-Aggregation Domain (InterCAD) synchronizes semantic scales using learned anchors, selectively fuses the shared representations, and gates private cues to form a compact task representation. We further introduce regularization terms to enforce separation of shared and private features and to minimize cross-level interference. Experiments on six benchmarks spanning emotion recognition, event localization, sentiment analysis, and action recognition show that CLCR achieves strong performance and generalizes well across tasks.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.MM"
+    ],
+    "published": "2026-02-23T08:47:19Z",
+    "updated": "2026-02-23T08:47:19Z",
+    "url": "http://arxiv.org/abs/2602.19605v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.19605v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯多模态机器学习研究，专注于情感识别和动作识别等通用任务，未涉及推荐系统或搜索引擎的任何应用场景。",
+    "translation": "CLCR：用于多模态学习的跨层级语义协同表示",
+    "summary_zh": "该论文提出一种跨层级协同表示方法，通过将多模态特征划分为浅、中、深三层语义结构，并在各层级内部分离共享与私有子空间以优化跨模态交互。",
+    "key_points": [
+      "该论文提出一种跨层级协同表示方法，通过将多模态特征划分为浅、中、深三层语义结构，并在各层级内部分离共享与私有子空间以优化跨模态交互"
+    ]
+  }
+]

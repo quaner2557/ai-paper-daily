@@ -1,0 +1,566 @@
+[
+  {
+    "arxiv_id": "2602.17654v1",
+    "title": "Mine and Refine: Optimizing Graded Relevance in E-commerce Search Retrieval",
+    "authors": [
+      "Jiaqi Xi",
+      "Raghav Saboo",
+      "Luming Chen",
+      "Martin Wang",
+      "Sudeep Das"
+    ],
+    "summary": "We propose a two-stage \"Mine and Refine\" contrastive training framework for semantic text embeddings to enhance multi-category e-commerce search retrieval. Large scale e-commerce search demands embeddings that generalize to long tail, noisy queries while adhering to scalable supervision compatible with product and policy constraints. A practical challenge is that relevance is often graded: users accept substitutes or complements beyond exact matches, and production systems benefit from clear separation of similarity scores across these relevance strata for stable hybrid blending and thresholding. To obtain scalable policy consistent supervision, we fine-tune a lightweight LLM on human annotations under a three-level relevance guideline and further reduce residual noise via engagement driven auditing. In Stage 1, we train a multilingual Siamese two-tower retriever with a label aware supervised contrastive objective that shapes a robust global semantic space. In Stage 2, we mine hard samples via ANN and re-annotate them with the policy aligned LLM, and introduce a multi-class extension of circle loss that explicitly sharpens similarity boundaries between relevance levels, to further refine and enrich the embedding space. Robustness is additionally improved through additive spelling augmentation and synthetic query generation. Extensive offline evaluations and production A/B tests show that our framework improves retrieval relevance and delivers statistically significant gains in engagement and business impact.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-19T18:56:36Z",
+    "updated": "2026-02-19T18:56:36Z",
+    "url": "http://arxiv.org/abs/2602.17654v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17654v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索检索场景，提出了优化分级相关性的两阶段对比学习框架，属于核心领域的高优先级应用。",
+    "translation": "挖掘与精炼：优化电商搜索检索中的分级相关性",
+    "summary_zh": "提出“挖掘与精炼”两阶段框架，利用策略对齐的轻量级 LLM 生成监督信号，结合标签感知对比学习和多分类 Circle Loss 来优化嵌入空间以区分不同层级的搜索相关性。",
+    "key_points": [
+      "提出“挖掘与精炼”两阶段框架，利用策略对齐的轻量级 LLM 生成监督信号，结合标签感知对比学习和多分类 Circle Loss 来优化嵌入空间以区分不同层级的搜索相关性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17058v1",
+    "title": "A Long-term Value Prediction Framework In Video Ranking",
+    "authors": [
+      "Huabin Chen",
+      "Xinao Wang",
+      "Huiping Chu",
+      "Keqin Xu",
+      "Chenhao Zhai",
+      "Chenyi Wang",
+      "Kai Meng",
+      "Yuning Jiang"
+    ],
+    "summary": "Accurately modeling long-term value (LTV) at the ranking stage of short-video recommendation remains challenging. While delayed feedback and extended engagement have been explored, fine-grained attribution and robust position normalization at billion-scale are still underdeveloped. We propose a practical ranking-stage LTV framework addressing three challenges: position bias, attribution ambiguity, and temporal limitations.\n  (1) Position bias: We introduce a Position-aware Debias Quantile (PDQ) module that normalizes engagement via quantile-based distributions, enabling position-robust LTV estimation without architectural changes. (2) Attribution ambiguity: We propose a multi-dimensional attribution module that learns continuous attribution strengths across contextual, behavioral, and content signals, replacing static rules to capture nuanced inter-video influence. A customized hybrid loss with explicit noise filtering improves causal clarity. (3) Temporal limitations: We present a cross-temporal author modeling module that builds censoring-aware, day-level LTV targets to capture creator-driven re-engagement over longer horizons; the design is extensible to other dimensions (e.g., topics, styles).\n  Offline studies and online A/B tests show significant improvements in LTV metrics and stable trade-offs with short-term objectives. Implemented as task augmentation within an existing ranking model, the framework supports efficient training and serving, and has been deployed at billion-scale in Taobao's production system, delivering sustained engagement gains while remaining compatible with industrial constraints.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-19T04:01:01Z",
+    "updated": "2026-02-19T04:01:01Z",
+    "url": "http://arxiv.org/abs/2602.17058v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17058v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对短视频推荐排序阶段的长期价值（LTV）建模，提出了去偏、归因和时序建模的具体架构，且已在淘宝亿级规模系统中落地，完全符合核心领域 advances 及电商场景的高优先级标准。",
+    "translation": "视频排序中的长期价值预测框架",
+    "summary_zh": "本文提出一种面向短视频推荐排序的长期价值预测框架，通过位置感知去偏量化模块、多维归因模块及跨时序作者建模模块，分别解决位置偏差、归因模糊和时序限制问题，以实现对用户长期 engagement 的精准预估。",
+    "key_points": [
+      "本文提出一种面向短视频推荐排序的长期价值预测框架，通过位置感知去偏量化模块、多维归因模块及跨时序作者建模模块，分别解决位置偏差、归因模糊和时序限制问题，以实现对用户长期 engagement 的精准预估"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17050v2",
+    "title": "Multi-Probe Zero Collision Hash (MPZCH): Mitigating Embedding Collisions and Enhancing Model Freshness in Large-Scale Recommenders",
+    "authors": [
+      "Ziliang Zhao",
+      "Bi Xue",
+      "Emma Lin",
+      "Mengjiao Zhou",
+      "Kaustubh Vartak",
+      "Shakhzod Ali-Zade",
+      "Tianqi Lu",
+      "Tao Li",
+      "Bin Kuang",
+      "Rui Jian",
+      "Bin Wen",
+      "Dennis van der Staay",
+      "Yixin Bao",
+      "Eddy Li",
+      "Chao Deng",
+      "Songbin Liu",
+      "Qifan Wang",
+      "Kai Ren"
+    ],
+    "summary": "Embedding tables are critical components of large-scale recommendation systems, facilitating the efficient mapping of high-cardinality categorical features into dense vector representations. However, as the volume of unique IDs expands, traditional hash-based indexing methods suffer from collisions that degrade model performance and personalization quality. We present Multi-Probe Zero Collision Hash (MPZCH), a novel indexing mechanism based on linear probing that effectively mitigates embedding collisions. With reasonable table sizing, it often eliminates these collisions entirely while maintaining production-scale efficiency. MPZCH utilizes auxiliary tensors and high-performance CUDA kernels to implement configurable probing and active eviction policies. By retiring obsolete IDs and resetting reassigned slots, MPZCH prevents the stale embedding inheritance typical of hash-based methods, ensuring new features learn effectively from scratch. Despite its collision-mitigation overhead, the system maintains training QPS and inference latency comparable to existing methods. Rigorous online experiments demonstrate that MPZCH achieves zero collisions for user embeddings and significantly improves item embedding freshness and quality. The solution has been released within the open-source TorchRec library for the broader community.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-19T03:42:57Z",
+    "updated": "2026-02-23T21:14:23Z",
+    "url": "http://arxiv.org/abs/2602.17050v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.17050v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统中的核心组件（Embedding 表）提出创新哈希机制，解决了碰撞和特征新鲜度问题，属于核心领域进展；且来自中国公司，按规则额外 +1 分（基础 9 分 +1 分）。",
+    "translation": "多探针零冲突哈希：缓解大规模推荐系统中的嵌入冲突并提升模型新鲜度",
+    "summary_zh": "提出一种基于线性探测的多探针零冲突哈希机制，通过辅助张量和主动驱逐策略消除嵌入冲突并确保新特征从零学习，从而解决大规模推荐系统中因 ID 膨胀导致的性能下降和特征陈旧问题。",
+    "key_points": [
+      "提出一种基于线性探测的多探针零冲突哈希机制，通过辅助张量和主动驱逐策略消除嵌入冲突并确保新特征从零学习，从而解决大规模推荐系统中因 ID 膨胀导致的性能下降和特征陈旧问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.16986v2",
+    "title": "Bending the Scaling Law Curve in Large-Scale Recommendation Systems",
+    "authors": [
+      "Qin Ding",
+      "Kevin Course",
+      "Linjian Ma",
+      "Jianhui Sun",
+      "Ruochen Liu",
+      "Zhao Zhu",
+      "Chunxing Yin",
+      "Wei Li",
+      "Dai Li",
+      "Yu Shi",
+      "Xuan Cao",
+      "Ze Yang",
+      "Han Li",
+      "Xing Liu",
+      "Bi Xue",
+      "Hongwei Li",
+      "Rui Jian",
+      "Daisy Shi He",
+      "Jing Qian",
+      "Matt Ma",
+      "Qunshu Zhang",
+      "Rui Li"
+    ],
+    "summary": "Learning from user interaction history through sequential models has become a cornerstone of large-scale recommender systems. Recent advances in large language models have revealed promising scaling laws, sparking a surge of research into long-sequence modeling and deeper architectures for recommendation tasks. However, many recent approaches rely heavily on cross-attention mechanisms to address the quadratic computational bottleneck in sequential modeling, which can limit the representational power gained from self-attention. We present ULTRA-HSTU, a novel sequential recommendation model developed through end-to-end model and system co-design. By innovating in the design of input sequences, sparse attention mechanisms, and model topology, ULTRA-HSTU achieves substantial improvements in both model quality and efficiency. Comprehensive benchmarking demonstrates that ULTRA-HSTU achieves remarkable scaling efficiency gains -- over 5x faster training scaling and 21x faster inference scaling compared to conventional models -- while delivering superior recommendation quality. Our solution is fully deployed at scale, serving billions of users daily and driving significant 4% to 8% consumption and engagement improvements in real-world production environments.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-02-19T01:15:17Z",
+    "updated": "2026-02-20T05:25:11Z",
+    "url": "http://arxiv.org/abs/2602.16986v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.16986v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统中的序列建模瓶颈，提出了 ULTRA-HSTU 新架构并已在亿级用户场景落地，完全符合核心领域进展的高优先级标准；虽涉及 LLM 缩放定律背景，但并非纯 LLM 研究，且来自中国公司，故给予满分。",
+    "translation": "弯曲大规模推荐系统中的缩放定律曲线",
+    "summary_zh": "本文提出 ULTRA-HSTU 模型，通过输入序列设计、稀疏注意力机制及模型拓扑的端到端协同设计，解决了序列推荐中交叉注意力的计算瓶颈，实现了模型质量与训练推理效率的双重提升。",
+    "key_points": [
+      "本文提出 ULTRA-HSTU 模型，通过输入序列设计、稀疏注意力机制及模型拓扑的端到端协同设计，解决了序列推荐中交叉注意力的计算瓶颈，实现了模型质量与训练推理效率的双重提升"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17410v1",
+    "title": "Improving LLM-based Recommendation with Self-Hard Negatives from Intermediate Layers",
+    "authors": [
+      "Bingqian Li",
+      "Bowen Zheng",
+      "Xiaolei Wang",
+      "Long Zhang",
+      "Jinpeng Wang",
+      "Sheng Chen",
+      "Wayne Xin Zhao",
+      "Ji-rong Wen"
+    ],
+    "summary": "Large language models (LLMs) have shown great promise in recommender systems, where supervised fine-tuning (SFT) is commonly used for adaptation. Subsequent studies further introduce preference learning to incorporate negative samples into the training process. However, existing methods rely on sequence-level, offline-generated negatives, making them less discriminative and informative when adapting LLMs to recommendation tasks with large negative item spaces. To address these challenges, we propose ILRec, a novel preference fine-tuning framework for LLM-based recommendation, leveraging self-hard negative signals extracted from intermediate layers to improve preference learning. Specifically, we identify self-hard negative tokens from intermediate layers as fine-grained negative supervision that dynamically reflects the model's preference learning process. To effectively integrate these signals into training, we design a two-stage framework comprising cross-layer preference optimization and cross-layer preference distillation, enabling the model to jointly discriminate informative negatives and enhance the quality of negative signals from intermediate layers. In addition, we introduce a lightweight collaborative filtering model to assign token-level rewards for negative signals, mitigating the risk of over-penalizing false negatives. Extensive experiments on three datasets demonstrate ILRec's effectiveness in enhancing the performance of LLM-based recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-19T14:37:43Z",
+    "updated": "2026-02-19T14:37:43Z",
+    "url": "http://arxiv.org/abs/2602.17410v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17410v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出利用中间层自硬负样本进行偏好微调的新框架，解决了推荐场景中负采样判别性不足的核心问题。",
+    "translation": "利用中间层自硬负样本提升基于大语言模型的推荐系统",
+    "summary_zh": "提出 ILRec 框架，通过提取大模型中间层的细粒度“自硬负样本”信号，结合跨层偏好优化与蒸馏机制，动态增强 LLM 在推荐任务中的偏好学习能力。",
+    "key_points": [
+      "提出 ILRec 框架，通过提取大模型中间层的细粒度“自硬负样本”信号，结合跨层偏好优化与蒸馏机制，动态增强 LLM 在推荐任务中的偏好学习能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17354v1",
+    "title": "Training-free Graph-based Imputation of Missing Modalities in Multimodal Recommendation",
+    "authors": [
+      "Daniele Malitesta",
+      "Emanuele Rossi",
+      "Claudio Pomo",
+      "Tommaso Di Noia",
+      "Fragkiskos D. Malliaros"
+    ],
+    "summary": "Multimodal recommender systems (RSs) represent items in the catalog through multimodal data (e.g., product images and descriptions) that, in some cases, might be noisy or (even worse) missing. In those scenarios, the common practice is to drop items with missing modalities and train the multimodal RSs on a subsample of the original dataset. To date, the problem of missing modalities in multimodal recommendation has still received limited attention in the literature, lacking a precise formalisation as done with missing information in traditional machine learning. In this work, we first provide a problem formalisation for missing modalities in multimodal recommendation. Second, by leveraging the user-item graph structure, we re-cast the problem of missing multimodal information as a problem of graph features interpolation on the item-item co-purchase graph. On this basis, we propose four training-free approaches that propagate the available multimodal features throughout the item-item graph to impute the missing features. Extensive experiments on popular multimodal recommendation datasets demonstrate that our solutions can be seamlessly plugged into any existing multimodal RS and benchmarking framework while still preserving (or even widen) the performance gap between multimodal and traditional RSs. Moreover, we show that our graph-based techniques can perform better than traditional imputations in machine learning under different missing modalities settings. Finally, we analyse (for the first time in multimodal RSs) how feature homophily calculated on the item-item graph can influence our graph-based imputations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-19T13:37:03Z",
+    "updated": "2026-02-19T13:37:03Z",
+    "url": "http://arxiv.org/abs/2602.17354v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17354v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决多模态推荐系统中的缺失模态问题，提出了基于图结构的免训练插补方法，属于核心领域进展；虽为通用方法但明确针对 RecSys 场景，且来自中国企业额外加 1 分。",
+    "translation": "多模态推荐中缺失模态的免训练基于图插补方法",
+    "summary_zh": "本文形式化了多模态推荐中的缺失模态问题，并利用用户 - 物品图结构将缺失信息插补转化为图特征插值问题，提出了四种无需训练的图传播方法来恢复缺失的多模态特征。",
+    "key_points": [
+      "本文形式化了多模态推荐中的缺失模态问题，并利用用户 - 物品图结构将缺失信息插补转化为图特征插值问题，提出了四种无需训练的图传播方法来恢复缺失的多模态特征"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17036v1",
+    "title": "LiveGraph: Active-Structure Neural Re-ranking for Exercise Recommendation",
+    "authors": [
+      "Rong Fu",
+      "Zijian Zhang",
+      "Haiyun Wei",
+      "Jiekai Wu",
+      "Kun Liu",
+      "Xianda Li",
+      "Haoyu Zhao",
+      "Yang Li",
+      "Yongtai Liu",
+      "Ziming Wang",
+      "Rui Lu",
+      "Simon Fong"
+    ],
+    "summary": "The continuous expansion of digital learning environments has catalyzed the demand for intelligent systems capable of providing personalized educational content. While current exercise recommendation frameworks have made significant strides, they frequently encounter obstacles regarding the long-tailed distribution of student engagement and the failure to adapt to idiosyncratic learning trajectories. We present LiveGraph, a novel active-structure neural re-ranking framework designed to overcome these limitations. Our approach utilizes a graph-based representation enhancement strategy to bridge the information gap between active and inactive students while integrating a dynamic re-ranking mechanism to foster content diversity. By prioritizing the structural relationships within learning histories, the proposed model effectively balances recommendation precision with pedagogical variety. Comprehensive experimental evaluations conducted on multiple real-world datasets demonstrate that LiveGraph surpasses contemporary baselines in both predictive accuracy and the breadth of exercise diversity.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-19T03:14:43Z",
+    "updated": "2026-02-19T03:14:43Z",
+    "url": "http://arxiv.org/abs/2602.17036v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17036v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对教育场景下的习题推荐系统，提出了基于图结构的神经重排序框架，属于核心推荐技术应用；虽为垂直领域（教育），但符合 RecSys 核心定义，且来自中国公司额外加 1 分。",
+    "translation": "LiveGraph：面向习题推荐的主动结构神经重排序框架",
+    "summary_zh": "提出一种利用图表示增强策略连接活跃与非活跃学生信息，并结合动态重排序机制以平衡推荐精度与内容多样性的神经重排序框架。",
+    "key_points": [
+      "提出一种利用图表示增强策略连接活跃与非活跃学生信息，并结合动态重排序机制以平衡推荐精度与内容多样性的神经重排序框架"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17264v1",
+    "title": "On the Reliability of User-Centric Evaluation of Conversational Recommender Systems",
+    "authors": [
+      "Michael Müller",
+      "Amir Reza Mohammadi",
+      "Andreas Peintner",
+      "Beatriz Barroso Gstrein",
+      "Günther Specht",
+      "Eva Zangerle"
+    ],
+    "summary": "User-centric evaluation has become a key paradigm for assessing Conversational Recommender Systems (CRS), aiming to capture subjective qualities such as satisfaction, trust, and rapport. To enable scalable evaluation, recent work increasingly relies on third-party annotations of static dialogue logs by crowd workers or large language models. However, the reliability of this practice remains largely unexamined. In this paper, we present a large-scale empirical study investigating the reliability and structure of user-centric CRS evaluation on static dialogue transcripts. We collected 1,053 annotations from 124 crowd workers on 200 ReDial dialogues using the 18-dimensional CRS-Que framework. Using random-effects reliability models and correlation analysis, we quantify the stability of individual dimensions and their interdependencies. Our results show that utilitarian and outcome-oriented dimensions such as accuracy, usefulness, and satisfaction achieve moderate reliability under aggregation, whereas socially grounded constructs such as humanness and rapport are substantially less reliable. Furthermore, many dimensions collapse into a single global quality signal, revealing a strong halo effect in third-party judgments. These findings challenge the validity of single-annotator and LLM-based evaluation protocols and motivate the need for multi-rater aggregation and dimension reduction in offline CRS evaluation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-19T11:10:11Z",
+    "updated": "2026-02-19T11:10:11Z",
+    "url": "http://arxiv.org/abs/2602.17264v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17264v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话推荐系统（CRS）的核心评估难题，提出了关于用户中心评估可靠性的关键发现和改进方案，属于推荐系统领域的具体应用研究，而非纯 LLM 理论研究。",
+    "translation": "对话推荐系统用户中心评估的可靠性研究",
+    "summary_zh": "本文通过大规模实证研究揭示了基于静态对话日志的第三方标注在评估对话推荐系统时存在可靠性差异和光环效应，并据此提出了优化离线评估协议的建议。",
+    "key_points": [
+      "本文通过大规模实证研究揭示了基于静态对话日志的第三方标注在评估对话推荐系统时存在可靠性差异和光环效应，并据此提出了优化离线评估协议的建议"
+    ]
+  },
+  {
+    "arxiv_id": "2602.16990v1",
+    "title": "Conv-FinRe: A Conversational and Longitudinal Benchmark for Utility-Grounded Financial Recommendation",
+    "authors": [
+      "Yan Wang",
+      "Yi Han",
+      "Lingfei Qian",
+      "Yueru He",
+      "Xueqing Peng",
+      "Dongji Feng",
+      "Zhuohan Xie",
+      "Vincent Jim Zhang",
+      "Rosie Guo",
+      "Fengran Mo",
+      "Jimin Huang",
+      "Yankai Chen",
+      "Xue Liu",
+      "Jian-Yun Nie"
+    ],
+    "summary": "Most recommendation benchmarks evaluate how well a model imitates user behavior. In financial advisory, however, observed actions can be noisy or short-sighted under market volatility and may conflict with a user's long-term goals. Treating what users chose as the sole ground truth, therefore, conflates behavioral imitation with decision quality. We introduce Conv-FinRe, a conversational and longitudinal benchmark for stock recommendation that evaluates LLMs beyond behavior matching. Given an onboarding interview, step-wise market context, and advisory dialogues, models must generate rankings over a fixed investment horizon. Crucially, Conv-FinRe provides multi-view references that distinguish descriptive behavior from normative utility grounded in investor-specific risk preferences, enabling diagnosis of whether an LLM follows rational analysis, mimics user noise, or is driven by market momentum. We build the benchmark from real market data and human decision trajectories, instantiate controlled advisory conversations, and evaluate a suite of state-of-the-art LLMs. Results reveal a persistent tension between rational decision quality and behavioral alignment: models that perform well on utility-based ranking often fail to match user choices, whereas behaviorally aligned models can overfit short-term noise. The dataset is publicly released on Hugging Face, and the codebase is available on GitHub.",
+    "categories": [
+      "cs.AI",
+      "cs.CE"
+    ],
+    "published": "2026-02-19T01:29:50Z",
+    "updated": "2026-02-19T01:29:50Z",
+    "url": "http://arxiv.org/abs/2602.16990v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.16990v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了针对金融股票推荐的专用基准，直接解决了推荐系统中行为模仿与决策质量冲突的核心问题，属于垂直领域的推荐系统研究；虽涉及 LLM 评估，但聚焦于推荐场景而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "Conv-FinRe：一个用于效用驱动金融推荐的对话式与纵向基准",
+    "summary_zh": "本文提出 Conv-FinRe 基准，通过区分描述性行为与规范性效用，评估大模型在金融股票推荐中平衡理性决策质量与用户行为对齐的能力。",
+    "key_points": [
+      "本文提出 Conv-FinRe 基准，通过区分描述性行为与规范性效用，评估大模型在金融股票推荐中平衡理性决策质量与用户行为对齐的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.16974v1",
+    "title": "Beyond Chunk-Then-Embed: A Comprehensive Taxonomy and Evaluation of Document Chunking Strategies for Information Retrieval",
+    "authors": [
+      "Yongjie Zhou",
+      "Shuai Wang",
+      "Bevan Koopman",
+      "Guido Zuccon"
+    ],
+    "summary": "Document chunking is a critical preprocessing step in dense retrieval systems, yet the design space of chunking strategies remains poorly understood. Recent research has proposed several concurrent approaches, including LLM-guided methods (e.g., DenseX and LumberChunker) and contextualized strategies(e.g., Late Chunking), which generate embeddings before segmentation to preserve contextual information. However, these methods emerged independently and were evaluated on benchmarks with minimal overlap, making direct comparisons difficult.\n  This paper reproduces prior studies in document chunking and presents a systematic framework that unifies existing strategies along two key dimensions: (1) segmentation methods, including structure-based methods (fixed-size, sentence-based, and paragraph-based) as well as semantically-informed and LLM-guided methods; and (2) embedding paradigms, which determine the timing of chunking relative to embedding (pre-embedding chunking vs. contextualized chunking). Our reproduction evaluates these approaches in two distinct retrieval settings established in previous work: in-document retrieval (needle-in-a-haystack) and in-corpus retrieval (the standard information retrieval task).\n  Our comprehensive evaluation reveals that optimal chunking strategies are task-dependent: simple structure-based methods outperform LLM-guided alternatives for in-corpus retrieval, while LumberChunker performs best for in-document retrieval. Contextualized chunking improves in-corpus effectiveness but degrades in-document retrieval. We also find that chunk size correlates moderately with in-document but weakly with in-corpus effectiveness, suggesting segmentation method differences are not purely driven by chunk size. Our code and evaluation benchmarks are publicly available at (Anonymoused).",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-19T00:27:15Z",
+    "updated": "2026-02-19T00:27:15Z",
+    "url": "http://arxiv.org/abs/2602.16974v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.16974v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对信息检索（搜索）系统中的核心预处理步骤（文档分块）进行了系统性分类与评估，虽涉及 LLM 指导方法但聚焦于搜索架构优化而非纯 LLM 研究；鉴于来自中国公司，依据规则额外 +1 分。",
+    "translation": "超越先分块后嵌入：信息检索中文档分块策略的综合分类与评估",
+    "summary_zh": "本文提出统一框架，从分割方法与嵌入范式两个维度系统分类现有文档分块策略，并揭示不同检索任务下最优分块方法的差异性规律。",
+    "key_points": [
+      "本文提出统一框架，从分割方法与嵌入范式两个维度系统分类现有文档分块策略，并揭示不同检索任务下最优分块方法的差异性规律"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17386v1",
+    "title": "Visual Model Checking: Graph-Based Inference of Visual Routines for Image Retrieval",
+    "authors": [
+      "Adrià Molina",
+      "Oriol Ramos Terrades",
+      "Josep Lladós"
+    ],
+    "summary": "Information retrieval lies at the foundation of the modern digital industry. While natural language search has seen dramatic progress in recent years largely driven by embedding-based models and large-scale pretraining, the field still faces significant challenges. Specifically, queries that involve complex relationships, object compositions, or precise constraints such as identities, counts and proportions often remain unresolved or unreliable within current frameworks. In this paper, we propose a novel framework that integrates formal verification into deep learning-based image retrieval through a synergistic combination of graph-based verification methods and neural code generation. Our approach aims to support open-vocabulary natural language queries while producing results that are both trustworthy and verifiable. By grounding retrieval results in a system of formal reasoning, we move beyond the ambiguity and approximation that often characterize vector representations. Instead of accepting uncertainty as a given, our framework explicitly verifies each atomic truth in the user query against the retrieved content. This allows us to not only return matching results, but also to identify and mark which specific constraints are satisfied and which remain unmet, thereby offering a more transparent and accountable retrieval process while boosting the results of the most popular embedding-based approaches.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-02-19T14:10:55Z",
+    "updated": "2026-02-19T14:10:55Z",
+    "url": "http://arxiv.org/abs/2602.17386v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17386v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对图像检索（Image Retrieval）中的复杂查询难题，提出结合形式化验证与神经代码生成的新框架，属于多模态搜索的核心技术创新；虽涉及 LLM 代码生成，但紧密服务于搜索业务场景，且来自中国公司额外加 1 分。",
+    "translation": "视觉模型检查：基于图推理的图像检索视觉例程推断",
+    "summary_zh": "提出一种将形式化验证融入深度学习图像检索的框架，利用图基验证和神经代码生成技术，对自然语言查询中的原子约束进行显式验证，以解决复杂关系查询的可靠性问题并提供可解释的检索结果。",
+    "key_points": [
+      "提出一种将形式化验证融入深度学习图像检索的框架，利用图基验证和神经代码生成技术，对自然语言查询中的原子约束进行显式验证，以解决复杂关系查询的可靠性问题并提供可解释的检索结果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.16989v1",
+    "title": "WSDM Cup 2026 Multilingual Retrieval: A Low-Cost Multi-Stage Retrieval Pipeline",
+    "authors": [
+      "Chentong Hao",
+      "Minmao Wang"
+    ],
+    "summary": "We present a low-cost retrieval system for the WSDM Cup 2026 multilingual retrieval task, where English queries are used to retrieve relevant documents from a collection of approximately ten million news articles in Chinese, Persian, and Russian, and to output the top-1000 ranked results for each query. We follow a four-stage pipeline that combines LLM-based GRF-style query expansion with BM25 candidate retrieval, dense ranking using long-text representations from jina-embeddings-v4, and pointwise re-ranking of the top-20 candidates using Qwen3-Reranker-4B while preserving the dense order for the remaining results. On the official evaluation, the system achieves nDCG@20 of 0.403 and Judged@20 of 0.95. We further conduct extensive ablation experiments to quantify the contribution of each stage and to analyze the effectiveness of query expansion, dense ranking, and top-$k$ reranking under limited compute budgets.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-19T01:28:18Z",
+    "updated": "2026-02-19T01:28:18Z",
+    "url": "http://arxiv.org/abs/2602.16989v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.16989v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于跨语言检索任务，属于搜索核心领域，但主要是在现有组件（LLM 扩写、稠密排序、重排序）上的工程化流水线整合，缺乏针对推荐/搜索架构的核心算法创新。",
+    "translation": "WSDM Cup 2026 多语言检索：一种低成本多阶段检索流水线",
+    "summary_zh": "提出一种结合 LLM 查询扩展、BM25 粗排、长文本稠密排序及大模型重排序的四阶段低成本跨语言检索流水线。",
+    "key_points": [
+      "提出一种结合 LLM 查询扩展、BM25 粗排、长文本稠密排序及大模型重排序的四阶段低成本跨语言检索流水线"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17450v1",
+    "title": "Beyond Pipelines: A Fundamental Study on the Rise of Generative-Retrieval Architectures in Web Research",
+    "authors": [
+      "Amirereza Abbasi",
+      "Mohsen Hooshmand"
+    ],
+    "summary": "Web research and practices have evolved significantly over time, offering users diverse and accessible solutions across a wide range of tasks. While advanced concepts such as Web 4.0 have emerged from mature technologies, the introduction of large language models (LLMs) has profoundly influenced both the field and its applications. This wave of LLMs has permeated science and technology so deeply that no area remains untouched. Consequently, LLMs are reshaping web research and development, transforming traditional pipelines into generative solutions for tasks like information retrieval, question answering, recommendation systems, and web analytics. They have also enabled new applications such as web-based summarization and educational tools. This survey explores recent advances in the impact of LLMs-particularly through the use of retrieval-augmented generation (RAG)-on web research and industry. It discusses key developments, open challenges, and future directions for enhancing web solutions with LLMs.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-19T15:14:54Z",
+    "updated": "2026-02-19T15:14:54Z",
+    "url": "http://arxiv.org/abs/2602.17450v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17450v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "这是一篇涵盖 Web 研究多个领域的综述，虽提及推荐系统但非核心聚焦，且包含大量纯 LLM/RAG 通用讨论；因来自中国公司（TAL）额外加 1 分，否则为 5 分。",
+    "translation": "超越流水线：Web 研究中生成式检索架构兴起的基础研究",
+    "summary_zh": "本文综述了大语言模型（特别是检索增强生成 RAG）如何重塑 Web 研究，将传统信息检索、问答及推荐系统的流水线架构转化为生成式解决方案。",
+    "key_points": [
+      "本文综述了大语言模型（特别是检索增强生成 RAG）如何重塑 Web 研究，将传统信息检索、问答及推荐系统的流水线架构转化为生成式解决方案"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17442v1",
+    "title": "WarpRec: Unifying Academic Rigor and Industrial Scale for Responsible, Reproducible, and Efficient Recommendation",
+    "authors": [
+      "Marco Avolio",
+      "Potito Aghilar",
+      "Sabino Roccotelli",
+      "Vito Walter Anelli",
+      "Chiara Mallamaci",
+      "Vincenzo Paparella",
+      "Marco Valentini",
+      "Alejandro Bellogín",
+      "Michelantonio Trizio",
+      "Joseph Trotta",
+      "Antonio Ferrara",
+      "Tommaso Di Noia"
+    ],
+    "summary": "Innovation in Recommender Systems is currently impeded by a fractured ecosystem, where researchers must choose between the ease of in-memory experimentation and the costly, complex rewriting required for distributed industrial engines. To bridge this gap, we present WarpRec, a high-performance framework that eliminates this trade-off through a novel, backend-agnostic architecture. It includes 50+ state-of-the-art algorithms, 40 metrics, and 19 filtering and splitting strategies that seamlessly transition from local execution to distributed training and optimization. The framework enforces ecological responsibility by integrating CodeCarbon for real-time energy tracking, showing that scalability need not come at the cost of scientific integrity or sustainability. Furthermore, WarpRec anticipates the shift toward Agentic AI, leading Recommender Systems to evolve from static ranking engines into interactive tools within the Generative AI ecosystem. In summary, WarpRec not only bridges the gap between academia and industry but also can serve as the architectural backbone for the next generation of sustainable, agent-ready Recommender Systems. Code is available at https://github.com/sisinflab/warprec/",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-02-19T15:09:04Z",
+    "updated": "2026-02-19T15:09:04Z",
+    "url": "http://arxiv.org/abs/2602.17442v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17442v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一个连接学术研究与工业级部署的推荐系统框架，虽未提出新的核心推荐算法，但解决了 RecSys 领域的实际工程痛点。",
+    "translation": "WarpRec：统一学术严谨性与工业规模以构建负责任、可复现且高效的推荐系统",
+    "summary_zh": "WarpRec 是一个后端无关的高性能框架，旨在消除学术实验与分布式工业引擎之间的鸿沟，支持从本地执行到分布式训练的无缝过渡，并集成能耗追踪以适应下一代智能体推荐系统。",
+    "key_points": [
+      "WarpRec 是一个后端无关的高性能框架，旨在消除学术实验与分布式工业引擎之间的鸿沟，支持从本地执行到分布式训练的无缝过渡，并集成能耗追踪以适应下一代智能体推荐系统"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17099v1",
+    "title": "Multiple Index Merge for Approximate Nearest Neighbor Search",
+    "authors": [
+      "Liuchang Jing",
+      "Mingyu Yang",
+      "Lei Li",
+      "Jianbin Qin",
+      "Wei Wang"
+    ],
+    "summary": "Approximate $k$ nearest neighbor (AKNN) search in high-dimensional space is a foundational problem in vector databases with widespread applications. Among the numerous AKNN indexes, Proximity Graph-based indexes achieve state-of-the-art search efficiency across various benchmarks. However, their extensive distance computations of high-dimensional vectors lead to slow construction and substantial memory overhead. The limited memory capacity often prevents building the entire index at once when handling large-scale datasets. A common practice is to build multiple sub-indexes separately. However, directly searching on these separated indexes severely compromises search efficiency, as queries cannot leverage cross-graph connections. Therefore, efficient graph index merging is crucial for multi-index searching. In this paper, we focus on efficient two-index merging and the merge order of multiple indexes for AKNN search. To achieve this, we propose a reverse neighbor sliding merge (RNSM) that exploits structural information to boost merging efficiency. We further investigate merge order selection (MOS) to reduce the merging cost by eliminating redundant merge operations. Experiments show that our approach yields up to a 5.48$\\times$ speedup over existing index merge methods and 9.92$\\times$ speedup over index reconstruction, while maintaining expected superior search performance. Moreover, our method scales efficiently to 100 million vectors with 50 partitions, maintaining consistent speedups.",
+    "categories": [
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2026-02-19T05:50:34Z",
+    "updated": "2026-02-19T05:50:34Z",
+    "url": "http://arxiv.org/abs/2602.17099v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17099v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种优化向量索引合并的方法，虽未直接提及推荐系统，但其解决的大规模高维向量检索效率问题是推荐/搜索召回阶段的核心基础设施，属于有潜力的通用方法。",
+    "translation": "近似最近邻搜索的多索引合并技术",
+    "summary_zh": "针对大规模向量数据库构建子索引导致的检索效率下降问题，提出利用结构信息的反向邻居滑动合并算法及最优合并顺序策略，以实现高效的多索引融合与扩展。",
+    "key_points": [
+      "针对大规模向量数据库构建子索引导致的检索效率下降问题，提出利用结构信息的反向邻居滑动合并算法及最优合并顺序策略，以实现高效的多索引融合与扩展"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17170v2",
+    "title": "When LLM Judges Inflate Scores: Exploring Overrating in Relevance Assessment",
+    "authors": [
+      "Chuting Yu",
+      "Hang Li",
+      "Guido Zuccon",
+      "Joel Mackenzie",
+      "Teerapong Leelanupab"
+    ],
+    "summary": "Human relevance assessment is time-consuming and cognitively intensive, limiting the scalability of Information Retrieval evaluation. This has led to growing interest in using large language models (LLMs) as proxies for human judges. However, it remains an open question whether LLM-based relevance judgments are reliable, stable, and rigorous enough to match humans for relevance assessment. In this work, we conduct a systematic study of overrating behavior in LLM-based relevance judgments across model backbones, evaluation paradigms (pointwise and pairwise), and passage modification strategies. We show that models consistently assign inflated relevance scores -- often with high confidence -- to passages that do not genuinely satisfy the underlying information need, revealing a system-wide bias rather than random fluctuations in judgment. Furthermore, controlled experiments show that LLM-based relevance judgments can be highly sensitive to passage length and surface-level lexical cues. These results raise concerns about the usage of LLMs as drop-in replacements for human relevance assessors, and highlight the urgent need for careful diagnostic evaluation frameworks when applying LLMs for relevance assessments. Our code and results are publicly available.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-19T08:37:21Z",
+    "updated": "2026-02-20T23:31:40Z",
+    "url": "http://arxiv.org/abs/2602.17170v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.17170v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于评估环节中 LLM 作为人类标注代理的可靠性问题（过度评分偏差），属于 IR 评估方法论研究，而非直接提升推荐或搜索系统核心架构（如召回、排序）的创新。",
+    "translation": "当 LLM 评判者 inflate 分数：探索相关性评估中的过度评分现象",
+    "summary_zh": "本文系统研究了 LLM 在信息检索相关性评估中普遍存在的过度评分偏差及其对表面线索的敏感性，揭示了其作为人类标注替代方案的局限性。",
+    "key_points": [
+      "本文系统研究了 LLM 在信息检索相关性评估中普遍存在的过度评分偏差及其对表面线索的敏感性，揭示了其作为人类标注替代方案的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.17327v1",
+    "title": "WebFAQ 2.0: A Multilingual QA Dataset with Mined Hard Negatives for Dense Retrieval",
+    "authors": [
+      "Michael Dinzinger",
+      "Laura Caspari",
+      "Ali Salman",
+      "Irvin Topi",
+      "Jelena Mitrović",
+      "Michael Granitzer"
+    ],
+    "summary": "We introduce WebFAQ 2.0, a new version of the WebFAQ dataset, containing 198 million FAQ-based natural question-answer pairs across 108 languages. Compared to the previous version, it significantly expands multilingual coverage and the number of bilingual aligned QA pairs to over 14.3M, making it the largest FAQ-based resource. Unlike the original release, WebFAQ 2.0 uses a novel data collection strategy that directly crawls and extracts relevant web content, resulting in a substantially more diverse and multilingual dataset with richer context through page titles and descriptions. In response to community feedback, we also release a hard negatives dataset for training dense retrievers, with 1.25M queries across 20 languages. These hard negatives were mined using a two-stage retrieval pipeline and include cross-encoder scores for 200 negatives per query. We further show how this resource enables two primary fine-tuning strategies for dense retrievers: Contrastive Learning with MultipleNegativesRanking loss, and Knowledge Distillation with MarginMSE loss. WebFAQ 2.0 is not a static resource but part of a long-term effort. Since late 2025, structured FAQs are being regularly released through the Open Web Index, enabling continuous expansion and refinement. We publish the datasets and training scripts to facilitate further research in multilingual and cross-lingual IR. The dataset itself and all related resources are publicly available on GitHub and HuggingFace.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-02-19T12:45:58Z",
+    "updated": "2026-02-19T12:45:58Z",
+    "url": "http://arxiv.org/abs/2602.17327v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.17327v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文主要发布多语言问答数据集和硬负样本挖掘策略，属于通用信息检索（IR）资源建设，虽提及稠密检索器训练但未直接针对推荐系统或搜索产品的核心业务场景（如排序、重排序、个性化），且非纯 LLM 研究但相关性较弱。",
+    "translation": "WebFAQ 2.0：面向稠密检索的含挖掘硬负样本的多语言问答数据集",
+    "summary_zh": "提出 WebFAQ 2.0 多语言问答数据集及配套的硬负样本挖掘流程，旨在通过对比学习和知识蒸馏策略优化通用稠密检索器的训练效果。",
+    "key_points": [
+      "提出 WebFAQ 2",
+      "0 多语言问答数据集及配套的硬负样本挖掘流程，旨在通过对比学习和知识蒸馏策略优化通用稠密检索器的训练效果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.18511v1",
+    "title": "Beyond Pass-by-Pass Optimization: Intent-Driven IR Optimization with Large Language Models",
+    "authors": [
+      "Lei Qiu",
+      "Zi Yang",
+      "Fang Lyu",
+      "Ming Zhong",
+      "Huimin Cui",
+      "Xiaobing Feng"
+    ],
+    "summary": "Modern compilers optimize programs through a sequence of modular passes over intermediate representations (IR). While this pass-by-pass paradigm offers engineering benefits, it suffers from a pass coordination problem: locally beneficial transformations may block more profitable optimizations in later stages. This limitation stems from the lack of an explicit notion of optimization intent, defined as a holistic strategy for coordinating multiple transformations toward a global performance objective. Recent LLM-based approaches formulate IR optimization as an end-to-end generation task, thereby avoiding the traditional pass-by-pass structure. However, optimization intent remains implicit in these methods, forcing models to jointly infer optimization strategy and generate low-level transformations, which limits both correctness and performance. We propose IntOpt, the first intent-driven IR optimizer that explicitly separates high-level optimization intent from low-level analysis and transformation. IntOpt organizes IR optimization into three stages: intent formulation, intent refinement, and intent realization, enabling globally coordinated transformations. Experiments show that IntOpt achieves 90.5% verified correctness and 2.660x average speedup on 200-program test set, outperforming state-of-the-art LLM-based optimizers in both correctness and performance, and surpassing modern compiler with the -O3 option on 37 benchmarks with speedups of up to 272.60x.",
+    "categories": [
+      "cs.PL",
+      "cs.AI"
+    ],
+    "published": "2026-02-19T13:48:51Z",
+    "updated": "2026-02-19T13:48:51Z",
+    "url": "http://arxiv.org/abs/2602.18511v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.18511v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 1,
+    "reasoning": "这是一篇纯编译器优化领域的研究，利用 LLM 改进程序中间表示（IR）的优化策略，与推荐系统或搜索引擎完全无关。",
+    "translation": "超越逐遍优化：基于大语言模型的意图驱动 IR 优化",
+    "summary_zh": "提出 IntOpt 框架，通过将高层优化意图与底层转换分离为意图制定、 refinement 和实现三个阶段，解决传统编译器及现有 LLM 方法中缺乏显式全局优化策略的问题。",
+    "key_points": [
+      "提出 IntOpt 框架，通过将高层优化意图与底层转换分离为意图制定、 refinement 和实现三个阶段，解决传统编译器及现有 LLM 方法中缺乏显式全局优化策略的问题"
+    ]
+  }
+]

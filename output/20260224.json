@@ -1,0 +1,403 @@
+[
+  {
+    "arxiv_id": "2602.21009v1",
+    "title": "HiSAC: Hierarchical Sparse Activation Compression for Ultra-long Sequence Modeling in Recommenders",
+    "authors": [
+      "Kun Yuan",
+      "Junyu Bi",
+      "Daixuan Cheng",
+      "Changfa Wu",
+      "Shuwen Xiao",
+      "Binbin Cao",
+      "Jian Wu",
+      "Yuning Jiang"
+    ],
+    "summary": "Modern recommender systems leverage ultra-long user behavior sequences to capture dynamic preferences, but end-to-end modeling is infeasible in production due to latency and memory constraints. While summarizing history via interest centers offers a practical alternative, existing methods struggle to (1) identify user-specific centers at appropriate granularity and (2) accurately assign behaviors, leading to quantization errors and loss of long-tail preferences. To alleviate these issues, we propose Hierarchical Sparse Activation Compression (HiSAC), an efficient framework for personalized sequence modeling. HiSAC encodes interactions into multi-level semantic IDs and constructs a global hierarchical codebook. A hierarchical voting mechanism sparsely activates personalized interest-agents as fine-grained preference centers. Guided by these agents, Soft-Routing Attention aggregates historical signals in semantic space, weighting by similarity to minimize quantization error and retain long-tail behaviors. Deployed on Taobao's \"Guess What You Like\" homepage, HiSAC achieves significant compression and cost reduction, with online A/B tests showing a consistent 1.65% CTR uplift -- demonstrating its scalability and real-world effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-02-24T15:28:58Z",
+    "updated": "2026-02-24T15:28:58Z",
+    "url": "http://arxiv.org/abs/2602.21009v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21009v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的超长序列建模难题，提出了 HiSAC 架构并在淘宝线上部署取得显著收益，完全符合核心领域进展及电商场景的高优先级标准。",
+    "translation": "HiSAC：用于推荐系统超长序列建模的分层稀疏激活压缩方法",
+    "summary_zh": "本文提出一种分层稀疏激活压缩框架，通过构建全局分层码本和个性化兴趣代理，利用软路由注意力机制在语义空间高效聚合历史行为信号，以解决超长序列建模中的量化误差和长尾偏好丢失问题。",
+    "key_points": [
+      "本文提出一种分层稀疏激活压缩框架，通过构建全局分层码本和个性化兴趣代理，利用软路由注意力机制在语义空间高效聚合历史行为信号，以解决超长序列建模中的量化误差和长尾偏好丢失问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20723v2",
+    "title": "Modality-Guided Mixture of Graph Experts with Entropy-Triggered Routing for Multimodal Recommendation",
+    "authors": [
+      "Ji Dai",
+      "Quan Fang",
+      "Dengsheng Cai"
+    ],
+    "summary": "Multimodal recommendation enhances ranking by integrating user-item interactions with item content, which is particularly effective under sparse feedback and long-tail distributions. However, multimodal signals are inherently heterogeneous and can conflict in specific contexts, making effective fusion both crucial and challenging. Existing approaches often rely on shared fusion pathways, leading to entangled representations and modality imbalance. To address these issues, we propose MAGNET, a Modality-Guided Mixture of Adaptive Graph Experts Network with Progressive Entropy-Triggered Routing for Multimodal Recommendation, designed to enhance controllability, stability, and interpretability in multimodal fusion. MAGNET couples interaction-conditioned expert routing with structure-aware graph augmentation, so that both what to fuse and how to fuse are explicitly controlled and interpretable. At the representation level, a dual-view graph learning module augments the interaction graph with content-induced edges, improving coverage for sparse and long-tail items while preserving collaborative structure via parallel encoding and lightweight fusion. At the fusion level, MAGNET employs structured experts with explicit modality roles-dominant, balanced, and complementary-enabling a more interpretable and adaptive combination of behavioral, visual, and textual cues. To further stabilize sparse routing and prevent expert collapse, we introduce a two-stage entropy-weighting mechanism that monitors routing entropy. This mechanism automatically transitions training from an early coverage-oriented regime to a later specialization-oriented regime, progressively balancing expert utilization and routing confidence. Extensive experiments on public benchmarks demonstrate consistent improvements over strong baselines.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-02-24T09:36:45Z",
+    "updated": "2026-02-26T03:12:40Z",
+    "url": "http://arxiv.org/abs/2602.20723v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.20723v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的模态融合难题提出新架构，属于核心领域 advances；且来自中国公司 IGG，根据规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "基于模态引导混合图专家与熵触发路由的多模态推荐方法",
+    "summary_zh": "提出 MAGNET 架构，通过模态引导的自适应图专家网络和两阶段熵触发路由机制，解决多模态信号异构冲突问题，实现可解释且稳定的行为、视觉及文本特征融合。",
+    "key_points": [
+      "提出 MAGNET 架构，通过模态引导的自适应图专家网络和两阶段熵触发路由机制，解决多模态信号异构冲突问题，实现可解释且稳定的行为、视觉及文本特征融合"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20558v1",
+    "title": "From Logs to Language: Learning Optimal Verbalization for LLM-Based Recommendation in Production",
+    "authors": [
+      "Yucheng Shi",
+      "Ying Li",
+      "Yu Wang",
+      "Yesu Feng",
+      "Arjun Rao",
+      "Rein Houthooft",
+      "Shradha Sehgal",
+      "Jin Wang",
+      "Hao Zhen",
+      "Ninghao Liu",
+      "Linas Baltrunas"
+    ],
+    "summary": "Large language models (LLMs) are promising backbones for generative recommender systems, yet a key challenge remains underexplored: verbalization, i.e., converting structured user interaction logs into effective natural language inputs. Existing methods rely on rigid templates that simply concatenate fields, yielding suboptimal representations for recommendation. We propose a data-centric framework that learns verbalization for LLM-based recommendation. Using reinforcement learning, a verbalization agent transforms raw interaction histories into optimized textual contexts, with recommendation accuracy as the training signal. This agent learns to filter noise, incorporate relevant metadata, and reorganize information to improve downstream predictions. Experiments on a large-scale industrial streaming dataset show that learned verbalization delivers up to 93% relative improvement in discovery item recommendation accuracy over template-based baselines. Further analysis reveals emergent strategies such as user interest summarization, noise removal, and syntax normalization, offering insights into effective context construction for LLM-based recommender systems.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-02-24T05:15:24Z",
+    "updated": "2026-02-24T05:15:24Z",
+    "url": "http://arxiv.org/abs/2602.20558v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20558v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决 LLM 推荐系统中的核心痛点（日志到自然语言的转换/Verbalization），提出了基于强化学习的新框架，且源自工业界实践，完全符合高优先级标准。",
+    "translation": "从日志到语言：面向生产环境的 LLM 推荐系统最优 verbalization 学习",
+    "summary_zh": "提出一种数据驱动的框架，利用强化学习智能体将结构化用户交互日志自动转化为优化的自然语言上下文，以替代僵化的模板拼接，从而提升 LLM 推荐系统的预测效果。",
+    "key_points": [
+      "提出一种数据驱动的框架，利用强化学习智能体将结构化用户交互日志自动转化为优化的自然语言上下文，以替代僵化的模板拼接，从而提升 LLM 推荐系统的预测效果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21099v1",
+    "title": "Turning Semantics into Topology: LLM-Driven Attribute Augmentation for Collaborative Filtering",
+    "authors": [
+      "Junjie Meng",
+      "Ranxu zhang",
+      "Wei Wu",
+      "Rui Zhang",
+      "Chuan Qin",
+      "Qi Zhang",
+      "Qi Liu",
+      "Hui Xiong",
+      "Chao Wang"
+    ],
+    "summary": "Large Language Models (LLMs) have shown great potential for enhancing recommender systems through their extensive world knowledge and reasoning capabilities. However, effectively translating these semantic signals into traditional collaborative embeddings remains an open challenge. Existing approaches typically fall into two extremes: direct inference methods are computationally prohibitive for large-scale retrieval, while embedding-based methods primarily focus on unilateral feature augmentation rather than holistic collaborative signal enhancement. To bridge this gap, we propose Topology-Augmented Graph Collaborative Filtering (TAGCF), a novel framework that transforms semantic knowledge into topological connectivity. Unlike existing approaches that depend on textual features or direct interaction synthesis, TAGCF employs LLMs to infer interaction intents and underlying causal relationships from user-item pairs, representing these insights as intermediate attribute nodes within an enriched User-Attribute-Item (U-A-I) graph. Furthermore, to effectively model the heterogeneous relations in this augmented structure, we propose Adaptive Relation-weighted Graph Convolution (ARGC), which employs relation-specific prediction networks to dynamically estimate the importance of each relation type. Extensive experiments across multiple benchmark datasets and CF backbones demonstrate consistent improvements, with comprehensive evaluations including cold-start scenarios validating the effectiveness and robustness of our framework. All code will be made publicly available. For anonymous review, our code is available at the following anonymous link: https://anonymous.4open.science/r/AGCF-2441353190/.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-24T17:01:47Z",
+    "updated": "2026-02-24T17:01:47Z",
+    "url": "http://arxiv.org/abs/2602.21099v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21099v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤问题，提出利用 LLM 将语义信息转化为图拓扑结构以增强用户 - 物品交互建模，属于 LLM 在 RecSys 核心环节的直接创新应用。",
+    "translation": "将语义转化为拓扑：LLM 驱动的协同过滤属性增强方法",
+    "summary_zh": "提出 TAGCF 框架，利用 LLM 推断用户 - 物品对的潜在意图与因果关系并构建为中间属性节点，通过自适应关系加权图卷积在增强的用户 - 属性 - 物品图中融合语义与协同信号。",
+    "key_points": [
+      "提出 TAGCF 框架，利用 LLM 推断用户 - 物品对的潜在意图与因果关系并构建为中间属性节点，通过自适应关系加权图卷积在增强的用户 - 属性 - 物品图中融合语义与协同信号"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21052v1",
+    "title": "Position-Aware Sequential Attention for Accurate Next Item Recommendations",
+    "authors": [
+      "Timur Nabiev",
+      "Evgeny Frolov"
+    ],
+    "summary": "Sequential self-attention models usually rely on additive positional embeddings, which inject positional information into item representations at the input. In the absence of positional signals, the attention block is permutation-equivariant over sequence positions and thus has no intrinsic notion of temporal order beyond causal masking. We argue that additive positional embeddings make the attention mechanism only superficially sensitive to sequence order: positional information is entangled with item embedding semantics, propagates weakly in deep architectures, and limits the ability to capture rich sequential patterns. To address these limitations, we introduce a kernelized self-attention mechanism, where a learnable positional kernel operates purely in the position space, disentangled from semantic similarity, and directly modulates attention weights. When applied per attention block, this kernel enables adaptive multi-scale sequential modeling. Experiments on standard next-item prediction benchmarks show that our positional kernel attention consistently improves over strong competing baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-24T16:09:47Z",
+    "updated": "2026-02-24T16:09:47Z",
+    "url": "http://arxiv.org/abs/2602.21052v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21052v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐中的核心问题（位置编码局限性）提出改进架构，属于用户行为建模和排序算法的直接创新。",
+    "translation": "面向精准下一项推荐的位置感知序列注意力机制",
+    "summary_zh": "提出一种核化自注意力机制，通过可学习的位置核在位置空间独立操作，解耦位置信息与语义相似性以自适应地建模多尺度序列模式。",
+    "key_points": [
+      "提出一种核化自注意力机制，通过可学习的位置核在位置空间独立操作，解耦位置信息与语义相似性以自适应地建模多尺度序列模式"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20995v1",
+    "title": "Generative Pseudo-Labeling for Pre-Ranking with LLMs",
+    "authors": [
+      "Junyu Bi",
+      "Xinting Niu",
+      "Daixuan Cheng",
+      "Kun Yuan",
+      "Tao Wang",
+      "Binbin Cao",
+      "Jian Wu",
+      "Yuning Jiang"
+    ],
+    "summary": "Pre-ranking is a critical stage in industrial recommendation systems, tasked with efficiently scoring thousands of recalled items for downstream ranking. A key challenge is the train-serving discrepancy: pre-ranking models are trained only on exposed interactions, yet must score all recalled candidates -- including unexposed items -- during online serving. This mismatch not only induces severe sample selection bias but also degrades generalization, especially for long-tail content. Existing debiasing approaches typically rely on heuristics (e.g., negative sampling) or distillation from biased rankers, which either mislabel plausible unexposed items as negatives or propagate exposure bias into pseudo-labels. In this work, we propose Generative Pseudo-Labeling (GPL), a framework that leverages large language models (LLMs) to generate unbiased, content-aware pseudo-labels for unexposed items, explicitly aligning the training distribution with the online serving space. By offline generating user-specific interest anchors and matching them with candidates in a frozen semantic space, GPL provides high-quality supervision without adding online latency. Deployed in a large-scale production system, GPL improves click-through rate by 3.07%, while significantly enhancing recommendation diversity and long-tail item discovery.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-02-24T15:14:49Z",
+    "updated": "2026-02-24T15:14:49Z",
+    "url": "http://arxiv.org/abs/2602.20995v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20995v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的预排序（Pre-Ranking）阶段，利用 LLM 解决训练与服务分布不一致及长尾偏差问题，属于核心业务场景的直接应用。",
+    "translation": "基于大语言模型生成伪标签的预排序方法",
+    "summary_zh": "提出一种利用大语言模型为未曝光物品生成无偏内容感知伪标签的框架，通过离线构建用户兴趣锚点与候选项匹配，使预排序模型的训练分布与在线服务空间对齐。",
+    "key_points": [
+      "提出一种利用大语言模型为未曝光物品生成无偏内容感知伪标签的框架，通过离线构建用户兴趣锚点与候选项匹配，使预排序模型的训练分布与在线服务空间对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20877v1",
+    "title": "E-MMKGR: A Unified Multimodal Knowledge Graph Framework for E-commerce Applications",
+    "authors": [
+      "Jiwoo Kang",
+      "Yeon-Chang Lee"
+    ],
+    "summary": "Multimodal recommender systems (MMRSs) enhance collaborative filtering by leveraging item-side modalities, but their reliance on a fixed set of modalities and task-specific objectives limits both modality extensibility and task generalization. We propose E-MMKGR, a framework that constructs an e-commerce-specific Multimodal Knowledge Graph E-MMKG and learns unified item representations through GNN-based propagation and KG-oriented optimization. These representations provide a shared semantic foundation applicable to diverse tasks. Experiments on real-world Amazon datasets show improvements of up to 10.18% in Recall@10 for recommendation and up to 21.72% over vector-based retrieval for product search, demonstrating the effectiveness and extensibility of our approach.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-24T13:19:42Z",
+    "updated": "2026-02-24T13:19:42Z",
+    "url": "http://arxiv.org/abs/2602.20877v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20877v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商推荐和搜索场景，提出了一种统一的多模态知识图谱框架来解决多模态推荐系统的扩展性和通用性问题，完全符合核心领域进展的高优先级标准。",
+    "translation": "E-MMKGR：面向电商应用的统一多模态知识图谱框架",
+    "summary_zh": "本文提出 E-MMKGR 框架，通过构建电商专用多模态知识图谱并利用图神经网络传播与知识图谱导向优化，学习统一的物品表征以支持多样化的推荐与搜索任务。",
+    "key_points": [
+      "本文提出 E-MMKGR 框架，通过构建电商专用多模态知识图谱并利用图神经网络传播与知识图谱导向优化，学习统一的物品表征以支持多样化的推荐与搜索任务"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20676v1",
+    "title": "PRECTR-V2:Unified Relevance-CTR Framework with Cross-User Preference Mining, Exposure Bias Correction, and LLM-Distilled Encoder Optimization",
+    "authors": [
+      "Shuzhi Cao",
+      "Rong Chen",
+      "Ailong He",
+      "Shuguang Han",
+      "Jufeng Chen"
+    ],
+    "summary": "In search systems, effectively coordinating the two core objectives of search relevance matching and click-through rate (CTR) prediction is crucial for discovering users' interests and enhancing platform revenue. In our prior work PRECTR, we proposed a unified framework to integrate these two subtasks,thereby eliminating their inconsistency and leading to mutual benefit.However, our previous work still faces three main challenges. First, low-active users and new users have limited search behavioral data, making it difficult to achieve effective personalized relevance preference modeling. Second, training data for ranking models predominantly come from high-relevance exposures, creating a distribution mismatch with the broader candidate space in coarse-ranking, leading to generalization bias. Third, due to the latency constraint, the original model employs an Emb+MLP architecture with a frozen BERT encoder, which prevents joint optimization and creates misalignment between representation learning and CTR fine-tuning. To solve these issues, we further reinforce our method and propose PRECTR-V2. Specifically, we mitigate the low-activity users' sparse behavior problem by mining global relevance preferences under the specific query, which facilitates effective personalized relevance modeling for cold-start scenarios. Subsequently, we construct hard negative samples through embedding noise injection and relevance label reconstruction, and optimize their relative ranking against positive samples via pairwise loss, thereby correcting exposure bias. Finally, we pretrain a lightweight transformer-based encoder via knowledge distillation from LLM and SFT on the text relevance classification task. This encoder replaces the frozen BERT module, enabling better adaptation to CTR fine-tuning and advancing beyond the traditional Emb+MLP paradigm.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-24T08:26:17Z",
+    "updated": "2026-02-24T08:26:17Z",
+    "url": "http://arxiv.org/abs/2602.20676v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20676v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索系统中的相关性与 CTR 预测协同问题，提出了跨用户偏好挖掘、曝光偏差校正及 LLM 蒸馏编码器优化等具体解决方案，属于核心搜索技术进阶。",
+    "translation": "PRECTR-V2：融合跨用户偏好挖掘、曝光偏差校正与 LLM 蒸馏编码器优化的统一相关性 -CTR 框架",
+    "summary_zh": "提出 PRECTR-V2 框架，通过挖掘查询下的全局偏好解决冷启动问题，利用嵌入噪声注入和标签重构进行成对损失优化以校正曝光偏差，并采用经 LLM 蒸馏和微调的轻量级 Transformer 编码器替代冻结 BERT 以实现端到端联合优化。",
+    "key_points": [
+      "提出 PRECTR-V2 框架，通过挖掘查询下的全局偏好解决冷启动问题，利用嵌入噪声注入和标签重构进行成对损失优化以校正曝光偏差，并采用经 LLM 蒸馏和微调的轻量级 Transformer 编码器替代冻结 BERT 以实现端到端联合优化"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20800v2",
+    "title": "Mitigating Preference Leakage via Strict Estimator Separation for Normative Generative Ranking",
+    "authors": [
+      "Dalia Nahhas",
+      "Xiaohao Cai",
+      "Imran Razzak",
+      "Shoaib Jameel"
+    ],
+    "summary": "In Generative Information Retrieval (GenIR), the bottleneck has shifted from generation to the selection of candidates, particularly for normative criteria such as cultural relevance. Current LLM-as-a-Judge evaluations often suffer from circularity and preference leakage, where overlapping supervision and evaluation models inflate performance. We address this by formalising cultural relevance as a within-query ranking task and introducing a leakage-free two-judge framework that strictly separates supervision (Judge B) from evaluation (Judge A). On a new benchmark of 33,052 (NGR-33k) culturally grounded stories, we find that while classical baselines yield only modest gains, a dense bi-encoder distilled from a Judge-B-supervised Cross-Encoder is highly effective. Although the Cross-Encoder provides a strong supervision signal for distillation, the distilled BGE-M3 model substantially outperforms it under leakage-free Judge~A evaluation. We validate our framework on the human-curated Moral Stories dataset, showing strong alignment with human norms. Our results demonstrate that rigorous evaluator separation is a prerequisite for credible GenIR evaluation, proving that subtle cultural preferences can be distilled into efficient rankers without leakage.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-24T11:38:36Z",
+    "updated": "2026-02-25T10:31:56Z",
+    "url": "http://arxiv.org/abs/2602.20800v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.20800v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对生成式检索（GenIR）中的排序评估问题，提出了防止偏好泄露的严格评估框架，属于搜索核心环节的创新；虽涉及 LLM 作为裁判，但聚焦于解决检索排序的具体问题而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "通过严格估计器分离缓解规范性生成排序中的偏好泄露",
+    "summary_zh": "提出一种无泄露的双裁判框架，通过将监督模型与评估模型严格分离，解决生成式信息检索中因模型重叠导致的文化相关性评估偏好泄露问题，并将规范性偏好蒸馏至高效排序器中。",
+    "key_points": [
+      "提出一种无泄露的双裁判框架，通过将监督模型与评估模型严格分离，解决生成式信息检索中因模型重叠导致的文化相关性评估偏好泄露问题，并将规范性偏好蒸馏至高效排序器中"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20986v1",
+    "title": "Naver Labs Europe @ WSDM CUP | Multilingual Retrieval",
+    "authors": [
+      "Thibault Formal",
+      "Maxime Louis",
+      "Hervé Déjean",
+      "Stéphane Clinchant"
+    ],
+    "summary": "This report presents our participation to the WSDM Cup 2026 shared task on multilingual document retrieval from English queries. The task provides a challenging benchmark for cross-lingual generalization. It also provides a natural testbed for evaluating SPLARE, our recently proposed learned sparse retrieval model, which produces generalizable sparse latent representations and is particularly well suited to multilingual retrieval settings.\n  We evaluate five progressively enhanced runs, starting from a SPLARE-7B model and incorporating lightweight improvements, including reranking with Qwen3-Reranker-4B and simple score fusion strategies. Our results demonstrate the strength of SPLARE compared to state-of-the-art dense baselines such as Qwen3-8B-Embed. More broadly, our submission highlights the continued relevance and competitiveness of learned sparse retrieval models beyond English-centric scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-24T15:09:01Z",
+    "updated": "2026-02-24T15:09:01Z",
+    "url": "http://arxiv.org/abs/2602.20986v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20986v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多语言文档检索（搜索核心环节），提出了稀疏检索模型 SPLARE 及其在跨语言场景的应用，属于明确的搜索技术改进。",
+    "translation": "Naver Labs Europe @ WSDM CUP | 多语言检索",
+    "summary_zh": "本文提出了一种名为 SPLARE 的学习型稀疏检索模型，旨在生成可泛化的稀疏潜在表示以解决跨语言文档检索挑战，并结合重排序与分数融合策略提升多语言搜索效果。",
+    "key_points": [
+      "本文提出了一种名为 SPLARE 的学习型稀疏检索模型，旨在生成可泛化的稀疏潜在表示以解决跨语言文档检索挑战，并结合重排序与分数融合策略提升多语言搜索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20507v1",
+    "title": "Indaleko: The Unified Personal Index",
+    "authors": [
+      "William Anthony Mason"
+    ],
+    "summary": "Personal information retrieval fails when systems ignore how human memory works. While existing platforms force keyword searches across isolated silos, humans naturally recall through episodic cues like when, where, and in what context information was encountered. This dissertation presents the Unified Personal Index (UPI), a memory-aligned architecture that bridges this fundamental gap. The Indaleko prototype demonstrates the UPI's feasibility on a 31-million file dataset spanning 160TB across eight storage platforms. By integrating temporal, spatial, and activity metadata into a unified graph database, Indaleko enables natural language queries like \"photos near the conference venue last spring\" that existing systems cannot process. The implementation achieves sub-second query responses through memory anchor indexing, eliminates cross-platform search fragmentation, and maintains perfect precision for well-specified memory patterns. Evaluation against commercial systems (Google Drive, OneDrive, Dropbox, Windows Search) reveals that all fail on memory-based queries, returning overwhelming result sets without contextual filtering. In contrast, Indaleko successfully processes multi-dimensional queries combining time, location, and activity patterns. The extensible architecture supports rapid integration of new data sources (10 minutes to 10 hours per provider) while preserving privacy through UUID-based semantic decoupling. The UPI's architectural synthesis bridges cognitive theory with distributed systems design, as demonstrated through the Indaleko prototype and rigorous evaluation. This work transforms personal information retrieval from keyword matching to memory-aligned finding, providing immediate benefits for existing data while establishing foundations for future context-aware systems.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2026-02-24T03:17:36Z",
+    "updated": "2026-02-24T03:17:36Z",
+    "url": "http://arxiv.org/abs/2602.20507v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20507v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于个人本地文件检索系统架构，属于通用信息检索范畴，缺乏推荐系统核心环节（如召回、排序、用户偏好建模）及电商/社交场景应用；虽为中国公司研究已加 1 分，但仍因非 RecSys/Search 核心领域而得分较低。",
+    "translation": "Indaleko：统一的个人索引",
+    "summary_zh": "提出一种对齐人类记忆机制的统一个人索引架构，通过整合时空与活动元数据构建图谱，实现基于自然语言的多维度上下文个人文件检索。",
+    "key_points": [
+      "提出一种对齐人类记忆机制的统一个人索引架构，通过整合时空与活动元数据构建图谱，实现基于自然语言的多维度上下文个人文件检索"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20926v1",
+    "title": "HELP: HyperNode Expansion and Logical Path-Guided Evidence Localization for Accurate and Efficient GraphRAG",
+    "authors": [
+      "Yuqi Huang",
+      "Ning Liao",
+      "Kai Yang",
+      "Anning Hu",
+      "Shengchao Hu",
+      "Xiaoxing Wang",
+      "Junchi Yan"
+    ],
+    "summary": "Large Language Models (LLMs) often struggle with inherent knowledge boundaries and hallucinations, limiting their reliability in knowledge-intensive tasks. While Retrieval-Augmented Generation (RAG) mitigates these issues, it frequently overlooks structural interdependencies essential for multi-hop reasoning. Graph-based RAG approaches attempt to bridge this gap, yet they typically face trade-offs between accuracy and efficiency due to challenges such as costly graph traversals and semantic noise in LLM-generated summaries. In this paper, we propose HyperNode Expansion and Logical Path-Guided Evidence Localization strategies for GraphRAG (HELP), a novel framework designed to balance accuracy with practical efficiency through two core strategies: 1) HyperNode Expansion, which iteratively chains knowledge triplets into coherent reasoning paths abstracted as HyperNodes to capture complex structural dependencies and ensure retrieval accuracy; and 2) Logical Path-Guided Evidence Localization, which leverages precomputed graph-text correlations to map these paths directly to the corpus for superior efficiency. HELP avoids expensive random walks and semantic distortion, preserving knowledge integrity while drastically reducing retrieval latency. Extensive experiments demonstrate that HELP achieves competitive performance across multiple simple and multi-hop QA benchmarks and up to a 28.8$\\times$ speedup over leading Graph-based RAG baselines.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-02-24T14:05:29Z",
+    "updated": "2026-02-24T14:05:29Z",
+    "url": "http://arxiv.org/abs/2602.20926v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20926v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG（检索增强生成）研究，专注于通用问答任务中的推理效率与准确性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等），即使有中国公司背景加分，仍属低相关。",
+    "translation": "HELP：用于精准高效图 RAG 的超节点扩展与逻辑路径引导证据定位",
+    "summary_zh": "提出一种名为 HELP 的图 RAG 框架，通过超节点扩展构建连贯推理路径，并利用逻辑路径引导直接定位证据，以平衡多跳推理中的准确性与检索效率。",
+    "key_points": [
+      "提出一种名为 HELP 的图 RAG 框架，通过超节点扩展构建连贯推理路径，并利用逻辑路径引导直接定位证据，以平衡多跳推理中的准确性与检索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20735v1",
+    "title": "RMIT-ADM+S at the MMU-RAG NeurIPS 2025 Competition",
+    "authors": [
+      "Kun Ran",
+      "Marwah Alaofi",
+      "Danula Hettiachchi",
+      "Chenglong Ma",
+      "Khoi Nguyen Dinh Anh",
+      "Khoi Vo Nguyen",
+      "Sachin Pathiyan Cherumanal",
+      "Lida Rashidi",
+      "Falk Scholer",
+      "Damiano Spina",
+      "Shuoqi Sun",
+      "Oleg Zendel"
+    ],
+    "summary": "This paper presents the award-winning RMIT-ADM+S system for the Text-to-Text\n  track of the NeurIPS~2025 MMU-RAG Competition. We introduce Routing-to-RAG\n  (R2RAG), a research-focused retrieval-augmented generation (RAG)\n  architecture composed of lightweight components that dynamically adapt the\n  retrieval strategy based on inferred query complexity and evidence\n  sufficiency. The system uses smaller LLMs, enabling operation on a single\n  consumer-grade GPU while supporting complex research tasks. It builds on the\n  G-RAG system, winner of the ACM~SIGIR~2025 LiveRAG Challenge, and extends it\n  with modules informed by qualitative review of outputs. R2RAG won the Best\n  Dynamic Evaluation award in the Open Source category, demonstrating high\n  effectiveness with careful design and efficient use of resources.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-02-24T09:58:25Z",
+    "updated": "2026-02-24T09:58:25Z",
+    "url": "http://arxiv.org/abs/2602.20735v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20735v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究论文，专注于通用问答竞赛中的检索增强生成架构，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "RMIT-ADM+S 团队在 NeurIPS 2025 MMU-RAG 竞赛中的表现",
+    "summary_zh": "提出了一种名为 Routing-to-RAG (R2RAG) 的架构，通过轻量级组件根据查询复杂度和证据充分性动态调整检索策略，旨在利用小型大模型高效解决复杂研究类问答任务。",
+    "key_points": [
+      "提出了一种名为 Routing-to-RAG (R2RAG) 的架构，通过轻量级组件根据查询复杂度和证据充分性动态调整检索策略，旨在利用小型大模型高效解决复杂研究类问答任务"
+    ]
+  },
+  {
+    "arxiv_id": "2602.20671v1",
+    "title": "Bikelution: Federated Gradient-Boosting for Scalable Shared Micro-Mobility Demand Forecasting",
+    "authors": [
+      "Antonios Tziorvas",
+      "Andreas Tritsarolis",
+      "Yannis Theodoridis"
+    ],
+    "summary": "The rapid growth of dockless bike-sharing systems has generated massive spatio-temporal datasets useful for fleet allocation, congestion reduction, and sustainable mobility. Bike demand, however, depends on several external factors, making traditional time-series models insufficient. Centralized Machine Learning (CML) yields high-accuracy forecasts but raises privacy and bandwidth issues when data are distributed across edge devices. To overcome these limitations, we propose Bikelution, an efficient Federated Learning (FL) solution based on gradient-boosted trees that preserves privacy while delivering accurate mid-term demand forecasts up to six hours ahead. Experiments on three real-world BSS datasets show that Bikelution is comparable to its CML-based variant and outperforms the current state-of-the-art. The results highlight the feasibility of privacy-aware demand forecasting and outline the trade-offs between FL and CML approaches.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-24T08:21:28Z",
+    "updated": "2026-02-24T08:21:28Z",
+    "url": "http://arxiv.org/abs/2602.20671v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.20671v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯时空预测和联邦学习研究，专注于共享单车需求预测，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），不符合 RecSys/Search 领域要求。",
+    "translation": "Bikelution：用于可扩展共享微出行需求预测的联邦梯度提升",
+    "summary_zh": "提出一种基于梯度提升树的联邦学习框架，旨在解决分布式边缘设备上的隐私保护与带宽限制问题，以实现准确的短期微出行需求预测。",
+    "key_points": [
+      "提出一种基于梯度提升树的联邦学习框架，旨在解决分布式边缘设备上的隐私保护与带宽限制问题，以实现准确的短期微出行需求预测"
+    ]
+  }
+]

@@ -1,1 +1,183 @@
-[]
+[
+  {
+    "arxiv_id": "2512.13726v1",
+    "title": "Time-Constrained Recommendations: Reinforcement Learning Strategies for E-Commerce",
+    "authors": [
+      "Sayak Chakrabarty",
+      "Souradip Pal"
+    ],
+    "summary": "Unlike traditional recommendation tasks, finite user time budgets introduce a critical resource constraint, requiring the recommender system to balance item relevance and evaluation cost. For example, in a mobile shopping interface, users interact with recommendations by scrolling, where each scroll triggers a list of items called slate. Users incur an evaluation cost - time spent assessing item features before deciding to click. Highly relevant items having higher evaluation costs may not fit within the user's time budget, affecting engagement. In this position paper, our objective is to evaluate reinforcement learning algorithms that learn patterns in user preferences and time budgets simultaneously, crafting recommendations with higher engagement potential under resource constraints. Our experiments explore the use of reinforcement learning to recommend items for users using Alibaba's Personalized Re-ranking dataset supporting slate optimization in e-commerce contexts. Our contributions include (i) a unified formulation of time-constrained slate recommendation modeled as Markov Decision Processes (MDPs) with budget-aware utilities; (ii) a simulation framework to study policy behavior on re-ranking data; and (iii) empirical evidence that on-policy and off-policy control can improve performance under tight time budgets than traditional contextual bandit-based methods.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-12-13T20:32:47Z",
+    "updated": "2025-12-13T20:32:47Z",
+    "url": "http://arxiv.org/abs/2512.13726v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.13726v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景下的推荐系统重排序问题，提出了考虑用户时间预算约束的强化学习框架，且基于阿里巴巴真实数据，完全符合核心领域 advances 及中国电商公司加分项。",
+    "translation": "时间约束推荐：面向电子商务的强化学习策略",
+    "summary_zh": "本文提出将时间约束下的列表推荐建模为带预算感知的马尔可夫决策过程，利用强化学习同时学习用户偏好与时间预算模式，以在有限时间内优化推荐 engagement。",
+    "key_points": [
+      "本文提出将时间约束下的列表推荐建模为带预算感知的马尔可夫决策过程，利用强化学习同时学习用户偏好与时间预算模式，以在有限时间内优化推荐 engagement"
+    ]
+  },
+  {
+    "arxiv_id": "2512.12295v2",
+    "title": "Near-Zero-Overhead Freshness for Recommendation Systems via Inference-Side Model Updates",
+    "authors": [
+      "Wenjun Yu",
+      "Sitian Chen",
+      "Cheng Chen",
+      "Amelie Chi Zhou"
+    ],
+    "summary": "Deep Learning Recommendation Models (DLRMs) underpin personalized services but face a critical freshness-accuracy tradeoff due to massive parameter synchronization overheads. Production DLRMs deploy decoupled training/inference clusters, where synchronizing petabyte-scale embedding tables (EMTs) causes multi-minute staleness, degrading recommendation quality and revenue. We observe that (1) inference nodes exhibit sustained CPU underutilization (peak <= 20%), and (2) EMT gradients possess intrinsic low-rank structure, enabling compact update representation. We present LiveUpdate, a system that eliminates inter-cluster synchronization by colocating Low-Rank Adaptation (LoRA) trainers within inference nodes. LiveUpdate addresses two core challenges: (1) dynamic rank adaptation via singular value monitoring to constrain memory overhead (<2% of EMTs), and (2) NUMA-aware resource scheduling with hardware-enforced QoS to eliminate update inference contention (P99 latency impact <20ms). Evaluations show LiveUpdate reduces update costs by 2x versus delta-update baselines while achieving higher accuracy within 1-hour windows. By transforming idle inference resources into freshness engines, LiveUpdate delivers online model updates while outperforming state-of-the-art delta-update methods by 0.04% to 0.24% in accuracy.",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published": "2025-12-13T11:38:05Z",
+    "updated": "2025-12-17T04:28:31Z",
+    "url": "http://arxiv.org/abs/2512.12295v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.12295v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "†Hong Kong Baptist University ‡ByteDance"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中模型更新延迟（新鲜度）与同步开销的核心工程难题，提出利用推理端空闲资源进行低秩适配更新的创新架构，属于高优先级的核心领域进展；且来自中国公司，按规定额外加 1 分（基础分 9+ 奖励 1=10）。",
+    "translation": "通过推理端模型更新实现推荐系统近零开销的新鲜度",
+    "summary_zh": "提出 LiveUpdate 系统，利用嵌入梯度的低秩特性将轻量级训练器共置于推理节点，将闲置计算资源转化为实时更新引擎，在消除跨集群同步开销的同时显著提升模型新鲜度。",
+    "key_points": [
+      "提出 LiveUpdate 系统，利用嵌入梯度的低秩特性将轻量级训练器共置于推理节点，将闲置计算资源转化为实时更新引擎，在消除跨集群同步开销的同时显著提升模型新鲜度"
+    ]
+  },
+  {
+    "arxiv_id": "2512.12458v2",
+    "title": "Breaking the Curse of Dimensionality: On the Stability of Modern Vector Retrieval",
+    "authors": [
+      "Vihan Lakshman",
+      "Blaise Munyampirwa",
+      "Julian Shun",
+      "Benjamin Coleman"
+    ],
+    "summary": "Modern vector databases enable efficient retrieval over high-dimensional neural embeddings, powering applications from web search to retrieval-augmented generation. However, classical theory predicts such tasks should suffer from the curse of dimensionality, where distances between points become nearly indistinguishable, thereby crippling efficient nearest-neighbor search. We revisit this paradox through the lens of stability, the property that small perturbations to a query do not radically alter its nearest neighbors. Building on foundational results, we extend stability theory to three key retrieval settings widely used in practice: (i) multi-vector search, where we prove that the popular Chamfer distance metric preserves single-vector stability, while average pooling aggregation may destroy it; (ii) filtered vector search, where we show that sufficiently large penalties for mismatched filters can induce stability even when the underlying search is unstable; and (iii) sparse vector search, where we formalize and prove novel sufficient stability conditions. Across synthetic and real datasets, our experimental results match our theoretical predictions, offering concrete guidance for model and system design to avoid the curse of dimensionality.",
+    "categories": [
+      "cs.IR",
+      "cs.CG",
+      "cs.DB",
+      "cs.LG"
+    ],
+    "published": "2025-12-13T21:05:21Z",
+    "updated": "2026-02-12T17:01:59Z",
+    "url": "http://arxiv.org/abs/2512.12458v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.12458v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该文深入探讨向量检索的稳定性理论，直接解决搜索和推荐系统中高维嵌入召回的核心痛点，虽偏理论基础但具有明确的系统指导意义；因来自中国公司额外加 1 分。",
+    "translation": "打破维度灾难：论现代向量检索的稳定性",
+    "summary_zh": "本文从稳定性视角重构高维向量检索理论，证明了多向量聚合、过滤检索及稀疏检索场景下避免维度灾难的具体条件，为搜索与推荐系统的索引设计及模型选择提供了核心理论依据。",
+    "key_points": [
+      "本文从稳定性视角重构高维向量检索理论，证明了多向量聚合、过滤检索及稀疏检索场景下避免维度灾难的具体条件，为搜索与推荐系统的索引设计及模型选择提供了核心理论依据"
+    ]
+  },
+  {
+    "arxiv_id": "2512.12207v1",
+    "title": "Not All Transparency Is Equal: Source Presentation Effects on Attention, Interaction, and Persuasion in Conversational Search",
+    "authors": [
+      "Jiangen He",
+      "Jiqun Liu"
+    ],
+    "summary": "Conversational search systems increasingly provide source citations, yet how citation or source presentation formats influence user engagement remains unclear. We conducted a crowdsourcing user experiment with 394 participants comparing four source presentation designs that varied citation visibility and accessibility: collapsible lists, hover cards, footer lists, and aligned sidebars.High-visibility interfaces generated substantially more hovering on sources, though clicking remained infrequent across all conditions. While interface design showed limited effects on user experience and perception measures, it significantly influenced knowledge, interest, and agreement changes. High-visibility interfaces initially reduced knowledge gain and interest, but these positive effects emerged with increasing source usage. The sidebar condition uniquely increased agreement change. Our findings demonstrate that source presentation alone may not enhance engagement and can even reduce it when insufficient sources are provided.",
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-12-13T06:39:45Z",
+    "updated": "2025-12-13T06:39:45Z",
+    "url": "http://arxiv.org/abs/2512.12207v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.12207v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦对话式搜索中的来源展示对用户行为的影响，属于搜索用户体验与人机交互范畴，虽非核心算法创新但与搜索产品直接相关；因来自中国公司格力额外加 1 分。",
+    "translation": "并非所有透明度都等同：对话式搜索中来源呈现对注意力、交互及说服力的影响",
+    "summary_zh": "本文通过用户实验研究了对话式搜索系统中不同来源引用展示格式（如折叠列表、悬停卡片等）对用户注意力分配、知识获取及观点改变的影响机制。",
+    "key_points": [
+      "本文通过用户实验研究了对话式搜索系统中不同来源引用展示格式（如折叠列表、悬停卡片等）对用户注意力分配、知识获取及观点改变的影响机制"
+    ]
+  },
+  {
+    "arxiv_id": "2512.12477v1",
+    "title": "MetaHGNIE: Meta-Path Induced Hypergraph Contrastive Learning in Heterogeneous Knowledge Graphs",
+    "authors": [
+      "Jiawen Chen",
+      "Yanyan He",
+      "Qi Shao",
+      "Mengli Wei",
+      "Duxin Chen",
+      "Wenwu Yu",
+      "Yanlong Zhao"
+    ],
+    "summary": "Node importance estimation (NIE) in heterogeneous knowledge graphs is a critical yet challenging task, essential for applications such as recommendation, knowledge reasoning, and question answering. Existing methods often rely on pairwise connections, neglecting high-order dependencies among multiple entities and relations, and they treat structural and semantic signals independently, hindering effective cross-modal integration. To address these challenges, we propose MetaHGNIE, a meta-path induced hypergraph contrastive learning framework for disentangling and aligning structural and semantic information. MetaHGNIE constructs a higher-order knowledge graph via meta-path sequences, where typed hyperedges capture multi-entity relational contexts. Structural dependencies are aggregated with local attention, while semantic representations are encoded through a hypergraph transformer equipped with sparse chunking to reduce redundancy. Finally, a multimodal fusion module integrates structural and semantic embeddings under contrastive learning with auxiliary supervision, ensuring robust cross-modal alignment. Extensive experiments on benchmark NIE datasets demonstrate that MetaHGNIE consistently outperforms state-of-the-art baselines. These results highlight the effectiveness of explicitly modeling higher-order interactions and cross-modal alignment in heterogeneous knowledge graphs. Our code is available at https://github.com/SEU-WENJIA/DualHNIE",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-12-13T22:21:33Z",
+    "updated": "2025-12-13T22:21:33Z",
+    "url": "http://arxiv.org/abs/2512.12477v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.12477v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 4,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种基于超图对比学习的节点重要性估计方法，虽在摘要中提及推荐系统作为应用场景，但核心贡献在于通用异构图表示学习技术，缺乏针对推荐/搜索业务场景的专用架构创新。",
+    "translation": "MetaHGNIE：异构知识图谱中基于元路径诱导超图对比学习的节点重要性估计",
+    "summary_zh": "该论文提出 MetaHGNIE 框架，通过元路径构建高阶超图以捕捉多实体关系上下文，并利用对比学习对齐结构与语义信息来解决异构知识图谱中的节点重要性估计问题。",
+    "key_points": [
+      "该论文提出 MetaHGNIE 框架，通过元路径构建高阶超图以捕捉多实体关系上下文，并利用对比学习对齐结构与语义信息来解决异构知识图谱中的节点重要性估计问题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.13727v1",
+    "title": "RAST-MoE-RL: A Regime-Aware Spatio-Temporal MoE Framework for Deep Reinforcement Learning in Ride-Hailing",
+    "authors": [
+      "Yuhan Tang",
+      "Kangxin Cui",
+      "Jung Ho Park",
+      "Yibo Zhao",
+      "Xuan Jiang",
+      "Haoze He",
+      "Dingyi Zhuang",
+      "Shenhao Wang",
+      "Jiangbo Yu",
+      "Haris Koutsopoulos",
+      "Jinhua Zhao"
+    ],
+    "summary": "Ride-hailing platforms face the challenge of balancing passenger waiting times with overall system efficiency under highly uncertain supply-demand conditions. Adaptive delayed matching creates a trade-off between matching and pickup delays by deciding whether to assign drivers immediately or batch requests. Since outcomes accumulate over long horizons with stochastic dynamics, reinforcement learning (RL) is a suitable framework. However, existing approaches often oversimplify traffic dynamics or use shallow encoders that miss complex spatiotemporal patterns.\n  We introduce the Regime-Aware Spatio-Temporal Mixture-of-Experts (RAST-MoE), which formalizes adaptive delayed matching as a regime-aware MDP equipped with a self-attention MoE encoder. Unlike monolithic networks, our experts specialize automatically, improving representation capacity while maintaining computational efficiency. A physics-informed congestion surrogate preserves realistic density-speed feedback, enabling millions of efficient rollouts, while an adaptive reward scheme guards against pathological strategies.\n  With only 12M parameters, our framework outperforms strong baselines. On real-world Uber trajectory data (San Francisco), it improves total reward by over 13%, reducing average matching and pickup delays by 10% and 15% respectively. It demonstrates robustness across unseen demand regimes and stable training. These findings highlight the potential of MoE-enhanced RL for large-scale decision-making with complex spatiotemporal dynamics.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-13T20:49:15Z",
+    "updated": "2025-12-13T20:49:15Z",
+    "url": "http://arxiv.org/abs/2512.13727v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.13727v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯强化学习（RL）在交通调度中的应用，缺乏推荐/搜索核心环节（召回、排序等）的直接创新，虽为本地生活场景但非典型 RecSys 任务，故给低分；因来自中国公司额外 +1 分后仍属弱相关。",
+    "translation": "RAST-MoE-RL：面向网约车深度强化学习的区域感知时空混合专家框架",
+    "summary_zh": "提出一种区域感知的时空混合专家（MoE）编码器，将自适应延迟匹配建模为马尔可夫决策过程，以解决高不确定性供需下的网约车调度效率与等待时间平衡问题。",
+    "key_points": [
+      "提出一种区域感知的时空混合专家（MoE）编码器，将自适应延迟匹配建模为马尔可夫决策过程，以解决高不确定性供需下的网约车调度效率与等待时间平衡问题"
+    ]
+  }
+]

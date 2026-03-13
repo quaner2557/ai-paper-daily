@@ -1,1 +1,148 @@
-[]
+[
+  {
+    "arxiv_id": "2512.11254v2",
+    "title": "FAIR: Focused Attention Is All You Need for Generative Recommendation",
+    "authors": [
+      "Longtao Xiao",
+      "Haolin Zhang",
+      "Guohao Cai",
+      "Jieming Zhu",
+      "Yifan Wang",
+      "Heng Chang",
+      "Zhenhua Dong",
+      "Xiu Li",
+      "Ruixuan Li"
+    ],
+    "summary": "Recently, transformer-based generative recommendation has garnered significant attention for user behavior modeling. However, it often requires discretizing items into multi-code representations (e.g., typically four code tokens or more), which sharply increases the length of the original item sequence. This expansion poses challenges to transformer-based models for modeling user behavior sequences with inherent noises, since they tend to overallocate attention to irrelevant or noisy context. To mitigate this issue, we propose FAIR, the first generative recommendation framework with focused attention, which enhances attention scores to relevant context while suppressing those to irrelevant ones. Specifically, we propose (1) a focused attention mechanism integrated into the standard Transformer, which learns two separate sets of Q and K attention weights and computes their difference as the final attention scores to eliminate attention noise while focusing on relevant contexts; (2) a noise-robustness objective, which encourages the model to maintain stable attention patterns under stochastic perturbations, preventing undesirable shifts toward irrelevant context due to noise; and (3) a mutual information maximization objective, which guides the model to identify contexts that are most informative for next-item prediction. We validate the effectiveness of FAIR on four public benchmarks, demonstrating its superior performance compared to existing methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-12T03:25:12Z",
+    "updated": "2025-12-17T02:57:06Z",
+    "url": "http://arxiv.org/abs/2512.11254v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.11254v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "HuazhongUniversityofScienceand ShenzhenInternationalGraduate HuaweiNoah’sArkLab",
+      "Technology School,TsinghuaUniversity Shenzhen,China",
+      "HuaweiNoah’sArkLab HuazhongUniversityofScienceand HuaweiTechnologiesCo.,Ltd",
+      "HuaweiNoah’sArkLab ShenzhenInternationalGraduate HuazhongUniversityofScienceand",
+      "Shenzhen,China School,TsinghuaUniversity Technology"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的注意力噪声问题提出改进架构，属于核心推荐算法创新；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "FAIR：聚焦注意力即生成式推荐所需的一切",
+    "summary_zh": "提出一种聚焦注意力机制，通过学习两组独立的 Q/K 权重并计算差值来抑制噪声上下文，结合噪声鲁棒性目标和互信息最大化目标，以提升生成式推荐对用户行为序列的建模能力。",
+    "key_points": [
+      "提出一种聚焦注意力机制，通过学习两组独立的 Q/K 权重并计算差值来抑制噪声上下文，结合噪声鲁棒性目标和互信息最大化目标，以提升生成式推荐对用户行为序列的建模能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.11529v2",
+    "title": "xGR: Efficient Generative Recommendation Serving at Scale",
+    "authors": [
+      "Qingxiao Sun",
+      "Tongxuan Liu",
+      "Shen Zhang",
+      "Siyu Wu",
+      "Peijun Yang",
+      "Haotian Liang",
+      "Menxin Li",
+      "Xiaolong Ma",
+      "Zhiwei Liang",
+      "Ziyi Ren",
+      "Minchao Zhang",
+      "Xinyu Liu",
+      "Ke Zhang",
+      "Depei Qian",
+      "Hailong Yang"
+    ],
+    "summary": "Recommendation system delivers substantial economic benefits by providing personalized predictions. Generative recommendation (GR) integrates LLMs to enhance the understanding of long user-item sequences. Despite employing attention-based architectures, GR's workload differs markedly from that of LLM serving. GR typically processes long prompt while producing short, fixed-length outputs, yet the computational cost of each decode phase is especially high due to the large beam width. In addition, since the beam search involves a vast item space, the sorting overhead becomes particularly time-consuming. We propose xGR, a GR-oriented serving system that meets strict low-latency requirements under highconcurrency scenarios. First, xGR unifies the processing of prefill and decode phases through staged computation and separated KV cache. Second, xGR enables early sorting termination and mask-based item filtering with data structure reuse. Third, xGR reconstructs the overall pipeline to exploit multilevel overlap and multi-stream parallelism. Our experiments with real-world recommendation service datasets demonstrate that xGR achieves at least 3.49x throughput compared to the state-of-the-art baseline under strict latency constraints.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-12T12:59:38Z",
+    "updated": "2025-12-19T11:20:16Z",
+    "url": "http://arxiv.org/abs/2512.11529v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.11529v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "JD",
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1 BeihangUniversity 2 JDCompany 3 UniversityofScienceandTechnologyBeijing 4 Huawei"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）的大规模服务延迟与吞吐量问题，提出了专用的系统架构优化，属于 LLM 在推荐系统中的核心工程应用。",
+    "translation": "xGR：大规模高效生成式推荐服务系统",
+    "summary_zh": "提出 xGR 系统，通过分阶段计算、分离 KV 缓存、早期排序终止及多级流水线并行等技术，解决生成式推荐在大束宽搜索下的解码延迟与排序开销问题。",
+    "key_points": [
+      "提出 xGR 系统，通过分阶段计算、分离 KV 缓存、早期排序终止及多级流水线并行等技术，解决生成式推荐在大束宽搜索下的解码延迟与排序开销问题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.11755v1",
+    "title": "SUMFORU: An LLM-Based Review Summarization Framework for Personalized Purchase Decision Support",
+    "authors": [
+      "Yuming Feng",
+      "Xinrui Jiang"
+    ],
+    "summary": "Online product reviews contain rich but noisy signals that overwhelm users and hinder effective decision-making. Existing LLM-based summarizers remain generic and fail to account for individual preferences, limiting their practical utility. We propose SUMFORU, a steerable review summarization framework that aligns outputs with explicit user personas to support personalized purchase decisions. Our approach integrates a high-quality data pipeline built from the Amazon 2023 Review Dataset with a two-stage alignment procedure: (1) persona-aware Supervised Fine-Tuning (SFT) via asymmetric knowledge distillation, and (2) Reinforcement Learning with AI Feedback (RLAIF) using a preference estimator to capture fine-grained, persona-relevant signals. We evaluate the model across rule-based, LLM-based, and human-centered metrics, demonstrating consistent improvements in consistency, grounding, and preference alignment. Our framework achieves the highest performance across all evaluation settings and generalizes effectively to unseen product categories. Our results highlight the promise of steerable pluralistic alignment for building next-generation personalized decision-support systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-12-12T18:05:52Z",
+    "updated": "2025-12-12T18:05:52Z",
+    "url": "http://arxiv.org/abs/2512.11755v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.11755v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文将 LLM 直接应用于电商场景下的个性化评论摘要，旨在辅助用户购买决策，属于明确的 LLM for RecSys/Search 应用。",
+    "translation": "SUMFORU：基于大语言模型的评论摘要框架以支持个性化购买决策",
+    "summary_zh": "提出一种可操控的评论摘要框架，通过基于用户画像的监督微调和基于 AI 反馈的强化学习，使生成的摘要内容对齐用户的个性化偏好以辅助购买决策。",
+    "key_points": [
+      "提出一种可操控的评论摘要框架，通过基于用户画像的监督微调和基于 AI 反馈的强化学习，使生成的摘要内容对齐用户的个性化偏好以辅助购买决策"
+    ]
+  },
+  {
+    "arxiv_id": "2512.11352v1",
+    "title": "CAT: Can Trust be Predicted with Context-Awareness in Dynamic Heterogeneous Networks?",
+    "authors": [
+      "Jie Wang",
+      "Zheng Yan",
+      "Jiahe Lan",
+      "Xuyan Li",
+      "Elisa Bertino"
+    ],
+    "summary": "Trust prediction provides valuable support for decision-making, risk mitigation, and system security enhancement. Recently, Graph Neural Networks (GNNs) have emerged as a promising approach for trust prediction, owing to their ability to learn expressive node representations that capture intricate trust relationships within a network. However, current GNN-based trust prediction models face several limitations: (i) Most of them fail to capture trust dynamicity, leading to questionable inferences. (ii) They rarely consider the heterogeneous nature of real-world networks, resulting in a loss of rich semantics. (iii) None of them support context-awareness, a basic property of trust, making prediction results coarse-grained.\n  To this end, we propose CAT, the first Context-Aware GNN-based Trust prediction model that supports trust dynamicity and accurately represents real-world heterogeneity. CAT consists of a graph construction layer, an embedding layer, a heterogeneous attention layer, and a prediction layer. It handles dynamic graphs using continuous-time representations and captures temporal information through a time encoding function. To model graph heterogeneity and leverage semantic information, CAT employs a dual attention mechanism that identifies the importance of different node types and nodes within each type. For context-awareness, we introduce a new notion of meta-paths to extract contextual features. By constructing context embeddings and integrating a context-aware aggregator, CAT can predict both context-aware trust and overall trust. Extensive experiments on three real-world datasets demonstrate that CAT outperforms five groups of baselines in trust prediction, while exhibiting strong scalability to large-scale graphs and robustness against both trust-oriented and GNN-oriented attacks.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-12T08:00:28Z",
+    "updated": "2025-12-12T08:00:28Z",
+    "url": "http://arxiv.org/abs/2512.11352v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.11352v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于通用动态异构图上的信任预测，属于图神经网络的基础研究，未明确针对推荐系统或搜索引擎的具体应用场景（如召回、排序），且非 LLM 直接应用。",
+    "translation": "CAT：在动态异构网络中能否利用上下文感知预测信任？",
+    "summary_zh": "提出一种基于图神经网络的信任预测模型 CAT，通过连续时间表示和双重注意力机制捕捉动态性与异质性，并引入元路径提取上下文特征以实现细粒度的上下文感知信任预测。",
+    "key_points": [
+      "提出一种基于图神经网络的信任预测模型 CAT，通过连续时间表示和双重注意力机制捕捉动态性与异质性，并引入元路径提取上下文特征以实现细粒度的上下文感知信任预测"
+    ]
+  }
+]

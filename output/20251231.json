@@ -1,1 +1,260 @@
-[]
+[
+  {
+    "arxiv_id": "2512.24787v2",
+    "title": "HiGR: Efficient Generative Slate Recommendation via Hierarchical Planning and Multi-Objective Preference Alignment",
+    "authors": [
+      "Yunsheng Pang",
+      "Zijian Liu",
+      "Yudong Li",
+      "Shaojie Zhu",
+      "Zijian Luo",
+      "Chenyun Yu",
+      "Sikai Wu",
+      "Shichen Shen",
+      "Cong Xu",
+      "Bin Wang",
+      "Kai Jiang",
+      "Hongyong Yu",
+      "Chengxiang Zhuo",
+      "Zang Li"
+    ],
+    "summary": "Slate recommendation, which presents users with a ranked item list in a single display, is ubiquitous across mainstream online platforms. Recent advances in generative models have shown significant potential for this task via autoregressive modeling of discrete semantic ID sequences. However, existing methods suffer from three key limitations: entangled item tokenization, inefficient sequential decoding, and the absence of holistic slate planning. These issues often result in substantial inference overhead and inadequate alignment with diverse user preferences and practical business requirements, hindering the industrial deployment of generative slate recommendation systems. In this paper, we propose HiGR, an efficient generative slate recommendation framework that integrates hierarchical planning with listwise preference alignment. First, we design an auto-encoder incorporating residual quantization and contrastive constraints, which tokenizes items into semantically structured IDs to enable controllable generation. Second, HiGR decouples the generation process into two stages: a list-level planning stage to capture global slate intent, and an item-level decoding stage to select specific items, effectively reducing the search space and enabling efficient generation. Third, we introduce a multi-objective and listwise preference alignment mechanism that enhances slate quality by leveraging implicit user feedback. Extensive experiments have validated the effectiveness of our HiGR method. Notably, it outperforms state-of-the-art baselines by over 10\\% in offline recommendation quality while achieving a $5\\times$ inference speedup. Furthermore, we have deployed HiGR on a commercial platform under Tencent (serving hundreds of millions of users), and online A/B tests show that it increases average watch time and average video plays by 1.22\\% and 1.73\\%, respectively.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-31T11:16:24Z",
+    "updated": "2026-02-23T23:54:28Z",
+    "url": "http://arxiv.org/abs/2512.24787v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.24787v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "PlatformandContentGroup,Tencent SunYat-senUniversity SunYat-senUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该文直接针对推荐系统中的“列表生成（Slate Recommendation）”核心难题，提出了结合分层规划与多目标对齐的生成式框架，且已在腾讯大规模落地验证，完全符合高优先级标准。",
+    "translation": "HiGR：基于分层规划与多目标偏好对齐的高效生成式列表推荐",
+    "summary_zh": "提出 HiGR 框架，通过残差量化编码器构建语义结构化 ID，将生成过程解耦为列表级意图规划与物品级解码两阶段，并引入多目标列表级偏好对齐机制，以解决生成式推荐中的效率低下与偏好对齐难题。",
+    "key_points": [
+      "提出 HiGR 框架，通过残差量化编码器构建语义结构化 ID，将生成过程解耦为列表级意图规划与物品级解码两阶段，并引入多目标列表级偏好对齐机制，以解决生成式推荐中的效率低下与偏好对齐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.24762v2",
+    "title": "OpenOneRec Technical Report",
+    "authors": [
+      "Guorui Zhou",
+      "Honghui Bao",
+      "Jiaming Huang",
+      "Jiaxin Deng",
+      "Jinghao Zhang",
+      "Junda She",
+      "Kuo Cai",
+      "Lejian Ren",
+      "Lu Ren",
+      "Qiang Luo",
+      "Qianqian Wang",
+      "Qigen Hu",
+      "Rongzhou Zhang",
+      "Ruiming Tang",
+      "Shiyao Wang",
+      "Wuchao Li",
+      "Xiangyu Wu",
+      "Xinchen Luo",
+      "Xingmei Wang",
+      "Yifei Hu",
+      "Yunfan Wu",
+      "Zhanyu Liu",
+      "Zhiyang Zhang",
+      "Zixing Zhang",
+      "Bo Chen",
+      "Bin Wen",
+      "Chaoyi Ma",
+      "Chengru Song",
+      "Chenglong Chu",
+      "Defu Lian",
+      "Fan Yang",
+      "Feng Jiang",
+      "Hongtao Cheng",
+      "Huanjie Wang",
+      "Kun Gai",
+      "Pengfei Zheng",
+      "Qiang Wang",
+      "Rui Huang",
+      "Siyang Mao",
+      "Tingting Gao",
+      "Wei Yuan",
+      "Yan Wang",
+      "Yang Zhou",
+      "Yi Su",
+      "Zexuan Cheng",
+      "Zhixin Ling",
+      "Ziming Li"
+    ],
+    "summary": "While the OneRec series has successfully unified the fragmented recommendation pipeline into an end-to-end generative framework, a significant gap remains between recommendation systems and general intelligence. Constrained by isolated data, they operate as domain specialists-proficient in pattern matching but lacking world knowledge, reasoning capabilities, and instruction following. This limitation is further compounded by the lack of a holistic benchmark to evaluate such integrated capabilities. To address this, our contributions are: 1) RecIF Bench & Open Data: We propose RecIF-Bench, a holistic benchmark covering 8 diverse tasks that thoroughly evaluate capabilities from fundamental prediction to complex reasoning. Concurrently, we release a massive training dataset comprising 96 million interactions from 160,000 users to facilitate reproducible research. 2) Framework & Scaling: To ensure full reproducibility, we open-source our comprehensive training pipeline, encompassing data processing, co-pretraining, and post-training. Leveraging this framework, we demonstrate that recommendation capabilities can scale predictably while mitigating catastrophic forgetting of general knowledge. 3) OneRec-Foundation: We release OneRec Foundation (1.7B and 8B), a family of models establishing new state-of-the-art (SOTA) results across all tasks in RecIF-Bench. Furthermore, when transferred to the Amazon benchmark, our models surpass the strongest baselines with an average 26.8% improvement in Recall@10 across 10 diverse datasets (Figure 1). This work marks a step towards building truly intelligent recommender systems. Nonetheless, realizing this vision presents significant technical and theoretical challenges, highlighting the need for broader research engagement in this promising direction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-31T10:15:53Z",
+    "updated": "2026-02-04T08:02:24Z",
+    "url": "http://arxiv.org/abs/2512.24762v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.24762v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出了统一的生成式框架、专用基准测试及开源模型，完美契合核心领域进展与 LLM for RecSys 的高优先级标准；作为中国公司成果已按规则额外 +1 分。",
+    "translation": "OpenOneRec 技术报告：构建具备通用智能的统一生成式推荐系统",
+    "summary_zh": "本文提出 OpenOneRec 框架，通过发布涵盖多任务的 RecIF 基准与大规模开源数据集，构建了支持端到端训练且能避免灾难性遗忘的生成式推荐模型系列，旨在赋予推荐系统世界知识与复杂推理能力。",
+    "key_points": [
+      "本文提出 OpenOneRec 框架，通过发布涵盖多任务的 RecIF 基准与大规模开源数据集，构建了支持端到端训练且能避免灾难性遗忘的生成式推荐模型系列，旨在赋予推荐系统世界知识与复杂推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22226v1",
+    "title": "SEGB: Self-Evolved Generative Bidding with Local Autoregressive Diffusion",
+    "authors": [
+      "Yulong Gao",
+      "Wan Jiang",
+      "Mingzhe Cao",
+      "Xuepu Wang",
+      "Zeyu Pan",
+      "Haonan Yang",
+      "Ye Liu",
+      "Xin Yang"
+    ],
+    "summary": "In the realm of online advertising, automated bidding has become a pivotal tool, enabling advertisers to efficiently capture impression opportunities in real-time. Recently, generative auto-bidding has shown significant promise, offering innovative solutions for effective ad optimization. However, existing offline-trained generative policies lack the near-term foresight required for dynamic markets and usually depend on simulators or external experts for post-training improvement. To overcome these critical limitations, we propose Self-Evolved Generative Bidding (SEGB), a framework that plans proactively and refines itself entirely offline. SEGB first synthesizes plausible short-horizon future states to guide each bid, providing the agent with crucial, dynamic foresight. Crucially, it then performs value-guided policy refinement to iteratively discover superior strategies without any external intervention. This self-contained approach uniquely enables robust policy improvement from static data alone. Experiments on the AuctionNet benchmark and a large-scale A/B test validate our approach, demonstrating that SEGB significantly outperforms state-of-the-art baselines. In a large-scale online deployment, it delivered substantial business value, achieving a +10.19% increase in target cost, proving the effectiveness of our advanced planning and evolution paradigm.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-12-31T09:05:59Z",
+    "updated": "2025-12-31T09:05:59Z",
+    "url": "http://arxiv.org/abs/2602.22226v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22226v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对在线广告自动出价（Ads Core Domain），提出了结合扩散模型的生成式出价框架，属于高优先级的推荐/广告核心业务创新；且来自中国公司，按规则额外加分。",
+    "translation": "SEGB：基于局部自回归扩散的自演化生成式出价",
+    "summary_zh": "提出一种自演化生成式出价框架，利用局部自回归扩散模型合成短期未来状态以提供动态前瞻，并通过价值引导的策略 refinement 在离线静态数据中实现策略的自我迭代优化。",
+    "key_points": [
+      "提出一种自演化生成式出价框架，利用局部自回归扩散模型合成短期未来状态以提供动态前瞻，并通过价值引导的策略 refinement 在离线静态数据中实现策略的自我迭代优化"
+    ]
+  },
+  {
+    "arxiv_id": "2512.24715v1",
+    "title": "MDiffFR: Modality-Guided Diffusion Generation for Cold-start Items in Federated Recommendation",
+    "authors": [
+      "Kang Fu",
+      "Honglei Zhang",
+      "Xuechao Zou",
+      "Yidong Li"
+    ],
+    "summary": "Federated recommendations (FRs) provide personalized services while preserving user privacy by keeping user data on local clients, which has attracted significant attention in recent years. However, due to the strict privacy constraints inherent in FRs, access to user-item interaction data and user profiles across clients is highly restricted, making it difficult to learn globally effective representations for new (cold-start) items. Consequently, the item cold-start problem becomes even more challenging in FRs. Existing solutions typically predict embeddings for new items through the attribute-to-embedding mapping paradigm, which establishes a fixed one-to-one correspondence between item attributes and their embeddings. However, this one-to-one mapping paradigm often fails to model varying data distributions and tends to cause embedding misalignment, as verified by our empirical studies. To this end, we propose MDiffFR, a novel generation-based modality-guided diffusion method for cold-start items in FRs. In this framework, we employ a tailored diffusion model on the server to generate embeddings for new items, which are then distributed to clients for cold-start inference. To align item semantics, we deploy a pre-trained modality encoder to extract modality features as conditional signals to guide the reverse denoising process. Furthermore, our theoretical analysis verifies that the proposed method achieves stronger privacy guarantees compared to existing mapping-based approaches. Extensive experiments on four real datasets demonstrate that our method consistently outperforms all baselines in FRs.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-31T08:29:34Z",
+    "updated": "2025-12-31T08:29:34Z",
+    "url": "http://arxiv.org/abs/2512.24715v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.24715v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对联邦推荐系统中的物品冷启动核心难题，提出了一种基于扩散模型的生成式解决方案，属于 RecSys 核心领域的架构创新。",
+    "translation": "MDiffFR：联邦推荐中面向冷启动物品的模态引导扩散生成方法",
+    "summary_zh": "该方法利用服务器端的扩散模型，以预训练模态编码器提取的特征为条件信号，生成新物品的嵌入表示以解决联邦场景下的冷启动问题。",
+    "key_points": [
+      "该方法利用服务器端的扩散模型，以预训练模态编码器提取的特征为条件信号，生成新物品的嵌入表示以解决联邦场景下的冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.24943v2",
+    "title": "RAIR: A Rule-Aware Benchmark Uniting Challenging Long-Tail and Visual Salience Subset for E-commerce Relevance Assessment",
+    "authors": [
+      "Chenji Lu",
+      "Zhuo Chen",
+      "Hui Zhao",
+      "Zhenyi Wang",
+      "Pengjie Wang",
+      "Chuan Yu",
+      "Jian Xu"
+    ],
+    "summary": "Search relevance plays a central role in web e-commerce. While large language models (LLMs) have shown significant results on relevance task, existing benchmarks lack sufficient complexity for comprehensive model assessment, resulting in an absence of standardized relevance evaluation metrics across the industry. To address this limitation, we propose Rule-Aware benchmark with Image for Relevance assessment(RAIR), a Chinese dataset derived from real-world scenarios. RAIR established a standardized framework for relevance assessment and provides a set of universal rules, which forms the foundation for standardized evaluation. Additionally, RAIR analyzes essential capabilities required for current relevance models and introduces a comprehensive dataset consists of three subset: (1) a general subset with industry-balanced sampling to evaluate fundamental model competencies; (2) a long-tail hard subset focus on challenging cases to assess performance limits; (3) a visual salience subset for evaluating multimodal understanding capabilities. We conducted experiments on RAIR using 14 open and closed-source models. The results demonstrate that RAIR presents sufficient challenges even for GPT-5, which achieved the best performance. RAIR data are now available, serving as an industry benchmark for relevance assessment while providing new insights into general LLM and Visual Language Model(VLM) evaluation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-12-31T16:09:08Z",
+    "updated": "2026-02-23T13:41:40Z",
+    "url": "http://arxiv.org/abs/2512.24943v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.24943v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了针对电商搜索相关性评估的专用基准（RAIR），包含长尾和视觉显著性子集，直接服务于搜索排序环节；虽涉及 LLM/VLM 评测，但核心贡献在于构建行业标准的搜索评估框架而非纯模型研究。",
+    "translation": "RAIR：融合挑战性长尾与视觉显著性子集的规则感知电商相关性评估基准",
+    "summary_zh": "提出 RAIR 基准，通过定义通用规则及构建包含常规、长尾难点和多模态视觉显著性的三个子集，为电商搜索相关性模型提供标准化的评估框架与能力测试维度。",
+    "key_points": [
+      "提出 RAIR 基准，通过定义通用规则及构建包含常规、长尾难点和多模态视觉显著性的三个子集，为电商搜索相关性模型提供标准化的评估框架与能力测试维度"
+    ]
+  },
+  {
+    "arxiv_id": "2512.25052v1",
+    "title": "AdaGReS:Adaptive Greedy Context Selection via Redundancy-Aware Scoring for Token-Budgeted RAG",
+    "authors": [
+      "Chao Peng",
+      "Bin Wang",
+      "Zhilei Long",
+      "Jinfang Sheng"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) is highly sensitive to the quality of selected context, yet standard top-k retrieval often returns redundant or near-duplicate chunks that waste token budget and degrade downstream generation. We present AdaGReS, a redundancy-aware context selection framework for token-budgeted RAG that optimizes a set-level objective combining query-chunk relevance and intra-set redundancy penalties. AdaGReS performs greedy selection under a token-budget constraint using marginal gains derived from the objective, and introduces a closed-form, instance-adaptive calibration of the relevance-redundancy trade-off parameter to eliminate manual tuning and adapt to candidate-pool statistics and budget limits. We further provide a theoretical analysis showing that the proposed objective exhibits epsilon-approximate submodularity under practical embedding similarity conditions, yielding near-optimality guarantees for greedy selection. Experiments on open-domain question answering (Natural Questions) and a high-redundancy biomedical (drug) corpus demonstrate consistent improvements in redundancy control and context quality, translating to better end-to-end answer quality and robustness across settings.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-12-31T18:48:07Z",
+    "updated": "2025-12-31T18:48:07Z",
+    "url": "http://arxiv.org/abs/2512.25052v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.25052v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 NLP/RAG 研究，专注于通用问答和生物医学领域的上下文去重，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景且加 1 分，仍属低优先级。",
+    "translation": "AdaGReS：基于冗余感知评分的自适应贪婪上下文选择用于 Token 预算受限的 RAG",
+    "summary_zh": "提出一种冗余感知的上下文选择框架，通过结合查询相关性与集合内冗余惩罚的集合级目标，在 Token 预算约束下利用贪心算法动态优化检索上下文的质量。",
+    "key_points": [
+      "提出一种冗余感知的上下文选择框架，通过结合查询相关性与集合内冗余惩罚的集合级目标，在 Token 预算约束下利用贪心算法动态优化检索上下文的质量"
+    ]
+  },
+  {
+    "arxiv_id": "2601.00891v1",
+    "title": "Enhancing Retrieval-Augmented Generation with Topic-Enriched Embeddings: A Hybrid Approach Integrating Traditional NLP Techniques",
+    "authors": [
+      "Rodrigo Kataishi"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) systems rely on accurate document retrieval to ground large language models (LLMs) in external knowledge, yet retrieval quality often degrades in corpora where topics overlap and thematic variation is high. This work proposes topic-enriched embeddings that integrate term-based signals and topic structure with contextual sentence embeddings. The approach combines TF-IDF with topic modeling and dimensionality reduction, using Latent Semantic Analysis (LSA) and Latent Dirichlet Allocation (LDA) to encode latent topical organization, and fuses these representations with a compact contextual encoder (all-MiniLM). By jointly capturing term-level and topic-level semantics, topic-enriched embeddings improve semantic clustering, increase retrieval precision, and reduce computational burden relative to purely contextual baselines. Experiments on a legal-text corpus show consistent gains in clustering coherence and retrieval metrics, suggesting that topic-enriched embeddings can serve as a practical component for more reliable knowledge-intensive RAG pipelines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-31T13:43:57Z",
+    "updated": "2025-12-31T13:43:57Z",
+    "url": "http://arxiv.org/abs/2601.00891v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.00891v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 NLP 领域的 RAG 检索优化，未涉及推荐系统或搜索引擎的核心业务场景（如用户建模、个性化排序），属于通用 NLP 研究。",
+    "translation": "利用主题增强嵌入提升检索增强生成：一种融合传统 NLP 技术的混合方法",
+    "summary_zh": "提出一种结合 TF-IDF、主题模型（LDA/LSA）与上下文编码器的混合嵌入方法，通过融合词项信号与潜在主题结构来优化密集检索的语义聚类与精度。",
+    "key_points": [
+      "提出一种结合 TF-IDF、主题模型（LDA/LSA）与上下文编码器的混合嵌入方法，通过融合词项信号与潜在主题结构来优化密集检索的语义聚类与精度"
+    ]
+  }
+]

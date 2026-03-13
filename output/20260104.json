@@ -1,0 +1,148 @@
+[
+  {
+    "arxiv_id": "2601.01684v1",
+    "title": "LACONIC: Dense-Level Effectiveness for Scalable Sparse Retrieval via a Two-Phase Training Curriculum",
+    "authors": [
+      "Zhichao Xu",
+      "Shengyao Zhuang",
+      "Crystina Zhang",
+      "Xueguang Ma",
+      "Yijun Tian",
+      "Maitrey Mehta",
+      "Jimmy Lin",
+      "Vivek Srikumar"
+    ],
+    "summary": "While dense retrieval models have become the standard for state-of-the-art information retrieval, their deployment is often constrained by high memory requirements and reliance on GPU accelerators for vector similarity search. Learned sparse retrieval offers a compelling alternative by enabling efficient search via inverted indices, yet it has historically received less attention than dense approaches. In this report, we introduce LACONIC, a family of learned sparse retrievers based on the Llama-3 architecture (1B, 3B, and 8B). We propose a streamlined two-phase training curriculum consisting of (1) weakly supervised pre-finetuning to adapt causal LLMs for bidirectional contextualization and (2) high-signal finetuning using curated hard negatives. Our results demonstrate that LACONIC effectively bridges the performance gap with dense models: the 8B variant achieves a state-of-the-art 60.2 nDCG on the MTEB Retrieval benchmark, ranking 15th on the leaderboard as of January 1, 2026, while utilizing 71\\% less index memory than an equivalent dense model. By delivering high retrieval effectiveness on commodity CPU hardware with a fraction of the compute budget required by competing models, LACONIC provides a scalable and efficient solution for real-world search applications.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-01-04T22:42:20Z",
+    "updated": "2026-01-04T22:42:20Z",
+    "url": "http://arxiv.org/abs/2601.01684v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.01684v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出基于 LLM 的稀疏检索模型 LACONIC，直接解决搜索系统中的索引效率和部署成本问题，属于搜索核心技术创新；虽为纯检索研究无特定电商/社交场景，但符合中高优先级标准，叠加中国公司背景加分。",
+    "translation": "LACONIC：通过两阶段训练课程实现可扩展稀疏检索的稠密级效果",
+    "summary_zh": "提出一种基于 Llama-3 架构的两阶段训练课程，将因果语言模型适配为双向上下文感知的学习型稀疏检索器，旨在以极低内存占用实现媲美稠密模型的搜索效果。",
+    "key_points": [
+      "提出一种基于 Llama-3 架构的两阶段训练课程，将因果语言模型适配为双向上下文感知的学习型稀疏检索器，旨在以极低内存占用实现媲美稠密模型的搜索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2601.01448v1",
+    "title": "Adaptive Diffusion-based Augmentation for Recommendation",
+    "authors": [
+      "Na Li",
+      "Fanghui Sun",
+      "Yan Zou",
+      "Yangfu Zhu",
+      "Xiatian Zhu",
+      "Ying Ma"
+    ],
+    "summary": "Recommendation systems often rely on implicit feedback, where only positive user-item interactions can be observed. Negative sampling is therefore crucial to provide proper negative training signals. However, existing methods tend to mislabel potentially positive but unobserved items as negatives and lack precise control over negative sample selection. We aim to address these by generating controllable negative samples, rather than sampling from the existing item pool. In this context, we propose Adaptive Diffusion-based Augmentation for Recommendation (ADAR), a novel and model-agnostic module that leverages diffusion to synthesize informative negatives. Inspired by the progressive corruption process in diffusion, ADAR simulates a continuous transition from positive to negative, allowing for fine-grained control over sample hardness. To mine suitable negative samples, we theoretically identify the transition point at which a positive sample turns negative and derive a score-aware function to adaptively determine the optimal sampling timestep. By identifying this transition point, ADAR generates challenging negative samples that effectively refine the model's decision boundary. Experiments confirm that ADAR is broadly compatible and boosts the performance of existing recommendation models substantially, including collaborative filtering and sequential recommendation, without architectural modifications.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-04T09:29:45Z",
+    "updated": "2026-01-04T09:29:45Z",
+    "url": "http://arxiv.org/abs/2601.01448v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.01448v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的负采样痛点，提出利用扩散模型生成可控负样本的新方法，属于核心推荐技术的创新应用。",
+    "translation": "基于自适应扩散增强的推荐系统研究",
+    "summary_zh": "提出一种模型无关的扩散增强模块，通过模拟从正样本到负样本的连续过渡过程，自适应地生成高质量且难度可控的负样本以优化推荐模型的决策边界。",
+    "key_points": [
+      "提出一种模型无关的扩散增强模块，通过模拟从正样本到负样本的连续过渡过程，自适应地生成高质量且难度可控的负样本以优化推荐模型的决策边界"
+    ]
+  },
+  {
+    "arxiv_id": "2601.01663v1",
+    "title": "Length-Aware Adversarial Training for Variable-Length Trajectories: Digital Twins for Mall Shopper Paths",
+    "authors": [
+      "He Sun",
+      "Jiwoong Shin",
+      "Ravi Dhar"
+    ],
+    "summary": "We study generative modeling of \\emph{variable-length trajectories} -- sequences of visited locations/items with associated timestamps -- for downstream simulation and counterfactual analysis. A recurring practical issue is that standard mini-batch training can be unstable when trajectory lengths are highly heterogeneous, which in turn degrades \\emph{distribution matching} for trajectory-derived statistics. We propose \\textbf{length-aware sampling (LAS)}, a simple batching strategy that groups trajectories by length and samples batches from a single length bucket, reducing within-batch length heterogeneity (and making updates more consistent) without changing the model class. We integrate LAS into a conditional trajectory GAN with auxiliary time-alignment losses and provide (i) a distribution-level guarantee for derived variables under mild boundedness assumptions, and (ii) an IPM/Wasserstein mechanism explaining why LAS improves distribution matching by removing length-only shortcut critics and targeting within-bucket discrepancies. Empirically, LAS consistently improves matching of derived-variable distributions on a multi-mall dataset of shopper trajectories and on diverse public sequence datasets (GPS, education, e-commerce, and movies), outperforming random sampling across dataset-specific metrics.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-01-04T20:52:07Z",
+    "updated": "2026-01-04T20:52:07Z",
+    "url": "http://arxiv.org/abs/2601.01663v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.01663v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种针对变长轨迹生成的长度感知对抗训练方法，虽在电商序列数据上验证，但核心属于通用序列建模与数字孪生仿真技术，并非直接针对推荐/搜索核心链路（如召回、排序）的优化，且非纯 LLM 研究。",
+    "translation": "面向变长轨迹的长度感知对抗训练：商场顾客路径的数字孪生",
+    "summary_zh": "提出一种长度感知采样策略，通过按轨迹长度分组批处理来解决变长序列生成中的训练不稳定问题，从而提升轨迹分布匹配的准确性以支持下游仿真与反事实分析。",
+    "key_points": [
+      "提出一种长度感知采样策略，通过按轨迹长度分组批处理来解决变长序列生成中的训练不稳定问题，从而提升轨迹分布匹配的准确性以支持下游仿真与反事实分析"
+    ]
+  },
+  {
+    "arxiv_id": "2601.01649v1",
+    "title": "Communication-Efficient Federated AUC Maximization with Cyclic Client Participation",
+    "authors": [
+      "Umesh Vangapally",
+      "Wenhan Wu",
+      "Chen Chen",
+      "Zhishuai Guo"
+    ],
+    "summary": "Federated AUC maximization is a powerful approach for learning from imbalanced data in federated learning (FL). However, existing methods typically assume full client availability, which is rarely practical. In real-world FL systems, clients often participate in a cyclic manner: joining training according to a fixed, repeating schedule. This setting poses unique optimization challenges for the non-decomposable AUC objective. This paper addresses these challenges by developing and analyzing communication-efficient algorithms for federated AUC maximization under cyclic client participation. We investigate two key settings: First, we study AUC maximization with a squared surrogate loss, which reformulates the problem as a nonconvex-strongly-concave minimax optimization. By leveraging the Polyak-Łojasiewicz (PL) condition, we establish a state-of-the-art communication complexity of $\\widetilde{O}(1/ε^{1/2})$ and iteration complexity of $\\widetilde{O}(1/ε)$. Second, we consider general pairwise AUC losses. We establish a communication complexity of $O(1/ε^3)$ and an iteration complexity of $O(1/ε^4)$. Further, under the PL condition, these bounds improve to communication complexity of $\\widetilde{O}(1/ε^{1/2})$ and iteration complexity of $\\widetilde{O}(1/ε)$. Extensive experiments on benchmark tasks in image classification, medical imaging, and fraud detection demonstrate the superior efficiency and effectiveness of our proposed methods.",
+    "categories": [
+      "cs.LG",
+      "cs.DC"
+    ],
+    "published": "2026-01-04T19:57:41Z",
+    "updated": "2026-01-04T19:57:41Z",
+    "url": "http://arxiv.org/abs/2601.01649v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.01649v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "MiniMax"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦联邦学习优化算法，虽提及欺诈检测（弱相关），但缺乏针对推荐/搜索核心环节（召回、排序等）的直接应用，属于通用 ML 方法。",
+    "translation": "循环客户端参与下的通信高效联邦 AUC 最大化",
+    "summary_zh": "提出一种针对循环客户端参与场景的联邦 AUC 最大化算法，通过重构非凸 - 强凹极小极大优化问题以降低通信复杂度。",
+    "key_points": [
+      "提出一种针对循环客户端参与场景的联邦 AUC 最大化算法，通过重构非凸 - 强凹极小极大优化问题以降低通信复杂度"
+    ]
+  },
+  {
+    "arxiv_id": "2601.01350v1",
+    "title": "FC-CONAN: An Exhaustively Paired Dataset for Robust Evaluation of Retrieval Systems",
+    "authors": [
+      "Juan Junqueras",
+      "Florian Boudin",
+      "May-Myo Zin",
+      "Ha-Thanh Nguyen",
+      "Wachara Fungwacharakorn",
+      "Damián Ariel Furman",
+      "Akiko Aizawa",
+      "Ken Satoh"
+    ],
+    "summary": "Hate speech (HS) is a critical issue in online discourse, and one promising strategy to counter it is through the use of counter-narratives (CNs). Datasets linking HS with CNs are essential for advancing counterspeech research. However, even flagship resources like CONAN (Chung et al., 2019) annotate only a sparse subset of all possible HS-CN pairs, limiting evaluation. We introduce FC-CONAN (Fully Connected CONAN), the first dataset created by exhaustively considering all combinations of 45 English HS messages and 129 CNs. A two-stage annotation process involving nine annotators and four validators produces four partitions-Diamond, Gold, Silver, and Bronze-that balance reliability and scale. None of the labeled pairs overlap with CONAN, uncovering hundreds of previously unlabelled positives. FC-CONAN enables more faithful evaluation of counterspeech retrieval systems and facilitates detailed error analysis. The dataset is publicly available.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-01-04T03:38:46Z",
+    "updated": "2026-01-04T03:38:46Z",
+    "url": "http://arxiv.org/abs/2601.01350v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.01350v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP 数据集论文，专注于仇恨言论与反叙述的配对，未涉及推荐系统或通用搜索引擎的核心技术（如召回、排序、用户建模），属于排除类别。",
+    "translation": "FC-CONAN：用于鲁棒评估检索系统的 exhaustive 配对数据集",
+    "summary_zh": "该论文提出了 FC-CONAN 数据集，通过穷举组合仇恨言论与反叙述消息，旨在为反叙述检索系统提供更全面可靠的评估基准。",
+    "key_points": [
+      "该论文提出了 FC-CONAN 数据集，通过穷举组合仇恨言论与反叙述消息，旨在为反叙述检索系统提供更全面可靠的评估基准"
+    ]
+  }
+]

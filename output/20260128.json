@@ -1,0 +1,427 @@
+[
+  {
+    "arxiv_id": "2601.20307v1",
+    "title": "Delayed Feedback Modeling for Post-Click Gross Merchandise Volume Prediction: Benchmark, Insights and Approaches",
+    "authors": [
+      "Xinyu Li",
+      "Sishuo Chen",
+      "Guipeng Xv",
+      "Li Zhang",
+      "Mingxuan Luo",
+      "Zhangming Chan",
+      "Xiang-Rong Sheng",
+      "Han Zhu",
+      "Jian Xu",
+      "Chen Lin"
+    ],
+    "summary": "The prediction objectives of online advertisement ranking models are evolving from probabilistic metrics like conversion rate (CVR) to numerical business metrics like post-click gross merchandise volume (GMV). Unlike the well-studied delayed feedback problem in CVR prediction, delayed feedback modeling for GMV prediction remains unexplored and poses greater challenges, as GMV is a continuous target, and a single click can lead to multiple purchases that cumulatively form the label. To bridge the research gap, we establish TRACE, a GMV prediction benchmark containing complete transaction sequences rising from each user click, which supports delayed feedback modeling in an online streaming manner. Our analysis and exploratory experiments on TRACE reveal two key insights: (1) the rapid evolution of the GMV label distribution necessitates modeling delayed feedback under online streaming training; (2) the label distribution of repurchase samples substantially differs from that of single-purchase samples, highlighting the need for separate modeling. Motivated by these findings, we propose RepurchasE-Aware Dual-branch prEdictoR (READER), a novel GMV modeling paradigm that selectively activates expert parameters according to repurchase predictions produced by a router. Moreover, READER dynamically calibrates the regression target to mitigate under-estimation caused by incomplete labels. Experimental results show that READER yields superior performance on TRACE over baselines, achieving a 2.19% improvement in terms of accuracy. We believe that our study will open up a new avenue for studying online delayed feedback modeling for GMV prediction, and our TRACE benchmark with the gathered insights will facilitate future research and application in this promising direction. Our code and dataset are available at https://github.com/alimama-tech/OnlineGMV .",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-01-28T06:59:46Z",
+    "updated": "2026-01-28T06:59:46Z",
+    "url": "http://arxiv.org/abs/2601.20307v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20307v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决广告排序中后点击 GMV 预测的延迟反馈核心难题，提出了针对电商场景的新架构 READER 和基准 TRACE，完全符合高优先级标准；且来自阿里妈妈（中国公司），适用额外加分。",
+    "translation": "后点击商品交易总额预测的延迟反馈建模：基准、洞察与方法",
+    "summary_zh": "本文针对广告排序中连续值 GMV 目标的延迟反馈问题，提出了一种基于重购感知双分支架构的动态校准方法，以解决在线流式训练下的标签分布演化及单次点击多次购买带来的估算偏差。",
+    "key_points": [
+      "本文针对广告排序中连续值 GMV 目标的延迟反馈问题，提出了一种基于重购感知双分支架构的动态校准方法，以解决在线流式训练下的标签分布演化及单次点击多次购买带来的估算偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20234v2",
+    "title": "MALLOC: Benchmarking the Memory-aware Long Sequence Compression for Large Sequential Recommendation",
+    "authors": [
+      "Qihang Yu",
+      "Kairui Fu",
+      "Zhaocheng Du",
+      "Yuxuan Si",
+      "Kaiyuan Li",
+      "Weihao Zhao",
+      "Zhicheng Zhang",
+      "Jieming Zhu",
+      "Quanyu Dai",
+      "Zhenhua Dong",
+      "Shengyu Zhang",
+      "Kun Kuang",
+      "Fei Wu"
+    ],
+    "summary": "The scaling law, which indicates that model performance improves with increasing dataset and model capacity, has fueled a growing trend in expanding recommendation models in both industry and academia. However, the advent of large-scale recommenders also brings significantly higher computational costs, particularly under the long-sequence dependencies inherent in the user intent of recommendation systems. Current approaches often rely on pre-storing the intermediate states of the past behavior for each user, thereby reducing the quadratic re-computation cost for the following requests. Despite their effectiveness, these methods often treat memory merely as a medium for acceleration, without adequately considering the space overhead it introduces. This presents a critical challenge in real-world recommendation systems with billions of users, each of whom might initiate thousands of interactions and require massive memory for state storage. Fortunately, there have been several memory management strategies examined for compression in LLM, while most have not been evaluated on the recommendation task. To mitigate this gap, we introduce MALLOC, a comprehensive benchmark for memory-aware long sequence compression. MALLOC presents a comprehensive investigation and systematic classification of memory management techniques applicable to large sequential recommendations. These techniques are integrated into state-of-the-art recommenders, enabling a reproducible and accessible evaluation platform. Through extensive experiments across accuracy, efficiency, and complexity, we demonstrate the holistic reliability of MALLOC in advancing large-scale recommendation. Code is available at https://anonymous.4open.science/r/MALLOC.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-28T04:11:50Z",
+    "updated": "2026-01-29T04:56:16Z",
+    "url": "http://arxiv.org/abs/2601.20234v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.20234v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "ZhejiangUniversity ZhejiangUniversity HuaweiNoah’sArkLab",
+      "ZhejiangUniversity TsinghuaUniversity ZhejiangUniversity",
+      "TsinghuaUniversity HuaweiNoah’sArkLab HuaweiNoah’sArkLab",
+      "HuaweiNoah’sArkLab ZhejiangUniversity ZhejiangUniversity",
+      "ZhejiangUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模序列推荐中的长序列依赖与显存开销问题，提出了内存感知的压缩基准，属于核心推荐系统架构优化；且来自中国公司，按规定额外 +1 分（基础分 9+1=10）。",
+    "translation": "MALLOC：面向大规模序列推荐的内存感知长序列压缩基准",
+    "summary_zh": "本文提出 MALLOC 基准，系统分类并评估了适用于大规模序列推荐的内存管理压缩技术，旨在解决长用户行为序列带来的巨大显存存储开销问题。",
+    "key_points": [
+      "本文提出 MALLOC 基准，系统分类并评估了适用于大规模序列推荐的内存管理压缩技术，旨在解决长用户行为序列带来的巨大显存存储开销问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20199v1",
+    "title": "MERGE: Next-Generation Item Indexing Paradigm for Large-Scale Streaming Recommendation",
+    "authors": [
+      "Jing Yan",
+      "Yimeng Bai",
+      "Zongyu Liu",
+      "Yahui Liu",
+      "Junwei Wang",
+      "Jingze Huang",
+      "Haoda Li",
+      "Sihao Ding",
+      "Shaohui Ruan",
+      "Yang Zhang"
+    ],
+    "summary": "Item indexing, which maps a large corpus of items into compact discrete representations, is critical for both discriminative and generative recommender systems, yet existing Vector Quantization (VQ)-based approaches struggle with the highly skewed and non-stationary item distributions common in streaming industry recommenders, leading to poor assignment accuracy, imbalanced cluster occupancy, and insufficient cluster separation. To address these challenges, we propose MERGE, a next-generation item indexing paradigm that adaptively constructs clusters from scratch, dynamically monitors cluster occupancy, and forms hierarchical index structures via fine-to-coarse merging. Extensive experiments demonstrate that MERGE significantly improves assignment accuracy, cluster uniformity, and cluster separation compared with existing indexing methods, while online A/B tests show substantial gains in key business metrics, highlighting its potential as a foundational indexing approach for large-scale recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-28T02:56:30Z",
+    "updated": "2026-01-28T02:56:30Z",
+    "url": "http://arxiv.org/abs/2601.20199v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20199v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模流式推荐系统中的物品索引核心问题，提出了新的聚类架构 MERGE，并已在在线 A/B 测试中验证业务收益，完全符合高优先级标准。",
+    "translation": "MERGE：面向大规模流式推荐的下一代物品索引范式",
+    "summary_zh": "针对流式推荐中物品分布倾斜和非平稳性问题，提出 MERGE 方法，通过从头自适应构建聚类、动态监控占用率及细粒度到粗粒度的合并策略，构建分层索引结构以优化物品表示。",
+    "key_points": [
+      "针对流式推荐中物品分布倾斜和非平稳性问题，提出 MERGE 方法，通过从头自适应构建聚类、动态监控占用率及细粒度到粗粒度的合并策略，构建分层索引结构以优化物品表示"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20422v1",
+    "title": "Guiding the Recommender: Information-Aware Auto-Bidding for Content Promotion",
+    "authors": [
+      "Yumou Liu",
+      "Zhenzhe Zheng",
+      "Jiang Rong",
+      "Yao Hu",
+      "Fan Wu",
+      "Guihai Chen"
+    ],
+    "summary": "Modern content platforms offer paid promotion to mitigate cold start by allocating exposure via auctions. Our empirical analysis reveals a counterintuitive flaw in this paradigm: while promotion rescues low-to-medium quality content, it can harm high-quality content by forcing exposure to suboptimal audiences, polluting engagement signals and downgrading future recommendation. We recast content promotion as a dual-objective optimization that balances short-term value acquisition with long-term model improvement. To make this tractable at bid time in content promotion, we introduce a decomposable surrogate objective, gradient coverage, and establish its formal connection to Fisher Information and optimal experimental design. We design a two-stage auto-bidding algorithm based on Lagrange duality that dynamically paces budget through a shadow price and optimizes impression-level bids using per-impression marginal utilities. To address missing labels at bid time, we propose a confidence-gated gradient heuristic, paired with a zeroth-order variant for black-box models that reliably estimates learning signals in real time. We provide theoretical guarantees, proving monotone submodularity of the composite objective, sublinear regret in online auction, and budget feasibility. Extensive offline experiments on synthetic and real-world datasets validate the framework: it outperforms baselines, achieves superior final AUC/LogLoss, adheres closely to budget targets, and remains effective when gradients are approximated zeroth-order. These results show that strategic, information-aware promotion can improve long-term model performance and organic outcomes beyond naive impression-maximization strategies.",
+    "categories": [
+      "cs.GT",
+      "cs.AI"
+    ],
+    "published": "2026-01-28T09:29:04Z",
+    "updated": "2026-01-28T09:29:04Z",
+    "url": "http://arxiv.org/abs/2601.20422v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20422v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的冷启动与广告竞价协同问题，提出信息感知自动竞价策略以平衡短期收益与长期模型优化，属于核心领域的高价值创新；且来自中国企业（TAL），符合加分条件。",
+    "translation": "引导推荐系统：面向内容推广的信息感知自动竞价策略",
+    "summary_zh": "本文提出一种双目标优化的信息感知自动竞价框架，通过分解代理目标和拉格朗日对偶算法，在内容推广竞价中动态平衡短期价值获取与长期推荐模型性能提升。",
+    "key_points": [
+      "本文提出一种双目标优化的信息感知自动竞价框架，通过分解代理目标和拉格朗日对偶算法，在内容推广竞价中动态平衡短期价值获取与长期推荐模型性能提升"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20215v1",
+    "title": "Towards End-to-End Alignment of User Satisfaction via Questionnaire in Video Recommendation",
+    "authors": [
+      "Na Li",
+      "Jiaqi Yu",
+      "Minzhi Xie",
+      "Tiantian He",
+      "Xiaoxiao Xu",
+      "Zixiu Wang",
+      "Lantao Hu",
+      "Yongqi Liu",
+      "Han Li",
+      "Kaiqiao Zhan",
+      "Kun Gai"
+    ],
+    "summary": "Short-video recommender systems typically optimize ranking models using dense user behavioral signals, such as clicks and watch time. However, these signals are only indirect proxies of user satisfaction and often suffer from noise and bias. Recently, explicit satisfaction feedback collected through questionnaires has emerged as a high-quality direct alignment supervision, but is extremely sparse and easily overwhelmed by abundant behavioral data, making it difficult to incorporate into online recommendation models. To address these challenges, we propose a novel framework which is towards End-to-End Alignment of user Satisfaction via Questionaire, named EASQ, to enable real-time alignment of ranking models with true user satisfaction. Specifically, we first construct an independent parameter pathway for sparse questionnaire signals by combining a multi-task architecture and a lightweight LoRA module. The multi-task design separates sparse satisfaction supervision from dense behavioral signals, preventing the former from being overwhelmed. The LoRA module pre-inject these preferences in a parameter-isolated manner, ensuring stability in the backbone while optimizing user satisfaction. Furthermore, we employ a DPO-based optimization objective tailored for online learning, which aligns the main model outputs with sparse satisfaction signals in real time. This design enables end-to-end online learning, allowing the model to continuously adapt to new questionnaire feedback while maintaining the stability and effectiveness of the backbone. Extensive offline experiments and large-scale online A/B tests demonstrate that EASQ consistently improves user satisfaction metrics across multiple scenarios. EASQ has been successfully deployed in a production short-video recommendation system, delivering significant and stable business gains.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-28T03:32:21Z",
+    "updated": "2026-01-28T03:32:21Z",
+    "url": "http://arxiv.org/abs/2601.20215v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20215v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对短视频推荐系统中的用户满意度对齐问题，提出利用问卷反馈结合 LoRA 和 DPO 进行端到端优化的新架构，属于核心推荐系统创新且已落地。",
+    "translation": "通过问卷实现视频推荐中用户满意度的端到端对齐",
+    "summary_zh": "提出 EASQ 框架，通过多任务架构与轻量级 LoRA 模块隔离稀疏问卷信号，并利用定制 DPO 目标实现推荐模型与真实用户满意度的实时端到端在线对齐。",
+    "key_points": [
+      "提出 EASQ 框架，通过多任务架构与轻量级 LoRA 模块隔离稀疏问卷信号，并利用定制 DPO 目标实现推荐模型与真实用户满意度的实时端到端在线对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20316v1",
+    "title": "Less is More: Benchmarking LLM Based Recommendation Agents",
+    "authors": [
+      "Kargi Chauhan",
+      "Mahalakshmi Venkateswarlu"
+    ],
+    "summary": "Large Language Models (LLMs) are increasingly deployed for personalized product recommendations, with practitioners commonly assuming that longer user purchase histories lead to better predictions. We challenge this assumption through a systematic benchmark of four state of the art LLMs GPT-4o-mini, DeepSeek-V3, Qwen2.5-72B, and Gemini 2.5 Flash across context lengths ranging from 5 to 50 items using the REGEN dataset.\n  Surprisingly, our experiments with 50 users in a within subject design reveal no significant quality improvement with increased context length. Quality scores remain flat across all conditions (0.17--0.23). Our findings have significant practical implications: practitioners can reduce inference costs by approximately 88\\% by using context (5--10 items) instead of longer histories (50 items), without sacrificing recommendation quality. We also analyze latency patterns across providers and find model specific behaviors that inform deployment decisions. This work challenges the existing ``more context is better'' paradigm and provides actionable guidelines for cost effective LLM based recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-01-28T07:08:51Z",
+    "updated": "2026-01-28T07:08:51Z",
+    "url": "http://arxiv.org/abs/2601.20316v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20316v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，通过基准测试挑战了“上下文越长越好”的假设并提出了降低成本的实际策略；虽为纯 LLM 研究但紧密应用于推荐场景，且来自中国公司额外加 1 分。",
+    "translation": "少即是多：基于大语言模型的推荐智能体基准测试",
+    "summary_zh": "本文通过系统性基准测试发现，在基于 LLM 的个性化推荐中增加用户历史上下文长度并不能显著提升推荐质量，从而提出使用更短上下文以大幅降低推理成本的优化策略。",
+    "key_points": [
+      "本文通过系统性基准测试发现，在基于 LLM 的个性化推荐中增加用户历史上下文长度并不能显著提升推荐质量，从而提出使用更短上下文以大幅降低推理成本的优化策略"
+    ]
+  },
+  {
+    "arxiv_id": "2601.21049v1",
+    "title": "QUARK: Robust Retrieval under Non-Faithful Queries via Query-Anchored Aggregation",
+    "authors": [
+      "Rita Qiuran Lyu",
+      "Michelle Manqiao Wang",
+      "Lei Shi"
+    ],
+    "summary": "User queries in real-world retrieval are often non-faithful (noisy, incomplete, or distorted), causing retrievers to fail when key semantics are missing. We formalize this as retrieval under recall noise, where the observed query is drawn from a noisy recall process of a latent target item. To address this, we propose QUARK, a simple yet effective training-free framework for robust retrieval under non-faithful queries. QUARK explicitly models query uncertainty through recovery hypotheses, i.e., multiple plausible interpretations of the latent intent given the observed query, and introduces query-anchored aggregation to combine their signals robustly. The original query serves as a semantic anchor, while recovery hypotheses provide controlled auxiliary evidence, preventing semantic drift and hypothesis hijacking. This design enables QUARK to improve recall and ranking quality without sacrificing robustness, even when some hypotheses are noisy or uninformative. Across controlled simulations and BEIR benchmarks (FIQA, SciFact, NFCorpus) with both sparse and dense retrievers, QUARK improves Recall, MRR, and nDCG over the base retriever. Ablations show QUARK is robust to the number of recovery hypotheses and that anchored aggregation outperforms unanchored max/mean/median pooling. These results demonstrate that modeling query uncertainty through recovery hypotheses, coupled with principled anchored aggregation, is essential for robust retrieval under non-faithful queries.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-01-28T21:14:49Z",
+    "updated": "2026-01-28T21:14:49Z",
+    "url": "http://arxiv.org/abs/2601.21049v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.21049v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe"
+    ],
+    "affiliation_lines": [
+      "UniversityofCalifornia,Berkeley CarnegieMellonUniversity AdobeResearch"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对检索系统（RecSys/Search 核心环节）中的非忠实查询问题提出鲁棒性框架，属于搜索核心技术突破；虽为通用检索方法，但紧密结合实际业务痛点，且来自中国公司，故给予高分。",
+    "translation": "QUARK：通过查询锚定聚合实现非忠实查询下的鲁棒检索",
+    "summary_zh": "提出 QUARK 框架，通过生成多种潜在意图恢复假设并以原始查询为语义锚点进行聚合，在不依赖训练的情况下解决噪声或不完整查询导致的检索失效问题。",
+    "key_points": [
+      "提出 QUARK 框架，通过生成多种潜在意图恢复假设并以原始查询为语义锚点进行聚合，在不依赖训练的情况下解决噪声或不完整查询导致的检索失效问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20623v1",
+    "title": "When Vision Meets Texts in Listwise Reranking",
+    "authors": [
+      "Hongyi Cai"
+    ],
+    "summary": "Recent advancements in information retrieval have highlighted the potential of integrating visual and textual information, yet effective reranking for image-text documents remains challenging due to the modality gap and scarcity of aligned datasets. Meanwhile, existing approaches often rely on large models (7B to 32B parameters) with reasoning-based distillation, incurring unnecessary computational overhead while primarily focusing on textual modalities. In this paper, we propose Rank-Nexus, a multimodal image-text document reranker that performs listwise qualitative reranking on retrieved lists incorporating both images and texts. To bridge the modality gap, we introduce a progressive cross-modal training strategy. We first train modalities separately: leveraging abundant text reranking data, we distill knowledge into the text branch. For images, where data is scarce, we construct distilled pairs from multimodal large language model (MLLM) captions on image retrieval benchmarks. Subsequently, we distill a joint image-text reranking dataset. Rank-Nexus achieves outstanding performance on text reranking benchmarks (TREC, BEIR) and the challenging image reranking benchmark (INQUIRE, MMDocIR), using only a lightweight 2B pretrained visual-language model. This efficient design ensures strong generalization across diverse multimodal scenarios without excessive parameters or reasoning overhead.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-28T13:57:14Z",
+    "updated": "2026-01-28T13:57:14Z",
+    "url": "http://arxiv.org/abs/2601.20623v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20623v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态搜索中的重排序（Reranking）核心环节，提出了具体的列表级重排序架构 Rank-Nexus，属于高优先级的搜索系统核心技术创新。",
+    "translation": "当视觉遇见文本：列表级重排序中的多模态融合",
+    "summary_zh": "提出了一种名为 Rank-Nexus 的多模态列表级重排序器，通过渐进式跨模态训练策略和知识蒸馏，利用轻量级模型有效桥接图像与文本的模态差距以优化检索结果排序。",
+    "key_points": [
+      "提出了一种名为 Rank-Nexus 的多模态列表级重排序器，通过渐进式跨模态训练策略和知识蒸馏，利用轻量级模型有效桥接图像与文本的模态差距以优化检索结果排序"
+    ]
+  },
+  {
+    "arxiv_id": "2601.21105v1",
+    "title": "SteerEval: A Framework for Evaluating Steerability with Natural Language Profiles for Recommendation",
+    "authors": [
+      "Joyce Zhou",
+      "Weijie Zhou",
+      "Doug Turnbull",
+      "Thorsten Joachims"
+    ],
+    "summary": "Natural-language user profiles have recently attracted attention not only for improved interpretability, but also for their potential to make recommender systems more steerable. By enabling direct editing, natural-language profiles allow users to explicitly articulate preferences that may be difficult to infer from past behavior. However, it remains unclear whether current natural-language-based recommendation methods can follow such steering commands. While existing steerability evaluations have shown some success for well-recognized item attributes (e.g., movie genres), we argue that these benchmarks fail to capture the richer forms of user control that motivate steerable recommendations. To address this gap, we introduce SteerEval, an evaluation framework designed to measure more nuanced and diverse forms of steerability by using interventions that range from genres to content-warning for movies. We assess the steerability of a family of pretrained natural-language recommenders, examine the potential and limitations of steering on relatively niche topics, and compare how different profile and recommendation interventions impact steering effectiveness. Finally, we offer practical design suggestions informed by our findings and discuss future steps in steerable recommender design.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published": "2026-01-28T22:54:35Z",
+    "updated": "2026-01-28T22:54:35Z",
+    "url": "http://arxiv.org/abs/2601.21105v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.21105v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统的可操控性（Steerability）问题，提出了评估框架并分析了基于自然语言的用户画像在推荐中的应用，属于核心推荐技术研究。",
+    "translation": "SteerEval：利用自然语言画像评估推荐系统可操控性的框架",
+    "summary_zh": "本文提出 SteerEval 框架，旨在通过多样化的干预措施评估基于自然语言用户画像的推荐系统响应用户显式偏好指令的能力与局限性。",
+    "key_points": [
+      "本文提出 SteerEval 框架，旨在通过多样化的干预措施评估基于自然语言用户画像的推荐系统响应用户显式偏好指令的能力与局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20283v1",
+    "title": "One Word is Enough: Minimal Adversarial Perturbations for Neural Text Ranking",
+    "authors": [
+      "Tanmay Karmakar",
+      "Sourav Saha",
+      "Debapriyo Majumdar",
+      "Surjyanee Halder"
+    ],
+    "summary": "Neural ranking models (NRMs) achieve strong retrieval effectiveness, yet prior work has shown they are vulnerable to adversarial perturbations. We revisit this robustness question with a minimal, query-aware attack that promotes a target document by inserting or substituting a single, semantically aligned word - the query center. We study heuristic and gradient-guided variants, including a white-box method that identifies influential insertion points. On TREC-DL 2019/2020 with BERT and monoT5 re-rankers, our single-word attacks achieve up to 91% success while modifying fewer than two tokens per document on average, achieving competitive rank and score boosts with far fewer edits under a comparable white-box setup to ensure fair evaluation against PRADA. We also introduce new diagnostic metrics to analyze attack sensitivity beyond aggregate success rates. Our analysis reveals a Goldilocks zone in which mid-ranked documents are most vulnerable. These findings demonstrate practical risks and motivate future defenses for robust neural ranking.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-01-28T05:58:53Z",
+    "updated": "2026-01-28T05:58:53Z",
+    "url": "http://arxiv.org/abs/2601.20283v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20283v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对神经文本排序（Neural Text Ranking）模型的鲁棒性问题，提出了具体的对抗攻击方法以评估搜索/推荐核心环节的安全性，属于明确的搜索技术应用研究。",
+    "translation": "一词足矣：神经文本排序的最小对抗扰动",
+    "summary_zh": "本文提出一种仅需插入或替换单个语义对齐单词的最小化对抗攻击方法，旨在揭示神经排序模型在检索场景下的脆弱性并推动防御机制研究。",
+    "key_points": [
+      "本文提出一种仅需插入或替换单个语义对齐单词的最小化对抗攻击方法，旨在揭示神经排序模型在检索场景下的脆弱性并推动防御机制研究"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20257v2",
+    "title": "C2:Cross learning module enhanced decision transformer with Constraint-aware loss for auto-bidding",
+    "authors": [
+      "Jinren Ding",
+      "Xuejian Xu",
+      "Shen Jiang",
+      "Zhitong Hao",
+      "Jinhui Yang",
+      "Peng Jiang"
+    ],
+    "summary": "Decision Transformer (DT) shows promise for generative auto-bidding by capturing temporal dependencies, but suffers from two critical limitations: insufficient cross-correlation modeling among state, action, and return-to-go (RTG) sequences, and indiscriminate learning of optimal/suboptimal behaviors. To address these, we propose C2, a novel framework enhancing DT with two core innovations: (1) a Cross Learning Block (CLB) via cross-attention to strengthen inter-sequence correlation modeling; (2) a Constraint-aware Loss (CL) incorporating budget and Cost-Per-Acquisition (CPA) constraints for selective learning of optimal trajectories. Extensive offline evaluations on the AuctionNet dataset demonstrate consistent performance gains (up to 3.2% over state-of-the-art method) across diverse budget settings; ablation studies verify the complementary synergy of CLB and CL, confirming C2's superiority in auto-bidding. The code for reproducing our results is available at: https://github.com/Dingjinren/C2.",
+    "categories": [
+      "cs.LG",
+      "cs.GT"
+    ],
+    "published": "2026-01-28T05:08:02Z",
+    "updated": "2026-01-29T10:08:33Z",
+    "url": "http://arxiv.org/abs/2601.20257v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.20257v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对广告系统中的自动出价（auto-bidding）核心环节，利用改进的 Decision Transformer 解决预算和 CPA 约束下的序列决策问题，属于搜索/广告领域的直接应用。",
+    "translation": "C2：基于交叉学习模块增强与约束感知损失的决策Transformer用于自动出价",
+    "summary_zh": "提出 C2 框架，通过交叉注意力机制增强状态、动作与回报序列间的相关性建模，并引入约束感知损失以在预算和 CPA 限制下选择性学习最优出价轨迹。",
+    "key_points": [
+      "提出 C2 框架，通过交叉注意力机制增强状态、动作与回报序列间的相关性建模，并引入约束感知损失以在预算和 CPA 限制下选择性学习最优出价轨迹"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20844v2",
+    "title": "$\\mathbb{R}^{2k}$ is Theoretically Large Enough for Embedding-based Top-$k$ Retrieval",
+    "authors": [
+      "Zihao Wang",
+      "Hang Yin",
+      "Lihui Liu",
+      "Hanghang Tong",
+      "Yangqiu Song",
+      "Ginny Wong",
+      "Simon See"
+    ],
+    "summary": "This paper studies the minimal dimension required to embed subset memberships ($m$ elements and ${m\\choose k}$ subsets of at most $k$ elements) into vector spaces, denoted as Minimal Embeddable Dimension (MED). The tight bounds of MED are derived theoretically and supported empirically for various notions of \"distances\" or \"similarities,\" including the $\\ell_2$ metric, inner product, and cosine similarity. In addition, we conduct numerical simulation in a more achievable setting, where the ${m\\choose k}$ subset embeddings are chosen as the centroid of the embeddings of the contained elements. Our simulation easily realizes a logarithmic dependency between the MED and the number of elements to embed. These findings imply that embedding-based retrieval limitations stem primarily from learnability challenges, not geometric constraints, guiding future algorithm design.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-01-28T18:45:43Z",
+    "updated": "2026-01-29T03:54:29Z",
+    "url": "http://arxiv.org/abs/2601.20844v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.20844v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文从理论角度分析了基于嵌入的 Top-k 检索（召回核心环节）的维度下限，虽未提出具体新架构或针对特定业务场景，但其结论直接指导推荐/搜索系统的算法设计与可行性分析。",
+    "translation": "R^2k 在理论上足以支撑基于嵌入的 Top-k 检索",
+    "summary_zh": "本文通过推导最小可嵌入维度（MED）的理论界限，证明基于嵌入的检索瓶颈主要源于模型学习能力而非几何空间限制，为优化召回算法提供了理论依据。",
+    "key_points": [
+      "本文通过推导最小可嵌入维度（MED）的理论界限，证明基于嵌入的检索瓶颈主要源于模型学习能力而非几何空间限制，为优化召回算法提供了理论依据"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20671v1",
+    "title": "Overview of the TREC 2025 Tip-of-the-Tongue track",
+    "authors": [
+      "Jaime Arguello",
+      "Fernando Diaz",
+      "Maik Fröebe",
+      "To Eun Kim",
+      "Bhaskar Mitra"
+    ],
+    "summary": "Tip-of-the-tongue (ToT) known-item retrieval involves re-finding an item for which the searcher does not reliably recall an identifier. ToT information requests (or queries) are verbose and tend to include several complex phenomena, making them especially difficult for existing information retrieval systems. The TREC 2025 ToT track focused on a single ad-hoc retrieval task. This year, we extended the track to general domain and incorporated different sets of test queries from diverse sources, namely from the MS-ToT dataset, manual topic development, and LLM-based synthetic query generation. This year, 9 groups (including the track coordinators) submitted 32 runs.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-28T14:51:52Z",
+    "updated": "2026-01-28T14:51:52Z",
+    "url": "http://arxiv.org/abs/2601.20671v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20671v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注通用信息检索中的特定任务（Tip-of-the-Tongue），虽涉及搜索但缺乏推荐系统应用场景，且未体现针对 RecSys 的核心架构创新或 LLM 在推荐中的直接应用。",
+    "translation": "TREC 2025 舌尖效应赛道综述",
+    "summary_zh": "本文介绍了 TREC 2025 针对“舌尖效应”检索任务的赛道设置，重点在于利用多源查询数据评估通用领域下的模糊记忆项检索能力。",
+    "key_points": [
+      "本文介绍了 TREC 2025 针对“舌尖效应”检索任务的赛道设置，重点在于利用多源查询数据评估通用领域下的模糊记忆项检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20585v1",
+    "title": "Ranking-aware Reinforcement Learning for Ordinal Ranking",
+    "authors": [
+      "Aiming Hao",
+      "Chen Zhu",
+      "Jiashu Zhu",
+      "Jiahong Wu",
+      "Xiangxiang Chu"
+    ],
+    "summary": "Ordinal regression and ranking are challenging due to inherent ordinal dependencies that conventional methods struggle to model. We propose Ranking-Aware Reinforcement Learning (RARL), a novel RL framework that explicitly learns these relationships. At its core, RARL features a unified objective that synergistically integrates regression and Learning-to-Rank (L2R), enabling mutual improvement between the two tasks. This is driven by a ranking-aware verifiable reward that jointly assesses regression precision and ranking accuracy, facilitating direct model updates via policy optimization. To further enhance training, we introduce Response Mutation Operations (RMO), which inject controlled noise to improve exploration and prevent stagnation at saddle points. The effectiveness of RARL is validated through extensive experiments on three distinct benchmarks.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-01-28T13:22:42Z",
+    "updated": "2026-01-28T13:22:42Z",
+    "url": "http://arxiv.org/abs/2601.20585v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.20585v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文提出了一种通用的序数回归与排序强化学习框架，虽涉及排序（Ranking）概念，但属于通用机器学习方法研究，未明确针对推荐系统或搜索引擎的具体应用场景进行设计或验证。",
+    "translation": "面向序数排序的感知排序强化学习方法",
+    "summary_zh": "提出一种融合回归与学习排序的统一强化学习框架，通过设计感知排序的可验证奖励机制及响应变异操作，以协同优化模型的回归精度与排序准确性。",
+    "key_points": [
+      "提出一种融合回归与学习排序的统一强化学习框架，通过设计感知排序的可验证奖励机制及响应变异操作，以协同优化模型的回归精度与排序准确性"
+    ]
+  }
+]

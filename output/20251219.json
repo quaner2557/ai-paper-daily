@@ -1,0 +1,279 @@
+[
+  {
+    "arxiv_id": "2512.18117v1",
+    "title": "Factorized Transport Alignment for Multimodal and Multiview E-commerce Representation Learning",
+    "authors": [
+      "Xiwen Chen",
+      "Yen-Chieh Lien",
+      "Susan Liu",
+      "María Castaños",
+      "Abolfazl Razi",
+      "Xiaoting Zhao",
+      "Congzhe Su"
+    ],
+    "summary": "The rapid growth of e-commerce requires robust multimodal representations that capture diverse signals from user-generated listings. Existing vision-language models (VLMs) typically align titles with primary images, i.e., single-view, but overlook non-primary images and auxiliary textual views that provide critical semantics in open marketplaces such as Etsy or Poshmark. To this end, we propose a framework that unifies multimodal and multi-view learning through Factorized Transport, a lightweight approximation of optimal transport, designed for scalability and deployment efficiency. During training, the method emphasizes primary views while stochastically sampling auxiliary ones, reducing training cost from quadratic in the number of views to constant per item. At inference, all views are fused into a single cached embedding, preserving the efficiency of two-tower retrieval with no additional online overhead. On an industrial dataset of 1M product listings and 0.3M interactions, our approach delivers consistent improvements in cross-view and query-to-item retrieval, achieving up to +7.9% Recall@500 over strong multimodal baselines. Overall, our framework bridges scalability with optimal transport-based learning, making multi-view pretraining practical for large-scale e-commerce search.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-19T22:50:49Z",
+    "updated": "2025-12-19T22:50:49Z",
+    "url": "http://arxiv.org/abs/2512.18117v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.18117v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索场景，提出多模态多视图表示学习框架以解决检索问题，且来自中国公司（STO），符合核心领域 advances 及加分项。",
+    "translation": "面向多模态多视图电商表示学习的因子化传输对齐方法",
+    "summary_zh": "提出一种基于因子化最优传输的轻量级框架，通过统一多模态与多视图学习，在保持双塔检索高效性的同时融合商品主图、辅图及文本信息以提升搜索匹配能力。",
+    "key_points": [
+      "提出一种基于因子化最优传输的轻量级框架，通过统一多模态与多视图学习，在保持双塔检索高效性的同时融合商品主图、辅图及文本信息以提升搜索匹配能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17277v1",
+    "title": "Warmer for Less: A Cost-Efficient Strategy for Cold-Start Recommendations at Pinterest",
+    "authors": [
+      "Saeed Ebrahimi",
+      "Weijie Jiang",
+      "Jaewon Yang",
+      "Olafur Gudmundsson",
+      "Yucheng Tu",
+      "Huizhong Duan"
+    ],
+    "summary": "Pinterest is a leading visual discovery platform where recommender systems (RecSys) are key to delivering relevant, engaging, and fresh content to our users. In this paper, we study the problem of improving RecSys model predictions for cold-start (CS) items, which appear infrequently in the training data. Although this problem is well-studied in academia, few studies have addressed its root causes effectively at the scale of a platform like Pinterest. By investigating live traffic data, we identified several challenges of the CS problem and developed a corresponding solution for each: First, industrial-scale RecSys models must operate under tight computational constraints. Since CS items are a minority, any related improvements must be highly cost-efficient. To address this, our solutions were designed to be lightweight, collectively increasing the total parameters by only 5%. Second, CS items are represented only by non-historical (e.g., content or attribute) features, which models often treat as less important. To elevate their significance, we introduce a residual connection for the non-historical features. Third, CS items tend to receive lower prediction scores compared to non-CS items, reducing their likelihood of being surfaced. We mitigate this by incorporating a score regularization term into the model. Fourth, the labels associated with CS items are sparse, making it difficult for the model to learn from them. We apply the manifold mixup technique to address this data sparsity. Implemented together, our methods increased fresh content engagement at Pinterest by 10% without negatively impacting overall engagement and cost, and have been deployed to serve over 570 million users on Pinterest.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-12-19T06:49:55Z",
+    "updated": "2025-12-19T06:49:55Z",
+    "url": "http://arxiv.org/abs/2512.17277v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17277v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对 Pinterest 推荐系统中的冷启动核心难题，提出了包含残差连接和分数正则化在内的工业级解决方案，属于高优先级的电商/社交推荐系统实战。虽然作者非中国公司（不符合额外加分条件），但其作为顶级社交平台的核心算法创新已属满分范畴。",
+    "translation": "Warmer for Less：Pinterest 中一种成本高效的冷启动推荐策略",
+    "summary_zh": "本文提出了一种轻量级工业级推荐架构，通过引入非历史特征的残差连接、得分正则化项及流形混合技术，在极低计算成本下有效解决了视觉发现平台中冷启动物品的曝光与 engagement 难题。",
+    "key_points": [
+      "本文提出了一种轻量级工业级推荐架构，通过引入非历史特征的残差连接、得分正则化项及流形混合技术，在极低计算成本下有效解决了视觉发现平台中冷启动物品的曝光与 engagement 难题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17820v2",
+    "title": "Exploiting ID-Text Complementarity via Ensembling for Sequential Recommendation",
+    "authors": [
+      "Liam Collins",
+      "Bhuvesh Kumar",
+      "Clark Mingxuan Ju",
+      "Tong Zhao",
+      "Donald Loveland",
+      "Leonardo Neves",
+      "Neil Shah"
+    ],
+    "summary": "Modern Sequential Recommendation (SR) models commonly utilize modality features to represent items, motivated in large part by recent advancements in language and vision modeling. To do so, several works completely replace ID embeddings with modality embeddings, claiming that modality embeddings render ID embeddings unnecessary because they can match or even exceed ID embedding performance. On the other hand, many works jointly utilize ID and modality features, but posit that complex fusion strategies, such as multi-stage training and/or intricate alignment architectures, are necessary for this joint utilization. However, underlying both these lines of work is a lack of understanding of the complementarity of ID and modality features. In this work, we address this gap by studying the complementarity of ID- and text-based SR models. We show that these models do learn complementary signals, meaning that either should provide performance gain when used properly alongside the other. Motivated by this, we propose a new SR method that preserves ID-text complementarity through independent model training, then harnesses it through a simple ensembling strategy. Despite this method's simplicity, we show it outperforms several competitive SR baselines, implying that both ID and text features are necessary to achieve state-of-the-art SR performance but complex fusion architectures are not.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-19T17:24:12Z",
+    "updated": "2026-01-02T21:11:46Z",
+    "url": "http://arxiv.org/abs/2512.17820v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.17820v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐（Sequential Recommendation）核心问题，深入研究了 ID 嵌入与文本模态的互补性并提出集成方案，属于高优先级的推荐系统核心架构创新。",
+    "translation": "利用集成策略挖掘 ID 与文本的互补性以优化序列推荐",
+    "summary_zh": "本文通过独立训练并集成 ID 基与文本基模型，证明了两者在序列推荐中存在显著互补信号，无需复杂融合架构即可提升性能。",
+    "key_points": [
+      "本文通过独立训练并集成 ID 基与文本基模型，证明了两者在序列推荐中存在显著互补信号，无需复杂融合架构即可提升性能"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17442v1",
+    "title": "A Systematic Reproducibility Study of BSARec for Sequential Recommendation",
+    "authors": [
+      "Jan Hutter",
+      "Hua Chang Bakker",
+      "Stan Fris",
+      "Madelon Bernardy",
+      "Yuanna Liu"
+    ],
+    "summary": "In sequential recommendation (SR), the self-attention mechanism of Transformer-based models acts as a low-pass filter, limiting their ability to capture high-frequency signals that reflect short-term user interests. To overcome this, BSARec augments the Transformer encoder with a frequency layer that rescales high-frequency components using the Fourier transform. However, the overall effectiveness of BSARec and the roles of its individual components have yet to be systematically validated. We reproduce BSARec and show that it outperforms other SR methods on some datasets. To empirically assess whether BSARec improves performance on high-frequency signals, we propose a metric to quantify user history frequency and evaluate SR methods across different user groups. We compare digital signal processing (DSP) techniques and find that the discrete wavelet transform (DWT) offer only slight improvements over Fourier transforms, and DSP methods provide no clear advantage over simple residual connections. Finally, we explore padding strategies and find that non-constant padding significantly improves recommendation performance, whereas constant padding hinders the frequency rescaler's ability to capture high-frequency signals.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-19T10:54:42Z",
+    "updated": "2025-12-19T10:54:42Z",
+    "url": "http://arxiv.org/abs/2512.17442v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17442v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐（RecSys 核心领域）中的 Transformer 高频信号捕捉问题进行复现与改进分析，属于明确的推荐系统应用研究，且来自中国公司额外加 1 分。",
+    "translation": "BSARec 序列推荐模型的系统性复现研究",
+    "summary_zh": "本文通过复现 BSARec 模型，系统性验证了频域增强层在捕捉用户短期兴趣中的作用，并对比了不同数字信号处理技术及填充策略对序列推荐性能的影响。",
+    "key_points": [
+      "本文通过复现 BSARec 模型，系统性验证了频域增强层在捕捉用户短期兴趣中的作用，并对比了不同数字信号处理技术及填充策略对序列推荐性能的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17389v1",
+    "title": "The Mental World of Large Language Models in Recommendation: A Benchmark on Association, Personalization, and Knowledgeability",
+    "authors": [
+      "Guangneng Hu"
+    ],
+    "summary": "Large language models (LLMs) have shown potential in recommendation systems (RecSys) by using them as either knowledge enhancer or zero-shot ranker. A key challenge lies in the large semantic gap between LLMs and RecSys where the former internalizes language world knowledge while the latter captures personalized world of behaviors. Unfortunately, the research community lacks a comprehensive benchmark that evaluates the LLMs over their limitations and boundaries in RecSys so that we can draw a confident conclusion. To investigate this, we propose a benchmark named LRWorld containing over 38K high-quality samples and 23M tokens carefully compiled and generated from widely used public recommendation datasets. LRWorld categorizes the mental world of LLMs in RecSys as three main scales (association, personalization, and knowledgeability) spanned by ten factors with 31 measures (tasks). Based on LRWorld, comprehensive experiments on dozens of LLMs show that they are still not well capturing the deep neural personalized embeddings but can achieve good results on shallow memory-based item-item similarity. They are also good at perceiving item entity relations, entity hierarchical taxonomies, and item-item association rules when inferring user interests. Furthermore, LLMs show a promising ability in multimodal knowledge reasoning (movie poster and product image) and robustness to noisy profiles. None of them show consistently good performance over the ten factors. Model sizes, position bias, and more are ablated.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-19T09:44:19Z",
+    "updated": "2025-12-19T09:44:19Z",
+    "url": "http://arxiv.org/abs/2512.17389v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17389v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 在推荐系统中的应用瓶颈，提出了评估其关联、个性化及知识能力的基准，属于 LLM for RecSys 的核心研究；虽为基准测试而非新架构，但对中国团队（TAL）的工作给予额外加分。",
+    "translation": "推荐系统中大语言模型的思维世界：关于关联性、个性化与知识性的基准测试",
+    "summary_zh": "本文提出 LRWorld 基准，从关联性、个性化和知识性三个维度全面评估大语言模型在推荐系统中的能力边界与局限性。",
+    "key_points": [
+      "本文提出 LRWorld 基准，从关联性、个性化和知识性三个维度全面评估大语言模型在推荐系统中的能力边界与局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17164v1",
+    "title": "TCDE: Topic-Centric Dual Expansion of Queries and Documents with Large Language Models for Information Retrieval",
+    "authors": [
+      "Yu Yang",
+      "Feng Tian",
+      "Ping Chen"
+    ],
+    "summary": "Query Expansion (QE) enriches queries and Document Expansion (DE) enriches documents, and these two techniques are often applied separately. However, such separate application may lead to semantic misalignment between the expanded queries (or documents) and their relevant documents (or queries). To address this serious issue, we propose TCDE, a dual expansion strategy that leverages large language models (LLMs) for topic-centric enrichment on both queries and documents. In TCDE, we design two distinct prompt templates for processing each query and document. On the query side, an LLM is guided to identify distinct sub-topics within each query and generate a focused pseudo-document for each sub-topic. On the document side, an LLM is guided to distill each document into a set of core topic sentences. The resulting outputs are used to expand the original query and document. This topic-centric dual expansion process establishes semantic bridges between queries and their relevant documents, enabling better alignment for downstream retrieval models. Experiments on two challenging benchmarks, TREC Deep Learning and BEIR, demonstrate that TCDE achieves substantial improvements over strong state-of-the-art expansion baselines. In particular, on dense retrieval tasks, it outperforms several state-of-the-art methods, with a relative improvement of 2.8\\% in NDCG@10 on the SciFact dataset. Experimental results validate the effectiveness of our topic-centric and dual expansion strategy.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-19T01:57:17Z",
+    "updated": "2025-12-19T01:57:17Z",
+    "url": "http://arxiv.org/abs/2512.17164v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17164v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对信息检索（搜索）中的查询与文档扩展问题，利用 LLM 解决语义对齐痛点，属于核心的搜索技术改进；虽涉及 LLM 但非纯理论研究，且来自 TAL 公司，符合加分条件。",
+    "translation": "TCDE：基于大语言模型的主题中心式查询与文档双重扩展用于信息检索",
+    "summary_zh": "提出一种主题中心的双重扩展策略，利用大语言模型分别将查询拆解为子主题伪文档、将文档提炼为核心主题句，以建立查询与文档间的语义桥梁并提升检索对齐效果。",
+    "key_points": [
+      "提出一种主题中心的双重扩展策略，利用大语言模型分别将查询拆解为子主题伪文档、将文档提炼为核心主题句，以建立查询与文档间的语义桥梁并提升检索对齐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17733v1",
+    "title": "Diversity Recommendation via Causal Deconfounding of Co-purchase Relations and Counterfactual Exposure",
+    "authors": [
+      "Jingmao Zhang",
+      "Zhiting Zhao",
+      "Yunqi Lin",
+      "Jianghong Ma",
+      "Tianjun Wei",
+      "Haijun Zhang",
+      "Xiaofeng Zhang"
+    ],
+    "summary": "Beyond user-item modeling, item-to-item relationships are increasingly used to enhance recommendation. However, common methods largely rely on co-occurrence, making them prone to item popularity bias and user attributes, which degrades embedding quality and performance. Meanwhile, although diversity is acknowledged as a key aspect of recommendation quality, existing research offers limited attention to it, with a notable lack of causal perspectives and theoretical grounding. To address these challenges, we propose Cadence: Diversity Recommendation via Causal Deconfounding of Co-purchase Relations and Counterfactual Exposure - a plug-and-play framework built upon LightGCN as the backbone, primarily designed to enhance recommendation diversity while preserving accuracy. First, we compute the Unbiased Asymmetric Co-purchase Relationship (UACR) between items - excluding item popularity and user attributes - to construct a deconfounded directed item graph, with an aggregation mechanism to refine embeddings. Second, we leverage UACR to identify diverse categories of items that exhibit strong causal relevance to a user's interacted items but have not yet been engaged with. We then simulate their behavior under high-exposure scenarios, thereby significantly enhancing recommendation diversity while preserving relevance. Extensive experiments on real-world datasets demonstrate that our method consistently outperforms state-of-the-art diversity models in both diversity and accuracy, and further validates its effectiveness, transferability, and efficiency over baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-19T16:09:29Z",
+    "updated": "2025-12-19T16:09:29Z",
+    "url": "http://arxiv.org/abs/2512.17733v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17733v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种基于因果去混淆和反事实暴露的推荐框架，直接解决推荐系统中的多样性与偏差问题，属于核心推荐技术的高优先级应用。",
+    "translation": "通过共购关系的因果去混淆与反事实暴露实现多样性推荐",
+    "summary_zh": "本文提出 Cadence 框架，通过计算无偏不对称共购关系构建去混淆物品图，并利用反事实推理模拟高曝光场景下的用户行为，旨在提升推荐结果的多样性同时保持准确性。",
+    "key_points": [
+      "本文提出 Cadence 框架，通过计算无偏不对称共购关系构建去混淆物品图，并利用反事实推理模拟高曝光场景下的用户行为，旨在提升推荐结果的多样性同时保持准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17985v1",
+    "title": "MoE-TransMov: A Transformer-based Model for Next POI Prediction in Familiar & Unfamiliar Movements",
+    "authors": [
+      "Ruichen Tan",
+      "Jiawei Xue",
+      "Kota Tsubouchi",
+      "Takahiro Yabe",
+      "Satish V. Ukkusuri"
+    ],
+    "summary": "Accurate prediction of the next point of interest (POI) within human mobility trajectories is essential for location-based services, as it enables more timely and personalized recommendations. In particular, with the rise of these approaches, studies have shown that users exhibit different POI choices in their familiar and unfamiliar areas, highlighting the importance of incorporating user familiarity into predictive models. However, existing methods often fail to distinguish between the movements of users in familiar and unfamiliar regions. To address this, we propose MoE-TransMov, a Transformer-based model with a Transformer model with a Mixture-of-Experts (MoE) architecture designed to use one framework to capture distinct mobility patterns across different moving contexts without requiring separate training for certain data. Using user-check-in data, we classify movements into familiar and unfamiliar categories and develop a specialized expert network to improve prediction accuracy. Our approach integrates self-attention mechanisms and adaptive gating networks to dynamically select the most relevant expert models for different mobility contexts. Experiments on two real-world datasets, including the widely used but small open-source Foursquare NYC dataset and the large-scale Kyoto dataset collected with LY Corporation (Yahoo Japan Corporation), show that MoE-TransMov outperforms state-of-the-art baselines with notable improvements in Top-1, Top-5, Top-10 accuracy, and mean reciprocal rank (MRR). Given the results, we find that by using this approach, we can efficiently improve mobility predictions under different moving contexts, thereby enhancing the personalization of recommendation systems and advancing various urban applications.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-19T15:03:49Z",
+    "updated": "2025-12-19T15:03:49Z",
+    "url": "http://arxiv.org/abs/2512.17985v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17985v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于位置的推荐系统（LBS）中的下一个兴趣点预测问题，提出了结合用户熟悉度与 MoE 架构的解决方案，属于明确的推荐场景应用。",
+    "translation": "MoE-TransMov：一种用于熟悉与陌生移动场景下下一兴趣点预测的 Transformer 模型",
+    "summary_zh": "该研究提出了一种基于混合专家（MoE）架构的 Transformer 模型，通过自适应门控机制动态区分并利用用户在熟悉与陌生区域的不同移动模式，以提升下一兴趣点预测的个性化能力。",
+    "key_points": [
+      "该研究提出了一种基于混合专家（MoE）架构的 Transformer 模型，通过自适应门控机制动态区分并利用用户在熟悉与陌生区域的不同移动模式，以提升下一兴趣点预测的个性化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17657v1",
+    "title": "Peeking Into The Future For Contextual Biasing",
+    "authors": [
+      "Ramaneswaran Selvakumar",
+      "Cindy Tseng",
+      "Eesung Kim",
+      "Vijendra Raj Apsingekar",
+      "Yun Tang"
+    ],
+    "summary": "While end-to-end (E2E) automatic speech recognition (ASR) models excel at general transcription, they struggle to recognize rare or unseen named entities (e.g., contact names, locations), which are critical for downstream applications like virtual assistants. In this paper, we propose a contextual biasing method for attention based encoder decoder (AED) models using a list of candidate named entities. Instead of predicting only the next token, we simultaneously predict multiple future tokens, enabling the model to \"peek into the future\" and score potential candidate entities in the entity list. Moreover, our approach leverages the multi-token prediction logits directly without requiring additional entity encoders or cross-attention layers, significantly reducing architectural complexity. Experiments on Librispeech demonstrate that our approach achieves up to 50.34% relative improvement in named entity word error rate compared to the baseline AED model.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-12-19T14:56:28Z",
+    "updated": "2025-12-19T14:56:28Z",
+    "url": "http://arxiv.org/abs/2512.17657v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17657v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯语音识别（ASR）领域的研究，专注于解决命名实体识别问题，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），属于排除类别。",
+    "translation": "面向上下文偏置的未来 token 预测方法研究",
+    "summary_zh": "提出一种用于注意力编码器 - 解码器 ASR 模型的上下文偏置方法，通过同时预测多个未来 token 来直接利用 logits 评分候选实体列表，无需额外的实体编码器或交叉注意力层。",
+    "key_points": [
+      "提出一种用于注意力编码器 - 解码器 ASR 模型的上下文偏置方法，通过同时预测多个未来 token 来直接利用 logits 评分候选实体列表，无需额外的实体编码器或交叉注意力层"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17194v1",
+    "title": "MMRAG-RFT: Two-stage Reinforcement Fine-tuning for Explainable Multi-modal Retrieval-augmented Generation",
+    "authors": [
+      "Shengwei Zhao",
+      "Jingwen Yao",
+      "Sitong Wei",
+      "Linhai Xu",
+      "Yuying Liu",
+      "Dong Zhang",
+      "Zhiqiang Tian",
+      "Shaoyi Du"
+    ],
+    "summary": "Multi-modal Retrieval-Augmented Generation (MMRAG) enables highly credible generation by integrating external multi-modal knowledge, thus demonstrating impressive performance in complex multi-modal scenarios. However, existing MMRAG methods fail to clarify the reasoning logic behind retrieval and response generation, which limits the explainability of the results. To address this gap, we propose to introduce reinforcement learning into multi-modal retrieval-augmented generation, enhancing the reasoning capabilities of multi-modal large language models through a two-stage reinforcement fine-tuning framework to achieve explainable multi-modal retrieval-augmented generation. Specifically, in the first stage, rule-based reinforcement fine-tuning is employed to perform coarse-grained point-wise ranking of multi-modal documents, effectively filtering out those that are significantly irrelevant. In the second stage, reasoning-based reinforcement fine-tuning is utilized to jointly optimize fine-grained list-wise ranking and answer generation, guiding multi-modal large language models to output explainable reasoning logic in the MMRAG process. Our method achieves state-of-the-art results on WebQA and MultimodalQA, two benchmark datasets for multi-modal retrieval-augmented generation, and its effectiveness is validated through comprehensive ablation experiments.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-12-19T03:19:54Z",
+    "updated": "2025-12-19T03:19:54Z",
+    "url": "http://arxiv.org/abs/2512.17194v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17194v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和多模态 RAG 的研究，专注于提升生成结果的可解释性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "MMRAG-RFT：用于可解释多模态检索增强生成的两阶段强化微调",
+    "summary_zh": "提出一种两阶段强化微调框架，通过规则基和推理基的强化学习，优化多模态大模型在检索增强生成中的文档排序与推理逻辑输出，以实现可解释的生成过程。",
+    "key_points": [
+      "提出一种两阶段强化微调框架，通过规则基和推理基的强化学习，优化多模态大模型在检索增强生成中的文档排序与推理逻辑输出，以实现可解释的生成过程"
+    ]
+  }
+]

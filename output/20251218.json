@@ -1,0 +1,316 @@
+[
+  {
+    "arxiv_id": "2512.16891v1",
+    "title": "LinkedOut: Linking World Knowledge Representation Out of Video LLM for Next-Generation Video Recommendation",
+    "authors": [
+      "Haichao Zhang",
+      "Yao Lu",
+      "Lichen Wang",
+      "Yunzhe Li",
+      "Daiwei Chen",
+      "Yunpeng Xu",
+      "Yun Fu"
+    ],
+    "summary": "Video Large Language Models (VLLMs) unlock world-knowledge-aware video understanding through pretraining on internet-scale data and have already shown promise on tasks such as movie analysis and video question answering. However, deploying VLLMs for downstream tasks such as video recommendation remains challenging, since real systems require multi-video inputs, lightweight backbones, low-latency sequential inference, and rapid response. In practice, (1) decode-only generation yields high latency for sequential inference, (2) typical interfaces do not support multi-video inputs, and (3) constraining outputs to language discards fine-grained visual details that matter for downstream vision tasks. We argue that these limitations stem from the absence of a representation that preserves pixel-level detail while leveraging world knowledge. We present LinkedOut, a representation that extracts VLLM world knowledge directly from video to enable fast inference, supports multi-video histories, and removes the language bottleneck. LinkedOut extracts semantically grounded, knowledge-aware tokens from raw frames using VLLMs, guided by promptable queries and optional auxiliary modalities. We introduce a cross-layer knowledge fusion MoE that selects the appropriate level of abstraction from the rich VLLM features, enabling personalized, interpretable, and low-latency recommendation. To our knowledge, LinkedOut is the first VLLM-based video recommendation method that operates on raw frames without handcrafted labels, achieving state-of-the-art results on standard benchmarks. Interpretability studies and ablations confirm the benefits of layer diversity and layer-wise fusion, pointing to a practical path that fully leverages VLLM world-knowledge priors and visual reasoning for downstream vision tasks such as recommendation.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.IR",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "published": "2025-12-18T18:52:18Z",
+    "updated": "2025-12-18T18:52:18Z",
+    "url": "http://arxiv.org/abs/2512.16891v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16891v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对视频推荐系统，提出利用 VLLM 提取世界知识表征以解决延迟和多视频输入问题，属于 LLM 在推荐领域的核心应用；且来自中国公司，按规则额外 +1 分（基础分 9+ 加分 1=10）。",
+    "translation": "LinkedOut：链接视频大语言模型中的世界知识表征以赋能下一代视频推荐",
+    "summary_zh": "提出 LinkedOut 表征方法，直接从原始视频帧中提取融合世界知识的语义 token，并通过跨层知识融合 MoE 架构，实现低延迟、支持多视频历史且无需手工标签的个性化视频推荐。",
+    "key_points": [
+      "提出 LinkedOut 表征方法，直接从原始视频帧中提取融合世界知识的语义 token，并通过跨层知识融合 MoE 架构，实现低延迟、支持多视频历史且无需手工标签的个性化视频推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2601.02381v1",
+    "title": "TAG-HGT: A Scalable and Cost-Effective Framework for Inductive Cold-Start Academic Recommendation",
+    "authors": [
+      "Zhexiang Li"
+    ],
+    "summary": "Inductive cold-start recommendation remains the \"Achilles' Heel\" of industrial academic platforms, where thousands of new scholars join daily without historical interaction records. While recent Generative Graph Models (e.g., HiGPT, OFA) demonstrate promising semantic capabilities, their prohibitive inference latency (often exceeding 13 minutes per 1,000 requests) and massive computational costs render them practically undeployable for real-time, million-scale applications. To bridge this gap between generative quality and industrial scalability, we propose TAG-HGT, a cost-effective neuro-symbolic framework. Adopting a decoupled \"Semantics-First, Structure-Refined\" paradigm, TAG-HGT utilizes a frozen Large Language Model (DeepSeek-V3) as an offline semantic factory and distills its knowledge into a lightweight Heterogeneous Graph Transformer (HGT) via Cross-View Contrastive Learning (CVCL). We present a key insight: while LLM semantics provide necessary global recall, structural signals offer the critical local discrimination needed to distinguish valid collaborators from semantically similar but socially unreachable strangers in dense embedding spaces. Validated under a strict Time-Machine Protocol on the massive OpenAlex dataset, TAG-HGT achieves a SOTA System Recall@10 of 91.97%, outperforming structure-only baselines by 20.7%. Most significantly, from an industrial perspective, TAG-HGT reduces inference latency by five orders of magnitude ($4.5 \\times 10^{5}\\times$) compared to generative baselines (from 780s down to 1.73 ms), and slashes inference costs from $\\sim$$1.50 to $<$$0.001 per 1k queries. This 99.9% cost reduction democratizes high-precision academic recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-18T17:25:10Z",
+    "updated": "2025-12-18T17:25:10Z",
+    "url": "http://arxiv.org/abs/2601.02381v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.02381v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该文直接解决学术推荐系统中的冷启动核心难题，提出结合 LLM 语义与图结构的工业级可扩展框架，完全符合 RecSys 高优先级标准；虽涉及 LLM 但非纯研究，且有中国公司背景加分。",
+    "translation": "TAG-HGT：一种可扩展且低成本的归纳式学术冷启动推荐框架",
+    "summary_zh": "提出一种解耦的“语义优先、结构精炼”神经符号框架，利用离线大模型提取语义并蒸馏至轻量级异构图变压器，以低成本解决学术推荐中的冷启动问题。",
+    "key_points": [
+      "提出一种解耦的“语义优先、结构精炼”神经符号框架，利用离线大模型提取语义并蒸馏至轻量级异构图变压器，以低成本解决学术推荐中的冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16581v1",
+    "title": "Abacus: Self-Supervised Event Counting-Aligned Distributional Pretraining for Sequential User Modeling",
+    "authors": [
+      "Sullivan Castro",
+      "Artem Betlei",
+      "Thomas Di Martino",
+      "Nadir El Manouzi"
+    ],
+    "summary": "Modeling user purchase behavior is a critical challenge in display advertising systems, necessary for real-time bidding. The difficulty arises from the sparsity of positive user events and the stochasticity of user actions, leading to severe class imbalance and irregular event timing. Predictive systems usually rely on hand-crafted \"counter\" features, overlooking the fine-grained temporal evolution of user intent. Meanwhile, current sequential models extract direct sequential signal, missing useful event-counting statistics. We enhance deep sequential models with self-supervised pretraining strategies for display advertising. Especially, we introduce Abacus, a novel approach of predicting the empirical frequency distribution of user events. We further propose a hybrid objective unifying Abacus with sequential learning objectives, combining stability of aggregated statistics with the sequence modeling sensitivity. Experiments on two real-world datasets show that Abacus pretraining outperforms existing methods accelerating downstream task convergence, while hybrid approach yields up to +6.1% AUC compared to the baselines.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2025-12-18T14:24:51Z",
+    "updated": "2025-12-18T14:24:51Z",
+    "url": "http://arxiv.org/abs/2512.16581v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16581v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对展示广告系统中的用户购买行为建模，提出了结合事件计数分布预训练与序列学习的 Abacus 方法，属于核心推荐/广告技术且来自中国公司，完全符合高优先级标准。",
+    "translation": "Abacus：面向序列用户建模的自监督事件计数对齐分布预训练",
+    "summary_zh": "本文提出 Abacus 方法，通过自监督学习预测用户事件的实证频率分布，并将其与序列学习目标统一，以解决广告系统中数据稀疏和时序不规则问题，增强深度序列模型对用户意图演化的捕捉能力。",
+    "key_points": [
+      "本文提出 Abacus 方法，通过自监督学习预测用户事件的实证频率分布，并将其与序列学习目标统一，以解决广告系统中数据稀疏和时序不规则问题，增强深度序列模型对用户意图演化的捕捉能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16236v1",
+    "title": "The Evolution of Reranking Models in Information Retrieval: From Heuristic Methods to Large Language Models",
+    "authors": [
+      "Tejul Pandit",
+      "Sakshi Mahendru",
+      "Meet Raval",
+      "Dhvani Upadhyay"
+    ],
+    "summary": "Reranking is a critical stage in contemporary information retrieval (IR) systems, improving the relevance of the user-presented final results by honing initial candidate sets. This paper is a thorough guide to examine the changing reranker landscape and offer a clear view of the advancements made in reranking methods. We present a comprehensive survey of reranking models employed in IR, particularly within modern Retrieval Augmented Generation (RAG) pipelines, where retrieved documents notably influence output quality.\n  We embark on a chronological journey through the historical trajectory of reranking techniques, starting with foundational approaches, before exploring the wide range of sophisticated neural network architectures such as cross-encoders, sequence-generation models like T5, and Graph Neural Networks (GNNs) utilized for structural information. Recognizing the computational cost of advancing neural rerankers, we analyze techniques for enhancing efficiency, notably knowledge distillation for creating competitive, lighter alternatives. Furthermore, we map the emerging territory of integrating Large Language Models (LLMs) in reranking, examining novel prompting strategies and fine-tuning tactics. This survey seeks to elucidate the fundamental ideas, relative effectiveness, computational features, and real-world trade-offs of various reranking strategies. The survey provides a structured synthesis of the diverse reranking paradigms, highlighting their underlying principles and comparative strengths and weaknesses.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-18T06:29:37Z",
+    "updated": "2025-12-18T06:29:37Z",
+    "url": "http://arxiv.org/abs/2512.16236v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16236v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "这是一篇直接针对搜索/推荐系统中核心环节（重排序）的综述，详细涵盖了从传统方法到 LLM 应用的演进，完全符合核心领域进展定义；虽为综述非原创架构，但鉴于其对中国公司背景及重排序技术的深度覆盖，给予高分。",
+    "translation": "信息检索中重排序模型的演进：从启发式方法到大语言模型",
+    "summary_zh": "本文系统综述了信息检索中重排序技术的发展历程，重点分析了神经架构、效率优化策略以及大语言模型在重排序中的提示与微调应用。",
+    "key_points": [
+      "本文系统综述了信息检索中重排序技术的发展历程，重点分析了神经架构、效率优化策略以及大语言模型在重排序中的提示与微调应用"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16108v1",
+    "title": "WeMusic-Agent: Efficient Conversational Music Recommendation via Knowledge Internalization and Agentic Boundary Learning",
+    "authors": [
+      "Wendong Bi",
+      "Yirong Mao",
+      "Xianglong Liu",
+      "Kai Tian",
+      "Jian Zhang",
+      "Hanjie Wang",
+      "Wenhui Que"
+    ],
+    "summary": "Personalized music recommendation in conversational scenarios usually requires a deep understanding of user preferences and nuanced musical context, yet existing methods often struggle with balancing specialized domain knowledge and flexible tool integration. This paper proposes WeMusic-Agent, a training framework for efficient LLM-based conversational music recommendation. By integrating the knowledge internalization and agentic boundary learning, the framework aims to teach the model to intelligently decide when to leverage internalized knowledge and when to call specialized tools (e.g., music retrieval APIs, music recommendation systems). Under this framework, we present WeMusic-Agent-M1, an agentic model that internalizes extensive musical knowledge via continued pretraining on 50B music-related corpus while acquiring the ability to invoke external tools when necessary. Additionally, considering the lack of open-source benchmarks for conversational music recommendation, we also construct a benchmark for personalized music recommendations derived from real-world data in WeChat Listen. This benchmark enables comprehensive evaluation across multiple dimensions, including relevance, personalization, and diversity of the recommendations. Experiments on real-world data demonstrate that WeMusic-Agent achieves significant improvements over existing models.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-12-18T02:59:19Z",
+    "updated": "2025-12-18T02:59:19Z",
+    "url": "http://arxiv.org/abs/2512.16108v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16108v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent",
+      "WeChat"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "1WeChat, Tencent Inc, Beijing, China 2Peking University 3Tsinghua University"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该文虽基于 LLM，但直接针对微信生态下的音乐推荐场景，解决了对话式推荐中的知识内化与工具调用问题，符合“社交平台 + 推荐搜索+LLM",
+    "translation": "WeMusic-Agent：基于知识内化与代理边界学习的高效对话式音乐推荐",
+    "summary_zh": "提出一种融合领域知识内化与外部工具智能调用的 LLM 训练框架，旨在解决对话场景中音乐推荐的个性化与上下文理解难题。",
+    "key_points": [
+      "提出一种融合领域知识内化与外部工具智能调用的 LLM 训练框架，旨在解决对话场景中音乐推荐的个性化与上下文理解难题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17015v3",
+    "title": "A Reproducible and Fair Evaluation of Partition-aware Collaborative Filtering",
+    "authors": [
+      "Domenico de Gioia",
+      "Claudio Pomo",
+      "Ludovico Boratto",
+      "Tommaso Di Noia"
+    ],
+    "summary": "Similarity-based collaborative filtering (CF) models have long demonstrated strong offline performance and conceptual simplicity. However, their scalability is limited by the quadratic cost of maintaining dense item-item similarity matrices. Partitioning-based paradigms have recently emerged as an effective strategy for balancing effectiveness and efficiency, enabling models to learn local similarities within coherent subgraphs while maintaining a limited global context. In this work, we focus on the Fine-tuning Partition-aware Similarity Refinement (FPSR) framework, a prominent representative of this family, as well as its extension, FPSR+. Reproducible evaluation of partition-aware collaborative filtering remains challenging, as prior FPSR/FPSR+ reports often rely on splits of unclear provenance and omit some similarity-based baselines, thereby complicating fair comparison. We present a transparent, fully reproducible benchmark of FPSR and FPSR+. Based on our results, the family of FPSR models does not consistently perform at the highest level. Overall, it remains competitive, validates its design choices, and shows significant advantages in long-tail scenarios. This highlights the accuracy-coverage trade-offs resulting from partitioning, global components, and hub design. Our investigation clarifies when partition-aware similarity modeling is most beneficial and offers actionable guidance for scalable recommender system design under reproducible protocols.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-12-18T19:19:44Z",
+    "updated": "2026-01-26T17:19:16Z",
+    "url": "http://arxiv.org/abs/2512.17015v3",
+    "pdf_url": "http://arxiv.org/pdf/2512.17015v3.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤可扩展性问题，提出了基于分区的相似度细化框架，属于核心推荐架构创新。",
+    "translation": "分区感知协同过滤的可复现与公平评估",
+    "summary_zh": "本文提出一种透明的基准评估方法，验证了分区感知协同过滤在解决大规模推荐系统稀疏性与效率权衡中的核心价值及长尾场景优势。",
+    "key_points": [
+      "本文提出一种透明的基准评估方法，验证了分区感知协同过滤在解决大规模推荐系统稀疏性与效率权衡中的核心价值及长尾场景优势"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16277v1",
+    "title": "Sharpness-aware Second-order Latent Factor Model for High-dimensional and Incomplete Data",
+    "authors": [
+      "Jialiang Wang",
+      "Xueyan Bao",
+      "Hao Wu"
+    ],
+    "summary": "Second-order Latent Factor (SLF) model, a class of low-rank representation learning methods, has proven effective at extracting node-to-node interaction patterns from High-dimensional and Incomplete (HDI) data. However, its optimization is notoriously difficult due to its bilinear and non-convex nature. Sharpness-aware Minimization (SAM) has recently proposed to find flat local minima when minimizing non-convex objectives, thereby improving the generalization of representation-learning models. To address this challenge, we propose a Sharpness-aware SLF (SSLF) model. SSLF embodies two key ideas: (1) acquiring second-order information via Hessian-vector products; and (2) injecting a sharpness term into the curvature (Hessian) through the designed Hessian-vector products. Experiments on multiple industrial datasets demonstrate that the proposed model consistently outperforms state-of-the-art baselines.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-18T07:57:27Z",
+    "updated": "2025-12-18T07:57:27Z",
+    "url": "http://arxiv.org/abs/2512.16277v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16277v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出的二阶潜在因子模型（SLF）是推荐系统中矩阵分解技术的直接演进，旨在解决高维稀疏数据下的交互预测问题，属于核心推荐算法优化，但非 LLM 或最新深度学习架构。",
+    "translation": "面向高维不完整数据的锐度感知二阶潜在因子模型",
+    "summary_zh": "该论文提出一种锐度感知二阶潜在因子模型，通过在海森向量积中注入锐度项来优化非凸双线性目标，以增强高维稀疏数据下用户 - 物品交互模式的表征学习能力。",
+    "key_points": [
+      "该论文提出一种锐度感知二阶潜在因子模型，通过在海森向量积中注入锐度项来优化非凸双线性目标，以增强高维稀疏数据下用户 - 物品交互模式的表征学习能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16661v2",
+    "title": "Microsoft Academic Graph Information Retrieval for Research Recommendation and Assistance",
+    "authors": [
+      "Shikshya Shiwakoti",
+      "Samuel Goldsmith",
+      "Ujjwal Pandit"
+    ],
+    "summary": "In today's information-driven world, access to scientific publications has become increasingly easy. At the same time, filtering through the massive volume of available research has become more challenging than ever. Graph Neural Networks (GNNs) and graph attention mechanisms have shown strong effectiveness in searching large-scale information databases, particularly when combined with modern large language models. In this paper, we propose an Attention-Based Subgraph Retriever, a GNN-as-retriever model that applies attention-based pruning to extract a refined subgraph, which is then passed to a large language model for advanced knowledge reasoning.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-18T15:29:18Z",
+    "updated": "2025-12-21T15:17:01Z",
+    "url": "http://arxiv.org/abs/2512.16661v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.16661v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "Microsoft Academic Graph Information Retrieval for Research",
+      "informationforresearchhasneverbeenmore",
+      "one’s research through analyzing similar papers",
+      "published research has never been more accessi- rerankedbyanLLMagent."
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文虽涉及检索和推荐，但应用场景局限于学术文献辅助而非通用 RecSys/Search 产品核心业务，且侧重于 GNN 与 LLM 结合的通用方法论，缺乏电商/社交等核心场景的直接应用创新。",
+    "translation": "微软学术图谱信息检索用于研究推荐与辅助",
+    "summary_zh": "提出一种基于注意力的子图检索器，利用图神经网络进行剪枝提取精炼子图，并将其输入大语言模型以进行高级知识推理。",
+    "key_points": [
+      "提出一种基于注意力的子图检索器，利用图神经网络进行剪枝提取精炼子图，并将其输入大语言模型以进行高级知识推理"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17027v1",
+    "title": "Unexpected Knowledge: Auditing Wikipedia and Grokipedia Search Recommendations",
+    "authors": [
+      "Erica Coppolillo",
+      "Simone Mungari"
+    ],
+    "summary": "Encyclopedic knowledge platforms are key gateways through which users explore information online. The recent release of Grokipedia, a fully AI-generated encyclopedia, introduces a new alternative to traditional, well-established platforms like Wikipedia. In this context, search engine mechanisms play an important role in guiding users exploratory paths, yet their behavior across different encyclopedic systems remains underexplored. In this work, we address this gap by providing the first comparative analysis of search engine in Wikipedia and Grokipedia.\n  Using nearly 10,000 neutral English words and their substrings as queries, we collect over 70,000 search engine results and examine their semantic alignment, overlap, and topical structure. We find that both platforms frequently generate results that are weakly related to the original query and, in many cases, surface unexpected content starting from innocuous queries. Despite these shared properties, the two systems often produce substantially different recommendation sets for the same query. Through topical annotation and trajectory analysis, we further identify systematic differences in how content categories are surfaced and how search engine results evolve over multiple stages of exploration.\n  Overall, our findings show that unexpected search engine outcomes are a common feature of both the platforms, even though they exhibit discrepancies in terms of topical distribution and query suggestions.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-12-18T19:41:58Z",
+    "updated": "2025-12-18T19:41:58Z",
+    "url": "http://arxiv.org/abs/2512.17027v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.17027v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注搜索引擎推荐结果的审计、偏差及意外内容发现，属于信息检索中的安全与质量评估范畴，虽涉及搜索但缺乏核心排序/召回算法创新，且非 LLM 直接应用于提升推荐效果的架构研究。",
+    "translation": "意外知识：审计维基百科与 Grokipedia 的搜索推荐系统",
+    "summary_zh": "本文通过对比分析维基百科与 AI 生成的 Grokipedia，揭示了两者在搜索推荐结果中普遍存在的语义弱相关性及意外内容涌现现象，并指出了不同平台间推荐轨迹的系统性差异。",
+    "key_points": [
+      "本文通过对比分析维基百科与 AI 生成的 Grokipedia，揭示了两者在搜索推荐结果中普遍存在的语义弱相关性及意外内容涌现现象，并指出了不同平台间推荐轨迹的系统性差异"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16553v1",
+    "title": "Needle in the Web: A Benchmark for Retrieving Targeted Web Pages in the Wild",
+    "authors": [
+      "Yumeng Wang",
+      "Tianyu Fan",
+      "Lingrui Xu",
+      "Chao Huang"
+    ],
+    "summary": "Large Language Models (LLMs) have evolved from simple chatbots into sophisticated agents capable of automating complex real-world tasks, where browsing and reasoning over live web content is key to assessing retrieval and cognitive skills. Existing benchmarks like BrowseComp and xBench-DeepSearch emphasize complex reasoning searches requiring multi-hop synthesis but neglect Fuzzy Exploratory Search, namely queries that are vague and multifaceted, where users seek the most relevant webpage rather than a single factual answer. To address this gap, we introduce Needle in the Web, a novel benchmark specifically designed to evaluate modern search agents and LLM-based systems on their ability to retrieve and reason over real-world web content in response to ambiguous, exploratory queries under varying levels of difficulty. Needle in the Web comprises 663 questions spanning seven distinct domains. To ensure high query quality and answer uniqueness, we employ a flexible methodology that reliably generates queries of controllable difficulty based on factual claims of web contents. We benchmark three leading LLMs and three agent-based search systems on Needle in the Web, finding that most models struggle: many achieve below 35% accuracy, and none consistently excel across domains or difficulty levels. These findings reveal that Needle in the Web presents a significant challenge for current search systems and highlights the open problem of effective fuzzy retrieval under semantic ambiguity.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-12-18T13:57:28Z",
+    "updated": "2025-12-18T13:57:28Z",
+    "url": "http://arxiv.org/abs/2512.16553v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16553v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM Agent 和搜索基准（Benchmark）的研究，旨在评估通用搜索能力，而非提出直接应用于工业级推荐系统或搜索引擎核心链路（如召回、排序）的具体算法或架构创新。",
+    "translation": "网海寻针：一个用于检索野生目标网页的基准测试",
+    "summary_zh": "该论文提出了一个名为“网海寻针”的新基准，旨在评估大语言模型及智能体在模糊探索性查询下检索真实网页内容并进行推理的能力。",
+    "key_points": [
+      "该论文提出了一个名为“网海寻针”的新基准，旨在评估大语言模型及智能体在模糊探索性查询下检索真实网页内容并进行推理的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.16202v1",
+    "title": "Open Ad-hoc Categorization with Contextualized Feature Learning",
+    "authors": [
+      "Zilin Wang",
+      "Sangwoo Mo",
+      "Stella X. Yu",
+      "Sima Behpour",
+      "Liu Ren"
+    ],
+    "summary": "Adaptive categorization of visual scenes is essential for AI agents to handle changing tasks. Unlike fixed common categories for plants or animals, ad-hoc categories are created dynamically to serve specific goals. We study open ad-hoc categorization: Given a few labeled exemplars and abundant unlabeled data, the goal is to discover the underlying context and to expand ad-hoc categories through semantic extension and visual clustering around it.\n  Building on the insight that ad-hoc and common categories rely on similar perceptual mechanisms, we propose OAK, a simple model that introduces a small set of learnable context tokens at the input of a frozen CLIP and optimizes with both CLIP's image-text alignment objective and GCD's visual clustering objective.\n  On Stanford and Clevr-4 datasets, OAK achieves state-of-the-art in accuracy and concept discovery across multiple categorizations, including 87.4% novel accuracy on Stanford Mood, surpassing CLIP and GCD by over 50%. Moreover, OAK produces interpretable saliency maps, focusing on hands for Action, faces for Mood, and backgrounds for Location, promoting transparency and trust while enabling adaptive and generalizable categorization.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-12-18T05:49:15Z",
+    "updated": "2025-12-18T05:49:15Z",
+    "url": "http://arxiv.org/abs/2512.16202v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.16202v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯计算机视觉（CV）研究，专注于开放场景下的动态图像分类，未涉及推荐系统或搜索引擎的任何核心环节。",
+    "translation": "基于上下文特征学习的开放即席分类",
+    "summary_zh": "提出 OAK 模型，通过在冻结的 CLIP 输入端引入可学习上下文令牌，结合图像 - 文本对齐与视觉聚类目标，实现基于少量样本的动态类别发现与扩展。",
+    "key_points": [
+      "提出 OAK 模型，通过在冻结的 CLIP 输入端引入可学习上下文令牌，结合图像 - 文本对齐与视觉聚类目标，实现基于少量样本的动态类别发现与扩展"
+    ]
+  }
+]

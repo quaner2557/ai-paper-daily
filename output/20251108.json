@@ -1,0 +1,203 @@
+[
+  {
+    "arxiv_id": "2511.06077v1",
+    "title": "Make It Long, Keep It Fast: End-to-End 10k-Sequence Modeling at Billion Scale on Douyin",
+    "authors": [
+      "Lin Guan",
+      "Jia-Qi Yang",
+      "Zhishan Zhao",
+      "Beichuan Zhang",
+      "Bo Sun",
+      "Xuanyuan Luo",
+      "Jinan Ni",
+      "Xiaowen Li",
+      "Yuhang Qi",
+      "Zhifang Fan",
+      "Hangyu Wang",
+      "Qiwei Chen",
+      "Yi Cheng",
+      "Feng Zhang",
+      "Xiao Yang"
+    ],
+    "summary": "Short-video recommenders such as Douyin must exploit extremely long user histories without breaking latency or cost budgets. We present an end-to-end system that scales long-sequence modeling to 10k-length histories in production. First, we introduce Stacked Target-to-History Cross Attention (STCA), which replaces history self-attention with stacked cross-attention from the target to the history, reducing complexity from quadratic to linear in sequence length and enabling efficient end-to-end training. Second, we propose Request Level Batching (RLB), a user-centric batching scheme that aggregates multiple targets for the same user/request to share the user-side encoding, substantially lowering sequence-related storage, communication, and compute without changing the learning objective. Third, we design a length-extrapolative training strategy -- train on shorter windows, infer on much longer ones -- so the model generalizes to 10k histories without additional training cost. Across offline and online experiments, we observe predictable, monotonic gains as we scale history length and model capacity, mirroring the scaling law behavior observed in large language models. Deployed at full traffic on Douyin, our system delivers significant improvements on key engagement metrics while meeting production latency, demonstrating a practical path to scaling end-to-end long-sequence recommendation to the 10k regime.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2025-11-08T17:22:54Z",
+    "updated": "2025-11-08T17:22:54Z",
+    "url": "http://arxiv.org/abs/2511.06077v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.06077v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对抖音（Douyin）短视频推荐系统中的长序列建模难题，提出了具体的工业级架构创新（STCA、RLB），完美契合电商/社交 + 推荐搜索 + 深度学习的高优先级标准，且来自核心业务场景。",
+    "translation": "既长又快：抖音十亿规模下端到端万级序列建模",
+    "summary_zh": "本文提出了一种端到端系统，通过堆叠目标到历史交叉注意力机制和用户级请求批处理方案，将推荐系统的用户历史序列建模长度扩展至 1 万条，同时保持线性复杂度和生产环境的低延迟要求。",
+    "key_points": [
+      "本文提出了一种端到端系统，通过堆叠目标到历史交叉注意力机制和用户级请求批处理方案，将推荐系统的用户历史序列建模长度扩展至 1 万条，同时保持线性复杂度和生产环境的低延迟要求"
+    ]
+  },
+  {
+    "arxiv_id": "2511.05885v3",
+    "title": "An item is worth one token in Multimodal Large Language Models-based Sequential Recommendation",
+    "authors": [
+      "Qiyong Zhong",
+      "Jiajie Su",
+      "Ming Yang",
+      "Yunshan Ma",
+      "Xiaolin Zheng",
+      "Chaochao Chen"
+    ],
+    "summary": "Sequential recommendations (SR) predict users' future interactions based on their historical behavior. The rise of Large Language Models (LLMs) has brought powerful generative and reasoning capabilities, significantly enhancing SR performance, while Multimodal LLMs (MLLMs) further extend this by introducing data like images and interactive relationships. However, critical issues remain, i.e., (a) Suboptimal item representations caused by lengthy and redundant descriptions, leading to inefficiencies in both training and inference; (b) Modality-related cognitive bias, as LLMs are predominantly pretrained on textual data, limiting their ability to effectively integrate and utilize non-textual modalities; (c) Weakening sequential perception in long interaction sequences, where attention mechanisms struggle to capture earlier interactions, hindering the modeling of long-range dependencies. To address these issues, we propose Speeder, an efficient MLLM-based paradigm for SR featuring three key innovations: 1) Multimodal Representation Compression (MRC), which condenses item attributes into concise yet informative tokens, reducing redundancy and computational cost; 2) Modality-aware Progressive Optimization (MPO), enabling gradual learning of multimodal representations; 3) Sequential Position Awareness Enhancement (SPAE), improving the LLM's capability to capture both relative and absolute sequential dependencies in long interaction sequences. Extensive experiments on real-world datasets demonstrate the effectiveness and efficiency of Speeder. Speeder increases training speed to 250% of the original while reducing inference time to 25% on the Amazon dataset.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-08T06:51:38Z",
+    "updated": "2026-02-05T19:24:39Z",
+    "url": "http://arxiv.org/abs/2511.05885v3",
+    "pdf_url": "http://arxiv.org/pdf/2511.05885v3.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态序列推荐系统中的核心痛点（表示冗余、模态偏差、长序列依赖）提出了解决方案，属于 LLM 在推荐领域的深度应用，且来自中国公司，符合最高优先级标准。",
+    "translation": "在多模态大模型序列推荐中一个物品仅需一个令牌",
+    "summary_zh": "提出 Speeder 框架，通过多模态表示压缩、模态感知渐进优化及序列位置感知增强，解决多模态大模型在序列推荐中的表示冗余、认知偏差及长程依赖建模难题。",
+    "key_points": [
+      "提出 Speeder 框架，通过多模态表示压缩、模态感知渐进优化及序列位置感知增强，解决多模态大模型在序列推荐中的表示冗余、认知偏差及长程依赖建模难题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.05808v2",
+    "title": "Turning Noise into Value: Uncovering Service Preferences from Ambiguous Interaction in E-commerce",
+    "authors": [
+      "Cheng Li",
+      "Yong Xu",
+      "Suhua Tang",
+      "Wenqiang Lin",
+      "Xin He",
+      "Jinde Cao"
+    ],
+    "summary": "In e-commerce service recommendation, utilizing auxiliary behaviors to alleviate data sparsity often relies on the flawed assumption that auxiliary behaviors that fail to trigger target actions are negative samples. This approach is fundamentally flawed as it ignores false negatives where users actually harbor latent intent or interest but have not yet converted due to external factors. Consequently, existing methods suffer from sample selection bias and a severe distribution shift between the auxiliary and target behaviors, leading to the erroneous suppression of potential user needs. To address these challenges, we propose a Noise-to-Value Adapter (NoVa), an e-commerce service recommendation framework that re-examines the problem through the lens of positive-unlabeled learning. Instead of treating ambiguous auxiliary behaviors as definite negatives, NoVa aims to uncover high-quality preferences from noise via two key mechanisms. First, to bridge the distribution gap, we employ adversarial feature alignment. This module aligns the auxiliary behavior distribution with the target space to identify high-confidence false negatives, which are instances that statistically resemble confirmed target behaviors and thus represent latent conversion intents. Second, to mitigate label noise caused by accidental clicks or random browsing, we introduce a semantic consistency constraint. This mechanism implements semantic-aware filtering based on the content similarity of services, acting as a bias correction step to filter out low-confidence interactions that lack semantic relevance to historical user preferences. Extensive experiments on three real-world datasets demonstrate that NoVa outperforms state-of-the-art baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-08T02:45:32Z",
+    "updated": "2025-12-01T05:49:46Z",
+    "url": "http://arxiv.org/abs/2511.05808v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.05808v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商服务推荐中的核心痛点（辅助行为噪声与样本选择偏差），提出了基于 PU 学习的 NoVa 框架，属于高优先级的核心领域创新；且来自中国公司，按规则额外加 1 分后封顶为 10 分。",
+    "translation": "变噪为值：从电商模糊交互中挖掘服务偏好",
+    "summary_zh": "提出一种基于正未标记学习视角的电商推荐框架，通过对抗特征对齐识别潜在假负样本，并利用语义一致性约束过滤偶然点击噪声，从而从模糊交互数据中精准挖掘用户真实偏好。",
+    "key_points": [
+      "提出一种基于正未标记学习视角的电商推荐框架，通过对抗特征对齐识别潜在假负样本，并利用语义一致性约束过滤偶然点击噪声，从而从模糊交互数据中精准挖掘用户真实偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2511.05820v1",
+    "title": "WAR-Re: Web API Recommendation with Semantic Reasoning",
+    "authors": [
+      "Zishuo Xu",
+      "Dezhong Yao",
+      "Yao Wan"
+    ],
+    "summary": "With the development of cloud computing, the number of Web APIs has increased dramatically, further intensifying the demand for efficient Web API recommendation. Despite the demonstrated success of previous Web API recommendation solutions, two critical challenges persist: 1) a fixed top-N recommendation that cannot accommodate the varying API cardinality requirements of different mashups, and 2) these methods output only ranked API lists without accompanying reasons, depriving users of understanding the recommendation. To address these challenges, we propose WAR-Re, an LLM-based model for Web API recommendation with semantic reasoning for justification. WAR-Re leverages special start and stop tokens to handle the first challenge and uses two-stage training: supervised fine-tuning and reinforcement learning via Group Relative Policy Optimization (GRPO) to enhance the model's ability in both tasks. Comprehensive experimental evaluations on the ProgrammableWeb dataset demonstrate that WAR-Re achieves a gain of up to 21.59\\% over the state-of-the-art baseline model in recommendation accuracy, while consistently producing high-quality semantic reasons for recommendations.",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2025-11-08T03:09:31Z",
+    "updated": "2025-11-08T03:09:31Z",
+    "url": "http://arxiv.org/abs/2511.05820v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.05820v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于特定领域（Web API）的推荐任务，虽涉及推荐核心问题但非主流电商/社交 RecSys 场景，且主要依赖纯 LLM 微调技术，根据严格标准归为弱相关。",
+    "translation": "WAR-Re：基于语义推理的 Web API 推荐方法",
+    "summary_zh": "提出一种基于大语言模型的双阶段训练框架，通过特殊令牌机制解决变长推荐需求，并利用强化学习生成带有语义解释的 API 推荐结果。",
+    "key_points": [
+      "提出一种基于大语言模型的双阶段训练框架，通过特殊令牌机制解决变长推荐需求，并利用强化学习生成带有语义解释的 API 推荐结果"
+    ]
+  },
+  {
+    "arxiv_id": "2511.05991v1",
+    "title": "Ontology Learning and Knowledge Graph Construction: A Comparison of Approaches and Their Impact on RAG Performance",
+    "authors": [
+      "Tiago da Cruz",
+      "Bernardo Tavares",
+      "Francisco Belo"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems combine Large Language Models (LLMs) with external knowledge, and their performance depends heavily on how that knowledge is represented. This study investigates how different Knowledge Graph (KG) construction strategies influence RAG performance. We compare a variety of approaches: standard vector-based RAG, GraphRAG, and retrieval over KGs built from ontologies derived either from relational databases or textual corpora. Results show that ontology-guided KGs incorporating chunk information achieve competitive performance with state-of-the-art frameworks, substantially outperforming vector retrieval baselines. Moreover, the findings reveal that ontology-guided KGs built from relational databases perform competitively to ones built with ontologies extracted from text, with the benefit of offering a dual advantage: they require a one-time-only ontology learning process, substantially reducing LLM usage costs; and avoid the complexity of ontology merging inherent to text-based approaches.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-08T12:38:45Z",
+    "updated": "2025-11-08T12:38:45Z",
+    "url": "http://arxiv.org/abs/2511.05991v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.05991v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 架构研究，专注于知识图谱构建对 RAG 性能的影响，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "本体学习与知识图谱构建：方法比较及其对 RAG 性能的影响",
+    "summary_zh": "本文对比了不同知识图谱构建策略（基于关系数据库或文本语料的本体）对检索增强生成（RAG）系统性能的影响，提出本体引导的图谱构建可降低 LLM 成本并避免本体合并复杂性。",
+    "key_points": [
+      "本文对比了不同知识图谱构建策略（基于关系数据库或文本语料的本体）对检索增强生成（RAG）系统性能的影响，提出本体引导的图谱构建可降低 LLM 成本并避免本体合并复杂性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05265v1",
+    "title": "Cross-Document Topic-Aligned Chunking for Retrieval-Augmented Generation",
+    "authors": [
+      "Mile Stankovic"
+    ],
+    "summary": "Chunking quality determines RAG system performance. Current methods partition documents individually, but complex queries need information scattered across multiple sources: the knowledge fragmentation problem. We introduce Cross-Document Topic-Aligned (CDTA) chunking, which reconstructs knowledge at the corpus level. It first identifies topics across documents, maps segments to each topic, and synthesizes them into unified chunks.\n  On HotpotQA multi-hop reasoning, our method reached 0.93 faithfulness versus 0.83 for contextual retrieval and 0.78 for semantic chunking, a 12% improvement over current industry best practice (p < 0.05). On UAE Legal texts, it reached 0.94 faithfulness with 0.93 citation accuracy. At k = 3, it maintains 0.91 faithfulness while semantic methods drop to 0.68, with a single CDTA chunk containing information requiring multiple traditional fragments.\n  Indexing costs are higher, but synthesis produces information-dense chunks that reduce query-time retrieval needs. For high-query-volume applications with distributed knowledge, cross-document synthesis improves measurably over within-document optimization.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-11-08T11:45:45Z",
+    "updated": "2025-11-08T11:45:45Z",
+    "url": "http://arxiv.org/abs/2601.05265v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05265v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 RAG（检索增强生成）中的文档分块优化，属于通用 NLP/LLM 研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "面向检索增强生成的跨文档主题对齐分块方法",
+    "summary_zh": "提出一种跨文档主题对齐分块方法，通过在语料库层面识别主题并合成统一片段，以解决复杂查询下的知识碎片化问题。",
+    "key_points": [
+      "提出一种跨文档主题对齐分块方法，通过在语料库层面识别主题并合成统一片段，以解决复杂查询下的知识碎片化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.05850v1",
+    "title": "Retrieval Quality at Context Limit",
+    "authors": [
+      "Max McKinnon"
+    ],
+    "summary": "The ability of large language models (LLMs) to recall and retrieve information from long contexts is critical for many real-world applications. Prior work (Liu et al., 2023) reported that LLMs suffer significant drops in retrieval accuracy for facts placed in the middle of large contexts, an effect known as \"Lost in the Middle\" (LITM). We find the model Gemini 2.5 Flash can answer needle-in-a-haystack questions with great accuracy regardless of document position including when the document is nearly at the input context limit. Our results suggest that the \"Lost in the Middle\" effect is not present for simple factoid Q\\&A in Gemini 2.5 Flash, indicating substantial improvements in long-context retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-08T04:54:29Z",
+    "updated": "2025-11-08T04:54:29Z",
+    "url": "http://arxiv.org/abs/2511.05850v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.05850v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，仅评估模型在长上下文中的检索能力，未提出任何针对推荐系统或搜索引擎的具体应用、架构或算法改进。",
+    "translation": "上下文极限处的检索质量",
+    "summary_zh": "该研究发现 Gemini 2.5 Flash 模型在接近输入上下文极限时仍能准确回答事实性问题，表明其克服了长文本中“中间丢失”的检索缺陷。",
+    "key_points": [
+      "该研究发现 Gemini 2",
+      "5 Flash 模型在接近输入上下文极限时仍能准确回答事实性问题，表明其克服了长文本中“中间丢失”的检索缺陷"
+    ]
+  }
+]

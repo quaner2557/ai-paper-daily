@@ -1,0 +1,59 @@
+[
+  {
+    "arxiv_id": "2601.12301v1",
+    "title": "Facet-Aware Multi-Head Mixture-of-Experts Model with Text-Enhanced Pre-training for Sequential Recommendation",
+    "authors": [
+      "Mingrui Liu",
+      "Sixiao Zhang",
+      "Cheng Long"
+    ],
+    "summary": "Sequential recommendation (SR) systems excel at capturing users' dynamic preferences by leveraging their interaction histories. Most existing SR systems assign a single embedding vector to each item to represent its features, adopting various models to combine these embeddings into a sequence representation that captures user intent. However, we argue that this representation alone is insufficient to capture an item's multi-faceted nature (e.g., movie genres, starring actors). Furthermore, users often exhibit complex and varied preferences within these facets (e.g., liking both action and musical films within the genre facet), which are challenging to fully represent with static identifiers. To address these issues, we propose a novel architecture titled Facet-Aware Multi-Head Mixture-of-Experts Model for Sequential Recommendation (FAME). We leverage sub-embeddings from each head in the final multi-head attention layer to predict the next item separately, effectively capturing distinct item facets. A gating mechanism then integrates these predictions by dynamically determining their importance. Additionally, we introduce a Mixture-of-Experts (MoE) network within each attention head to disentangle varied user preferences within each facet, utilizing a learnable router network to aggregate expert outputs based on context. Complementing this architecture, we design a Text-Enhanced Facet-Aware Pre-training module to overcome the limitations of randomly initialized embeddings. By utilizing a pre-trained text encoder and employing an alternating supervised contrastive learning objective, we explicitly disentangle facet-specific features from textual metadata (e.g., descriptions) before sequential training begins. This ensures that the item embeddings are semantically robust and aligned with the downstream multi-facet framework.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-18T08:00:00Z",
+    "updated": "2026-01-18T08:00:00Z",
+    "url": "http://arxiv.org/abs/2601.12301v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.12301v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出利用多面性（Facet）和 MoE 架构解决用户动态偏好建模难题，并引入文本增强预训练，完全符合高优先级标准；叠加中国公司背景额外 +1 分（基础分 9+1=10）。",
+    "translation": "面向序列推荐的文本增强预训练与面感知多头混合专家模型",
+    "summary_zh": "提出一种面感知多头混合专家架构，通过解耦物品多面特征与用户多样化偏好，并结合文本元数据的对比学习预训练，以增强序列推荐中的语义表示能力。",
+    "key_points": [
+      "提出一种面感知多头混合专家架构，通过解耦物品多面特征与用户多样化偏好，并结合文本元数据的对比学习预训练，以增强序列推荐中的语义表示能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.12338v1",
+    "title": "Actionable Advice from Reviews via Mixture of LoRA Experts: A Two-LLM Pipeline for Issue Extraction and Business Recommendations",
+    "authors": [
+      "Kartikey Singh Bhandari",
+      "Manav Ganesh",
+      "Yashwant Viswanathan",
+      "Archit Agrawal",
+      "Dhruv Kumar",
+      "Pratik Narang"
+    ],
+    "summary": "Customer reviews contain detailed, domain specific signals about service failures and user expectations, but converting this unstructured feedback into actionable business decisions remains difficult. We study review-to-action generation: producing concrete, implementable recommendations grounded in review text. We propose a modular two-LLM framework in which an Issue model extracts salient issues and assigns coarse themes, and an Advice model generates targeted operational fixes conditioned on the extracted issue representation. To enable specialization without expensive full fine-tuning, we adapt the Advice model using a mixture of LoRA experts strategy: multiple low-rank adapters are trained and a lightweight gating mechanism performs token-level expert mixing at inference, combining complementary expertise across issue types. We construct synthetic review-issue-advice triples from Yelp reviews (airlines and restaurants) to supervise training, and evaluate recommendations using an eight dimension operational rubric spanning actionability, specificity, feasibility, expected impact, novelty, non-redundancy, bias, and clarity. Across both domains, our approach consistently outperforms prompting-only and single-adapter baselines, yielding higher actionability and specificity while retaining favorable efficiency-quality trade-offs.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-01-18T10:11:29Z",
+    "updated": "2026-01-18T10:11:29Z",
+    "url": "http://arxiv.org/abs/2601.12338v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.12338v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 应用研究（评论生成建议），虽涉及用户反馈分析，但未直接解决推荐或搜索系统的核心问题（如召回、排序、个性化匹配），且无明确 RecSys 架构创新。",
+    "translation": "基于 LoRA 专家混合的双大模型流水线：从评论中提取问题并生成商业建议",
+    "summary_zh": "提出一种双大模型框架，利用 Issue 模型提取评论中的核心问题，并通过混合 LoRA 专家策略适配 Advice 模型，以生成针对特定问题的可执行商业改进建议。",
+    "key_points": [
+      "提出一种双大模型框架，利用 Issue 模型提取评论中的核心问题，并通过混合 LoRA 专家策略适配 Advice 模型，以生成针对特定问题的可执行商业改进建议"
+    ]
+  }
+]

@@ -1,0 +1,546 @@
+[
+  {
+    "arxiv_id": "2601.10933v1",
+    "title": "Tail-Aware Data Augmentation for Long-Tail Sequential Recommendation",
+    "authors": [
+      "Yizhou Dang",
+      "Zhifu Wei",
+      "Minhan Huang",
+      "Lianbo Ma",
+      "Jianzhe Zhao",
+      "Guibing Guo",
+      "Xingwei Wang"
+    ],
+    "summary": "Sequential recommendation (SR) learns user preferences based on their historical interaction sequences and provides personalized suggestions. In real-world scenarios, most users can only interact with a handful of items, while the majority of items are seldom consumed. This pervasive long-tail challenge limits the model's ability to learn user preferences. Despite previous efforts to enrich tail items/users with knowledge from head parts or improve tail learning through additional contextual information, they still face the following issues: 1) They struggle to improve the situation where interactions of tail users/items are scarce, leading to incomplete preferences learning for the tail parts. 2) Existing methods often degrade overall or head parts performance when improving accuracy for tail users/items, thereby harming the user experience. We propose Tail-Aware Data Augmentation (TADA) for long-tail sequential recommendation, which enhances the interaction frequency for tail items/users while maintaining head performance, thereby promoting the model's learning capabilities for the tail. Specifically, we first capture the co-occurrence and correlation among low-popularity items by a linear model. Building upon this, we design two tail-aware augmentation operators, T-Substitute and T-Insert. The former replaces the head item with a relevant item, while the latter utilizes co-occurrence relationships to extend the original sequence by incorporating both head and tail items. The augmented and original sequences are mixed at the representation level to preserve preference knowledge. We further extend the mix operation across different tail-user sequences and augmented sequences to generate richer augmented samples, thereby improving tail performance. Comprehensive experiments demonstrate the superiority of our method. The codes are provided at https://github.com/KingGugu/TADA.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T01:29:36Z",
+    "updated": "2026-01-16T01:29:36Z",
+    "url": "http://arxiv.org/abs/2601.10933v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.10933v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的长尾序列推荐问题，提出了具体的数据增强架构（TADA），属于核心领域进展；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "面向长尾序列推荐的尾部感知数据增强方法",
+    "summary_zh": "本文提出一种尾部感知数据增强框架，通过建模低流行度物品的共现关系，设计替换与插入算子生成增强序列，并在表示层混合原始与增强数据以平衡长尾与头部物品的推荐性能。",
+    "key_points": [
+      "本文提出一种尾部感知数据增强框架，通过建模低流行度物品的共现关系，设计替换与插入算子生成增强序列，并在表示层混合原始与增强数据以平衡长尾与头部物品的推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2601.10944v1",
+    "title": "PRISM: Personalized Recommendation via Information Synergy Module",
+    "authors": [
+      "Xinyi Zhang",
+      "Yutong Li",
+      "Peijie Sun",
+      "Letian Sha",
+      "Zhongxuan Han"
+    ],
+    "summary": "Multimodal sequential recommendation (MSR) leverages diverse item modalities to improve recommendation accuracy, while achieving effective and adaptive fusion remains challenging. Existing MSR models often overlook synergistic information that emerges only through modality combinations. Moreover, they typically assume a fixed importance for different modality interactions across users. To address these limitations, we propose \\textbf{P}ersonalized \\textbf{R}ecommend-ation via \\textbf{I}nformation \\textbf{S}ynergy \\textbf{M}odule (PRISM), a plug-and-play framework for sequential recommendation (SR). PRISM explicitly decomposes multimodal information into unique, redundant, and synergistic components through an Interaction Expert Layer and dynamically weights them via an Adaptive Fusion Layer guided by user preferences. This information-theoretic design enables fine-grained disentanglement and personalized fusion of multimodal signals. Extensive experiments on four datasets and three SR backbones demonstrate its effectiveness and versatility. The code is available at https://github.com/YutongLi2024/PRISM.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T02:17:54Z",
+    "updated": "2026-01-16T02:17:54Z",
+    "url": "http://arxiv.org/abs/2601.10944v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.10944v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态序列推荐（MSR）任务，提出了解决模态协同信息融合难题的新架构，属于核心推荐系统领域的创新。",
+    "translation": "PRISM：基于信息协同模块的个性化推荐方法",
+    "summary_zh": "该论文提出 PRISM 框架，通过交互专家层将多模态信息解耦为独特、冗余和协同分量，并利用自适应融合层根据用户偏好动态加权，以实现细粒度的个性化多模态信号融合。",
+    "key_points": [
+      "该论文提出 PRISM 框架，通过交互专家层将多模态信息解耦为独特、冗余和协同分量，并利用自适应融合层根据用户偏好动态加权，以实现细粒度的个性化多模态信号融合"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11182v1",
+    "title": "From Knots to Knobs: Towards Steerable Collaborative Filtering Using Sparse Autoencoders",
+    "authors": [
+      "Martin Spišák",
+      "Ladislav Peška",
+      "Petr Škoda",
+      "Vojtěch Vančura",
+      "Rodrigo Alves"
+    ],
+    "summary": "Sparse autoencoders (SAEs) have recently emerged as pivotal tools for introspection into large language models. SAEs can uncover high-quality, interpretable features at different levels of granularity and enable targeted steering of the generation process by selectively activating specific neurons in their latent activations. Our paper is the first to apply this approach to collaborative filtering, aiming to extract similarly interpretable features from representations learned purely from interaction signals. In particular, we focus on a widely adopted class of collaborative autoencoders (CFAEs) and augment them by inserting an SAE between their encoder and decoder networks. We demonstrate that such representation is largely monosemantic and propose suitable mapping functions between semantic concepts and individual neurons. We also evaluate a simple yet effective method that utilizes this representation to steer the recommendations in a desired direction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T10:58:21Z",
+    "updated": "2026-01-16T10:58:21Z",
+    "url": "http://arxiv.org/abs/2601.11182v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11182v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文将稀疏自编码器（SAE）直接应用于协同过滤，实现了推荐结果的可解释性与可控性 steering，属于 LLM 技术在 RecSys 核心领域的创新应用；且来自 TAL 公司，按规定额外 +1 分。",
+    "translation": "从结点到旋钮：利用稀疏自编码器实现可操控的协同过滤",
+    "summary_zh": "通过在协同自编码器的编码器与解码器之间插入稀疏自编码器，提取具有单一语义的用户交互特征，并建立语义概念与神经元的映射以实现对推荐方向的可控调节。",
+    "key_points": [
+      "通过在协同自编码器的编码器与解码器之间插入稀疏自编码器，提取具有单一语义的用户交互特征，并建立语义概念与神经元的映射以实现对推荐方向的可控调节"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11151v1",
+    "title": "Cross-Modal Attention Network with Dual Graph Learning in Multimodal Recommendation",
+    "authors": [
+      "Ji Dai",
+      "Quan Fang",
+      "Jun Hu",
+      "Desheng Cai",
+      "Yang Yang",
+      "Can Zhao"
+    ],
+    "summary": "Multimedia recommendation systems leverage user-item interactions and multimodal information to capture user preferences, enabling more accurate and personalized recommendations. Despite notable advancements, existing approaches still face two critical limitations: first, shallow modality fusion often relies on simple concatenation, failing to exploit rich synergic intra- and inter-modal relationships; second, asymmetric feature treatment-where users are only characterized by interaction IDs while items benefit from rich multimodal content-hinders the learning of a shared semantic space. To address these issues, we propose a Cross-modal Recursive Attention Network with dual graph Embedding (CRANE). To tackle shallow fusion, we design a core Recursive Cross-Modal Attention (RCA) mechanism that iteratively refines modality features based on cross-correlations in a joint latent space, effectively capturing high-order intra- and inter-modal dependencies. For symmetric multimodal learning, we explicitly construct users' multimodal profiles by aggregating features of their interacted items. Furthermore, CRANE integrates a symmetric dual-graph framework-comprising a heterogeneous user-item interaction graph and a homogeneous item-item semantic graph-unified by a self-supervised contrastive learning objective to fuse behavioral and semantic signals. Despite these complex modeling capabilities, CRANE maintains high computational efficiency. Theoretical and empirical analyses confirm its scalability and high practical efficiency, achieving faster convergence on small datasets and superior performance ceilings on large-scale ones. Comprehensive experiments on four public real-world datasets validate an average 5% improvement in key metrics over state-of-the-art baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-16T10:09:39Z",
+    "updated": "2026-01-16T10:09:39Z",
+    "url": "http://arxiv.org/abs/2601.11151v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11151v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态推荐系统，提出了跨模态递归注意力网络和双图学习框架以解决特征融合浅层和用户 - 物品表征不对称问题，属于核心推荐领域的高优先级创新。",
+    "translation": "多模态推荐中基于双图学习的跨模态注意力网络",
+    "summary_zh": "提出一种结合递归跨模态注意力机制与对称双图框架的推荐模型，通过迭代优化模态间依赖并构建用户多模态画像，统一融合行为信号与语义信号以提升推荐效果。",
+    "key_points": [
+      "提出一种结合递归跨模态注意力机制与对称双图框架的推荐模型，通过迭代优化模态间依赖并构建用户多模态画像，统一融合行为信号与语义信号以提升推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11427v1",
+    "title": "Isotropy-Optimized Contrastive Learning for Semantic Course Recommendation",
+    "authors": [
+      "Ali Khreis",
+      "Anthony Nasr",
+      "Yusuf Hilal"
+    ],
+    "summary": "This paper presents a semantic course recommendation system for students using a self-supervised contrastive learning approach built upon BERT (Bidirectional Encoder Representations from Transformers). Traditional BERT embeddings suffer from anisotropic representation spaces, where course descriptions exhibit high cosine similarities regardless of semantic relevance. To address this limitation, we propose a contrastive learning framework with data augmentation and isotropy regularization that produces more discriminative embeddings. Our system processes student text queries and recommends Top-N relevant courses from a curated dataset of over 500 engineering courses across multiple faculties. Experimental results demonstrate that our fine-tuned model achieves improved embedding separation and more accurate course recommendations compared to vanilla BERT baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-01-16T16:47:29Z",
+    "updated": "2026-01-16T16:47:29Z",
+    "url": "http://arxiv.org/abs/2601.11427v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11427v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对课程推荐场景，提出利用各向同性优化的对比学习解决 BERT 嵌入的各向异性问题以提升推荐效果，属于明确的推荐系统应用；虽基于 LLM/BERT，但非纯 LLM 研究，结合好未来（TAL）背景额外加 1 分。",
+    "translation": "面向语义课程推荐的各向同性优化对比学习方法",
+    "summary_zh": "本文提出一种结合数据增强与各向同性正则化的对比学习框架，旨在修正 BERT 嵌入空间的各向异性缺陷，从而生成更具判别力的语义表示以优化课程推荐匹配。",
+    "key_points": [
+      "本文提出一种结合数据增强与各向同性正则化的对比学习框架，旨在修正 BERT 嵌入空间的各向异性缺陷，从而生成更具判别力的语义表示以优化课程推荐匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11287v1",
+    "title": "Seek and You Shall Find: Design & Evaluation of a Context-Aware Interactive Search Companion",
+    "authors": [
+      "Markus Bink",
+      "Marten Risius",
+      "Udo Kruschwitz",
+      "David Elsweiler"
+    ],
+    "summary": "Many users struggle with effective online search and critical evaluation, especially in high-stakes domains like health, while often overestimating their digital literacy. Thus, in this demo, we present an interactive search companion that seamlessly integrates expert search strategies into existing search engine result pages. Providing context-aware tips on clarifying information needs, improving query formulation, encouraging result exploration, and mitigating biases, our companion aims to foster reflective search behaviour while minimising cognitive burden. A user study demonstrates the companion's successful encouragement of more active and exploratory search, leading users to submit 75 % more queries and view roughly twice as many results, as well as performance gains in difficult tasks. This demo illustrates how lightweight, contextual guidance can enhance search literacy and empower users through micro-learning opportunities. While the vision involves real-time LLM adaptivity, this study utilises a controlled implementation to test the underlying intervention strategies.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-01-16T13:39:33Z",
+    "updated": "2026-01-16T13:39:33Z",
+    "url": "http://arxiv.org/abs/2601.11287v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11287v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索引擎的用户交互与查询优化，属于搜索系统核心体验改进；虽为演示研究且 LLM 仅作为未来愿景，但明确解决了搜索过程中的用户行为引导问题，结合中国公司背景加分。",
+    "translation": "寻即所得：情境感知交互式搜索伴侣的设计与评估",
+    "summary_zh": "提出一种嵌入搜索结果页的情境感知交互式伴侣，通过提供查询澄清、偏差缓解等微学习策略，引导用户进行更具反思性和探索性的搜索行为。",
+    "key_points": [
+      "提出一种嵌入搜索结果页的情境感知交互式伴侣，通过提供查询澄清、偏差缓解等微学习策略，引导用户进行更具反思性和探索性的搜索行为"
+    ]
+  },
+  {
+    "arxiv_id": "2601.10936v1",
+    "title": "Can Instructed Retrieval Models Really Support Exploration?",
+    "authors": [
+      "Piyush Maheshwari",
+      "Sheshera Mysore",
+      "Hamed Zamani"
+    ],
+    "summary": "Exploratory searches are characterized by under-specified goals and evolving query intents. In such scenarios, retrieval models that can capture user-specified nuances in query intent and adapt results accordingly are desirable -- instruction-following retrieval models promise such a capability. In this work, we evaluate instructed retrievers for the prevalent yet under-explored application of aspect-conditional seed-guided exploration using an expert-annotated test collection. We evaluate both recent LLMs fine-tuned for instructed retrieval and general-purpose LLMs prompted for ranking with the highly performant Pairwise Ranking Prompting. We find that the best instructed retrievers improve on ranking relevance compared to instruction-agnostic approaches. However, we also find that instruction following performance, crucial to the user experience of interacting with models, does not mirror ranking relevance improvements and displays insensitivity or counter-intuitive behavior to instructions. Our results indicate that while users may benefit from using current instructed retrievers over instruction-agnostic models, they may not benefit from using them for long-running exploratory sessions requiring greater sensitivity to instructions.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2026-01-16T01:45:29Z",
+    "updated": "2026-01-16T01:45:29Z",
+    "url": "http://arxiv.org/abs/2601.10936v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.10936v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "UniversityofMassachusetts Microsoft UniversityofMassachusetts",
+      "elspromisesuchacapability.Inthiswork,weevaluateinstructed ortheoremretrieval,tipoftongueretrieval,andliteraturesearch,",
+      "structionfollowingperformance,crucialtotheuserexperience exploringdocument/itemcollectionssuchasresearchpapers,e-"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接评估指令遵循检索模型在探索性搜索场景中的应用，属于搜索核心环节（检索/排序）与 LLM 结合的研究，符合中高优先级标准。",
+    "translation": "指令式检索模型真的能支持探索性搜索吗？",
+    "summary_zh": "本文评估了指令遵循检索模型在方面条件种子引导的探索性搜索任务中的表现，发现其虽提升了排序相关性，但在指令跟随敏感度上仍存在不足。",
+    "key_points": [
+      "本文评估了指令遵循检索模型在方面条件种子引导的探索性搜索任务中的表现，发现其虽提升了排序相关性，但在指令跟随敏感度上仍存在不足"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11722v1",
+    "title": "RAC: Retrieval-Augmented Clarification for Faithful Conversational Search",
+    "authors": [
+      "Ahmed Rayane Kebir",
+      "Vincent Guigue",
+      "Lynda Said Lhadj",
+      "Laure Soulier"
+    ],
+    "summary": "Clarification questions help conversational search systems resolve ambiguous or underspecified user queries. While prior work has focused on fluency and alignment with user intent, especially through facet extraction, much less attention has been paid to grounding clarifications in the underlying corpus. Without such grounding, systems risk asking questions that cannot be answered from the available documents. We introduce RAC (Retrieval-Augmented Clarification), a framework for generating corpus-faithful clarification questions. After comparing several indexing strategies for retrieval, we fine-tune a large language model to make optimal use of research context and to encourage the generation of evidence-based question. We then apply contrastive preference optimization to favor questions supported by retrieved passages over ungrounded alternatives. Evaluated on four benchmarks, RAC demonstrate significant improvements over baselines. In addition to LLM-as-Judge assessments, we introduce novel metrics derived from NLI and data-to-text to assess how well questions are anchored in the context, and we demonstrate that our approach consistently enhances faithfulness.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-01-16T19:16:38Z",
+    "updated": "2026-01-16T19:16:38Z",
+    "url": "http://arxiv.org/abs/2601.11722v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11722v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文针对对话搜索中的澄清问题生成，属于搜索核心环节，但主要贡献在于利用 RAG 和 DPO 提升 LLM 生成的忠实度，而非搜索架构或召回排序算法的根本性创新。",
+    "translation": "RAC：用于忠实对话搜索的检索增强澄清方法",
+    "summary_zh": "提出一种检索增强澄清框架，通过微调大模型并结合对比偏好优化，强制生成的澄清问题基于检索到的文档证据，以解决对话搜索中回复缺乏事实依据的问题。",
+    "key_points": [
+      "提出一种检索增强澄清框架，通过微调大模型并结合对比偏好优化，强制生成的澄清问题基于检索到的文档证据，以解决对话搜索中回复缺乏事实依据的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11238v1",
+    "title": "LLM-Assisted Pseudo-Relevance Feedback",
+    "authors": [
+      "David Otero",
+      "Javier Parapar"
+    ],
+    "summary": "Query expansion is a long-standing technique to mitigate vocabulary mismatch in ad hoc Information Retrieval. Pseudo-relevance feedback methods, such as RM3, estimate an expanded query model from the top-ranked documents, but remain vulnerable to topic drift when early results include noisy or tangential content. Recent approaches instead prompt Large Language Models to generate synthetic expansions or query variants. While effective, these methods risk hallucinations and misalignment with collection-specific terminology. We propose a hybrid alternative that preserves the robustness and interpretability of classical PRF while leveraging LLM semantic judgement. Our method inserts an LLM-based filtering stage prior to RM3 estimation: the LLM judges the documents in the initial top-$k$ ranking, and RM3 is computed only over those accepted as relevant. This simple intervention improves over blind PRF and a strong baseline across several datasets and metrics.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T12:31:43Z",
+    "updated": "2026-01-16T12:31:43Z",
+    "url": "http://arxiv.org/abs/2601.11238v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11238v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于通用信息检索（Ad hoc IR）中的查询扩展问题，虽涉及搜索核心技术，但未明确针对现代推荐系统或特定商业搜索场景，且主要贡献在于改进传统 PRF 而非 RecSys 专用架构。",
+    "translation": "大语言模型辅助的伪相关反馈",
+    "summary_zh": "提出一种混合方法，利用大语言模型对初始检索结果进行相关性过滤，仅对筛选后的文档执行传统伪相关反馈（RM3）以生成查询扩展，旨在结合经典方法的鲁棒性与大模型的语义判断能力。",
+    "key_points": [
+      "提出一种混合方法，利用大语言模型对初始检索结果进行相关性过滤，仅对筛选后的文档执行传统伪相关反馈（RM3）以生成查询扩展，旨在结合经典方法的鲁棒性与大模型的语义判断能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11412v1",
+    "title": "Validating Search Query Simulations: A Taxonomy of Measures",
+    "authors": [
+      "Andreas Konstantin Kruff",
+      "Nolwenn Bernard",
+      "Philipp Schaer"
+    ],
+    "summary": "Assessing the validity of user simulators when used for the evaluation of information retrieval systems remains an open question, constraining their effective use and the reliability of simulation-based results. To address this issue, we conduct a comprehensive literature review with a particular focus on methods for the validation of simulated user queries with regard to real queries. Based on the review, we develop a taxonomy that structures the current landscape of available measures. We empirically corroborate the taxonomy by analyzing the relationships between the different measures applied to four different datasets representing diverse search scenarios. Finally, we provide concrete recommendations on which measures or combinations of measures should be considered when validating user simulation in different contexts. Furthermore, we release a dedicated library with the most commonly used measures to facilitate future research.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T16:33:25Z",
+    "updated": "2026-01-16T16:33:25Z",
+    "url": "http://arxiv.org/abs/2601.11412v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11412v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索系统中的用户查询模拟验证方法，属于搜索评估的基础设施研究，虽非核心排序算法创新，但直接服务于搜索系统优化。",
+    "translation": "验证搜索查询模拟：一种度量分类法",
+    "summary_zh": "本文通过文献综述构建了搜索查询模拟验证的度量分类体系，并实证分析了不同度量间的关系以指导实际应用场景中的方法选择。",
+    "key_points": [
+      "本文通过文献综述构建了搜索查询模拟验证的度量分类体系，并实证分析了不同度量间的关系以指导实际应用场景中的方法选择"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11000v1",
+    "title": "When Personalization Misleads: Understanding and Mitigating Hallucinations in Personalized LLMs",
+    "authors": [
+      "Zhongxiang Sun",
+      "Yi Zhan",
+      "Chenglei Shen",
+      "Weijie Yu",
+      "Xiao Zhang",
+      "Ming He",
+      "Jun Xu"
+    ],
+    "summary": "Personalized large language models (LLMs) adapt model behavior to individual users to enhance user satisfaction, yet personalization can inadvertently distort factual reasoning. We show that when personalized LLMs face factual queries, there exists a phenomenon where the model generates answers aligned with a user's prior history rather than the objective truth, resulting in personalization-induced hallucinations that degrade factual reliability and may propagate incorrect beliefs, due to representational entanglement between personalization and factual representations. To address this issue, we propose Factuality-Preserving Personalized Steering (FPPS), a lightweight inference-time approach that mitigates personalization-induced factual distortions while preserving personalized behavior. We further introduce PFQABench, the first benchmark designed to jointly evaluate factual and personalized question answering under personalization. Experiments across multiple LLM backbones and personalization methods show that FPPS substantially improves factual accuracy while maintaining personalized performance.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-01-16T05:20:10Z",
+    "updated": "2026-01-16T05:20:10Z",
+    "url": "http://arxiv.org/abs/2601.11000v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11000v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于个性化 LLM 中的幻觉问题，虽涉及用户建模但核心是解决 LLM 事实性偏差而非推荐系统架构优化，属于纯 LLM 研究范畴，仅因可能辅助搜索问答场景给予低分。",
+    "translation": "当个性化产生误导：理解并缓解个性化大语言模型中的幻觉",
+    "summary_zh": "提出一种推理时 steering 方法，通过解耦个性化与事实表征，在保留用户偏好适应能力的同时抑制因过度拟合用户历史而导致的事实性幻觉。",
+    "key_points": [
+      "提出一种推理时 steering 方法，通过解耦个性化与事实表征，在保留用户偏好适应能力的同时抑制因过度拟合用户历史而导致的事实性幻觉"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11273v2",
+    "title": "Rank4Gen: RAG-Preference-Aligned Document Set Selection and Ranking",
+    "authors": [
+      "Yongqi Fan",
+      "Yuxiang Chu",
+      "Zhentao Xia",
+      "Xiaoyang Chen",
+      "Jie Liu",
+      "Haijin Liang",
+      "Jin Ma",
+      "Ben He",
+      "Yingfei Sun",
+      "Dezhi Ye",
+      "Tong Ruan"
+    ],
+    "summary": "In the RAG paradigm, the information retrieval module provides context for generators by retrieving and ranking multiple documents to support the aggregation of evidence. However, existing ranking models are primarily optimized for query--document relevance, which often misaligns with generators' preferences for evidence selection and citation, limiting their impact on response quality. Moreover, most approaches do not account for preference differences across generators, resulting in unstable cross-generator performance. We propose \\textbf{Rank4Gen}, a generator-aware ranker for RAG that targets the goal of \\emph{Ranking for Generators}. Rank4Gen introduces two key preference modeling strategies: (1) \\textbf{From Ranking Relevance to Response Quality}, which optimizes ranking with respect to downstream response quality rather than query--document relevance; and (2) \\textbf{Generator-Specific Preference Modeling}, which conditions a single ranker on different generators to capture their distinct ranking preferences. To enable such modeling, we construct \\textbf{PRISM}, a dataset built from multiple open-source corpora and diverse downstream generators. Experiments on five challenging and recent RAG benchmarks demonstrate that Rank4Gen achieves strong and competitive performance for complex evidence composition in RAG.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T13:19:17Z",
+    "updated": "2026-03-09T11:29:07Z",
+    "url": "http://arxiv.org/abs/2601.11273v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.11273v2.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "♢EastChinaUniversityofScienceandTechnology,Shanghai,China",
+      "♠Tencent,♡UniversityofChineseAcademyofSciences",
+      "♣ChineseInformationProcessingLaboratory,InstituteofSoftware,CAS"
+    ],
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于优化检索增强生成中的文档排序以提升生成质量，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交信息流、广告等）。",
+    "translation": "Rank4Gen：基于 RAG 偏好对齐的文档集选择与排序",
+    "summary_zh": "提出一种面向生成器的排序方法，通过将优化目标从查询 - 文档相关性转向下游响应质量，并建模不同生成器的特定偏好，以解决 RAG 场景中检索与生成目标不一致的问题。",
+    "key_points": [
+      "提出一种面向生成器的排序方法，通过将优化目标从查询 - 文档相关性转向下游响应质量，并建模不同生成器的特定偏好，以解决 RAG 场景中检索与生成目标不一致的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11037v1",
+    "title": "BAPO: Boundary-Aware Policy Optimization for Reliable Agentic Search",
+    "authors": [
+      "Shiyu Liu",
+      "Yongjing Yin",
+      "Jianhao Yan",
+      "Yunbo Tang",
+      "Qinggang Zhang",
+      "Bei Li",
+      "Xin Chen",
+      "Jingang Wang",
+      "Xunliang Cai",
+      "Jinsong Su"
+    ],
+    "summary": "RL-based agentic search enables LLMs to solve complex questions via dynamic planning and external search. While this approach significantly enhances accuracy with agent policies optimized via large-scale reinforcement learning, we identify a critical gap in reliability: these agents fail to recognize their reasoning boundaries and rarely admit ``I DON'T KNOW'' (IDK) even when evidence is insufficient or reasoning reaches its limit. The lack of reliability often leads to plausible but unreliable answers, introducing significant risks in many real-world scenarios. To this end, we propose Boundary-Aware Policy Optimization (BAPO), a novel RL framework designed to cultivate reliable boundary awareness without compromising accuracy. BAPO introduces two key components: (i) a group-based boundary-aware reward that encourages an IDK response only when the reasoning reaches its limit, and (ii) an adaptive reward modulator that strategically suspends this reward during early exploration, preventing the model from exploiting IDK as a shortcut. Extensive experiments on four benchmarks demonstrate that BAPO substantially enhances the overall reliability of agentic search.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-01-16T07:06:58Z",
+    "updated": "2026-01-16T07:06:58Z",
+    "url": "http://arxiv.org/abs/2601.11037v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11037v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "1InstituteofArtificialIntelligence,XiamenUniversity",
+      "2MeituanInc. 3SchoolofInformatics,XiamenUniversity",
+      "4WestlakeUniversity5TheHongKongPolytechnicUniversity",
+      "AwarePolicyOptimization(BAPO),anovel isinsufficientandthatnoanswerisavailable."
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM Agent 与强化学习研究，聚焦于提升通用问答的可靠性（IDK 机制），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "BAPO：面向可靠代理搜索的边界感知策略优化",
+    "summary_zh": "提出一种边界感知策略优化框架，通过分组边界奖励和自适应奖励调节机制，训练 LLM 代理在推理达到极限时主动承认未知，以提升复杂问答任务的可靠性。",
+    "key_points": [
+      "提出一种边界感知策略优化框架，通过分组边界奖励和自适应奖励调节机制，训练 LLM 代理在推理达到极限时主动承认未知，以提升复杂问答任务的可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11284v1",
+    "title": "\"Can You Tell Me?\": Designing Copilots to Support Human Judgement in Online Information Seeking",
+    "authors": [
+      "Markus Bink",
+      "Marten Risius",
+      "Udo Kruschwitz",
+      "David Elsweiler"
+    ],
+    "summary": "Generative AI (GenAI) tools are transforming information seeking, but their fluent, authoritative responses risk overreliance and discourage independent verification and reasoning. Rather than replacing the cognitive work of users, GenAI systems should be designed to support and scaffold it. Therefore, this paper introduces an LLM-based conversational copilot designed to scaffold information evaluation rather than provide answers and foster digital literacy skills. In a pre-registered, randomised controlled trial (N=261) examining three interface conditions including a chat-based copilot, our mixed-methods analysis reveals that users engaged deeply with the copilot, demonstrating metacognitive reflection. However, the copilot did not significantly improve answer correctness or search engagement, largely due to a \"time-on-chat vs. exploration\" trade-off and users' bias toward positive information. Qualitative findings reveal tension between the copilot's Socratic approach and users' desire for efficiency. These results highlight both the promise and pitfalls of pedagogical copilots, and we outline design pathways to reconcile literacy goals with efficiency demands.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-01-16T13:33:54Z",
+    "updated": "2026-01-16T13:33:54Z",
+    "url": "http://arxiv.org/abs/2601.11284v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11284v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 应用研究（教育/数字素养），旨在辅助人类判断而非优化推荐或搜索系统的核心算法（如召回、排序），与 RecSys/Search 产品直接相关性弱，虽来自 TAL 加 1 分但仍属低优先级。",
+    "translation": "“你能告诉我吗？”：设计副驾驶以支持在线信息寻求中的人类判断",
+    "summary_zh": "提出一种基于 LLM 的苏格拉底式对话副驾驶，旨在通过引导而非直接提供答案来支撑用户的信息评估能力和数字素养。",
+    "key_points": [
+      "提出一种基于 LLM 的苏格拉底式对话副驾驶，旨在通过引导而非直接提供答案来支撑用户的信息评估能力和数字素养"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11004v1",
+    "title": "NAACL: Noise-AwAre Verbal Confidence Calibration for LLMs in RAG Systems",
+    "authors": [
+      "Jiayu Liu",
+      "Rui Wang",
+      "Qing Zong",
+      "Qingcheng Zeng",
+      "Tianshi Zheng",
+      "Haochen Shi",
+      "Dadi Guo",
+      "Baixuan Xu",
+      "Chunyang Li",
+      "Yangqiu Song"
+    ],
+    "summary": "Accurately assessing model confidence is essential for deploying large language models (LLMs) in mission-critical factual domains. While retrieval-augmented generation (RAG) is widely adopted to improve grounding, confidence calibration in RAG settings remains poorly understood. We conduct a systematic study across four benchmarks, revealing that LLMs exhibit poor calibration performance due to noisy retrieved contexts. Specifically, contradictory or irrelevant evidence tends to inflate the model's false certainty, leading to severe overconfidence. To address this, we propose NAACL Rules (Noise-AwAre Confidence CaLibration Rules) to provide a principled foundation for resolving overconfidence under noise. We further design NAACL, a noise-aware calibration framework that synthesizes supervision from about 2K HotpotQA examples guided by these rules. By performing supervised fine-tuning (SFT) with this data, NAACL equips models with intrinsic noise awareness without relying on stronger teacher models. Empirical results show that NAACL yields substantial gains, improving ECE scores by 10.9% in-domain and 8.0% out-of-domain. By bridging the gap between retrieval noise and verbal calibration, NAACL paves the way for both accurate and epistemically reliable LLMs.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-01-16T05:38:25Z",
+    "updated": "2026-01-16T05:38:25Z",
+    "url": "http://arxiv.org/abs/2601.11004v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11004v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 校准与 RAG 研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），虽来自中国企业但相关性极低。",
+    "translation": "NAACL：RAG 系统中面向大语言模型的噪声感知言语置信度校准",
+    "summary_zh": "提出一种噪声感知的置信度校准框架，通过合成监督数据微调大模型，以解决检索增强生成中因噪声上下文导致的过度自信问题。",
+    "key_points": [
+      "提出一种噪声感知的置信度校准框架，通过合成监督数据微调大模型，以解决检索增强生成中因噪声上下文导致的过度自信问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11443v1",
+    "title": "Predict the Retrieval! Test time adaptation for Retrieval Augmented Generation",
+    "authors": [
+      "Xin Sun",
+      "Zhongqi Chen",
+      "Qiang Liu",
+      "Shu Wu",
+      "Bowen Song",
+      "Weiqiang Wang",
+      "Zilei Wang",
+      "Liang Wang"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has emerged as a powerful approach for enhancing large language models' question-answering capabilities through the integration of external knowledge. However, when adapting RAG systems to specialized domains, challenges arise from distribution shifts, resulting in suboptimal generalization performance. In this work, we propose TTARAG, a test-time adaptation method that dynamically updates the language model's parameters during inference to improve RAG system performance in specialized domains. Our method introduces a simple yet effective approach where the model learns to predict retrieved content, enabling automatic parameter adjustment to the target domain. Through extensive experiments across six specialized domains, we demonstrate that TTARAG achieves substantial performance improvements over baseline RAG systems. Code available at https://github.com/sunxin000/TTARAG.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-01-16T17:07:01Z",
+    "updated": "2026-01-16T17:07:01Z",
+    "url": "http://arxiv.org/abs/2601.11443v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11443v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG（检索增强生成）的研究，专注于问答任务中的测试时适应，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "预测检索！检索增强生成的测试时适应方法",
+    "summary_zh": "提出一种测试时适应方法 TTARAG，通过让模型学习预测检索内容来动态更新参数，以解决 RAG 系统在特定领域因分布偏移导致的泛化性能下降问题。",
+    "key_points": [
+      "提出一种测试时适应方法 TTARAG，通过让模型学习预测检索内容来动态更新参数，以解决 RAG 系统在特定领域因分布偏移导致的泛化性能下降问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11144v3",
+    "title": "Deep GraphRAG: A Balanced Approach to Hierarchical Retrieval and Adaptive Integration",
+    "authors": [
+      "Yuejie Li",
+      "Ke Yang",
+      "Tao Wang",
+      "Bolin Chen",
+      "Bowen Li",
+      "Chengjun Mao"
+    ],
+    "summary": "Graph-based Retrieval-Augmented Generation (GraphRAG) frameworks face a trade-off between the comprehensiveness of global search and the efficiency of local search. Existing methods are often challenged by navigating large-scale hierarchical graphs, optimizing retrieval paths, and balancing exploration-exploitation dynamics, frequently lacking robust multi-stage re-ranking. To overcome these deficits, we propose Deep GraphRAG, a framework designed for a balanced approach to hierarchical retrieval and adaptive integration. It introduces a hierarchical global-to-local retrieval strategy that integrates macroscopic inter-community and microscopic intra-community contextual relations. This strategy employs a three-stage process: (1) inter-community filtering, which prunes the search space using local context; (2) community-level refinement, which prioritizes relevant subgraphs via entity-interaction analysis; and (3) entity-level fine-grained search within target communities. A beam search-optimized dynamic re-ranking module guides this process, continuously filtering candidates to balance efficiency and global comprehensiveness. Deep GraphRAG also features a Knowledge Integration Module leveraging a compact LLM, trained with Dynamic Weighting Reward GRPO (DW-GRPO). This novel reinforcement learning approach dynamically adjusts reward weights to balance three key objectives: relevance, faithfulness, and conciseness. This training enables compact models (1.5B) to approach the performance of large models (70B) in the integration task. Evaluations on Natural Questions and HotpotQA demonstrate that Deep GraphRAG significantly outperforms baseline graph retrieval methods in both accuracy and efficiency.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-16T10:02:31Z",
+    "updated": "2026-01-29T05:46:54Z",
+    "url": "http://arxiv.org/abs/2601.11144v3",
+    "pdf_url": "http://arxiv.org/pdf/2601.11144v3.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "AntGroup AntGroup ZhejiangUniversity"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和通用 NLP（问答）研究，专注于 GraphRAG 框架的改进，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "Deep GraphRAG：一种平衡分层检索与自适应集成的方法",
+    "summary_zh": "提出一种分层全局到局部检索策略，结合动态重排序模块和利用强化学习训练紧凑模型的知识集成模块，以平衡检索效率与全面性。",
+    "key_points": [
+      "提出一种分层全局到局部检索策略，结合动态重排序模块和利用强化学习训练紧凑模型的知识集成模块，以平衡检索效率与全面性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11024v1",
+    "title": "PruneRAG: Confidence-Guided Query Decomposition Trees for Efficient Retrieval-Augmented Generation",
+    "authors": [
+      "Shuguang Jiao",
+      "Xinyu Xiao",
+      "Yunfan Wei",
+      "Shuhan Qi",
+      "Chengkai Huang",
+      "Quan Z. Michael Sheng",
+      "Lina Yao"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) has become a powerful framework for enhancing large language models in knowledge-intensive and reasoning tasks. However, as reasoning chains deepen or search trees expand, RAG systems often face two persistent failures: evidence forgetting, where retrieved knowledge is not effectively used, and inefficiency, caused by uncontrolled query expansions and redundant retrieval. These issues reveal a critical gap between retrieval and evidence utilization in current RAG architectures. We propose PruneRAG, a confidence-guided query decomposition framework that builds a structured query decomposition tree to perform stable and efficient reasoning. PruneRAG introduces three key mechanisms: adaptive node expansion that regulates tree width and depth, confidence-guided decisions that accept reliable answers and prune uncertain branches, and fine-grained retrieval that extracts entity-level anchors to improve retrieval precision. Together, these components preserve salient evidence throughout multi-hop reasoning while significantly reducing retrieval overhead. To better analyze evidence misuse, we define the Evidence Forgetting Rate as a metric to quantify cases where golden evidence is retrieved but not correctly used. Extensive experiments across various multi-hop QA benchmarks show that PruneRAG achieves superior accuracy and efficiency over state-of-the-art baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-16T06:38:17Z",
+    "updated": "2026-01-16T06:38:17Z",
+    "url": "http://arxiv.org/abs/2601.11024v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.11024v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 推理优化的研究，专注于问答任务中的证据遗忘和查询剪枝，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "PruneRAG：用于高效检索增强生成的置信度引导查询分解树",
+    "summary_zh": "提出一种置信度引导的查询分解框架，通过自适应节点扩展和剪枝机制构建结构化推理树，以解决多跳推理中的证据遗忘和检索冗余问题。",
+    "key_points": [
+      "提出一种置信度引导的查询分解框架，通过自适应节点扩展和剪枝机制构建结构化推理树，以解决多跳推理中的证据遗忘和检索冗余问题"
+    ]
+  }
+]

@@ -1,0 +1,506 @@
+[
+  {
+    "arxiv_id": "2601.08816v2",
+    "title": "MemRec: Collaborative Memory-Augmented Agentic Recommender System",
+    "authors": [
+      "Weixin Chen",
+      "Yuhan Zhao",
+      "Jingyuan Huang",
+      "Zihe Ye",
+      "Clark Mingxuan Ju",
+      "Tong Zhao",
+      "Neil Shah",
+      "Li Chen",
+      "Yongfeng Zhang"
+    ],
+    "summary": "The evolution of recommender systems has shifted preference storage from rating matrices and dense embeddings to semantic memory in the agentic era. Yet existing agents rely on isolated memory, overlooking crucial collaborative signals. Bridging this gap is hindered by the dual challenges of distilling vast graph contexts without overwhelming reasoning agents with cognitive load, and evolving the collaborative memory efficiently without incurring prohibitive computational costs. To address this, we propose MemRec, a framework that architecturally decouples reasoning from memory management to enable efficient collaborative augmentation. MemRec introduces a dedicated, cost-effective LM_Mem to manage a dynamic collaborative memory graph, serving synthesized, high-signal context to a downstream LLM_Rec. The framework operates via a practical pipeline featuring efficient retrieval and cost-effective asynchronous graph propagation that evolves memory in the background. Extensive experiments on four benchmarks demonstrate that MemRec achieves state-of-the-art performance. Furthermore, architectural analysis confirms its flexibility, establishing a new Pareto frontier that balances reasoning quality, cost, and privacy through support for diverse deployments, including local open-source models. Code:https://github.com/rutgerswiselab/memrec and Homepage: https://memrec.weixinchen.com",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-13T18:51:16Z",
+    "updated": "2026-01-17T02:11:07Z",
+    "url": "http://arxiv.org/abs/2601.08816v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.08816v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文提出专为推荐系统设计的代理架构（MemRec），直接解决推荐中的记忆与协作问题，且来自中国公司 STO，符合最高优先级标准。",
+    "translation": "MemRec：协同记忆增强的代理推荐系统",
+    "summary_zh": "提出一种将推理与记忆管理解耦的框架，利用专用轻量模型维护动态协同记忆图，为下游大语言模型推荐器提供高效上下文增强。",
+    "key_points": [
+      "提出一种将推理与记忆管理解耦的框架，利用专用轻量模型维护动态协同记忆图，为下游大语言模型推荐器提供高效上下文增强"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08360v2",
+    "title": "Scalable Sequential Recommendation under Latency and Memory Constraints",
+    "authors": [
+      "Adithya Parthasarathy",
+      "Aswathnarayan Muthukrishnan Kirubakaran",
+      "Vinoth Punniyamoorthy",
+      "Nachiappan Chockalingam",
+      "Lokesh Butra",
+      "Kabilan Kannan",
+      "Abhirup Mazumder",
+      "Sumit Saha"
+    ],
+    "summary": "Sequential recommender systems must model long-range user behavior while operating under strict memory and latency constraints. Transformer-based approaches achieve strong accuracy but suffer from quadratic attention complexity, forcing aggressive truncation of user histories and limiting their practicality for long-horizon modeling. This paper presents HoloMambaRec, a lightweight sequential recommendation architecture that combines holographic reduced representations for attribute-aware embedding with a selective state space encoder for linear-time sequence processing. Item and attribute information are bound using circular convolution, preserving embedding dimensionality while encoding structured metadata. A shallow selective state space backbone, inspired by recent Mamba-style models, enables efficient training and constant-time recurrent inference. Experiments on Amazon Beauty and MovieLens-1M under a 10-epoch budget show that HoloMambaRec surpasses SASRec on both datasets, attains state-of-the-art ranking on MovieLens-1M, and trails only GRU4Rec on Amazon Beauty, all while maintaining substantially lower memory complexity. The design further incorporates forward-compatible mechanisms for temporal bundling and inference-time compression, positioning HoloMambaRec as a practical and extensible alternative for scalable, metadata-aware sequential recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-13T09:16:49Z",
+    "updated": "2026-01-29T08:29:40Z",
+    "url": "http://arxiv.org/abs/2601.08360v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.08360v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统中的延迟和内存约束问题，提出了结合全息表示与状态空间模型（Mamba）的新架构 HoloMambaRec，属于核心推荐算法创新且来自工业界，完全符合高优先级标准。",
+    "translation": "延迟与内存约束下的可扩展序列推荐",
+    "summary_zh": "提出 HoloMambaRec 架构，利用全息降维表示处理属性嵌入，并结合选择性状态空间编码器实现线性时间复杂度的长序列用户行为建模，以解决传统 Transformer 在推荐系统中的效率瓶颈。",
+    "key_points": [
+      "提出 HoloMambaRec 架构，利用全息降维表示处理属性嵌入，并结合选择性状态空间编码器实现线性时间复杂度的长序列用户行为建模，以解决传统 Transformer 在推荐系统中的效率瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08275v1",
+    "title": "Markovian Pre-Trained Transformer for Next-Item Recommendation",
+    "authors": [
+      "Cong Xu",
+      "Guoliang Li",
+      "Jun Wang",
+      "Wei Zhang"
+    ],
+    "summary": "We introduce the Markovian Pre-trained Transformer (MPT) for next-item recommendation, a transferable model fully pre-trained on synthetic Markov chains, yet capable of achieving state-of-the-art performance by fine-tuning a lightweight adaptor. This counterintuitive success stems from the observation of the `Markovian' nature: advanced sequential recommenders coincidentally rely on the latest interaction to make predictions, while the historical interactions serve mainly as auxiliary cues for inferring the user's general, non-sequential identity. This characteristic necessitates the capabilities of a universal recommendation model to effectively summarize the user sequence, with particular emphasis on the latest interaction. MPT inherently has the potential to be universal and transferable. On the one hand, when trained to predict the next state of Markov chains, it acquires the capabilities to estimate transition probabilities from the context (one adaptive manner for summarizing sequences) and attend to the last state to ensure accurate state transitions. On the other hand, unlike the heterogeneous interaction data, an unlimited amount of controllable Markov chains is available to boost the model capacity. We conduct extensive experiments on five public datasets from three distinct platforms to validate the superiority of Markovian pre-training over traditional recommendation pre-training and recent language pre-training paradigms.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-13T07:07:27Z",
+    "updated": "2026-01-13T07:07:27Z",
+    "url": "http://arxiv.org/abs/2601.08275v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08275v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的下一项预测问题，提出了基于马尔可夫预训练的 Transformer 新架构，属于核心领域创新且来自中国公司，完全符合高优先级标准。",
+    "translation": "用于下一项推荐的马尔可夫预训练 Transformer",
+    "summary_zh": "提出一种在合成马尔可夫链上预训练的 Transformer 模型，利用序列的马尔可夫特性高效总结用户历史并聚焦最新交互，以实现通用的下一项推荐能力。",
+    "key_points": [
+      "提出一种在合成马尔可夫链上预训练的 Transformer 模型，利用序列的马尔可夫特性高效总结用户历史并聚焦最新交互，以实现通用的下一项推荐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08705v3",
+    "title": "RMBRec: Robust Multi-Behavior Recommendation towards Target Behaviors",
+    "authors": [
+      "Miaomiao Cai",
+      "Zhijie Zhang",
+      "Junfeng Fang",
+      "Zhiyong Cheng",
+      "Xiang Wang",
+      "Meng Wang"
+    ],
+    "summary": "Multi-behavior recommendation faces a critical challenge in practice: auxiliary behaviors (e.g., clicks, carts) are often noisy, weakly correlated, or semantically misaligned with the target behavior (e.g., purchase), which leads to biased preference learning and suboptimal performance. While existing methods attempt to fuse these heterogeneous signals, they inherently lack a principled mechanism to ensure robustness against such behavioral inconsistency.\n  In this work, we propose Robust Multi-Behavior Recommendation towards Target Behaviors (RMBRec), a robust multi-behavior recommendation framework grounded in an information-theoretic robustness principle. We interpret robustness as a joint process of maximizing predictive information while minimizing its variance across heterogeneous behavioral environments. Under this perspective, the Representation Robustness Module (RRM) enhances local semantic consistency by maximizing the mutual information between users' auxiliary and target representations, whereas the Optimization Robustness Module (ORM) enforces global stability by minimizing the variance of predictive risks across behaviors, which is an efficient approximation to invariant risk minimization. This local-global collaboration bridges representation purification and optimization invariance in a theoretically coherent way. Extensive experiments on three real-world datasets demonstrate that RMBRec not only outperforms state-of-the-art methods in accuracy but also maintains remarkable stability under various noise perturbations. For reproducibility, our code is available at https://github.com/miaomiao-cai2/RMBRec/.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-01-13T16:34:17Z",
+    "updated": "2026-01-21T17:02:16Z",
+    "url": "http://arxiv.org/abs/2601.08705v3",
+    "pdf_url": "http://arxiv.org/pdf/2601.08705v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的多行为建模核心问题，提出了解决辅助行为噪声与目标行为不一致的鲁棒性框架，具有明确的业务应用价值。",
+    "translation": "RMBRec：面向目标行为的鲁棒多行为推荐",
+    "summary_zh": "该论文提出一种基于信息论原则的多行为推荐框架，通过局部表示一致性最大化与全局预测风险方差最小化的协同机制，解决辅助行为噪声导致的偏好学习偏差问题。",
+    "key_points": [
+      "该论文提出一种基于信息论原则的多行为推荐框架，通过局部表示一致性最大化与全局预测风险方差最小化的协同机制，解决辅助行为噪声导致的偏好学习偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08148v1",
+    "title": "Enriching Semantic Profiles into Knowledge Graph for Recommender Systems Using Large Language Models",
+    "authors": [
+      "Seokho Ahn",
+      "Sungbok Shin",
+      "Young-Duk Seo"
+    ],
+    "summary": "Rich and informative profiling to capture user preferences is essential for improving recommendation quality. However, there is still no consensus on how best to construct and utilize such profiles. To address this, we revisit recent profiling-based approaches in recommender systems along four dimensions: 1) knowledge base, 2) preference indicator, 3) impact range, and 4) subject. We argue that large language models (LLMs) are effective at extracting compressed rationales from diverse knowledge sources, while knowledge graphs (KGs) are better suited for propagating these profiles to extend their reach. Building on this insight, we propose a new recommendation model, called SPiKE. SPiKE consists of three core components: i) Entity profile generation, which uses LLMs to generate semantic profiles for all KG entities; ii) Profile-aware KG aggregation, which integrates these profiles into the KG; and iii) Pairwise profile preference matching, which aligns LLM- and KG-based representations during training. In experiments, we demonstrate that SPiKE consistently outperforms state-of-the-art KG- and LLM-based recommenders in real-world settings.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-01-13T02:23:32Z",
+    "updated": "2026-01-13T02:23:32Z",
+    "url": "http://arxiv.org/abs/2601.08148v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08148v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出利用 LLM 构建语义画像并结合知识图谱的新架构（SPiKE），属于核心领域的高优先级创新。",
+    "translation": "利用大语言模型 enrich 推荐系统的知识图谱语义画像",
+    "summary_zh": "提出 SPiKE 模型，利用大语言模型从多源知识中提取压缩推理以生成实体语义画像，并将其融入知识图谱进行偏好传播与匹配。",
+    "key_points": [
+      "提出 SPiKE 模型，利用大语言模型从多源知识中提取压缩推理以生成实体语义画像，并将其融入知识图谱进行偏好传播与匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08345v1",
+    "title": "MLPlatt: Simple Calibration Framework for Ranking Models",
+    "authors": [
+      "Piotr Bajger",
+      "Roman Dusek",
+      "Krzysztof Galias",
+      "Paweł Młyniec",
+      "Aleksander Wawer",
+      "Paweł Zawistowski"
+    ],
+    "summary": "Ranking models are extensively used in e-commerce for relevance estimation. These models often suffer from poor interpretability and no scale calibration, particularly when trained with typical ranking loss functions. This paper addresses the problem of post-hoc calibration of ranking models. We introduce MLPlatt: a simple yet effective ranking model calibration method that preserves the item ordering and converts ranker outputs to interpretable click-through rate (CTR) probabilities usable in downstream tasks. The method is context-aware by design and achieves good calibration metrics globally, and within strata corresponding to different values of a selected categorical field (such as user country or device), which is often important from a business perspective of an E-commerce platform. We demonstrate the superiority of MLPlatt over existing approaches on two datasets, achieving an improvement of over 10\\% in F-ECE (Field Expected Calibration Error) compared to other methods. Most importantly, we show that high-quality calibration can be achieved without compromising the ranking quality.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-01-13T09:04:42Z",
+    "updated": "2026-01-13T09:04:42Z",
+    "url": "http://arxiv.org/abs/2601.08345v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08345v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商推荐系统中的排序模型校准问题，提出了一种保持排序顺序并将输出转化为可解释 CTR 概率的新方法，具有明确的业务应用价值。",
+    "translation": "MLPlatt：一种简单的排序模型校准框架",
+    "summary_zh": "提出 MLPlatt 方法，通过事后校准将排序模型的输出转化为保持物品顺序且可解释的点击率概率，同时兼顾全局及特定字段维度的校准精度而不损害排序质量。",
+    "key_points": [
+      "提出 MLPlatt 方法，通过事后校准将排序模型的输出转化为保持物品顺序且可解释的点击率概率，同时兼顾全局及特定字段维度的校准精度而不损害排序质量"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08497v1",
+    "title": "GraphFusionSBR: Denoising Multi-Channel Graphs for Session-Based Recommendation",
+    "authors": [
+      "Jia-Xin He",
+      "Hung-Hsuan Chen"
+    ],
+    "summary": "Session-based recommendation systems must capture implicit user intents from sessions. However, existing models suffer from issues such as item interaction dominance and noisy sessions. We propose a multi-channel recommendation model, including a knowledge graph channel, a session hypergraph channel, and a session line graph channel, to capture information from multiple sources. Our model adaptively removes redundant edges in the knowledge graph channel to reduce noise. Knowledge graph representations cooperate with hypergraph representations for prediction to alleviate item dominance. We also generate in-session attention for denoising. Finally, we maximize mutual information between the hypergraph and line graph channels as an auxiliary task. Experiments demonstrate that our method enhances the accuracy of various recommendations, including e-commerce and multimedia recommendations. We release the code on GitHub for reproducibility.\\footnote{https://github.com/hohehohe0509/DSR-HK}",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-01-13T12:32:31Z",
+    "updated": "2026-01-13T12:32:31Z",
+    "url": "http://arxiv.org/abs/2601.08497v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08497v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于会话的推荐系统核心问题（噪声、物品主导），提出多通道图融合架构进行去噪和意图捕捉，属于明确的推荐系统核心技术应用。",
+    "translation": "GraphFusionSBR：面向基于会话推荐的多通道图去噪方法",
+    "summary_zh": "提出一种融合知识图谱、超图和线图的多通道推荐模型，通过自适应去噪、抑制物品主导效应及最大化通道间互信息，精准捕捉用户隐式意图以提升推荐准确性。",
+    "key_points": [
+      "提出一种融合知识图谱、超图和线图的多通道推荐模型，通过自适应去噪、抑制物品主导效应及最大化通道间互信息，精准捕捉用户隐式意图以提升推荐准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08403v1",
+    "title": "Owen-Shapley Policy Optimization (OSPO): A Principled RL Algorithm for Generative Search LLMs",
+    "authors": [
+      "Abhijnan Nath",
+      "Alireza Bagheri Garakani",
+      "Tianchen Zhou",
+      "Fan Yang",
+      "Nikhil Krishnaswamy"
+    ],
+    "summary": "Large language models are increasingly trained via reinforcement learning for personalized recommendation tasks, but standard methods like GRPO rely on sparse, sequence-level rewards that create a credit assignment gap, obscuring which tokens drive success. This gap is especially problematic when models must infer latent user intent from under-specified language without ground truth labels, a reasoning pattern rarely seen during pretraining. We introduce Owen-Shapley Policy Optimization (OSPO), a framework that redistributes sequence-level advantages based on tokens' marginal contributions to outcomes. Unlike value-model-based methods requiring additional computation, OSPO employs potential-based reward shaping via Shapley-Owen attributions to assign segment-level credit while preserving the optimal policy, learning directly from task feedback without parametric value models. By forming coalitions of semantically coherent units (phrases describing product attributes or sentences capturing preferences), OSPO identifies which response parts drive performance. Experiments on Amazon ESCI and H&M Fashion datasets show consistent gains over baselines, with notable test-time robustness to out-of-distribution retrievers unseen during training.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-01-13T10:17:46Z",
+    "updated": "2026-01-13T10:17:46Z",
+    "url": "http://arxiv.org/abs/2601.08403v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08403v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "Cohere"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种基于 Shapley-Owen 归因的 RL 算法，专门用于解决生成式搜索和推荐中的信用分配问题，并直接在 Amazon 和 H&M 数据集上验证，属于 LLM 在 RecSys/Search 中的直接应用。",
+    "translation": "Owen-Shapley 策略优化：一种面向生成式搜索大语言模型的原则性强化学习算法",
+    "summary_zh": "该论文提出 Owen-Shapley 策略优化框架，通过基于语义单元的边际贡献重新分配序列级奖励，以解决生成式推荐和搜索任务中细粒度信用分配难题。",
+    "key_points": [
+      "该论文提出 Owen-Shapley 策略优化框架，通过基于语义单元的边际贡献重新分配序列级奖励，以解决生成式推荐和搜索任务中细粒度信用分配难题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08764v1",
+    "title": "FusID: Modality-Fused Semantic IDs for Generative Music Recommendation",
+    "authors": [
+      "Haven Kim",
+      "Yupeng Hou",
+      "Julian McAuley"
+    ],
+    "summary": "Generative recommendation systems have achieved significant advances by leveraging semantic IDs to represent items. However, existing approaches that tokenize each modality independently face two critical limitations: (1) redundancy across modalities that reduces efficiency, and (2) failure to capture inter-modal interactions that limits item representation. We introduce FusID, a modality-fused semantic ID framework that addresses these limitations through three key components: (i) multimodal fusion that learns unified representations by jointly encoding information across modalities, (ii) representation learning that brings frequently co-occurring item embeddings closer while maintaining distinctiveness and preventing feature redundancy, and (iii) product quantization that converts the fused continuous embeddings into multiple discrete tokens to mitigate ID conflict. Evaluated on a multimodal next-song recommendation (i.e., playlist continuation) benchmark, FusID achieves zero ID conflicts, ensuring that each token sequence maps to exactly one song, mitigates codebook underutilization, and outperforms baselines in terms of MRR and Recall@k (k = 1, 5, 10, 20).",
+    "categories": [
+      "cs.IR",
+      "cs.SD",
+      "eess.AS"
+    ],
+    "published": "2026-01-13T17:51:07Z",
+    "updated": "2026-01-13T17:51:07Z",
+    "url": "http://arxiv.org/abs/2601.08764v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08764v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态音乐推荐系统，提出了一种融合模态的语义 ID 生成框架以解决现有方法的冗余和交互缺失问题，属于明确的多模态推荐核心技术创新。",
+    "translation": "FusID：用于生成式音乐推荐的模态融合语义 ID",
+    "summary_zh": "该论文提出 FusID 框架，通过多模态融合编码、保持区分度的表示学习以及乘积量化技术，将连续嵌入转化为离散令牌序列，以解决多模态推荐中模态冗余和交互缺失的问题。",
+    "key_points": [
+      "该论文提出 FusID 框架，通过多模态融合编码、保持区分度的表示学习以及乘积量化技术，将连续嵌入转化为离散令牌序列，以解决多模态推荐中模态冗余和交互缺失的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08528v1",
+    "title": "SVFusion: A CPU-GPU Co-Processing Architecture for Large-Scale Real-Time Vector Search",
+    "authors": [
+      "Yuchen Peng",
+      "Dingyu Yang",
+      "Zhongle Xie",
+      "Ji Sun",
+      "Lidan Shou",
+      "Ke Chen",
+      "Gang Chen"
+    ],
+    "summary": "Approximate Nearest Neighbor Search (ANNS) underpins modern applications such as information retrieval and recommendation. With the rapid growth of vector data, efficient indexing for real-time vector search has become rudimentary. Existing CPU-based solutions support updates but suffer from low throughput, while GPU-accelerated systems deliver high performance but face challenges with dynamic updates and limited GPU memory, resulting in a critical performance gap for continuous, large-scale vector search requiring both accuracy and speed. In this paper, we present SVFusion, a GPU-CPU-disk collaborative framework for real-time vector search that bridges sophisticated GPU computation with online updates. SVFusion leverages a hierarchical vector index architecture that employs CPU-GPU co-processing, along with a workload-aware vector caching mechanism to maximize the efficiency of limited GPU memory. It further enhances performance through real-time coordination with CUDA multi-stream optimization and adaptive resource management, along with concurrency control that ensures data consistency under interleaved queries and updates. Empirical results demonstrate that SVFusion achieves significant improvements in query latency and throughput, exhibiting a 20.9x higher throughput on average and 1.3x to 50.7x lower latency compared to baseline methods, while maintaining high recall for large-scale datasets under various streaming workloads.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-01-13T13:12:07Z",
+    "updated": "2026-01-13T13:12:07Z",
+    "url": "http://arxiv.org/abs/2601.08528v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08528v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "ZhejiangUniversity† ZhejiangUniversity† ZhejiangUniversity† HuaweiTechnologiesCo.,",
+      "(Binjiang)Instituteof (Binjiang)Instituteof (Binjiang)Instituteof sunji11@huawei.com",
+      "ZhejiangUniversity† ZhejiangUniversity† ZhejiangUniversity†",
+      "(Binjiang)Instituteof (Binjiang)Instituteof (Binjiang)Instituteof",
+      "SVFusion,aGPU-CPU-diskcollaborativeframeworkforreal-time"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统和搜索引擎核心的向量检索（ANNS）环节，提出了 CPU-GPU 协同架构以解决大规模实时索引更新的关键工程问题，具有明确的业务应用场景。",
+    "translation": "SVFusion：面向大规模实时向量搜索的 CPU-GPU 协同处理架构",
+    "summary_zh": "提出一种 CPU-GPU-磁盘协同的分层向量索引框架，通过负载感知的缓存机制和多流优化，在有限显存下实现支持高频动态更新的大规模实时向量搜索。",
+    "key_points": [
+      "提出一种 CPU-GPU-磁盘协同的分层向量索引框架，通过负载感知的缓存机制和多流优化，在有限显存下实现支持高频动态更新的大规模实时向量搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08363v2",
+    "title": "PosIR: Position-Aware Heterogeneous Information Retrieval Benchmark",
+    "authors": [
+      "Ziyang Zeng",
+      "Dun Zhang",
+      "Yu Yan",
+      "Xu Sun",
+      "Cuiqiaoshu Pan",
+      "Yudong Zhou",
+      "Yuqing Yang"
+    ],
+    "summary": "In real-world documents, the information relevant to a user query may reside anywhere from the beginning to the end. This makes position bias -- a systematic tendency of retrieval models to favor or neglect content based on its location -- a critical concern. Although recent studies have identified such bias, existing analyses focus predominantly on English, fail to disentangle document length from information position, and lack a standardized framework for systematic diagnosis. To address these limitations, we introduce PosIR (Position-Aware Information Retrieval), the first standardized benchmark designed to systematically diagnose position bias in diverse retrieval scenarios. PosIR comprises 310 datasets spanning 10 languages and 31 domains, with relevance tied to precise reference spans. At its methodological core, PosIR employs a length-controlled bucketing strategy that groups queries by positive document length and analyzes positional effects within each bucket. This design strictly isolates position bias from length-induced performance degradation. Extensive experiments on 10 state-of-the-art embedding-based retrieval models reveal that: (1) retrieval performance on PosIR with documents exceeding 1536 tokens correlates poorly with the MMTEB benchmark, exposing limitations of current short-text evaluations; (2) position bias is pervasive in embedding models and even increases with document length, with most models exhibiting primacy bias while certain models show unexpected recency bias; (3) as an exploratory investigation, gradient-based saliency analysis further uncovers two distinct internal mechanisms that correlate with these positional preferences. We hope that PosIR can serve as a valuable diagnostic framework to advance the development of position-robust retrieval systems.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-01-13T09:22:16Z",
+    "updated": "2026-03-12T11:19:44Z",
+    "url": "http://arxiv.org/abs/2601.08363v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.08363v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一个用于诊断检索模型位置偏差的基准，属于搜索/检索的基础评估工具，但侧重于评测而非直接的业务系统架构创新。",
+    "translation": "PosIR：位置感知的异构信息检索基准",
+    "summary_zh": "提出 PosIR 基准，通过长度控制的分桶策略解耦文档长度与信息位置，旨在系统化诊断多语言场景下检索模型的位置偏差问题。",
+    "key_points": [
+      "提出 PosIR 基准，通过长度控制的分桶策略解耦文档长度与信息位置，旨在系统化诊断多语言场景下检索模型的位置偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08287v1",
+    "title": "Characterizing Personality from Eye-Tracking: The Role of Gaze and Its Absence in Interactive Search Environments",
+    "authors": [
+      "Jiaman He",
+      "Marta Micheli",
+      "Damiano Spina",
+      "Dana McKay",
+      "Johanne R. Trippas",
+      "Noriko Kando"
+    ],
+    "summary": "Personality traits influence how individuals engage, behave, and make decisions during the information-seeking process. However, few studies have linked personality to observable search behaviors. This study aims to characterize personality traits through a multimodal time-series model that integrates eye-tracking data and gaze missingness-periods when the user's gaze is not captured. This approach is based on the idea that people often look away when they think, signaling disengagement or reflection. We conducted a user study with 25 participants, who used an interactive application on an iPad, allowing them to engage with digital artifacts from a museum. We rely on raw gaze data from an eye tracker, minimizing preprocessing so that behavioral patterns can be preserved without substantial data cleaning. From this perspective, we trained models to predict personality traits using gaze signals. Our results from a five-fold cross-validation study demonstrate strong predictive performance across all five dimensions: Neuroticism (Macro F1 = 77.69%), Conscientiousness (74.52%), Openness (77.52%), Agreeableness (73.09%), and Extraversion (76.69%). The ablation study examines whether the absence of gaze information affects the model performance, demonstrating that incorporating missingness improves multimodal time-series modeling. The full model, which integrates both time-series signals and missingness information, achieves 10-15% higher accuracy and macro F1 scores across all Big Five traits compared to the model without time-series signals and missingness. These findings provide evidence that personality can be inferred from search-related gaze behavior and demonstrate the value of incorporating missing gaze data into time-series multimodal modeling.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-01-13T07:24:39Z",
+    "updated": "2026-01-13T07:24:39Z",
+    "url": "http://arxiv.org/abs/2601.08287v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08287v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于利用眼动数据预测人格特质，属于用户行为分析的基础研究，虽涉及搜索环境但未提出具体的推荐或搜索系统架构优化，且非纯 LLM 研究故未给最低分，但距离核心 RecSys 工程落地较远。",
+    "translation": "表征交互式搜索环境中的人格：凝视及其缺失的作用",
+    "summary_zh": "提出一种多模态时间序列模型，通过整合眼动追踪数据及凝视缺失时段（反映思考或脱离）来推断用户在搜索过程中的大五人格特质。",
+    "key_points": [
+      "提出一种多模态时间序列模型，通过整合眼动追踪数据及凝视缺失时段（反映思考或脱离）来推断用户在搜索过程中的大五人格特质"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08105v1",
+    "title": "Query Suggestion for Retrieval-Augmented Generation via Dynamic In-Context Learning",
+    "authors": [
+      "Fabian Spaeh",
+      "Tianyi Chen",
+      "Chen-Hao Chiang",
+      "Bin Shen"
+    ],
+    "summary": "Retrieval-augmented generation with tool-calling agents (agentic RAG) has become increasingly powerful in understanding, processing, and responding to user queries. However, the scope of the grounding knowledge is limited and asking questions that exceed this scope may lead to issues like hallucination. While guardrail frameworks aim to block out-of-scope questions (Rodriguez et al., 2024), no research has investigated the question of suggesting answerable queries in order to complete the user interaction.\n  In this paper, we initiate the study of query suggestion for agentic RAG. We consider the setting where user questions are not answerable, and the suggested queries should be similar to aid the user interaction. Such scenarios are frequent for tool-calling LLMs as communicating the restrictions of the tools or the underlying datasets to the user is difficult, and adding query suggestions enhances the interaction with the RAG agent. As opposed to traditional settings for query recommendations such as in search engines, ensuring that the suggested queries are answerable is a major challenge due to the RAG's multi-step workflow that demands a nuanced understanding of the RAG as a whole, which the executing LLM lacks. As such, we introduce robust dynamic few-shot learning which retrieves examples from relevant workflows. We show that our system can be self-learned, for instance on prior user queries, and is therefore easily applicable in practice. We evaluate our approach on three benchmark datasets based on two unlabeled question datasets collected from real-world user queries. Experiments on real-world datasets confirm that our method produces more relevant and answerable suggestions, outperforming few-shot and retrieval-only baselines, and thus enable safer, more effective user interaction with agentic RAG.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-01-13T00:56:38Z",
+    "updated": "2026-01-13T00:56:38Z",
+    "url": "http://arxiv.org/abs/2601.08105v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08105v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/Agent 研究（RAG 查询建议），虽提及搜索引擎作为对比，但核心解决的是生成式 Agent 的幻觉与交互问题，而非传统推荐系统或搜索排序的核心技术，且无电商/社交等具体 RecSys 业务场景。",
+    "translation": "基于动态上下文学习的检索增强生成查询建议",
+    "summary_zh": "针对代理式 RAG 系统中用户提问超出知识范围导致幻觉的问题，提出一种通过动态检索相关工作流示例进行少样本学习的方法，以生成可被系统回答的相似查询建议来优化人机交互。",
+    "key_points": [
+      "针对代理式 RAG 系统中用户提问超出知识范围导致幻觉的问题，提出一种通过动态检索相关工作流示例进行少样本学习的方法，以生成可被系统回答的相似查询建议来优化人机交互"
+    ]
+  },
+  {
+    "arxiv_id": "2601.09028v2",
+    "title": "OpenDecoder: Open Large Language Model Decoding to Incorporate Document Quality in RAG",
+    "authors": [
+      "Fengran Mo",
+      "Zhan Su",
+      "Yuchen Hui",
+      "Jinghan Zhang",
+      "Jia Ao Sun",
+      "Zheyuan Liu",
+      "Chao Zhang",
+      "Tetsuya Sakai",
+      "Jian-Yun Nie"
+    ],
+    "summary": "The development of large language models (LLMs) has achieved superior performance in a range of downstream tasks, including LLM-based retrieval-augmented generation (RAG). The quality of generated content heavily relies on the usefulness of the retrieved information and the capacity of LLMs' internal information processing mechanism to incorporate it in answer generation. It is generally assumed that the retrieved information is relevant to the question. However, the retrieved information may have a variable degree of relevance and usefulness, depending on the question and the document collection. It is important to take into account the relevance of the retrieved information in answer generation. In this paper, we propose OpenDecoder, a new approach that leverages explicit evaluation of the retrieved information as quality indicator features for generation. We aim to build a RAG model that is more robust to varying levels of noisy context. Three types of explicit evaluation information are considered: relevance score, ranking score, and QPP (query performance prediction) score. The experimental results on five benchmark datasets demonstrate the effectiveness and better robustness of OpenDecoder by outperforming various baseline methods. Importantly, this paradigm is flexible to be integrated with the post-training of LLMs for any purposes and incorporated with any type of external indicators.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-01-13T23:26:30Z",
+    "updated": "2026-01-24T02:50:28Z",
+    "url": "http://arxiv.org/abs/2601.09028v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.09028v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于提升生成质量而非推荐/搜索系统的核心环节（如召回、排序），且无明确的 RecSys 业务场景应用，虽来自中国公司但相关性依然较低。",
+    "translation": "OpenDecoder：开放大语言模型解码以在 RAG 中融入文档质量",
+    "summary_zh": "提出 OpenDecoder 方法，通过显式评估检索信息的相关性、排名及查询性能预测分数作为质量指标特征，增强大语言模型在检索增强生成中对噪声上下文的鲁棒性。",
+    "key_points": [
+      "提出 OpenDecoder 方法，通过显式评估检索信息的相关性、排名及查询性能预测分数作为质量指标特征，增强大语言模型在检索增强生成中对噪声上下文的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08620v1",
+    "title": "ViDoRe V3: A Comprehensive Evaluation of Retrieval Augmented Generation in Complex Real-World Scenarios",
+    "authors": [
+      "António Loison",
+      "Quentin Macé",
+      "Antoine Edy",
+      "Victor Xing",
+      "Tom Balough",
+      "Gabriel Moreira",
+      "Bo Liu",
+      "Manuel Faysse",
+      "Céline Hudelot",
+      "Gautier Viaud"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) pipelines must address challenges beyond simple single-document retrieval, such as interpreting visual elements (tables, charts, images), synthesizing information across documents, and providing accurate source grounding. Existing benchmarks fail to capture this complexity, often focusing on textual data, single-document comprehension, or evaluating retrieval and generation in isolation. We introduce ViDoRe v3, a comprehensive multimodal RAG benchmark featuring multi-type queries over visually rich document corpora. It covers 10 datasets across diverse professional domains, comprising ~26,000 document pages paired with 3,099 human-verified queries, each available in 6 languages. Through 12,000 hours of human annotation effort, we provide high-quality annotations for retrieval relevance, bounding box localization, and verified reference answers. Our evaluation of state-of-the-art RAG pipelines reveals that visual retrievers outperform textual ones, late-interaction models and textual reranking substantially improve performance, and hybrid or purely visual contexts enhance answer generation quality. However, current models still struggle with non-textual elements, open-ended queries, and fine-grained visual grounding. To encourage progress in addressing these challenges, the benchmark is released under a commercially permissive license at https://hf.co/vidore.",
+    "categories": [
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-01-13T15:00:33Z",
+    "updated": "2026-01-13T15:00:33Z",
+    "url": "http://arxiv.org/abs/2601.08620v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08620v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇关于多模态 RAG 基准测试的纯 NLP/LLM 研究，未直接针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "ViDoRe V3：复杂现实场景中检索增强生成的综合评估",
+    "summary_zh": "该论文提出了 ViDoRe v3，一个涵盖多语言和专业领域的多模态 RAG 基准，旨在评估模型在视觉丰富文档中的跨文档信息合成与精准溯源能力。",
+    "key_points": [
+      "该论文提出了 ViDoRe v3，一个涵盖多语言和专业领域的多模态 RAG 基准，旨在评估模型在视觉丰富文档中的跨文档信息合成与精准溯源能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08670v1",
+    "title": "Parallel Context-of-Experts Decoding for Retrieval Augmented Generation",
+    "authors": [
+      "Giulio Corallo",
+      "Paolo Papotti"
+    ],
+    "summary": "Retrieval Augmented Generation faces a trade-off: concatenating documents in a long prompt enables multi-document reasoning but creates prefill bottlenecks, while encoding document KV caches separately offers speed but breaks cross-document interaction. We propose Parallel Context-of-Experts Decoding (Pced), a training-free framework that shifts evidence aggregation from the attention mechanism to the decoding. Pced treats retrieved documents as isolated \"experts\", synchronizing their predictions via a novel retrieval-aware contrastive decoding rule that weighs expert logits against the model prior. This approach recovers cross-document reasoning capabilities without constructing a shared attention across documents.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-01-13T15:46:59Z",
+    "updated": "2026-01-13T15:46:59Z",
+    "url": "http://arxiv.org/abs/2601.08670v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08670v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理优化研究，专注于解决 RAG 中的解码瓶颈和上下文交互问题，未涉及推荐系统或搜索引擎的核心业务场景（如排序、召回、用户建模）。",
+    "translation": "检索增强生成的并行专家上下文解码方法",
+    "summary_zh": "提出一种无需训练的并行解码框架，将检索文档视为独立专家，通过新的对比解码规则在解码阶段聚合证据，以在不构建共享注意力机制的情况下恢复跨文档推理能力。",
+    "key_points": [
+      "提出一种无需训练的并行解码框架，将检索文档视为独立专家，通过新的对比解码规则在解码阶段聚合证据，以在不构建共享注意力机制的情况下恢复跨文档推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08226v1",
+    "title": "Knowledge-based learning in Text-RAG and Image-RAG",
+    "authors": [
+      "Alexander Shim",
+      "Khalil Saieh",
+      "Samuel Clarke"
+    ],
+    "summary": "This research analyzed and compared the multi-modal approach in the Vision Transformer(EVA-ViT) based image encoder with the LlaMA or ChatGPT LLM to reduce the hallucination problem and detect diseases in chest x-ray images. In this research, we utilized the NIH Chest X-ray image to train the model and compared it in image-based RAG, text-based RAG, and baseline. [3] [5] In a result, the text-based RAG[2] e!ectively reduces the hallucination problem by using external knowledge information, and the image-based RAG improved the prediction con\"dence and calibration by using the KNN methods. [4] Moreover, the GPT LLM showed better performance, a low hallucination rate, and better Expected Calibration Error(ECE) than Llama Llama-based model. This research shows the challenge of data imbalance, a complex multi-stage structure, but suggests a large experience environment and a balanced example of use.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-01-13T05:14:18Z",
+    "updated": "2026-01-13T05:14:18Z",
+    "url": "http://arxiv.org/abs/2601.08226v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.08226v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯医疗影像（胸部 X 光）和疾病检测的研究，属于纯 CV/医疗领域，完全未涉及推荐系统或搜索引擎的应用。",
+    "translation": "基于文本与图像检索增强生成的知识学习研究",
+    "summary_zh": "该研究利用视觉 Transformer 和大语言模型构建多模态检索增强生成框架，旨在通过外部知识库减少医疗影像诊断中的幻觉问题并提升预测校准度。",
+    "key_points": [
+      "该研究利用视觉 Transformer 和大语言模型构建多模态检索增强生成框架，旨在通过外部知识库减少医疗影像诊断中的幻觉问题并提升预测校准度"
+    ]
+  }
+]

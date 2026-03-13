@@ -128,40 +128,51 @@ class AIPaperDaily:
         except Exception as e:
             logger.error(f"Error saving prerank cache: {e}")
     
-    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int) -> List[Dict]:
-        """批量获取 arXiv 论文（内部方法）"""
+    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int, date_range: Optional[str] = None, max_retries: int = 3) -> List[Dict]:
+        """批量获取 arXiv 论文（内部方法，带重试）"""
         papers = []
-        try:
-            query = f"({categories_query})"
-            url = f"{self.ARXIV_API_BASE}?search_query={query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
-            
-            logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}")
-            response = requests.get(url, timeout=60)
-            
-            if response.status_code != 200:
-                logger.error(f"arXiv API error: {response.status_code}")
-                return papers
-            
-            feed = feedparser.parse(response.content)
-            
-            for entry in feed.entries:
-                paper = {
-                    'arxiv_id': entry.id.split('/abs/')[-1] if '/abs/' in entry.id else entry.id,
-                    'title': entry.title,
-                    'authors': [author.name for author in entry.authors] if hasattr(entry, 'authors') else [],
-                    'summary': entry.summary,
-                    'categories': [tag.term for tag in entry.tags] if hasattr(entry, 'tags') else [],
-                    'published': entry.published,
-                    'updated': entry.updated if hasattr(entry, 'updated') else entry.published,
-                    'url': entry.id,
-                    'pdf_url': entry.id.replace('/abs/', '/pdf/') + '.pdf',
-                }
-                papers.append(paper)
-            
-            time.sleep(3)  # arXiv API 限制
-            
-        except Exception as e:
-            logger.error(f"Error fetching arXiv papers: {e}")
+        
+        query = f"({categories_query})"
+        if date_range:
+            query += f" AND submittedDate:{date_range}"
+        url = f"{self.ARXIV_API_BASE}?search_query={query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+        
+        for attempt in range(max_retries):
+            try:
+                logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}" + (f", date_range={date_range}" if date_range else "") + f" (attempt {attempt+1}/{max_retries})")
+                response = requests.get(url, timeout=60)
+                
+                if response.status_code != 200:
+                    logger.warning(f"arXiv API error: {response.status_code}, retrying...")
+                    time.sleep(5)
+                    continue
+                
+                # 解析成功响应
+                feed = feedparser.parse(response.content)
+                
+                for entry in feed.entries:
+                    paper = {
+                        'arxiv_id': entry.id.split('/abs/')[-1] if '/abs/' in entry.id else entry.id,
+                        'title': entry.title,
+                        'authors': [author.name for author in entry.authors] if hasattr(entry, 'authors') else [],
+                        'summary': entry.summary,
+                        'categories': [tag.term for tag in entry.tags] if hasattr(entry, 'tags') else [],
+                        'published': entry.published,
+                        'updated': entry.updated if hasattr(entry, 'updated') else entry.published,
+                        'url': entry.id,
+                        'pdf_url': entry.id.replace('/abs/', '/pdf/') + '.pdf',
+                    }
+                    papers.append(paper)
+                
+                time.sleep(3)  # arXiv API 限制
+                break  # 成功后退出重试循环
+                
+            except Exception as e:
+                logger.warning(f"Request failed (attempt {attempt+1}/{max_retries}): {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(5)
+                else:
+                    logger.error(f"All {max_retries} attempts failed")
         
         return papers
     
@@ -191,16 +202,16 @@ class AIPaperDaily:
         tz_shanghai = timezone(timedelta(hours=8))
         
         if target_date:
-            # 回刷模式：获取指定日期的论文（该日期 00:00 到 23:59）
-            start_date = target_date.replace(hour=0, minute=0, second=0, tzinfo=tz_shanghai)
-            end_date = target_date.replace(hour=23, minute=59, second=59, tzinfo=tz_shanghai)
-            logger.info(f"Backfill mode: Fetching papers for {target_date.strftime('%Y-%m-%d')}")
+            # 回刷模式：使用 arXiv API 的日期范围搜索，直接获取指定日期的论文
+            # arXiv API 日期格式：YYYYMMDDHHMMSS
+            date_str = target_date.strftime('%Y%m%d')
+            date_range = f"[{date_str}000000 TO {date_str}235959]"
+            logger.info(f"Backfill mode: Fetching papers for {date_str} using date range search")
         else:
-            # 默认模式：获取过去 2 天的论文（给 arXiv 时间稳定）
-            # 固定获取过去 2 天的论文（end_date=昨天，start_date=昨天 -1 天=前天）
-            # 这样可以避免当天论文还在持续提交导致的波动
+            # 默认模式：获取过去 2 天的论文
             end_date = datetime.now(tz_shanghai) - timedelta(days=1)
             start_date = end_date - timedelta(days=1)
+            date_range = None
             logger.info(f"Fetching papers from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (fixed 2-day window)")
         
         all_papers = []
@@ -210,29 +221,21 @@ class AIPaperDaily:
         batch_papers = []
         start = 0
         max_results = 500  # 每批 500 篇
-        # 回刷模式需要获取更多批次才能找到历史日期的论文
-        max_batches = 100 if target_date else 10  # 回刷时最多 100 批（50000 篇），默认 10 批（5000 篇）
+        max_batches = 20  # 最多 20 批（10000 篇），足够覆盖单日的论文量
         
         while start < (max_batches * max_results):
-            papers = self._fetch_arxiv_batch(categories_query, start, max_results)
+            papers = self._fetch_arxiv_batch(categories_query, start, max_results, date_range)
             if not papers:
                 break
             
-            # 过滤日期范围 + 本次运行内去重
+            # 去重
             for paper in papers:
                 arxiv_id = paper['arxiv_id']
-                # 跳过已处理的（历史去重 + 本次运行内去重）
                 if arxiv_id in processed_ids or arxiv_id in seen_ids:
                     continue
                 
-                try:
-                    published = datetime.fromisoformat(paper['published'].replace('Z', '+00:00'))
-                    if start_date <= published <= end_date:
-                        batch_papers.append(paper)
-                        seen_ids.add(arxiv_id)  # 标记为已见
-                except:
-                    batch_papers.append(paper)  # 无法解析日期的也保留
-                    seen_ids.add(arxiv_id)
+                batch_papers.append(paper)
+                seen_ids.add(arxiv_id)
             
             start += max_results
             if len(papers) < max_results:

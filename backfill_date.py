@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-回刷脚本 - 使用 arXiv 日期范围搜索（高效稳定）
+回刷脚本 - 简化版：直接获取 arXiv 论文并保存到指定日期
+注意：arXiv API 日期范围搜索不稳定，改用直接获取 + 本地过滤
+
 用法：python backfill_date.py --start 20250101 --end 20250131
 """
 
@@ -25,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 
 class BackfillProcessor(AIPaperDaily):
-    """历史数据回刷处理器 - 使用日期范围搜索"""
+    """历史数据回刷处理器"""
     
     def __init__(self):
         super().__init__()
@@ -42,7 +44,7 @@ class BackfillProcessor(AIPaperDaily):
         return existing
     
     def run_for_date(self, target_date: str) -> bool:
-        """为指定日期运行完整流程"""
+        """为指定日期运行完整流程（使用 arXiv 日期范围搜索）"""
         if target_date in self.processed_dates:
             logger.info(f"⏭️  跳过 {target_date} - 已存在")
             return True
@@ -54,7 +56,7 @@ class BackfillProcessor(AIPaperDaily):
         try:
             date_obj = datetime.strptime(target_date, "%Y%m%d")
             
-            # 1. 从 arXiv 获取论文（使用日期范围搜索）
+            # 使用日期范围搜索
             papers = self.fetch_arxiv_papers(
                 target_count=self.max_papers_fetch,
                 target_date=date_obj
@@ -67,7 +69,7 @@ class BackfillProcessor(AIPaperDaily):
             
             logger.info(f"📊 获取到 {len(papers)} 篇论文")
             
-            # 2. 使用大模型评分和总结
+            # 使用大模型评分和总结
             scored_papers = self.score_and_summarize_papers(papers)
             if not scored_papers:
                 logger.warning(f"⚠️  {target_date} 没有论文通过相关性阈值")
@@ -75,7 +77,7 @@ class BackfillProcessor(AIPaperDaily):
             
             logger.info(f"✅ 评分完成，保留 {len(scored_papers)} 篇")
             
-            # 3. 保存文件
+            # 保存文件
             json_path = self.output_dir / f"{target_date}.json"
             with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(scored_papers, f, ensure_ascii=False, indent=2)
@@ -104,6 +106,7 @@ class BackfillProcessor(AIPaperDaily):
         except Exception as e:
             logger.error(f"❌ {target_date} 处理失败：{e}")
             logger.exception("详细错误：")
+            self._save_empty_result(target_date)
             return False
     
     def _save_empty_result(self, target_date: str):
@@ -175,7 +178,7 @@ class BackfillProcessor(AIPaperDaily):
 def main():
     import argparse
     
-    parser = argparse.ArgumentParser(description="回刷历史论文数据（使用 arXiv 日期范围搜索）")
+    parser = argparse.ArgumentParser(description="回刷历史论文数据")
     parser.add_argument("--start", required=True, help="开始日期 (YYYYMMDD)")
     parser.add_argument("--end", required=True, help="结束日期 (YYYYMMDD)")
     parser.add_argument("--delay", type=float, default=3.0, help="每个日期之间的延迟（秒）")

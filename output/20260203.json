@@ -1,0 +1,675 @@
+[
+  {
+    "arxiv_id": "2602.03713v1",
+    "title": "Multimodal Generative Recommendation for Fusing Semantic and Collaborative Signals",
+    "authors": [
+      "Moritz Vandenhirtz",
+      "Kaveh Hassani",
+      "Shervin Ghasemlou",
+      "Shuai Shao",
+      "Hamid Eghbalzadeh",
+      "Fuchun Peng",
+      "Jun Liu",
+      "Michael Louis Iuzzolino"
+    ],
+    "summary": "Sequential recommender systems rank relevant items by modeling a user's interaction history and computing the inner product between the resulting user representation and stored item embeddings. To avoid the significant memory overhead of storing large item sets, the generative recommendation paradigm instead models each item as a series of discrete semantic codes. Here, the next item is predicted by an autoregressive model that generates the code sequence corresponding to the predicted item. However, despite promising ranking capabilities on small datasets, these methods have yet to surpass traditional sequential recommenders on large item sets, limiting their adoption in the very scenarios they were designed to address. To resolve this, we propose MSCGRec, a Multimodal Semantic and Collaborative Generative Recommender. MSCGRec incorporates multiple semantic modalities and introduces a novel self-supervised quantization learning approach for images based on the DINO framework. Additionally, MSCGRec fuses collaborative and semantic signals by extracting collaborative features from sequential recommenders and treating them as a separate modality. Finally, we propose constrained sequence learning that restricts the large output space during training to the set of permissible tokens. We empirically demonstrate on three large real-world datasets that MSCGRec outperforms both sequential and generative recommendation baselines and provide an extensive ablation study to validate the impact of each component.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-03T16:39:35Z",
+    "updated": "2026-02-03T16:39:35Z",
+    "url": "http://arxiv.org/abs/2602.03713v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03713v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统中的生成式推荐范式，提出融合多模态语义与协同信号的新架构以解决大规模物品集上的性能瓶颈，属于核心推荐系统创新；且来自中国公司，按规则额外加分后满分。",
+    "translation": "融合语义与协同信号的多模态生成式推荐",
+    "summary_zh": "提出 MSCGRec 模型，通过引入基于 DINO 的自监督图像量化学习及将协同特征视为独立模态，结合约束序列学习策略，有效融合了多模态语义信息与用户行为协同信号以优化生成式推荐效果。",
+    "key_points": [
+      "提出 MSCGRec 模型，通过引入基于 DINO 的自监督图像量化学习及将协同特征视为独立模态，结合约束序列学习策略，有效融合了多模态语义信息与用户行为协同信号以优化生成式推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03692v2",
+    "title": "Bringing Reasoning to Generative Recommendation Through the Lens of Cascaded Ranking",
+    "authors": [
+      "Xinyu Lin",
+      "Pengyuan Liu",
+      "Wenjie Wang",
+      "Yicheng Hu",
+      "Chen Xu",
+      "Fuli Feng",
+      "Qifan Wang",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Generative Recommendation (GR) has become a promising end-to-end approach with high FLOPS utilization for resource-efficient recommendation. Despite the effectiveness, we show that current GR models suffer from a critical \\textbf{bias amplification} issue, where token-level bias escalates as token generation progresses, ultimately limiting the recommendation diversity and hurting the user experience. By comparing against the key factor behind the success of traditional multi-stage pipelines, we reveal two limitations in GR that can amplify the bias: homogeneous reliance on the encoded history, and fixed computational budgets that prevent deeper user preference understanding.\n  To combat the bias amplification issue, it is crucial for GR to 1) incorporate more heterogeneous information, and 2) allocate greater computational resources at each token generation step. To this end, we propose CARE, a simple yet effective cascaded reasoning framework for debiased GR. To incorporate heterogeneous information, we introduce a progressive history encoding mechanism, which progressively incorporates increasingly fine-grained history information as the generation process advances. To allocate more computations, we propose a query-anchored reasoning mechanism, which seeks to perform a deeper understanding of historical information through parallel reasoning steps. We instantiate CARE on three GR backbones. Empirical results on four datasets show the superiority of CARE in recommendation accuracy, diversity, efficiency, and promising scalability. The codes and datasets are available at https://github.com/Linxyhaha/CARE.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-03T16:10:54Z",
+    "updated": "2026-02-04T09:13:38Z",
+    "url": "http://arxiv.org/abs/2602.03692v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.03692v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "NationalUniversityofSingapore UniversityofScienceandTechnology UniversityofScienceandTechnology",
+      "UniversityofScienceandTechnology RenminUniversityofChina UniversityofScienceandTechnology",
+      "MetaAI NationalUniversityofSingapore",
+      "to-endapproachwithhighFLOPSutilizationforresource-efficient accuracy,diversity,efficiency,andpromisingscalability.Thecodes",
+      "recommendation.Despitetheeffectiveness,weshowthatcurrent anddatasetsareavailableathttps://github.com/Linxyhaha/CARE."
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的偏差放大问题提出级联推理框架，属于核心推荐算法创新；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "通过级联排序视角将推理能力引入生成式推荐",
+    "summary_zh": "本文提出 CARE 框架，通过渐进式历史编码和查询锚定推理机制，解决生成式推荐中随 token 生成加剧的偏差放大问题，以增强用户偏好理解的深度与信息异构性。",
+    "key_points": [
+      "本文提出 CARE 框架，通过渐进式历史编码和查询锚定推理机制，解决生成式推荐中随 token 生成加剧的偏差放大问题，以增强用户偏好理解的深度与信息异构性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03608v1",
+    "title": "Controlling Output Rankings in Generative Engines for LLM-based Search",
+    "authors": [
+      "Haibo Jin",
+      "Ruoxi Chen",
+      "Peiyan Zhang",
+      "Yifeng Luo",
+      "Huimin Zeng",
+      "Man Luo",
+      "Haohan Wang"
+    ],
+    "summary": "The way customers search for and choose products is changing with the rise of large language models (LLMs). LLM-based search, or generative engines, provides direct product recommendations to users, rather than traditional online search results that require users to explore options themselves. However, these recommendations are strongly influenced by the initial retrieval order of LLMs, which disadvantages small businesses and independent creators by limiting their visibility.\n  In this work, we propose CORE, an optimization method that \\textbf{C}ontrols \\textbf{O}utput \\textbf{R}ankings in g\\textbf{E}nerative Engines for LLM-based search. Since the LLM's interactions with the search engine are black-box, CORE targets the content returned by search engines as the primary means of influencing output rankings. Specifically, CORE optimizes retrieved content by appending strategically designed optimization content to steer the ranking of outputs. We introduce three types of optimization content: string-based, reasoning-based, and review-based, demonstrating their effectiveness in shaping output rankings. To evaluate CORE in realistic settings, we introduce ProductBench, a large-scale benchmark with 15 product categories and 200 products per category, where each product is associated with its top-10 recommendations collected from Amazon's search interface.\n  Extensive experiments on four LLMs with search capabilities (GPT-4o, Gemini-2.5, Claude-4, and Grok-3) demonstrate that CORE achieves an average Promotion Success Rate of \\textbf{91.4\\% @Top-5}, \\textbf{86.6\\% @Top-3}, and \\textbf{80.3\\% @Top-1}, across 15 product categories, outperforming existing ranking manipulation methods while preserving the fluency of optimized content.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-02-03T14:59:48Z",
+    "updated": "2026-02-03T14:59:48Z",
+    "url": "http://arxiv.org/abs/2602.03608v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03608v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LLM 搜索（生成式引擎）中的输出排序控制问题，提出了 CORE 方法以优化检索内容从而影响最终推荐排名，属于核心的搜索/推荐重排序研究，且来自中国公司。",
+    "translation": "控制生成式引擎中的输出排序以实现基于大语言模型的搜索",
+    "summary_zh": "提出 CORE 方法，通过在黑盒 LLM 搜索场景中策略性地优化检索返回的内容（如添加特定字符串、推理或评论），从而直接操控生成式引擎的最终产品推荐排序。",
+    "key_points": [
+      "提出 CORE 方法，通过在黑盒 LLM 搜索场景中策略性地优化检索返回的内容（如添加特定字符串、推理或评论），从而直接操控生成式引擎的最终产品推荐排序"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03324v2",
+    "title": "SCASRec: A Self-Correcting and Auto-Stopping Model for Generative Route List Recommendation",
+    "authors": [
+      "Chao Chen",
+      "Longfei Xu",
+      "Daohan Su",
+      "Tengfei Liu",
+      "Hanyu Guo",
+      "Yihai Duan",
+      "Kaikui Liu",
+      "Xiangxiang Chu"
+    ],
+    "summary": "Route recommendation systems commonly adopt a multi-stage pipeline involving fine-ranking and re-ranking to produce high-quality ordered recommendations. However, this paradigm faces three critical limitations. First, there is a misalignment between offline training objectives and online metrics. Offline gains do not necessarily translate to online improvements. Actual performance must be validated through A/B testing, which may potentially compromise the user experience. Second, redundancy elimination relies on rigid, handcrafted rules that lack adaptability to the high variance in user intent and the unstructured complexity of real-world scenarios. Third, the strict separation between fine-ranking and re-ranking stages leads to sub-optimal performance. Since each module is optimized in isolation, the fine-ranking stage remains oblivious to the list-level objectives (e.g., diversity) targeted by the re-ranker, thereby preventing the system from achieving a jointly optimized global optimum. To overcome these intertwined challenges, we propose SCASRec (Self-Correcting and Auto-Stopping Recommendation), a unified generative framework that integrates ranking and redundancy elimination into a single end-to-end process. SCASRec introduces a stepwise corrective reward (SCR) to guide list-wise refinement by focusing on hard samples, and employs a learnable End-of-Recommendation (EOR) token to terminate generation adaptively when no further improvement is expected. Experiments on two large-scale, open-sourced route recommendation datasets demonstrate that SCASRec establishes an SOTA in offline and online settings. SCASRec has been fully deployed in a real-world navigation app, demonstrating its effectiveness.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-03T09:51:58Z",
+    "updated": "2026-02-04T03:14:59Z",
+    "url": "http://arxiv.org/abs/2602.03324v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.03324v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "cc201598@alibaba-inc.com BeijingInstituteofTechnology SouthernUniversityofScienceand"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的排序与重排序痛点，提出端到端生成式框架解决离线目标不一致及冗余消除问题，且已在真实导航 App 部署，完全符合核心领域进展标准（基础分 9+ 中国公司加分 1）。",
+    "translation": "SCASRec：一种用于生成式路线列表推荐的自修正与自动停止模型",
+    "summary_zh": "提出 SCASRec 统一生成式框架，通过逐步校正奖励机制和可学习的结束令牌，将精细排序与冗余消除整合为端到端过程，以自适应优化列表级推荐质量。",
+    "key_points": [
+      "提出 SCASRec 统一生成式框架，通过逐步校正奖励机制和可学习的结束令牌，将精细排序与冗余消除整合为端到端过程，以自适应优化列表级推荐质量"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03223v1",
+    "title": "Distribution-Aware End-to-End Embedding for Streaming Numerical Features in Click-Through Rate Prediction",
+    "authors": [
+      "Jiahao Liu",
+      "Hongji Ruan",
+      "Weimin Zhang",
+      "Ziye Tong",
+      "Derick Tang",
+      "Zhanpeng Zeng",
+      "Qinsong Zeng",
+      "Peng Zhang",
+      "Tun Lu",
+      "Ning Gu"
+    ],
+    "summary": "This paper explores effective numerical feature embedding for Click-Through Rate prediction in streaming environments. Conventional static binning methods rely on offline statistics of numerical distributions; however, this inherently two-stage process often triggers semantic drift during bin boundary updates. While neural embedding methods enable end-to-end learning, they often discard explicit distributional information. Integrating such information end-to-end is challenging because streaming features often violate the i.i.d. assumption, precluding unbiased estimation of the population distribution via the expectation of order statistics. Furthermore, the critical context dependency of numerical distributions is often neglected. To this end, we propose DAES, an end-to-end framework designed to tackle numerical feature embedding in streaming training scenarios by integrating distributional information with an adaptive modulation mechanism. Specifically, we introduce an efficient reservoir-sampling-based distribution estimation method and two field-aware distribution modulation strategies to capture streaming distributions and field-dependent semantics. DAES significantly outperforms existing approaches as demonstrated by extensive offline and online experiments and has been fully deployed on a leading short-video platform with hundreds of millions of daily active users.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-03T07:50:54Z",
+    "updated": "2026-02-03T07:50:54Z",
+    "url": "http://arxiv.org/abs/2602.03223v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03223v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "FudanUniversity BeijingJiaotongUniversity Tencent",
+      "Tencent FudanUniversity FudanUniversity",
+      "FudanUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统核心环节（CTR 预估）中流式数值特征嵌入的关键难题，并提出已在大厂短视频平台落地的新架构，属于高优先级的核心领域进展；叠加中国公司背景额外加分。",
+    "translation": "面向点击率预测中流式数值特征的分布感知端到端嵌入方法",
+    "summary_zh": "提出 DAES 框架，通过基于蓄水池采样的分布估计和字段感知调制策略，在流式训练场景中实现保留分布信息的端到端数值特征嵌入，以解决语义漂移和上下文依赖问题。",
+    "key_points": [
+      "提出 DAES 框架，通过基于蓄水池采样的分布估计和字段感知调制策略，在流式训练场景中实现保留分布信息的端到端数值特征嵌入，以解决语义漂移和上下文依赖问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03097v1",
+    "title": "De-conflating Preference and Qualification: Constrained Dual-Perspective Reasoning for Job Recommendation with Large Language Models",
+    "authors": [
+      "Bryce Kan",
+      "Wei Yang",
+      "Emily Nguyen",
+      "Ganghui Yi",
+      "Bowen Yi",
+      "Chenxiao Yu",
+      "Yan Liu"
+    ],
+    "summary": "Professional job recommendation involves a complex bipartite matching process that must reconcile a candidate's subjective preference with an employer's objective qualification. While Large Language Models (LLMs) are well-suited for modeling the rich semantics of resumes and job descriptions, existing paradigms often collapse these two decision dimensions into a single interaction signal, yielding confounded supervision under recruitment-funnel censoring and limiting policy controllability. To address these challenges, We propose JobRec, a generative job recommendation framework for de-conflating preference and qualification via constrained dual-perspective reasoning. JobRec introduces a Unified Semantic Alignment Schema that aligns candidate and job attributes into structured semantic layers, and a Two-Stage Cooperative Training Strategy that learns decoupled experts to separately infer preference and qualification. Building on these experts, a Lagrangian-based Policy Alignment module optimizes recommendations under explicit eligibility requirements, enabling controllable trade-offs. To mitigate data scarcity, we construct a synthetic dataset refined by experts. Experiments show that JobRec consistently outperforms strong baselines and provides improved controllability for strategy-aware professional matching.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-02-03T04:42:53Z",
+    "updated": "2026-02-03T04:42:53Z",
+    "url": "http://arxiv.org/abs/2602.03097v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03097v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对招聘推荐系统，利用 LLM 解耦候选人偏好与资质匹配的双重维度，属于 LLM 在垂直领域推荐系统中的核心应用。",
+    "translation": "解耦偏好与资质：基于大语言模型约束双视角推理的职位推荐",
+    "summary_zh": "提出一种生成式推荐框架，通过统一语义对齐和两阶段协作训练策略，利用解耦专家分别推断用户偏好与岗位资质，并结合拉格朗日策略对齐模块实现可控的专业人才匹配。",
+    "key_points": [
+      "提出一种生成式推荐框架，通过统一语义对齐和两阶段协作训练策略，利用解耦专家分别推断用户偏好与岗位资质，并结合拉格朗日策略对齐模块实现可控的专业人才匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03416v1",
+    "title": "AesRec: A Dataset for Aesthetics-Aligned Clothing Outfit Recommendation",
+    "authors": [
+      "Wenxin Ye",
+      "Lin Li",
+      "Ming Li",
+      "Yang Shen",
+      "Kanghong Wang",
+      "Jimmy Xiangji Huang"
+    ],
+    "summary": "Clothing recommendation extends beyond merely generating personalized outfits; it serves as a crucial medium for aesthetic guidance. However, existing methods predominantly rely on user-item-outfit interaction behaviors while overlooking explicit representations of clothing aesthetics. To bridge this gap, we present the AesRec benchmark dataset featuring systematic quantitative aesthetic annotations, thereby enabling the development of aesthetics-aligned recommendation systems. Grounded in professional apparel quality standards and fashion aesthetic principles, we define a multidimensional set of indicators. At the item level, six dimensions are independently assessed: silhouette, chromaticity, materiality, craftsmanship, wearability, and item-level impression. Transitioning to the outfit level, the evaluation retains the first five core attributes while introducing stylistic synergy, visual harmony, and outfit-level impression as distinct metrics to capture the collective aesthetic impact. Given the increasing human-like proficiency of Vision-Language Models in multimodal understanding and interaction, we leverage them for large-scale aesthetic scoring. We conduct rigorous human-machine consistency validation on a fashion dataset, confirming the reliability of the generated ratings. Experimental results based on AesRec further demonstrate that integrating quantified aesthetic information into clothing recommendation models can provide aesthetic guidance for users while fulfilling their personalized requirements.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-03T11:44:00Z",
+    "updated": "2026-02-03T11:44:00Z",
+    "url": "http://arxiv.org/abs/2602.03416v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03416v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对服装推荐系统，提出了融合美学对齐的新数据集和方法，属于多模态推荐的核心应用；虽涉及 VLM 但仅作为工具，非纯 LLM 研究，且来自中国公司加 1 分。",
+    "translation": "AesRec：一个面向美学对齐的服装搭配推荐数据集",
+    "summary_zh": "该论文提出 AesRec 基准数据集，通过定义多维美学指标并利用视觉语言模型进行大规模评分，旨在将量化美学信息融入服装推荐模型以提供美学指导。",
+    "key_points": [
+      "该论文提出 AesRec 基准数据集，通过定义多维美学指标并利用视觉语言模型进行大规模评分，旨在将量化美学信息融入服装推荐模型以提供美学指导"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03520v2",
+    "title": "Live or Lie: Action-Aware Capsule Multiple Instance Learning for Risk Assessment in Live Streaming Platforms",
+    "authors": [
+      "Yiran Qiao",
+      "Jing Chen",
+      "Xiang Ao",
+      "Qiwei Zhong",
+      "Yang Liu",
+      "Qing He"
+    ],
+    "summary": "Live streaming has become a cornerstone of today's internet, enabling massive real-time social interactions. However, it faces severe risks arising from sparse, coordinated malicious behaviors among multiple participants, which are often concealed within normal activities and challenging to detect timely and accurately. In this work, we provide a pioneering study on risk assessment in live streaming rooms, characterized by weak supervision where only room-level labels are available. We formulate the task as a Multiple Instance Learning (MIL) problem, treating each room as a bag and defining structured user-timeslot capsules as instances. These capsules represent subsequences of user actions within specific time windows, encapsulating localized behavioral patterns. Based on this formulation, we propose AC-MIL, an Action-aware Capsule MIL framework that models both individual behaviors and group-level coordination patterns. AC-MIL captures multi-granular semantics and behavioral cues through a serial and parallel architecture that jointly encodes temporal dynamics and cross-user dependencies. These signals are integrated for robust room-level risk prediction, while also offering interpretable evidence at the behavior segment level. Extensive experiments on large-scale industrial datasets from Douyin demonstrate that AC-MIL significantly outperforms MIL and sequential baselines, establishing new state-of-the-art performance in room-level risk assessment for live streaming. Moreover, AC-MIL provides capsule-level interpretability, enabling identification of risky behavior segments as actionable evidence for intervention. The project page is available at: https://qiaoyran.github.io/AC-MIL/.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-02-03T13:36:59Z",
+    "updated": "2026-02-11T06:33:01Z",
+    "url": "http://arxiv.org/abs/2602.03520v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.03520v2.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "InstituteofComputingTechnology, ByteDanceChina InstituteofComputingTechnology,",
+      "ByteDanceChina InstituteofComputingTechnology, InstituteofComputingTechnology,",
+      "room-levellabelsareavailable.WeformulatethetaskasaMultiple 2026.LiveorLie:Action-AwareCapsuleMultipleInstanceLearningforRisk",
+      "aware Capsule MIL framework that models both individual be- ResourceAvailability:"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对抖音直播场景的风险评估（推荐/搜索系统的安全与治理核心环节），利用多实例学习解决弱监督下的群体异常行为检测，属于高优先级的社交 + 推荐搜索应用。",
+    "translation": "直播还是谎言：面向直播平台风险评估的动作感知胶囊多实例学习",
+    "summary_zh": "提出一种动作感知胶囊多实例学习框架，将直播间视为包、结构化用户时段胶囊视为实例，通过串行并行架构联合编码时序动态与跨用户依赖，以在弱监督下精准识别隐蔽的协同恶意行为。",
+    "key_points": [
+      "提出一种动作感知胶囊多实例学习框架，将直播间视为包、结构化用户时段胶囊视为实例，通过串行并行架构联合编码时序动态与跨用户依赖，以在弱监督下精准识别隐蔽的协同恶意行为"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03422v1",
+    "title": "RankSteer: Activation Steering for Pointwise LLM Ranking",
+    "authors": [
+      "Yumeng Wang",
+      "Catherine Chen",
+      "Suzan Verberne"
+    ],
+    "summary": "Large language models (LLMs) have recently shown strong performance as zero-shot rankers, yet their effectiveness is highly sensitive to prompt formulation, particularly role-play instructions. Prior analyses suggest that role-related signals are encoded along activation channels that are largely separate from query-document representations, raising the possibility of steering ranking behavior directly at the activation level rather than through brittle prompt engineering. In this work, we propose RankSteer, a post-hoc activation steering framework for zero-shot pointwise LLM ranking. We characterize ranking behavior through three disentangled and steerable directions in representation space: a \\textbf{decision direction} that maps hidden states to relevance scores, an \\textbf{evidence direction} that captures relevance signals not directly exploited by the decision head, and a \\textbf{role direction} that modulates model behavior without injecting relevance information. Using projection-based interventions at inference time, RankSteer jointly controls these directions to calibrate ranking behavior without modifying model weights or introducing explicit cross-document comparisons. Experiments on TREC DL 20 and multiple BEIR benchmarks show that RankSteer consistently improves ranking quality using only a small number of anchor queries, demonstrating that substantial ranking capacity remains under-utilized in pointwise LLM rankers. We further provide a geometric analysis revealing that steering improves ranking by stabilizing ranking geometry and reducing dispersion, offering new insight into how LLMs internally represent and calibrate relevance judgments.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-03T11:49:00Z",
+    "updated": "2026-02-03T11:49:00Z",
+    "url": "http://arxiv.org/abs/2602.03422v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03422v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对 LLM 在搜索排序（Ranking）中的应用，提出了一种无需微调的激活引导方法来优化零样本排序效果，属于核心的搜索重排序技术创新。",
+    "translation": "RankSteer：用于点对点大语言模型排序的激活引导方法",
+    "summary_zh": "本文提出 RankSteer 框架，通过在推理阶段对大语言模型的隐藏状态进行投影干预，解耦并调控决策、证据和角色三个方向，从而在不修改权重的情况下校准并提升零样本排序性能。",
+    "key_points": [
+      "本文提出 RankSteer 框架，通过在推理阶段对大语言模型的隐藏状态进行投影干预，解耦并调控决策、证据和角色三个方向，从而在不修改权重的情况下校准并提升零样本排序性能"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03306v2",
+    "title": "Learning to Select: Query-Aware Adaptive Dimension Selection for Dense Retrieval",
+    "authors": [
+      "Zhanyu Wu",
+      "Richong Zhang",
+      "Zhijie Nie"
+    ],
+    "summary": "Dense retrieval represents queries and documents as high-dimensional embeddings, but these representations can be redundant at the query level: for a given information need, only a subset of dimensions is consistently helpful for ranking. Prior work addresses this via pseudo-relevance feedback (PRF) based dimension importance estimation, which can produce query-aware masks without labeled data but often relies on noisy pseudo signals and heuristic test-time procedures. In contrast, supervised adapter methods leverage relevance labels to improve embedding quality, yet they learn global transformations shared across queries and do not explicitly model query-aware dimension importance. We propose a Query-Aware Adaptive Dimension Selection framework that \\emph{learns} to predict per-dimension importance directly from query embedding. We first construct oracle dimension importance distributions over embedding dimensions using supervised relevance labels, and then train a predictor to map a query embedding to these label-distilled importance scores. At inference, the predictor selects a query-aware subset of dimensions for similarity computation based solely on the query embedding, without pseudo-relevance feedback. Experiments across multiple dense retrievers and benchmarks show that our learned dimension selector improves retrieval effectiveness over the full-dimensional baseline as well as PRF-based masking and supervised adapter baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-03T09:32:21Z",
+    "updated": "2026-02-07T10:25:02Z",
+    "url": "http://arxiv.org/abs/2602.03306v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.03306v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对稠密检索（Dense Retrieval）核心环节，提出查询感知的维度选择方法以提升搜索排序效果，属于明确的搜索技术应用。",
+    "translation": "学习选择：用于稠密检索的查询感知自适应维度选择",
+    "summary_zh": "提出一种查询感知自适应维度选择框架，通过监督学习直接从查询嵌入预测各维度的重要性分布，从而在推理时动态选择最具判别力的子集进行相似度计算，以消除稠密向量中的冗余信息。",
+    "key_points": [
+      "提出一种查询感知自适应维度选择框架，通过监督学习直接从查询嵌入预测各维度的重要性分布，从而在推理时动态选择最具判别力的子集进行相似度计算，以消除稠密向量中的冗余信息"
+    ]
+  },
+  {
+    "arxiv_id": "2602.15879v1",
+    "title": "BamaER: A Behavior-Aware Memory-Augmented Model for Exercise Recommendation",
+    "authors": [
+      "Qing Yang",
+      "Yuhao Jiang",
+      "Rui Wang",
+      "Jipeng Guo",
+      "Yejiang Wang",
+      "Xinghe Cheng",
+      "Zezheng Wu",
+      "Jiapu Wang",
+      "Jingwei Zhang"
+    ],
+    "summary": "Exercise recommendation focuses on personalized exercise selection conditioned on students' learning history, personal interests, and other individualized characteristics. Despite notable progress, most existing methods represent student learning solely as exercise sequences, overlooking rich behavioral interaction information. This limited representation often leads to biased and unreliable estimates of learning progress. Moreover, fixed-length sequence segmentation limits the incorporation of early learning experiences, thereby hindering the modeling of long-term dependencies and the accurate estimation of knowledge mastery. To address these limitations, we propose BamaER, a Behavior-aware memory-augmented Exercise Recommendation framework that comprises three core modules: (i) the learning progress prediction module that captures heterogeneous student interaction behaviors via a tri-directional hybrid encoding scheme; (ii) the memory-augmented knowledge tracing module that maintains a dynamic memory matrix to jointly model historical and current knowledge states for robust mastery estimation; and (iii) the exercise filtering module that formulates candidate selection as a diversity-aware optimization problem, solved via the Hippopotamus Optimization Algorithm to reduce redundancy and improve recommendation coverage. Experiments on five real-world educational datasets show that BamaER consistently outperforms state-of-the-art baselines across a range of evaluation metrics.",
+    "categories": [
+      "cs.LG",
+      "cs.CY"
+    ],
+    "published": "2026-02-03T08:45:54Z",
+    "updated": "2026-02-03T08:45:54Z",
+    "url": "http://arxiv.org/abs/2602.15879v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.15879v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该文专注于教育领域的习题推荐系统，提出了结合行为感知与记忆增强的核心推荐架构，属于明确的垂直领域 RecSys 应用；虽非通用电商/社交场景，但符合序列推荐与用户建模的核心技术范畴，且来自中国公司额外加 1 分。",
+    "translation": "BamaER：一种用于习题推荐的行为感知记忆增强模型",
+    "summary_zh": "提出一种包含三向混合编码、动态记忆知识追踪及多样性优化过滤的习题推荐框架，旨在通过细粒度行为建模和长依赖捕捉来提升个性化习题推荐的准确性与覆盖率。",
+    "key_points": [
+      "提出一种包含三向混合编码、动态记忆知识追踪及多样性优化过滤的习题推荐框架，旨在通过细粒度行为建模和长依赖捕捉来提升个性化习题推荐的准确性与覆盖率"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03154v1",
+    "title": "Intelligent Front-End Personalization: AI-Driven UI Adaptation",
+    "authors": [
+      "Mona Rajhans"
+    ],
+    "summary": "Front-end personalization has traditionally relied on static designs or rule-based adaptations, which fail to fully capture user behavior patterns. This paper presents an AI driven approach for dynamic front-end personalization, where UI layouts, content, and features adapt in real-time based on predicted user behavior. We propose three strategies: dynamic layout adaptation using user path prediction, content prioritization through reinforcement learning, and a comparative analysis of AI-driven vs. rule-based personalization. Technical implementation details, algorithms, system architecture, and evaluation methods are provided to illustrate feasibility and performance gains.",
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.SE"
+    ],
+    "published": "2026-02-03T06:10:10Z",
+    "updated": "2026-02-03T06:10:10Z",
+    "url": "http://arxiv.org/abs/2602.03154v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03154v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的前端个性化与内容优先级排序，利用强化学习和用户路径预测动态调整 UI，属于核心推荐技术的应用。",
+    "translation": "智能前端个性化：AI 驱动的界面自适应",
+    "summary_zh": "提出一种 AI 驱动的前端个性化方法，通过用户路径预测动态调整布局，并利用强化学习实时优化内容优先级以适应用户行为。",
+    "key_points": [
+      "提出一种 AI 驱动的前端个性化方法，通过用户路径预测动态调整布局，并利用强化学习实时优化内容优先级以适应用户行为"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03640v1",
+    "title": "Tutorial on Reasoning for IR & IR for Reasoning",
+    "authors": [
+      "Mohanna Hoveyda",
+      "Panagiotis Efstratiadis",
+      "Arjen de Vries",
+      "Maarten de Rijke"
+    ],
+    "summary": "Information retrieval has long focused on ranking documents by semantic relatedness. Yet many real-world information needs demand more: enforcement of logical constraints, multi-step inference, and synthesis of multiple pieces of evidence. Addressing these requirements is, at its core, a problem of reasoning. Across AI communities, researchers are developing diverse solutions for the problem of reasoning, from inference-time strategies and post-training of LLMs, to neuro-symbolic systems, Bayesian and probabilistic frameworks, geometric representations, and energy-based models. These efforts target the same problem: to move beyond pattern-matching systems toward structured, verifiable inference. However, they remain scattered across disciplines, making it difficult for IR researchers to identify the most relevant ideas and opportunities. To help navigate the fragmented landscape of research in reasoning, this tutorial first articulates a working definition of reasoning within the context of information retrieval and derives from it a unified analytical framework. The framework maps existing approaches along axes that reflect the core components of the definition. By providing a comprehensive overview of recent approaches and mapping current methods onto the defined axes, we expose their trade-offs and complementarities, highlight where IR can benefit from cross-disciplinary advances, and illustrate how retrieval process itself can play a central role in broader reasoning systems. The tutorial will equip participants with both a conceptual framework and practical guidance for enhancing reasoning-capable IR systems, while situating IR as a domain that both benefits and contributes to the broader development of reasoning methodologies.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-02-03T15:24:36Z",
+    "updated": "2026-02-03T15:24:36Z",
+    "url": "http://arxiv.org/abs/2602.03640v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03640v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于推理与信息检索（IR）交叉领域的教程论文，虽涉及搜索核心但缺乏具体的推荐/搜索系统架构创新或业务场景落地，且主要侧重纯 LLM 推理策略的综述；根据规则给予基础分 5 分，因来自 OPPO 额外加 1 分。",
+    "translation": "信息检索中的推理与推理中的信息检索教程",
+    "summary_zh": "本文提出一个统一分析框架，将神经符号系统、概率框架及 LLM 推理策略等跨学科方法映射到信息检索场景中，旨在推动搜索系统从语义匹配向结构化逻辑推理演进。",
+    "key_points": [
+      "本文提出一个统一分析框架，将神经符号系统、概率框架及 LLM 推理策略等跨学科方法映射到信息检索场景中，旨在推动搜索系统从语义匹配向结构化逻辑推理演进"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03992v1",
+    "title": "Nemotron ColEmbed V2: Top-Performing Late Interaction embedding models for Visual Document Retrieval",
+    "authors": [
+      "Gabriel de Souza P. Moreira",
+      "Ronay Ak",
+      "Mengyao Xu",
+      "Oliver Holworthy",
+      "Benedikt Schifferer",
+      "Zhiding Yu",
+      "Yauhen Babakhin",
+      "Radek Osmulski",
+      "Jiarui Cai",
+      "Ryan Chesler",
+      "Bo Liu",
+      "Even Oldridge"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems have been popular for generative applications, powering language models by injecting external knowledge. Companies have been trying to leverage their large catalog of documents (e.g. PDFs, presentation slides) in such RAG pipelines, whose first step is the retrieval component. Dense retrieval has been a popular approach, where embedding models are used to generate a dense representation of the user query that is closer to relevant content embeddings. More recently, VLM-based embedding models have become popular for visual document retrieval, as they preserve visual information and simplify the indexing pipeline compared to OCR text extraction.\n  Motivated by the growing demand for visual document retrieval, we introduce Nemotron ColEmbed V2, a family of models that achieve state-of-the-art performance on the ViDoRe benchmarks. We release three variants - with 3B, 4B, and 8B parameters - based on pre-trained VLMs: NVIDIA Eagle 2 with Llama 3.2 3B backbone, Qwen3-VL-4B-Instruct and Qwen3-VL-8B-Instruct, respectively. The 8B model ranks first on the ViDoRe V3 leaderboard as of February 03, 2026, achieving an average NDCG@10 of 63.42.\n  We describe the main techniques used across data processing, training, and post-training - such as cluster-based sampling, hard-negative mining, bidirectional attention, late interaction, and model merging - that helped us build our top-performing models. We also discuss compute and storage engineering challenges posed by the late interaction mechanism and present experiments on how to balance accuracy and storage with lower dimension embeddings.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-03T20:26:44Z",
+    "updated": "2026-02-03T20:26:44Z",
+    "url": "http://arxiv.org/abs/2602.03992v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03992v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯视觉文档检索（CV/NLP 交叉）研究，虽提及 RAG 但未直接解决推荐系统或搜索引擎的核心排序/匹配问题，且无中国公司背景（实际为 NVIDIA），故不给加分，仅作为潜在底层技术给予低分。",
+    "translation": "Nemotron ColEmbed V2：用于视觉文档检索的顶尖晚期交互嵌入模型",
+    "summary_zh": "提出基于视觉语言模型的晚期交互嵌入架构，通过聚类采样和双向注意力机制优化视觉文档的稠密表示以增强检索能力。",
+    "key_points": [
+      "提出基于视觉语言模型的晚期交互嵌入架构，通过聚类采样和双向注意力机制优化视觉文档的稠密表示以增强检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03645v1",
+    "title": "Reinforcement Fine-Tuning for History-Aware Dense Retriever in RAG",
+    "authors": [
+      "Yicheng Zhang",
+      "Zhen Qin",
+      "Zhaomin Wu",
+      "Wenqi Zhang",
+      "Shuiguang Deng"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) enables large language models (LLMs) to produce evidence-based responses, and its performance hinges on the matching between the retriever and LLMs. Retriever optimization has emerged as an efficient alternative to fine-tuning LLMs. However, existing solutions suffer from objective mismatch between retriever optimization and the goal of RAG pipeline. Reinforcement learning (RL) provides a promising solution to address this limitation, yet applying RL to retriever optimization introduces two fundamental challenges: 1) the deterministic retrieval is incompatible with RL formulations, and 2) state aliasing arises from query-only retrieval in multi-hop reasoning. To address these challenges, we replace deterministic retrieval with stochastic sampling and formulate RAG as a Markov decision process, making retriever optimizable by RL. Further, we incorporate retrieval history into the state at each retrieval step to mitigate state aliasing. Extensive experiments across diverse RAG pipelines, datasets, and retriever scales demonstrate consistent improvements of our approach in RAG performance.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-03T15:30:14Z",
+    "updated": "2026-02-03T15:30:14Z",
+    "url": "http://arxiv.org/abs/2602.03645v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03645v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/RAG 领域的检索器优化研究，旨在提升 LLM 生成质量，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），虽来自中国企业但相关性仍低。",
+    "translation": "RAG 中面向历史感知的稠密检索器的强化学习微调",
+    "summary_zh": "提出将 RAG 建模为马尔可夫决策过程，通过随机采样替代确定性检索并引入检索历史状态，利用强化学习解决检索器与 LLM 目标不一致及状态混叠问题。",
+    "key_points": [
+      "提出将 RAG 建模为马尔可夫决策过程，通过随机采样替代确定性检索并引入检索历史状态，利用强化学习解决检索器与 LLM 目标不一致及状态混叠问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07035v1",
+    "title": "DLLM-Searcher: Adapting Diffusion Large Language Model for Search Agents",
+    "authors": [
+      "Jiahao Zhao",
+      "Shaoxuan Xu",
+      "Zhongxiang Sun",
+      "Fengqi Zhu",
+      "Jingyang Ou",
+      "Yuling Shi",
+      "Chongxuan Li",
+      "Xiao Zhang",
+      "Jun Xu"
+    ],
+    "summary": "Recently, Diffusion Large Language Models (dLLMs) have demonstrated unique efficiency advantages, enabled by their inherently parallel decoding mechanism and flexible generation paradigm. Meanwhile, despite the rapid advancement of Search Agents, their practical deployment is constrained by a fundamental limitation, termed as 1) Latency Challenge: the serial execution of multi-round reasoning, tool calling, and tool response waiting under the ReAct agent paradigm induces severe end-to-end latency. Intuitively, dLLMs can leverage their distinctive strengths to optimize the operational efficiency of agents under the ReAct agent paradigm. Practically, existing dLLM backbones face the 2) Agent Ability Challenge. That is, existing dLLMs exhibit remarkably weak reasoning and tool-calling capabilities, preventing these advantages from being effectively realized in practice. In this paper, we propose DLLM-Searcher, an optimization framework for dLLM-based Search Agents. To solve the Agent Ability Challenge, we design a two-stage post-training pipeline encompassing Agentic Supervised Fine-Tuning (Agentic SFT) and Agentic Variance-Reduced Preference Optimization Agentic VRPO, which enhances the backbone dLLM's information seeking and reasoning capabilities. To mitigate the Latency Challenge, we leverage the flexible generation mechanism of dLLMs and propose a novel agent paradigm termed Parallel-Reasoning and Acting P-ReAct. P-ReAct guides the model to prioritize decoding tool_call instructions, thereby allowing the model to keep thinking while waiting for the tool's return. Experimental results demonstrate that DLLM-Searcher achieves performance comparable to mainstream LLM-based search agents and P-ReAct delivers approximately 15% inference acceleration. Our code is available at https://anonymous.4open.science/r/DLLM-Searcher-553C",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-03T09:12:08Z",
+    "updated": "2026-02-03T09:12:08Z",
+    "url": "http://arxiv.org/abs/2602.07035v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07035v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究纯 LLM（扩散模型）的推理加速与 Agent 能力增强，属于通用 LLM 架构优化，虽应用于搜索代理但缺乏推荐/搜索核心算法（如召回、排序）的直接创新，且非电商/社交场景落地。",
+    "translation": "DLLM-Searcher：适配扩散大语言模型用于搜索智能体",
+    "summary_zh": "提出一种基于扩散大语言模型的搜索智能体优化框架，通过两阶段后训练增强推理与工具调用能力，并设计并行推理执行范式以利用并行解码机制降低端到端延迟。",
+    "key_points": [
+      "提出一种基于扩散大语言模型的搜索智能体优化框架，通过两阶段后训练增强推理与工具调用能力，并设计并行推理执行范式以利用并行解码机制降低端到端延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03689v1",
+    "title": "Rethinking the Reranker: Boundary-Aware Evidence Selection for Robust Retrieval-Augmented Generation",
+    "authors": [
+      "Jiashuo Sun",
+      "Pengcheng Jiang",
+      "Saizhuo Wang",
+      "Jiajun Fan",
+      "Heng Wang",
+      "Siru Ouyang",
+      "Ming Zhong",
+      "Yizhu Jiao",
+      "Chengsong Huang",
+      "Xueqiang Xu",
+      "Pengrui Han",
+      "Peiran Li",
+      "Jiaxin Huang",
+      "Ge Liu",
+      "Heng Ji",
+      "Jiawei Han"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems remain brittle under realistic retrieval noise, even when the required evidence appears in the top-K results. A key reason is that retrievers and rerankers optimize solely for relevance, often selecting either trivial, answer-revealing passages or evidence that lacks the critical information required to answer the question, without considering whether the evidence is suitable for the generator. We propose BAR-RAG, which reframes the reranker as a boundary-aware evidence selector that targets the generator's Goldilocks Zone -- evidence that is neither trivially easy nor fundamentally unanswerable for the generator, but is challenging yet sufficient for inference and thus provides the strongest learning signal. BAR-RAG trains the selector with reinforcement learning using generator feedback, and adopts a two-stage pipeline that fine-tunes the generator under the induced evidence distribution to mitigate the distribution mismatch between training and inference. Experiments on knowledge-intensive question answering benchmarks show that BAR-RAG consistently improves end-to-end performance under noisy retrieval, achieving an average gain of 10.3 percent over strong RAG and reranking baselines while substantially improving robustness. Code is publicly avaliable at https://github.com/GasolSun36/BAR-RAG.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-02-03T16:08:23Z",
+    "updated": "2026-02-03T16:08:23Z",
+    "url": "http://arxiv.org/abs/2602.03689v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03689v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 NLP/LLM 研究（RAG 优化），专注于问答任务而非推荐/搜索系统的核心环节（如召回、排序、用户建模），虽涉及重排序但应用场景不符，故给低分。",
+    "translation": "重思重排序器：面向鲁棒检索增强生成的边界感知证据选择",
+    "summary_zh": "提出 BAR-RAG 方法，将重排序器重构为边界感知证据选择器，利用强化学习筛选对生成器难度适中的证据以解决检索噪声问题。",
+    "key_points": [
+      "提出 BAR-RAG 方法，将重排序器重构为边界感知证据选择器，利用强化学习筛选对生成器难度适中的证据以解决检索噪声问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.10131v1",
+    "title": "The Anatomy of the Moltbook Social Graph",
+    "authors": [
+      "David Holtz"
+    ],
+    "summary": "I present a descriptive analysis of Moltbook, a social platform populated exclusively by AI agents, using data from the platform's first 3.5 days (6{,}159 agents; 13{,}875 posts; 115{,}031 comments). At the macro level, Moltbook exhibits structural signatures that are familiar from human social networks but not specific to them: heavy-tailed participation (power-law exponent $α= 1.70$) and small-world connectivity (average path length $=2.91$). At the micro level, patterns appear distinctly non-human. Conversations are extremely shallow (mean depth $=1.07$; 93.5\\% of comments receive no replies), reciprocity is low (0.197), and 34.1\\% of messages are exact duplicates of viral templates. Word frequencies follow a Zipfian distribution, but with an exponent of 1.70 -- notably steeper than typical English text ($\\approx 1.0$), suggesting more formulaic content. Agent discourse is dominated by identity-related language (68.1\\% of unique messages) and distinctive phrasings like ``my human'' (9.4\\% of messages) that have no parallel in human social media. Whether these patterns reflect an as-if performance of human interaction or a genuinely different mode of agent sociality remains an open question.",
+    "categories": [
+      "cs.SI",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "published": "2026-02-03T22:20:00Z",
+    "updated": "2026-02-03T22:20:00Z",
+    "url": "http://arxiv.org/abs/2602.10131v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.10131v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于纯 AI 代理社交网络行为分析的论文，属于多智能体系统或社会学研究，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模）。",
+    "translation": "Moltbook 社交图谱的解剖分析",
+    "summary_zh": "本文对仅由 AI 代理组成的社交平台 Moltbook 进行了描述性分析，揭示了其在宏观结构上类似人类网络但在微观交互模式上呈现非人类特征的现象。",
+    "key_points": [
+      "本文对仅由 AI 代理组成的社交平台 Moltbook 进行了描述性分析，揭示了其在宏观结构上类似人类网络但在微观交互模式上呈现非人类特征的现象"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03719v1",
+    "title": "Training Multi-Turn Search Agent via Contrastive Dynamic Branch Sampling",
+    "authors": [
+      "Yubao Zhao",
+      "Weiquan Huang",
+      "Sudong Wang",
+      "Ruochen Zhao",
+      "Chen Chen",
+      "Yao Shu",
+      "Chengwei Qin"
+    ],
+    "summary": "Agentic reinforcement learning has enabled large language models to perform complex multi-turn planning and tool use. However, learning in long-horizon settings remains challenging due to sparse, trajectory-level outcome rewards. While prior tree-based methods attempt to mitigate this issue, they often suffer from high variance and computational inefficiency. Through empirical analysis of search agents, We identify a common pattern: performance diverges mainly due to decisions near the tail. Motivated by this observation, we propose Branching Relative Policy Optimization (BranPO), a value-free method that provides step-level contrastive supervision without dense rewards. BranPO truncates trajectories near the tail and resamples alternative continuations to construct contrastive suffixes over shared prefixes, reducing credit ambiguity in long-horizon rollouts. To further boost efficiency and stabilize training, we introduce difficulty-aware branch sampling to adapt branching frequency across tasks, and redundant step masking to suppress uninformative actions. Extensive experiments on various question answering benchmarks demonstrate that BranPO consistently outperforms strong baselines, achieving significant accuracy gains on long-horizon tasks without increasing the overall training budget. Our code is available at \\href{https://github.com/YubaoZhao/BranPO}{code}.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-02-03T16:43:09Z",
+    "updated": "2026-02-03T16:43:09Z",
+    "url": "http://arxiv.org/abs/2602.03719v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03719v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 强化学习研究，专注于通用问答任务中的多轮规划，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "通过对比动态分支采样训练多轮搜索智能体",
+    "summary_zh": "提出一种无价值的强化学习方法，通过在长序列尾部截断并重采样构建对比后缀，以解决长程任务中的信用分配模糊问题。",
+    "key_points": [
+      "提出一种无价值的强化学习方法，通过在长序列尾部截断并重采样构建对比后缀，以解决长程任务中的信用分配模糊问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03578v1",
+    "title": "Use Graph When It Needs: Efficiently and Adaptively Integrating Retrieval-Augmented Generation with Graphs",
+    "authors": [
+      "Su Dong",
+      "Qinggang Zhang",
+      "Yilin Xiao",
+      "Shengyuan Chen",
+      "Chuang Zhou",
+      "Xiao Huang"
+    ],
+    "summary": "Large language models (LLMs) often struggle with knowledge-intensive tasks due to hallucinations and outdated parametric knowledge. While Retrieval-Augmented Generation (RAG) addresses this by integrating external corpora, its effectiveness is limited by fragmented information in unstructured domain documents. Graph-augmented RAG (GraphRAG) emerged to enhance contextual reasoning through structured knowledge graphs, yet paradoxically underperforms vanilla RAG in real-world scenarios, exhibiting significant accuracy drops and prohibitive latency despite gains on complex queries. We identify the rigid application of GraphRAG to all queries, regardless of complexity, as the root cause. To resolve this, we propose an efficient and adaptive GraphRAG framework called EA-GraphRAG that dynamically integrates RAG and GraphRAG paradigms through syntax-aware complexity analysis. Our approach introduces: (i) a syntactic feature constructor that parses each query and extracts a set of structural features; (ii) a lightweight complexity scorer that maps these features to a continuous complexity score; and (iii) a score-driven routing policy that selects dense RAG for low-score queries, invokes graph-based retrieval for high-score queries, and applies complexity-aware reciprocal rank fusion to handle borderline cases. Extensive experiments on a comprehensive benchmark, consisting of two single-hop and two multi-hop QA benchmarks, demonstrate that our EA-GraphRAG significantly improves accuracy, reduces latency, and achieves state-of-the-art performance in handling mixed scenarios involving both simple and complex queries.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-02-03T14:26:28Z",
+    "updated": "2026-02-03T14:26:28Z",
+    "url": "http://arxiv.org/abs/2602.03578v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03578v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 架构优化的研究，专注于通用问答任务（QA），未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "按需使用图：高效自适应地整合检索增强生成与图技术",
+    "summary_zh": "该论文提出一种自适应框架，通过语法感知复杂度分析动态路由简单查询至稠密检索、复杂查询至图检索，以解决 GraphRAG 在混合场景下的效率与准确性问题。",
+    "key_points": [
+      "该论文提出一种自适应框架，通过语法感知复杂度分析动态路由简单查询至稠密检索、复杂查询至图检索，以解决 GraphRAG 在混合场景下的效率与准确性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03442v1",
+    "title": "A-RAG: Scaling Agentic Retrieval-Augmented Generation via Hierarchical Retrieval Interfaces",
+    "authors": [
+      "Mingxuan Du",
+      "Benfeng Xu",
+      "Chiwei Zhu",
+      "Shaohan Wang",
+      "Pengyu Wang",
+      "Xiaorui Wang",
+      "Zhendong Mao"
+    ],
+    "summary": "Frontier language models have demonstrated strong reasoning and long-horizon tool-use capabilities. However, existing RAG systems fail to leverage these capabilities. They still rely on two paradigms: (1) designing an algorithm that retrieves passages in a single shot and concatenates them into the model's input, or (2) predefining a workflow and prompting the model to execute it step-by-step. Neither paradigm allows the model to participate in retrieval decisions, preventing efficient scaling with model improvements. In this paper, we introduce A-RAG, an Agentic RAG framework that exposes hierarchical retrieval interfaces directly to the model. A-RAG provides three retrieval tools: keyword search, semantic search, and chunk read, enabling the agent to adaptively search and retrieve information across multiple granularities. Experiments on multiple open-domain QA benchmarks show that A-RAG consistently outperforms existing approaches with comparable or lower retrieved tokens, demonstrating that A-RAG effectively leverages model capabilities and dynamically adapts to different RAG tasks. We further systematically study how A-RAG scales with model size and test-time compute. We will release our code and evaluation suite to facilitate future research. Code and evaluation suite are available at https://github.com/Ayanami0730/arag.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-02-03T12:07:21Z",
+    "updated": "2026-02-03T12:07:21Z",
+    "url": "http://arxiv.org/abs/2602.03442v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.03442v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 架构的研究，专注于通用问答任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "A-RAG：通过分层检索接口扩展代理式检索增强生成",
+    "summary_zh": "该论文提出 A-RAG 框架，通过向大模型暴露关键词、语义及块读取等分层检索工具，使模型能自主决策并自适应地执行多粒度信息检索。",
+    "key_points": [
+      "该论文提出 A-RAG 框架，通过向大模型暴露关键词、语义及块读取等分层检索工具，使模型能自主决策并自适应地执行多粒度信息检索"
+    ]
+  }
+]

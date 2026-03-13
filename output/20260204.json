@@ -1,0 +1,408 @@
+[
+  {
+    "arxiv_id": "2602.04567v2",
+    "title": "VK-LSVD: A Large-Scale Industrial Dataset for Short-Video Recommendation",
+    "authors": [
+      "Aleksandr Poslavsky",
+      "Alexander D'yakonov",
+      "Yuriy Dorn",
+      "Andrey Zimovnov"
+    ],
+    "summary": "Short-video recommendation presents unique challenges, such as modeling rapid user interest shifts from implicit feedback, but progress is constrained by a lack of large-scale open datasets that reflect real-world platform dynamics. To bridge this gap, we introduce the VK Large Short-Video Dataset (VK-LSVD), the largest publicly available industrial dataset of its kind. VK-LSVD offers an unprecedented scale of over 40 billion interactions from 10 million users and almost 20 million videos over six months, alongside rich features including content embeddings, diverse feedback signals, and contextual metadata. Our analysis supports the dataset's quality and diversity. The dataset's immediate impact is confirmed by its central role in the live VK RecSys Challenge 2025. VK-LSVD provides a vital, open dataset to use in building realistic benchmarks to accelerate research in sequential recommendation, cold-start scenarios, and next-generation recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.CY"
+    ],
+    "published": "2026-02-04T13:54:52Z",
+    "updated": "2026-02-10T08:09:13Z",
+    "url": "http://arxiv.org/abs/2602.04567v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.04567v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对短视频推荐系统，发布了大规模工业级数据集以解决用户兴趣建模和冷启动等核心问题，完全符合高优先级标准；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "VK-LSVD：用于短视频推荐的大规模工业数据集",
+    "summary_zh": "本文提出了 VK-LSVD，一个包含 400 亿次交互的超大规模工业短视频数据集，旨在通过提供丰富的内容嵌入和多源反馈信号，加速序列推荐和冷启动场景的研究与基准构建。",
+    "key_points": [
+      "本文提出了 VK-LSVD，一个包含 400 亿次交互的超大规模工业短视频数据集，旨在通过提供丰富的内容嵌入和多源反馈信号，加速序列推荐和冷启动场景的研究与基准构建"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04460v1",
+    "title": "DOS: Dual-Flow Orthogonal Semantic IDs for Recommendation in Meituan",
+    "authors": [
+      "Junwei Yin",
+      "Senjie Kou",
+      "Changhao Li",
+      "Shuli Wang",
+      "Xue Wei",
+      "Yinqiu Huang",
+      "Yinhua Zhu",
+      "Haitao Wang",
+      "Xingxing Wang"
+    ],
+    "summary": "Semantic IDs serve as a key component in generative recommendation systems. They not only incorporate open-world knowledge from large language models (LLMs) but also compress the semantic space to reduce generation difficulty. However, existing methods suffer from two major limitations: (1) the lack of contextual awareness in generation tasks leads to a gap between the Semantic ID codebook space and the generation space, resulting in suboptimal recommendations; and (2) suboptimal quantization methods exacerbate semantic loss in LLMs. To address these issues, we propose Dual-Flow Orthogonal Semantic IDs (DOS) method. Specifically, DOS employs a user-item dual flow-framework that leverages collaborative signals to align the Semantic ID codebook space with the generation space. Furthermore, we introduce an orthogonal residual quantization scheme that rotates the semantic space to an appropriate orientation, thereby maximizing semantic preservation. Extensive offline experiments and online A/B testing demonstrate the effectiveness of DOS. The proposed method has been successfully deployed in Meituan's mobile application, serving hundreds of millions of users.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-04T11:43:42Z",
+    "updated": "2026-02-04T11:43:42Z",
+    "url": "http://arxiv.org/abs/2602.04460v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04460v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文来自美团，直接解决生成式推荐中语义 ID 的上下文感知与量化损失问题，属于核心领域高优先级创新。",
+    "translation": "DOS：美团推荐系统中的双流程正交语义 ID",
+    "summary_zh": "提出双流程正交语义 ID 方法，利用协同信号对齐码本与生成空间，并通过正交残差量化旋转语义空间以最大化保留语义信息。",
+    "key_points": [
+      "提出双流程正交语义 ID 方法，利用协同信号对齐码本与生成空间，并通过正交残差量化旋转语义空间以最大化保留语义信息"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04278v1",
+    "title": "MiniRec: Data-Efficient Reinforcement Learning for LLM-based Recommendation",
+    "authors": [
+      "Lin Wang",
+      "Yang Zhang",
+      "Jingfan Chen",
+      "Xiaoyan Zhao",
+      "Fengbin Zhu",
+      "Qing Li",
+      "Tat-Seng Chua"
+    ],
+    "summary": "The integration of reinforcement learning (RL) into large language models (LLMs) has opened new opportunities for recommender systems by eliciting reasoning and improving user preference modeling. However, RL-based LLM recommendation faces significant efficiency challenges, making full-data training costly. Existing data selection methods define sample value based on learnability or representativeness, yet their loss- or gradient-driven or dataset coverage-driven criteria often misalign with RL learning dynamics, resulting in suboptimal performance. To address this, we propose MiniRec, a data selection framework tailored for RL-based LLM recommendation. MiniRec evaluates sample learnability using key RL signals -- rewards -- pruning samples that are too easy (too high reward) or too difficult (consistently low reward). It assesses representativeness by aligning sample gradients with the approximated \"ideal\" global RL optimization trajectory, selecting samples that mainly drive model updates, and it also enforces diversity to reduce redundancy. Combined with a curriculum learning strategy from easy to hard samples, MiniRec significantly reduces training cost while largely preserving performance. Extensive experiments demonstrate MiniRec's effectiveness, highlighting the importance of reward-aligned, trajectory-informed data selection in RL-based LLM recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-04T07:15:49Z",
+    "updated": "2026-02-04T07:15:49Z",
+    "url": "http://arxiv.org/abs/2602.04278v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04278v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出了一种利用 RL 信号进行数据选择以提升训练效率的方法，属于 LLM for RecSys 的核心应用；虽涉及纯 RL 方法，但紧密绑定推荐场景，且来自 OPPO 公司，符合加分条件。",
+    "translation": "MiniRec：面向基于 LLM 推荐系统的数据高效强化学习",
+    "summary_zh": "提出 MiniRec 框架，通过利用奖励信号评估样本可学习性并对齐全局优化轨迹来筛选数据，结合课程学习策略以降低基于 LLM 的推荐系统中强化学习的训练成本。",
+    "key_points": [
+      "提出 MiniRec 框架，通过利用奖励信号评估样本可学习性并对齐全局优化轨迹来筛选数据，结合课程学习策略以降低基于 LLM 的推荐系统中强化学习的训练成本"
+    ]
+  },
+  {
+    "arxiv_id": "2602.05062v1",
+    "title": "Scaling Laws for Embedding Dimension in Information Retrieval",
+    "authors": [
+      "Julian Killingback",
+      "Mahta Rafiee",
+      "Madine Manas",
+      "Hamed Zamani"
+    ],
+    "summary": "Dense retrieval, which encodes queries and documents into a single dense vector, has become the dominant neural retrieval approach due to its simplicity and compatibility with fast approximate nearest neighbor algorithms. As the tasks dense retrieval performs grow in complexity, the fundamental limitations of the underlying data structure and similarity metric -- namely vectors and inner-products -- become more apparent. Prior recent work has shown theoretical limitations inherent to single vectors and inner-products that are generally tied to the embedding dimension. Given the importance of embedding dimension for retrieval capacity, understanding how dense retrieval performance changes as embedding dimension is scaled is fundamental to building next generation retrieval models that balance effectiveness and efficiency. In this work, we conduct a comprehensive analysis of the relationship between embedding dimension and retrieval performance. Our experiments include two model families and a range of model sizes from each to construct a detailed picture of embedding scaling behavior. We find that the scaling behavior fits a power law, allowing us to derive scaling laws for performance given only embedding dimension, as well as a joint law accounting for embedding dimension and model size. Our analysis shows that for evaluation tasks aligned with the training task, performance continues to improve as embedding size increases, though with diminishing returns. For evaluation data that is less aligned with the training task, we find that performance is less predictable, with performance degrading with larger embedding dimensions for certain tasks. We hope our work provides additional insight into the limitations of embeddings and their behavior as well as offers a practical guide for selecting model and embedding dimension to achieve optimal performance with reduced storage and compute costs.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-04T21:27:12Z",
+    "updated": "2026-02-04T21:27:12Z",
+    "url": "http://arxiv.org/abs/2602.05062v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.05062v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接研究信息检索（搜索核心环节）中嵌入维度与性能的缩放规律，为构建高效检索模型提供理论指导；虽涉及模型规模分析，但核心聚焦于检索系统架构优化而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "信息检索中嵌入维度的缩放定律",
+    "summary_zh": "本文通过实证分析揭示了稠密检索性能随嵌入维度及模型规模变化的幂律缩放关系，旨在指导在存储与计算成本约束下选择最优的模型配置以平衡检索效果与效率。",
+    "key_points": [
+      "本文通过实证分析揭示了稠密检索性能随嵌入维度及模型规模变化的幂律缩放关系，旨在指导在存储与计算成本约束下选择最优的模型配置以平衡检索效果与效率"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04605v1",
+    "title": "RexBERT: Context Specialized Bidirectional Encoders for E-commerce",
+    "authors": [
+      "Rahul Bajaj",
+      "Anuj Garg"
+    ],
+    "summary": "Encoder-only transformers remain indispensable in retrieval, classification, and ranking systems where latency, stability, and cost are paramount. Most general purpose encoders, however, are trained on generic corpora with limited coverage of specialized domains. We introduce RexBERT, a family of BERT-style encoders designed specifically for e-commerce semantics. We make three contributions. First, we release Ecom-niverse, a 350 billion token corpus curated from diverse retail and shopping sources. We describe a modular pipeline that isolates and extracts e-commerce content from FineFineWeb and other open web resources, and characterize the resulting domain distribution. Second, we present a reproducible pretraining recipe building on ModernBERT's architectural advances. The recipe consists of three phases: general pre-training, context extension, and annealed domain specialization. Third, we train RexBERT models ranging from 17M to 400M parameters and evaluate them on token classification, semantic similarity, and general natural language understanding tasks using e-commerce datasets. Despite having 2-3x fewer parameters, RexBERT outperforms larger general-purpose encoders and matches or surpasses modern long-context models on domain-specific benchmarks. Our results demonstrate that high quality in-domain data combined with a principled training approach provides a stronger foundation for e-commerce applications than indiscriminate scaling alone.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-02-04T14:32:37Z",
+    "updated": "2026-02-04T14:32:37Z",
+    "url": "http://arxiv.org/abs/2602.04605v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04605v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对电商领域的检索、分类和排序系统提出了专用编码器，属于搜索/推荐核心环节的直接应用，但侧重于基础模型预训练而非具体的推荐算法创新。",
+    "translation": "RexBERT：面向电子商务的上下文专用双向编码器",
+    "summary_zh": "提出一种专为电商语义设计的 BERT 风格编码器家族，通过构建大规模领域语料库及分阶段预训练策略，为电商检索与排序系统提供低延迟、高稳定性的专用语义表示基础。",
+    "key_points": [
+      "提出一种专为电商语义设计的 BERT 风格编码器家族，通过构建大规模领域语料库及分阶段预训练策略，为电商检索与排序系统提供低延迟、高稳定性的专用语义表示基础"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04225v1",
+    "title": "Following the TRAIL: Predicting and Explaining Tomorrow's Hits with a Fine-Tuned LLM",
+    "authors": [
+      "Yinan Zhang",
+      "Zhixi Chen",
+      "Jiazheng Jing",
+      "Zhiqi Shen"
+    ],
+    "summary": "Large Language Models (LLMs) have been widely applied across multiple domains for their broad knowledge and strong reasoning capabilities. However, applying them to recommendation systems is challenging since it is hard for LLMs to extract user preferences from large, sparse user-item logs, and real-time per-user ranking over the full catalog is too time-consuming to be practical. Moreover, many existing recommender systems focus solely on ranking items while overlooking explanations, which could help improve predictive accuracy and make recommendations more convincing to users. Inspired by recent works that achieve strong recommendation performance by forecasting near-term item popularity, we propose TRAIL (TRend and explAnation Integrated Learner). TRAIL is a fine-tuned LLM that jointly predicts short-term item popularity and generates faithful natural-language explanations. It employs contrastive learning with positive and negative pairs to align its scores and explanations with structured trend signals, yielding accurate and explainable popularity predictions. Extensive experiments show that TRAIL outperforms strong baselines and produces coherent, well-grounded explanations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-04T05:22:52Z",
+    "updated": "2026-02-04T05:22:52Z",
+    "url": "http://arxiv.org/abs/2602.04225v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04225v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对推荐系统中 LLM 难以处理稀疏用户日志和实时排序的痛点，提出利用短期流行度预测替代个性化排序的新思路，属于 LLM 在推荐领域的直接创新应用；虽非传统个性化推荐，但解决了实际工程问题，且来自中国公司，故给予高分。",
+    "translation": "追随 TRAIL：利用微调大语言模型预测并解释明日热门商品",
+    "summary_zh": "提出 TRAIL 框架，通过微调大语言模型结合对比学习，将短期商品流行度预测与自然语言解释生成联合建模，以解决传统推荐系统在实时性和可解释性上的局限。",
+    "key_points": [
+      "提出 TRAIL 框架，通过微调大语言模型结合对比学习，将短期商品流行度预测与自然语言解释生成联合建模，以解决传统推荐系统在实时性和可解释性上的局限"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04347v1",
+    "title": "A Bandit-Based Approach to Educational Recommender Systems: Contextual Thompson Sampling for Learner Skill Gain Optimization",
+    "authors": [
+      "Lukas De Kerpel",
+      "Arthur Thuy",
+      "Dries F. Benoit"
+    ],
+    "summary": "In recent years, instructional practices in Operations Research (OR), Management Science (MS), and Analytics have increasingly shifted toward digital environments, where large and diverse groups of learners make it difficult to provide practice that adapts to individual needs. This paper introduces a method that generates personalized sequences of exercises by selecting, at each step, the exercise most likely to advance a learner's understanding of a targeted skill. The method uses information about the learner and their past performance to guide these choices, and learning progress is measured as the change in estimated skill level before and after each exercise. Using data from an online mathematics tutoring platform, we find that the approach recommends exercises associated with greater skill improvement and adapts effectively to differences across learners. From an instructional perspective, the framework enables personalized practice at scale, highlights exercises with consistently strong learning value, and helps instructors identify learners who may benefit from additional support.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-02-04T09:14:53Z",
+    "updated": "2026-02-04T09:14:53Z",
+    "url": "http://arxiv.org/abs/2602.04347v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04347v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该文将上下文 Bandit 算法直接应用于教育推荐系统以优化技能增益，属于明确的垂直领域推荐应用；虽非电商/社交主流场景，但符合核心推荐技术定义，且来自好未来（TAL）加 1 分。",
+    "translation": "基于 Bandit 的教育推荐系统：利用上下文 Thompson 采样优化学习者技能增益",
+    "summary_zh": "提出一种基于上下文 Thompson 采样的序列推荐方法，通过动态选择最能提升特定技能的练习题，实现大规模个性化学习路径规划。",
+    "key_points": [
+      "提出一种基于上下文 Thompson 采样的序列推荐方法，通过动态选择最能提升特定技能的练习题，实现大规模个性化学习路径规划"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04263v1",
+    "title": "LILaC: Late Interacting in Layered Component Graph for Open-domain Multimodal Multihop Retrieval",
+    "authors": [
+      "Joohyung Yun",
+      "Doyup Lee",
+      "Wook-Shin Han"
+    ],
+    "summary": "Multimodal document retrieval aims to retrieve query-relevant components from documents composed of textual, tabular, and visual elements. An effective multimodal retriever needs to handle two main challenges: (1) mitigate the effect of irrelevant contents caused by fixed, single-granular retrieval units, and (2) support multihop reasoning by effectively capturing semantic relationships among components within and across documents. To address these challenges, we propose LILaC, a multimodal retrieval framework featuring two core innovations. First, we introduce a layered component graph, explicitly representing multimodal information at two layers - each representing coarse and fine granularity - facilitating efficient yet precise reasoning. Second, we develop a late-interaction-based subgraph retrieval method, an edge-based approach that initially identifies coarse-grained nodes for efficient candidate generation, then performs fine-grained reasoning via late interaction. Extensive experiments demonstrate that LILaC achieves state-of-the-art retrieval performance on all five benchmarks, notably without additional fine-tuning. We make the artifacts publicly available at github.com/joohyung00/lilac.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-04T06:55:48Z",
+    "updated": "2026-02-04T06:55:48Z",
+    "url": "http://arxiv.org/abs/2602.04263v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04263v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种多模态多跳检索方法，属于搜索核心技术范畴，但主要侧重于开放域文档检索而非直接的推荐系统或电商/社交搜索应用。",
+    "translation": "LILaC：用于开放域多模态多跳检索的分层组件图后期交互框架",
+    "summary_zh": "提出一种分层组件图表征多模态信息，并通过基于边的后期交互子图检索方法，实现从粗粒度候选生成到细粒度语义推理的高效多跳检索。",
+    "key_points": [
+      "提出一种分层组件图表征多模态信息，并通过基于边的后期交互子图检索方法，实现从粗粒度候选生成到细粒度语义推理的高效多跳检索"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04174v1",
+    "title": "GenMRP: A Generative Multi-Route Planning Framework for Efficient and Personalized Real-Time Industrial Navigation",
+    "authors": [
+      "Chengzhang Wang",
+      "Chao Chen",
+      "Jun Tao",
+      "Tengfei Liu",
+      "He Bai",
+      "Song Wang",
+      "Longfei Xu",
+      "Kaikui Liu",
+      "Xiangxiang Chu"
+    ],
+    "summary": "Existing industrial-scale navigation applications contend with massive road networks, typically employing two main categories of approaches for route planning. The first relies on precomputed road costs for optimal routing and heuristic algorithms for generating alternatives, while the second, generative methods, has recently gained significant attention. However, the former struggles with personalization and route diversity, while the latter fails to meet the efficiency requirements of large-scale real-time scenarios. To address these limitations, we propose GenMRP, a generative framework for multi-route planning. To ensure generation efficiency, GenMRP first introduces a skeleton-to-capillary approach that dynamically constructs a relevant sub-network significantly smaller than the full road network. Within this sub-network, routes are generated iteratively. The first iteration identifies the optimal route, while the subsequent ones generate alternatives that balance quality and diversity using the newly proposed correctional boosting approach. Each iteration incorporates road features, user historical sequences, and previously generated routes into a Link Cost Model to update road costs, followed by route generation using the Dijkstra algorithm. Extensive experiments show that GenMRP achieves state-of-the-art performance with high efficiency in both offline and online environments. To facilitate further research, we have publicly released the training and evaluation dataset. GenMRP has been fully deployed in a real-world navigation app, demonstrating its effectiveness and benefits.",
+    "categories": [
+      "cs.RO",
+      "cs.GR",
+      "cs.IR"
+    ],
+    "published": "2026-02-04T03:21:21Z",
+    "updated": "2026-02-04T03:21:21Z",
+    "url": "http://arxiv.org/abs/2602.04174v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04174v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "ChaoChen∗ Amap,AlibabaGroup SouthernUniversityofScienceand",
+      "Abstract andonlineenvironments.Tofacilitatefurtherresearch,wehave"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文主要解决工业导航中的路径规划问题，属于运筹优化与图算法范畴，虽涉及用户历史序列但核心并非推荐系统或搜索引擎的排序/匹配机制；且无证据表明其应用于电商、社交或本地生活服务的商品/内容推荐场景，故评为低优先级（基础分 3+ 中国公司加分 1）。",
+    "translation": "GenMRP：一种用于高效个性化实时工业导航的生成式多路径规划框架",
+    "summary_zh": "提出一种生成式多路径规划框架，通过“骨架到毛细血管”的动态子网构建和校正增强策略，结合用户历史序列更新路网代价，以在大规模实时场景中平衡路径质量、多样性与计算效率。",
+    "key_points": [
+      "提出一种生成式多路径规划框架，通过“骨架到毛细血管”的动态子网构建和校正增强策略，结合用户历史序列更新路网代价，以在大规模实时场景中平衡路径质量、多样性与计算效率"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04384v1",
+    "title": "Blockchain Federated Learning for Sustainable Retail: Reducing Waste through Collaborative Demand Forecasting",
+    "authors": [
+      "Fabio Turazza",
+      "Alessandro Neri",
+      "Marcello Pietri",
+      "Maria Angela Butturi",
+      "Marco Picone",
+      "Marco Mamei"
+    ],
+    "summary": "Effective demand forecasting is crucial for reducing food waste. However, data privacy concerns often hinder collaboration among retailers, limiting the potential for improved predictive accuracy. In this study, we explore the application of Federated Learning (FL) in Sustainable Supply Chain Management (SSCM), with a focus on the grocery retail sector dealing with perishable goods. We develop a baseline predictive model for demand forecasting and waste assessment in an isolated retailer scenario. Subsequently, we introduce a Blockchain-based FL model, trained collaboratively across multiple retailers without direct data sharing. Our preliminary results show that FL models have performance almost equivalent to the ideal setting in which parties share data with each other, and are notably superior to models built by individual parties without sharing data, cutting waste and boosting efficiency.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CR"
+    ],
+    "published": "2026-02-04T10:10:37Z",
+    "updated": "2026-02-04T10:10:37Z",
+    "url": "http://arxiv.org/abs/2602.04384v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04384v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于供应链需求预测和减少浪费，虽涉及预测模型但属于运营优化范畴，缺乏推荐系统或搜索引擎核心的检索、匹配、排序及用户个性化建模技术。",
+    "translation": "基于区块链联邦学习的可持续零售：通过协作需求预测减少浪费",
+    "summary_zh": "提出一种结合区块链与联邦学习的框架，使多家零售商能在不共享原始数据的前提下协作训练需求预测模型，以提升预测精度并减少易腐商品浪费。",
+    "key_points": [
+      "提出一种结合区块链与联邦学习的框架，使多家零售商能在不共享原始数据的前提下协作训练需求预测模型，以提升预测精度并减少易腐商品浪费"
+    ]
+  },
+  {
+    "arxiv_id": "2602.05087v1",
+    "title": "Autodiscover: A reinforcement learning recommendation system for the cold-start imbalance challenge in active learning, powered by graph-aware thompson sampling",
+    "authors": [
+      "Parsa Vares"
+    ],
+    "summary": "Systematic literature reviews (SLRs) are fundamental to evidence-based research, but manual screening is an increasing bottleneck as scientific output grows. Screening features low prevalence of relevant studies and scarce, costly expert decisions. Traditional active learning (AL) systems help, yet typically rely on fixed query strategies for selecting the next unlabeled documents. These static strategies do not adapt over time and ignore the relational structure of scientific literature networks. This thesis introduces AutoDiscover, a framework that reframes AL as an online decision-making problem driven by an adaptive agent. Literature is modeled as a heterogeneous graph capturing relationships among documents, authors, and metadata. A Heterogeneous Graph Attention Network (HAN) learns node representations, which a Discounted Thompson Sampling (DTS) agent uses to dynamically manage a portfolio of query strategies. With real-time human-in-the-loop labels, the agent balances exploration and exploitation under non-stationary review dynamics, where strategy utility changes over time. On the 26-dataset SYNERGY benchmark, AutoDiscover achieves higher screening efficiency than static AL baselines. Crucially, the agent mitigates cold start by bootstrapping discovery from minimal initial labels where static approaches fail. We also introduce TS-Insight, an open-source visual analytics dashboard to interpret, verify, and diagnose the agent's decisions. Together, these contributions accelerate SLR screening under scarce expert labels and low prevalence of relevant studies.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.HC",
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-02-04T22:16:50Z",
+    "updated": "2026-02-04T22:16:50Z",
+    "url": "http://arxiv.org/abs/2602.05087v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.05087v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文虽使用强化学习和图神经网络，但应用场景为学术文献筛选（Active Learning），并非电商、社交或本地生活等核心推荐/搜索业务，属于弱相关研究；虽为中国公司作品加 1 分，但因缺乏 RecSys 直接应用，总分仍低。",
+    "translation": "Autodiscover：一种基于图感知汤普森采样的强化学习推荐系统，用于解决主动学习中的冷启动不平衡挑战",
+    "summary_zh": "提出 AutoDiscover 框架，将学术文献筛选重构为在线决策问题，利用异构图注意力网络学习节点表示，并通过折扣汤普森采样代理动态管理查询策略组合以平衡探索与利用。",
+    "key_points": [
+      "提出 AutoDiscover 框架，将学术文献筛选重构为在线决策问题，利用异构图注意力网络学习节点表示，并通过折扣汤普森采样代理动态管理查询策略组合以平衡探索与利用"
+    ]
+  },
+  {
+    "arxiv_id": "2602.05014v3",
+    "title": "DeepRead: Document Structure-Aware Reasoning to Enhance Agentic Search",
+    "authors": [
+      "Zhanli Li",
+      "Huiwen Tian",
+      "Lvzhou Luo",
+      "Yixuan Cao",
+      "Ping Luo"
+    ],
+    "summary": "With the rapid advancement of tool-use capabilities in Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) is shifting from static, one-shot retrieval toward autonomous, multi-turn evidence acquisition. However, existing agentic search frameworks typically treat long documents as flat collections of unstructured chunks, disregarding the native hierarchical organization and sequential logic essential for human comprehension. To bridge this gap, we introduce \\textbf{DeepRead}, a structure-aware document reasoning agent designed to operationalize document-native structural priors into actionable reasoning capabilities. Leveraging the structural fidelity of modern OCR, DeepRead constructs a paragraph-level, coordinate-based navigation system and equips the LLM with two synergistic tools: \\textsf{Retrieve} for scanning-aware localization, and \\textsf{ReadSection} for contiguous, order-preserving reading within specific hierarchical scopes. This design elicits a human-like ``locate-then-read'' reasoning paradigm, effectively mitigating the context fragmentation inherent in traditional retrieval methods. Extensive evaluations across four benchmarks spanning diverse document types demonstrate that DeepRead outperforms Search-o1-style agentic search baselines by an average of 10.3\\%. Fine-grained behavioral analysis further confirms that DeepRead autonomously adopts human-aligned reading strategies, validating the critical role of structural awareness in achieving precise document reasoning. Our code is available at https://github.com/Zhanli-Li/DeepRead.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-02-04T20:03:28Z",
+    "updated": "2026-02-12T02:45:40Z",
+    "url": "http://arxiv.org/abs/2602.05014v3",
+    "pdf_url": "http://arxiv.org/pdf/2602.05014v3.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 代理（Agent）和 RAG 研究，专注于文档结构感知推理，未直接涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "DeepRead：面向代理搜索增强的文档结构感知推理",
+    "summary_zh": "提出一种利用 OCR 构建段落级坐标导航系统的文档推理代理，通过“定位 - 阅读”范式让 LLM 基于文档层级结构进行有序阅读，以解决传统检索中的上下文碎片化问题。",
+    "key_points": [
+      "提出一种利用 OCR 构建段落级坐标导航系统的文档推理代理，通过“定位 - 阅读”范式让 LLM 基于文档层级结构进行有序阅读，以解决传统检索中的上下文碎片化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04579v1",
+    "title": "AIANO: Enhancing Information Retrieval with AI-Augmented Annotation",
+    "authors": [
+      "Sameh Khattab",
+      "Marie Bauer",
+      "Lukas Heine",
+      "Till Rostalski",
+      "Jens Kleesiek",
+      "Julian Friedrich"
+    ],
+    "summary": "The rise of Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) has rapidly increased the need for high-quality, curated information retrieval datasets. These datasets, however, are currently created with off-the-shelf annotation tools that make the annotation process complex and inefficient. To streamline this process, we developed a specialized annotation tool - AIANO. By adopting an AI-augmented annotation workflow that tightly integrates human expertise with LLM assistance, AIANO enables annotators to leverage AI suggestions while retaining full control over annotation decisions. In a within-subject user study ($n = 15$), participants created question-answering datasets using both a baseline tool and AIANO. AIANO nearly doubled annotation speed compared to the baseline while being easier to use and improving retrieval accuracy. These results demonstrate that AIANO's AI-augmented approach accelerates and enhances dataset creation for information retrieval tasks, advancing annotation capabilities in retrieval-intensive domains.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-02-04T14:05:12Z",
+    "updated": "2026-02-04T14:05:12Z",
+    "url": "http://arxiv.org/abs/2602.04579v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.04579v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文主要关注利用 LLM 辅助构建信息检索数据集的标注工具（AIANO），属于数据工程范畴，而非推荐/搜索核心算法或架构的直接创新。",
+    "translation": "AIANO：利用 AI 增强标注提升信息检索效果",
+    "summary_zh": "提出一种人机协同的 AI 增强标注工作流，通过整合 LLM 建议与人工决策来加速高质量信息检索数据集的构建。",
+    "key_points": [
+      "提出一种人机协同的 AI 增强标注工作流，通过整合 LLM 建议与人工决策来加速高质量信息检索数据集的构建"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04711v2",
+    "title": "Addressing Corpus Knowledge Poisoning Attacks on RAG Using Sparse Attention",
+    "authors": [
+      "Sagie Dekel",
+      "Moshe Tennenholtz",
+      "Oren Kurland"
+    ],
+    "summary": "Retrieval Augmented Generation (RAG) is a highly effective paradigm for keeping LLM-based responses up-to-date and reducing the likelihood of hallucinations. Yet, RAG was recently shown to be quite vulnerable to corpus knowledge poisoning: an attacker injects misleading documents to the corpus to steer an LLM's output to an undesired response. We argue that the standard causal attention mechanism in LLMs enables harmful cross-document interactions, specifically in cases of attacks. Accordingly, we introduce a novel defense approach for RAG: Sparse Document Attention RAG (SDAG). This is a block-sparse attention mechanism that disallows cross-attention between retrieved documents. SDAG requires a minimal inference-time change to the attention mask; furthermore, no fine-tuning or additional architectural changes are needed. We present an empirical evaluation of LLM-based question answering (QA) with a variety of attack strategies on RAG. We show that our SDAG method substantially outperforms the standard causal attention mechanism in terms of attack success rate. We further demonstrate the clear merits of integrating SDAG with state-of-the-art RAG defense methods. Specifically, the integration results in performance that is statistically significantly better than the state-of-the-art.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-04T16:22:20Z",
+    "updated": "2026-02-05T07:59:00Z",
+    "url": "http://arxiv.org/abs/2602.04711v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.04711v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 安全与 RAG 防御的研究，专注于问答场景下的投毒攻击，未涉及推荐系统或搜索引擎的核心业务（如召回、排序、用户建模）。",
+    "translation": "利用稀疏注意力机制解决 RAG 中的语料知识投毒攻击",
+    "summary_zh": "提出一种名为 SDAG 的块稀疏注意力机制，通过阻断检索文档间的交叉注意力交互，在不需微调的情况下防御针对 RAG 系统的语料投毒攻击。",
+    "key_points": [
+      "提出一种名为 SDAG 的块稀疏注意力机制，通过阻断检索文档间的交叉注意力交互，在不需微调的情况下防御针对 RAG 系统的语料投毒攻击"
+    ]
+  }
+]

@@ -428,9 +428,9 @@ Only extract companies from this list: {companies_str}
 ["Company1", "Company2"]
 """
         
-        # 调用 LLM（使用 qwen-plus 模型）
+        # 调用 LLM（使用 qwen3.5-plus 模型）
         try:
-            llm_result = self._call_llm(prompt, model='qwen-plus')
+            llm_result = self._call_llm(prompt, model='qwen3.5-plus')
             
             if llm_result:
                 # LLM 可能返回数组或其他格式

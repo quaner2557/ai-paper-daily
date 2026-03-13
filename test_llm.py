@@ -15,7 +15,7 @@ base_urls = [
     "https://api.deepseek.com/v1",
     "https://api.deepseek.com/beta",
 ]
-model = os.getenv("LLM_MODEL", "qwen-plus")
+model = os.getenv("LLM_MODEL", "qwen3.5-plus")
 
 print(f"API Key: {api_key[:20]}...")
 print("-" * 50)
@@ -26,10 +26,10 @@ test_configs = [
     ("https://api.deepseek.com/v1", "deepseek-chat"),
     ("https://api.deepseek.com/beta", "deepseek-chat"),
     # 通义千问 - 兼容模式
-    ("https://dashscope.aliyuncs.com/compatible-mode/v1", "qwen-plus"),
-    ("https://dashscope.aliyuncs.com/compatible-mode/v1", "qwen-turbo"),
+    ("https://dashscope.aliyuncs.com/compatible-mode/v1", "qwen3.5-plus"),
+    ("https://dashscope.aliyuncs.com/compatible-mode/v1", "qwen3.5-turbo"),
     # 你当前的配置
-    ("https://coding.dashscope.aliyuncs.com/v1", "qwen-plus"),
+    ("https://coding.dashscope.aliyuncs.com/v1", "qwen3.5-plus"),
 ]
 
 for test_url, test_model in test_configs:

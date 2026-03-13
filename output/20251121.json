@@ -1,0 +1,277 @@
+[
+  {
+    "arxiv_id": "2511.16943v2",
+    "title": "RASTP: Representation-Aware Semantic Token Pruning for Generative Recommendation with Semantic Identifiers",
+    "authors": [
+      "Tianyu Zhan",
+      "Kairui Fu",
+      "Zheqi Lv",
+      "Shengyu Zhang"
+    ],
+    "summary": "Generative recommendation systems typically leverage Semantic Identifiers (SIDs), which represent each item as a sequence of tokens that encode semantic information. However, representing item ID with multiple SIDs significantly increases input sequence length, which is a major determinant of computational complexity and memory consumption. While existing efforts primarily focus on optimizing attention computation and KV cache, we propose RASTP (Representation-Aware Semantic Token Pruning), which directly prunes less informative tokens in the input sequence. Specifically, RASTP evaluates token importance by combining semantic saliency, measured via representation magnitude, and attention centrality, derived from cumulative attention weights. Since RASTP dynamically prunes low-information or irrelevant semantic tokens, experiments on three real-world Amazon datasets show that RASTP reduces training time by 26.7\\%, while maintaining or slightly improving recommendation performance. The code has been open-sourced at https://github.com/Yuzt-zju/RASTP.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-21T04:39:32Z",
+    "updated": "2026-01-26T06:37:34Z",
+    "url": "http://arxiv.org/abs/2511.16943v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.16943v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的计算效率问题，提出了一种语义令牌剪枝方法，属于核心推荐架构创新。",
+    "translation": "RASTP：面向带语义标识符生成式推荐的表示感知语义令牌剪枝",
+    "summary_zh": "该论文提出 RASTP 方法，通过结合表示幅度和注意力中心性动态剪枝生成式推荐中输入序列中信息量低的语义令牌，以降低计算复杂度。",
+    "key_points": [
+      "该论文提出 RASTP 方法，通过结合表示幅度和注意力中心性动态剪枝生成式推荐中输入序列中信息量低的语义令牌，以降低计算复杂度"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17241v1",
+    "title": "Social-Media Based Personas Challenge: Hybrid Prediction of Common and Rare User Actions on Bluesky",
+    "authors": [
+      "Benjamin White",
+      "Anastasia Shimorina"
+    ],
+    "summary": "Understanding and predicting user behavior on social media platforms is crucial for content recommendation and platform design. While existing approaches focus primarily on common actions like retweeting and liking, the prediction of rare but significant behaviors remains largely unexplored. This paper presents a hybrid methodology for social media user behavior prediction that addresses both frequent and infrequent actions across a diverse action vocabulary. We evaluate our approach on a large-scale Bluesky dataset containing 6.4 million conversation threads spanning 12 distinct user actions across 25 persona clusters. Our methodology combines four complementary approaches: (i) a lookup database system based on historical response patterns; (ii) persona-specific LightGBM models with engineered temporal and semantic features for common actions; (iii) a specialized hybrid neural architecture fusing textual and temporal representations for rare action classification; and (iv) generation of text replies. Our persona-specific models achieve an average macro F1-score of 0.64 for common action prediction, while our rare action classifier achieves 0.56 macro F1-score across 10 rare actions. These results demonstrate that effective social media behavior prediction requires tailored modeling strategies recognizing fundamental differences between action types. Our approach achieved first place in the SocialSim: Social-Media Based Personas challenge organized at the Social Simulation with LLMs workshop at COLM 2025.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-11-21T13:40:14Z",
+    "updated": "2025-11-21T13:40:14Z",
+    "url": "http://arxiv.org/abs/2511.17241v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.17241v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文明确针对社交媒体用户行为预测以优化内容推荐，提出了区分常见与稀有行为的混合建模方法，属于中高优先级的用户建模与序列推荐研究；虽含 LLM 生成组件，但核心在于推荐场景下的行为预测而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "基于社交媒体的角色挑战：Bluesky 上常见与稀有用户行为的混合预测",
+    "summary_zh": "提出一种混合方法论，结合查找数据库、Persona 特异性 LightGBM 及混合神经架构，分别针对社交媒体中高频与低频用户行为进行差异化建模与预测，以服务于内容推荐系统。",
+    "key_points": [
+      "提出一种混合方法论，结合查找数据库、Persona 特异性 LightGBM 及混合神经架构，分别针对社交媒体中高频与低频用户行为进行差异化建模与预测，以服务于内容推荐系统"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17041v2",
+    "title": "CLLMRec: LLM-powered Cognitive-Aware Concept Recommendation via Semantic Alignment and Prerequisite Knowledge Distillation",
+    "authors": [
+      "Xiangrui Xiong",
+      "Yichuan Lu",
+      "Zifei Pan",
+      "Chang Sun"
+    ],
+    "summary": "The growth of Massive Open Online Courses (MOOCs) presents significant challenges for personalized learning, where concept recommendation is crucial. Existing approaches typically rely on heterogeneous information networks or knowledge graphs to capture conceptual relationships, combined with knowledge tracing models to assess learners' cognitive states. However, these methods face significant limitations due to their dependence on high-quality structured knowledge graphs, which are often scarce in real-world educational scenarios. To address this fundamental challenge, this paper proposes CLLMRec, a novel framework that leverages Large Language Models through two synergistic technical pillars: Semantic Alignment and Prerequisite Knowledge Distillation. The Semantic Alignment component constructs a unified representation space by encoding unstructured textual descriptions of learners and concepts. The Prerequisite Knowledge Distillation paradigm employs a teacher-student architecture, where a large teacher LLM (implemented as the Prior Knowledge Aware Component) extracts conceptual prerequisite relationships from its internalized world knowledge and distills them into soft labels to train an efficient student ranker. Building upon these foundations, our framework incorporates a fine-ranking mechanism that explicitly models learners' real-time cognitive states through deep knowledge tracing, ensuring recommendations are both structurally sound and cognitively appropriate. Extensive experiments on two real-world MOOC datasets demonstrate that CLLMRec significantly outperforms existing baseline methods across multiple evaluation metrics, validating its effectiveness in generating truly cognitive-aware and personalized concept recommendations without relying on explicit structural priors.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-21T08:37:39Z",
+    "updated": "2025-11-26T10:10:35Z",
+    "url": "http://arxiv.org/abs/2511.17041v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.17041v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文将 LLM 直接应用于教育领域的概念推荐系统，解决了无结构化知识图谱时的个性化推荐问题，属于明确的垂直领域 RecSys 应用；虽非通用电商/社交场景，但符合 LLM for RecSys 定义，基础分 7 分，因来自 TAL 公司额外 +1 分。",
+    "translation": "CLLMRec：基于语义对齐与先验知识蒸馏的 LLM 驱动认知感知概念推荐",
+    "summary_zh": "提出一种利用大语言模型进行语义对齐和先验知识蒸馏的框架，旨在无需依赖高质量结构化知识图谱的情况下，通过捕捉学习者认知状态实现个性化的教育概念推荐。",
+    "key_points": [
+      "提出一种利用大语言模型进行语义对齐和先验知识蒸馏的框架，旨在无需依赖高质量结构化知识图谱的情况下，通过捕捉学习者认知状态实现个性化的教育概念推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17467v2",
+    "title": "PersonaAgent with GraphRAG: Community-Aware Knowledge Graphs for Personalized LLM",
+    "authors": [
+      "Siqi Liang",
+      "Yudi Zhang",
+      "Yue Guo"
+    ],
+    "summary": "We propose a novel framework for persona-based language model system, motivated by the need for personalized AI agents that adapt to individual user preferences. In our approach, the agent embodies the user's \"persona\" (e.g. user profile or taste) and is powered by a large language model (LLM). To enable the agent to leverage rich contextual information, we introduce a Knowledge-Graph-enhanced Retrieval-Augmented Generation (Graph RAG) mechanism that constructs an LLM-derived graph index of relevant documents and summarizes communities of related information. Our framework generates personalized prompts by combining: (1) a summary of the user's historical behaviors and preferences extracted from the knowledge graph, and (2) relevant global interaction patterns identified through graph-based community detection. This dynamic prompt engineering approach allows the agent to maintain consistent persona-aligned behaviors while benefiting from collective knowledge. On the LaMP benchmark, our method improves news categorization F1 by 11.1%, movie tagging F1 by 56.1%, and reduces product rating MAE by 10.4% over prior methods. Our code is available at https://anonymous.4open.science/r/PersonaAgentwGraphRAG-DE6F",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-11-21T18:15:47Z",
+    "updated": "2025-12-02T04:45:19Z",
+    "url": "http://arxiv.org/abs/2511.17467v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.17467v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文将 GraphRAG 直接应用于构建个性化用户画像（Persona）以优化推荐相关任务（如产品评分预测），属于 LLM 在 RecSys 中的直接应用，虽非核心架构创新但场景明确。",
+    "translation": "PersonaAgent with GraphRAG：面向个性化大语言模型的社区感知知识图谱",
+    "summary_zh": "提出一种结合用户历史行为摘要与图社区检测全局模式的 GraphRAG 框架，通过动态提示工程使 LLM 代理能够维持一致的用户画像并融合集体知识以实现个性化服务。",
+    "key_points": [
+      "提出一种结合用户历史行为摘要与图社区检测全局模式的 GraphRAG 框架，通过动态提示工程使 LLM 代理能够维持一致的用户画像并融合集体知识以实现个性化服务"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17255v1",
+    "title": "A Little More Like This: Text-to-Image Retrieval with Vision-Language Models Using Relevance Feedback",
+    "authors": [
+      "Bulat Khaertdinov",
+      "Mirela Popa",
+      "Nava Tintarev"
+    ],
+    "summary": "Large vision-language models (VLMs) enable intuitive visual search using natural language queries. However, improving their performance often requires fine-tuning and scaling to larger model variants. In this work, we propose a mechanism inspired by traditional text-based search to improve retrieval performance at inference time: relevance feedback. While relevance feedback can serve as an alternative to fine-tuning, its model-agnostic design also enables use with fine-tuned VLMs. Specifically, we introduce and evaluate four feedback strategies for VLM-based retrieval. First, we revise classical pseudo-relevance feedback (PRF), which refines query embeddings based on top-ranked results. To address its limitations, we propose generative relevance feedback (GRF), which uses synthetic captions for query refinement. Furthermore, we introduce an attentive feedback summarizer (AFS), a custom transformer-based model that integrates multimodal fine-grained features from relevant items. Finally, we simulate explicit feedback using ground-truth captions as an upper-bound baseline. Experiments on Flickr30k and COCO with the VLM backbones show that GRF, AFS, and explicit feedback improve retrieval performance by 3-5% in MRR@5 for smaller VLMs, and 1-3% for larger ones, compared to retrieval with no feedback. Moreover, AFS, similarly to explicit feedback, mitigates query drift and is more robust than GRF in iterative, multi-turn retrieval settings. Our findings demonstrate that relevance feedback can consistently enhance retrieval across VLMs and open up opportunities for interactive and adaptive visual search.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-11-21T14:01:36Z",
+    "updated": "2025-11-21T14:01:36Z",
+    "url": "http://arxiv.org/abs/2511.17255v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.17255v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文提出利用相关性反馈机制增强视觉语言模型的图文检索能力，属于多模态搜索的核心技术改进；虽非纯推荐系统，但直接解决搜索场景问题，且来自中国公司，故给予中高评分。",
+    "translation": "更像一点：利用相关性反馈与视觉语言模型进行文本到图像检索",
+    "summary_zh": "本文提出一种模型无关的相关性反馈机制，通过生成式反馈和注意力反馈总结器在推理阶段动态优化查询嵌入，以提升多模态图文检索的准确性和鲁棒性。",
+    "key_points": [
+      "本文提出一种模型无关的相关性反馈机制，通过生成式反馈和注意力反馈总结器在推理阶段动态优化查询嵌入，以提升多模态图文检索的准确性和鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19465v1",
+    "title": "Hidden markov model to predict tourists visited place",
+    "authors": [
+      "Theo Demessance",
+      "Chongke Bi",
+      "Sonia Djebali",
+      "Guillaume Guerard"
+    ],
+    "summary": "Nowadays, social networks are becoming a popular way of analyzing tourist behavior, thanks to the digital traces left by travelers during their stays on these networks. The massive amount of data generated; by the propensity of tourists to share comments and photos during their trip; makes it possible to model their journeys and analyze their behavior. Predicting the next movement of tourists plays a key role in tourism marketing to understand demand and improve decision support. In this paper, we propose a method to understand and to learn tourists' movements based on social network data analysis to predict future movements. The method relies on a machine learning grammatical inference algorithm. A major contribution in this paper is to adapt the grammatical inference algorithm to the context of big data. Our method produces a hidden Markov model representing the movements of a group of tourists. The hidden Markov model is flexible and editable with new data. The capital city of France, Paris is selected to demonstrate the efficiency of the proposed methodology.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-11-21T19:58:17Z",
+    "updated": "2025-11-21T19:58:17Z",
+    "url": "http://arxiv.org/abs/2511.19465v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19465v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "该文属于用户行为序列建模（旅游轨迹预测），与推荐系统中的下一项预测任务有方法论上的共通性，但缺乏明确的电商/内容推荐场景且方法较传统；因来自 TAL 公司额外加 1 分。",
+    "translation": "基于隐马尔可夫模型的游客访问地点预测",
+    "summary_zh": "提出一种基于语法推断算法的隐马尔可夫模型方法，利用社交网络数据学习群体游客的移动模式以预测其未来轨迹。",
+    "key_points": [
+      "提出一种基于语法推断算法的隐马尔可夫模型方法，利用社交网络数据学习群体游客的移动模式以预测其未来轨迹"
+    ]
+  },
+  {
+    "arxiv_id": "2511.16883v1",
+    "title": "PersonalizedRouter: Personalized LLM Routing via Graph-based User Preference Modeling",
+    "authors": [
+      "Zhongjie Dai",
+      "Tao Feng",
+      "Jiaxuan You"
+    ],
+    "summary": "The growing number of Large Language Models (LLMs) with diverse capabilities and response styles provides users with a wider range of choices, which presents challenges in selecting appropriate LLMs, as user preferences vary in terms of performance, cost, and response style. Current LLM selection methods typically optimize for a single fixed objective, such as performance, cost, or a trade-off between them, and fail to learn individual user preferences from interaction data. To address these limitations, we propose PersonalizedRouter, a graph-based framework that models diverse user profiles and performs personalized LLM selection by leveraging interaction data that includes task context, queries, candidate LLMs, and user decisions. To capture contextual information between user queries and optimal LLMs, PersonalizedRouter converts the interaction data into a heterogeneous graph, where the relationships between different types of nodes are represented by edges. To evaluate adaptability across users, we design two strategies: the multi-cost-efficiency simulation strategy and the LLM-as-a-Judge strategy. In addition, we construct PersonaRoute-Bench, a large-scale benchmark with 1,000 simulated users and 10 LLMs. Experimental results show that PersonalizedRouter significantly outperforms existing LLM selection methods and surpasses the strongest methods by a large margin of 15.38% and 9.83% under two simulation strategies. On the PersonaRoute-Bench with 1,000 users, it further surpasses the best methods by 16.19% and 59.69% while maintaining higher efficiency. Moreover, PersonalizedRouter demonstrates strong few-shot generalization, achieving 64.81% and 85.80% of the fully trained model's performance when adapting to new users and new LLMs.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-21T01:19:34Z",
+    "updated": "2025-11-21T01:19:34Z",
+    "url": "http://arxiv.org/abs/2511.16883v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.16883v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 路由/选择研究，虽引入用户偏好建模，但未直接解决推荐系统或搜索引擎中的核心检索、排序或信息流分发问题，仅属边缘相关。",
+    "translation": "PersonalizedRouter：基于图用户偏好建模的个性化大语言模型路由",
+    "summary_zh": "提出一种基于异构图的方法，通过建模用户与不同大模型的交互历史来捕捉个性化偏好，从而实现对多个大语言模型的动态个性化路由选择。",
+    "key_points": [
+      "提出一种基于异构图的方法，通过建模用户与不同大模型的交互历史来捕捉个性化偏好，从而实现对多个大语言模型的动态个性化路由选择"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21728v2",
+    "title": "Affective Multimodal Agents with Proactive Knowledge Grounding for Emotionally Aligned Marketing Dialogue",
+    "authors": [
+      "Lin Yu",
+      "Xiaofei Han",
+      "Yifei Kang",
+      "Chiung-Yi Tseng",
+      "Danyang Zhang",
+      "Ziqian Bi",
+      "Zhimo Han"
+    ],
+    "summary": "Recent advances in large language models (LLMs) have enabled fluent dialogue systems, but most remain reactive and struggle in emotionally rich, goal-oriented settings such as marketing conversations. To address this limitation, we propose AffectMind, a multimodal affective dialogue agent that performs proactive reasoning and dynamic knowledge grounding to sustain emotionally aligned and persuasive interactions. AffectMind combines three components: a Proactive Knowledge Grounding Network (PKGN) that continuously updates factual and affective context from text, vision, and prosody; an Emotion--Intent Alignment Model (EIAM) that jointly models user emotion and purchase intent to adapt persuasion strategies; and a Reinforced Discourse Loop (RDL) that optimizes emotional coherence and engagement via reinforcement signals from user responses. Experiments on two newly curated marketing dialogue datasets, MM-ConvMarket and AffectPromo, show that AffectMind outperforms strong LLM-based baselines in emotional consistency (+26\\%), persuasive success rate (+19\\%), and long-term user engagement (+23\\%), highlighting emotion-grounded proactivity as a key capability for commercial multimodal agents.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-11-21T04:16:45Z",
+    "updated": "2025-12-20T07:48:22Z",
+    "url": "http://arxiv.org/abs/2511.21728v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.21728v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于营销对话代理的情感对齐与说服策略，属于特定场景的对话系统研究，虽涉及购买意图但未提出通用的推荐/搜索核心算法（如召回、排序），且主要依赖纯 LLM 架构，相关性较弱。",
+    "translation": "具有主动知识 grounding 的情感多模态代理用于情感对齐的营销对话",
+    "summary_zh": "提出一种结合主动知识接地网络、情感 - 意图对齐模型及强化话语循环的多模态对话代理，旨在通过动态整合多模态上下文与用户情感意图来优化营销场景下的 persuasive 交互策略。",
+    "key_points": [
+      "提出一种结合主动知识接地网络、情感 - 意图对齐模型及强化话语循环的多模态对话代理，旨在通过动态整合多模态上下文与用户情感意图来优化营销场景下的 persuasive 交互策略"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17417v1",
+    "title": "CREST: Improving Interpretability and Effectiveness of Troubleshooting at Ericsson through Criterion-Specific Trouble Report Retrieval",
+    "authors": [
+      "Soroush Javdan",
+      "Pragash Krishnamoorthy",
+      "Olga Baysal"
+    ],
+    "summary": "The rapid evolution of the telecommunication industry necessitates efficient troubleshooting processes to maintain network reliability, software maintainability, and service quality. Trouble Reports (TRs), which document issues in Ericsson's production system, play a critical role in facilitating the timely resolution of software faults. However, the complexity and volume of TR data, along with the presence of diverse criteria that reflect different aspects of each fault, present challenges for retrieval systems. Building on prior work at Ericsson, which utilized a two-stage workflow, comprising Initial Retrieval (IR) and Re-Ranking (RR) stages, this study investigates different TR observation criteria and their impact on the performance of retrieval models. We propose \\textbf{CREST} (\\textbf{C}riteria-specific \\textbf{R}etrieval via \\textbf{E}nsemble of \\textbf{S}pecialized \\textbf{T}R models), a criterion-driven retrieval approach that leverages specialized models for different TR fields to improve both effectiveness and interpretability, thereby enabling quicker fault resolution and supporting software maintenance. CREST utilizes specialized models trained on specific TR criteria and aggregates their outputs to capture diverse and complementary signals. This approach leads to enhanced retrieval accuracy, better calibration of predicted scores, and improved interpretability by providing relevance scores for each criterion, helping users understand why specific TRs were retrieved. Using a subset of Ericsson's internal TRs, this research demonstrates that criterion-specific models significantly outperform a single model approach across key evaluation metrics. This highlights the importance of all targeted criteria used in this study for optimizing the performance of retrieval systems.",
+    "categories": [
+      "cs.SE",
+      "cs.LG"
+    ],
+    "published": "2025-11-21T17:16:24Z",
+    "updated": "2025-11-21T17:16:24Z",
+    "url": "http://arxiv.org/abs/2511.17417v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.17417v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于电信领域的故障报告检索与运维支持，属于垂直领域的信息检索应用，而非面向电商、社交或内容平台的推荐系统/搜索引擎核心研究。",
+    "translation": "CREST：通过基于标准的故障报告检索提升爱立信故障排查的可解释性与有效性",
+    "summary_zh": "提出一种基于标准的集成检索方法 CREST，利用针对故障报告不同字段训练的专业模型聚合互补信号，以提升检索准确性、分数校准度及结果可解释性。",
+    "key_points": [
+      "提出一种基于标准的集成检索方法 CREST，利用针对故障报告不同字段训练的专业模型聚合互补信号，以提升检索准确性、分数校准度及结果可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17044v2",
+    "title": "Parametric Retrieval-Augmented Generation using Latent Routing of LoRA Adapters",
+    "authors": [
+      "Zhan Su",
+      "Fengran Mo",
+      "Jinghan Zhang",
+      "Yuchen Hui",
+      "Jiaao Sun",
+      "Jian-yun Nie"
+    ],
+    "summary": "Parametric Retrieval-Augmented Generation (PRAG) is a RAG approach that integrates external knowledge directly into model parameters using a LoRA adapter, aiming at reducing the inference cost compared to traditional RAG. However, current PRAG approaches adopt a \\textit{one-to-one} document encoding scheme, using a dedicated LoRA adapter for each individual document. This scheme introduces two major limitations: 1) As the number of documents increases, there will be a prohibitive cost for training and storage. 2) The LoRA adapters may largely overlap due to the shared knowledge across documents, making the approach highly inefficient. To overcome these challenges, we propose the Poly-PRAG approach, which uses a small set of LoRA adapters that are able to encode more general knowledge. Each document can be encoded using a combination of them through a latent routing function. By jointly training the LoRA adapters and the latent routing function, each LoRA adapter is able to encode a shared part of the knowledge across documents, and the routing function can select the best combination of adapters for a document. Experimental results on four benchmarks demonstrate the effectiveness of the Poly-PRAG compared to other strong PRAG baselines. In addition, this approach reduces the storage requirement by avoiding the need to store a large number of LoRA adapters and offers a more efficient way to encode external knowledge into LLMs.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-21T08:44:21Z",
+    "updated": "2026-01-24T02:48:24Z",
+    "url": "http://arxiv.org/abs/2511.17044v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.17044v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于优化 RAG 中的参数存储和路由机制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），因此属于低优先级。尽管来自中国企业，但因其缺乏 RecSys 直接应用，基础分较低，加分后仍为低分。",
+    "translation": "基于 LoRA 适配器潜在路由的参数化检索增强生成",
+    "summary_zh": "提出 Poly-PRAG 方法，通过潜在路由函数组合少量共享的 LoRA 适配器来编码文档知识，以解决传统参数化 RAG 中一对一编码导致的存储和训练成本过高问题。",
+    "key_points": [
+      "提出 Poly-PRAG 方法，通过潜在路由函数组合少量共享的 LoRA 适配器来编码文档知识，以解决传统参数化 RAG 中一对一编码导致的存储和训练成本过高问题"
+    ]
+  }
+]

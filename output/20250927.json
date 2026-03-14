@@ -1,0 +1,207 @@
+[
+  {
+    "arxiv_id": "2509.23471v1",
+    "title": "Drift-Adapter: A Practical Approach to Near Zero-Downtime Embedding Model Upgrades in Vector Databases",
+    "authors": [
+      "Harshil Vejendla"
+    ],
+    "summary": "Upgrading embedding models in production vector databases typically requires re-encoding the entire corpus and rebuilding the Approximate Nearest Neighbor (ANN) index, leading to significant operational disruption and computational cost. This paper presents Drift-Adapter, a lightweight, learnable transformation layer designed to bridge embedding spaces between model versions. By mapping new queries into the legacy embedding space, Drift-Adapter enables the continued use of the existing ANN index, effectively deferring full re-computation. We systematically evaluate three adapter parameterizations: Orthogonal Procrustes, Low-Rank Affine, and a compact Residual MLP, trained on a small sample of paired old and new embeddings. Experiments on MTEB text corpora and a CLIP image model upgrade (1M items) show that Drift-Adapter recovers 95-99% of the retrieval recall (Recall@10, MRR) of a full re-embedding, adding less than 10 microseconds of query latency. Compared to operational strategies like full re-indexing or dual-index serving, Drift-Adapter reduces recompute costs by over 100 times and facilitates upgrades with near-zero operational interruption. We analyze robustness to varied model drift, training data size, scalability to billion-item systems, and the impact of design choices like diagonal scaling, demonstrating Drift-Adapter's viability as a pragmatic solution for agile model deployment.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2025-09-27T19:47:19Z",
+    "updated": "2025-09-27T19:47:19Z",
+    "url": "http://arxiv.org/abs/2509.23471v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.23471v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接解决推荐/搜索系统中向量检索引擎的核心工程痛点（嵌入模型升级导致的重建索引问题），提出了实用的适配器方案以维持检索服务连续性，属于明确的搜索基础设施优化。",
+    "translation": "Drift-Adapter：向量数据库中实现近乎零停机嵌入模型升级的实用方法",
+    "summary_zh": "提出一种轻量级可学习变换层（Drift-Adapter），通过将新查询映射到旧嵌入空间，在不重建近似最近邻索引的情况下实现嵌入模型的无缝升级。",
+    "key_points": [
+      "提出一种轻量级可学习变换层（Drift-Adapter），通过将新查询映射到旧嵌入空间，在不重建近似最近邻索引的情况下实现嵌入模型的无缝升级"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21728v1",
+    "title": "Modeling Bias Evolution in Fashion Recommender Systems: A System Dynamics Approach",
+    "authors": [
+      "Mahsa Goodarzi",
+      "M. Abdullah Canbaz"
+    ],
+    "summary": "Bias in recommender systems not only distorts user experience but also perpetuates and amplifies existing societal stereotypes, particularly in sectors like fashion e-commerce. This study employs a dynamic modeling approach to scrutinize the mechanisms of bias activation and reinforcement within Fashion Recommender Systems (FRS). By leveraging system dynamics modeling and experimental simulations, we dissect the temporal evolution of bias and its multifaceted impacts on system performance. Our analysis reveals that inductive biases exert a more substantial influence on system outcomes than user biases, suggesting critical areas for intervention. We demonstrate that while current debiasing strategies, including data rebalancing and algorithmic regularization, are effective to an extent, they require further enhancement to comprehensively mitigate biases. This research underscores the necessity for advancing these strategies and extending system boundaries to incorporate broader contextual factors such as user demographics and item diversity, aiming to foster inclusivity and fairness in FRS. The findings advocate for a proactive approach in recommender system design to counteract bias propagation and ensure equitable user experiences.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-09-27T20:16:29Z",
+    "updated": "2025-09-27T20:16:29Z",
+    "url": "http://arxiv.org/abs/2510.21728v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21728v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 7,
+    "reasoning": "论文聚焦时尚电商推荐系统中的偏见演化机制与去偏策略，属于核心 RecSys 公平性与用户建模研究；虽非纯 LLM 研究，但结合中国公司背景及具体业务场景（时尚电商），给予中高优先级评分。",
+    "translation": "建模范式演化在时尚推荐系统中：一种系统动力学方法",
+    "summary_zh": "本文利用系统动力学建模分析时尚推荐系统中偏见的激活与强化机制，揭示归纳偏见对系统结果的主导影响，并提出需结合人口统计与物品多样性等上下文因素以增强去偏策略。",
+    "key_points": [
+      "本文利用系统动力学建模分析时尚推荐系统中偏见的激活与强化机制，揭示归纳偏见对系统结果的主导影响，并提出需结合人口统计与物品多样性等上下文因素以增强去偏策略"
+    ]
+  },
+  {
+    "arxiv_id": "2509.23175v1",
+    "title": "WARBERT: A Hierarchical BERT-based Model for Web API Recommendation",
+    "authors": [
+      "Zishuo Xu",
+      "Yuhong Gu",
+      "Dezhong Yao"
+    ],
+    "summary": "With the emergence of Web 2.0 and microservices architecture, the number of Web APIs has increased dramatically, further intensifying the demand for efficient Web API recommendation. Existing solutions typically fall into two categories: recommendation-type methods, which treat each API as a label for classification, and match-type methods, which focus on matching mashups through API retrieval. However, three critical challenges persist: 1) the semantic ambiguities in comparing API and mashup descriptions, 2) the lack of detailed comparisons between the individual API and the mashup in recommendation-type methods, and 3) time inefficiencies for API retrieval in match-type methods. To address these challenges, we propose WARBERT, a hierarchical BERT-based model for Web API recommendation. WARBERT leverages dual-component feature fusion and attention comparison to extract precise semantic representations of API and mashup descriptions. WARBERT consists of two main components: WARBERT(R) for Recommendation and WARBERT(M) for Matching. Specifically, WAR-BERT(R) serves as an initial filter, narrowing down the candidate APIs, while WARBERT(M) refines the matching process by calculating the similarity between candidate APIs and mashup. The final likelihood of a mashup being matched with an API is determined by combining the predictions from WARBERT(R) and WARBERT(M). Additionally, WARBERT(R) incorporates an auxiliary task of mashup category judgment, which enhances its effectiveness in candidate selection. Experimental results on the ProgrammableWeb dataset demonstrate that WARBERT outperforms most existing solutions and achieves improvements of up to 11.7% compared to the model MTFM (Multi-Task Fusion Model), delivering significant enhancements in accuracy and effiency.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-09-27T08:09:41Z",
+    "updated": "2025-09-27T08:09:41Z",
+    "url": "http://arxiv.org/abs/2509.23175v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.23175v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文针对 Web API 推荐这一特定软件工程场景，虽涉及推荐技术但非主流 RecSys/Search（如电商、内容流），且核心为 BERT 应用而非新架构，属于边缘相关。",
+    "translation": "WARBERT：一种基于分层 BERT 的 Web API 推荐模型",
+    "summary_zh": "提出一种分层 BERT 模型，通过双组件特征融合与注意力对比机制，协同解决 Web API 推荐中的语义歧义及匹配效率问题。",
+    "key_points": [
+      "提出一种分层 BERT 模型，通过双组件特征融合与注意力对比机制，协同解决 Web API 推荐中的语义歧义及匹配效率问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.23519v2",
+    "title": "ReliabilityRAG: Effective and Provably Robust Defense for RAG-based Web-Search",
+    "authors": [
+      "Zeyu Shen",
+      "Basileal Imana",
+      "Tong Wu",
+      "Chong Xiang",
+      "Prateek Mittal",
+      "Aleksandra Korolova"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances Large Language Models by grounding their outputs in external documents. These systems, however, remain vulnerable to attacks on the retrieval corpus, such as prompt injection. RAG-based search systems (e.g., Google's Search AI Overview) present an interesting setting for studying and protecting against such threats, as defense algorithms can benefit from built-in reliability signals -- like document ranking -- and represent a non-LLM challenge for the adversary due to decades of work to thwart SEO.\n  Motivated by, but not limited to, this scenario, this work introduces ReliabilityRAG, a framework for adversarial robustness that explicitly leverages reliability information of retrieved documents.\n  Our first contribution adopts a graph-theoretic perspective to identify a \"consistent majority\" among retrieved documents to filter out malicious ones. We introduce a novel algorithm based on finding a Maximum Independent Set (MIS) on a document graph where edges encode contradiction. Our MIS variant explicitly prioritizes higher-reliability documents and provides provable robustness guarantees against bounded adversarial corruption under natural assumptions. Recognizing the computational cost of exact MIS for large retrieval sets, our second contribution is a scalable weighted sample and aggregate framework. It explicitly utilizes reliability information, preserving some robustness guarantees while efficiently handling many documents.\n  We present empirical results showing ReliabilityRAG provides superior robustness against adversarial attacks compared to prior methods, maintains high benign accuracy, and excels in long-form generation tasks where prior robustness-focused methods struggled. Our work is a significant step towards more effective, provably robust defenses against retrieved corpus corruption in RAG.",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "published": "2025-09-27T22:36:42Z",
+    "updated": "2026-02-15T21:02:38Z",
+    "url": "http://arxiv.org/abs/2509.23519v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.23519v2.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA"
+    ],
+    "affiliation_lines": [
+      "DepartmentofComputerScience CenterforInformationTechnologyPolicy",
+      "PrincetonUniversity PrincetonUniversity",
+      "DepartmentofElectricalandComputerEngineering NVIDIA",
+      "PrincetonUniversity SantaClara,California,95051",
+      "DepartmentofElectricalandComputerEngineering DepartmentofComputerScience",
+      "PrincetonUniversity PrincetonUniversity",
+      "scalableweightedsampleandaggregateframework. Itexplicitlyutilizesreliabilit"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文专注于 RAG 系统的安全防御（对抗攻击），属于纯 LLM/安全研究范畴，并未涉及推荐或搜索的核心业务逻辑（如召回、排序、用户建模）。",
+    "translation": "ReliabilityRAG：一种有效且可证明鲁棒的基于 RAG 的网络搜索防御机制",
+    "summary_zh": "提出 ReliabilityRAG 框架，利用文档可靠性信号和图论方法（最大独立集）过滤检索结果中的恶意内容，以增强 RAG 系统对抗检索库污染攻击的鲁棒性。",
+    "key_points": [
+      "提出 ReliabilityRAG 框架，利用文档可靠性信号和图论方法（最大独立集）过滤检索结果中的恶意内容，以增强 RAG 系统对抗检索库污染攻击的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02341v2",
+    "title": "DRIFT: Learning from Abundant User Dissatisfaction in Real-World Preference Learning",
+    "authors": [
+      "Yifan Wang",
+      "Bolian Li",
+      "Junlin Wu",
+      "Zhaoxuan Tan",
+      "Zheli Liu",
+      "Ruqi Zhang",
+      "Ananth Grama",
+      "Qingkai Zeng"
+    ],
+    "summary": "Real-world large language model deployments (e.g., conversational AI systems, code generation assistants) naturally generate abundant implicit user dissatisfaction (DSAT) signals, as users iterate toward better answers through refinements, corrections, and expressed preferences, while explicit satisfaction (SAT) feedback is scarce. Existing preference learning approaches are poorly aligned with this data profile, as they rely on costly human annotations or assume plentiful positive responses. In this paper, we introduce \\textbf{DRIFT} (\\textbf{D}issatisfaction-\\textbf{R}efined \\textbf{I}terative pre\\textbf{F}erence \\textbf{T}raining), which anchors training on real-world DSAT signals and samples positives dynamically from the evolving policy. Empirically, DRIFT models trained on real-world \\textit{WildFeedback} datasets and synthetic \\textit{UltraFeedback} datasets achieve up to +6.23\\% (7B) / +7.61\\% (14B) on WildBench Task Score and up to +8.95\\% (7B) / +12.29\\% (14B) on AlpacaEval2 win rate over base models, outperforming strong baseline methods such as iterative DPO and SPIN. At larger scales, the improvements are particularly pronounced: 14B models trained with DRIFT surpass GPT-4o-mini on WildBench. Further analysis shows that DRIFT also preserves exploratory capacity, yielding more diverse high-reward solutions rather than collapsing to narrow subsets. Theoretically, we demonstrate that this design preserves preference margins and avoids the gradient degeneration. These results show that DRIFT is an effective and scalable recipe for real-world post-training that leverages the most abundant and informative signal. The code and data are available at https://github.com/cacayaya/DRIFT.git.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-09-27T03:06:27Z",
+    "updated": "2026-01-30T19:08:44Z",
+    "url": "http://arxiv.org/abs/2510.02341v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.02341v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 偏好对齐（Preference Learning）研究，专注于通用对话和代码生成场景，未涉及推荐系统或搜索引擎的核心业务逻辑。",
+    "translation": "DRIFT：在现实世界偏好学习中利用丰富的用户不满信号",
+    "summary_zh": "该方法提出一种基于用户隐式不满信号（DSAT）的迭代偏好训练框架，通过动态采样正样本解决真实场景中显式满意反馈稀缺的问题。",
+    "key_points": [
+      "该方法提出一种基于用户隐式不满信号（DSAT）的迭代偏好训练框架，通过动态采样正样本解决真实场景中显式满意反馈稀缺的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.23497v1",
+    "title": "Dynamic Trust Calibration Using Contextual Bandits",
+    "authors": [
+      "Bruno M. Henrique",
+      "Eugene Santos"
+    ],
+    "summary": "Trust calibration between humans and Artificial Intelligence (AI) is crucial for optimal decision-making in collaborative settings. Excessive trust can lead users to accept AI-generated outputs without question, overlooking critical flaws, while insufficient trust may result in disregarding valuable insights from AI systems, hindering performance. Despite its importance, there is currently no definitive and objective method for measuring trust calibration between humans and AI. Current approaches lack standardization and consistent metrics that can be broadly applied across various contexts, and they don't distinguish between the formation of opinions and subsequent human decisions. In this work, we propose a novel and objective method for dynamic trust calibration, introducing a standardized trust calibration measure and an indicator. By utilizing Contextual Bandits-an adaptive algorithm that incorporates context into decision-making-our indicator dynamically assesses when to trust AI contributions based on learned contextual information. We evaluate this indicator across three diverse datasets, demonstrating that effective trust calibration results in significant improvements in decision-making performance, as evidenced by 10 to 38% increase in reward metrics. These findings not only enhance theoretical understanding but also provide practical guidance for developing more trustworthy AI systems supporting decisions in critical domains, for example, disease diagnoses and criminal justice.",
+    "categories": [
+      "cs.AI",
+      "cs.HC",
+      "cs.LG"
+    ],
+    "published": "2025-09-27T21:06:17Z",
+    "updated": "2025-09-27T21:06:17Z",
+    "url": "http://arxiv.org/abs/2509.23497v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.23497v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于人机信任校准的纯通用 AI 研究，主要应用于医疗诊断和刑事司法等领域，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模）。",
+    "translation": "利用上下文多臂老虎机进行动态信任校准",
+    "summary_zh": "提出一种基于上下文多臂老虎机的动态信任校准方法，通过标准化指标自适应评估何时信任 AI 输出以优化人机协作决策。",
+    "key_points": [
+      "提出一种基于上下文多臂老虎机的动态信任校准方法，通过标准化指标自适应评估何时信任 AI 输出以优化人机协作决策"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02343v1",
+    "title": "$\\texttt{BluePrint}$: A Social Media User Dataset for LLM Persona Evaluation and Training",
+    "authors": [
+      "Aurélien Bück-Kaeffer",
+      "Je Qin Chooi",
+      "Dan Zhao",
+      "Maximilian Puelma Touzel",
+      "Kellin Pelrine",
+      "Jean-François Godbout",
+      "Reihaneh Rabbany",
+      "Zachary Yang"
+    ],
+    "summary": "Large language models (LLMs) offer promising capabilities for simulating social media dynamics at scale, enabling studies that would be ethically or logistically challenging with human subjects. However, the field lacks standardized data resources for fine-tuning and evaluating LLMs as realistic social media agents. We address this gap by introducing SIMPACT, the SIMulation-oriented Persona and Action Capture Toolkit, a privacy respecting framework for constructing behaviorally-grounded social media datasets suitable for training agent models. We formulate next-action prediction as a task for training and evaluating LLM-based agents and introduce metrics at both the cluster and population levels to assess behavioral fidelity and stylistic realism. As a concrete implementation, we release BluePrint, a large-scale dataset built from public Bluesky data focused on political discourse. BluePrint clusters anonymized users into personas of aggregated behaviours, capturing authentic engagement patterns while safeguarding privacy through pseudonymization and removal of personally identifiable information. The dataset includes a sizable action set of 12 social media interaction types (likes, replies, reposts, etc.), each instance tied to the posting activity preceding it. This supports the development of agents that use context-dependence, not only in the language, but also in the interaction behaviours of social media to model social media users. By standardizing data and evaluation protocols, SIMPACT provides a foundation for advancing rigorous, ethically responsible social media simulations. BluePrint serves as both an evaluation benchmark for political discourse modeling and a template for building domain specific datasets to study challenges such as misinformation and polarization.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-09-27T06:02:38Z",
+    "updated": "2025-09-27T06:02:38Z",
+    "url": "http://arxiv.org/abs/2510.02343v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.02343v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于构建数据集以评估和训练模拟社交媒体用户的 LLM Agent，并未提出任何直接应用于推荐系统或搜索引擎的核心技术（如召回、排序、个性化匹配）。",
+    "translation": "BluePrint：用于大语言模型人设评估与训练的社交媒体用户数据集",
+    "summary_zh": "该论文提出了一个隐私保护的框架及名为 BluePrint 的大规模数据集，旨在通过聚合并匿名化用户行为来训练和评估能够模拟真实社交媒体互动模式的大语言模型代理。",
+    "key_points": [
+      "该论文提出了一个隐私保护的框架及名为 BluePrint 的大规模数据集，旨在通过聚合并匿名化用户行为来训练和评估能够模拟真实社交媒体互动模式的大语言模型代理"
+    ]
+  }
+]

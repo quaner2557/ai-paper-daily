@@ -1,0 +1,378 @@
+[
+  {
+    "arxiv_id": "2509.12361v1",
+    "title": "What News Recommendation Research Did (But Mostly Didn't) Teach Us About Building A News Recommender",
+    "authors": [
+      "Karl Higley",
+      "Robin Burke",
+      "Michael D. Ekstrand",
+      "Bart P. Knijnenburg"
+    ],
+    "summary": "One of the goals of recommender systems research is to provide insights and methods that can be used by practitioners to build real-world systems that deliver high-quality recommendations to actual people grounded in their genuine interests and needs. We report on our experience trying to apply the news recommendation literature to build POPROX, a live platform for news recommendation research, and reflect on the extent to which the current state of research supports system-building efforts. Our experience highlights several unexpected challenges encountered in building personalization features that are commonly found in products from news aggregators and publishers, and shows how those difficulties are connected to surprising gaps in the literature. Finally, we offer a set of lessons learned from building a live system with a persistent user base and highlight opportunities to make future news recommendation research more applicable and impactful in practice.",
+    "categories": [
+      "cs.IR",
+      "cs.CY",
+      "cs.HC"
+    ],
+    "published": "2025-09-15T18:50:52Z",
+    "updated": "2025-09-15T18:50:52Z",
+    "url": "http://arxiv.org/abs/2509.12361v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.12361v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接探讨新闻推荐系统的构建实践与学术研究的差距，属于核心推荐系统领域，且来自 OPPO 公司，符合所有高分标准。",
+    "translation": "新闻推荐研究在构建新闻推荐系统时教会了我们什么（以及大部分没教会的）",
+    "summary_zh": "本文通过构建实时新闻推荐平台 POPROX 的实践经验，揭示了当前新闻推荐学术研究在支持实际系统构建方面的关键缺口与挑战。",
+    "key_points": [
+      "本文通过构建实时新闻推荐平台 POPROX 的实践经验，揭示了当前新闻推荐学术研究在支持实际系统构建方面的关键缺口与挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2509.12350v1",
+    "title": "Knowledge Graph Tokenization for Behavior-Aware Generative Next POI Recommendation",
+    "authors": [
+      "Ke Sun",
+      "Mayi Xu"
+    ],
+    "summary": "Generative paradigm, especially powered by Large Language Models (LLMs), has emerged as a new solution to the next point-of-interest (POI) recommendation. Pioneering studies usually adopt a two-stage pipeline, starting with a tokenizer converting POIs into discrete identifiers that can be processed by LLMs, followed by POI behavior prediction tasks to instruction-tune LLM for next POI recommendation. Despite of remarkable progress, they still face two limitations: (1) existing tokenizers struggle to encode heterogeneous signals in the recommendation data, suffering from information loss issue, and (2) previous instruction-tuning tasks only focus on users' POI visit behavior while ignore other behavior types, resulting in insufficient understanding of mobility. To address these limitations, we propose KGTB (Knowledge Graph Tokenization for Behavior-aware generative next POI recommendation). Specifically, KGTB organizes the recommendation data in a knowledge graph (KG) format, of which the structure can seamlessly preserve the heterogeneous information. Then, a KG-based tokenizer is developed to quantize each node into an individual structural ID. This process is supervised by the KG's structure, thus reducing the loss of heterogeneous information. Using generated IDs, KGTB proposes multi-behavior learning that introduces multiple behavior-specific prediction tasks for LLM fine-tuning, e.g., POI, category, and region visit behaviors. Learning on these behavior tasks provides LLMs with comprehensive insights on the target POI visit behavior. Experiments on four real-world city datasets demonstrate the superior performance of KGTB.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-15T18:25:00Z",
+    "updated": "2025-09-15T18:25:00Z",
+    "url": "http://arxiv.org/abs/2509.12350v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.12350v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对下一代 POI 推荐任务，提出利用知识图谱 Tokenization 和多行为学习来增强 LLM 在推荐系统中的表现，属于 LLM for RecSys 的核心应用。",
+    "translation": "面向行为感知生成式下一地点推荐的知识图谱 Tokenization 方法",
+    "summary_zh": "提出一种基于知识图谱的 Tokenizer 将异构推荐数据转化为结构 ID，并通过多行为预测任务微调 LLM，以解决现有生成式推荐中信息丢失和行为理解不足的问题。",
+    "key_points": [
+      "提出一种基于知识图谱的 Tokenizer 将异构推荐数据转化为结构 ID，并通过多行为预测任务微调 LLM，以解决现有生成式推荐中信息丢失和行为理解不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.12076v1",
+    "title": "AEFS: Adaptive Early Feature Selection for Deep Recommender Systems",
+    "authors": [
+      "Fan Hu",
+      "Gaofeng Lu",
+      "Jun Chen",
+      "Chaonan Guo",
+      "Yuekui Yang",
+      "Xirong Li"
+    ],
+    "summary": "Feature selection has emerged as a crucial technique in refining recommender systems. Recent advancements leveraging Automated Machine Learning (AutoML) has drawn significant attention, particularly in two main categories: early feature selection and late feature selection, differentiated by whether the selection occurs before or after the embedding layer. The early feature selection selects a fixed subset of features and retrains the model, while the late feature selection, known as adaptive feature selection, dynamically adjusts feature choices for each data instance, recognizing the variability in feature significance. Although adaptive feature selection has shown remarkable improvements in performance, its main drawback lies in its post-embedding layer feature selection. This process often becomes cumbersome and inefficient in large-scale recommender systems with billions of ID-type features, leading to a highly sparse and parameter-heavy embedding layer. To overcome this, we introduce Adaptive Early Feature Selection (AEFS), a very simple method that not only adaptively selects informative features for each instance, but also significantly reduces the activated parameters of the embedding layer. AEFS employs a dual-model architecture, encompassing an auxiliary model dedicated to feature selection and a main model responsible for prediction. To ensure effective alignment between these two models, we incorporate two collaborative training loss constraints. Our extensive experiments on three benchmark datasets validate the efficiency and effectiveness of our approach. Notably, AEFS matches the performance of current state-of-theart Adaptive Late Feature Selection methods while achieving a significant reduction of 37. 5% in the activated parameters of the embedding layer. AEFS is open-source at https://github. com/fly-dragon211/AEFS .",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-15T16:04:24Z",
+    "updated": "2025-09-15T16:04:24Z",
+    "url": "http://arxiv.org/abs/2509.12076v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.12076v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对深度推荐系统中的特征选择问题，提出了一种自适应早期特征选择（AEFS）方法，旨在解决大规模 ID 类特征导致的嵌入层稀疏和参数冗余问题，属于核心推荐技术改进。",
+    "translation": "AEFS：面向深度推荐系统的自适应早期特征选择",
+    "summary_zh": "本文提出一种双模型架构的自适应早期特征选择方法，通过在嵌入层前动态筛选实例级特征，在保持预测性能的同时显著降低嵌入层的激活参数量。",
+    "key_points": [
+      "本文提出一种双模型架构的自适应早期特征选择方法，通过在嵌入层前动态筛选实例级特征，在保持预测性能的同时显著降低嵌入层的激活参数量"
+    ]
+  },
+  {
+    "arxiv_id": "2509.11524v1",
+    "title": "Decoding in Latent Spaces for Efficient Inference in LLM-based Recommendation",
+    "authors": [
+      "Chengbing Wang",
+      "Yang Zhang",
+      "Zhicheng Wang",
+      "Tianhao Shi",
+      "Keqin Bao",
+      "Fuli Feng",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Fine-tuning large language models (LLMs) for recommendation in a generative manner has delivered promising results, but encounters significant inference overhead due to autoregressive decoding in the language space. This work explores bypassing language-space decoding by directly matching candidate items with the LLM's internal thought representations in the latent space, eliminating the time-consuming autoregressive process to reduce computational costs. Towards this, we introduce Light Latent-space Decoding (L2D), an effective and efficient latent-space decoding method. L2D represents user-preferred items by using the hidden states of test sequences reflecting the LLM's internal thought, and obtains candidate item representations from the hidden states of training sequences labeled with the corresponding candidate items. It then matches the two types of representations to decode items, achieving latent-space decoding. In this way, it enables efficient decoding without altering the LLM's generative tuning paradigm, thereby preserving performance. Extensive empirical results demonstrate that L2D is more than 10x faster than language-space decoding while maintaining or enhancing performance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-15T02:30:35Z",
+    "updated": "2025-09-15T02:30:35Z",
+    "url": "http://arxiv.org/abs/2509.11524v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.11524v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统中的推理效率瓶颈，提出了一种无需自回归解码的潜在空间匹配新方法，具有明确的 RecSys 应用场景和核心架构创新。",
+    "translation": "基于潜在空间解码实现高效 LLM 推荐推理",
+    "summary_zh": "该方法通过直接在潜在空间中匹配用户序列隐藏状态与候选物品表示，绕过耗时的语言空间自回归解码过程，从而在保持生成式推荐性能的同时显著提升推理效率。",
+    "key_points": [
+      "该方法通过直接在潜在空间中匹配用户序列隐藏状态与候选物品表示，绕过耗时的语言空间自回归解码过程，从而在保持生成式推荐性能的同时显著提升推理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2511.05499v1",
+    "title": "Weightless Neural Networks for Continuously Trainable Personalized Recommendation Systems",
+    "authors": [
+      "Rafayel Latif",
+      "Satwik Behera",
+      "Ali Al-Ebrahim"
+    ],
+    "summary": "Given that conventional recommenders, while deeply effective, rely on large distributed systems pre-trained on aggregate user data, incorporating new data necessitates large training cycles, making them slow to adapt to real-time user feedback and often lacking transparency in recommendation rationale. We explore the performance of smaller personal models trained on per-user data using weightless neural networks (WNNs), an alternative to neural backpropagation that enable continuous learning by using neural networks as a state machine rather than a system with pretrained weights. We contrast our approach against a classic weighted system, also on a per-user level, and standard collaborative filtering, achieving competitive levels of accuracy on a subset of the MovieLens dataset. We close with a discussion of how weightless systems can be developed to augment centralized systems to achieve higher subjective accuracy through recommenders more directly tunable by end-users.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-09-15T23:51:12Z",
+    "updated": "2025-09-15T23:51:12Z",
+    "url": "http://arxiv.org/abs/2511.05499v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.05499v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出使用权重无关神经网络（WNN）进行单用户持续学习以解决实时反馈问题，属于有潜力的通用 ML 方法在推荐系统中的应用，但实验仅基于 MovieLens 子集，缺乏大规模工业场景验证。",
+    "translation": "用于可连续训练个性化推荐系统的权重无关神经网络",
+    "summary_zh": "提出利用权重无关神经网络（WNN）替代传统反向传播，构建基于单用户数据的状态机模型，以实现推荐系统对实时用户反馈的持续学习与快速适应。",
+    "key_points": [
+      "提出利用权重无关神经网络（WNN）替代传统反向传播，构建基于单用户数据的状态机模型，以实现推荐系统对实时用户反馈的持续学习与快速适应"
+    ]
+  },
+  {
+    "arxiv_id": "2509.12382v1",
+    "title": "LLM-as-a-Judge: Rapid Evaluation of Legal Document Recommendation for Retrieval-Augmented Generation",
+    "authors": [
+      "Anu Pradhan",
+      "Alexandra Ortan",
+      "Apurv Verma",
+      "Madhavan Seshadri"
+    ],
+    "summary": "The evaluation bottleneck in recommendation systems has become particularly acute with the rise of Generative AI, where traditional metrics fall short of capturing nuanced quality dimensions that matter in specialized domains like legal research. Can we trust Large Language Models to serve as reliable judges of their own kind? This paper investigates LLM-as-a-Judge as a principled approach to evaluating Retrieval-Augmented Generation systems in legal contexts, where the stakes of recommendation quality are exceptionally high.\n  We tackle two fundamental questions that determine practical viability: which inter-rater reliability metrics best capture the alignment between LLM and human assessments, and how do we conduct statistically sound comparisons between competing systems? Through systematic experimentation, we discover that traditional agreement metrics like Krippendorff's alpha can be misleading in the skewed distributions typical of AI system evaluations. Instead, Gwet's AC2 and rank correlation coefficients emerge as more robust indicators for judge selection, while the Wilcoxon Signed-Rank Test with Benjamini-Hochberg corrections provides the statistical rigor needed for reliable system comparisons.\n  Our findings suggest a path toward scalable, cost-effective evaluation that maintains the precision demanded by legal applications, transforming what was once a human-intensive bottleneck into an automated, yet statistically principled, evaluation framework.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-09-15T19:20:21Z",
+    "updated": "2025-09-15T19:20:21Z",
+    "url": "http://arxiv.org/abs/2509.12382v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.12382v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于法律文档检索系统的评估方法论（LLM-as-a-Judge），属于特定垂直领域的评估工具研究，而非通用的推荐/搜索核心算法创新；虽涉及检索增强生成（RAG）的评估，但缺乏对电商/社交等主流场景的直接适用性，且本质偏向评估指标研究。",
+    "translation": "LLM 作为裁判：检索增强生成中法律文档推荐的快速评估",
+    "summary_zh": "提出利用大语言模型作为裁判来评估法律领域检索增强生成系统的方法，并通过引入 Gwet's AC2 等统计指标解决传统一致性度量在偏态分布下的失效问题，以构建自动化且统计严谨的评估框架。",
+    "key_points": [
+      "提出利用大语言模型作为裁判来评估法律领域检索增强生成系统的方法，并通过引入 Gwet's AC2 等统计指标解决传统一致性度量在偏态分布下的失效问题，以构建自动化且统计严谨的评估框架"
+    ]
+  },
+  {
+    "arxiv_id": "2509.12339v1",
+    "title": "Integrating Attention-Enhanced LSTM and Particle Swarm Optimization for Dynamic Pricing and Replenishment Strategies in Fresh Food Supermarkets",
+    "authors": [
+      "Xianchen Liu",
+      "Tianhui Zhang",
+      "Xinyu Zhang",
+      "Lingmin Hou",
+      "Zhen Guo",
+      "Yuanhao Tian",
+      "Yang Liu"
+    ],
+    "summary": "This paper presents a novel approach to optimizing pricing and replenishment strategies in fresh food supermarkets by combining Long Short-Term Memory (LSTM) networks with Particle Swarm Optimization (PSO). The LSTM model, enhanced with an attention mechanism, is used to predict sales volumes, pricing trends, and spoilage rates over a seven-day period. The predictions generated by the LSTM model serve as inputs for the PSO algorithm, which iteratively optimizes pricing and replenishment strategies to maximize profitability while adhering to inventory constraints. The integration of cost-plus pricing allows for dynamic adjustments based on fixed and variable costs, ensuring real-time adaptability to market fluctuations. The framework not only maximizes profits but also reduces food waste, contributing to more sustainable supermarket operations. The attention mechanism enhances the interpretability of the LSTM model by identifying key time points and factors influencing sales, improving decision-making accuracy. This methodology bridges the gap between predictive modeling and optimization, offering a scalable solution for dynamic pricing and inventory management in fresh food retail and other industries dealing with perishable goods.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-09-15T18:07:44Z",
+    "updated": "2025-09-15T18:07:44Z",
+    "url": "http://arxiv.org/abs/2509.12339v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.12339v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于生鲜超市的动态定价与库存补货优化，属于供应链运筹领域，虽涉及销量预测但缺乏推荐系统或搜索引擎的核心场景（如召回、排序、个性化），仅为弱相关的通用预测方法应用。",
+    "translation": "融合注意力增强 LSTM 与粒子群优化算法的生鲜超市动态定价与补货策略研究",
+    "summary_zh": "提出一种结合注意力机制 LSTM 与粒子群优化的框架，通过预测销量与损耗率来联合优化生鲜商品的动态定价及库存补货策略，以平衡利润最大化与库存约束。",
+    "key_points": [
+      "提出一种结合注意力机制 LSTM 与粒子群优化的框架，通过预测销量与损耗率来联合优化生鲜商品的动态定价及库存补货策略，以平衡利润最大化与库存约束"
+    ]
+  },
+  {
+    "arxiv_id": "2509.11713v1",
+    "title": "Beyond Regularity: Modeling Chaotic Mobility Patterns for Next Location Prediction",
+    "authors": [
+      "Yuqian Wu",
+      "Yuhong Peng",
+      "Jiapeng Yu",
+      "Xiangyu Liu",
+      "Zeting Yan",
+      "Kang Lin",
+      "Weifeng Su",
+      "Bingqing Qu",
+      "Raymond Lee",
+      "Dingqi Yang"
+    ],
+    "summary": "Next location prediction is a key task in human mobility analysis, crucial for applications like smart city resource allocation and personalized navigation services. However, existing methods face two significant challenges: first, they fail to address the dynamic imbalance between periodic and chaotic mobile patterns, leading to inadequate adaptation over sparse trajectories; second, they underutilize contextual cues, such as temporal regularities in arrival times, which persist even in chaotic patterns and offer stronger predictability than spatial forecasts due to reduced search spaces. To tackle these challenges, we propose \\textbf{\\method}, a \\underline{\\textbf{C}}h\\underline{\\textbf{A}}otic \\underline{\\textbf{N}}eural \\underline{\\textbf{O}}scillator n\\underline{\\textbf{E}}twork for next location prediction, which introduces a biologically inspired Chaotic Neural Oscillatory Attention mechanism to inject adaptive variability into traditional attention, enabling balanced representation of evolving mobility behaviors, and employs a Tri-Pair Interaction Encoder along with a Cross Context Attentive Decoder to fuse multimodal ``who-when-where'' contexts in a joint framework for enhanced prediction performance. Extensive experiments on two real-world datasets demonstrate that CANOE consistently and significantly outperforms a sizeable collection of state-of-the-art baselines, yielding 3.17\\%-13.11\\% improvement over the best-performing baselines across different cases. In particular, CANOE can make robust predictions over mobility trajectories of different mobility chaotic levels. A series of ablation studies also supports our key design choices. Our code is available at: https://github.com/yuqian2003/CANOE.",
+    "categories": [
+      "cs.LG",
+      "cs.NI"
+    ],
+    "published": "2025-09-15T09:10:48Z",
+    "updated": "2025-09-15T09:10:48Z",
+    "url": "http://arxiv.org/abs/2509.11713v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.11713v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于通用的人类移动性预测（智慧城市/导航），虽提及“个性化导航”但未明确针对推荐系统或搜索引擎的核心场景（如 POI 推荐、LBS 广告），属于弱相关的序列建模研究。",
+    "translation": "超越规律性：为下一地点预测建模混沌移动模式",
+    "summary_zh": "提出一种基于混沌神经振荡器的网络，通过引入自适应变异机制平衡周期与混沌移动模式，并融合时空上下文以增强下一地点预测能力。",
+    "key_points": [
+      "提出一种基于混沌神经振荡器的网络，通过引入自适应变异机制平衡周期与混沌移动模式，并融合时空上下文以增强下一地点预测能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.14267v1",
+    "title": "Graph-Enhanced Retrieval-Augmented Question Answering for E-Commerce Customer Support",
+    "authors": [
+      "Piyushkumar Patel"
+    ],
+    "summary": "E-Commerce customer support requires quick and accurate answers grounded in product data and past support cases. This paper develops a novel retrieval-augmented generation (RAG) framework that uses knowledge graphs (KGs) to improve the relevance of the answer and the factual grounding. We examine recent advances in knowledge-augmented RAG and chatbots based on large language models (LLM) in customer support, including Microsoft's GraphRAG and hybrid retrieval architectures. We then propose a new answer synthesis algorithm that combines structured subgraphs from a domain-specific KG with text documents retrieved from support archives, producing more coherent and grounded responses. We detail the architecture and knowledge flow of our system, provide comprehensive experimental evaluation, and justify its design in real-time support settings. Our implementation demonstrates 23\\% improvement in factual accuracy and 89\\% user satisfaction in e-Commerce QA scenarios.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IT"
+    ],
+    "published": "2025-09-15T04:17:42Z",
+    "updated": "2025-09-15T04:17:42Z",
+    "url": "http://arxiv.org/abs/2509.14267v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.14267v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注电商客服问答（QA）任务，属于纯 NLP/LLM 应用范畴，并未涉及推荐系统或搜索引擎的核心环节（如召回、排序、信息流），因此相关性较低。",
+    "translation": "面向电商客服的图增强检索增强生成问答系统",
+    "summary_zh": "提出一种结合领域知识图谱子图与支持档案文本的检索增强生成框架，旨在提升电商客服回答的事实准确性和连贯性。",
+    "key_points": [
+      "提出一种结合领域知识图谱子图与支持档案文本的检索增强生成框架，旨在提升电商客服回答的事实准确性和连贯性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.21339v1",
+    "title": "Cross-Modal Retrieval with Cauchy-Schwarz Divergence",
+    "authors": [
+      "Jiahao Zhang",
+      "Wenzhe Yin",
+      "Shujian Yu"
+    ],
+    "summary": "Effective cross-modal retrieval requires robust alignment of heterogeneous data types. Most existing methods focus on bi-modal retrieval tasks and rely on distributional alignment techniques such as Kullback-Leibler divergence, Maximum Mean Discrepancy, and correlation alignment. However, these methods often suffer from critical limitations, including numerical instability, sensitivity to hyperparameters, and their inability to capture the full structure of the underlying distributions. In this paper, we introduce the Cauchy-Schwarz (CS) divergence, a hyperparameter-free measure that improves both training stability and retrieval performance. We further propose a novel Generalized CS (GCS) divergence inspired by Hölder's inequality. This extension enables direct alignment of three or more modalities within a unified mathematical framework through a bidirectional circular comparison scheme, eliminating the need for exhaustive pairwise comparisons. Extensive experiments on six benchmark datasets demonstrate the effectiveness of our method in both bi-modal and tri-modal retrieval tasks. The code of our CS/GCS divergence is publicly available at https://github.com/JiahaoZhang666/CSD.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CV",
+      "cs.MM"
+    ],
+    "published": "2025-09-15T08:55:15Z",
+    "updated": "2025-09-15T08:55:15Z",
+    "url": "http://arxiv.org/abs/2509.21339v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.21339v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文提出通用的跨模态检索对齐方法，虽可应用于多模态搜索，但缺乏针对推荐/搜索系统的具体架构创新或业务场景结合，属于通用机器学习方法。",
+    "translation": "基于柯西 - 施瓦茨散度的跨模态检索",
+    "summary_zh": "提出一种无超参数的柯西 - 施瓦茨散度及其广义形式，通过双向循环比较机制实现多模态数据在统一框架下的高效分布对齐，以解决跨模态检索中的数值不稳定及多模态扩展难题。",
+    "key_points": [
+      "提出一种无超参数的柯西 - 施瓦茨散度及其广义形式，通过双向循环比较机制实现多模态数据在统一框架下的高效分布对齐，以解决跨模态检索中的数值不稳定及多模态扩展难题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.11552v3",
+    "title": "HiChunk: Evaluating and Enhancing Retrieval-Augmented Generation with Hierarchical Chunking",
+    "authors": [
+      "Wensheng Lu",
+      "Keyu Chen",
+      "Ruizhi Qiao",
+      "Xing Sun"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances the response capabilities of language models by integrating external knowledge sources. However, document chunking as an important part of RAG system often lacks effective evaluation tools. This paper first analyzes why existing RAG evaluation benchmarks are inadequate for assessing document chunking quality, specifically due to evidence sparsity. Based on this conclusion, we propose HiCBench, which includes manually annotated multi-level document chunking points, synthesized evidence-dense quetion answer(QA) pairs, and their corresponding evidence sources. Additionally, we introduce the HiChunk framework, a multi-level document structuring framework based on fine-tuned LLMs, combined with the Auto-Merge retrieval algorithm to improve retrieval quality. Experiments demonstrate that HiCBench effectively evaluates the impact of different chunking methods across the entire RAG pipeline. Moreover, HiChunk achieves better chunking quality within reasonable time consumption, thereby enhancing the overall performance of RAG systems.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-09-15T03:32:50Z",
+    "updated": "2025-10-09T14:21:50Z",
+    "url": "http://arxiv.org/abs/2509.11552v3",
+    "pdf_url": "http://arxiv.org/pdf/2509.11552v3.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "1TencentYoutuLab",
+      "Code:https://github.com/TencentYoutuResearch/HiChunk.git"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 LLM 的 RAG 文档分块优化，属于通用 NLP/LLM 研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "HiChunk：利用层次化分块评估与增强检索增强生成",
+    "summary_zh": "提出 HiCBench 基准与 HiChunk 框架，通过微调大模型进行多层次文档结构化及自动合并检索算法，以解决 RAG 系统中证据稀疏导致的分块质量评估与优化难题。",
+    "key_points": [
+      "提出 HiCBench 基准与 HiChunk 框架，通过微调大模型进行多层次文档结构化及自动合并检索算法，以解决 RAG 系统中证据稀疏导致的分块质量评估与优化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.11929v2",
+    "title": "Query Answering under Volume-Based Diversity Functions",
+    "authors": [
+      "Marcelo Arenas",
+      "Timo Camillo Merkl",
+      "Reinhard Pichler",
+      "Cristian Riveros"
+    ],
+    "summary": "When query evaluation produces too many tuples, a new approach in query answering is to retrieve a diverse subset of them. The standard approach for measuring the diversity of a set of tuples is to use a distance function between tuples, which measures the dissimilarity between them, to then aggregate the pairwise distances of the set into a score (e.g., by using sum or min aggregation). However, as we will point out in this work, the resulting diversity measures may display some unintuitive behavior. Moreover, even in very simple settings, finding a maximally diverse subset of the answers of fixed size is, in general, intractable and little is known about approximations apart from some hand-picked distance-aggregator pairs.\n  In this work, we introduce a novel approach for computing the diversity of tuples based on volume instead of distance. We present a framework for defining volume-based diversity functions and provide several examples of these measures applied to relational data. Although query answering of conjunctive queries (CQ) under this setting is intractable in general, we show that one can always compute a (1-1/e)-approximation for any volume-based diversity function. Furthermore, in terms of combined complexity, we connect the evaluation of CQs under volume-based diversity functions with the ranked enumeration of solutions, finding general conditions under which a (1-1/e)-approximation can be computed in polynomial time.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-09-15T13:46:04Z",
+    "updated": "2025-09-22T14:05:45Z",
+    "url": "http://arxiv.org/abs/2509.11929v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.11929v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯数据库理论（查询优化与多样性算法）研究，未涉及推荐系统或搜索引擎的具体应用场景，不符合核心领域要求。",
+    "translation": "基于体积多样性函数的查询回答研究",
+    "summary_zh": "提出一种基于体积而非距离的元组多样性度量新框架，并证明了在合取查询下获取最大多样性子集的高效近似算法及其多项式时间可解条件。",
+    "key_points": [
+      "提出一种基于体积而非距离的元组多样性度量新框架，并证明了在合取查询下获取最大多样性子集的高效近似算法及其多项式时间可解条件"
+    ]
+  },
+  {
+    "arxiv_id": "2509.11937v1",
+    "title": "MMORE: Massive Multimodal Open RAG & Extraction",
+    "authors": [
+      "Alexandre Sallinen",
+      "Stefan Krsteski",
+      "Paul Teiletche",
+      "Marc-Antoine Allard",
+      "Baptiste Lecoeur",
+      "Michael Zhang",
+      "Fabrice Nemo",
+      "David Kalajdzic",
+      "Matthias Meyer",
+      "Mary-Anne Hartley"
+    ],
+    "summary": "We introduce MMORE, an open-source pipeline for Massive Multimodal Open RetrievalAugmented Generation and Extraction, designed to ingest, transform, and retrieve knowledge from heterogeneous document formats at scale. MMORE supports more than fifteen file types, including text, tables, images, emails, audio, and video, and processes them into a unified format to enable downstream applications for LLMs. The architecture offers modular, distributed processing, enabling scalable parallelization across CPUs and GPUs. On processing benchmarks, MMORE demonstrates a 3.8-fold speedup over single-node baselines and 40% higher accuracy than Docling on scanned PDFs. The pipeline integrates hybrid dense-sparse retrieval and supports both interactive APIs and batch RAG endpoints. Evaluated on PubMedQA, MMORE-augmented medical LLMs improve biomedical QA accuracy with increasing retrieval depth. MMORE provides a robust, extensible foundation for deploying task-agnostic RAG systems on diverse, real-world multimodal data. The codebase is available at https://github.com/swiss-ai/mmore.",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2025-09-15T13:56:06Z",
+    "updated": "2025-09-15T13:56:06Z",
+    "url": "http://arxiv.org/abs/2509.11937v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.11937v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 基础设施研究，专注于多模态文档处理流水线，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "MMORE：大规模多模态开放检索增强生成与提取",
+    "summary_zh": "提出一种模块化分布式流水线，用于将异构多模态文档统一格式化并支持混合检索，旨在为通用大模型提供可扩展的 RAG 基础架构。",
+    "key_points": [
+      "提出一种模块化分布式流水线，用于将异构多模态文档统一格式化并支持混合检索，旨在为通用大模型提供可扩展的 RAG 基础架构"
+    ]
+  }
+]

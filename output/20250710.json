@@ -1,0 +1,313 @@
+[
+  {
+    "arxiv_id": "2507.07522v1",
+    "title": "NLGCL: Naturally Existing Neighbor Layers Graph Contrastive Learning for Recommendation",
+    "authors": [
+      "Jinfeng Xu",
+      "Zheyu Chen",
+      "Shuo Yang",
+      "Jinze Li",
+      "Hewei Wang",
+      "Wei Wang",
+      "Xiping Hu",
+      "Edith Ngai"
+    ],
+    "summary": "Graph Neural Networks (GNNs) are widely used in collaborative filtering to capture high-order user-item relationships. To address the data sparsity problem in recommendation systems, Graph Contrastive Learning (GCL) has emerged as a promising paradigm that maximizes mutual information between contrastive views. However, existing GCL methods rely on augmentation techniques that introduce semantically irrelevant noise and incur significant computational and storage costs, limiting effectiveness and efficiency.\n  To overcome these challenges, we propose NLGCL, a novel contrastive learning framework that leverages naturally contrastive views between neighbor layers within GNNs. By treating each node and its neighbors in the next layer as positive pairs, and other nodes as negatives, NLGCL avoids augmentation-based noise while preserving semantic relevance. This paradigm eliminates costly view construction and storage, making it computationally efficient and practical for real-world scenarios. Extensive experiments on four public datasets demonstrate that NLGCL outperforms state-of-the-art baselines in effectiveness and efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-10T08:12:39Z",
+    "updated": "2025-07-10T08:12:39Z",
+    "url": "http://arxiv.org/abs/2507.07522v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07522v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的图对比学习痛点，提出利用 GNN 邻居层构建自然对比视图的新方法，属于核心推荐算法创新；因来自中国公司额外加 1 分。",
+    "translation": "NLGCL：用于推荐的自然存在邻居层图对比学习",
+    "summary_zh": "提出一种无需数据增强的图对比学习框架，通过利用 GNN 中相邻层节点间的自然语义差异构建对比视图，以解决推荐系统中的数据稀疏问题并提升计算效率。",
+    "key_points": [
+      "提出一种无需数据增强的图对比学习框架，通过利用 GNN 中相邻层节点间的自然语义差异构建对比视图，以解决推荐系统中的数据稀疏问题并提升计算效率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07436v1",
+    "title": "When Graph Contrastive Learning Backfires: Spectral Vulnerability and Defense in Recommendation",
+    "authors": [
+      "Zongwei Wang",
+      "Min Gao",
+      "Junliang Yu",
+      "Shazia Sadiq",
+      "Hongzhi Yin",
+      "Ling Liu"
+    ],
+    "summary": "Graph Contrastive Learning (GCL) has demonstrated substantial promise in enhancing the robustness and generalization of recommender systems, particularly by enabling models to leverage large-scale unlabeled data for improved representation learning. However, in this paper, we reveal an unexpected vulnerability: the integration of GCL inadvertently increases the susceptibility of a recommender to targeted promotion attacks. Through both theoretical investigation and empirical validation, we identify the root cause as the spectral smoothing effect induced by contrastive optimization, which disperses item embeddings across the representation space and unintentionally enhances the exposure of target items. Building on this insight, we introduce CLeaR, a bi-level optimization attack method that deliberately amplifies spectral smoothness, enabling a systematic investigation of the susceptibility of GCL-based recommendation models to targeted promotion attacks. Our findings highlight the urgent need for robust countermeasures; in response, we further propose SIM, a spectral irregularity mitigation framework designed to accurately detect and suppress targeted items without compromising model performance. Extensive experiments on multiple benchmark datasets demonstrate that, compared to existing targeted promotion attacks, GCL-based recommendation models exhibit greater susceptibility when evaluated with CLeaR, while SIM effectively mitigates these vulnerabilities.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-10T05:24:08Z",
+    "updated": "2025-07-10T05:24:08Z",
+    "url": "http://arxiv.org/abs/2507.07436v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07436v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的图对比学习（GCL）技术，揭示了其在对抗攻击下的频谱脆弱性并提出了防御框架，属于核心推荐算法的安全与鲁棒性研究。",
+    "translation": "图对比学习在推荐系统中何时适得其反：频谱脆弱性与防御",
+    "summary_zh": "本文揭示了图对比学习因频谱平滑效应导致推荐系统易受目标提升攻击的机制，并提出了一种基于频谱不规则性缓解的防御框架以增强模型鲁棒性。",
+    "key_points": [
+      "本文揭示了图对比学习因频谱平滑效应导致推荐系统易受目标提升攻击的机制，并提出了一种基于频谱不规则性缓解的防御框架以增强模型鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07909v1",
+    "title": "Document Similarity Enhanced IPS Estimation for Unbiased Learning to Rank",
+    "authors": [
+      "Zeyan Liang",
+      "Graham McDonald",
+      "Iadh Ounis"
+    ],
+    "summary": "Learning to Rank (LTR) models learn from historical user interactions, such as user clicks. However, there is an inherent bias in the clicks of users due to position bias, i.e., users are more likely to click highly-ranked documents than low-ranked documents. To address this bias when training LTR models, many approaches from the literature re-weight the users' click data using Inverse Propensity Scoring (IPS). IPS re-weights the user's clicks proportionately to the position in the historical ranking that a document was placed when it was clicked since low-ranked documents are less likely to be seen by a user. In this paper, we argue that low-ranked documents that are similar to highly-ranked relevant documents are also likely to be relevant. Moreover, accounting for the similarity of low-ranked documents to highly ranked relevant documents when calculating IPS can more effectively mitigate the effects of position bias. Therefore, we propose an extension to IPS, called IPSsim, that takes into consideration the similarity of documents when estimating IPS. We evaluate our IPSsim estimator using two large publicly available LTR datasets under a number of simulated user click settings, and with different numbers of training clicks. Our experiments show that our IPSsim estimator is more effective than the existing IPS estimators for learning an unbiased LTR model, particularly in top-n settings when n >= 30. For example, when n = 50, our IPSsim estimator achieves a statistically significant ~3% improvement (p < 0.05) in terms of NDCG compared to the Doubly Robust estimator from the literature.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-10T16:41:10Z",
+    "updated": "2025-07-10T16:41:10Z",
+    "url": "http://arxiv.org/abs/2507.07909v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07909v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐中的核心排序（LTR）环节，提出利用文档相似度优化逆倾向评分（IPS）以消除位置偏差，属于高优先级的核心算法创新；虽为通用 LTR 方法，但结合中国公司背景及解决实际偏差问题的价值，给予高分。",
+    "translation": "基于文档相似性增强 IPS 估计的无偏学习排序方法",
+    "summary_zh": "提出一种名为 IPSsim 的新方法，通过在逆倾向评分中引入低排名文档与高排名相关文档的相似度信息，更有效地缓解搜索排序中的位置偏差问题。",
+    "key_points": [
+      "提出一种名为 IPSsim 的新方法，通过在逆倾向评分中引入低排名文档与高排名相关文档的相似度信息，更有效地缓解搜索排序中的位置偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07418v1",
+    "title": "Optimal Auction Design in the Joint Advertising",
+    "authors": [
+      "Yang Li",
+      "Yuchao Ma",
+      "Qi Qi"
+    ],
+    "summary": "Online advertising is a vital revenue source for major internet platforms. Recently, joint advertising, which assigns a bundle of two advertisers in an ad slot instead of allocating a single advertiser, has emerged as an effective method for enhancing allocation efficiency and revenue. However, existing mechanisms for joint advertising fail to realize the optimality, as they tend to focus on individual advertisers and overlook bundle structures. This paper identifies an optimal mechanism for joint advertising in a single-slot setting. For multi-slot joint advertising, we propose \\textbf{BundleNet}, a novel bundle-based neural network approach specifically designed for joint advertising. Our extensive experiments demonstrate that the mechanisms generated by \\textbf{BundleNet} approximate the theoretical analysis results in the single-slot setting and achieve state-of-the-art performance in the multi-slot setting. This significantly increases platform revenue while ensuring approximate dominant strategy incentive compatibility and individual rationality.",
+    "categories": [
+      "cs.GT",
+      "cs.AI"
+    ],
+    "published": "2025-07-10T04:21:01Z",
+    "updated": "2025-07-10T04:21:01Z",
+    "url": "http://arxiv.org/abs/2507.07418v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07418v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告系统的核心机制（联合拍卖与分配），提出了专用的 BundleNet 架构以解决多槽位广告匹配问题，属于 Ads/Search 核心领域的高价值应用；虽涉及神经网络，但非纯 LLM 研究，且来自中国企业额外加 1 分。",
+    "translation": "联合广告中的最优拍卖机制设计",
+    "summary_zh": "本文提出了一种基于捆绑结构的神经网络方法 BundleNet，旨在通过优化多槽位联合广告的分配机制，在确保激励相容的前提下最大化平台收益与配置效率。",
+    "key_points": [
+      "本文提出了一种基于捆绑结构的神经网络方法 BundleNet，旨在通过优化多槽位联合广告的分配机制，在确保激励相容的前提下最大化平台收益与配置效率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.08890v1",
+    "title": "Overview of the TREC 2023 deep learning track",
+    "authors": [
+      "Nick Craswell",
+      "Bhaskar Mitra",
+      "Emine Yilmaz",
+      "Hossein A. Rahmani",
+      "Daniel Campos",
+      "Jimmy Lin",
+      "Ellen M. Voorhees",
+      "Ian Soboroff"
+    ],
+    "summary": "This is the fifth year of the TREC Deep Learning track. As in previous years, we leverage the MS MARCO datasets that made hundreds of thousands of human-annotated training labels available for both passage and document ranking tasks. We mostly repeated last year's design, to get another matching test set, based on the larger, cleaner, less-biased v2 passage and document set, with passage ranking as primary and document ranking as a secondary task (using labels inferred from passage). As we did last year, we sample from MS MARCO queries that were completely held out, unused in corpus construction, unlike the test queries in the first three years. This approach yields a more difficult test with more headroom for improvement. Alongside the usual MS MARCO (human) queries from MS MARCO, this year we generated synthetic queries using a fine-tuned T5 model and using a GPT-4 prompt.\n  The new headline result this year is that runs using Large Language Model (LLM) prompting in some way outperformed runs that use the \"nnlm\" approach, which was the best approach in the previous four years. Since this is the last year of the track, future iterations of prompt-based ranking can happen in other tracks. Human relevance assessments were applied to all query types, not just human MS MARCO queries. Evaluation using synthetic queries gave similar results to human queries, with system ordering agreement of $τ=0.8487$. However, human effort was needed to select a subset of the synthetic queries that were usable. We did not see clear evidence of bias, where runs using GPT-4 were favored when evaluated using synthetic GPT-4 queries, or where runs using T5 were favored when evaluated on synthetic T5 queries.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-07-10T20:39:42Z",
+    "updated": "2025-07-10T20:39:42Z",
+    "url": "http://arxiv.org/abs/2507.08890v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.08890v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文聚焦于搜索排序（Ranking）任务的评测与进展，明确验证了 LLM Prompting 在搜索排序中优于传统深度学习方法，属于搜索核心环节的直接应用；虽为综述性质且包含纯 LLM 生成查询的探索，但紧密围绕搜索系统评估，故给予高分。",
+    "translation": "TREC 2023 深度学习轨道概览",
+    "summary_zh": "本文总结了 TREC 2023 深度学习轨道的评测设计，核心发现是基于大语言模型提示的排序方法在文档和段落检索任务中超越了传统的神经语言模型方法，并验证了合成查询在系统评估中的有效性。",
+    "key_points": [
+      "本文总结了 TREC 2023 深度学习轨道的评测设计，核心发现是基于大语言模型提示的排序方法在文档和段落检索任务中超越了传统的神经语言模型方法，并验证了合成查询在系统评估中的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07919v1",
+    "title": "Plausible Counterfactual Explanations of Recommendations",
+    "authors": [
+      "Jakub Černý",
+      "Jiří Němeček",
+      "Ivan Dovica",
+      "Jakub Mareček"
+    ],
+    "summary": "Explanations play a variety of roles in various recommender systems, from a legally mandated afterthought, through an integral element of user experience, to a key to persuasiveness. A natural and useful form of an explanation is the Counterfactual Explanation (CE). We present a method for generating highly plausible CEs in recommender systems and evaluate it both numerically and with a user study.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2025-07-10T16:59:51Z",
+    "updated": "2025-07-10T16:59:51Z",
+    "url": "http://arxiv.org/abs/2507.07919v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07919v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的反事实解释生成问题，属于提升推荐系统可解释性和用户体验的核心应用研究，非纯 LLM 理论探索。",
+    "translation": "推荐系统中合理的反事实解释生成方法",
+    "summary_zh": "提出一种在推荐系统中生成高合理性反事实解释的方法，旨在通过构建假设性场景来增强推荐结果的可解释性与用户说服力。",
+    "key_points": [
+      "提出一种在推荐系统中生成高合理性反事实解释的方法，旨在通过构建假设性场景来增强推荐结果的可解释性与用户说服力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.08191v1",
+    "title": "Overview of the TREC 2021 deep learning track",
+    "authors": [
+      "Nick Craswell",
+      "Bhaskar Mitra",
+      "Emine Yilmaz",
+      "Daniel Campos",
+      "Jimmy Lin"
+    ],
+    "summary": "This is the third year of the TREC Deep Learning track. As in previous years, we leverage the MS MARCO datasets that made hundreds of thousands of human annotated training labels available for both passage and document ranking tasks. In addition, this year we refreshed both the document and the passage collections which also led to a nearly four times increase in the document collection size and nearly $16$ times increase in the size of the passage collection. Deep neural ranking models that employ large scale pretraininig continued to outperform traditional retrieval methods this year. We also found that single stage retrieval can achieve good performance on both tasks although they still do not perform at par with multistage retrieval pipelines. Finally, the increase in the collection size and the general data refresh raised some questions about completeness of NIST judgments and the quality of the training labels that were mapped to the new collections from the old ones which we discuss in this report.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-07-10T21:58:41Z",
+    "updated": "2025-07-10T21:58:41Z",
+    "url": "http://arxiv.org/abs/2507.08191v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.08191v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文是搜索评测赛道（TREC Deep Learning Track）的综述报告，虽涉及文档排序和检索模型对比，但主要侧重于数据集更新和评测结果分析，缺乏针对推荐/搜索核心算法的直接创新。",
+    "translation": "TREC 2021 深度学习赛道综述",
+    "summary_zh": "本文总结了 TREC 2021 深度学习赛道的进展，重点分析了 MS MARCO 数据集的扩展、大规模预训练排序模型的表现以及单阶段与多阶段检索流程的效果对比。",
+    "key_points": [
+      "本文总结了 TREC 2021 深度学习赛道的进展，重点分析了 MS MARCO 数据集的扩展、大规模预训练排序模型的表现以及单阶段与多阶段检索流程的效果对比"
+    ]
+  },
+  {
+    "arxiv_id": "2507.10865v1",
+    "title": "Overview of the TREC 2022 deep learning track",
+    "authors": [
+      "Nick Craswell",
+      "Bhaskar Mitra",
+      "Emine Yilmaz",
+      "Daniel Campos",
+      "Jimmy Lin",
+      "Ellen M. Voorhees",
+      "Ian Soboroff"
+    ],
+    "summary": "This is the fourth year of the TREC Deep Learning track. As in previous years, we leverage the MS MARCO datasets that made hundreds of thousands of human annotated training labels available for both passage and document ranking tasks. In addition, this year we also leverage both the refreshed passage and document collections that were released last year leading to a nearly $16$ times increase in the size of the passage collection and nearly four times increase in the document collection size. Unlike previous years, in 2022 we mainly focused on constructing a more complete test collection for the passage retrieval task, which has been the primary focus of the track. The document ranking task was kept as a secondary task, where document-level labels were inferred from the passage-level labels. Our analysis shows that similar to previous years, deep neural ranking models that employ large scale pretraining continued to outperform traditional retrieval methods. Due to the focusing our judging resources on passage judging, we are more confident in the quality of this year's queries and judgments, with respect to our ability to distinguish between runs and reuse the dataset in future. We also see some surprises in overall outcomes. Some top-performing runs did not do dense retrieval. Runs that did single-stage dense retrieval were not as competitive this year as they were last year.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-07-10T20:48:22Z",
+    "updated": "2025-07-10T20:48:22Z",
+    "url": "http://arxiv.org/abs/2507.10865v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.10865v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文是 TREC 深度学习轨迹的综述报告，虽聚焦搜索排序任务并对比了预训练模型与传统方法，但主要侧重于数据集构建和评测结果分析，缺乏针对推荐/搜索核心算法的直接创新。",
+    "translation": "TREC 2022 深度学习轨迹综述",
+    "summary_zh": "本文介绍了 TREC 2022 深度学习轨迹的任务设置，重点在于利用扩大的 MS MARCO 数据集构建更完善的段落检索测试集，并分析了大规模预训练神经排序模型与传统检索方法的性能差异。",
+    "key_points": [
+      "本文介绍了 TREC 2022 深度学习轨迹的任务设置，重点在于利用扩大的 MS MARCO 数据集构建更完善的段落检索测试集，并分析了大规模预训练神经排序模型与传统检索方法的性能差异"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07924v1",
+    "title": "Measuring Hypothesis Testing Errors in the Evaluation of Retrieval Systems",
+    "authors": [
+      "Jack McKechnie",
+      "Graham McDonald",
+      "Craig Macdonald"
+    ],
+    "summary": "The evaluation of Information Retrieval (IR) systems typically uses query-document pairs with corresponding human-labelled relevance assessments (qrels). These qrels are used to determine if one system is better than another based on average retrieval performance. Acquiring large volumes of human relevance assessments is expensive. Therefore, more efficient relevance assessment approaches have been proposed, necessitating comparisons between qrels to ascertain their efficacy. Discriminative power, i.e. the ability to correctly identify significant differences between systems, is important for drawing accurate conclusions on the robustness of qrels. Previous work has measured the proportion of pairs of systems that are identified as significantly different and has quantified Type I statistical errors. Type I errors lead to incorrect conclusions due to false positive significance tests. We argue that also identifying Type II errors (false negatives) is important as they lead science in the wrong direction. We quantify Type II errors and propose that balanced classification metrics, such as balanced accuracy, can be used to portray the discriminative power of qrels. We perform experiments using qrels generated using alternative relevance assessment methods to investigate measuring hypothesis testing errors in IR evaluation. We find that additional insights into the discriminative power of qrels can be gained by quantifying Type II errors, and that balanced classification metrics can be used to give an overall summary of discriminative power in one, easily comparable, number.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-10T17:06:24Z",
+    "updated": "2025-07-10T17:06:24Z",
+    "url": "http://arxiv.org/abs/2507.07924v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07924v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于信息检索（IR）系统的评估方法论（统计假设检验错误），属于评测指标研究而非推荐/搜索核心算法（如召回、排序、用户建模）的直接创新，且未涉及 LLM 应用。",
+    "translation": "检索系统评估中的假设检验误差度量",
+    "summary_zh": "提出通过量化第二类错误（假阴性）并结合平衡分类指标，来更全面地评估信息检索系统中相关性判断集（qrels）区分系统性能差异的能力。",
+    "key_points": [
+      "提出通过量化第二类错误（假阴性）并结合平衡分类指标，来更全面地评估信息检索系统中相关性判断集（qrels）区分系统性能差异的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07543v2",
+    "title": "The Cross-Lingual Cost: Retrieval Biases in RAG over Arabic-English Corpora",
+    "authors": [
+      "Chen Amiraz",
+      "Yaroslav Fyodorov",
+      "Elad Haramaty",
+      "Zohar Karnin",
+      "Liane Lewin-Eytan"
+    ],
+    "summary": "Cross-lingual retrieval-augmented generation (RAG) is a critical capability for retrieving and generating answers across languages. Prior work in this context has mostly focused on generation and relied on benchmarks derived from open-domain sources, most notably Wikipedia. In such settings, retrieval challenges often remain hidden due to language imbalances, overlap with pretraining data, and memorized content. To address this gap, we study Arabic-English RAG in a domain-specific setting using benchmarks derived from real-world corporate datasets. Our benchmarks include all combinations of languages for the user query and the supporting document, drawn independently and uniformly at random. This enables a systematic study of multilingual retrieval behavior.\n  Our findings reveal that retrieval is a critical bottleneck in cross-lingual domain-specific scenarios, with substantial performance drops occurring when the user query and supporting document languages differ. A key insight is that these failures stem primarily from the retriever's difficulty in ranking documents across languages. Finally, we propose two simple retrieval strategies that address this source of failure by enforcing equal retrieval from both languages or by translating the query, resulting in substantial improvements in cross-lingual and overall performance. These results highlight meaningful opportunities for improving multilingual retrieval, particularly in practical, real-world RAG applications.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-07-10T08:38:31Z",
+    "updated": "2025-10-27T07:40:12Z",
+    "url": "http://arxiv.org/abs/2507.07543v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.07543v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于跨语言 RAG 中的检索偏差问题，虽涉及检索技术但属于通用 NLP/LLM 研究范畴，未直接针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），仅因 OPPO 背景及检索主题给予微弱加分。",
+    "translation": "跨语言代价：阿拉伯语 - 英语语料库上 RAG 的检索偏差研究",
+    "summary_zh": "本文揭示了跨语言领域特定场景中检索是 RAG 的关键瓶颈，主要源于检索器在不同语言间排序文档的困难，并提出了强制双语均衡检索或查询翻译两种策略以解决该问题。",
+    "key_points": [
+      "本文揭示了跨语言领域特定场景中检索是 RAG 的关键瓶颈，主要源于检索器在不同语言间排序文档的困难，并提出了强制双语均衡检索或查询翻译两种策略以解决该问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07847v2",
+    "title": "From Ambiguity to Accuracy: The Transformative Effect of Coreference Resolution on Retrieval-Augmented Generation systems",
+    "authors": [
+      "Youngjoon Jang",
+      "Seongtae Hong",
+      "Junyoung Son",
+      "Sungjin Park",
+      "Chanjun Park",
+      "Heuiseok Lim"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has emerged as a crucial framework in natural language processing (NLP), improving factual consistency and reducing hallucinations by integrating external document retrieval with large language models (LLMs). However, the effectiveness of RAG is often hindered by coreferential complexity in retrieved documents, introducing ambiguity that disrupts in-context learning. In this study, we systematically investigate how entity coreference affects both document retrieval and generative performance in RAG-based systems, focusing on retrieval relevance, contextual understanding, and overall response quality. We demonstrate that coreference resolution enhances retrieval effectiveness and improves question-answering (QA) performance. Through comparative analysis of different pooling strategies in retrieval tasks, we find that mean pooling demonstrates superior context capturing ability after applying coreference resolution. In QA tasks, we discover that smaller models benefit more from the disambiguation process, likely due to their limited inherent capacity for handling referential ambiguity. With these findings, this study aims to provide a deeper understanding of the challenges posed by coreferential complexity in RAG, providing guidance for improving retrieval and generation in knowledge-intensive AI applications.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-07-10T15:26:59Z",
+    "updated": "2026-03-04T06:48:54Z",
+    "url": "http://arxiv.org/abs/2507.07847v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.07847v2.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 研究，专注于 RAG 系统中的共指消解问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "从歧义到准确：共指消解对检索增强生成系统的变革性影响",
+    "summary_zh": "该研究提出在 RAG 框架中引入共指消解技术，通过消除检索文档中的实体指代歧义来提升上下文理解能力及问答生成的准确性。",
+    "key_points": [
+      "该研究提出在 RAG 框架中引入共指消解技术，通过消除检索文档中的实体指代歧义来提升上下文理解能力及问答生成的准确性"
+    ]
+  }
+]

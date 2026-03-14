@@ -1,0 +1,250 @@
+[
+  {
+    "arxiv_id": "2507.03861v1",
+    "title": "Continual Recommender Systems",
+    "authors": [
+      "Hyunsik Yoo",
+      "SeongKu Kang",
+      "Hanghang Tong"
+    ],
+    "summary": "Modern recommender systems operate in uniquely dynamic settings: user interests, item pools, and popularity trends shift continuously, and models must adapt in real time without forgetting past preferences. While existing tutorials on continual or lifelong learning cover broad machine learning domains (e.g., vision and graphs), they do not address recommendation-specific demands-such as balancing stability and plasticity per user, handling cold-start items, and optimizing recommendation metrics under streaming feedback. This tutorial aims to make a timely contribution by filling that gap. We begin by reviewing the background and problem settings, followed by a comprehensive overview of existing approaches. We then highlight recent efforts to apply continual learning to practical deployment environments, such as resource-constrained systems and sequential interaction settings. Finally, we discuss open challenges and future research directions. We expect this tutorial to benefit researchers and practitioners in recommender systems, data mining, AI, and information retrieval across academia and industry.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-07-05T02:20:15Z",
+    "updated": "2025-07-05T02:20:15Z",
+    "url": "http://arxiv.org/abs/2507.03861v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.03861v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的持续学习问题，解决了用户兴趣漂移和实时适应等核心业务挑战，完全符合高优先级标准。",
+    "translation": "持续推荐系统",
+    "summary_zh": "本文综述了持续学习在推荐系统中的应用，重点解决动态环境下平衡模型稳定性与可塑性、处理冷启动物品及优化流式反馈指标等核心问题。",
+    "key_points": [
+      "本文综述了持续学习在推荐系统中的应用，重点解决动态环境下平衡模型稳定性与可塑性、处理冷启动物品及优化流式反馈指标等核心问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.04000v1",
+    "title": "Leveraging Multimodal Data and Side Users for Diffusion Cross-Domain Recommendation",
+    "authors": [
+      "Fan Zhang",
+      "Jinpeng Chen",
+      "Huan Li",
+      "Senzhang Wang",
+      "Yuan Cao",
+      "Kaimin Wei",
+      "JianXiang He",
+      "Feifei Kou",
+      "Jinqing Wang"
+    ],
+    "summary": "Cross-domain recommendation (CDR) aims to address the persistent cold-start problem in Recommender Systems. Current CDR research concentrates on transferring cold-start users' information from the auxiliary domain to the target domain. However, these systems face two main issues: the underutilization of multimodal data, which hinders effective cross-domain alignment, and the neglect of side users who interact solely within the target domain, leading to inadequate learning of the target domain's vector space distribution. To address these issues, we propose a model leveraging Multimodal data and Side users for diffusion Cross-domain recommendation (MuSiC). We first employ a multimodal large language model to extract item multimodal features and leverage a large language model to uncover user features using prompt learning without fine-tuning. Secondly, we propose the cross-domain diffusion module to learn the generation of feature vectors in the target domain. This approach involves learning feature distribution from side users and understanding the patterns in cross-domain transformation through overlapping users. Subsequently, the trained diffusion module is used to generate feature vectors for cold-start users in the target domain, enabling the completion of cross-domain recommendation tasks. Finally, our experimental evaluation of the Amazon dataset confirms that MuSiC achieves state-of-the-art performance, significantly outperforming all selected baselines. Our code is available: https://anonymous.4open.science/r/MuSiC-310A/.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-05T10:57:29Z",
+    "updated": "2025-07-05T10:57:29Z",
+    "url": "http://arxiv.org/abs/2507.04000v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.04000v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的跨域冷启动问题，创新性地结合多模态数据、侧边用户及扩散模型提出解决方案，完全符合核心领域进展的高优先级标准；虽涉及 LLM 但仅作为特征提取工具，非纯 LLM 研究，且来自中国公司额外加 1 分后满分。",
+    "translation": "利用多模态数据与侧边用户进行扩散跨域推荐",
+    "summary_zh": "提出 MuSiC 模型，利用多模态大语言模型提取特征，并通过学习侧边用户分布的跨域扩散模块生成目标域特征向量，以解决跨域推荐中的冷启动问题。",
+    "key_points": [
+      "提出 MuSiC 模型，利用多模态大语言模型提取特征，并通过学习侧边用户分布的跨域扩散模块生成目标域特征向量，以解决跨域推荐中的冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.03895v1",
+    "title": "TayFCS: Towards Light Feature Combination Selection for Deep Recommender Systems",
+    "authors": [
+      "Xianquan Wang",
+      "Zhaocheng Du",
+      "Jieming Zhu",
+      "Chuhan Wu",
+      "Qinglin Jia",
+      "Zhenhua Dong"
+    ],
+    "summary": "Feature interaction modeling is crucial for deep recommendation models. A common and effective approach is to construct explicit feature combinations to enhance model performance. However, in practice, only a small fraction of these combinations are truly informative. Thus it is essential to select useful feature combinations to reduce noise and manage memory consumption. While feature selection methods have been extensively studied, they are typically limited to selecting individual features. Extending these methods for high-order feature combination selection presents a significant challenge due to the exponential growth in time complexity when evaluating feature combinations one by one. In this paper, we propose $\\textbf{TayFCS}$, a lightweight feature combination selection method that significantly improves model performance. Specifically, we propose the Taylor Expansion Scorer (TayScorer) module for field-wise Taylor expansion on the base model. Instead of evaluating all potential feature combinations' importance by repeatedly running experiments with feature adding and removal, this scorer only needs to approximate the importance based on their sub-components' gradients. This can be simply computed with one backward pass based on a trained recommendation model. To further reduce information redundancy among feature combinations and their sub-components, we introduce Logistic Regression Elimination (LRE), which estimates the corresponding information gain based on the model prediction performance. Experimental results on three benchmark datasets validate both the effectiveness and efficiency of our approach. Furthermore, online A/B test results demonstrate its practical applicability and commercial value.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-05T04:22:42Z",
+    "updated": "2025-07-05T04:22:42Z",
+    "url": "http://arxiv.org/abs/2507.03895v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.03895v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "UniversityofScienceandTechnology HuaweiNoah’sArkLab HuaweiNoah’sArkLab",
+      "HuaweiNoah’sArkLab HuaweiNoah’sArkLab HuaweiNoah’sArkLab"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对深度推荐系统中的高阶特征组合选择难题，提出了基于泰勒展开的轻量级评分方法，属于核心推荐算法创新且已验证商业价值，符合最高优先级标准。",
+    "translation": "TayFCS：面向深度推荐系统的轻量级特征组合选择方法",
+    "summary_zh": "提出 TayFCS 方法，利用场级泰勒展开 scorer 仅需一次反向传播即可近似评估高阶特征组合重要性，并结合逻辑回归消除冗余，以低成本实现高效特征选择。",
+    "key_points": [
+      "提出 TayFCS 方法，利用场级泰勒展开 scorer 仅需一次反向传播即可近似评估高阶特征组合重要性，并结合逻辑回归消除冗余，以低成本实现高效特征选择"
+    ]
+  },
+  {
+    "arxiv_id": "2507.04072v1",
+    "title": "CTR-Guided Generative Query Suggestion in Conversational Search",
+    "authors": [
+      "Erxue Min",
+      "Hsiu-Yuan Huang",
+      "Xihong Yang",
+      "Min Yang",
+      "Xin Jia",
+      "Yunfang Wu",
+      "Hengyi Cai",
+      "Junfeng Wang",
+      "Shuaiqiang Wang",
+      "Dawei Yin"
+    ],
+    "summary": "Generating effective query suggestions in conversational search requires aligning model outputs with user preferences, which is challenging due to sparse and noisy click signals. We propose GQS, a generative framework that integrates click modeling and preference optimization to enhance real-world user engagement. GQS consists of three key components: (1) a Multi-Source CTR Modeling module that captures diverse contextual signals to estimate fine-grained click-through rates; (2) a Diversity-Aware Preference Alignment strategy using CTR-weighted Direct Preference Optimization (DPO), which balances relevance and semantic diversity; and (3) a CTR-Calibrated Iterative Optimization process that jointly refines the CTR and generation models across training rounds. Experiments on two real-world tasks demonstrate that GQS outperforms strong baselines in CTR, relevance, and diversity.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-05T15:32:41Z",
+    "updated": "2025-07-05T15:32:41Z",
+    "url": "http://arxiv.org/abs/2507.04072v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.04072v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "affiliation_lines": [
+      "1BaiduInc,2PekingUniversity,"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话式搜索中的查询建议任务，提出结合 CTR 建模与偏好优化的生成框架，属于搜索核心环节的直接应用。",
+    "translation": "对话式搜索中基于点击率引导的生成式查询建议",
+    "summary_zh": "提出一种生成式框架，通过多源 CTR 建模捕捉上下文信号，并利用 CTR 加权的直接偏好优化策略平衡相关性与多样性，以联合优化点击率预测与查询生成模型。",
+    "key_points": [
+      "提出一种生成式框架，通过多源 CTR 建模捕捉上下文信号，并利用 CTR 加权的直接偏好优化策略平衡相关性与多样性，以联合优化点击率预测与查询生成模型"
+    ]
+  },
+  {
+    "arxiv_id": "2507.03945v3",
+    "title": "Function-based Labels for Complementary Recommendation: Definition, Annotation, and LLM-as-a-Judge",
+    "authors": [
+      "Chihiro Yamasaki",
+      "Kai Sugahara",
+      "Yuma Nagi",
+      "Kazushi Okamoto"
+    ],
+    "summary": "Complementary recommendations enhance the user experience by suggesting items that are frequently purchased together while serving different functions from the query item. Inferring or evaluating whether two items have a complementary relationship requires complementary relationship labels; however, defining these labels is challenging because of the inherent ambiguity of such relationships. Complementary labels based on user historical behavior logs attempt to capture these relationships, but often produce inconsistent and unreliable results. Recent efforts have introduced large language models (LLMs) to infer these relationships. However, these approaches provide a binary classification without a nuanced understanding of complementary relationships. In this study, we address these challenges by introducing Function-Based Labels (FBLs), a novel definition of complementary relationships independent of user purchase logs and the opaque decision processes of LLMs. We constructed a human-annotated FBLs dataset comprising 2,759 item pairs and demonstrated that it covered possible item relationships and minimized ambiguity. We then evaluated whether some machine learning (ML) methods using annotated FBLs could accurately infer labels for unseen item pairs, and whether LLM-generated complementary labels align with human perception. Our results demonstrate that even with limited data, ML models, such as logistic regression and SVM achieve high macro-F1 scores (approximately 0.82). Furthermore, LLMs, such as gpt-4o-mini, demonstrated high consistency (0.989) and classification accuracy (0.849) under the detailed definition of FBLs, indicating their potential as effective annotators that mimic human judgment. Overall, our study presents FBLs as a clear definition of complementary relationships, enabling more accurate inferences and automated labeling of complementary recommendations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-05T08:08:38Z",
+    "updated": "2025-11-16T08:43:58Z",
+    "url": "http://arxiv.org/abs/2507.03945v3",
+    "pdf_url": "http://arxiv.org/pdf/2507.03945v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中的互补商品推荐难题，提出了基于功能的标签定义并利用 LLM 作为标注者，属于核心推荐场景的直接应用；虽含中国公司背景应加分，但满分限制为 10 分，故维持高分。",
+    "translation": "基于功能的互补推荐标签：定义、标注与大模型评判",
+    "summary_zh": "提出一种独立于用户行为日志的“基于功能标签”来明确定义商品互补关系，并验证了传统机器学习模型及大语言模型在该新定义下进行自动标注和关系推断的有效性。",
+    "key_points": [
+      "提出一种独立于用户行为日志的“基于功能标签”来明确定义商品互补关系，并验证了传统机器学习模型及大语言模型在该新定义下进行自动标注和关系推断的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.05295v1",
+    "title": "Enhancing Learning Path Recommendation via Multi-task Learning",
+    "authors": [
+      "Afsana Nasrin",
+      "Lijun Qian",
+      "Pamela Obiomon",
+      "Xishuang Dong"
+    ],
+    "summary": "Personalized learning is a student-centered educational approach that adapts content, pace, and assessment to meet each learner's unique needs. As the key technique to implement the personalized learning, learning path recommendation sequentially recommends personalized learning items such as lectures and exercises. Advances in deep learning, particularly deep reinforcement learning, have made modeling such recommendations more practical and effective. This paper proposes a multi-task LSTM model that enhances learning path recommendation by leveraging shared information across tasks. The approach reframes learning path recommendation as a sequence-to-sequence (Seq2Seq) prediction problem, generating personalized learning paths from a learner's historical interactions. The model uses a shared LSTM layer to capture common features for both learning path recommendation and deep knowledge tracing, along with task-specific LSTM layers for each objective. To avoid redundant recommendations, a non-repeat loss penalizes repeated items within the recommended learning path. Experiments on the ASSIST09 dataset show that the proposed model significantly outperforms baseline methods for the learning path recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CY",
+      "cs.LG"
+    ],
+    "published": "2025-07-05T21:16:02Z",
+    "updated": "2025-07-05T21:16:02Z",
+    "url": "http://arxiv.org/abs/2507.05295v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.05295v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于学习路径推荐这一具体的序列推荐场景，提出了多任务 LSTM 架构解决重复推荐问题，属于明确的推荐系统应用；虽非纯 LLM 研究且来自 STO 公司（+1 分），但方法基于传统深度学习而非最新 LLM 技术，故给 8 分。",
+    "translation": "基于多任务学习增强学习路径推荐",
+    "summary_zh": "该文提出一种多任务 LSTM 模型，将学习路径推荐重构为序列到序列预测问题，通过共享层联合优化推荐与知识追踪任务，并引入非重复损失机制以消除推荐内容冗余。",
+    "key_points": [
+      "该文提出一种多任务 LSTM 模型，将学习路径推荐重构为序列到序列预测问题，通过共享层联合优化推荐与知识追踪任务，并引入非重复损失机制以消除推荐内容冗余"
+    ]
+  },
+  {
+    "arxiv_id": "2507.03958v2",
+    "title": "A Comparative Study of Specialized LLMs as Dense Retrievers",
+    "authors": [
+      "Hengran Zhang",
+      "Keping Bi",
+      "Jiafeng Guo"
+    ],
+    "summary": "While large language models (LLMs) are increasingly deployed as dense retrievers, the impact of their domain-specific specialization on retrieval effectiveness remains underexplored. This investigation systematically examines how task-specific adaptations in LLMs influence their retrieval capabilities, an essential step toward developing unified retrievers capable of handling text, code, images, and multimodal content. We conduct extensive experiments with eight Qwen2.5 7B LLMs, including base, instruction-tuned, code/math-specialized, long reasoning, and vision-language models across zero-shot retrieval settings and the supervised setting. For the zero-shot retrieval settings, we consider text retrieval from the BEIR benchmark and code retrieval from the CoIR benchmark. Further, to evaluate supervised performance, all LLMs are fine-tuned on the MS MARCO dataset. We find that mathematical specialization and the long reasoning capability cause consistent degradation in three settings, indicating conflicts between mathematical reasoning and semantic matching. The vision-language model and code-specialized LLMs demonstrate superior zero-shot performance compared to other LLMs, even surpassing BM25 on the code retrieval task, and maintain comparable performance to base LLMs in supervised settings. These findings suggest promising directions for the unified retrieval task leveraging cross-domain and cross-modal fusion.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-07-05T08:50:29Z",
+    "updated": "2025-08-06T08:11:23Z",
+    "url": "http://arxiv.org/abs/2507.03958v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.03958v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文研究了专用 LLM 作为稠密检索器的效果，属于搜索核心环节（检索）的探索，但主要基于通用基准测试，缺乏具体推荐/搜索业务场景的直接应用验证。",
+    "translation": "专用大语言模型作为稠密检索器的比较研究",
+    "summary_zh": "本文系统评估了不同领域专用大语言模型在零样本和监督设置下的稠密检索能力，揭示了数学推理等特定能力与语义匹配任务之间的潜在冲突及跨模态融合潜力。",
+    "key_points": [
+      "本文系统评估了不同领域专用大语言模型在零样本和监督设置下的稠密检索能力，揭示了数学推理等特定能力与语义匹配任务之间的潜在冲突及跨模态融合潜力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.03922v2",
+    "title": "Dynamic Injection of Entity Knowledge into Dense Retrievers",
+    "authors": [
+      "Ikuya Yamada",
+      "Ryokan Ri",
+      "Takeshi Kojima",
+      "Yusuke Iwasawa",
+      "Yutaka Matsuo"
+    ],
+    "summary": "Dense retrievers often struggle with queries involving less-frequent entities due to their limited entity knowledge. We propose the Knowledgeable Passage Retriever (KPR), a BERT-based retriever enhanced with a context-entity attention layer and dynamically updatable entity embeddings. This design enables KPR to incorporate external entity knowledge without retraining. Experiments on three datasets demonstrate that KPR consistently improves retrieval accuracy, with particularly large gains on the EntityQuestions dataset. When built on the off-the-shelf bge-base retriever, KPR achieves state-of-the-art performance among similarly sized models on two datasets. Models and code are released at https://github.com/knowledgeable-embedding/knowledgeable-embedding.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-07-05T07:05:41Z",
+    "updated": "2025-09-08T04:27:20Z",
+    "url": "http://arxiv.org/abs/2507.03922v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.03922v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种增强稠密检索器实体知识的方法，属于搜索核心技术（检索环节），但基于 BERT 而非 LLM，且未明确提及特定业务场景，故评为中优先级。",
+    "translation": "动态注入实体知识到稠密检索器中",
+    "summary_zh": "提出知识感知段落检索器（KPR），通过上下文 - 实体注意力层和动态可更新实体嵌入，在不重新训练的情况下将外部实体知识融入稠密检索模型以解决低频实体查询难题。",
+    "key_points": [
+      "提出知识感知段落检索器（KPR），通过上下文 - 实体注意力层和动态可更新实体嵌入，在不重新训练的情况下将外部实体知识融入稠密检索模型以解决低频实体查询难题"
+    ]
+  }
+]

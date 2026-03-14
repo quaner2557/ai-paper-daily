@@ -1,0 +1,363 @@
+[
+  {
+    "arxiv_id": "2507.15994v2",
+    "title": "Scaling Recommender Transformers to One Billion Parameters",
+    "authors": [
+      "Kirill Khrylchenko",
+      "Artem Matveev",
+      "Sergei Makeev",
+      "Vladimir Baikalov"
+    ],
+    "summary": "While large transformer models have been successfully used in many real-world applications such as natural language processing, computer vision, and speech processing, scaling transformers for recommender systems remains a challenging problem. Recently, Generative Recommenders framework was proposed to scale beyond typical Deep Learning Recommendation Models (DLRMs). Reformulation of recommendation as sequential transduction task led to improvement of scaling properties in terms of compute. Nevertheless, the largest encoder configuration reported by the HSTU authors amounts only to ~176 million parameters, which is considerably smaller than the hundreds of billions or even trillions of parameters common in modern language models.\n  In this work, we present a recipe for training large transformer recommenders with up to a billion parameters. We show that autoregressive learning on user histories naturally decomposes into two subtasks, feedback prediction and next-item prediction, and demonstrate that such a decomposition scales effectively across a wide range of transformer sizes. Furthermore, we report a successful deployment of our proposed architecture on a large-scale music platform serving millions of users. According to our online A/B tests, this new model increases total listening time by +2.26% and raises the likelihood of user likes by +6.37%, constituting (to our knowledge) the largest improvement in recommendation quality reported for any deep learning-based system in the platform's history.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-21T18:30:43Z",
+    "updated": "2026-02-18T11:17:15Z",
+    "url": "http://arxiv.org/abs/2507.15994v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.15994v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中 Transformer 模型扩展至十亿参数的核心难题，提出了自回归学习分解的新架构，并已在大型音乐平台成功部署，完全符合高优先级标准；虽非中国公司（实为 Spotify），但因其极高的核心领域相关性，基础分已达满分。",
+    "translation": "将推荐 Transformer 扩展至十亿参数规模",
+    "summary_zh": "提出一种将用户历史自回归学习分解为反馈预测和下一项预测子任务的架构，实现了十亿参数级推荐 Transformer 的有效训练与扩展。",
+    "key_points": [
+      "提出一种将用户历史自回归学习分解为反馈预测和下一项预测子任务的架构，实现了十亿参数级推荐 Transformer 的有效训练与扩展"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15551v3",
+    "title": "RankMixer: Scaling Up Ranking Models in Industrial Recommenders",
+    "authors": [
+      "Jie Zhu",
+      "Zhifang Fan",
+      "Xiaoxie Zhu",
+      "Yuchen Jiang",
+      "Hangyu Wang",
+      "Xintian Han",
+      "Haoran Ding",
+      "Xinmin Wang",
+      "Wenlin Zhao",
+      "Zhen Gong",
+      "Huizhi Yang",
+      "Zheng Chai",
+      "Zhe Chen",
+      "Yuchao Zheng",
+      "Qiwei Chen",
+      "Feng Zhang",
+      "Xun Zhou",
+      "Peng Xu",
+      "Xiao Yang",
+      "Di Wu",
+      "Zuotao Liu"
+    ],
+    "summary": "Recent progress on large language models (LLMs) has spurred interest in scaling up recommendation systems, yet two practical obstacles remain. First, training and serving cost on industrial Recommenders must respect strict latency bounds and high QPS demands. Second, most human-designed feature-crossing modules in ranking models were inherited from the CPU era and fail to exploit modern GPUs, resulting in low Model Flops Utilization (MFU) and poor scalability. We introduce RankMixer, a hardware-aware model design tailored towards a unified and scalable feature-interaction architecture. RankMixer retains the transformer's high parallelism while replacing quadratic self-attention with multi-head token mixing module for higher efficiency. Besides, RankMixer maintains both the modeling for distinct feature subspaces and cross-feature-space interactions with Per-token FFNs. We further extend it to one billion parameters with a Sparse-MoE variant for higher ROI. A dynamic routing strategy is adapted to address the inadequacy and imbalance of experts training. Experiments show RankMixer's superior scaling abilities on a trillion-scale production dataset. By replacing previously diverse handcrafted low-MFU modules with RankMixer, we boost the model MFU from 4.5\\% to 45\\%, and scale our ranking model parameters by 100x while maintaining roughly the same inference latency. We verify RankMixer's universality with online A/B tests across two core application scenarios (Recommendation and Advertisement). Finally, we launch 1B Dense-Parameters RankMixer for full traffic serving without increasing the serving cost, which improves user active days by 0.3\\% and total in-app usage duration by 1.08\\%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-21T12:28:55Z",
+    "updated": "2025-07-26T02:01:33Z",
+    "url": "http://arxiv.org/abs/2507.15551v3",
+    "pdf_url": "http://arxiv.org/pdf/2507.15551v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐和广告系统的排序环节，提出了可扩展的 RankMixer 架构以解决延迟和 GPU 利用率问题，属于核心领域的高优先级创新；且来自中国公司，按规则额外加 1 分（基础分 9+1=10）。",
+    "translation": "RankMixer：在工业推荐系统中扩展排序模型规模",
+    "summary_zh": "提出一种硬件感知的 RankMixer 架构，通过替换低效的特征交叉模块并利用稀疏 MoE 技术，在保持低延迟的同时实现推荐排序模型的百倍参数扩展与高 GPU 利用率。",
+    "key_points": [
+      "提出一种硬件感知的 RankMixer 架构，通过替换低效的特征交叉模块并利用稀疏 MoE 技术，在保持低延迟的同时实现推荐排序模型的百倍参数扩展与高 GPU 利用率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15267v1",
+    "title": "GREAT: Guiding Query Generation with a Trie for Recommending Related Search about Video at Kuaishou",
+    "authors": [
+      "Ninglu Shao",
+      "Jinshan Wang",
+      "Chenxu Wang",
+      "Qingbiao Li",
+      "Xiaoxue Zang",
+      "Han Li"
+    ],
+    "summary": "Currently, short video platforms have become the primary place for individuals to share experiences and obtain information. To better meet users' needs for acquiring information while browsing short videos, some apps have introduced a search entry at the bottom of videos, accompanied with recommended relevant queries. This scenario is known as query recommendation in video-related search, where core task is item-to-query (I2Q) recommendation. As this scenario has only emerged in recent years, there is a notable scarcity of academic research and publicly available datasets in this domain. To address this gap, we systematically examine the challenges associated with this scenario for the first time. Subsequently, we release a large-scale dataset derived from real-world data pertaining to the query recommendation in video-\\textit{\\textbf{r}}elated \\textit{\\textbf{s}}earch on the \\textit{\\textbf{Kuai}}shou app (\\textbf{KuaiRS}). Presently, existing methods rely on embeddings to calculate similarity for matching short videos with queries, lacking deep interaction between the semantic content and the query. In this paper, we introduce a novel LLM-based framework named \\textbf{GREAT}, which \\textit{\\textbf{g}}uides que\\textit{\\textbf{r}}y g\\textit{\\textbf{e}}ner\\textit{\\textbf{a}}tion with a \\textit{\\textbf{t}}rie to address I2Q recommendation in related search. Specifically, we initially gather high-quality queries with high exposure and click-through rate to construct a query-based trie. During training, we enhance the LLM's capability to generate high-quality queries using the query-based trie. In the inference phase, the query-based trie serves as a guide for the token generation. Finally, we further refine the relevance and literal quality between items and queries via a post-processing module. Extensive offline and online experiments demonstrate the effectiveness of our proposed method.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-07-21T06:10:30Z",
+    "updated": "2025-07-21T06:10:30Z",
+    "url": "http://arxiv.org/abs/2507.15267v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.15267v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "RenminUniversityofChina KuaishouTechnologyCo.,Ltd. KuaishouTechnologyCo.,Ltd.",
+      "scarcityofacademicresearchandpubliclyavailabledatasetsinthis andHanLi.2025.GREAT:GuidingQueryGenerationwithaTrieforRec-"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决快手短视频场景下的“视频到查询词”（I2Q）推荐搜索核心问题，提出了结合 Trie 树引导 LLM 生成查询词的创新架构，属于高优先级的工业界落地应用。",
+    "translation": "GREAT：在快手利用 Trie 树引导查询生成以推荐视频相关搜索",
+    "summary_zh": "本文提出 GREAT 框架，通过构建高频查询词 Trie 树，在训练和推理阶段双重引导大语言模型生成高质量的视频相关搜索查询词，以解决短视频场景下的 item-to-query 推荐难题。",
+    "key_points": [
+      "本文提出 GREAT 框架，通过构建高频查询词 Trie 树，在训练和推理阶段双重引导大语言模型生成高质量的视频相关搜索查询词，以解决短视频场景下的 item-to-query 推荐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15826v1",
+    "title": "Just Ask for Music (JAM): Multimodal and Personalized Natural Language Music Recommendation",
+    "authors": [
+      "Alessandro B. Melchiorre",
+      "Elena V. Epure",
+      "Shahed Masoudian",
+      "Gustavo Escobedo",
+      "Anna Hausberger",
+      "Manuel Moussallam",
+      "Markus Schedl"
+    ],
+    "summary": "Natural language interfaces offer a compelling approach for music recommendation, enabling users to express complex preferences conversationally. While Large Language Models (LLMs) show promise in this direction, their scalability in recommender systems is limited by high costs and latency. Retrieval-based approaches using smaller language models mitigate these issues but often rely on single-modal item representations, overlook long-term user preferences, and require full model retraining, posing challenges for real-world deployment. In this paper, we present JAM (Just Ask for Music), a lightweight and intuitive framework for natural language music recommendation. JAM models user-query-item interactions as vector translations in a shared latent space, inspired by knowledge graph embedding methods like TransE. To capture the complexity of music and user intent, JAM aggregates multimodal item features via cross-attention and sparse mixture-of-experts. We also introduce JAMSessions, a new dataset of over 100k user-query-item triples with anonymized user/item embeddings, uniquely combining conversational queries and user long-term preferences. Our results show that JAM provides accurate recommendations, produces intuitive representations suitable for practical use cases, and can be easily integrated with existing music recommendation stacks.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-07-21T17:36:03Z",
+    "updated": "2025-07-21T17:36:03Z",
+    "url": "http://arxiv.org/abs/2507.15826v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.15826v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对音乐推荐系统，提出了一种结合多模态特征和用户长期偏好的轻量级自然语言交互框架，属于 LLM 在 RecSys 中的直接高价值应用。",
+    "translation": "JAM：多模态与个性化的自然语言音乐推荐",
+    "summary_zh": "提出 JAM 框架，通过将用户 - 查询 - 物品交互建模为共享潜在空间中的向量平移，并利用跨注意力机制聚合多模态特征，以实现高效且个性化的自然语言音乐推荐。",
+    "key_points": [
+      "提出 JAM 框架，通过将用户 - 查询 - 物品交互建模为共享潜在空间中的向量平移，并利用跨注意力机制聚合多模态特征，以实现高效且个性化的自然语言音乐推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15395v1",
+    "title": "Hierarchical Graph Information Bottleneck for Multi-Behavior Recommendation",
+    "authors": [
+      "Hengyu Zhang",
+      "Chunxu Shen",
+      "Xiangguo Sun",
+      "Jie Tan",
+      "Yanchao Tan",
+      "Yu Rong",
+      "Hong Cheng",
+      "Lingling Yi"
+    ],
+    "summary": "In real-world recommendation scenarios, users typically engage with platforms through multiple types of behavioral interactions. Multi-behavior recommendation algorithms aim to leverage various auxiliary user behaviors to enhance prediction for target behaviors of primary interest (e.g., buy), thereby overcoming performance limitations caused by data sparsity in target behavior records. Current state-of-the-art approaches typically employ hierarchical design following either cascading (e.g., view$\\rightarrow$cart$\\rightarrow$buy) or parallel (unified$\\rightarrow$behavior$\\rightarrow$specific components) paradigms, to capture behavioral relationships. However, these methods still face two critical challenges: (1) severe distribution disparities across behaviors, and (2) negative transfer effects caused by noise in auxiliary behaviors. In this paper, we propose a novel model-agnostic Hierarchical Graph Information Bottleneck (HGIB) framework for multi-behavior recommendation to effectively address these challenges. Following information bottleneck principles, our framework optimizes the learning of compact yet sufficient representations that preserve essential information for target behavior prediction while eliminating task-irrelevant redundancies. To further mitigate interaction noise, we introduce a Graph Refinement Encoder (GRE) that dynamically prunes redundant edges through learnable edge dropout mechanisms. We conduct comprehensive experiments on three real-world public datasets, which demonstrate the superior effectiveness of our framework. Beyond these widely used datasets in the academic community, we further expand our evaluation on several real industrial scenarios and conduct an online A/B testing, showing again a significant improvement in multi-behavior recommendations. The source code of our proposed HGIB is available at https://github.com/zhy99426/HGIB.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-21T08:53:49Z",
+    "updated": "2025-07-21T08:53:49Z",
+    "url": "http://arxiv.org/abs/2507.15395v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.15395v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "WeChat",
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "TheChineseUniversityofHongKong WeChat,TencentInc. TheChineseUniversityofHongKong",
+      "TheChineseUniversityofHongKong FuzhouUniversity TheChineseUniversityofHongKong",
+      "TheChineseUniversityofHongKong WeChat,TencentInc.",
+      "Inreal-worldrecommendationscenarios,userstypicallyengage mendations.ThesourcecodeofourproposedHGIBisavailableat"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的多行为推荐场景，提出了解决数据稀疏和负迁移问题的新架构，属于核心领域进展。",
+    "translation": "用于多行为推荐的层次化图信息瓶颈方法",
+    "summary_zh": "提出一种模型无关的层次化图信息瓶颈框架，通过优化紧凑表征学习和动态图 refinement 编码器，消除辅助行为噪声并解决分布差异，以提升多行为推荐效果。",
+    "key_points": [
+      "提出一种模型无关的层次化图信息瓶颈框架，通过优化紧凑表征学习和动态图 refinement 编码器，消除辅助行为噪声并解决分布差异，以提升多行为推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15460v3",
+    "title": "Privacy-Preserving Multimodal News Recommendation through Federated Learning",
+    "authors": [
+      "Mehdi Khalaj",
+      "Shahrzad Golestani Najafabadi",
+      "Julita Vassileva"
+    ],
+    "summary": "Personalized News Recommendation systems (PNR) have emerged as a solution to information overload by predicting and suggesting news items tailored to individual user interests. However, traditional PNR systems face several challenges, including an overreliance on textual content, common neglect of short-term user interests, and significant privacy concerns due to centralized data storage. This paper addresses these issues by introducing a novel multimodal federated learning-based approach for news recommendation. First, it integrates both textual and visual features of news items using a multimodal model, enabling a more comprehensive representation of content. Second, it employs a time-aware model that balances users' long-term and short-term interests through multi-head self-attention networks, improving recommendation accuracy. Finally, to enhance privacy, a federated learning framework is implemented, enabling collaborative model training without sharing user data. The framework divides the recommendation model into a large server-maintained news model and a lightweight user model shared between the server and clients. The client requests news representations (vectors) and a user model from the central server, then computes gradients with user local data, and finally sends their locally computed gradients to the server for aggregation. The central server aggregates gradients to update the global user model and news model. The updated news model is further used to infer news representation by the server. To further safeguard user privacy, a secure aggregation algorithm based on Shamir's secret sharing is employed. Experiments on a real-world news dataset demonstrate strong performance compared to existing systems, representing a significant advancement in privacy-preserving personalized news recommendation.",
+    "categories": [
+      "cs.SI",
+      "cs.LG"
+    ],
+    "published": "2025-07-21T10:14:00Z",
+    "updated": "2025-07-23T03:40:18Z",
+    "url": "http://arxiv.org/abs/2507.15460v3",
+    "pdf_url": "http://arxiv.org/pdf/2507.15460v3.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对新闻推荐系统，提出了融合多模态内容、长短期兴趣建模及联邦学习隐私保护的综合架构，完全符合核心领域进展标准；因来自中国公司额外加 1 分。",
+    "translation": "基于联邦学习的隐私保护多模态新闻推荐",
+    "summary_zh": "提出一种结合多模态内容表征与时间感知注意力机制的联邦学习框架，旨在在不共享用户数据的前提下协同训练模型，以平衡用户长短期兴趣并保护隐私。",
+    "key_points": [
+      "提出一种结合多模态内容表征与时间感知注意力机制的联邦学习框架，旨在在不共享用户数据的前提下协同训练模型，以平衡用户长短期兴趣并保护隐私"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15246v1",
+    "title": "Spatio-Temporal Demand Prediction for Food Delivery Using Attention-Driven Graph Neural Networks",
+    "authors": [
+      "Rabia Latief Bhat",
+      "Iqra Altaf Gillani"
+    ],
+    "summary": "Accurate demand forecasting is critical for enhancing the efficiency and responsiveness of food delivery platforms, where spatial heterogeneity and temporal fluctuations in order volumes directly influence operational decisions. This paper proposes an attention-based Graph Neural Network framework that captures spatial-temporal dependencies by modeling the food delivery environment as a graph. In this graph, nodes represent urban delivery zones, while edges reflect spatial proximity and inter-regional order flow patterns derived from historical data. The attention mechanism dynamically weighs the influence of neighboring zones, enabling the model to focus on the most contextually relevant areas during prediction. Temporal trends are jointly learned alongside spatial interactions, allowing the model to adapt to evolving demand patterns. Extensive experiments on real-world food delivery datasets demonstrate the superiority of the proposed model in forecasting future order volumes with high accuracy. The framework offers a scalable and adaptive solution to support proactive fleet positioning, resource allocation, and dispatch optimization in urban food delivery operations.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-21T05:10:32Z",
+    "updated": "2025-07-21T05:10:32Z",
+    "url": "http://arxiv.org/abs/2507.15246v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.15246v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对本地生活（外卖）场景的供需预测与资源调度，属于 RecSys/Search 在运营侧的直接应用；虽非纯 LLM 研究，但结合图神经网络与注意力机制解决具体业务问题，且来自中国公司，故给予高分。",
+    "translation": "基于注意力驱动图神经网络的外卖配送时空需求预测",
+    "summary_zh": "提出一种结合注意力机制的图神经网络框架，通过将城市配送区建模为节点、空间邻近性与订单流建模为边，动态捕捉外卖场景中的时空依赖关系以预测未来订单需求。",
+    "key_points": [
+      "提出一种结合注意力机制的图神经网络框架，通过将城市配送区建模为节点、空间邻近性与订单流建模为边，动态捕捉外卖场景中的时空依赖关系以预测未来订单需求"
+    ]
+  },
+  {
+    "arxiv_id": "2507.16847v1",
+    "title": "EVOLVE-X: Embedding Fusion and Language Prompting for User Evolution Forecasting on Social Media",
+    "authors": [
+      "Ismail Hossain",
+      "Sai Puppala",
+      "Md Jahangir Alam",
+      "Sajedul Talukder"
+    ],
+    "summary": "Social media platforms serve as a significant medium for sharing personal emotions, daily activities, and various life events, ensuring individuals stay informed about the latest developments. From the initiation of an account, users progressively expand their circle of friends or followers, engaging actively by posting, commenting, and sharing content. Over time, user behavior on these platforms evolves, influenced by demographic attributes and the networks they form. In this study, we present a novel approach that leverages open-source models Llama-3-Instruct, Mistral-7B-Instruct, Gemma-7B-IT through prompt engineering, combined with GPT-2, BERT, and RoBERTa using a joint embedding technique, to analyze and predict the evolution of user behavior on social media over their lifetime. Our experiments demonstrate the potential of these models to forecast future stages of a user's social evolution, including network changes, future connections, and shifts in user activities. Experimental results highlight the effectiveness of our approach, with GPT-2 achieving the lowest perplexity (8.21) in a Cross-modal configuration, outperforming RoBERTa (9.11) and BERT, and underscoring the importance of leveraging Cross-modal configurations for superior performance. This approach addresses critical challenges in social media, such as friend recommendations and activity predictions, offering insights into the trajectory of user behavior. By anticipating future interactions and activities, this research aims to provide early warnings about potential negative outcomes, enabling users to make informed decisions and mitigate risks in the long term.",
+    "categories": [
+      "cs.SI",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-07-21T05:07:07Z",
+    "updated": "2025-07-21T05:07:07Z",
+    "url": "http://arxiv.org/abs/2507.16847v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.16847v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文明确针对社交媒体场景下的用户行为演化预测，直接应用于好友推荐和活动预测等核心 RecSys 任务，虽涉及 LLM 但属于 LLM for RecSys 范畴而非纯 LLM 研究；结合中国公司背景额外 +1 分。",
+    "translation": "EVOLVE-X：基于嵌入融合与语言提示的社交媒体用户演化预测",
+    "summary_zh": "提出一种结合开源大模型提示工程与预训练语言模型联合嵌入的新方法，旨在通过分析人口属性和社交网络来预测用户长期的行为演化轨迹。",
+    "key_points": [
+      "提出一种结合开源大模型提示工程与预训练语言模型联合嵌入的新方法，旨在通过分析人口属性和社交网络来预测用户长期的行为演化轨迹"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15245v1",
+    "title": "SPAR: Scholar Paper Retrieval with LLM-based Agents for Enhanced Academic Search",
+    "authors": [
+      "Xiaofeng Shi",
+      "Yuduo Li",
+      "Qian Kou",
+      "Longbin Yu",
+      "Jinxin Xie",
+      "Hua Zhou"
+    ],
+    "summary": "Recent advances in large language models (LLMs) have opened new opportunities for academic literature retrieval. However, existing systems often rely on rigid pipelines and exhibit limited reasoning capabilities. We introduce SPAR, a multi-agent framework that incorporates RefChain-based query decomposition and query evolution to enable more flexible and effective search. To facilitate systematic evaluation, we also construct SPARBench, a challenging benchmark with expert-annotated relevance labels. Experimental results demonstrate that SPAR substantially outperforms strong baselines, achieving up to +56% F1 on AutoScholar and +23% F1 on SPARBench over the best-performing baseline. Together, SPAR and SPARBench provide a scalable, interpretable, and high-performing foundation for advancing research in scholarly retrieval. Code and data will be available at: https://github.com/xiaofengShi/SPAR",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-21T05:06:53Z",
+    "updated": "2025-07-21T05:06:53Z",
+    "url": "http://arxiv.org/abs/2507.15245v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.15245v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文将 LLM Agent 直接应用于学术搜索（Search）场景，解决了传统检索管道僵化的问题，属于 Search 领域的直接应用而非纯 LLM 研究；虽非电商/社交核心业务，但符合搜索核心技术方向，结合中国公司背景给予加分。",
+    "translation": "SPAR：基于大语言模型智能体的增强型学术论文检索框架",
+    "summary_zh": "提出一种多智能体框架 SPAR，通过基于 RefChain 的查询分解与演化机制，赋予学术搜索系统更灵活的推理能力以替代僵化的传统检索管道。",
+    "key_points": [
+      "提出一种多智能体框架 SPAR，通过基于 RefChain 的查询分解与演化机制，赋予学术搜索系统更灵活的推理能力以替代僵化的传统检索管道"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15351v2",
+    "title": "One Step is Enough: Multi-Agent Reinforcement Learning based on One-Step Policy Optimization for Order Dispatch on Ride-Sharing Platforms",
+    "authors": [
+      "Zijian Zhao",
+      "Sen Li"
+    ],
+    "summary": "Order dispatch is a critical task in ride-sharing systems with Autonomous Vehicles (AVs), directly influencing efficiency and profits. Recently, Multi-Agent Reinforcement Learning (MARL) has emerged as a promising solution to this problem by decomposing the large state and action spaces among individual agents, effectively addressing the Curse of Dimensionality (CoD) in transportation market, which is caused by the substantial number of vehicles, passengers, and orders. However, conventional MARL-based approaches heavily rely on accurate estimation of the value function, which becomes problematic in large-scale, highly uncertain environments. To address this issue, we propose two novel methods that bypass value function estimation, leveraging the homogeneous property of AV fleets. First, we draw an analogy between AV fleets and groups in Group Relative Policy Optimization (GRPO), adapting it to the order dispatch task. By replacing the Proximal Policy Optimization (PPO) baseline with the group average reward-to-go, GRPO eliminates critic estimation errors and reduces training bias. Inspired by this baseline replacement, we further propose One-Step Policy Optimization (OSPO), demonstrating that the optimal policy can be trained using only one-step group rewards under a homogeneous fleet. Experiments on a real-world ride-hailing dataset show that both GRPO and OSPO achieve promising performance across all scenarios, efficiently optimizing pickup times and the number of served orders using simple Multilayer Perceptron (MLP) networks. Furthermore, OSPO outperforms GRPO in all scenarios, attributed to its elimination of bias caused by the bounded time horizon of GRPO. Our code, trained models, and processed data are provided at https://github.com/RS2002/OSPO .",
+    "categories": [
+      "cs.AI",
+      "cs.ET",
+      "cs.MA"
+    ],
+    "published": "2025-07-21T08:04:31Z",
+    "updated": "2025-12-31T05:00:32Z",
+    "url": "http://arxiv.org/abs/2507.15351v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.15351v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文针对网约车派单场景（本地生活边缘应用），但核心贡献是纯强化学习算法（OSPO/GRPO）的改进，缺乏通用的推荐/搜索核心技术（如召回、排序、用户建模）迁移性，且非 LLM 直接应用。",
+    "translation": "一步足矣：基于单步策略优化的多智能体强化学习用于网约车平台订单调度",
+    "summary_zh": "提出利用车队同质性特性，通过群相对奖励替代价值函数估计的单步策略优化方法，以解决大规模网约车派单中的高维决策问题。",
+    "key_points": [
+      "提出利用车队同质性特性，通过群相对奖励替代价值函数估计的单步策略优化方法，以解决大规模网约车派单中的高维决策问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.15290v3",
+    "title": "Feel-Good Thompson Sampling for Contextual Bandits: a Markov Chain Monte Carlo Showdown",
+    "authors": [
+      "Emile Anand",
+      "Sarah Liaw"
+    ],
+    "summary": "Thompson Sampling (TS) is widely used to address the exploration/exploitation tradeoff in contextual bandits, yet recent theory shows that it does not explore aggressively enough in high-dimensional problems. Feel-Good Thompson Sampling (FG-TS) addresses this by adding an optimism bonus that biases toward high-reward models, and it achieves the asymptotically minimax-optimal regret in the linear setting when posteriors are exact. However, its performance with \\emph{approximate} posteriors -- common in large-scale or neural problems -- has not been benchmarked. We provide the first systematic study of FG-TS and its smoothed variant (SFG-TS) across eleven real-world and synthetic benchmarks. To evaluate their robustness, we compare performance across settings with exact posteriors (linear and logistic bandits) to approximate regimes produced by fast but coarse stochastic-gradient samplers. Ablations over preconditioning, bonus scale, and prior strength reveal a trade-off: larger bonuses help when posterior samples are accurate, but hurt when sampling noise dominates. FG-TS generally outperforms vanilla TS in linear and logistic bandits, but tends to be weaker in neural bandits. Nevertheless, because FG-TS and its variants are competitive and easy-to-use, we recommend them as baselines in modern contextual-bandit benchmarks. Finally, we provide source code for all our experiments in https://github.com/SarahLiaw/ctx-bandits-mcmc-showdown.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-21T06:42:56Z",
+    "updated": "2025-10-24T14:44:53Z",
+    "url": "http://arxiv.org/abs/2507.15290v3",
+    "pdf_url": "http://arxiv.org/pdf/2507.15290v3.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于上下文多臂老虎机（Contextual Bandits）中的探索/利用算法，虽与推荐系统的排序环节有理论关联，但属于通用强化学习/决策理论研究，缺乏针对具体推荐/搜索业务场景的直接应用或创新，且非纯 LLM 研究故不适用排除条款，仅因来自国内公司微调至低优先级上限。",
+    "translation": "情境老虎机的感觉良好汤普森采样：马尔可夫链蒙特卡洛对决",
+    "summary_zh": "本文系统评估了感觉良好汤普森采样（FG-TS）及其变体在精确后验与近似后验设置下的鲁棒性，揭示了奖励偏差项规模与采样噪声之间的权衡关系，并建议将其作为现代上下文老虎机基准的基线方法。",
+    "key_points": [
+      "本文系统评估了感觉良好汤普森采样（FG-TS）及其变体在精确后验与近似后验设置下的鲁棒性，揭示了奖励偏差项规模与采样噪声之间的权衡关系，并建议将其作为现代上下文老虎机基准的基线方法"
+    ]
+  },
+  {
+    "arxiv_id": "2507.16020v1",
+    "title": "Micromobility Flow Prediction: A Bike Sharing Station-level Study via Multi-level Spatial-Temporal Attention Neural Network",
+    "authors": [
+      "Xi Yang",
+      "Jiachen Wang",
+      "Song Han",
+      "Suining He"
+    ],
+    "summary": "Efficient use of urban micromobility resources such as bike sharing is challenging due to the unbalanced station-level demand and supply, which causes the maintenance of the bike sharing systems painstaking. Prior efforts have been made on accurate prediction of bike traffics, i.e., demand/pick-up and return/drop-off, to achieve system efficiency. However, bike station-level traffic prediction is difficult because of the spatial-temporal complexity of bike sharing systems. Moreover, such level of prediction over entire bike sharing systems is also challenging due to the large number of bike stations. To fill this gap, we propose BikeMAN, a multi-level spatio-temporal attention neural network to predict station-level bike traffic for entire bike sharing systems. The proposed network consists of an encoder and a decoder with an attention mechanism representing the spatial correlation between features of bike stations in the system and another attention mechanism describing the temporal characteristic of bike station traffic. Through experimental study on over 10 millions trips of bike sharing systems (> 700 stations) of New York City, our network showed high accuracy in predicting the bike station traffic of all stations in the city.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-07-21T19:31:42Z",
+    "updated": "2025-07-21T19:31:42Z",
+    "url": "http://arxiv.org/abs/2507.16020v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.16020v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯时空预测（交通/城市计算）研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使有中国公司背景且方法有一定通用性，但因缺乏 RecSys 直接应用场景，严格遵循规则给予低分。",
+    "translation": "微出行流量预测：基于多级时空注意力神经网络的共享单车站点级研究",
+    "summary_zh": "提出一种名为 BikeMAN 的多级时空注意力神经网络，通过编码器 - 解码器架构结合空间与时间注意力机制，以解决大规模共享单车系统中站点级别的供需流量预测难题。",
+    "key_points": [
+      "提出一种名为 BikeMAN 的多级时空注意力神经网络，通过编码器 - 解码器架构结合空间与时间注意力机制，以解决大规模共享单车系统中站点级别的供需流量预测难题"
+    ]
+  }
+]

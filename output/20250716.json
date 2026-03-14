@@ -1,0 +1,334 @@
+[
+  {
+    "arxiv_id": "2507.11866v1",
+    "title": "Similarity-Guided Diffusion for Contrastive Sequential Recommendation",
+    "authors": [
+      "Jinkyeong Choi",
+      "Yejin Noh",
+      "Donghyeon Park"
+    ],
+    "summary": "In sequential recommendation systems, data augmentation and contrastive learning techniques have recently been introduced using diffusion models to achieve robust representation learning. However, most of the existing approaches use random augmentation, which risk damaging the contextual information of the original sequence. Accordingly, we propose a Similarity-Guided Diffusion for Contrastive Sequential Recommendation. Our method leverages the similarity between item embedding vectors to generate semantically consistent noise. Moreover, we utilize high confidence score in the denoising process to select our augmentation positions. This approach more effectively reflects contextual and structural information compared to augmentation at random positions. From a contrastive learning perspective, the proposed augmentation technique provides more discriminative positive and negative samples, simultaneously improving training efficiency and recommendation performance. Experimental results on five benchmark datasets show that SimDiffRec outperforms the existing baseline models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-16T03:26:24Z",
+    "updated": "2025-07-16T03:26:24Z",
+    "url": "http://arxiv.org/abs/2507.11866v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.11866v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统中的数据增强问题，提出基于相似度引导的扩散模型方法，属于核心推荐算法创新，且来自工业界（TAL），完全符合高优先级标准。",
+    "translation": "用于对比序列推荐的相似度引导扩散模型",
+    "summary_zh": "提出一种利用物品嵌入相似度生成语义一致噪声的扩散增强方法，通过高置信度去噪选择增强位置，以构建更具判别力的对比学习样本并保留序列上下文结构信息。",
+    "key_points": [
+      "提出一种利用物品嵌入相似度生成语义一致噪声的扩散增强方法，通过高置信度去噪选择增强位置，以构建更具判别力的对比学习样本并保留序列上下文结构信息"
+    ]
+  },
+  {
+    "arxiv_id": "2507.12202v2",
+    "title": "Sparse Autoencoders for Sequential Recommendation Models: Interpretation and Flexible Control",
+    "authors": [
+      "Anton Klenitskiy",
+      "Konstantin Polev",
+      "Daria Denisova",
+      "Alexey Vasilev",
+      "Dmitry Simakov",
+      "Gleb Gusev"
+    ],
+    "summary": "Many current state-of-the-art models for sequential recommendations are based on transformer architectures. Interpretation and explanation of such black box models is an important research question, as a better understanding of their internals can help understand, influence, and control their behavior, which is very important in a variety of real-world applications. Recently, sparse autoencoders (SAE) have been shown to be a promising unsupervised approach to extract interpretable features from neural networks.\n  In this work, we extend SAE to sequential recommender systems and propose a framework for interpreting and controlling model representations. We show that this approach can be successfully applied to the transformer trained on a sequential recommendation task: directions learned in such an unsupervised regime turn out to be more interpretable and monosemantic than the original hidden state dimensions. Further, we demonstrate a straightforward way to effectively and flexibly control the model's behavior, giving developers and users of recommendation systems the ability to adjust their recommendations to various custom scenarios and contexts.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-07-16T12:57:43Z",
+    "updated": "2026-02-17T15:09:18Z",
+    "url": "http://arxiv.org/abs/2507.12202v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.12202v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接将稀疏自编码器（SAE）应用于序列推荐模型，解决了黑盒模型的可解释性与行为控制问题，属于核心推荐技术进阶；虽涉及 LLM 常用技术，但场景严格限定于 RecSys，且来自中国公司，故给予高分。",
+    "translation": "稀疏自编码器用于序列推荐模型：可解释性与灵活控制",
+    "summary_zh": "提出将稀疏自编码器扩展至序列推荐系统，通过无监督学习提取比原始隐藏状态更具单语义性和可解释性的特征方向，从而实现对推荐模型行为的灵活干预与控制。",
+    "key_points": [
+      "提出将稀疏自编码器扩展至序列推荐系统，通过无监督学习提取比原始隐藏状态更具单语义性和可解释性的特征方向，从而实现对推荐模型行为的灵活干预与控制"
+    ]
+  },
+  {
+    "arxiv_id": "2507.11907v2",
+    "title": "SIEVE: Effective Filtered Vector Search with Collection of Indexes",
+    "authors": [
+      "Zhaoheng Li",
+      "Silu Huang",
+      "Wei Ding",
+      "Yongjoo Park",
+      "Jianjun Chen"
+    ],
+    "summary": "Many real-world tasks such as recommending videos with the kids tag can be reduced to finding most similar vectors associated with hard predicates. This task, filtered vector search, is challenging as prior state-of-the-art graph-based (unfiltered) similarity search techniques quickly degenerate when hard constraints are considered. That is, effective graph-based filtered similarity search relies on sufficient connectivity for reaching the most similar items within just a few hops. To consider predicates, recent works propose modifying graph traversal to visit only the items that may satisfy predicates. However, they fail to offer the just-a-few-hops property for a wide range of predicates: they must restrict predicates significantly or lose efficiency if only a small fraction of items satisfy predicates.\n  We propose an opposite approach: instead of constraining traversal, we build many indexes each serving different predicate forms. For effective construction, we devise a three-dimensional analytical model capturing relationships among index size, search time, and recall, with which we follow a workload-aware approach to pack as many useful indexes as possible into a collection. At query time, the analytical model is employed yet again to discern the one that offers the fastest search at a given recall. We show superior performance and support on datasets with varying selectivities and forms: our approach achieves up to 8.06x speedup while having as low as 1% build time versus other indexes, with less than 2.15x memory of a standard HNSW graph and modest knowledge of past workloads.",
+    "categories": [
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2025-07-16T04:46:28Z",
+    "updated": "2025-07-20T04:50:39Z",
+    "url": "http://arxiv.org/abs/2507.11907v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.11907v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中带硬约束（如标签过滤）的向量检索核心难题，提出了基于多索引集合的创新架构，属于高优先级的核心领域进展；且来自 OPPO，按规定额外 +1 分。",
+    "translation": "SIEVE：基于索引集合的高效过滤向量搜索",
+    "summary_zh": "针对带硬谓词约束的向量搜索难题，提出构建多个专用索引集合而非限制图遍历的新范式，利用三维分析模型根据负载自动选择最优索引以平衡召回率与搜索速度。",
+    "key_points": [
+      "针对带硬谓词约束的向量搜索难题，提出构建多个专用索引集合而非限制图遍历的新范式，利用三维分析模型根据负载自动选择最优索引以平衡召回率与搜索速度"
+    ]
+  },
+  {
+    "arxiv_id": "2507.11891v2",
+    "title": "Choosing the Better Bandit Algorithm under Data Sharing: When Do A/B Experiments Work?",
+    "authors": [
+      "Shuangning Li",
+      "Chonghuan Wang",
+      "Jingyan Wang"
+    ],
+    "summary": "We study A/B experiments that are designed to compare the performance of two recommendation algorithms. Prior work has observed that the stable unit treatment value assumption (SUTVA) often does not hold in large-scale recommendation systems, and hence the estimate for the global treatment effect (GTE) is biased. Specifically, units under the treatment and control algorithms contribute to a shared pool of data that subsequently train both algorithms, resulting in interference between the two groups. In this paper, we investigate when such interference may affect our decision making on which algorithm is better. We formalize this insight under a multi-armed bandit framework and theoretically characterize when the sign of the difference-in-means estimator of the GTE under data sharing aligns with or contradicts the sign of the true GTE. Our analysis identifies the level of exploration versus exploitation as a key determinant of how data sharing impacts decision making, and we propose a detection procedure based on ramp-up experiments to signal incorrect algorithm comparison in practice.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "math.ST"
+    ],
+    "published": "2025-07-16T04:14:52Z",
+    "updated": "2026-02-23T06:14:15Z",
+    "url": "http://arxiv.org/abs/2507.11891v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.11891v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的 A/B 实验偏差问题，特别是数据共享导致的干扰，提出了基于多臂老虎机框架的理论分析和检测方案，具有极高的工业界应用价值。",
+    "translation": "数据共享下选择更优的老虎机算法：A/B 实验何时有效？",
+    "summary_zh": "本文在多臂老虎机框架下形式化了推荐系统 A/B 实验中因数据共享导致的干扰问题，理论刻画了探索与利用程度如何决定全局处理效应估计的符号一致性，并提出了一种基于渐进实验的检测程序以识别错误的算法对比结论。",
+    "key_points": [
+      "本文在多臂老虎机框架下形式化了推荐系统 A/B 实验中因数据共享导致的干扰问题，理论刻画了探索与利用程度如何决定全局处理效应估计的符号一致性，并提出了一种基于渐进实验的检测程序以识别错误的算法对比结论"
+    ]
+  },
+  {
+    "arxiv_id": "2507.12098v1",
+    "title": "A Privacy-Preserving Framework for Advertising Personalization Incorporating Federated Learning and Differential Privacy",
+    "authors": [
+      "Xiang Li",
+      "Yifan Lin",
+      "Yuanzhe Zhang"
+    ],
+    "summary": "To mitigate privacy leakage and performance issues in personalized advertising, this paper proposes a framework that integrates federated learning and differential privacy. The system combines distributed feature extraction, dynamic privacy budget allocation, and robust model aggregation to balance model accuracy, communication overhead, and privacy protection. Multi-party secure computing and anomaly detection mechanisms further enhance system resilience against malicious attacks. Experimental results demonstrate that the framework achieves dual optimization of recommendation accuracy and system efficiency while ensuring privacy, providing both a practical solution and a theoretical foundation for applying privacy protection technologies in advertisement recommendation.",
+    "categories": [
+      "cs.CR",
+      "cs.LG"
+    ],
+    "published": "2025-07-16T10:07:19Z",
+    "updated": "2025-07-16T10:07:19Z",
+    "url": "http://arxiv.org/abs/2507.12098v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.12098v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 7,
+    "reasoning": "该论文直接针对广告推荐系统中的隐私保护问题，提出了联邦学习与差分隐私的结合框架，属于推荐/搜索核心场景的应用研究；虽非算法架构创新，但解决了实际业务痛点，且来自中国企业额外加 1 分。",
+    "translation": "一种结合联邦学习与差分隐私的广告个性化隐私保护框架",
+    "summary_zh": "提出一种集成联邦学习与差分隐私的广告推荐框架，通过分布式特征提取、动态隐私预算分配及鲁棒模型聚合机制，在保障用户隐私的同时平衡模型精度与系统效率。",
+    "key_points": [
+      "提出一种集成联邦学习与差分隐私的广告推荐框架，通过分布式特征提取、动态隐私预算分配及鲁棒模型聚合机制，在保障用户隐私的同时平衡模型精度与系统效率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.11865v2",
+    "title": "Optimizing Drivers' Discount Order Acceptance Strategies: A Policy-Improved Deep Deterministic Policy Gradient Framework",
+    "authors": [
+      "Hanwen Dai",
+      "Chang Gao",
+      "Fang He",
+      "Congyuan Ji",
+      "Yanni Yang"
+    ],
+    "summary": "The rapid expansion of platform integration has emerged as an effective solution to mitigate market fragmentation by consolidating multiple ride-hailing platforms into a single application. To address heterogeneous passenger preferences, third-party integrators provide Discount Express service delivered by express drivers at lower trip fares. For the individual platform, encouraging broader participation of drivers in Discount Express services has the potential to expand the accessible demand pool and improve matching efficiency, but often at the cost of reduced profit margins. This study aims to dynamically manage drivers' acceptance of Discount Express from the perspective of an individual platform. The lack of historical data under the new business model necessitates online learning. However, early-stage exploration through trial and error can be costly in practice, highlighting the need for reliable early-stage performance in real-world deployment. To address these challenges, this study formulates the decision regarding the proportion of drivers accepting discount orders as a continuous control task. In response to the high stochasticity and the opaque matching mechanisms employed by third-party integrator, we propose an innovative policy-improved deep deterministic policy gradient (pi-DDPG) framework. The proposed framework incorporates a refiner module to boost policy performance during the early training phase. A customized simulator based on a real-world dataset is developed to validate the effectiveness of the proposed pi-DDPG. Numerical experiments demonstrate that pi-DDPG achieves superior learning efficiency and significantly reduces early-stage training losses, enhancing its applicability to practical ride-hailing scenarios.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-16T03:24:54Z",
+    "updated": "2025-12-11T05:55:14Z",
+    "url": "http://arxiv.org/abs/2507.11865v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.11865v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦网约车场景下的司机接单策略优化（匹配效率），属于本地生活推荐/搜索的匹配环节，但核心是纯 RL 方法且未明确结合深度学习排序或 LLM 技术，故给中优先级分并加上中国公司加分。",
+    "translation": "优化司机折扣订单接受策略：一种策略改进的深度确定性策略梯度框架",
+    "summary_zh": "针对网约车平台整合场景，提出一种引入精炼模块的策略改进深度确定性策略梯度框架，以在数据稀缺和高随机性环境下动态优化司机对折扣订单的接受比例，从而平衡需求池扩展与利润损失。",
+    "key_points": [
+      "针对网约车平台整合场景，提出一种引入精炼模块的策略改进深度确定性策略梯度框架，以在数据稀缺和高随机性环境下动态优化司机对折扣订单的接受比例，从而平衡需求池扩展与利润损失"
+    ]
+  },
+  {
+    "arxiv_id": "2507.12416v1",
+    "title": "QuRe: Query-Relevant Retrieval through Hard Negative Sampling in Composed Image Retrieval",
+    "authors": [
+      "Jaehyun Kwak",
+      "Ramahdani Muhammad Izaaz Inhar",
+      "Se-Young Yun",
+      "Sung-Ju Lee"
+    ],
+    "summary": "Composed Image Retrieval (CIR) retrieves relevant images based on a reference image and accompanying text describing desired modifications. However, existing CIR methods only focus on retrieving the target image and disregard the relevance of other images. This limitation arises because most methods employing contrastive learning-which treats the target image as positive and all other images in the batch as negatives-can inadvertently include false negatives. This may result in retrieving irrelevant images, reducing user satisfaction even when the target image is retrieved. To address this issue, we propose Query-Relevant Retrieval through Hard Negative Sampling (QuRe), which optimizes a reward model objective to reduce false negatives. Additionally, we introduce a hard negative sampling strategy that selects images positioned between two steep drops in relevance scores following the target image, to effectively filter false negatives. In order to evaluate CIR models on their alignment with human satisfaction, we create Human-Preference FashionIQ (HP-FashionIQ), a new dataset that explicitly captures user preferences beyond target retrieval. Extensive experiments demonstrate that QuRe achieves state-of-the-art performance on FashionIQ and CIRR datasets while exhibiting the strongest alignment with human preferences on the HP-FashionIQ dataset. The source code is available at https://github.com/jackwaky/QuRe.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-07-16T17:06:33Z",
+    "updated": "2025-07-16T17:06:33Z",
+    "url": "http://arxiv.org/abs/2507.12416v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.12416v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于组合图像检索（CIR）中的假负例问题，属于多模态搜索的核心技术范畴，但主要贡献在于改进对比学习采样策略而非直接的推荐系统架构创新。",
+    "translation": "QuRe：通过硬负例采样实现组合图像检索中的查询相关检索",
+    "summary_zh": "提出 QuRe 方法，通过优化奖励模型目标和特定的硬负例采样策略，筛选并减少组合图像检索中的假负例，以提升检索结果与用户偏好的一致性。",
+    "key_points": [
+      "提出 QuRe 方法，通过优化奖励模型目标和特定的硬负例采样策略，筛选并减少组合图像检索中的假负例，以提升检索结果与用户偏好的一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.13392v1",
+    "title": "TopicImpact: Improving Customer Feedback Analysis with Opinion Units for Topic Modeling and Star-Rating Prediction",
+    "authors": [
+      "Emil Häglund",
+      "Johanna Björklund"
+    ],
+    "summary": "We improve the extraction of insights from customer reviews by restructuring the topic modelling pipeline to operate on opinion units - distinct statements that include relevant text excerpts and associated sentiment scores. Prior work has demonstrated that such units can be reliably extracted using large language models. The result is a heightened performance of the subsequent topic modeling, leading to coherent and interpretable topics while also capturing the sentiment associated with each topic. By correlating the topics and sentiments with business metrics, such as star ratings, we can gain insights on how specific customer concerns impact business outcomes. We present our system's implementation, use cases, and advantages over other topic modeling and classification solutions. We also evaluate its effectiveness in creating coherent topics and assess methods for integrating topic and sentiment modalities for accurate star-rating prediction.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-07-16T09:19:26Z",
+    "updated": "2025-07-16T09:19:26Z",
+    "url": "http://arxiv.org/abs/2507.13392v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.13392v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于利用 LLM 进行客户评论的情感分析和主题建模，属于通用 NLP 应用而非核心推荐/搜索算法（如召回、排序），虽对电商有间接参考价值但非直接相关。",
+    "translation": "TopicImpact：利用观点单元优化主题建模与星级预测的客户反馈分析",
+    "summary_zh": "提出一种基于大语言模型提取观点单元的重构主题建模范式，通过将细粒度情感评分与主题关联以预测星级并分析其对业务指标的影响。",
+    "key_points": [
+      "提出一种基于大语言模型提取观点单元的重构主题建模范式，通过将细粒度情感评分与主题关联以预测星级并分析其对业务指标的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2507.11901v1",
+    "title": "Imbalanced Regression Pipeline Recommendation",
+    "authors": [
+      "Juscimara G. Avelino",
+      "George D. C. Cavalcanti",
+      "Rafael M. O. Cruz"
+    ],
+    "summary": "Imbalanced problems are prevalent in various real-world scenarios and are extensively explored in classification tasks. However, they also present challenges for regression tasks due to the rarity of certain target values. A common alternative is to employ balancing algorithms in preprocessing to address dataset imbalance. However, due to the variety of resampling methods and learning models, determining the optimal solution requires testing many combinations. Furthermore, the learning model, dataset, and evaluation metric affect the best strategies. This work proposes the Meta-learning for Imbalanced Regression (Meta-IR) framework, which diverges from existing literature by training meta-classifiers to recommend the best pipeline composed of the resampling strategy and learning model per task in a zero-shot fashion. The meta-classifiers are trained using a set of meta-features to learn how to map the meta-features to the classes indicating the best pipeline. We propose two formulations: Independent and Chained. Independent trains the meta-classifiers to separately indicate the best learning algorithm and resampling strategy. Chained involves a sequential procedure where the output of one meta-classifier is used as input for another to model intrinsic relationship factors. The Chained scenario showed superior performance, suggesting a relationship between the learning algorithm and the resampling strategy per task. Compared with AutoML frameworks, Meta-IR obtained better results. Moreover, compared with baselines of six learning algorithms and six resampling algorithms plus no resampling, totaling 42 (6 X 7) configurations, Meta-IR outperformed all of them. The code, data, and further information of the experiments can be found on GitHub: https://github.com/JusciAvelino/Meta-IR.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-16T04:34:02Z",
+    "updated": "2025-07-16T04:34:02Z",
+    "url": "http://arxiv.org/abs/2507.11901v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.11901v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于通用机器学习中的不平衡回归与 AutoML 研究，未明确针对推荐或搜索场景，且非纯 LLM 研究但缺乏 RecSys 直接应用，故给低分（基础分 2+ 中国公司加分 1）。",
+    "translation": "不平衡回归流水线推荐",
+    "summary_zh": "提出一种基于元学习的框架，通过训练元分类器以零样本方式为特定任务自动推荐最佳的重采样策略与学习模型组合。",
+    "key_points": [
+      "提出一种基于元学习的框架，通过训练元分类器以零样本方式为特定任务自动推荐最佳的重采样策略与学习模型组合"
+    ]
+  },
+  {
+    "arxiv_id": "2507.12425v1",
+    "title": "Advancing Retrieval-Augmented Generation for Structured Enterprise and Internal Data",
+    "authors": [
+      "Chandana Cheerla"
+    ],
+    "summary": "Organizations increasingly rely on proprietary enterprise data, including HR records, structured reports, and tabular documents, for critical decision-making. While Large Language Models (LLMs) have strong generative capabilities, they are limited by static pretraining, short context windows, and challenges in processing heterogeneous data formats. Conventional Retrieval-Augmented Generation (RAG) frameworks address some of these gaps but often struggle with structured and semi-structured data.\n  This work proposes an advanced RAG framework that combines hybrid retrieval strategies using dense embeddings (all-mpnet-base-v2) and BM25, enhanced by metadata-aware filtering with SpaCy NER and cross-encoder reranking. The framework applies semantic chunking to maintain textual coherence and retains tabular data structures to preserve row-column integrity. Quantized indexing optimizes retrieval efficiency, while human-in-the-loop feedback and conversation memory improve adaptability.\n  Experiments on enterprise datasets show notable improvements: Precision@5 increased by 15 percent (90 versus 75), Recall@5 by 13 percent (87 versus 74), and Mean Reciprocal Rank by 16 percent (0.85 versus 0.69). Qualitative evaluations show higher scores in Faithfulness (4.6 versus 3.0), Completeness (4.2 versus 2.5), and Relevance (4.5 versus 3.2) on a 5-point Likert scale. These results demonstrate the framework's effectiveness in delivering accurate, comprehensive, and contextually relevant responses for enterprise tasks. Future work includes extending to multimodal data and integrating agent-based retrieval. The source code will be released at https://github.com/CheerlaChandana/Enterprise-Chatbot",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CE",
+      "cs.IR"
+    ],
+    "published": "2025-07-16T17:13:06Z",
+    "updated": "2025-07-16T17:13:06Z",
+    "url": "http://arxiv.org/abs/2507.12425v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.12425v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 应用研究，专注于企业内部通用数据问答，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模等）。",
+    "translation": "面向结构化企业及内部数据的检索增强生成进阶研究",
+    "summary_zh": "提出一种结合混合检索、元数据过滤及表格结构保留的改进型 RAG 框架，旨在解决大模型处理企业异构结构化数据时的局限性。",
+    "key_points": [
+      "提出一种结合混合检索、元数据过滤及表格结构保留的改进型 RAG 框架，旨在解决大模型处理企业异构结构化数据时的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.12108v3",
+    "title": "Multimodal Coordinated Online Behavior: Trade-offs and Strategies",
+    "authors": [
+      "Lorenzo Mannocci",
+      "Stefano Cresci",
+      "Matteo Magnani",
+      "Anna Monreale",
+      "Maurizio Tesconi"
+    ],
+    "summary": "Coordinated online behavior, which spans from beneficial collective actions to harmful manipulation such as disinformation campaigns, has become a key focus in digital ecosystem analysis. Traditional methods often rely on monomodal approaches, focusing on single types of interactions like co-retweets or co-hashtags, or consider multiple modalities independently of each other. However, these approaches may overlook the complex dynamics inherent in multimodal coordination. This study compares different ways of operationalizing multimodal coordinated behavior, examining the trade-off between weakly and strongly integrated models and their ability to capture broad versus tightly aligned coordination patterns. By contrasting monomodal, flattened, and multimodal methods, we evaluate the distinct contributions of each modality and the impact of different integration strategies. Our findings show that while not all modalities provide unique insights, multimodal analysis consistently offers a more informative representation of coordinated behavior, preserving structures that monomodal and flattened approaches often lose. This work enhances the ability to detect and analyze coordinated online behavior, offering new perspectives for safeguarding the integrity of digital platforms.",
+    "categories": [
+      "cs.SI",
+      "cs.AI",
+      "cs.CY",
+      "cs.HC",
+      "cs.LG"
+    ],
+    "published": "2025-07-16T10:25:45Z",
+    "updated": "2026-02-13T10:19:08Z",
+    "url": "http://arxiv.org/abs/2507.12108v3",
+    "pdf_url": "http://arxiv.org/pdf/2507.12108v3.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于检测社交媒体上的协同操纵行为（如虚假信息），属于内容安全与社会计算范畴，并非推荐系统或搜索引擎的核心技术（召回、排序、用户建模等），即使有 +1 分加分，仍属弱相关。",
+    "translation": "多模态协同在线行为：权衡与策略",
+    "summary_zh": "本文提出通过对比单模态、扁平化及多模态集成策略，分析不同模态在捕捉复杂协同在线行为中的贡献与权衡，以构建更完整的数字平台操纵行为检测框架。",
+    "key_points": [
+      "本文提出通过对比单模态、扁平化及多模态集成策略，分析不同模态在捕捉复杂协同在线行为中的贡献与权衡，以构建更完整的数字平台操纵行为检测框架"
+    ]
+  },
+  {
+    "arxiv_id": "2507.13396v1",
+    "title": "DyG-RAG: Dynamic Graph Retrieval-Augmented Generation with Event-Centric Reasoning",
+    "authors": [
+      "Qingyun Sun",
+      "Jiaqi Yuan",
+      "Shan He",
+      "Xiao Guan",
+      "Haonan Yuan",
+      "Xingcheng Fu",
+      "Jianxin Li",
+      "Philip S. Yu"
+    ],
+    "summary": "Graph Retrieval-Augmented Generation has emerged as a powerful paradigm for grounding large language models with external structured knowledge. However, existing Graph RAG methods struggle with temporal reasoning, due to their inability to model the evolving structure and order of real-world events. In this work, we introduce DyG-RAG, a novel event-centric dynamic graph retrieval-augmented generation framework designed to capture and reason over temporal knowledge embedded in unstructured text. To eliminate temporal ambiguity in traditional retrieval units, DyG-RAG proposes Dynamic Event Units (DEUs) that explicitly encode both semantic content and precise temporal anchors, enabling accurate and interpretable time-aware retrieval. To capture temporal and causal dependencies across events, DyG-RAG constructs an event graph by linking DEUs that share entities and occur close in time, supporting efficient and meaningful multi-hop reasoning. To ensure temporally consistent generation, DyG-RAG introduces an event timeline retrieval pipeline that retrieves event sequences via time-aware traversal, and proposes a Time Chain-of-Thought strategy for temporally grounded answer generation. This unified pipeline enables DyG-RAG to retrieve coherent, temporally ordered event sequences and to answer complex, time-sensitive queries that standard RAG systems cannot resolve. Extensive experiments on temporal QA benchmarks demonstrate that DyG-RAG significantly improves the accuracy and recall of three typical types of temporal reasoning questions, paving the way for more faithful and temporal-aware generation. DyG-RAG is available at https://github.com/RingBDStack/DyG-RAG.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-07-16T10:22:35Z",
+    "updated": "2025-07-16T10:22:35Z",
+    "url": "http://arxiv.org/abs/2507.13396v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.13396v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 研究，专注于通用时序问答推理，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类低优先级论文。",
+    "translation": "DyG-RAG：基于事件推理的动态图检索增强生成框架",
+    "summary_zh": "该论文提出一种以事件为中心的动态图 RAG 框架，通过构建包含时间锚点的动态事件单元和事件图，利用时间感知遍历和时间链式思维策略来解决复杂的时间敏感型问答推理问题。",
+    "key_points": [
+      "该论文提出一种以事件为中心的动态图 RAG 框架，通过构建包含时间锚点的动态事件单元和事件图，利用时间感知遍历和时间链式思维策略来解决复杂的时间敏感型问答推理问题"
+    ]
+  }
+]

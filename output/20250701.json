@@ -1,1 +1,444 @@
-[]
+[
+  {
+    "arxiv_id": "2507.00715v1",
+    "title": "EARN: Efficient Inference Acceleration for LLM-based Generative Recommendation by Register Tokens",
+    "authors": [
+      "Chaoqun Yang",
+      "Xinyu Lin",
+      "Wenjie Wang",
+      "Yongqi Li",
+      "Teng Sun",
+      "Xianjing Han",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Large Language Model-based generative recommendation (LLMRec) has achieved notable success, but it suffers from high inference latency due to massive computational overhead and memory pressure of KV Cache. Existing KV Cache reduction methods face critical limitations: cache compression offers marginal acceleration given recommendation tasks' short decoding steps, while prompt compression risks discarding vital interaction history. Through systematic analysis of attention patterns in LLMRec, we uncover two pivotal insights: 1) layer-wise attention sparsity inversion where early layers retain dense informative patterns while later layers exhibit high redundancy, and 2) dual attention sinks phenomenon where attention scores concentrate on both head and tail tokens of input sequences. Motivated by these insights, we propose EARN, an efficient inference framework that leverages the early layers to compress information into register tokens placed at the input sequence boundaries, then focuses solely on these tokens in the subsequent layers. Extensive experiments on three datasets, two LLMRec methods and two LLM architectures demonstrate EARN's superiority, achieving up to 3.79x speedup and 80.8% KV Cache reduction with better accuracy than the general finetuning approach. Our work bridges the efficiency-effectiveness gap in LLMRec, offering practical deployment advantages for industrial scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-01T12:42:06Z",
+    "updated": "2025-07-01T12:42:06Z",
+    "url": "http://arxiv.org/abs/2507.00715v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00715v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统（LLMRec）的推理延迟痛点，提出利用寄存器令牌压缩 KV Cache 的新架构，属于核心领域的高优先级创新；且来自中国公司，符合加分条件。",
+    "translation": "EARN：通过寄存器令牌加速基于 LLM 的生成式推荐的高效推理",
+    "summary_zh": "本文提出 EARN 框架，利用 LLM 早期层将信息压缩至输入序列边界的寄存器令牌中，使后续层仅关注这些令牌以大幅降低 KV Cache 显存占用并加速推理。",
+    "key_points": [
+      "本文提出 EARN 框架，利用 LLM 早期层将信息压缩至输入序列边界的寄存器令牌中，使后续层仅关注这些令牌以大幅降低 KV Cache 显存占用并加速推理"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00479v1",
+    "title": "On Mitigating Data Sparsity in Conversational Recommender Systems",
+    "authors": [
+      "Sixiao Zhang",
+      "Mingrui Liu",
+      "Cheng Long",
+      "Wei Yuan",
+      "Hongxu Chen",
+      "Xiangyu Zhao",
+      "Hongzhi Yin"
+    ],
+    "summary": "Conversational recommender systems (CRSs) capture user preference through textual information in dialogues. However, they suffer from data sparsity on two fronts: the dialogue space is vast and linguistically diverse, while the item space exhibits long-tail and sparse distributions. Existing methods struggle with (1) generalizing to varied dialogue expressions due to underutilization of rich textual cues, and (2) learning informative item representations under severe sparsity. To address these problems, we propose a CRS model named DACRS. It consists of three modules, namely Dialogue Augmentation, Knowledge-Guided Entity Modeling, and Dialogue-Entity Matching. In the Dialogue Augmentation module, we apply a two-stage augmentation pipeline to augment the dialogue context to enrich the data and improve generalizability. In the Knowledge-Guided Entity Modeling, we propose a knowledge graph (KG) based entity substitution and an entity similarity constraint to enhance the expressiveness of entity embeddings. In the Dialogue-Entity Matching module, we fuse the dialogue embedding with the mentioned entity embeddings through a dialogue-guided attention aggregation to acquire user embeddings that contain both the explicit and implicit user preferences. Extensive experiments on two public datasets demonstrate the state-of-the-art performance of DACRS.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-01T06:54:51Z",
+    "updated": "2025-07-01T06:54:51Z",
+    "url": "http://arxiv.org/abs/2507.00479v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00479v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话推荐系统（CRS）中的数据稀疏核心问题，提出了包含对话增强和知识图谱实体建模的专用架构，属于高优先级的推荐系统核心领域进展。",
+    "translation": "缓解对话推荐系统中的数据稀疏问题",
+    "summary_zh": "提出 DACRS 模型，通过两阶段对话增强流水线丰富上下文数据，并结合基于知识图谱的实体替换与相似度约束来增强实体表示，最后利用对话引导的注意力聚合机制融合对话与实体嵌入以捕捉用户显隐式偏好。",
+    "key_points": [
+      "提出 DACRS 模型，通过两阶段对话增强流水线丰富上下文数据，并结合基于知识图谱的实体替换与相似度约束来增强实体表示，最后利用对话引导的注意力聚合机制融合对话与实体嵌入以捕捉用户显隐式偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02000v1",
+    "title": "Why Multi-Interest Fairness Matters: Hypergraph Contrastive Multi-Interest Learning for Fair Conversational Recommender System",
+    "authors": [
+      "Yongsen Zheng",
+      "Zongxuan Xie",
+      "Guohua Wang",
+      "Ziyao Liu",
+      "Liang Lin",
+      "Kwok-Yan Lam"
+    ],
+    "summary": "Unfairness is a well-known challenge in Recommender Systems (RSs), often resulting in biased outcomes that disadvantage users or items based on attributes such as gender, race, age, or popularity. Although some approaches have started to improve fairness recommendation in offline or static contexts, the issue of unfairness often exacerbates over time, leading to significant problems like the Matthew effect, filter bubbles, and echo chambers. To address these challenges, we proposed a novel framework, Hypergraph Contrastive Multi-Interest Learning for Fair Conversational Recommender System (HyFairCRS), aiming to promote multi-interest diversity fairness in dynamic and interactive Conversational Recommender Systems (CRSs). HyFairCRS first captures a wide range of user interests by establishing diverse hypergraphs through contrastive learning. These interests are then utilized in conversations to generate informative responses and ensure fair item predictions within the dynamic user-system feedback loop. Experiments on two CRS-based datasets show that HyFairCRS achieves a new state-of-the-art performance while effectively alleviating unfairness. Our code is available at https://github.com/zysensmile/HyFairCRS.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.MM"
+    ],
+    "published": "2025-07-01T11:39:42Z",
+    "updated": "2025-07-01T11:39:42Z",
+    "url": "http://arxiv.org/abs/2507.02000v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02000v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对对话式推荐系统（CRS）中的公平性与多兴趣建模问题，提出了基于超图对比学习的具体架构，属于核心推荐技术范畴。",
+    "translation": "为何多兴趣公平性至关重要：面向公平对话推荐系统的超图对比多兴趣学习",
+    "summary_zh": "提出 HyFairCRS 框架，利用超图对比学习捕捉用户多样化兴趣，并在动态对话交互中实现公平的物品预测与响应生成。",
+    "key_points": [
+      "提出 HyFairCRS 框架，利用超图对比学习捕捉用户多样化兴趣，并在动态对话交互中实现公平的物品预测与响应生成"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00509v1",
+    "title": "TeamCMU at Touché: Adversarial Co-Evolution for Advertisement Integration and Detection in Conversational Search",
+    "authors": [
+      "To Eun Kim",
+      "João Coelho",
+      "Gbemileke Onilude",
+      "Jai Singh"
+    ],
+    "summary": "As conversational search engines increasingly adopt generation-based paradigms powered by Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), the integration of advertisements into generated responses presents both commercial opportunities and challenges for user experience. Unlike traditional search, where advertisements are clearly delineated, generative systems blur the boundary between informational content and promotional material, raising concerns around transparency and trust. In this work, we propose a modular pipeline for advertisement management in RAG-based conversational systems, consisting of an ad-rewriter for seamless ad integration and a robust ad-classifier for detection. We leverage synthetic data to train high-performing classifiers, which are then used to guide two complementary ad-integration strategies: supervised fine-tuning of the ad-rewriter and a best-of-N sampling approach that selects the least detectable ad-integrated response among multiple candidates. Our evaluation focuses on two core questions: the effectiveness of ad classifiers in detecting diverse ad integration strategies, and the training methods that best support coherent, minimally intrusive ad insertion. Experimental results show that our ad-classifier, trained on synthetic advertisement data inspired by marketing strategies and enhanced through curriculum learning, achieves robust detection performance. Additionally, we demonstrate that classifier-guided optimization, through both fine-tuning and best-of-N sampling, significantly improves ad stealth, enabling more seamless integration. These findings contribute an adversarial co-evolution framework for developing more sophisticated ad-aware generative search systems and robust ad classifiers.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-07-01T07:24:29Z",
+    "updated": "2025-07-01T07:24:29Z",
+    "url": "http://arxiv.org/abs/2507.00509v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00509v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话式搜索中的广告集成与检测问题，提出了基于对抗协同演化的具体架构，属于搜索/广告核心应用场景；虽涉及 LLM，但非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "Touché 团队：对话式搜索中广告集成与检测的对抗协同演化方法",
+    "summary_zh": "提出一种模块化管道，利用合成数据训练广告分类器，并通过监督微调和最佳 N 采样策略指导广告重写器，实现对话式搜索生成结果中广告的无缝集成与鲁棒检测。",
+    "key_points": [
+      "提出一种模块化管道，利用合成数据训练广告分类器，并通过监督微调和最佳 N 采样策略指导广告重写器，实现对话式搜索生成结果中广告的无缝集成与鲁棒检测"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00950v1",
+    "title": "MVP: Winning Solution to SMP Challenge 2025 Video Track",
+    "authors": [
+      "Liliang Ye",
+      "Yunyao Zhang",
+      "Yafeng Wu",
+      "Yi-Ping Phoebe Chen",
+      "Junqing Yu",
+      "Wei Yang",
+      "Zikai Song"
+    ],
+    "summary": "Social media platforms serve as central hubs for content dissemination, opinion expression, and public engagement across diverse modalities. Accurately predicting the popularity of social media videos enables valuable applications in content recommendation, trend detection, and audience engagement. In this paper, we present Multimodal Video Predictor (MVP), our winning solution to the Video Track of the SMP Challenge 2025. MVP constructs expressive post representations by integrating deep video features extracted from pretrained models with user metadata and contextual information. The framework applies systematic preprocessing techniques, including log-transformations and outlier removal, to improve model robustness. A gradient-boosted regression model is trained to capture complex patterns across modalities. Our approach ranked first in the official evaluation of the Video Track, demonstrating its effectiveness and reliability for multimodal video popularity prediction on social platforms. The source code is available at https://anonymous.4open.science/r/SMPDVideo.",
+    "categories": [
+      "cs.CV",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "published": "2025-07-01T16:52:20Z",
+    "updated": "2025-07-01T16:52:20Z",
+    "url": "http://arxiv.org/abs/2507.00950v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00950v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对社交媒体视频流行度预测，明确应用于内容推荐和趋势检测，属于多模态推荐系统核心场景。",
+    "translation": "MVP：SMP 挑战赛 2025 视频赛道夺冠方案",
+    "summary_zh": "提出多模态视频预测器（MVP），通过融合预训练模型提取的深度视频特征与用户元数据及上下文信息，构建表达力强的帖子表示以预测视频流行度。",
+    "key_points": [
+      "提出多模态视频预测器（MVP），通过融合预训练模型提取的深度视频特征与用户元数据及上下文信息，构建表达力强的帖子表示以预测视频流行度"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00543v1",
+    "title": "Reliable Annotations with Less Effort: Evaluating LLM-Human Collaboration in Search Clarifications",
+    "authors": [
+      "Leila Tavakoli",
+      "Hamed Zamani"
+    ],
+    "summary": "Despite growing interest in using large language models (LLMs) to automate annotation, their effectiveness in complex, nuanced, and multi-dimensional labelling tasks remains relatively underexplored. This study focuses on annotation for the search clarification task, leveraging a high-quality, multi-dimensional dataset that includes five distinct fine-grained annotation subtasks. Although LLMs have shown impressive capabilities in general settings, our study reveals that even state-of-the-art models struggle to replicate human-level performance in subjective or fine-grained evaluation tasks. Through a systematic assessment, we demonstrate that LLM predictions are often inconsistent, poorly calibrated, and highly sensitive to prompt variations. To address these limitations, we propose a simple yet effective human-in-the-loop (HITL) workflow that uses confidence thresholds and inter-model disagreement to selectively involve human review. Our findings show that this lightweight intervention significantly improves annotation reliability while reducing human effort by up to 45%, offering a relatively scalable and cost-effective yet accurate path forward for deploying LLMs in real-world evaluation settings.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2025-07-01T08:04:58Z",
+    "updated": "2025-07-01T08:04:58Z",
+    "url": "http://arxiv.org/abs/2507.00543v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00543v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦搜索澄清任务的数据标注流程优化，虽涉及搜索场景但核心贡献在于 LLM 与人工协作的标注方法论，而非搜索算法本身的创新；鉴于来自中国公司格力，按规定额外加 1 分。",
+    "translation": "以更少努力获得可靠标注：评估搜索澄清任务中的 LLM 与人机协作",
+    "summary_zh": "针对搜索澄清任务中 LLM 标注不一致的问题，提出一种基于置信度阈值和模型分歧的人机协同工作流，以在减少人工成本的同时提升标注可靠性。",
+    "key_points": [
+      "针对搜索澄清任务中 LLM 标注不一致的问题，提出一种基于置信度阈值和模型分歧的人机协同工作流，以在减少人工成本的同时提升标注可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00535v1",
+    "title": "Rethinking Group Recommender Systems in the Era of Generative AI: From One-Shot Recommendations to Agentic Group Decision Support",
+    "authors": [
+      "Dietmar Jannach",
+      "Amra Delić",
+      "Francesco Ricci",
+      "Markus Zanker"
+    ],
+    "summary": "More than twenty-five years ago, first ideas were developed on how to design a system that can provide recommendations to groups of users instead of individual users. Since then, a rich variety of algorithmic proposals were published, e.g., on how to acquire individual preferences, how to aggregate them, and how to generate recommendations for groups of users. However, despite the rich literature on the topic, barely any examples of real-world group recommender systems can be found. This lets us question common assumptions in academic research, in particular regarding communication processes in a group and how recommendation-supported decisions are made. In this essay, we argue that these common assumptions and corresponding system designs often may not match the needs or expectations of users. We thus call for a reorientation in this research area, leveraging the capabilities of modern Generative AI assistants like ChatGPT. Specifically, as one promising future direction, we envision group recommender systems to be systems where human group members interact in a chat and an AI-based group recommendation agent assists the decision-making process in an agentic way. Ultimately, this shall lead to a more natural group decision-making environment and finally to wider adoption of group recommendation systems in practice.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-01T07:56:37Z",
+    "updated": "2025-07-01T07:56:37Z",
+    "url": "http://arxiv.org/abs/2507.00535v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00535v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦群组推荐系统，属于 RecSys 核心领域，但主要是一篇呼吁利用生成式 AI 重构系统范式的观点文章（Essay），缺乏具体的算法创新或技术实现细节。",
+    "translation": "重思生成式 AI 时代的群组推荐系统：从一次性推荐到代理式群组决策支持",
+    "summary_zh": "文章主张利用生成式 AI 助手的能力，将群组推荐系统从传统的偏好聚合模式重构为基于聊天交互的代理式决策支持环境，以解决现有系统难以落地的问题。",
+    "key_points": [
+      "文章主张利用生成式 AI 助手的能力，将群组推荐系统从传统的偏好聚合模式重构为基于聊天交互的代理式决策支持环境，以解决现有系统难以落地的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.01168v1",
+    "title": "Towards a Signal Detection Based Measure for Assessing Information Quality of Explainable Recommender Systems",
+    "authors": [
+      "Yeonbin Son",
+      "Matthew L. Bolton"
+    ],
+    "summary": "There is growing interest in explainable recommender systems that provide recommendations along with explanations for the reasoning behind them. When evaluating recommender systems, most studies focus on overall recommendation performance. Only a few assess the quality of the explanations. Explanation quality is often evaluated through user studies that subjectively gather users' opinions on representative explanatory factors that shape end-users' perspective towards the results, not about the explanation contents itself. We aim to fill this gap by developing an objective metric to evaluate Veracity: the information quality of explanations. Specifically, we decompose Veracity into two dimensions: Fidelity and Attunement. Fidelity refers to whether the explanation includes accurate information about the recommended item. Attunement evaluates whether the explanation reflects the target user's preferences. By applying signal detection theory, we first determine decision outcomes for each dimension and then combine them to calculate a sensitivity, which serves as the final Veracity value. To assess the effectiveness of the proposed metric, we set up four cases with varying levels of information quality to validate whether our metric can accurately capture differences in quality. The results provided meaningful insights into the effectiveness of our proposed metric.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2025-07-01T20:11:17Z",
+    "updated": "2025-07-01T20:11:17Z",
+    "url": "http://arxiv.org/abs/2507.01168v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.01168v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于可解释推荐系统的评估指标构建，属于推荐系统核心领域的边缘方向（评估而非核心算法），虽非纯 LLM 研究但创新性相对有限。",
+    "translation": "基于信号检测理论的可解释推荐系统信息质量评估度量",
+    "summary_zh": "提出一种基于信号检测理论的客观指标，通过分解为保真度和协调性两个维度来量化评估可解释推荐系统中解释内容的信息质量。",
+    "key_points": [
+      "提出一种基于信号检测理论的客观指标，通过分解为保真度和协调性两个维度来量化评估可解释推荐系统中解释内容的信息质量"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00926v1",
+    "title": "HyperFusion: Hierarchical Multimodal Ensemble Learning for Social Media Popularity Prediction",
+    "authors": [
+      "Liliang Ye",
+      "Yunyao Zhang",
+      "Yafeng Wu",
+      "Yi-Ping Phoebe Chen",
+      "Junqing Yu",
+      "Wei Yang",
+      "Zikai Song"
+    ],
+    "summary": "Social media popularity prediction plays a crucial role in content optimization, marketing strategies, and user engagement enhancement across digital platforms. However, predicting post popularity remains challenging due to the complex interplay between visual, textual, temporal, and user behavioral factors. This paper presents HyperFusion, a hierarchical multimodal ensemble learning framework for social media popularity prediction. Our approach employs a three-tier fusion architecture that progressively integrates features across abstraction levels: visual representations from CLIP encoders, textual embeddings from transformer models, and temporal-spatial metadata with user characteristics. The framework implements a hierarchical ensemble strategy combining CatBoost, TabNet, and custom multi-layer perceptrons. To address limited labeled data, we propose a two-stage training methodology with pseudo-labeling and iterative refinement. We introduce novel cross-modal similarity measures and hierarchical clustering features that capture inter-modal dependencies. Experimental results demonstrate that HyperFusion achieves competitive performance on the SMP challenge dataset. Our team achieved third place in the SMP Challenge 2025 (Image Track). The source code is available at https://anonymous.4open.science/r/SMPDImage.",
+    "categories": [
+      "cs.MM",
+      "cs.LG"
+    ],
+    "published": "2025-07-01T16:31:50Z",
+    "updated": "2025-07-01T16:31:50Z",
+    "url": "http://arxiv.org/abs/2507.00926v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00926v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦社交媒体热度预测（内容优化/营销），属于推荐系统的上游应用而非核心召回排序架构，且主要使用通用多模态集成方法，非纯 LLM 研究但 RecSys 核心创新性一般；因来自中国公司额外 +1 分。",
+    "translation": "HyperFusion：用于社交媒体热度预测的分层多模态集成学习",
+    "summary_zh": "提出一种分层多模态集成框架，通过三级融合架构整合视觉、文本及时空用户特征，并利用两阶段训练与伪标签策略解决数据稀缺问题以预测内容热度。",
+    "key_points": [
+      "提出一种分层多模态集成框架，通过三级融合架构整合视觉、文本及时空用户特征，并利用两阶段训练与伪标签策略解决数据稀缺问题以预测内容热度"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00521v2",
+    "title": "WebANNS: Fast and Efficient Approximate Nearest Neighbor Search in Web Browsers",
+    "authors": [
+      "Mugeng Liu",
+      "Siqi Zhong",
+      "Qi Yang",
+      "Yudong Han",
+      "Xuanzhe Liu",
+      "Yun Ma"
+    ],
+    "summary": "Approximate nearest neighbor search (ANNS) has become vital to modern AI infrastructure, particularly in retrieval-augmented generation (RAG) applications. Numerous in-browser ANNS engines have emerged to seamlessly integrate with popular LLM-based web applications, while addressing privacy protection and challenges of heterogeneous device deployments. However, web browsers present unique challenges for ANNS, including computational limitations, external storage access issues, and memory utilization constraints, which state-of-the-art (SOTA) solutions fail to address comprehensively. We propose WebANNS, a novel ANNS engine specifically designed for web browsers. WebANNS leverages WebAssembly to overcome computational bottlenecks, designs a lazy loading strategy to optimize data retrieval from external storage, and applies a heuristic approach to reduce memory usage. Experiments show that WebANNS is fast and memory efficient, achieving up to $743.8\\times$ improvement in 99th percentile query latency over the SOTA engine, while reducing memory usage by up to 39\\%. Note that WebANNS decreases query time from 10 seconds to the 10-millisecond range in browsers, making in-browser ANNS practical with user-acceptable latency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-01T07:37:18Z",
+    "updated": "2025-07-02T02:20:54Z",
+    "url": "http://arxiv.org/abs/2507.00521v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.00521v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种专为浏览器环境优化的近似最近邻搜索（ANNS）引擎，虽主要服务于 RAG 应用而非直接针对推荐/搜索排序核心链路，但 ANNS 是召回阶段的关键技术，且明确解决了工程落地问题，故给予中等偏上评分并叠加中国公司加分。",
+    "translation": "WebANNS：浏览器中快速高效的近似最近邻搜索",
+    "summary_zh": "提出一种专为浏览器环境设计的 ANNS 引擎，利用 WebAssembly 突破计算瓶颈，并通过懒加载策略和启发式方法优化外部存储读取与内存占用。",
+    "key_points": [
+      "提出一种专为浏览器环境设计的 ANNS 引擎，利用 WebAssembly 突破计算瓶颈，并通过懒加载策略和启发式方法优化外部存储读取与内存占用"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00961v1",
+    "title": "Digital Collections Explorer: An Open-Source, Multimodal Viewer for Searching Digital Collections",
+    "authors": [
+      "Ying-Hsiang Huang",
+      "Benjamin Charles Germain Lee"
+    ],
+    "summary": "We present Digital Collections Explorer, a web-based, open-source exploratory search platform that leverages CLIP (Contrastive Language-Image Pre-training) for enhanced visual discovery of digital collections. Our Digital Collections Explorer can be installed locally and configured to run on a visual collection of interest on disk in just a few steps. Building upon recent advances in multimodal search techniques, our interface enables natural language queries and reverse image searches over digital collections with visual features. This paper describes the system's architecture, implementation, and application to various cultural heritage collections, demonstrating its potential for democratizing access to digital archives, especially those with impoverished metadata. We present case studies with maps, photographs, and PDFs extracted from web archives in order to demonstrate the flexibility of the Digital Collections Explorer, as well as its ease of use. We demonstrate that the Digital Collections Explorer scales to hundreds of thousands of images on a MacBook Pro with an M4 chip. Lastly, we host a public demo of Digital Collections Explorer.",
+    "categories": [
+      "cs.DL",
+      "cs.IR"
+    ],
+    "published": "2025-07-01T17:10:34Z",
+    "updated": "2025-07-01T17:10:34Z",
+    "url": "http://arxiv.org/abs/2507.00961v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00961v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 4,
+    "relevance_score": 5,
+    "reasoning": "该文主要介绍一个基于 CLIP 的开源数字藏品浏览系统，属于多模态搜索的工程应用而非核心推荐/搜索算法创新；虽非纯 LLM 研究且来自 TAL 公司（+1 分），但缺乏针对 RecSys 核心环节（如排序、用户建模）的方法论贡献。",
+    "translation": "数字藏品浏览器：用于搜索数字藏品的开源多模态查看器",
+    "summary_zh": "提出一种基于 CLIP 模型的开源 Web 平台架构，支持通过自然语言和反向图像对缺乏元数据的数字藏品进行多模态探索性搜索。",
+    "key_points": [
+      "提出一种基于 CLIP 模型的开源 Web 平台架构，支持通过自然语言和反向图像对缺乏元数据的数字藏品进行多模态探索性搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00487v2",
+    "title": "MassTool: A Multi-Task Search-Based Tool Retrieval Framework for Large Language Models",
+    "authors": [
+      "Jianghao Lin",
+      "Xinyuan Wang",
+      "Xinyi Dai",
+      "Menghui Zhu",
+      "Bo Chen",
+      "Ruiming Tang",
+      "Yong Yu",
+      "Weinan Zhang"
+    ],
+    "summary": "Tool retrieval is a critical component in enabling large language models (LLMs) to interact effectively with external tools. It aims to precisely filter the massive tools into a small set of candidates for the downstream tool-augmented LLMs. However, most existing approaches primarily focus on optimizing tool representations, often neglecting the importance of precise query comprehension. To address this gap, we introduce MassTool, a multi-task search-based framework designed to enhance both query representation and tool retrieval accuracy. MassTool employs a two-tower architecture: a tool usage detection tower that predicts the need for function calls, and a tool retrieval tower that leverages a query-centric graph convolution network (QC-GCN) for effective query-tool matching. It also incorporates search-based user intent modeling (SUIM) to handle diverse and out-of-distribution queries, alongside an adaptive knowledge transfer (AdaKT) module for efficient multi-task learning. By jointly optimizing tool usage detection loss, list-wise retrieval loss, and contrastive regularization loss, MassTool establishes a robust dual-step sequential decision-making pipeline for precise query understanding. Extensive experiments demonstrate its effectiveness in improving retrieval accuracy. Our code is available at https://github.com/wxydada/MassTool.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-07-01T07:02:26Z",
+    "updated": "2025-07-02T04:35:44Z",
+    "url": "http://arxiv.org/abs/2507.00487v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.00487v2.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1ShanghaiJiaoTongUniversity,2HuaweiNoah’sArkLab",
+      "Ourcodeisavailableathttps://github.com/wxydada/MassTool."
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM Agent 研究（工具检索），旨在增强 LLM 调用外部工具的能力，而非解决推荐系统或搜索引擎中的核心召回/排序问题，无直接 RecSys 应用场景。",
+    "translation": "MassTool：一种面向大语言模型的多任务搜索式工具检索框架",
+    "summary_zh": "提出一种双塔架构框架，通过查询中心图卷积网络和搜索式用户意图建模，联合优化工具使用检测与检索匹配，以解决大模型在海量工具中的精准查询理解与筛选问题。",
+    "key_points": [
+      "提出一种双塔架构框架，通过查询中心图卷积网络和搜索式用户意图建模，联合优化工具使用检测与检索匹配，以解决大模型在海量工具中的精准查询理解与筛选问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00355v1",
+    "title": "Question Decomposition for Retrieval-Augmented Generation",
+    "authors": [
+      "Paul J. L. Ammann",
+      "Jonas Golde",
+      "Alan Akbik"
+    ],
+    "summary": "Grounding large language models (LLMs) in verifiable external sources is a well-established strategy for generating reliable answers. Retrieval-augmented generation (RAG) is one such approach, particularly effective for tasks like question answering: it retrieves passages that are semantically related to the question and then conditions the model on this evidence. However, multi-hop questions, such as \"Which company among NVIDIA, Apple, and Google made the biggest profit in 2023?,\" challenge RAG because relevant facts are often distributed across multiple documents rather than co-occurring in one source, making it difficult for standard RAG to retrieve sufficient information. To address this, we propose a RAG pipeline that incorporates question decomposition: (i) an LLM decomposes the original query into sub-questions, (ii) passages are retrieved for each sub-question, and (iii) the merged candidate pool is reranked to improve the coverage and precision of the retrieved evidence. We show that question decomposition effectively assembles complementary documents, while reranking reduces noise and promotes the most relevant passages before answer generation. Although reranking itself is standard, we show that pairing an off-the-shelf cross-encoder reranker with LLM-driven question decomposition bridges the retrieval gap on multi-hop questions and provides a practical, drop-in enhancement, without any extra training or specialized indexing. We evaluate our approach on the MultiHop-RAG and HotpotQA, showing gains in retrieval (MRR@10: +36.7%) and answer accuracy (F1: +11.6%) over standard RAG baselines.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-07-01T01:01:54Z",
+    "updated": "2025-07-01T01:01:54Z",
+    "url": "http://arxiv.org/abs/2507.00355v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00355v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 NLP/LLM 研究（针对多跳问答的 RAG 优化），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等），根据规则应给低分；虽来自中国企业 IGG 加 1 分，但本质仍非 RecSys/Search 相关。",
+    "translation": "检索增强生成中的问题分解方法",
+    "summary_zh": "提出一种利用大语言模型将复杂多跳问题分解为子问题，并结合重排序机制以增强检索证据覆盖率和精度的 RAG 流程。",
+    "key_points": [
+      "提出一种利用大语言模型将复杂多跳问题分解为子问题，并结合重排序机制以增强检索证据覆盖率和精度的 RAG 流程"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00964v1",
+    "title": "Benchmarking the Discovery Engine",
+    "authors": [
+      "Jack Foxabbott",
+      "Arush Tagade",
+      "Andrew Cusick",
+      "Robbie McCorkell",
+      "Leo McKee-Reid",
+      "Jugal Patel",
+      "Jamie Rumbelow",
+      "Jessica Rumbelow",
+      "Zohreh Shams"
+    ],
+    "summary": "The Discovery Engine is a general purpose automated system for scientific discovery, which combines machine learning with state-of-the-art ML interpretability to enable rapid and robust scientific insight across diverse datasets. In this paper, we benchmark the Discovery Engine against five recent peer-reviewed scientific publications applying machine learning across medicine, materials science, social science, and environmental science. In each case, the Discovery Engine matches or exceeds prior predictive performance while also generating deeper, more actionable insights through rich interpretability artefacts. These results demonstrate its potential as a new standard for automated, interpretable scientific modelling that enables complex knowledge discovery from data.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-01T17:13:31Z",
+    "updated": "2025-07-01T17:13:31Z",
+    "url": "http://arxiv.org/abs/2507.00964v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.00964v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "该文专注于科学发现领域的自动化建模与可解释性，属于纯机器学习在科研中的应用，完全未涉及推荐系统或搜索引擎的核心环节；虽来自 TAL 公司，但因领域完全不相关且无 RecSys 应用场景，基础分极低，加分后仍为低分。",
+    "translation": "基准测试发现引擎",
+    "summary_zh": "提出一种结合机器学习与可解释性技术的通用自动化科学发现系统，旨在跨领域数据集中生成预测模型并提供可操作的科学洞察。",
+    "key_points": [
+      "提出一种结合机器学习与可解释性技术的通用自动化科学发现系统，旨在跨领域数据集中生成预测模型并提供可操作的科学洞察"
+    ]
+  },
+  {
+    "arxiv_id": "2507.01079v1",
+    "title": "MobileRAG: A Fast, Memory-Efficient, and Energy-Efficient Method for On-Device RAG",
+    "authors": [
+      "Taehwan Park",
+      "Geonho Lee",
+      "Min-Soo Kim"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has proven effective on server infrastructures, but its application on mobile devices is still underexplored due to limited memory and power resources. Existing vector search and RAG solutions largely assume abundant computation resources, making them impractical for on-device scenarios. In this paper, we propose MobileRAG, a fully on-device pipeline that overcomes these limitations by combining a mobile-friendly vector search algorithm, \\textit{EcoVector}, with a lightweight \\textit{Selective Content Reduction} (SCR) method. By partitioning and partially loading index data, EcoVector drastically reduces both memory footprint and CPU usage, while the SCR method filters out irrelevant text to diminish Language Model (LM) input size without degrading accuracy. Extensive experiments demonstrated that MobileRAG significantly outperforms conventional vector search and RAG methods in terms of latency, memory usage, and power consumption, while maintaining accuracy and enabling offline operation to safeguard privacy in resource-constrained environments.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-07-01T15:12:14Z",
+    "updated": "2025-07-01T15:12:14Z",
+    "url": "http://arxiv.org/abs/2507.01079v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.01079v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 系统优化研究，专注于移动端资源效率，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "MobileRAG：一种快速、内存高效且节能的端侧 RAG 方法",
+    "summary_zh": "提出一种完全端侧的 RAG 流水线，结合移动端友好的向量搜索算法 EcoVector 与选择性内容缩减方法，以在资源受限设备上实现低延迟、低功耗的离线检索增强生成。",
+    "key_points": [
+      "提出一种完全端侧的 RAG 流水线，结合移动端友好的向量搜索算法 EcoVector 与选择性内容缩减方法，以在资源受限设备上实现低延迟、低功耗的离线检索增强生成"
+    ]
+  }
+]

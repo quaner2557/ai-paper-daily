@@ -1,0 +1,318 @@
+[
+  {
+    "arxiv_id": "2507.09331v2",
+    "title": "Correcting the LogQ Correction: Revisiting Sampled Softmax for Large-Scale Retrieval",
+    "authors": [
+      "Kirill Khrylchenko",
+      "Vladimir Baikalov",
+      "Sergei Makeev",
+      "Artem Matveev",
+      "Sergei Liamaev"
+    ],
+    "summary": "Two-tower neural networks are a popular architecture for the retrieval stage in recommender systems. These models are typically trained with a softmax loss over the item catalog. However, in web-scale settings, the item catalog is often prohibitively large, making full softmax infeasible. A common solution is sampled softmax, which approximates the full softmax using a small number of sampled negatives.\n  One practical and widely adopted approach is to use in-batch negatives, where negatives are drawn from items in the current mini-batch. However, this introduces a bias: items that appear more frequently in the batch (i.e., popular items) are penalized more heavily.\n  To mitigate this issue, a popular industry technique known as logQ correction adjusts the logits during training by subtracting the log-probability of an item appearing in the batch. This correction is derived by analyzing the bias in the gradient and applying importance sampling, effectively twice, using the in-batch distribution as a proposal distribution. While this approach improves model quality, it does not fully eliminate the bias.\n  In this work, we revisit the derivation of logQ correction and show that it overlooks a subtle but important detail: the positive item in the denominator is not Monte Carlo-sampled - it is always present with probability 1. We propose a refined correction formula that accounts for this. Notably, our loss introduces an interpretable sample weight that reflects the model's uncertainty - the probability of misclassification under the current parameters. We evaluate our method on both public and proprietary datasets, demonstrating consistent improvements over the standard logQ correction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-12T16:16:11Z",
+    "updated": "2025-07-26T10:37:50Z",
+    "url": "http://arxiv.org/abs/2507.09331v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.09331v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统召回阶段的双塔模型训练痛点（大规模采样 Softmax 偏差）提出改进方法，属于核心领域 advances；且来自中国公司 TAL，依据规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "修正 LogQ 校正：重访大规模检索中的采样 Softmax",
+    "summary_zh": "该文指出工业界常用的 LogQ 校正在处理 In-batch 负采样时忽略了正样本未被采样的细节，提出了一种 refined 校正公式，通过引入反映模型不确定性的可解释样本权重来消除偏差。",
+    "key_points": [
+      "该文指出工业界常用的 LogQ 校正在处理 In-batch 负采样时忽略了正样本未被采样的细节，提出了一种 refined 校正公式，通过引入反映模型不确定性的可解释样本权重来消除偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09403v1",
+    "title": "Balancing Semantic Relevance and Engagement in Related Video Recommendations",
+    "authors": [
+      "Amit Jaspal",
+      "Feng Zhang",
+      "Wei Chang",
+      "Sumit Kumar",
+      "Yubo Wang",
+      "Roni Mittleman",
+      "Qifan Wang",
+      "Weize Mao"
+    ],
+    "summary": "Related video recommendations commonly use collaborative filtering (CF) driven by co-engagement signals, often resulting in recommendations lacking semantic coherence and exhibiting strong popularity bias. This paper introduces a novel multi-objective retrieval framework, enhancing standard two-tower models to explicitly balance semantic relevance and user engagement. Our approach uniquely combines: (a) multi-task learning (MTL) to jointly optimize co-engagement and semantic relevance, explicitly prioritizing topical coherence; (b) fusion of multimodal content features (textual and visual embeddings) for richer semantic understanding; and (c) off-policy correction (OPC) via inverse propensity weighting to effectively mitigate popularity bias. Evaluation on industrial-scale data and a two-week live A/B test reveals our framework's efficacy. We observed significant improvements in semantic relevance (from 51% to 63% topic match rate), a reduction in popular item distribution (-13.8% popular video recommendations), and a +0.04% improvement in our topline user engagement metric. Our method successfully achieves better semantic coherence, balanced engagement, and practical scalability for real-world deployment.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-07-12T21:04:25Z",
+    "updated": "2025-07-12T21:04:25Z",
+    "url": "http://arxiv.org/abs/2507.09403v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09403v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对视频推荐系统中的语义相关性与参与度平衡问题，提出了结合多任务学习、多模态特征及去偏策略的检索框架，属于核心推荐系统架构创新。",
+    "translation": "平衡相关视频推荐中的语义相关性与用户参与度",
+    "summary_zh": "提出一种多目标检索框架，通过多任务学习联合优化共现互动与语义相关性，融合多模态内容特征并引入离策校正以缓解流行度偏差，从而在保障用户参与度的同时提升推荐内容的语义连贯性。",
+    "key_points": [
+      "提出一种多目标检索框架，通过多任务学习联合优化共现互动与语义相关性，融合多模态内容特征并引入离策校正以缓解流行度偏差，从而在保障用户参与度的同时提升推荐内容的语义连贯性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09101v1",
+    "title": "S2SRec2: Set-to-Set Recommendation for Basket Completion with Recipe",
+    "authors": [
+      "Yanan Cao",
+      "Omid Memarrast",
+      "Shiqin Cai",
+      "Sinduja Subramaniam",
+      "Evren Korpeoglu",
+      "Kannan Achan"
+    ],
+    "summary": "In grocery e-commerce, customers often build ingredient baskets guided by dietary preferences but lack the expertise to create complete meals. Leveraging recipe knowledge to recommend complementary ingredients based on a partial basket is essential for improving the culinary experience. Traditional recipe completion methods typically predict a single missing ingredient using a leave-one-out strategy. However, they fall short in two key aspects: (i) they do not reflect real-world scenarios where multiple ingredients are often needed, and (ii) they overlook relationships among the missing ingredients themselves. To address these limitations, we reformulate basket completion as a set-to-set (S2S) recommendation problem, where an incomplete basket is input into a system that predicts a set of complementary ingredients. We introduce S2SRec2, a set-to-set ingredient recommendation framework based on a Set Transformer and trained in a multitask learning paradigm. S2SRec2 jointly learns to (i) retrieve missing ingredients from the representation of existing ones and (ii) assess basket completeness after prediction. These tasks are optimized together, enforcing accurate retrieval and coherent basket completion. Experiments on large-scale recipe datasets and qualitative analyses show that S2SRec2 significantly outperforms single-target baselines, offering a promising approach to enhance grocery shopping and inspire culinary creativity.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-12T01:09:30Z",
+    "updated": "2025-07-12T01:09:30Z",
+    "url": "http://arxiv.org/abs/2507.09101v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09101v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文针对电商场景下的购物篮补全问题，提出了基于 Set Transformer 的集合到集合推荐框架，属于核心推荐系统应用；虽无显式 LLM，但作为特定垂直领域（生鲜电商）的深度推荐创新，且来自中国公司，给予高分。",
+    "translation": "S2SRec2：基于食谱知识的集合到集合购物篮补全推荐",
+    "summary_zh": "本文提出一种基于 Set Transformer 的多任务学习框架，将购物篮补全重构为集合到集合的推荐问题，旨在根据用户已有食材和食谱知识，一次性预测并推荐一组互补食材以完成烹饪方案。",
+    "key_points": [
+      "本文提出一种基于 Set Transformer 的多任务学习框架，将购物篮补全重构为集合到集合的推荐问题，旨在根据用户已有食材和食谱知识，一次性预测并推荐一组互补食材以完成烹饪方案"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09423v1",
+    "title": "Item-centric Exploration for Cold Start Problem",
+    "authors": [
+      "Dong Wang",
+      "Junyi Jiao",
+      "Arnab Bhadury",
+      "Yaping Zhang",
+      "Mingyan Gao",
+      "Onkar Dalal"
+    ],
+    "summary": "Recommender systems face a critical challenge in the item cold-start problem, which limits content diversity and exacerbates popularity bias by struggling to recommend new items. While existing solutions often rely on auxiliary data, but this paper illuminates a distinct, yet equally pressing, issue stemming from the inherent user-centricity of many recommender systems. We argue that in environments with large and rapidly expanding item inventories, the traditional focus on finding the \"best item for a user\" can inadvertently obscure the ideal audience for nascent content. To counter this, we introduce the concept of item-centric recommendations, shifting the paradigm to identify the optimal users for new items. Our initial realization of this vision involves an item-centric control integrated into an exploration system. This control employs a Bayesian model with Beta distributions to assess candidate items based on a predicted balance between user satisfaction and the item's inherent quality. Empirical online evaluations reveal that this straightforward control markedly improves cold-start targeting efficacy, enhances user satisfaction with newly explored content, and significantly increases overall exploration efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-12T23:22:23Z",
+    "updated": "2025-07-12T23:22:23Z",
+    "url": "http://arxiv.org/abs/2507.09423v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09423v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的物品冷启动核心难题，提出了从“以用户为中心”转向“以物品为中心”的探索新范式，具有极高的业务应用价值。",
+    "translation": "面向冷启动问题的以物品为中心的探索方法",
+    "summary_zh": "本文提出一种以物品为中心的推荐新范式，通过贝叶斯模型平衡用户满意度与物品内在质量，旨在为新物品精准匹配最优受众而非仅为用户寻找最佳物品。",
+    "key_points": [
+      "本文提出一种以物品为中心的推荐新范式，通过贝叶斯模型平衡用户满意度与物品内在质量，旨在为新物品精准匹配最优受众而非仅为用户寻找最佳物品"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09188v1",
+    "title": "Retrieval-Augmented Recommendation Explanation Generation with Hierarchical Aggregation",
+    "authors": [
+      "Bangcheng Sun",
+      "Yazhe Chen",
+      "Jilin Yang",
+      "Xiaodong Li",
+      "Hui Li"
+    ],
+    "summary": "Explainable Recommender System (ExRec) provides transparency to the recommendation process, increasing users' trust and boosting the operation of online services. With the rise of large language models (LLMs), whose extensive world knowledge and nuanced language understanding enable the generation of human-like, contextually grounded explanations, LLM-powered ExRec has gained great momentum. However, existing LLM-based ExRec models suffer from profile deviation and high retrieval overhead, hindering their deployment. To address these issues, we propose Retrieval-Augmented Recommendation Explanation Generation with Hierarchical Aggregation (REXHA). Specifically, we design a hierarchical aggregation based profiling module that comprehensively considers user and item review information, hierarchically summarizing and constructing holistic profiles. Furthermore, we introduce an efficient retrieval module using two types of pseudo-document queries to retrieve relevant reviews to enhance the generation of recommendation explanations, effectively reducing retrieval latency and improving the recall of relevant reviews. Extensive experiments demonstrate that our method outperforms existing approaches by up to 12.6% w.r.t. the explanation quality while achieving high retrieval efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-12T08:15:05Z",
+    "updated": "2025-07-12T08:15:05Z",
+    "url": "http://arxiv.org/abs/2507.09188v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09188v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对可解释推荐系统（ExRec），利用 LLM 生成推荐理由并解决检索效率问题，属于 LLM 在推荐系统中的直接应用。",
+    "translation": "基于分层聚合的检索增强推荐解释生成",
+    "summary_zh": "提出一种结合分层用户/物品画像构建与双伪文档查询检索机制的方法，旨在优化大语言模型生成推荐解释时的上下文相关性与检索效率。",
+    "key_points": [
+      "提出一种结合分层用户/物品画像构建与双伪文档查询检索机制的方法，旨在优化大语言模型生成推荐解释时的上下文相关性与检索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.13374v1",
+    "title": "Smart Routing for Multimodal Video Retrieval: When to Search What",
+    "authors": [
+      "Kevin Dela Rosa"
+    ],
+    "summary": "We introduce ModaRoute, an LLM-based intelligent routing system that dynamically selects optimal modalities for multimodal video retrieval. While dense text captions can achieve 75.9% Recall@5, they require expensive offline processing and miss critical visual information present in 34% of clips with scene text not captured by ASR. By analyzing query intent and predicting information needs, ModaRoute reduces computational overhead by 41% while achieving 60.9% Recall@5. Our approach uses GPT-4.1 to route queries across ASR (speech), OCR (text), and visual indices, averaging 1.78 modalities per query versus exhaustive 3.0 modality search. Evaluation on 1.8M video clips demonstrates that intelligent routing provides a practical solution for scaling multimodal retrieval systems, reducing infrastructure costs while maintaining competitive effectiveness for real-world deployment.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-07-12T15:45:03Z",
+    "updated": "2025-07-12T15:45:03Z",
+    "url": "http://arxiv.org/abs/2507.13374v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.13374v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态视频检索（搜索核心环节）提出基于 LLM 的动态路由方法，解决了实际系统中的效率与效果平衡问题，属于 LLM 在搜索领域的直接应用。",
+    "translation": "多模态视频检索的智能路由：何时搜索何种内容",
+    "summary_zh": "提出一种基于大语言模型的智能路由系统，通过分析查询意图动态选择最优模态组合（ASR/OCR/视觉），以在降低计算开销的同时维持多模态视频检索的有效性。",
+    "key_points": [
+      "提出一种基于大语言模型的智能路由系统，通过分析查询意图动态选择最优模态组合（ASR/OCR/视觉），以在降低计算开销的同时维持多模态视频检索的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09137v1",
+    "title": "POIFormer: A Transformer-Based Framework for Accurate and Scalable Point-of-Interest Attribution",
+    "authors": [
+      "Nripsuta Ani Saxena",
+      "Shang-Ling Hsu",
+      "Mehul Shetty",
+      "Omar Alkhadra",
+      "Cyrus Shahabi",
+      "Abigail L. Horn"
+    ],
+    "summary": "Accurately attributing user visits to specific Points of Interest (POIs) is a foundational task for mobility analytics, personalized services, marketing and urban planning. However, POI attribution remains challenging due to GPS inaccuracies, typically ranging from 2 to 20 meters in real-world settings, and the high spatial density of POIs in urban environments, where multiple venues can coexist within a small radius (e.g., over 50 POIs within a 100-meter radius in dense city centers). Relying on proximity is therefore often insufficient for determining which POI was actually visited. We introduce \\textsf{POIFormer}, a novel Transformer-based framework for accurate and efficient POI attribution. Unlike prior approaches that rely on limited spatiotemporal, contextual, or behavioral features, \\textsf{POIFormer} jointly models a rich set of signals, including spatial proximity, visit timing and duration, contextual features from POI semantics, and behavioral features from user mobility and aggregated crowd behavior patterns--using the Transformer's self-attention mechanism to jointly model complex interactions across these dimensions. By leveraging the Transformer to model a user's past and future visits (with the current visit masked) and incorporating crowd-level behavioral patterns through pre-computed KDEs, \\textsf{POIFormer} enables accurate, efficient attribution in large, noisy mobility datasets. Its architecture supports generalization across diverse data sources and geographic contexts while avoiding reliance on hard-to-access or unavailable data layers, making it practical for real-world deployment. Extensive experiments on real-world mobility datasets demonstrate significant improvements over existing baselines, particularly in challenging real-world settings characterized by spatial noise and dense POI clustering.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-12T04:37:52Z",
+    "updated": "2025-07-12T04:37:52Z",
+    "url": "http://arxiv.org/abs/2507.09137v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09137v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文针对 POI 归因问题，属于位置服务推荐和个性化场景中的用户行为建模，但更偏向于数据清洗和基础任务而非核心推荐算法创新。",
+    "translation": "POIFormer：一种基于 Transformer 的精准可扩展兴趣点归因框架",
+    "summary_zh": "提出一种基于 Transformer 的框架，通过联合建模空间邻近性、时空上下文及群体行为模式，利用自注意力机制解决 GPS 噪声下的兴趣点精准归因问题。",
+    "key_points": [
+      "提出一种基于 Transformer 的框架，通过联合建模空间邻近性、时空上下文及群体行为模式，利用自注意力机制解决 GPS 噪声下的兴趣点精准归因问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.10594v2",
+    "title": "Extension OL-MDISF: Online Learning from Mix-Typed, Drifted, and Incomplete Streaming Features",
+    "authors": [
+      "Shengda Zhuo",
+      "Di Wu",
+      "Yi He",
+      "Shuqiang Huang",
+      "Xindong Wu"
+    ],
+    "summary": "Online learning, where feature spaces can change over time, offers a flexible learning paradigm that has attracted considerable attention. However, it still faces three significant challenges. First, the heterogeneity of real-world data streams with mixed feature types presents challenges for traditional parametric modeling. Second, data stream distributions can shift over time, causing an abrupt and substantial decline in model performance. Additionally, the time and cost constraints make it infeasible to label every data instance in a supervised setting. To overcome these challenges, we propose a new algorithm Online Learning from Mix-typed, Drifted, and Incomplete Streaming Features (OL-MDISF), which aims to relax restrictions on both feature types, data distribution, and supervision information. Our approach involves utilizing copula models to create a comprehensive latent space, employing an adaptive sliding window for detecting drift points to ensure model stability, and establishing label proximity information based on geometric structural relationships. To demonstrate the model's efficiency and effectiveness, we provide theoretical analysis and comprehensive experimental results.\n  This extension serves as a standalone technical reference to the original OL-MDISF method. It provides (i) a contextual analysis of OL-MDISF within the broader landscape of online learning, covering recent advances in mixed-type feature modeling, concept drift adaptation, and weak supervision, and (ii) a comprehensive set of experiments across 14 real-world datasets under two types of drift scenarios. These include full CER trends, ablation studies, sensitivity analyses, and temporal ensemble dynamics. We hope this document can serve as a reproducible benchmark and technical resource for researchers working on nonstationary, heterogeneous, and weakly supervised data streams.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-12T02:44:25Z",
+    "updated": "2025-07-16T01:23:49Z",
+    "url": "http://arxiv.org/abs/2507.10594v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.10594v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文提出了一种处理混合类型、分布漂移和标签缺失的通用在线学习算法，虽可应用于推荐系统的数据流场景，但属于通用机器学习方法而非针对 RecSys/Search 的核心创新，且未明确提及推荐或搜索应用。",
+    "translation": "扩展 OL-MDISF：面向混合类型、漂移及不完整流特征的在线学习",
+    "summary_zh": "提出一种利用 Copula 模型构建潜在空间、结合自适应滑动窗口检测漂移并基于几何结构推断标签信息的在线学习算法，以解决数据流中特征异构、分布漂移及监督信息缺失的问题。",
+    "key_points": [
+      "提出一种利用 Copula 模型构建潜在空间、结合自适应滑动窗口检测漂移并基于几何结构推断标签信息的在线学习算法，以解决数据流中特征异构、分布漂移及监督信息缺失的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09083v1",
+    "title": "Learning from Synthetic Labs: Language Models as Auction Participants",
+    "authors": [
+      "Anand Shah",
+      "Kehang Zhu",
+      "Yanchen Jiang",
+      "Jeffrey G. Wang",
+      "Arif K. Dayi",
+      "John J. Horton",
+      "David C. Parkes"
+    ],
+    "summary": "This paper investigates the behavior of simulated AI agents (large language models, or LLMs) in auctions, introducing a novel synthetic data-generating process to help facilitate the study and design of auctions. We find that LLMs -- when endowed with chain of thought reasoning capacity -- agree with the experimental literature in auctions across a variety of classic auction formats. In particular, we find that LLM bidders produce results consistent with risk-averse human bidders; that they perform closer to theoretical predictions in obviously strategy-proof auctions; and, that they succumb to the winner's curse in common value settings. On prompting, we find that LLMs are not very sensitive to naive changes in prompts (e.g., language, currency) but can improve dramatically towards theoretical predictions with the right mental model (i.e., the language of Nash deviations). We run 1,000$+$ auctions for less than $\\$$400 with GPT-4 models (three orders of magnitude cheaper than modern auction experiments) and develop a framework flexible enough to run auction experiments with any LLM model and a wide range of auction design specifications, facilitating further experimental study by decreasing costs and serving as a proof-of-concept for the use of LLM proxies.",
+    "categories": [
+      "cs.GT",
+      "cs.AI"
+    ],
+    "published": "2025-07-12T00:00:30Z",
+    "updated": "2025-07-12T00:00:30Z",
+    "url": "http://arxiv.org/abs/2507.09083v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09083v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 在经济学拍卖模拟中的应用研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），虽经中国公司加分但仍属弱相关。",
+    "translation": "从合成实验室学习：将语言模型作为拍卖参与者",
+    "summary_zh": "提出利用具备思维链能力的大语言模型模拟拍卖参与者，以低成本生成合成数据来验证拍卖理论并辅助机制设计。",
+    "key_points": [
+      "提出利用具备思维链能力的大语言模型模拟拍卖参与者，以低成本生成合成数据来验证拍卖理论并辅助机制设计"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09389v1",
+    "title": "Knowledge Conceptualization Impacts RAG Efficacy",
+    "authors": [
+      "Chris Davis Jaldi",
+      "Anmol Saini",
+      "Elham Ghiasi",
+      "O. Divine Eziolise",
+      "Cogan Shimizu"
+    ],
+    "summary": "Explainability and interpretability are cornerstones of frontier and next-generation artificial intelligence (AI) systems. This is especially true in recent systems, such as large language models (LLMs), and more broadly, generative AI. On the other hand, adaptability to new domains, contexts, or scenarios is also an important aspect for a successful system. As such, we are particularly interested in how we can merge these two efforts, that is, investigating the design of transferable and interpretable neurosymbolic AI systems. Specifically, we focus on a class of systems referred to as ''Agentic Retrieval-Augmented Generation'' systems, which actively select, interpret, and query knowledge sources in response to natural language prompts. In this paper, we systematically evaluate how different conceptualizations and representations of knowledge, particularly the structure and complexity, impact an AI agent (in this case, an LLM) in effectively querying a triplestore. We report our results, which show that there are impacts from both approaches, and we discuss their impact and implications.",
+    "categories": [
+      "cs.AI",
+      "cs.CY",
+      "cs.IR"
+    ],
+    "published": "2025-07-12T20:10:26Z",
+    "updated": "2025-07-12T20:10:26Z",
+    "url": "http://arxiv.org/abs/2507.09389v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09389v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 与神经符号 AI 的基础研究，聚焦于通用 RAG 系统的知识表示，未涉及推荐系统或搜索引擎的具体应用场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属弱相关。",
+    "translation": "知识概念化对检索增强生成（RAG）效能的影响",
+    "summary_zh": "本文研究了不同知识结构和复杂度的概念化表示如何影响智能体在检索增强生成系统中查询知识库的有效性。",
+    "key_points": [
+      "本文研究了不同知识结构和复杂度的概念化表示如何影响智能体在检索增强生成系统中查询知识库的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09138v1",
+    "title": "HedraRAG: Coordinating LLM Generation and Database Retrieval in Heterogeneous RAG Serving",
+    "authors": [
+      "Zhengding Hu",
+      "Vibha Murthy",
+      "Zaifeng Pan",
+      "Wanlu Li",
+      "Xiaoyi Fang",
+      "Yufei Ding",
+      "Yuke Wang"
+    ],
+    "summary": "This paper addresses emerging system-level challenges in heterogeneous retrieval-augmented generation (RAG) serving, where complex multi-stage workflows and diverse request patterns complicate efficient execution. We present HedraRAG, a runtime system built on a graph-based abstraction that exposes optimization opportunities across stage-level parallelism, intra-request similarity, and inter-request skewness. These opportunities are realized through dynamic graph transformations, such as node splitting, reordering, edge addition, and dependency rewiring, applied to wavefronts of subgraphs spanning concurrent requests. The resulting execution plans are mapped onto hybrid CPU-GPU pipelines to improve resource utilization and reduce latency. Evaluations across a wide range of RAG workflows demonstrate speedups exceeding 1.5x and reaching up to 5x over existing frameworks, showcasing the effectiveness of coordinated generation and retrieval in serving environments.",
+    "categories": [
+      "cs.DB",
+      "cs.LG"
+    ],
+    "published": "2025-07-12T04:42:43Z",
+    "updated": "2025-07-12T04:42:43Z",
+    "url": "http://arxiv.org/abs/2507.09138v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.09138v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯系统优化研究，专注于通用 RAG 服务的执行效率，未涉及推荐或搜索的核心算法（如召回、排序、用户建模），且非直接针对 RecSys 场景。",
+    "translation": "HedraRAG：在异构 RAG 服务中协调大模型生成与数据库检索",
+    "summary_zh": "提出一种基于图抽象的运行时系统，通过动态图变换和混合 CPU-GPU 流水线优化异构 RAG 工作流的并行执行与资源利用率。",
+    "key_points": [
+      "提出一种基于图抽象的运行时系统，通过动态图变换和混合 CPU-GPU 流水线优化异构 RAG 工作流的并行执行与资源利用率"
+    ]
+  }
+]

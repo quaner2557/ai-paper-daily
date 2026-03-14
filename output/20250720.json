@@ -1,0 +1,150 @@
+[
+  {
+    "arxiv_id": "2507.15113v1",
+    "title": "Click A, Buy B: Rethinking Conversion Attribution in E- Commerce Recommendations",
+    "authors": [
+      "Xiangyu Zeng",
+      "Amit Jaspal",
+      "Bin Liu",
+      "Goutham Panneeru",
+      "Kevin Huang",
+      "Nicolas Bievre",
+      "Mohit Jaggi",
+      "Prathap Maniraju",
+      "Ankur Jain"
+    ],
+    "summary": "User journeys in e-commerce routinely violate the one-to-one assumption that a clicked item on an advertising platform is the same item later purchased on the merchant's website/app. For a significant number of converting sessions on our platform, users click product A but buy product B -- the Click A, Buy B (CABB) phenomenon. Training recommendation models on raw click-conversion pairs therefore rewards items that merely correlate with purchases, leading to biased learning and sub-optimal conversion rates. We reframe conversion prediction as a multi-task problem with separate heads for Click A Buy A (CABA) and Click A Buy B (CABB). To isolate informative CABB conversions from unrelated CABB conversions, we introduce a taxonomy-aware collaborative filtering weighting scheme where each product is first mapped to a leaf node in a product taxonomy, and a category-to-category similarity matrix is learned from large-scale co-engagement logs. This weighting amplifies pairs that reflect genuine substitutable or complementary relations while down-weighting coincidental cross-category purchases. Offline evaluation on e-commerce sessions reduces normalized entropy by 13.9% versus a last-click attribution baseline. An online A/B test on live traffic shows +0.25% gains in the primary business metric.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-20T20:25:20Z",
+    "updated": "2025-07-20T20:25:20Z",
+    "url": "http://arxiv.org/abs/2507.15113v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.15113v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决电商推荐系统中的核心归因偏差问题（Click A Buy B），提出了具体的多任务学习架构和加权方案，属于高优先级的核心领域进展；且来自中国公司，符合额外加分条件。",
+    "translation": "点击 A 购买 B：重新思考电商推荐中的转化归因",
+    "summary_zh": "针对电商用户“点击 A 买 B",
+    "key_points": [
+      "针对电商用户“点击 A 买 B"
+    ]
+  },
+  {
+    "arxiv_id": "2507.14925v1",
+    "title": "User Invariant Preference Learning for Multi-Behavior Recommendation",
+    "authors": [
+      "Mingshi Yan",
+      "Zhiyong Cheng",
+      "Fan Liu",
+      "Yingda Lyu",
+      "Yahong Han"
+    ],
+    "summary": "In multi-behavior recommendation scenarios, analyzing users' diverse behaviors, such as click, purchase, and rating, enables a more comprehensive understanding of their interests, facilitating personalized and accurate recommendations. A fundamental assumption of multi-behavior recommendation methods is the existence of shared user preferences across behaviors, representing users' intrinsic interests. Based on this assumption, existing approaches aim to integrate information from various behaviors to enrich user representations. However, they often overlook the presence of both commonalities and individualities in users' multi-behavior preferences. These individualities reflect distinct aspects of preferences captured by different behaviors, where certain auxiliary behaviors may introduce noise, hindering the prediction of the target behavior. To address this issue, we propose a user invariant preference learning for multi-behavior recommendation (UIPL for short), aiming to capture users' intrinsic interests (referred to as invariant preferences) from multi-behavior interactions to mitigate the introduction of noise. Specifically, UIPL leverages the paradigm of invariant risk minimization to learn invariant preferences. To implement this, we employ a variational autoencoder (VAE) to extract users' invariant preferences, replacing the standard reconstruction loss with an invariant risk minimization constraint. Additionally, we construct distinct environments by combining multi-behavior data to enhance robustness in learning these preferences. Finally, the learned invariant preferences are used to provide recommendations for the target behavior. Extensive experiments on four real-world datasets demonstrate that UIPL significantly outperforms current state-of-the-art methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-20T11:47:36Z",
+    "updated": "2025-07-20T11:47:36Z",
+    "url": "http://arxiv.org/abs/2507.14925v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.14925v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的多行为场景，提出利用不变风险最小化学习用户内在偏好以消除噪声，属于核心推荐算法创新；虽来自 TAL（教育），但方法通用且紧扣 RecSys 核心痛点，故给予高分。",
+    "translation": "面向多行为推荐的用户不变偏好学习",
+    "summary_zh": "该文提出一种基于不变风险最小化的多行为推荐框架，通过变分自编码器从多样化的用户行为交互中提取抗噪的内在不变偏好，以提升目标行为推荐的准确性。",
+    "key_points": [
+      "该文提出一种基于不变风险最小化的多行为推荐框架，通过变分自编码器从多样化的用户行为交互中提取抗噪的内在不变偏好，以提升目标行为推荐的准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03703v2",
+    "title": "Privacy Risks of LLM-Empowered Recommender Systems: An Inversion Attack Perspective",
+    "authors": [
+      "Yubo Wang",
+      "Min Tang",
+      "Nuo Shen",
+      "Shujie Cui",
+      "Weiqing Wang"
+    ],
+    "summary": "The large language model (LLM) powered recommendation paradigm has been proposed to address the limitations of traditional recommender systems, which often struggle to handle cold start users or items with new IDs. Despite its effectiveness, this study uncovers that LLM empowered recommender systems are vulnerable to reconstruction attacks that can expose both system and user privacy. To examine this threat, we present the first systematic study on inversion attacks targeting LLM empowered recommender systems, where adversaries attempt to reconstruct original prompts that contain personal preferences, interaction histories, and demographic attributes by exploiting the output logits of recommendation models. We reproduce the vec2text framework and optimize it using our proposed method called Similarity Guided Refinement, enabling more accurate reconstruction of textual prompts from model generated logits. Extensive experiments across two domains (movies and books) and two representative LLM based recommendation models demonstrate that our method achieves high fidelity reconstructions. Specifically, we can recover nearly 65 percent of the user interacted items and correctly infer age and gender in 87 percent of the cases. The experiments also reveal that privacy leakage is largely insensitive to the victim model's performance but highly dependent on domain consistency and prompt complexity. These findings expose critical privacy vulnerabilities in LLM empowered recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-20T05:03:02Z",
+    "updated": "2025-09-12T02:59:56Z",
+    "url": "http://arxiv.org/abs/2508.03703v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.03703v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对 LLM 推荐系统的隐私安全问题进行研究，属于 RecSys 核心领域的安全方向，非纯 LLM 研究；结合中国公司背景额外加 1 分。",
+    "translation": "LLM 赋能推荐系统的隐私风险：基于反转攻击的视角",
+    "summary_zh": "本文提出了一种利用相似性引导优化的反转攻击方法，通过分析推荐模型输出的 logits 来重构包含用户偏好和人口统计属性的原始提示词，揭示了 LLM 推荐系统中的关键隐私漏洞。",
+    "key_points": [
+      "本文提出了一种利用相似性引导优化的反转攻击方法，通过分析推荐模型输出的 logits 来重构包含用户偏好和人口统计属性的原始提示词，揭示了 LLM 推荐系统中的关键隐私漏洞"
+    ]
+  },
+  {
+    "arxiv_id": "2507.14902v2",
+    "title": "U-MARVEL: Unveiling Key Factors for Universal Multimodal Retrieval via Embedding Learning with MLLMs",
+    "authors": [
+      "Xiaojie Li",
+      "Chu Li",
+      "Shi-Zhe Chen",
+      "Xi Chen"
+    ],
+    "summary": "Universal multimodal retrieval (UMR), which aims to address complex retrieval tasks where both queries and candidates span diverse modalities, has been significantly advanced by the emergence of MLLMs. While state-of-the-art MLLM-based methods in the literature predominantly adopt contrastive learning principles, they often differ in their specific training recipes. Despite their success, the mechanisms underlying their retrieval capabilities remain largely unexplored, potentially resulting in suboptimal performance and limited generalization ability. To address these issues, we present a comprehensive study aimed at uncovering the key factors that drive effective embedding learning for UMR using MLLMs. We begin by implementing a general MLLM-based embedding learning pipeline, and systematically analyze the primary contributors to high-performing universal retrieval systems. Based on this, we explore various aspects of the details in embedding generation and training strategies, including progressive transition, hard negative mining and re-ranker distillation. Notably, our findings reveal that often-overlooked factors can have a substantial impact on model performance. Building on these discoveries, we introduce a unified framework termed U-MARVEL (Universal MultimodAl RetrieVal via Embedding Learning), which outperforms state-of-the-art competitors on the M-BEIR benchmark by a large margin in supervised settings, and also exhibits strong zero-shot performance on several tasks such as composed image retrieval and text-to-video retrieval. These results underscore the generalization potential of our framework across various embedding-based retrieval tasks. Code is available at https://github.com/chaxjli/U-MARVEL",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2025-07-20T10:27:34Z",
+    "updated": "2026-02-15T03:20:38Z",
+    "url": "http://arxiv.org/abs/2507.14902v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.14902v2.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent",
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "1TencentPCG 2NanjingUniversity 3ByteDance",
+      "framework across various embedding-based retrieval tasks. Code is available at"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于通用多模态检索（UMR）的嵌入学习机制，虽涉及检索核心技术，但属于通用多模态基础研究，缺乏针对推荐系统或具体搜索产品场景的直接应用与创新。",
+    "translation": "U-MARVEL：通过 MLLM 嵌入学习揭示通用多模态检索的关键因素",
+    "summary_zh": "本文提出 U-MARVEL 框架，通过系统分析 MLLM 在嵌入生成与训练策略中的关键因素（如渐进式过渡、难负例挖掘及重排序蒸馏），构建统一的通用多模态检索方法以提升泛化能力。",
+    "key_points": [
+      "本文提出 U-MARVEL 框架，通过系统分析 MLLM 在嵌入生成与训练策略中的关键因素（如渐进式过渡、难负例挖掘及重排序蒸馏），构建统一的通用多模态检索方法以提升泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.14946v1",
+    "title": "FullRecall: A Semantic Search-Based Ranking Approach for Maximizing Recall in Patent Retrieval",
+    "authors": [
+      "Amna Ali",
+      "Liyanage C. De Silva",
+      "Pg Emeroylariffion Abas"
+    ],
+    "summary": "Patent examiners and inventors face significant pressure to verify the originality and non-obviousness of inventions, and the intricate nature of patent data intensifies the challenges of patent retrieval. Therefore, there is a pressing need to devise cutting-edge retrieval strategies that can reliably achieve the desired recall. This study introduces FullRecall, a novel patent retrieval approach that effectively manages the complexity of patent data while maintaining the reliability of relevance matching and maximising recall. It leverages IPC-guided knowledge to generate informative phrases, which are processed to extract key information in the form of noun phrases characterising the query patent under observation. From these, the top k keyphrases are selected to construct a query for retrieving a focused subset of the dataset. This initial retrieval step achieves complete recall, successfully capturing all relevant documents. To further refine the results, a ranking scheme is applied to the retrieved subset, reducing its size while maintaining 100% recall. This multi-phase process demonstrates an effective strategy for balancing precision and recall in patent retrieval tasks. Comprehensive experiments were conducted, and the results were compared with baseline studies, namely HRR2 [1] and ReQ-ReC [2]. The proposed approach yielded superior results, achieving 100% recall in all five test cases. However, HRR2[1] recall values across the five test cases were 10%, 25%, 33.3%, 0%, and 14.29%, while ReQ-ReC [2] showed 50% for the first test case, 25% for the second test case, and 0% for the third, fourth, and fifth test cases. The 100% recall ensures that no relevant prior art is overlooked, thereby strengthening the patent pre-filing and examination processes, hence reducing potential legal risks.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-07-20T12:52:58Z",
+    "updated": "2025-07-20T12:52:58Z",
+    "url": "http://arxiv.org/abs/2507.14946v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.14946v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于专利检索这一特定垂直领域的召回优化，虽涉及检索技术但缺乏通用推荐系统或主流搜索产品的直接适用性，且未利用 LLM 等前沿方法解决核心 RecSys 问题。",
+    "translation": "FullRecall：一种基于语义搜索的排序方法以最大化专利检索召回率",
+    "summary_zh": "提出一种利用 IPC 引导知识生成关键短语构建查询的多阶段检索框架，旨在通过先全量召回再排序精炼的策略，在复杂专利数据中实现 100% 的相关文档召回。",
+    "key_points": [
+      "提出一种利用 IPC 引导知识生成关键短语构建查询的多阶段检索框架，旨在通过先全量召回再排序精炼的策略，在复杂专利数据中实现 100% 的相关文档召回"
+    ]
+  }
+]

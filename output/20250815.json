@@ -1,0 +1,288 @@
+[
+  {
+    "arxiv_id": "2508.11565v2",
+    "title": "Aggregate and Broadcast: Scalable and Efficient Feature Interaction for Recommender Systems",
+    "authors": [
+      "Kaiyuan Li",
+      "Yongxiang Tang",
+      "Wenzheng Shu",
+      "Yanxiang Zeng",
+      "Chao Wang",
+      "Yanhua Cheng",
+      "Xialong Liu",
+      "Peng Jiang"
+    ],
+    "summary": "Feature interaction is a core ingredient in ranking models for large-scale recommender systems, yet making it both expressive and efficiently scalable remains challenging. Exhaustive pairwise interaction is powerful but incurs quadratic complexity in the number of tokens/features, while many efficient alternatives rely on restrictive structures that limit information exchange. We further identify two common bottlenecks in practice: (1) early aggregation of behavior sequences compresses fine-grained signals, making it difficult for deeper layers to reuse item-level details; and (2) late fusion injects task signals only at the end, preventing task objectives from directly guiding the interaction process.\n  To address these issues, we propose the Information Flow Network (INFNet), a lightweight architecture that enables scalable, task-aware feature interaction with linear complexity. INFNet represents categorical features, behavior sequences, and task identifiers as tokens, and introduces a small set of hub tokens for each group to serve as communication hubs. Interaction is realized through an efficient aggregate-and-broadcast information flow: hub tokens aggregate global context across groups via cross-attention, and a lightweight gated broadcast unit injects the refined context back to update the categorical, sequence, and task tokens. This design supports width-preserving stacking that preserves item-level signals in sequence and enables task-guided interaction throughout the network, while reducing interaction cost from quadratic to linear in the number of feature tokens.\n  Experiments on a public benchmark and a large-scale industrial dataset demonstrate that INFNet consistently outperforms strong baselines and exhibits strong scaling behavior. In a commercial online advertising system, deploying INFNet improves revenue by +1.587% and click-through rate by +1.155%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-15T16:18:32Z",
+    "updated": "2026-01-26T03:10:40Z",
+    "url": "http://arxiv.org/abs/2508.11565v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.11565v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统排序模型中的特征交互瓶颈，提出了 INFNet 架构以解决序列压缩和任务引导问题，并在工业广告系统中验证了效果，属于核心领域的高优先级创新。",
+    "translation": "聚合与广播：推荐系统可扩展且高效的特征交互方法",
+    "summary_zh": "提出信息流网络（INFNet），利用枢纽令牌通过“聚合 - 广播”机制实现线性复杂度的任务感知特征交互，解决了行为序列早期聚合导致的信息丢失及晚期融合缺乏任务引导的问题。",
+    "key_points": [
+      "提出信息流网络（INFNet），利用枢纽令牌通过“聚合 - 广播”机制实现线性复杂度的任务感知特征交互，解决了行为序列早期聚合导致的信息丢失及晚期融合缺乏任务引导的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.11194v1",
+    "title": "Representation Quantization for Collaborative Filtering Augmentation",
+    "authors": [
+      "Yunze Luo",
+      "Yinjie Jiang",
+      "Gaode Chen",
+      "Jingchi Wang",
+      "Shicheng Wang",
+      "Ruina Sun",
+      "Jiang Yuezihan",
+      "Jun Zhang",
+      "Jian Liang",
+      "Han Li",
+      "Kun Gai",
+      "Kaigui Bian"
+    ],
+    "summary": "As the core algorithm in recommendation systems, collaborative filtering (CF) algorithms inevitably face the problem of data sparsity. Since CF captures similar users and items for recommendations, it is effective to augment the lacking user-user and item-item homogeneous linkages. However, existing methods are typically limited to connecting through overlapping interacted neighbors or through similar attributes and contents. These approaches are constrained by coarse-grained, sparse attributes and fail to effectively extract behavioral characteristics jointly from interaction sequences and attributes. To address these challenges, we propose a novel two-stage collaborative recommendation algorithm, DQRec: Decomposition-based Quantized Variational AutoEncoder (DQ-VAE) for Recommendation. DQRec augments features and homogeneous linkages by extracting the behavior characteristics jointly from interaction sequences and attributes, namely patterns, such as user multi-aspect interests. Inspired by vector quantization (VQ) technology, we propose a new VQ algorithm, DQ-VAE, which decomposes the pre-trained representation embeddings into distinct dimensions, and quantize them to generates semantic IDs. We utilize the generated semantic IDs as the extracted patterns mentioned above. By integrating these semantic ID patterns into the recommendation process through feature and linkage augmentation, the system enriches both latent and explicit user and item features, identifies pattern-similar neighbors, and thereby improves the efficiency of information diffusion. Experimental comparisons with baselines across multiple datasets demonstrate the superior performance of the proposed DQRec method.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-15T04:00:50Z",
+    "updated": "2025-08-15T04:00:50Z",
+    "url": "http://arxiv.org/abs/2508.11194v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.11194v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "Representation Quantization for Collaborative Filtering",
+      "SchoolofCS,PekingUniversity KuaishouTechnology KuaishouTechnology",
+      "SchoolofCS,PekingUniversity KuaishouTechnology KuaishouTechnology",
+      "KuaishouTechnology KuaishouTechnology SchoolofCS,PekingUniversity",
+      "Asthecorealgorithminrecommendationsystems,collaborative •Informationsystems→Recommendersystems.",
+      "tions,itiseffectivetoaugmentthelackinguser-useranditem-item RecommenderSystem,CollaborativeFiltering,VectorQuantization,",
+      "2025.RepresentationQuantizationforCollaborativeFilteringAugmentation",
+      "collaborativerecommendationalgorithm,DQRec:Decomposition-"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤数据稀疏问题，提出基于向量量化的新架构进行特征增强，属于核心领域创新；因来自 TAL 公司额外加 1 分。",
+    "translation": "用于协同过滤增强的表示量化方法",
+    "summary_zh": "提出 DQRec 框架，利用分解式量化变分自编码器从交互序列和属性中提取行为模式生成语义 ID，以此增强用户/_item 的特征表示与同质链接以解决数据稀疏问题。",
+    "key_points": [
+      "提出 DQRec 框架，利用分解式量化变分自编码器从交互序列和属性中提取行为模式生成语义 ID，以此增强用户/_item 的特征表示与同质链接以解决数据稀疏问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.09683v1",
+    "title": "Forecasting Clicks in Digital Advertising: Multimodal Inputs and Interpretable Outputs",
+    "authors": [
+      "Briti Gangopadhyay",
+      "Zhao Wang",
+      "Shingo Takamatsu"
+    ],
+    "summary": "Forecasting click volume is a key task in digital advertising, influencing both revenue and campaign strategy. Traditional time series models rely solely on numerical data, often overlooking rich contextual information embedded in textual elements, such as keyword updates. We present a multimodal forecasting framework that combines click data with textual logs from real-world ad campaigns and generates human-interpretable explanations alongside numeric predictions. Reinforcement learning is used to improve comprehension of textual information and enhance fusion of modalities. Experiments on a large-scale industry dataset show that our method outperforms baselines in both accuracy and reasoning quality.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-15T10:01:53Z",
+    "updated": "2025-08-15T10:01:53Z",
+    "url": "http://arxiv.org/abs/2509.09683v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.09683v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对数字广告点击量预测这一核心推荐/广告业务场景，创新性地融合多模态数据与可解释性输出，且来自工业界（TAL），符合高优先级标准（基础分 8+ 中国公司加分 1）。",
+    "translation": "数字广告点击预测：多模态输入与可解释输出",
+    "summary_zh": "提出一种结合点击数值数据与文本日志的多模态预测框架，利用强化学习优化模态融合，旨在同时生成精准的点击量预测与人类可理解的解释。",
+    "key_points": [
+      "提出一种结合点击数值数据与文本日志的多模态预测框架，利用强化学习优化模态融合，旨在同时生成精准的点击量预测与人类可理解的解释"
+    ]
+  },
+  {
+    "arxiv_id": "2508.15811v2",
+    "title": "From Clicks to Preference: A Multi-stage Alignment Framework for Generative Query Suggestion in Conversational System",
+    "authors": [
+      "Junhao Yin",
+      "Haolin Wang",
+      "Peng Bao",
+      "Ju Xu",
+      "Yongliang Wang"
+    ],
+    "summary": "Generative query suggestion using large language models offers a powerful way to enhance conversational systems, but aligning outputs with nuanced user preferences remains a critical challenge. To address this, we introduce a multi-stage framework designed for progressive alignment between the generation policy and user intent. Our pipeline begins with prompt engineering as a cold-start strategy, followed by the Supervised Fine-Tuning stage, in which we introduce a distillation method on click logs to create a robust foundational model. To better model user preferences while capturing their inherent uncertainty, we develop a Gaussian Reward Model (GaRM) that represents user preferences as probability distributions rather than point estimates. Finally, we employ reinforcement learning to align the generation policy with these preferences, guided by a composite reward function that integrates GaRM with auxiliary heuristics to mitigate reward hacking. To maintain training stability, this process is enhanced by a novel out-of-distribution regularization method and a two-stage reward fusion technique. Extensive experiments demonstrate that our framework significantly outperforms baselines on both automatic and human evaluations and yields a 34\\% relative increase in user engagement as measured by click-through rate in live A/B tests.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-08-15T10:17:01Z",
+    "updated": "2025-12-15T12:51:55Z",
+    "url": "http://arxiv.org/abs/2508.15811v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.15811v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对对话系统中的查询建议（搜索核心环节），利用 LLM 结合点击日志进行多阶段对齐以建模用户偏好，属于 LLM 在搜索场景的直接应用。",
+    "translation": "从点击到偏好：对话系统中生成式查询建议的多阶段对齐框架",
+    "summary_zh": "提出一种多阶段对齐框架，通过基于点击日志的蒸馏、高斯奖励模型及强化学习，将生成式查询建议策略与用户潜在偏好分布进行渐进式对齐。",
+    "key_points": [
+      "提出一种多阶段对齐框架，通过基于点击日志的蒸馏、高斯奖励模型及强化学习，将生成式查询建议策略与用户潜在偏好分布进行渐进式对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2508.11158v1",
+    "title": "Role-Augmented Intent-Driven Generative Search Engine Optimization",
+    "authors": [
+      "Xiaolu Chen",
+      "Haojie Wu",
+      "Jie Bao",
+      "Zhen Chen",
+      "Yong Liao",
+      "Hu Huang"
+    ],
+    "summary": "Generative Search Engines (GSEs), powered by Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), are reshaping information retrieval. While commercial systems (e.g., BingChat, Perplexity.ai) demonstrate impressive semantic synthesis capabilities, their black-box nature fundamentally undermines established Search Engine Optimization (SEO) practices. Content creators face a critical challenge: their optimization strategies, effective in traditional search engines, are misaligned with generative retrieval contexts, resulting in diminished visibility. To bridge this gap, we propose a Role-Augmented Intent-Driven Generative Search Engine Optimization (G-SEO) method, providing a structured optimization pathway tailored for GSE scenarios. Our method models search intent through reflective refinement across diverse informational roles, enabling targeted content enhancement. To better evaluate the method under realistic settings, we address the benchmarking limitations of prior work by: (1) extending the GEO dataset with diversified query variations reflecting real-world search scenarios and (2) introducing G-Eval 2.0, a 6-level LLM-augmented evaluation rubric for fine-grained human-aligned assessment. Experimental results demonstrate that search intent serves as an effective signal for guiding content optimization, yielding significant improvements over single-aspect baseline approaches in both subjective impressions and objective content visibility within GSE responses.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-15T02:08:55Z",
+    "updated": "2025-08-15T02:08:55Z",
+    "url": "http://arxiv.org/abs/2508.11158v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.11158v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式搜索引擎（GSE）中的内容优化（SEO）问题，提出了基于意图和角色增强的优化方法，属于搜索核心生态的应用研究；虽涉及 LLM，但非纯模型研究，且来自中国企业额外加 1 分。",
+    "translation": "角色增强与意图驱动的生成式搜索引擎优化方法",
+    "summary_zh": "提出一种角色增强且意图驱动的生成式搜索引擎优化框架，通过多信息角色的反思性细化建模搜索意图，以指导内容针对性增强并解决生成式检索下的可见性难题。",
+    "key_points": [
+      "提出一种角色增强且意图驱动的生成式搜索引擎优化框架，通过多信息角色的反思性细化建模搜索意图，以指导内容针对性增强并解决生成式检索下的可见性难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.11442v2",
+    "title": "CoDiEmb: A Collaborative yet Distinct Framework for Unified Representation Learning in Information Retrieval and Semantic Textual Similarity",
+    "authors": [
+      "Bowen Zhang",
+      "Zixin Song",
+      "Chunquan Chen",
+      "Qian-Wen Zhang",
+      "Di Yin",
+      "Xing Sun"
+    ],
+    "summary": "Learning unified text embeddings that excel across diverse downstream tasks is a central goal in representation learning, yet negative transfer remains a persistent obstacle. This challenge is particularly pronounced when jointly training a single encoder for Information Retrieval (IR) and Semantic Textual Similarity (STS), two essential but fundamentally disparate tasks for which naive co-training typically yields steep performance trade-offs. We argue that resolving this conflict requires systematically decoupling task-specific learning signals throughout the training pipeline. To this end, we introduce CoDiEmb, a unified framework that reconciles the divergent requirements of IR and STS in a collaborative yet distinct manner. CoDiEmb integrates three key innovations for effective joint optimization: (1) Task-specialized objectives paired with a dynamic sampler that forms single-task batches and balances per-task updates, thereby preventing gradient interference. For IR, we employ a contrastive loss with multiple positives and hard negatives, augmented by cross-device sampling. For STS, we adopt order-aware objectives that directly optimize correlation and ranking consistency. (2) A delta-guided model fusion strategy that computes fine-grained merging weights for checkpoints by analyzing each parameter's deviation from its pre-trained initialization, proving more effective than traditional Model Soups. (3) An efficient, single-stage training pipeline that is simple to implement and converges stably. Extensive experiments on 15 standard IR and STS benchmarks across three base encoders validate CoDiEmb. Our results and analysis demonstrate that the framework not only mitigates cross-task trade-offs but also measurably improves the geometric properties of the embedding space.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-15T12:46:35Z",
+    "updated": "2025-09-29T10:05:23Z",
+    "url": "http://arxiv.org/abs/2508.11442v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.11442v2.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "CoDiEmb: A Collaborative yet Distinct Framework for",
+      "1TsinghuaUniversity",
+      "2TencentYoutuLab",
+      "IRandSTSinacollaborativeyetdistinctmanner. CoDiEmbintegratesthreekeyinnovationsfor"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对信息检索（IR）核心任务，提出了统一表示学习框架以解决 IR 与语义相似度任务的冲突，属于搜索核心技术；虽非纯推荐系统，但 IR 是搜索基石，且来自中国公司加 1 分。",
+    "translation": "CoDiEmb：一种用于信息检索与语义文本相似性的协同而独特的统一表示学习框架",
+    "summary_zh": "提出 CoDiEmb 框架，通过任务专用目标、动态采样器及增量引导的模型融合策略，解耦并协同优化信息检索与语义相似度任务，消除负迁移并统一文本嵌入表示。",
+    "key_points": [
+      "提出 CoDiEmb 框架，通过任务专用目标、动态采样器及增量引导的模型融合策略，解耦并协同优化信息检索与语义相似度任务，消除负迁移并统一文本嵌入表示"
+    ]
+  },
+  {
+    "arxiv_id": "2508.11272v2",
+    "title": "Enhancing Supervised Composed Image Retrieval via Reasoning-Augmented Representation Engineering",
+    "authors": [
+      "Jun Li",
+      "Hongjian Dou",
+      "Zhenyu Zhang",
+      "Kai Li",
+      "Shaoguo Liu",
+      "Tingting Gao"
+    ],
+    "summary": "Composed Image Retrieval (CIR) presents a significant challenge as it requires jointly understanding a reference image and a modified textual instruction to find relevant target images. Some existing methods attempt to use a two-stage approach to further refine retrieval results. However, this often requires additional training of a ranking model. Despite the success of Chain-of-Thought (CoT) techniques in reducing training costs for language models, their application in CIR tasks remains limited -- compressing visual information into text or relying on elaborate prompt designs. Besides, existing works only utilize it for zero-shot CIR, as it is challenging to achieve satisfactory results in supervised CIR with a well-trained model. In this work, we proposed a framework that includes the Pyramid Matching Model with Training-Free Refinement (PMTFR) to address these challenges. Through a simple but effective module called Pyramid Patcher, we enhanced the Pyramid Matching Model's understanding of visual information at different granularities. Inspired by representation engineering, we extracted representations from COT data and injected them into the LVLMs. This approach allowed us to obtain refined retrieval scores in the Training-Free Refinement paradigm without relying on explicit textual reasoning, further enhancing performance. Extensive experiments on CIR benchmarks demonstrate that PMTFR surpasses state-of-the-art methods in supervised CIR tasks. The code will be made public.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-08-15T07:10:10Z",
+    "updated": "2025-12-12T09:33:35Z",
+    "url": "http://arxiv.org/abs/2508.11272v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.11272v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于组合图像检索（CIR）这一搜索子任务，提出了利用推理增强表示工程的方法，属于多模态搜索范畴，但并非核心推荐系统或直接面向电商/社交业务的通用搜索架构。",
+    "translation": "通过推理增强表示工程提升监督式组合图像检索",
+    "summary_zh": "提出一种金字塔匹配与无训练细化框架，通过将链式思维数据提取的表示注入大型视觉语言模型，增强多粒度视觉理解以优化组合图像检索效果。",
+    "key_points": [
+      "提出一种金字塔匹配与无训练细化框架，通过将链式思维数据提取的表示注入大型视觉语言模型，增强多粒度视觉理解以优化组合图像检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.11159v1",
+    "title": "Mitigating Modality Quantity and Quality Imbalance in Multimodal Online Federated Learning",
+    "authors": [
+      "Heqiang Wang",
+      "Weihong Yang",
+      "Xiaoxiong Zhong",
+      "Jia Zhou",
+      "Fangming Liu",
+      "Weizhe Zhang"
+    ],
+    "summary": "The Internet of Things (IoT) ecosystem produces massive volumes of multimodal data from diverse sources, including sensors, cameras, and microphones. With advances in edge intelligence, IoT devices have evolved from simple data acquisition units into computationally capable nodes, enabling localized processing of heterogeneous multimodal data. This evolution necessitates distributed learning paradigms that can efficiently handle such data. Furthermore, the continuous nature of data generation and the limited storage capacity of edge devices demand an online learning framework. Multimodal Online Federated Learning (MMO-FL) has emerged as a promising approach to meet these requirements. However, MMO-FL faces new challenges due to the inherent instability of IoT devices, which often results in modality quantity and quality imbalance (QQI) during data collection. In this work, we systematically investigate the impact of QQI within the MMO-FL framework and present a comprehensive theoretical analysis quantifying how both types of imbalance degrade learning performance. To address these challenges, we propose the Modality Quantity and Quality Rebalanced (QQR) algorithm, a prototype learning based method designed to operate in parallel with the training process. Extensive experiments on two real-world multimodal datasets show that the proposed QQR algorithm consistently outperforms benchmarks under modality imbalance conditions with promising learning performance.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-15T02:13:39Z",
+    "updated": "2025-08-15T02:13:39Z",
+    "url": "http://arxiv.org/abs/2508.11159v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.11159v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦物联网边缘计算中的多模态联邦学习，属于通用分布式机器学习研究，未涉及推荐或搜索系统的核心场景（如召回、排序、用户建模），纯技术方法无 RecSys 直接应用。",
+    "translation": "缓解多模态在线联邦学习中的模态数量与质量不平衡",
+    "summary_zh": "提出一种基于原型学习的重平衡算法，旨在解决物联网边缘设备在多模态在线联邦学习中因数据不稳定导致的模态数量和质量不平衡问题。",
+    "key_points": [
+      "提出一种基于原型学习的重平衡算法，旨在解决物联网边缘设备在多模态在线联邦学习中因数据不稳定导致的模态数量和质量不平衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.11758v2",
+    "title": "Can we Evaluate RAGs with Synthetic Data?",
+    "authors": [
+      "Jonas van Elburg",
+      "Peter van der Putten",
+      "Maarten Marx"
+    ],
+    "summary": "We investigate whether synthetic question-answer (QA) data generated by large language models (LLMs) can serve as an effective proxy for human-labeled benchmarks when the latter is unavailable. We assess the reliability of synthetic benchmarks across two experiments: one varying retriever parameters while keeping the generator fixed, and another varying the generator with fixed retriever parameters. Across four datasets, of which two open-domain and two proprietary, we find that synthetic benchmarks reliably rank the RAGs varying in terms of retriever configuration, aligning well with human-labeled benchmark baselines. However, they do not consistently produce reliable RAG rankings when comparing generator architectures. The breakdown possibly arises from a combination of task mismatch between the synthetic and human benchmarks, and stylistic bias favoring certain generators.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-08-15T18:07:47Z",
+    "updated": "2025-10-21T11:29:14Z",
+    "url": "http://arxiv.org/abs/2508.11758v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.11758v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 评估方法的研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "能否利用合成数据评估检索增强生成（RAG）系统？",
+    "summary_zh": "本文探讨了利用大语言模型生成的合成问答数据作为代理基准，以在缺乏人工标注时评估检索增强生成（RAG）系统中检索器配置有效性的方法。",
+    "key_points": [
+      "本文探讨了利用大语言模型生成的合成问答数据作为代理基准，以在缺乏人工标注时评估检索增强生成（RAG）系统中检索器配置有效性的方法"
+    ]
+  }
+]

@@ -1,0 +1,560 @@
+[
+  {
+    "arxiv_id": "2509.09682v5",
+    "title": "Faster and Memory-Efficient Training of Sequential Recommendation Models for Large Catalogs",
+    "authors": [
+      "Maxim Zhelnin",
+      "Dmitry Redko",
+      "Daniil Volkov",
+      "Anna Volodkevich",
+      "Petr Sokerin",
+      "Valeriy Shevchenko",
+      "Egor Shvetsov",
+      "Alexey Vasilev",
+      "Darya Denisova",
+      "Ruslan Izmailov",
+      "Alexey Zaytsev"
+    ],
+    "summary": "Sequential recommendations (SR) with transformer-based architectures are widely adopted in real-world applications, where SR models require frequent retraining to adapt to ever-changing user preferences. However, training transformer-based SR models often encounters a high computational cost associated with scoring extensive item catalogs, often exceeding thousands of items. This occurs mainly due to the use of cross-entropy loss, where peak memory scales proportionally to catalog size, batch size, and sequence length. Recognizing this, practitioners in the field of recommendation systems typically address memory consumption by integrating the cross-entropy (CE) loss with negative sampling, thereby reducing the explicit memory demands of the final layer. However, a small number of negative samples would degrade model performance, and as we demonstrate in our work, increasing the number of negative samples and the batch size further improves the model's performance, but rapidly starts to exceed industrial GPUs' size (~40Gb).\n  In this work, we introduce the CCE- method, which offers a GPU-efficient implementation of the CE loss with negative sampling. Our method accelerates training by up to two times while reducing memory consumption by more than 10 times. Leveraging the memory savings afforded by using CCE- for model training, it becomes feasible to enhance its accuracy on datasets with a large item catalog compared to those trained with original PyTorch-implemented loss functions. Finally, we perform an analysis of key memory-related hyperparameters and highlight the necessity of a delicate balance among these factors. We demonstrate that scaling both the number of negative samples and batch size leads to better results rather than maximizing only one of them. To facilitate further adoption of CCE-, we release a Triton kernel that efficiently implements the proposed method.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T15:03:38Z",
+    "updated": "2026-01-23T14:27:57Z",
+    "url": "http://arxiv.org/abs/2509.09682v5",
+    "pdf_url": "http://arxiv.org/pdf/2509.09682v5.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统在大规模商品库下的训练显存瓶颈提出优化方法，属于核心推荐技术架构创新，且来自中国公司额外加 1 分。",
+    "translation": "面向大规模商品库的序列推荐模型更快且更省显存的训练方法",
+    "summary_zh": "提出 CCE-方法，通过高效的 Triton 核实现带负采样的交叉熵损失，在大幅降低显存占用的同时支持更大批量和更多负样本，从而提升大目录场景下的序列推荐训练效率与效果。",
+    "key_points": [
+      "提出 CCE-方法，通过高效的 Triton 核实现带负采样的交叉熵损失，在大幅降低显存占用的同时支持更大批量和更多负样本，从而提升大目录场景下的序列推荐训练效率与效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.14912v1",
+    "title": "Multimodal Recommendation via Self-Corrective Preference Alignmen",
+    "authors": [
+      "Yalong Guan",
+      "Xiang Chen",
+      "Mingyang Wang",
+      "Xiangyu Wu",
+      "Lihao Liu",
+      "Chao Qi",
+      "Shuang Yang",
+      "Tingting Gao",
+      "Guorui Zhou",
+      "Changjian Chen"
+    ],
+    "summary": "With the rapid growth of live streaming platforms, personalized recommendation systems have become pivotal in improving user experience and driving platform revenue. The dynamic and multimodal nature of live streaming content (e.g., visual, audio, textual data) requires joint modeling of user behavior and multimodal features to capture evolving author characteristics. However, traditional methods relying on single-modal features or treating multimodal ones as supplementary struggle to align users' dynamic preferences with authors' multimodal attributes, limiting accuracy and interpretability. To address this, we propose MSPA (Multimodal Self-Corrective Preference Alignment), a personalized author recommendation framework with two components: (1) a Multimodal Preference Composer that uses MLLMs to generate structured preference text and embeddings from users' tipping history; and (2) a Self-Corrective Preference Alignment Recommender that aligns these preferences with authors' multimodal features to improve accuracy and interpretability. Extensive experiments and visualizations show that MSPA significantly improves accuracy, recall, and text quality, outperforming baselines in dynamic live streaming scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T13:07:29Z",
+    "updated": "2025-08-13T13:07:29Z",
+    "url": "http://arxiv.org/abs/2508.14912v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.14912v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对直播场景下的多模态推荐系统，提出利用 MLLM 进行用户偏好建模与对齐的新架构，完全符合核心领域进展及 LLM for RecSys 的高优先级标准，且来自中国公司额外加 1 分后满分。",
+    "translation": "基于自校正偏好对齐的多模态推荐方法",
+    "summary_zh": "提出 MSPA 框架，利用多模态大语言模型从用户打赏历史中生成结构化偏好文本与嵌入，并通过自校正机制将用户动态偏好与主播多模态特征进行对齐，以提升直播推荐的准确性与可解释性。",
+    "key_points": [
+      "提出 MSPA 框架，利用多模态大语言模型从用户打赏历史中生成结构化偏好文本与嵌入，并通过自校正机制将用户动态偏好与主播多模态特征进行对齐，以提升直播推荐的准确性与可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09730v1",
+    "title": "Generative Modeling with Multi-Instance Reward Learning for E-commerce Creative Optimization",
+    "authors": [
+      "Qiaolei Gu",
+      "Yu Li",
+      "DingYi Zeng",
+      "Lu Wang",
+      "Ming Pang",
+      "Changping Peng",
+      "Zhangang Lin",
+      "Ching Law",
+      "Jingping Shao"
+    ],
+    "summary": "In e-commerce advertising, selecting the most compelling combination of creative elements -- such as titles, images, and highlights -- is critical for capturing user attention and driving conversions. However, existing methods often evaluate creative components individually, failing to navigate the exponentially large search space of possible combinations. To address this challenge, we propose a novel framework named GenCO that integrates generative modeling with multi-instance reward learning. Our unified two-stage architecture first employs a generative model to efficiently produce a diverse set of creative combinations. This generative process is optimized with reinforcement learning, enabling the model to effectively explore and refine its selections. Next, to overcome the challenge of sparse user feedback, a multi-instance learning model attributes combination-level rewards, such as clicks, to the individual creative elements. This allows the reward model to provide a more accurate feedback signal, which in turn guides the generative model toward creating more effective combinations. Deployed on a leading e-commerce platform, our approach has significantly increased advertising revenue, demonstrating its practical value. Additionally, we are releasing a large-scale industrial dataset to facilitate further research in this important domain.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-13T11:53:41Z",
+    "updated": "2025-08-13T11:53:41Z",
+    "url": "http://arxiv.org/abs/2508.09730v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09730v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商广告创意优化这一核心推荐/搜索场景，提出了结合生成模型与多实例奖励学习的具体架构，属于高优先级的业务落地创新。",
+    "translation": "基于多实例奖励学习的生成式建模用于电商创意优化",
+    "summary_zh": "提出 GenCO 框架，通过两阶段架构利用生成模型探索创意组合空间，并结合多实例学习将组合级反馈归因至单个元素以解决稀疏奖励问题，从而优化广告创意生成。",
+    "key_points": [
+      "提出 GenCO 框架，通过两阶段架构利用生成模型探索创意组合空间，并结合多实例学习将组合级反馈归因至单个元素以解决稀疏奖励问题，从而优化广告创意生成"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09636v1",
+    "title": "Personalized Product Search Ranking: A Multi-Task Learning Approach with Tabular and Non-Tabular Data",
+    "authors": [
+      "Lalitesh Morishetti",
+      "Abhay Kumar",
+      "Jonathan Scott",
+      "Kaushiki Nag",
+      "Gunjan Sharma",
+      "Shanu Vashishtha",
+      "Rahul Sridhar",
+      "Rohit Chatter",
+      "Kannan Achan"
+    ],
+    "summary": "In this paper, we present a novel model architecture for optimizing personalized product search ranking using a multi-task learning (MTL) framework. Our approach uniquely integrates tabular and non-tabular data, leveraging a pre-trained TinyBERT model for semantic embeddings and a novel sampling technique to capture diverse customer behaviors. We evaluate our model against several baselines, including XGBoost, TabNet, FT-Transformer, DCN-V2, and MMoE, focusing on their ability to handle mixed data types and optimize personalized ranking. Additionally, we propose a scalable relevance labeling mechanism based on click-through rates, click positions, and semantic similarity, offering an alternative to traditional human-annotated labels. Experimental results show that combining non-tabular data with advanced embedding techniques in multi-task learning paradigm significantly enhances model performance. Ablation studies further underscore the benefits of incorporating relevance labels, fine-tuning TinyBERT layers, and TinyBERT query-product embedding interactions. These results demonstrate the effectiveness of our approach in achieving improved personalized product search ranking.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-13T09:15:08Z",
+    "updated": "2025-08-13T09:15:08Z",
+    "url": "http://arxiv.org/abs/2508.09636v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09636v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商个性化商品搜索排序问题，提出融合表格与非表格数据的多任务学习架构，属于核心领域高优先级应用；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "个性化商品搜索排序：一种融合表格与非表格数据的多任务学习方法",
+    "summary_zh": "提出一种多任务学习架构，通过集成预训练 TinyBERT 语义嵌入与新型采样技术，有效融合表格及非表格数据以优化个性化商品搜索排序，并设计了基于用户行为的可扩展相关性标签机制。",
+    "key_points": [
+      "提出一种多任务学习架构，通过集成预训练 TinyBERT 语义嵌入与新型采样技术，有效融合表格及非表格数据以优化个性化商品搜索排序，并设计了基于用户行为的可扩展相关性标签机制"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09789v1",
+    "title": "Describe What You See with Multimodal Large Language Models to Enhance Video Recommendations",
+    "authors": [
+      "Marco De Nadai",
+      "Andreas Damianou",
+      "Mounia Lalmas"
+    ],
+    "summary": "Existing video recommender systems rely primarily on user-defined metadata or on low-level visual and acoustic signals extracted by specialised encoders. These low-level features describe what appears on the screen but miss deeper semantics such as intent, humour, and world knowledge that make clips resonate with viewers. For example, is a 30-second clip simply a singer on a rooftop, or an ironic parody filmed amid the fairy chimneys of Cappadocia, Turkey? Such distinctions are critical to personalised recommendations yet remain invisible to traditional encoding pipelines. In this paper, we introduce a simple, recommendation system-agnostic zero-finetuning framework that injects high-level semantics into the recommendation pipeline by prompting an off-the-shelf Multimodal Large Language Model (MLLM) to summarise each clip into a rich natural-language description (e.g. \"a superhero parody with slapstick fights and orchestral stabs\"), bridging the gap between raw content and user intent. We use MLLM output with a state-of-the-art text encoder and feed it into standard collaborative, content-based, and generative recommenders. On the MicroLens-100K dataset, which emulates user interactions with TikTok-style videos, our framework consistently surpasses conventional video, audio, and metadata features in five representative models. Our findings highlight the promise of leveraging MLLMs as on-the-fly knowledge extractors to build more intent-aware video recommenders.",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2025-08-13T13:19:31Z",
+    "updated": "2025-08-13T13:19:31Z",
+    "url": "http://arxiv.org/abs/2508.09789v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09789v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对视频推荐系统，提出利用多模态大语言模型（MLLM）提取深层语义以增强推荐效果，属于 LLM 在 RecSys 中的直接高价值应用。",
+    "translation": "利用多模态大语言模型描述视觉内容以增强视频推荐",
+    "summary_zh": "提出一种无需微调的框架，通过提示现成多模态大语言模型生成富含意图和世界观的自然语言描述，将深层语义注入现有视频推荐流水线以桥接原始内容与用户意图。",
+    "key_points": [
+      "提出一种无需微调的框架，通过提示现成多模态大语言模型生成富含意图和世界观的自然语言描述，将深层语义注入现有视频推荐流水线以桥接原始内容与用户意图"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09664v1",
+    "title": "Multimodal Fusion And Sparse Attention-based Alignment Model for Long Sequential Recommendation",
+    "authors": [
+      "Yongrui Fu",
+      "Jian Liu",
+      "Tao Li",
+      "Zonggang Wu",
+      "Shouke Qin",
+      "Hanmeng Liu"
+    ],
+    "summary": "Recent advances in multimodal recommendation enable richer item understanding, while modeling users' multi-scale interests across temporal horizons has attracted growing attention. However, effectively exploiting multimodal item sequences and mining multi-grained user interests to substantially bridge the gap between content comprehension and recommendation remain challenging. To address these issues, we propose MUFASA, a MUltimodal Fusion And Sparse Attention-based Alignment model for long sequential recommendation. Our model comprises two core components. First, the Multimodal Fusion Layer (MFL) leverages item titles as a cross-genre semantic anchor and is trained with a joint objective of four tailored losses that promote: (i) cross-genre semantic alignment, (ii) alignment to the collaborative space for recommendation, (iii) preserving the similarity structure defined by titles and preventing modality representation collapse, and (iv) distributional regularization of the fusion space. This yields high-quality fused item representations for further preference alignment. Second, the Sparse Attention-guided Alignment Layer (SAL) scales to long user-behavior sequences via a multi-granularity sparse attention mechanism, which incorporates windowed attention, block-level attention, and selective attention, to capture user interests hierarchically and across temporal horizons. SAL explicitly models both the evolution of coherent interest blocks and fine-grained intra-block variations, producing robust user and item representations. Extensive experiments on real-world benchmarks show that MUFASA consistently surpasses state-of-the-art baselines. Moreover, online A/B tests demonstrate significant gains in production, confirming MUFASA's effectiveness in leveraging multimodal cues and accurately capturing diverse user preferences.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T09:50:44Z",
+    "updated": "2025-08-13T09:50:44Z",
+    "url": "http://arxiv.org/abs/2508.09664v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09664v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere",
+      "Baidu"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "FudanUniversity Baidu,Inc Baidu,Inc",
+      "ticalignment,(ii)alignmenttothecollaborativespaceforrecom-",
+      "fuseditemrepresentationsforfurtherpreferencealignment.Second, collaborativefiltering(CF)methods[5,7,11],whichrelyonhistor-"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对长序列推荐场景，提出了融合多模态内容与稀疏注意力机制的新架构，属于核心推荐系统技术突破。",
+    "translation": "基于多模态融合与稀疏注意力对齐的长序列推荐模型",
+    "summary_zh": "提出 MUFASA 模型，通过多模态融合层利用标题作为语义锚点对齐协作空间，并结合稀疏注意力引导的对齐层分层捕捉长序列中的多粒度用户兴趣演化。",
+    "key_points": [
+      "提出 MUFASA 模型，通过多模态融合层利用标题作为语义锚点对齐协作空间，并结合稀疏注意力引导的对齐层分层捕捉长序列中的多粒度用户兴趣演化"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09653v1",
+    "title": "On Negative-aware Preference Optimization for Recommendation",
+    "authors": [
+      "Chenlu Ding",
+      "Daoxuan Liu",
+      "Jiancan Wu",
+      "Xingyu Hu",
+      "Junkang Wu",
+      "Haitao Wang",
+      "Yongkang Wang",
+      "Xingxing Wang",
+      "Xiang Wang"
+    ],
+    "summary": "Recommendation systems leverage user interaction data to suggest relevant items while filtering out irrelevant (negative) ones. The rise of large language models (LLMs) has garnered increasing attention for their potential in recommendation tasks. However, existing methods for optimizing LLM-based recommenders face challenges in effectively utilizing negative samples. Simply integrating large numbers of negative samples can improve ranking accuracy and mitigate popularity bias but often leads to increased computational overhead and memory costs. Additionally, current approaches fail to account for the varying informativeness of negative samples, leading to suboptimal optimization performance. To address these issues, we propose NAPO (\\textbf{N}egative-\\textbf{A}ware \\textbf{P}reference \\textbf{O}ptimization), an enhanced framework for preference optimization in LLM-based recommendation. NAPO introduces two key innovations: (1) in-batch negative sharing, which expands the pool of negative samples without additional memory overhead, and (2) dynamic reward margin adjustment, which adapts model updates based on the confidence of negative samples. Extensive experiments on three public datasets demonstrate that NAPO outperforms existing methods in both recommendation accuracy and popularity bias reduction.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-13T09:37:07Z",
+    "updated": "2025-08-13T09:37:07Z",
+    "url": "http://arxiv.org/abs/2508.09653v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09653v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出了利用负样本进行偏好优化的新框架 NAPO，解决了推荐场景中负采样效率和信息量利用的核心问题。",
+    "translation": "面向推荐的负感知偏好优化研究",
+    "summary_zh": "提出 NAPO 框架，通过批内负样本共享和动态奖励边界调整机制，高效利用不同信息量的负样本来优化基于大语言模型的推荐系统偏好学习。",
+    "key_points": [
+      "提出 NAPO 框架，通过批内负样本共享和动态奖励边界调整机制，高效利用不同信息量的负样本来优化基于大语言模型的推荐系统偏好学习"
+    ]
+  },
+  {
+    "arxiv_id": "2508.15800v1",
+    "title": "A BERT-based Hierarchical Classification Model with Applications in Chinese Commodity Classification",
+    "authors": [
+      "Kun Liu",
+      "Tuozhen Liu",
+      "Feifei Wang",
+      "Rui Pan"
+    ],
+    "summary": "Existing e-commerce platforms heavily rely on manual annotation for product categorization, which is inefficient and inconsistent. These platforms often employ a hierarchical structure for categorizing products; however, few studies have leveraged this hierarchical information for classification. Furthermore, studies that consider hierarchical information fail to account for similarities and differences across various hierarchical categories. Herein, we introduce a large-scale hierarchical dataset collected from the JD e-commerce platform (www.JD.com), comprising 1,011,450 products with titles and a three-level category structure. By making this dataset openly accessible, we provide a valuable resource for researchers and practitioners to advance research and applications associated with product categorization. Moreover, we propose a novel hierarchical text classification approach based on the widely used Bidirectional Encoder Representations from Transformers (BERT), called Hierarchical Fine-tuning BERT (HFT-BERT). HFT-BERT leverages the remarkable text feature extraction capabilities of BERT, achieving prediction performance comparable to those of existing methods on short texts. Notably, our HFT-BERT model demonstrates exceptional performance in categorizing longer short texts, such as books.",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-13T16:10:47Z",
+    "updated": "2025-08-13T16:10:47Z",
+    "url": "http://arxiv.org/abs/2508.15800v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.15800v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "JD.com",
+      "JD"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决电商核心场景（京东）的商品层级分类问题，属于搜索/推荐系统的基础设施建设，且来自工业界实战，符合高优先级标准。",
+    "translation": "基于 BERT 的层级分类模型及其在中文商品分类中的应用",
+    "summary_zh": "提出一种利用 BERT 进行层级微调的方法（HFT-BERT），通过显式建模电商商品类目的层级结构与类别间差异，解决大规模商品自动分类中的一致性难题。",
+    "key_points": [
+      "提出一种利用 BERT 进行层级微调的方法（HFT-BERT），通过显式建模电商商品类目的层级结构与类别间差异，解决大规模商品自动分类中的一致性难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09539v3",
+    "title": "TFRank: Think-Free Reasoning Enables Practical Pointwise LLM Ranking",
+    "authors": [
+      "Yongqi Fan",
+      "Xiaoyang Chen",
+      "Dezhi Ye",
+      "Jie Liu",
+      "Haijin Liang",
+      "Jin Ma",
+      "Ben He",
+      "Yingfei Sun",
+      "Tong Ruan"
+    ],
+    "summary": "Reasoning-intensive ranking models built on Large Language Models (LLMs) have made notable progress. However, existing approaches often rely on large-scale LLMs and explicit Chain-of-Thought (CoT) reasoning, resulting in high computational cost and latency that limit real-world use. To address this, we propose \\textbf{TFRank}, an efficient pointwise reasoning ranker based on small-scale LLMs. To improve ranking performance, TFRank effectively integrates CoT data, fine-grained score supervision, and multi-task training. Furthermore, it achieves an efficient ``\\textbf{T}hink-\\textbf{F}ree\" reasoning capability by employing a ``think-mode switch'' and pointwise format constraints. Specifically, this allows the model to leverage explicit reasoning during training while delivering precise relevance scores for complex queries at inference without generating any reasoning chains. Experiments show that TFRank achieves performance comparable to models with four times more parameters on the BRIGHT benchmark and demonstrates strong competitiveness on the BEIR benchmark. Further analysis shows that TFRank achieves an effective balance between performance and efficiency, providing a practical solution for integrating advanced reasoning into real-world systems. Our code and data are released in the repository: https://github.com/JOHNNY-fans/TFRank.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T06:47:58Z",
+    "updated": "2025-11-16T14:11:13Z",
+    "url": "http://arxiv.org/abs/2508.09539v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.09539v3.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "♢EastChinaUniversityofScienceandTechnology,Shanghai,China",
+      "♠Tencent,♡UniversityofChineseAcademyofSciences",
+      "♣ChineseInformationProcessingLaboratory,InstituteofSoftware,ChineseAcademyofSciences",
+      "hibitive costs, hindering the transition from research proto-"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心排序（Ranking）环节，提出了一种兼顾推理能力与低延迟的实用化 LLM 排序方法，符合中高优先级标准。",
+    "translation": "TFRank：无思考推理实现实用的逐点 LLM 排序",
+    "summary_zh": "提出 TFRank 模型，通过训练时引入思维链与多任务监督、推理时禁用显式生成链条的机制，实现了小参数模型在复杂查询排序中性能与效率的平衡。",
+    "key_points": [
+      "提出 TFRank 模型，通过训练时引入思维链与多任务监督、推理时禁用显式生成链条的机制，实现了小参数模型在复杂查询排序中性能与效率的平衡"
+    ]
+  },
+  {
+    "arxiv_id": "2508.10116v1",
+    "title": "Bridging Modality Gaps in e-Commerce Products via Vision-Language Alignment",
+    "authors": [
+      "Yipeng Zhang",
+      "Hongju Yu",
+      "Aritra Mandal",
+      "Canran Xu",
+      "Qunzhi Zhou",
+      "Zhe Wu"
+    ],
+    "summary": "Item information, such as titles and attributes, is essential for effective user engagement in e-commerce. However, manual or semi-manual entry of structured item specifics often produces inconsistent quality, errors, and slow turnaround, especially for Customer-to-Customer sellers. Generating accurate descriptions directly from item images offers a promising alternative. Existing retrieval-based solutions address some of these issues but often miss fine-grained visual details and struggle with niche or specialized categories.\n  We propose Optimized Preference-Based AI for Listings (OPAL), a framework for generating schema-compliant, high-quality item descriptions from images using a fine-tuned multimodal large language model (MLLM). OPAL addresses key challenges in multimodal e-commerce applications, including bridging modality gaps and capturing detailed contextual information. It introduces two data refinement methods: MLLM-Assisted Conformity Enhancement, which ensures alignment with structured schema requirements, and LLM-Assisted Contextual Understanding, which improves the capture of nuanced and fine-grained information from visual inputs.\n  OPAL uses visual instruction tuning combined with direct preference optimization to fine-tune the MLLM, reducing hallucinations and improving robustness across different backbone architectures. We evaluate OPAL on real-world e-commerce datasets, showing that it consistently outperforms baseline methods in both description quality and schema completion rates. These results demonstrate that OPAL effectively bridges the gap between visual and textual modalities, delivering richer, more accurate, and more consistent item descriptions. This work advances automated listing optimization and supports scalable, high-quality content generation in e-commerce platforms.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T18:22:53Z",
+    "updated": "2025-08-13T18:22:53Z",
+    "url": "http://arxiv.org/abs/2508.10116v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.10116v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文针对电商场景（核心 RecSys 领域）解决商品图文模态对齐与结构化描述生成问题，虽涉及 MLLM 但直接服务于商品信息优化这一搜索推荐基础环节；非纯 LLM 研究，且来自中国公司额外 +1 分。",
+    "translation": "通过视觉 - 语言对齐弥合电商产品的模态差距",
+    "summary_zh": "提出 OPAL 框架，利用经过视觉指令微调和直接偏好优化的多模态大模型，从商品图像生成符合结构化模式的高质量描述，以解决电商中图文模态不一致及细粒度信息缺失问题。",
+    "key_points": [
+      "提出 OPAL 框架，利用经过视觉指令微调和直接偏好优化的多模态大模型，从商品图像生成符合结构化模式的高质量描述，以解决电商中图文模态不一致及细粒度信息缺失问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.16610v1",
+    "title": "To Explain Or Not To Explain: An Empirical Investigation Of AI-Based Recommendations On Social Media Platforms",
+    "authors": [
+      "AKM Bahalul Haque",
+      "A. K. M. Najmul Islam",
+      "Patrick Mikalef"
+    ],
+    "summary": "AI based social media recommendations have great potential to improve the user experience. However, often these recommendations do not match the user interest and create an unpleasant experience for the users. Moreover, the recommendation system being a black box creates comprehensibility and transparency issues. This paper investigates social media recommendations from an end user perspective. For the investigation, we used the popular social media platform Facebook and recruited regular users to conduct a qualitative analysis. We asked participants about the social media content suggestions, their comprehensibility, and explainability. Our analysis shows users mostly require explanation whenever they encounter unfamiliar content and to ensure their online data security. Furthermore, the users require concise, non-technical explanations along with the facility of controlled information flow. In addition, we observed that explanations impact the users perception of transparency, trust, and understandability. Finally, we have outlined some design implications and presented a synthesized framework based on our data analysis.",
+    "categories": [
+      "cs.HC",
+      "cs.AI"
+    ],
+    "published": "2025-08-13T01:05:49Z",
+    "updated": "2025-08-13T01:05:49Z",
+    "url": "http://arxiv.org/abs/2508.16610v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.16610v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Facebook"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦推荐系统的可解释性与用户信任，属于 RecSys 中的重要子方向，但主要为定性用户研究而非核心算法或架构创新。",
+    "translation": "解释与否：社交媒体平台基于 AI 推荐的实证调查",
+    "summary_zh": "本文通过定性分析探究社交媒体用户对推荐内容可解释性的需求，提出增强透明度与信任的设计框架。",
+    "key_points": [
+      "本文通过定性分析探究社交媒体用户对推荐内容可解释性的需求，提出增强透明度与信任的设计框架"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09534v1",
+    "title": "Improving Dense Passage Retrieval with Multiple Positive Passages",
+    "authors": [
+      "Shuai Chang"
+    ],
+    "summary": "By leveraging a dual encoder architecture, Dense Passage Retrieval (DPR) has outperformed traditional sparse retrieval algorithms such as BM25 in terms of passage retrieval accuracy. Recently proposed methods have further enhanced DPR's performance. However, these models typically pair each question with only one positive passage during training, and the effect of associating multiple positive passages has not been examined. In this paper, we explore the performance of DPR when additional positive passages are incorporated during training. Experimental results show that equipping each question with multiple positive passages consistently improves retrieval accuracy, even when using a significantly smaller batch size, which enables training on a single GPU.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T06:36:53Z",
+    "updated": "2025-08-13T06:36:53Z",
+    "url": "http://arxiv.org/abs/2508.09534v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09534v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文属于通用信息检索（IR）中的稠密检索优化，虽为搜索底层技术但未针对推荐系统场景，且非 LLM 直接应用；因来自 TAL 公司按规则 +1 分。",
+    "translation": "利用多正例段落提升稠密段落检索效果",
+    "summary_zh": "提出在双编码器架构的训练阶段为每个查询关联多个正例段落，以解决单正例限制并提升检索准确率及训练效率。",
+    "key_points": [
+      "提出在双编码器架构的训练阶段为每个查询关联多个正例段落，以解决单正例限制并提升检索准确率及训练效率"
+    ]
+  },
+  {
+    "arxiv_id": "2508.10238v1",
+    "title": "DS4RS: Community-Driven and Explainable Dataset Search Engine for Recommender System Research",
+    "authors": [
+      "Xinyang Shao",
+      "Tri Kurniawan Wijaya"
+    ],
+    "summary": "Accessing suitable datasets is critical for research and development in recommender systems. However, finding datasets that match specific recommendation task or domains remains a challenge due to scattered sources and inconsistent metadata. To address this gap, we propose a community-driven and explainable dataset search engine tailored for recommender system research. Our system supports semantic search across multiple dataset attributes, such as dataset names, descriptions, and recommendation domain, and provides explanations of search relevance to enhance transparency. The system encourages community participation by allowing users to contribute standardized dataset metadata in public repository. By improving dataset discoverability and search interpretability, the system facilitates more efficient research reproduction. The platform is publicly available at: https://ds4rs.com.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-13T23:37:55Z",
+    "updated": "2025-08-13T23:37:55Z",
+    "url": "http://arxiv.org/abs/2508.10238v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.10238v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "Huawei"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "Engine for Recommender System Research",
+      "HuaweiIrelandResearchCentre HuaweiIrelandResearchCentre",
+      "Accessingsuitabledatasetsiscriticalforresearchanddevelopment Nrecommendation—duetofragmentedsourcesandthelackof",
+      "enginetailoredforrecommendersystemresearch.Oursystemsup- FaceDatasets[8]providedownloadabledatasets,thesesolutions",
+      "datasetnames,descriptions,andrecommendationdomain,andpro- thespecificneedsofrecommendersystemresearch[2,12].Addi-",
+      "Byimprovingdatasetdiscoverabilityandsearchinterpretability, difficultforresearcherstoefficientlydiscoverdatasetsalignedwith",
+      "thesystemfacilitatesmoreefficientresearchreproduction.The theirmodelingobjectivesortointerprettheirrelevanceforspecific",
+      "platformispubliclyavailableat:https://ds4rs.com. applications."
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文构建了一个用于检索推荐系统研究数据集的搜索引擎，属于科研工具而非直接面向用户的推荐/搜索产品核心算法创新。",
+    "translation": "DS4RS：面向推荐系统研究的社区驱动可解释数据集搜索引擎",
+    "summary_zh": "提出一个社区驱动的数据集搜索引擎，通过语义搜索和多属性匹配解决推荐系统研究中数据集发现难的问题，并提供搜索结果的可解释性。",
+    "key_points": [
+      "提出一个社区驱动的数据集搜索引擎，通过语义搜索和多属性匹配解决推荐系统研究中数据集发现难的问题，并提供搜索结果的可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09497v1",
+    "title": "From Ranking to Selection: A Simple but Efficient Dynamic Passage Selector for Retrieval Augmented Generation",
+    "authors": [
+      "Siyuan Meng",
+      "Junming Liu",
+      "Yirong Chen",
+      "Song Mao",
+      "Pinlong Cai",
+      "Guohang Yan",
+      "Botian Shi",
+      "Ding Wang"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) systems are often bottlenecked by their reranking modules, which typically score passages independently and select a fixed Top-K size. This approach struggles with complex multi-hop queries that require synthesizing evidence across multiple documents, creating a trade-off where small K values omit crucial information and large K values introduce noise. To address this, we introduce the Dynamic Passage Selector (DPS), a novel reranking framework that treats passage selection as a supervised learning problem. Unlike traditional point-wise or list-wise methods, DPS is fine-tuned to capture inter-passage dependencies and dynamically select the most relevant set of passages for generation. As a seamless plug-and-play module, DPS requires no modifications to the standard RAG pipeline. Comprehensive evaluations on five benchmarks show that DPS consistently outperforms state-of-the-art rerankers and fine-tuning methods. Notably, on the challenging MuSiQue dataset, DPS improves the F1-score by 30.06% and 15.4% over strong baselines like Qwen3-reranker and RankingGPT, respectively. Our results demonstrate that by enabling adaptive evidence selection, DPS substantially enhances reasoning capabilities in complex RAG scenarios.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-08-13T05:05:34Z",
+    "updated": "2025-08-13T05:05:34Z",
+    "url": "http://arxiv.org/abs/2508.09497v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09497v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于优化 RAG 系统中的重排序模块以解决多跳问答问题，属于纯 NLP/LLM 应用研究，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交信息流、用户建模等），根据评分标准应给予低分。",
+    "translation": "从排序到选择：一种用于检索增强生成的简单高效动态段落选择器",
+    "summary_zh": "提出动态段落选择器（DPS），将重排序建模为监督学习问题，通过捕捉段落间依赖关系动态选择最优证据集合，以替代传统的固定 Top-K 截断策略。",
+    "key_points": [
+      "提出动态段落选择器（DPS），将重排序建模为监督学习问题，通过捕捉段落间依赖关系动态选择最优证据集合，以替代传统的固定 Top-K 截断策略"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09826v1",
+    "title": "RankList -- A Listwise Preference Learning Framework for Predicting Subjective Preferences",
+    "authors": [
+      "Abinay Reddy Naini",
+      "Fernando Diaz",
+      "Carlos Busso"
+    ],
+    "summary": "Preference learning has gained significant attention in tasks involving subjective human judgments, such as \\emph{speech emotion recognition} (SER) and image aesthetic assessment. While pairwise frameworks such as RankNet offer robust modeling of relative preferences, they are inherently limited to local comparisons and struggle to capture global ranking consistency. To address these limitations, we propose RankList, a novel listwise preference learning framework that generalizes RankNet to structured list-level supervision. Our formulation explicitly models local and non-local ranking constraints within a probabilistic framework. The paper introduces a log-sum-exp approximation to improve training efficiency. We further extend RankList with skip-wise comparisons, enabling progressive exposure to complex list structures and enhancing global ranking fidelity. Extensive experiments demonstrate the superiority of our method across diverse modalities. On benchmark SER datasets (MSP-Podcast, IEMOCAP, BIIC Podcast), RankList achieves consistent improvements in Kendall's Tau and ranking accuracy compared to standard listwise baselines. We also validate our approach on aesthetic image ranking using the Artistic Image Aesthetics dataset, highlighting its broad applicability. Through ablation and cross-domain studies, we show that RankList not only improves in-domain ranking but also generalizes better across datasets. Our framework offers a unified, extensible approach for modeling ordered preferences in subjective learning scenarios.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-13T13:59:41Z",
+    "updated": "2025-08-13T13:59:41Z",
+    "url": "http://arxiv.org/abs/2508.09826v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09826v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于语音情感识别和图像美学评估等主观判断任务，未提及推荐系统或搜索引擎的具体应用，属于通用排序学习方法而非 RecSys 专用技术。",
+    "translation": "RankList：一种用于预测主观偏好的列表式偏好学习框架",
+    "summary_zh": "提出 RankList 框架，通过概率建模显式处理局部与非局部排序约束，并利用跳过式比较增强全局排序一致性，以解决传统成对方法在主观偏好任务中的局限性。",
+    "key_points": [
+      "提出 RankList 框架，通过概率建模显式处理局部与非局部排序约束，并利用跳过式比较增强全局排序一致性，以解决传统成对方法在主观偏好任务中的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09791v1",
+    "title": "LibRec: Benchmarking Retrieval-Augmented LLMs for Library Migration Recommendations",
+    "authors": [
+      "Junxiao Han",
+      "Yarong Wang",
+      "Xiaodong Gu",
+      "Cuiyun Gao",
+      "Yao Wan",
+      "Song Han",
+      "David Lo",
+      "Shuiguang Deng"
+    ],
+    "summary": "In this paper, we propose LibRec, a novel framework that integrates the capabilities of LLMs with retrieval-augmented generation(RAG) techniques to automate the recommendation of alternative libraries. The framework further employs in-context learning to extract migration intents from commit messages to enhance the accuracy of its recommendations. To evaluate the effectiveness of LibRec, we introduce LibEval, a benchmark designed to assess the performance in the library migration recommendation task. LibEval comprises 2,888 migration records associated with 2,368 libraries extracted from 2,324 Python repositories. Each migration record captures source-target library pairs, along with their corresponding migration intents and intent types. Based on LibEval, we evaluated the effectiveness of ten popular LLMs within our framework, conducted an ablation study to examine the contributions of key components within our framework, explored the impact of various prompt strategies on the framework's performance, assessed its effectiveness across various intent types, and performed detailed failure case analyses.",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2025-08-13T13:22:49Z",
+    "updated": "2025-08-13T13:22:49Z",
+    "url": "http://arxiv.org/abs/2508.09791v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09791v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯软件工程领域的研究，专注于代码库迁移推荐，与面向用户的推荐系统（RecSys）或搜索引擎（Search）完全无关。",
+    "translation": "LibRec：基于检索增强大语言模型的代码库迁移推荐基准研究",
+    "summary_zh": "该论文提出 LibRec 框架，利用检索增强生成（RAG）和上下文学习技术，根据提交信息自动推荐替代代码库以辅助软件迁移。",
+    "key_points": [
+      "该论文提出 LibRec 框架，利用检索增强生成（RAG）和上下文学习技术，根据提交信息自动推荐替代代码库以辅助软件迁移"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09463v1",
+    "title": "User-centric Subjective Leaderboard by Customizable Reward Modeling",
+    "authors": [
+      "Qi Jia",
+      "Xiujie Song",
+      "Zicheng Zhang",
+      "Yijin Guo",
+      "Kaiwei Zhang",
+      "Zijian Chen",
+      "Guangtao Zhai"
+    ],
+    "summary": "Existing benchmarks for large language models (LLMs) predominantely focus on assessing their capabilities through verifiable tasks. Such objective and static benchmarks offer limited utility for practical LLM selection, making it difficult for users to find suitable models for their individual needs. To bridge this gap, we present the first User-Centric Subjective Leaderboard (USL), which provides a preference-driven, dynamic ranking of LLMs across diverse real-world scenarios. Our work is built upon a thorough investigation of real human preference data, involving more than 10K subjective queries. Our investigation reveals significant diversity and contradictions in human preferences, which limit the effectiveness of state-of-the-art reward models. To address this, we introduce Customizable Reward Models (CRMs). With only 4B parameters, our CRM surpasses the performance of leading models such as GPT-4.1 and Gemini-2.5-pro, showing exceptional generalization capabilities across new topics and criteria. The USL, powered by CRMs, exhibits strong negative correlations to contradictory preferences.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-13T03:39:04Z",
+    "updated": "2025-08-13T03:39:04Z",
+    "url": "http://arxiv.org/abs/2508.09463v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09463v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 评估与奖励建模研究，旨在构建主观排行榜，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户行为建模），属于排除类别。",
+    "translation": "基于可定制奖励建模的以用户为中心的主观排行榜",
+    "summary_zh": "提出一种可定制的奖励模型（CRM）和用户中心主观排行榜（USL），通过捕捉人类偏好的多样性与矛盾性，动态评估大语言模型在真实场景中的表现。",
+    "key_points": [
+      "提出一种可定制的奖励模型（CRM）和用户中心主观排行榜（USL），通过捕捉人类偏好的多样性与矛盾性，动态评估大语言模型在真实场景中的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09755v1",
+    "title": "Transforming Questions and Documents for Semantically Aligned Retrieval-Augmented Generation",
+    "authors": [
+      "Seokgi Lee"
+    ],
+    "summary": "We introduce a novel retrieval-augmented generation (RAG) framework tailored for multihop question answering. First, our system uses large language model (LLM) to decompose complex multihop questions into a sequence of single-hop subquestions that guide document retrieval. This decomposition mitigates the ambiguity inherent in multi-hop queries by clearly targeting distinct knowledge facets. Second, instead of embedding raw or chunked documents directly, we generate answerable questions from each document chunk using Qwen3-8B, embed these generated questions, and retrieve relevant chunks via question-question embedding similarity. During inference, the retrieved chunks are then fed along with the original question into the RAG pipeline. We evaluate on three multihop question datasets (MuSiQue, 2WikiMultiHopQa, HotpotQA) from LongBench. Our method improves RAG performacne compared to baseline systems. Our contributions highlight the benefits of using answerable-question embeddings for RAG, and the effectiveness of LLM-based query decomposition for multihop scenarios.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-13T12:35:04Z",
+    "updated": "2025-08-13T12:35:04Z",
+    "url": "http://arxiv.org/abs/2508.09755v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09755v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 研究论文，专注于多跳问答（QA）任务中的检索增强生成（RAG），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "面向语义对齐检索增强生成的问题与文档转换方法",
+    "summary_zh": "提出一种针对多跳问答的 RAG 框架，利用 LLM 将复杂问题分解为子问题，并通过将文档块转换为可回答问题进行嵌入匹配，以实现更精准的语义检索。",
+    "key_points": [
+      "提出一种针对多跳问答的 RAG 框架，利用 LLM 将复杂问题分解为子问题，并通过将文档块转换为可回答问题进行嵌入匹配，以实现更精准的语义检索"
+    ]
+  }
+]

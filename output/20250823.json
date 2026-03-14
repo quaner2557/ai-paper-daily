@@ -1,1 +1,178 @@
-[]
+[
+  {
+    "arxiv_id": "2508.17125v1",
+    "title": "VQL: An End-to-End Context-Aware Vector Quantization Attention for Ultra-Long User Behavior Modeling",
+    "authors": [
+      "Kaiyuan Li",
+      "Yongxiang Tang",
+      "Yanhua Cheng",
+      "Yong Bai",
+      "Yanxiang Zeng",
+      "Chao Wang",
+      "Xialong Liu",
+      "Peng Jiang"
+    ],
+    "summary": "In large-scale recommender systems, ultra-long user behavior sequences encode rich signals of evolving interests. Extending sequence length generally improves accuracy, but directly modeling such sequences in production is infeasible due to latency and memory constraints. Existing solutions fall into two categories: (1) top-k retrieval, which truncates the sequence and may discard most attention mass when L >> k; and (2) encoder-based compression, which preserves coverage but often over-compresses and fails to incorporate key context such as temporal gaps or target-aware signals. Neither class achieves a good balance of low-loss compression, context awareness, and efficiency.\n  We propose VQL, a context-aware Vector Quantization Attention framework for ultra-long behavior modeling, with three innovations. (1) Key-only quantization: only attention keys are quantized, while values remain intact; we prove that softmax normalization yields an error bound independent of sequence length, and a codebook loss directly supervises quantization quality. This also enables L-free inference via offline caches. (2) Multi-scale quantization: attention heads are partitioned into groups, each with its own small codebook, which reduces quantization error while keeping cache size fixed. (3) Efficient context injection: static features (e.g., item category, modality) are directly integrated, and relative position is modeled via a separable temporal kernel. All context is injected without enlarging the codebook, so cached representations remain query-independent.\n  Experiments on three large-scale datasets (KuaiRand-1K, KuaiRec, TMALL) show that VQL consistently outperforms strong baselines, achieving higher accuracy while reducing inference latency, establishing a new state of the art in balancing accuracy and efficiency for ultra-long sequence recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-23T19:58:18Z",
+    "updated": "2025-08-23T19:58:18Z",
+    "url": "http://arxiv.org/abs/2508.17125v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17125v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的超长用户行为序列建模痛点，提出了创新的向量量化注意力机制，且源自电商场景（Tmall），完美契合核心领域 advances 与业务落地。",
+    "translation": "VQL：用于超长用户行为建模的端到端上下文感知向量量化注意力机制",
+    "summary_zh": "提出一种仅对注意力键进行量化而保留值完整的向量量化注意力框架，通过多尺度量化和高效上下文注入，在无需扩大缓存的前提下实现低损耗压缩与超长序列的高效推理。",
+    "key_points": [
+      "提出一种仅对注意力键进行量化而保留值完整的向量量化注意力框架，通过多尺度量化和高效上下文注入，在无需扩大缓存的前提下实现低损耗压缩与超长序列的高效推理"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17076v2",
+    "title": "Towards a Real-World Aligned Benchmark for Unlearning in Recommender Systems",
+    "authors": [
+      "Pierre Lubitzsch",
+      "Olga Ovcharenko",
+      "Hao Chen",
+      "Maarten de Rijke",
+      "Sebastian Schelter"
+    ],
+    "summary": "Modern recommender systems heavily leverage user interaction data to deliver personalized experiences. However, relying on personal data presents challenges in adhering to privacy regulations, such as the GDPR's \"right to be forgotten\". Machine unlearning (MU) aims to address these challenges by enabling the efficient removal of specific training data from models post-training, without compromising model utility or leaving residual information. However, current benchmarks for unlearning in recommender systems -- most notably CURE4Rec -- fail to reflect real-world operational demands. They focus narrowly on collaborative filtering, overlook tasks like session-based and next-basket recommendation, simulate unrealistically large unlearning requests, and ignore critical efficiency constraints. In this paper, we propose a set of design desiderata and research questions to guide the development of a more realistic benchmark for unlearning in recommender systems, with the goal of gathering feedback from the research community. Our benchmark proposal spans multiple recommendation tasks, includes domain-specific unlearning scenarios, and several unlearning algorithms -- including ones adapted from a recent NeurIPS unlearning competition. Furthermore, we argue for an unlearning setup that reflects the sequential, time-sensitive nature of real-world deletion requests. We also present a preliminary experiment in a next-basket recommendation setting based on our proposed desiderata and find that unlearning also works for sequential recommendation models, exposed to many small unlearning requests. In this case, we observe that a modification of a custom-designed unlearning algorithm for recommender systems outperforms general unlearning algorithms significantly, and that unlearning can be executed with a latency of only several seconds.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-23T16:05:40Z",
+    "updated": "2025-09-18T11:17:43Z",
+    "url": "http://arxiv.org/abs/2508.17076v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.17076v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的机器遗忘（隐私合规）问题，提出了更贴合实际业务场景的基准测试框架，属于核心领域 advances；虽涉及通用 ML 概念，但完全聚焦于 RecSys 落地挑战，且来自中国公司，符合高分标准。",
+    "translation": "迈向与现实世界对齐的推荐系统遗忘基准",
+    "summary_zh": "本文提出了一套旨在反映真实运营需求（如序列推荐、小批量高频删除请求）的推荐系统机器遗忘基准设计原则与研究问题，以解决现有基准在任务覆盖和效率约束上的不足。",
+    "key_points": [
+      "本文提出了一套旨在反映真实运营需求（如序列推荐、小批量高频删除请求）的推荐系统机器遗忘基准设计原则与研究问题，以解决现有基准在任务覆盖和效率约束上的不足"
+    ]
+  },
+  {
+    "arxiv_id": "2508.16998v1",
+    "title": "DeAR: Dual-Stage Document Reranking with Reasoning Agents via LLM Distillation",
+    "authors": [
+      "Abdelrahman Abdallah",
+      "Jamshid Mozafari",
+      "Bhawna Piryani",
+      "Adam Jatowt"
+    ],
+    "summary": "Large Language Models (LLMs) have transformed listwise document reranking by enabling global reasoning over candidate sets, yet single models often struggle to balance fine-grained relevance scoring with holistic cross-document analysis. We propose \\textbf{De}ep\\textbf{A}gent\\textbf{R}ank (\\textbf{\\DeAR}), an open-source framework that decouples these tasks through a dual-stage approach, achieving superior accuracy and interpretability. In \\emph{Stage 1}, we distill token-level relevance signals from a frozen 13B LLaMA teacher into a compact \\{3, 8\\}B student model using a hybrid of cross-entropy, RankNet, and KL divergence losses, ensuring robust pointwise scoring. In \\emph{Stage 2}, we attach a second LoRA adapter and fine-tune on 20K GPT-4o-generated chain-of-thought permutations, enabling listwise reasoning with natural-language justifications. Evaluated on TREC-DL19/20, eight BEIR datasets, and NovelEval-2306, \\DeAR surpasses open-source baselines by +5.1 nDCG@5 on DL20 and achieves 90.97 nDCG@10 on NovelEval, outperforming GPT-4 by +3.09. Without fine-tuning on Wikipedia, DeAR also excels in open-domain QA, achieving 54.29 Top-1 accuracy on Natural Questions, surpassing baselines like MonoT5, UPR, and RankGPT. Ablations confirm that dual-loss distillation ensures stable calibration, making \\DeAR a highly effective and interpretable solution for modern reranking systems.\\footnote{Dataset and code available at https://github.com/DataScienceUIBK/DeAR-Reranking.}.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-08-23T11:46:08Z",
+    "updated": "2025-08-23T11:46:08Z",
+    "url": "http://arxiv.org/abs/2508.16998v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.16998v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的核心环节“重排序（Reranking）”，提出了一种结合 LLM 推理与蒸馏的双阶段架构，属于 LLM 在搜索中的直接应用，而非纯 LLM 研究。",
+    "translation": "DeAR：基于 LLM 蒸馏与推理代理的双阶段文档重排序",
+    "summary_zh": "提出一种双阶段重排序框架，第一阶段通过蒸馏大模型获取细粒度相关性评分，第二阶段利用 LoRA 微调实现基于思维链的全局列表级推理与可解释性重排序。",
+    "key_points": [
+      "提出一种双阶段重排序框架，第一阶段通过蒸馏大模型获取细粒度相关性评分，第二阶段利用 LoRA 微调实现基于思维链的全局列表级推理与可解释性重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17079v1",
+    "title": "Zero-shot Multimodal Document Retrieval via Cross-modal Question Generation",
+    "authors": [
+      "Yejin Choi",
+      "Jaewoo Park",
+      "Janghan Yoon",
+      "Saejin Kim",
+      "Jaehyun Jeon",
+      "Youngjae Yu"
+    ],
+    "summary": "Rapid advances in Multimodal Large Language Models (MLLMs) have expanded information retrieval beyond purely textual inputs, enabling retrieval from complex real world documents that combine text and visuals. However, most documents are private either owned by individuals or confined within corporate silos and current retrievers struggle when faced with unseen domains or languages. To address this gap, we introduce PREMIR, a simple yet effective framework that leverages the broad knowledge of an MLLM to generate cross modal pre questions (preQs) before retrieval. Unlike earlier multimodal retrievers that compare embeddings in a single vector space, PREMIR leverages preQs from multiple complementary modalities to expand the scope of matching to the token level. Experiments show that PREMIR achieves state of the art performance on out of distribution benchmarks, including closed domain and multilingual settings, outperforming strong baselines across all retrieval metrics. We confirm the contribution of each component through in depth ablation studies, and qualitative analyses of the generated preQs further highlight the model's robustness in real world settings.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-23T16:14:41Z",
+    "updated": "2025-08-23T16:14:41Z",
+    "url": "http://arxiv.org/abs/2508.17079v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17079v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种利用 MLLM 生成跨模态问题以增强文档检索的方法，属于搜索/检索领域的具体应用，但侧重于通用文档检索而非典型的推荐系统场景。",
+    "translation": "基于跨模态问题生成的零样本多模态文档检索",
+    "summary_zh": "提出 PREMIR 框架，利用多模态大语言模型生成跨模态前置问题，将匹配范围扩展至 token 级别，以解决未见领域和多语言环境下的多模态文档检索难题。",
+    "key_points": [
+      "提出 PREMIR 框架，利用多模态大语言模型生成跨模态前置问题，将匹配范围扩展至 token 级别，以解决未见领域和多语言环境下的多模态文档检索难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17131v1",
+    "title": "The Power of Framing: How News Headlines Guide Search Behavior",
+    "authors": [
+      "Amrit Poudel",
+      "Maria Milkowski",
+      "Tim Weninger"
+    ],
+    "summary": "Search engines play a central role in how people gather information, but subtle cues like headline framing may influence not only what users believe but also how they search. While framing effects on judgment are well documented, their impact on subsequent search behavior is less understood. We conducted a controlled experiment where participants issued queries and selected from headlines filtered by specific linguistic frames. Headline framing significantly shaped follow-up queries: conflict and strategy frames disrupted alignment with prior selections, while episodic frames led to more concrete queries than thematic ones. We also observed modest short-term frame persistence that declined over time. These results suggest that even brief exposure to framing can meaningfully alter the direction of users information-seeking behavior.",
+    "categories": [
+      "cs.CL",
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2025-08-23T20:12:19Z",
+    "updated": "2025-08-23T20:12:19Z",
+    "url": "http://arxiv.org/abs/2508.17131v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17131v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "1DepartmentofComputerScienceandEngineering,",
+      "2ND-IBMTechnologyEthicsLab,",
+      "UniversityofNotreDame,NotreDame,IN,USA"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文属于用户行为与搜索交互的心理学/社会学研究，虽涉及搜索行为但缺乏推荐/搜索系统的核心算法或架构创新，且非中国公司（STO）成果故无额外加分。",
+    "translation": "框架的力量：新闻标题如何引导搜索行为",
+    "summary_zh": "通过控制实验揭示新闻标题的语言框架（如冲突、策略、情节框架）如何显著塑造用户的后续搜索查询模式及信息寻求方向。",
+    "key_points": [
+      "通过控制实验揭示新闻标题的语言框架（如冲突、策略、情节框架）如何显著塑造用户的后续搜索查询模式及信息寻求方向"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17028v1",
+    "title": "Improving Table Understanding with LLMs and Entity-Oriented Search",
+    "authors": [
+      "Thi-Nhung Nguyen",
+      "Hoang Ngo",
+      "Dinh Phung",
+      "Thuy-Trang Vu",
+      "Dat Quoc Nguyen"
+    ],
+    "summary": "Our work addresses the challenges of understanding tables. Existing methods often struggle with the unpredictable nature of table content, leading to a reliance on preprocessing and keyword matching. They also face limitations due to the lack of contextual information, which complicates the reasoning processes of large language models (LLMs). To overcome these challenges, we introduce an entity-oriented search method to improve table understanding with LLMs. This approach effectively leverages the semantic similarities between questions and table data, as well as the implicit relationships between table cells, minimizing the need for data preprocessing and keyword matching. Additionally, it focuses on table entities, ensuring that table cells are semantically tightly bound, thereby enhancing contextual clarity. Furthermore, we pioneer the use of a graph query language for table understanding, establishing a new research direction. Experiments show that our approach achieves new state-of-the-art performances on standard benchmarks WikiTableQuestions and TabFact.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-23T14:02:45Z",
+    "updated": "2025-08-23T14:02:45Z",
+    "url": "http://arxiv.org/abs/2508.17028v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17028v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于利用 LLM 和实体搜索提升表格理解（Table QA/推理），属于纯 NLP 任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "利用大语言模型与面向实体的搜索提升表格理解能力",
+    "summary_zh": "提出一种面向实体的搜索方法，结合图查询语言以增强大语言模型对表格数据的语义关联与上下文推理能力。",
+    "key_points": [
+      "提出一种面向实体的搜索方法，结合图查询语言以增强大语言模型对表格数据的语义关联与上下文推理能力"
+    ]
+  }
+]

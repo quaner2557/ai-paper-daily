@@ -1,1 +1,690 @@
-[]
+[
+  {
+    "arxiv_id": "2508.04618v2",
+    "title": "HiD-VAE: Interpretable Generative Recommendation via Hierarchical and Disentangled Semantic IDs",
+    "authors": [
+      "Dengzhao Fang",
+      "Jingtong Gao",
+      "Chengcheng Zhu",
+      "Yu Li",
+      "Xiangyu Zhao",
+      "Yi Chang"
+    ],
+    "summary": "Recommender systems are indispensable for helping users navigate the immense item catalogs of modern online platforms. Recently, generative recommendation has emerged as a promising paradigm, unifying the conventional retrieve-and-rank pipeline into an end-to-end model capable of dynamic generation. However, existing generative methods are fundamentally constrained by their unsupervised tokenization, which generates semantic IDs suffering from two critical flaws: (1) they are semantically flat and uninterpretable, lacking a coherent hierarchy, and (2) they are prone to representation entanglement (i.e., ``ID collisions''), which harms recommendation accuracy and diversity. To overcome these limitations, we propose HiD-VAE, a novel framework that learns hierarchically disentangled item representations through two core innovations. First, HiD-VAE pioneers a hierarchically-supervised quantization process that aligns discrete codes with multi-level item tags, yielding more uniform and disentangled IDs. Crucially, the trained codebooks can predict hierarchical tags, providing a traceable and interpretable semantic path for each recommendation. Second, to combat representation entanglement, HiD-VAE incorporates a novel uniqueness loss that directly penalizes latent space overlap. This mechanism not only resolves the critical ID collision problem but also promotes recommendation diversity by ensuring a more comprehensive utilization of the item representation space. These high-quality, disentangled IDs provide a powerful foundation for downstream generative models. Extensive experiments on three public benchmarks validate HiD-VAE's superior performance against state-of-the-art methods. The code is available at https://anonymous.4open.science/r/HiD-VAE-84B2.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-06T16:45:05Z",
+    "updated": "2025-09-11T07:51:20Z",
+    "url": "http://arxiv.org/abs/2508.04618v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.04618v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的语义 ID 构建问题，提出了分层解耦的新架构以解决可解释性和 ID 冲突痛点，属于核心推荐领域的高价值创新；且来自 TAL（好未来），符合额外加分条件。",
+    "translation": "HiD-VAE：基于分层解耦语义 ID 的可解释生成式推荐方法",
+    "summary_zh": "提出 HiD-VAE 框架，通过分层监督量化将离散代码与多级标签对齐，并引入唯一性损失函数消除潜在空间重叠，从而生成具有可解释层级结构且无冲突的高质量物品语义 ID。",
+    "key_points": [
+      "提出 HiD-VAE 框架，通过分层监督量化将离散代码与多级标签对齐，并引入唯一性损失函数消除潜在空间重叠，从而生成具有可解释层级结构且无冲突的高质量物品语义 ID"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04152v1",
+    "title": "Bridging Search and Recommendation through Latent Cross Reasoning",
+    "authors": [
+      "Teng Shi",
+      "Weicong Qin",
+      "Weijie Yu",
+      "Xiao Zhang",
+      "Ming He",
+      "Jianping Fan",
+      "Jun Xu"
+    ],
+    "summary": "Search and recommendation (S&R) are fundamental components of modern online platforms, yet effectively leveraging search behaviors to improve recommendation remains a challenging problem. User search histories often contain noisy or irrelevant signals that can even degrade recommendation performance, while existing approaches typically encode S&R histories either jointly or separately without explicitly identifying which search behaviors are truly useful. Inspired by the human decision-making process, where one first identifies recommendation intent and then reasons about relevant evidence, we design a latent cross reasoning framework that first encodes user S&R histories to capture global interests and then iteratively reasons over search behaviors to extract signals beneficial for recommendation. Contrastive learning is employed to align latent reasoning states with target items, and reinforcement learning is further introduced to directly optimize ranking performance. Extensive experiments on public benchmarks demonstrate consistent improvements over strong baselines, validating the importance of reasoning in enhancing search-aware recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-06T07:28:11Z",
+    "updated": "2025-08-06T07:28:11Z",
+    "url": "http://arxiv.org/abs/2508.04152v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04152v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决搜索与推荐联合建模的核心难题，提出利用潜在交叉推理机制从搜索行为中提取有效信号以优化推荐，完全符合核心领域进展的高优先级标准；作为中国公司成果，在原本极高的相关性基础上额外加分。",
+    "translation": "通过潜在交叉推理桥接搜索与推荐",
+    "summary_zh": "本文提出一种潜在交叉推理框架，模拟人类决策过程，先编码用户全局兴趣，再迭代推理搜索行为以提取对推荐有益的信号，并结合对比学习与强化学习直接优化排序性能。",
+    "key_points": [
+      "本文提出一种潜在交叉推理框架，模拟人类决策过程，先编码用户全局兴趣，再迭代推理搜索行为以提取对推荐有益的信号，并结合对比学习与强化学习直接优化排序性能"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04145v1",
+    "title": "Benefit from Rich: Tackling Search Interaction Sparsity in Search Enhanced Recommendation",
+    "authors": [
+      "Teng Shi",
+      "Weijie Yu",
+      "Xiao Zhang",
+      "Ming He",
+      "Jianping Fan",
+      "Jun Xu"
+    ],
+    "summary": "In modern online platforms, search and recommendation (S&R) often coexist, offering opportunities for performance improvement through search-enhanced approaches. Existing studies show that incorporating search signals boosts recommendation performance. However, the effectiveness of these methods relies heavily on rich search interactions. They primarily benefit a small subset of users with abundant search behavior, while offering limited improvements for the majority of users who exhibit only sparse search activity. To address the problem of sparse search data in search-enhanced recommendation, we face two key challenges: (1) how to learn useful search features for users with sparse search interactions, and (2) how to design effective training objectives under sparse conditions. Our idea is to leverage the features of users with rich search interactions to enhance those of users with sparse search interactions. Based on this idea, we propose GSERec, a method that utilizes message passing on the User-Code Graphs to alleviate data sparsity in Search-Enhanced Recommendation. Specifically, we utilize Large Language Models (LLMs) with vector quantization to generate discrete codes, which connect similar users and thereby construct the graph. Through message passing on this graph, embeddings of users with rich search data are propagated to enhance the embeddings of users with sparse interactions. To further ensure that the message passing captures meaningful information from truly similar users, we introduce a contrastive loss to better model user similarities. The enhanced user representations are then integrated into downstream search-enhanced recommendation models. Experiments on three real-world datasets show that GSERec consistently outperforms baselines, especially for users with sparse search behaviors.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-06T07:16:40Z",
+    "updated": "2025-08-06T07:16:40Z",
+    "url": "http://arxiv.org/abs/2508.04145v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04145v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索增强推荐中的交互稀疏问题，提出利用 LLM 生成离散码构建用户图并通过消息传递解决稀疏性，属于核心推荐系统架构创新且来自工业界（OPPO）。",
+    "translation": "受益于丰富数据：解决搜索增强推荐中的搜索交互稀疏问题",
+    "summary_zh": "提出 GSERec 方法，利用 LLM 和向量量化生成离散码构建用户 - 码图，通过图上的消息传递将富搜索行为用户的特征迁移至稀疏用户，以解决搜索增强推荐中的数据稀疏难题。",
+    "key_points": [
+      "提出 GSERec 方法，利用 LLM 和向量量化生成离散码构建用户 - 码图，通过图上的消息传递将富搜索行为用户的特征迁移至稀疏用户，以解决搜索增强推荐中的数据稀疏难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04032v1",
+    "title": "Enhancing Serendipity Recommendation System by Constructing Dynamic User Knowledge Graphs with Large Language Models",
+    "authors": [
+      "Qian Yong",
+      "Yanhui Li",
+      "Jialiang Shi",
+      "Yaguang Dou",
+      "Tian Qi"
+    ],
+    "summary": "The feedback loop in industrial recommendation systems reinforces homogeneous content, creates filter bubble effects, and diminishes user satisfaction. Recently, large language models(LLMs) have demonstrated potential in serendipity recommendation, thanks to their extensive world knowledge and superior reasoning capabilities. However, these models still face challenges in ensuring the rationality of the reasoning process, the usefulness of the reasoning results, and meeting the latency requirements of industrial recommendation systems (RSs). To address these challenges, we propose a method that leverages llm to dynamically construct user knowledge graphs, thereby enhancing the serendipity of recommendation systems. This method comprises a two stage framework:(1) two-hop interest reasoning, where user static profiles and historical behaviors are utilized to dynamically construct user knowledge graphs via llm. Two-hop reasoning, which can enhance the quality and accuracy of LLM reasoning results, is then performed on the constructed graphs to identify users' potential interests; and(2) Near-line adaptation, a cost-effective approach to deploying the aforementioned models in industrial recommendation systems. We propose a u2i (user-to-item) retrieval model that also incorporates i2i (item-to-item) retrieval capabilities, the retrieved items not only exhibit strong relevance to users' newly emerged interests but also retain the high conversion rate of traditional u2i retrieval. Our online experiments on the Dewu app, which has tens of millions of users, indicate that the method increased the exposure novelty rate by 4.62%, the click novelty rate by 4.85%, the average view duration per person by 0.15%, unique visitor click through rate by 0.07%, and unique visitor interaction penetration by 0.30%, enhancing user experience.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-06T02:52:09Z",
+    "updated": "2025-08-06T02:52:09Z",
+    "url": "http://arxiv.org/abs/2508.04032v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04032v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的惊喜度（Serendipity）和过滤气泡问题，提出利用 LLM 动态构建用户知识图谱的具体架构，并已在得物 App 进行工业界落地，完全符合核心领域 advances 及 LLM for RecSys 的高优先级标准。",
+    "translation": "利用大语言模型构建动态用户知识图谱以增强推荐系统的惊喜度",
+    "summary_zh": "本文提出一种两阶段框架，利用大语言模型基于用户静态画像和历史行为动态构建用户知识图谱并进行双跳推理以挖掘潜在兴趣，同时结合近线适配策略将生成的兴趣信号融入 U2I 与 I2I 混合召回模型中，旨在解决工业推荐系统中的同质化问题并提升内容惊喜度。",
+    "key_points": [
+      "本文提出一种两阶段框架，利用大语言模型基于用户静态画像和历史行为动态构建用户知识图谱并进行双跳推理以挖掘潜在兴趣，同时结合近线适配策略将生成的兴趣信号融入 U2I 与 I2I 混合召回模型中，旨在解决工业推荐系统中的同质化问题并提升内容惊喜度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04247v3",
+    "title": "I$^3$-MRec: Invariant Learning with Information Bottleneck for Incomplete Modality Recommendation",
+    "authors": [
+      "Huilin Chen",
+      "Miaomiao Cai",
+      "Fan Liu",
+      "Zhiyong Cheng",
+      "Richang Hong",
+      "Meng Wang"
+    ],
+    "summary": "Multimodal recommender systems (MRS) improve recommendation performance by integrating complementary semantic information from multiple modalities. However, the assumption of complete multimodality rarely holds in practice due to missing images and incomplete descriptions, hindering model robustness and generalization. To address these challenges, we introduce a novel method called \\textbf{I$^3$-MRec}, which uses \\textbf{I}nvariant learning with \\textbf{I}nformation bottleneck principle for \\textbf{I}ncomplete \\textbf{M}odality \\textbf{Rec}ommendation. To achieve robust performance in missing modality scenarios, I$^3$-MRec enforces two pivotal properties: (i) cross-modal preference invariance, ensuring consistent user preference modeling across varying modality environments, and (ii) compact yet effective multimodal representation, as modality information becomes unreliable in such scenarios, reducing the dependence on modality-specific information is particularly important. By treating each modality as a distinct semantic environment, I$^3$-MRec employs invariant risk minimization (IRM) to learn preference-oriented representations. In parallel, a missing-aware fusion module is developed to explicitly simulate modality-missing scenarios. Built upon the Information Bottleneck (IB) principle, the module aims to preserve essential user preference signals across these scenarios while effectively compressing modality-specific information. Extensive experiments conducted on three real-world datasets demonstrate that I$^3$-MRec consistently outperforms existing state-of-the-art MRS methods across various modality-missing scenarios, highlighting its effectiveness and robustness in practical applications.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-08-06T09:29:50Z",
+    "updated": "2025-10-15T11:10:53Z",
+    "url": "http://arxiv.org/abs/2508.04247v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.04247v3.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的模态缺失实际问题，提出基于不变学习和信息瓶颈的新架构，属于核心领域高优先级创新；且来自中国企业 TAL，按规定额外 +1 分（基础分 9+1=10）。",
+    "translation": "I³-MRec：基于不变学习与信息瓶颈的不完整模态推荐方法",
+    "summary_zh": "提出 I³-MRec 方法，通过不变风险最小化确保跨模态偏好一致性，并利用信息瓶颈原理压缩模态特异性信息，以解决多模态推荐中因数据缺失导致的鲁棒性问题。",
+    "key_points": [
+      "提出 I³-MRec 方法，通过不变风险最小化确保跨模态偏好一致性，并利用信息瓶颈原理压缩模态特异性信息，以解决多模态推荐中因数据缺失导致的鲁棒性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.06550v1",
+    "title": "Generative Bid Shading in Real-Time Bidding Advertising",
+    "authors": [
+      "Yinqiu Huang",
+      "Hao Ma",
+      "Wenshuai Chen",
+      "Shuli Wang",
+      "Yongqiang Zhang",
+      "Xue Wei",
+      "Yinhua Zhu",
+      "Haitao Wang",
+      "Xingxing Wang"
+    ],
+    "summary": "Bid shading plays a crucial role in Real-Time Bidding~(RTB) by adaptively adjusting the bid to avoid advertisers overspending. Existing mainstream two-stage methods, which first model bid landscapes and then optimize surplus using operations research techniques, are constrained by unimodal assumptions that fail to adapt for non-convex surplus curves and are vulnerable to cascading errors in sequential workflows. Additionally, existing discretization models of continuous values ignore the dependence between discrete intervals, reducing the model's error correction ability, while sample selection bias in bidding scenarios presents further challenges for prediction. To address these issues, this paper introduces Generative Bid Shading~(GBS), which comprises two primary components: (1) an end-to-end generative model that utilizes an autoregressive approach to generate shading ratios by stepwise residuals, capturing complex value dependencies without relying on predefined priors; and (2) a reward preference alignment system, which incorporates a channel-aware hierarchical dynamic network~(CHNet) as the reward model to extract fine-grained features, along with modules for surplus optimization and exploration utility reward alignment, ultimately optimizing both short-term and long-term surplus using group relative policy optimization~(GRPO). Extensive experiments on both offline and online A/B tests validate GBS's effectiveness. Moreover, GBS has been deployed on the Meituan DSP platform, serving billions of bid requests daily.",
+    "categories": [
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2025-08-06T03:34:49Z",
+    "updated": "2025-08-06T03:34:49Z",
+    "url": "http://arxiv.org/abs/2508.06550v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.06550v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "Meituan ChongqingUniversity Meituan",
+      "Bid Landscape Winning rate Operation andthenoptimizesurplususingoperationsresearchtechniques, Forecasting Research"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文直接解决广告推荐系统中的实时竞价（RTB）出价平滑核心问题，且已在中国本地生活巨头美团的生产环境中大规模部署，完全符合高优先级标准。",
+    "translation": "实时竞价广告中的生成式出价平滑方法",
+    "summary_zh": "提出一种端到端的生成式出价平滑框架，利用自回归模型逐步生成残差以捕捉复杂价值依赖，并结合奖励偏好对齐机制优化短期与长期盈余。",
+    "key_points": [
+      "提出一种端到端的生成式出价平滑框架，利用自回归模型逐步生成残差以捕捉复杂价值依赖，并结合奖励偏好对齐机制优化短期与长期盈余"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04792v3",
+    "title": "Federated Continual Recommendation",
+    "authors": [
+      "Jaehyung Lim",
+      "Wonbin Kweon",
+      "Woojoo Kim",
+      "Junyoung Kim",
+      "Seongjin Choi",
+      "Dongha Kim",
+      "Hwanjo Yu"
+    ],
+    "summary": "The increasing emphasis on privacy in recommendation systems has led to the adoption of Federated Learning (FL) as a privacy-preserving solution, enabling collaborative training without sharing user data. While Federated Recommendation (FedRec) effectively protects privacy, existing methods struggle with non-stationary data streams, failing to maintain consistent recommendation quality over time. On the other hand, Continual Learning Recommendation (CLRec) methods address evolving user preferences but typically assume centralized data access, making them incompatible with FL constraints. To bridge this gap, we introduce Federated Continual Recommendation (FCRec), a novel task that integrates FedRec and CLRec, requiring models to learn from streaming data while preserving privacy. As a solution, we propose F3CRec, a framework designed to balance knowledge retention and adaptation under the strict constraints of FCRec. F3CRec introduces two key components: Adaptive Replay Memory on the client side, which selectively retains past preferences based on user-specific shifts, and Item-wise Temporal Mean on the server side, which integrates new knowledge while preserving prior information. Extensive experiments demonstrate that F3CRec outperforms existing approaches in maintaining recommendation quality over time in a federated environment.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2025-08-06T18:06:36Z",
+    "updated": "2025-08-17T00:28:18Z",
+    "url": "http://arxiv.org/abs/2508.04792v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.04792v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的隐私保护（联邦学习）与动态用户偏好（持续学习）两大核心痛点，提出了具体的融合架构 F3CRec，属于高优先级的核心领域进展。",
+    "translation": "联邦持续推荐：兼顾隐私保护与动态偏好的新框架",
+    "summary_zh": "本文提出联邦持续推荐新任务及 F3CRec 框架，通过客户端自适应回放记忆与服务端项级时序均值机制，在严格隐私约束下实现了对非平稳数据流的持续学习与知识保留。",
+    "key_points": [
+      "本文提出联邦持续推荐新任务及 F3CRec 框架，通过客户端自适应回放记忆与服务端项级时序均值机制，在严格隐私约束下实现了对非平稳数据流的持续学习与知识保留"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04683v1",
+    "title": "Query Attribute Modeling: Improving search relevance with Semantic Search and Meta Data Filtering",
+    "authors": [
+      "Karthik Menon",
+      "Batool Arhamna Haider",
+      "Muhammad Arham",
+      "Kanwal Mehreen",
+      "Ram Mohan Rao Kadiyala",
+      "Hamza Farooq"
+    ],
+    "summary": "This study introduces Query Attribute Modeling (QAM), a hybrid framework that enhances search precision and relevance by decomposing open text queries into structured metadata tags and semantic elements. QAM addresses traditional search limitations by automatically extracting metadata filters from free-form text queries, reducing noise and enabling focused retrieval of relevant items.\n  Experimental evaluation using the Amazon Toys Reviews dataset (10,000 unique items with 40,000+ reviews and detailed product attributes) demonstrated QAM's superior performance, achieving a mean average precision at 5 (mAP@5) of 52.99\\%. This represents significant improvement over conventional methods, including BM25 keyword search, encoder-based semantic similarity search, cross-encoder re-ranking, and hybrid search combining BM25 and semantic results via Reciprocal Rank Fusion (RRF). The results establish QAM as a robust solution for Enterprise Search applications, particularly in e-commerce systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-06T17:47:00Z",
+    "updated": "2025-08-06T17:47:00Z",
+    "url": "http://arxiv.org/abs/2508.04683v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04683v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索场景，提出了解析用户查询属性以结合语义搜索与元数据过滤的新框架，显著提升了搜索相关性；虽涉及语义技术，但核心是解决搜索工程问题而非纯 LLM 研究，且来自中国企业额外加 1 分。",
+    "translation": "查询属性建模：利用语义搜索与元数据过滤提升搜索相关性",
+    "summary_zh": "提出查询属性建模（QAM）框架，通过将自由文本查询自动分解为结构化元数据标签和语义元素，实现噪声过滤与精准检索的混合搜索机制。",
+    "key_points": [
+      "提出查询属性建模（QAM）框架，通过将自由文本查询自动分解为结构化元数据标签和语义元素，实现噪声过滤与精准检索的混合搜索机制"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04604v2",
+    "title": "TURA: Tool-Augmented Unified Retrieval Agent for AI Search",
+    "authors": [
+      "Zhejun Zhao",
+      "Yuchen Li",
+      "Alley Liu",
+      "Yuehu Dong",
+      "Xiaolong Wei",
+      "Lixue Zheng",
+      "Pingsheng Liu",
+      "Dongdong Shen",
+      "Long Xia",
+      "Jiashu Zhao",
+      "Dawei Yin"
+    ],
+    "summary": "The advent of Large Language Models (LLMs) is transforming search engines into conversational AI search products, primarily using Retrieval-Augmented Generation (RAG) on web corpora. However, this paradigm has significant industrial limitations. Traditional RAG approaches struggle with real-time needs and structured queries that require accessing dynamically generated content like ticket availability or inventory. Limited to indexing static pages, search engines cannot perform the interactive queries needed for such time-sensitive data. Academic research has focused on optimizing RAG for static content, overlooking complex intents and the need for dynamic sources like databases and real-time APIs. To bridge this gap, we introduce TURA (Tool-Augmented Unified Retrieval Agent for AI Search), a novel three-stage framework that combines RAG with agentic tool-use to access both static content and dynamic, real-time information. TURA has three key components: an Intent-Aware Retrieval module to decompose queries and retrieve information sources encapsulated as Model Context Protocol (MCP) Servers, a DAG-based Task Planner that models task dependencies as a Directed Acyclic Graph (DAG) for optimal parallel execution, and a lightweight Distilled Agent Executor for efficient tool calling. TURA is the first architecture to systematically bridge the gap between static RAG and dynamic information sources for a world-class AI search product. Serving tens of millions of users, it leverages an agentic framework to deliver robust, real-time answers while meeting the low-latency demands of a large-scale industrial system.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-08-06T16:24:17Z",
+    "updated": "2026-03-12T12:25:28Z",
+    "url": "http://arxiv.org/abs/2508.04604v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.04604v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 AI 搜索产品，提出结合 RAG 与工具调用的新架构以解决实时动态数据检索问题，属于核心搜索技术突破。",
+    "translation": "TURA：面向 AI 搜索的工具增强统一检索代理",
+    "summary_zh": "提出一种三阶段框架，通过意图感知检索、基于 DAG 的任务规划及轻量级代理执行，将静态 RAG 与动态 API 工具调用相结合，以实现对实时结构化数据的低延迟搜索。",
+    "key_points": [
+      "提出一种三阶段框架，通过意图感知检索、基于 DAG 的任务规划及轻量级代理执行，将静态 RAG 与动态 API 工具调用相结合，以实现对实时结构化数据的低延迟搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04571v1",
+    "title": "Do Recommender Systems Really Leverage Multimodal Content? A Comprehensive Analysis on Multimodal Representations for Recommendation",
+    "authors": [
+      "Claudio Pomo",
+      "Matteo Attimonelli",
+      "Danilo Danese",
+      "Fedelucio Narducci",
+      "Tommaso Di Noia"
+    ],
+    "summary": "Multimodal Recommender Systems aim to improve recommendation accuracy by integrating heterogeneous content, such as images and textual metadata. While effective, it remains unclear whether their gains stem from true multimodal understanding or increased model complexity. This work investigates the role of multimodal item embeddings, emphasizing the semantic informativeness of the representations. Initial experiments reveal that embeddings from standard extractors (e.g., ResNet50, Sentence-Bert) enhance performance, but rely on modality-specific encoders and ad hoc fusion strategies that lack control over cross-modal alignment. To overcome these limitations, we leverage Large Vision-Language Models (LVLMs) to generate multimodal-by-design embeddings via structured prompts. This approach yields semantically aligned representations without requiring any fusion. Experiments across multiple settings show notable performance improvements. Furthermore, LVLMs embeddings offer a distinctive advantage: they can be decoded into structured textual descriptions, enabling direct assessment of their multimodal comprehension. When such descriptions are incorporated as side content into recommender systems, they improve recommendation performance, empirically validating the semantic depth and alignment encoded within LVLMs outputs. Our study highlights the importance of semantically rich representations and positions LVLMs as a compelling foundation for building robust and meaningful multimodal representations in recommendation tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-06T15:53:58Z",
+    "updated": "2025-08-06T15:53:58Z",
+    "url": "http://arxiv.org/abs/2508.04571v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04571v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态推荐系统，提出利用 LVLM 生成语义对齐的嵌入以解决传统融合策略的局限性，属于核心领域的高优先级创新。",
+    "translation": "推荐系统真的利用多模态内容了吗？多模态表示在推荐中的综合分析",
+    "summary_zh": "本文提出利用大视觉语言模型（LVLM）通过结构化提示生成原生多模态嵌入，替代传统的独立编码器与融合策略，以实现更优的跨模态语义对齐并提升推荐效果。",
+    "key_points": [
+      "本文提出利用大视觉语言模型（LVLM）通过结构化提示生成原生多模态嵌入，替代传统的独立编码器与融合策略，以实现更优的跨模态语义对齐并提升推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04001v2",
+    "title": "ConvMix: A Mixed-Criteria Data Augmentation Framework for Conversational Dense Retrieval",
+    "authors": [
+      "Fengran Mo",
+      "Jinghan Zhang",
+      "Yuchen Hui",
+      "Jia Ao Sun",
+      "Zhichao Xu",
+      "Zhan Su",
+      "Jian-Yun Nie"
+    ],
+    "summary": "Conversational search aims to satisfy users' complex information needs via multiple-turn interactions. The key challenge lies in revealing real users' search intent from the context-dependent queries. Previous studies achieve conversational search by fine-tuning a conversational dense retriever with relevance judgments between pairs of context-dependent queries and documents. However, this training paradigm encounters data scarcity issues. To this end, we propose ConvMix, a mixed-criteria framework to augment conversational dense retrieval, which covers more aspects than existing data augmentation frameworks. We design a two-sided relevance judgment augmentation schema in a scalable manner via the aid of large language models. Besides, we integrate the framework with quality control mechanisms to obtain semantically diverse samples and near-distribution supervisions to combine various annotated data. Experimental results on five widely used benchmarks show that the conversational dense retriever trained by our ConvMix framework outperforms previous baseline methods, which demonstrates our superior effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-08-06T01:28:49Z",
+    "updated": "2025-11-12T13:43:30Z",
+    "url": "http://arxiv.org/abs/2508.04001v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.04001v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话式搜索（Conversational Search）中的稠密检索问题，利用 LLM 进行数据增强以解决训练数据稀缺，属于搜索核心技术的直接应用；虽涉及 LLM 但非纯 LLM 研究，且来自 TAL 公司，故给予高分。",
+    "translation": "ConvMix：一种面向对话式稠密检索的混合标准数据增强框架",
+    "summary_zh": "提出 ConvMix 框架，利用大语言模型构建双向相关性判断增强机制，并通过质量控制整合多样化样本与近分布监督信号，以解决对话式搜索中上下文依赖查询的训练数据稀缺问题。",
+    "key_points": [
+      "提出 ConvMix 框架，利用大语言模型构建双向相关性判断增强机制，并通过质量控制整合多样化样本与近分布监督信号，以解决对话式搜索中上下文依赖查询的训练数据稀缺问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04266v3",
+    "title": "ShoppingBench: A Real-World Intent-Grounded Shopping Benchmark for LLM-based Agents",
+    "authors": [
+      "Jiangyuan Wang",
+      "Kejun Xiao",
+      "Qi Sun",
+      "Huaipeng Zhao",
+      "Tao Luo",
+      "Jian Dong Zhang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Existing benchmarks in e-commerce primarily focus on basic user intents, such as finding or purchasing products. However, real-world users often pursue more complex goals, such as applying vouchers, managing budgets, and finding multi-products seller. To bridge this gap, we propose ShoppingBench, a novel end-to-end shopping benchmark designed to encompass increasingly challenging levels of grounded intent. Specifically, we propose a scalable framework to simulate user instructions based on various intents derived from sampled real-world products. To facilitate consistent and reliable evaluations, we provide a large-scale shopping sandbox that serves as an interactive simulated environment, incorporating over 2.5 million real-world products. Experimental results demonstrate that even state-of-the-art language agents (such as GPT-4.1) achieve absolute success rates under 50% on our benchmark tasks, highlighting the significant challenges posed by our ShoppingBench. In addition, we propose a trajectory distillation strategy and leverage supervised fine-tuning, along with reinforcement learning on synthetic trajectories, to distill the capabilities of a large language agent into a smaller one. As a result, our trained agent achieves competitive performance compared to GPT-4.1.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-06T09:51:30Z",
+    "updated": "2025-12-10T09:50:52Z",
+    "url": "http://arxiv.org/abs/2508.04266v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.04266v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了面向电商场景的 LLM Agent 基准与训练方法，直接服务于复杂意图下的购物推荐与搜索任务，虽侧重评估框架但具有明确的 RecSys 业务落地价值。",
+    "translation": "ShoppingBench：一个面向基于 LLM 代理的真实世界意图驱动购物基准",
+    "summary_zh": "本文提出 ShoppingBench，通过构建包含数百万真实商品的交互式模拟环境，旨在评估和优化 LLM 代理在处理优惠券使用、预算管理等复杂购物意图时的能力。",
+    "key_points": [
+      "本文提出 ShoppingBench，通过构建包含数百万真实商品的交互式模拟环境，旨在评估和优化 LLM 代理在处理优惠券使用、预算管理等复杂购物意图时的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04206v1",
+    "title": "ViLLA-MMBench: A Unified Benchmark Suite for LLM-Augmented Multimodal Movie Recommendation",
+    "authors": [
+      "Fatemeh Nazary",
+      "Ali Tourani",
+      "Yashar Deldjoo",
+      "Tommaso Di Noia"
+    ],
+    "summary": "Recommending long-form video content demands joint modeling of visual, audio, and textual modalities, yet most benchmarks address only raw features or narrow fusion. We present ViLLA-MMBench, a reproducible, extensible benchmark for LLM-augmented multimodal movie recommendation. Built on MovieLens and MMTF-14K, it aligns dense item embeddings from three modalities: audio (block-level, i-vector), visual (CNN, AVF), and text. Missing or sparse metadata is automatically enriched using state-of-the-art LLMs (e.g., OpenAI Ada), generating high-quality synopses for thousands of movies. All text (raw or augmented) is embedded with configurable encoders (Ada, LLaMA-2, Sentence-T5), producing multiple ready-to-use sets. The pipeline supports interchangeable early-, mid-, and late-fusion (concatenation, PCA, CCA, rank-aggregation) and multiple backbones (MF, VAECF, VBPR, AMR, VMF) for ablation. Experiments are fully declarative via a single YAML file. Evaluation spans accuracy (Recall, nDCG) and beyond-accuracy metrics: cold-start rate, coverage, novelty, diversity, fairness. Results show LLM-based augmentation and strong text embeddings boost cold-start and coverage, especially when fused with audio-visual features. Systematic benchmarking reveals universal versus backbone- or metric-specific combinations. Open-source code, embeddings, and configs enable reproducible, fair multimodal RS research and advance principled generative AI integration in large-scale recommendation. Code: https://recsys-lab.github.io/ViLLA-MMBench",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-06T08:39:07Z",
+    "updated": "2025-08-06T08:39:07Z",
+    "url": "http://arxiv.org/abs/2508.04206v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04206v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态电影推荐系统，提出了利用 LLM 增强元数据及统一评估基准的具体方法，属于明确的 RecSys 应用而非纯 LLM 研究。",
+    "translation": "ViLLA-MMBench：一个用于 LLM 增强多模态电影推荐的统一基准套件",
+    "summary_zh": "该论文提出 ViLLA-MMBench 基准，通过 LLM 自动补全缺失的电影元数据并融合视听文多模态特征，旨在解决长视频推荐中的冷启动问题并提供可复现的多模态推荐评估框架。",
+    "key_points": [
+      "该论文提出 ViLLA-MMBench 基准，通过 LLM 自动补全缺失的电影元数据并融合视听文多模态特征，旨在解决长视频推荐中的冷启动问题并提供可复现的多模态推荐评估框架"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04419v1",
+    "title": "Algorithm Selection for Recommender Systems via Meta-Learning on Algorithm Characteristics",
+    "authors": [
+      "Jarne Mathi Decker",
+      "Joeran Beel"
+    ],
+    "summary": "The Algorithm Selection Problem for recommender systems-choosing the best algorithm for a given user or context-remains a significant challenge. Traditional meta-learning approaches often treat algorithms as categorical choices, ignoring their intrinsic properties. Recent work has shown that explicitly characterizing algorithms with features can improve model performance in other domains. Building on this, we propose a per-user meta-learning approach for recommender system selection that leverages both user meta-features and automatically extracted algorithm features from source code. Our preliminary results, averaged over six diverse datasets, show that augmenting a meta-learner with algorithm features improves its average NDCG@10 performance by 8.83% from 0.135 (user features only) to 0.147. This enhanced model outperforms the Single Best Algorithm baseline (0.131) and successfully closes 10.5% of the performance gap to a theoretical oracle selector. These findings show that even static source code metrics provide a valuable predictive signal, presenting a promising direction for building more robust and intelligent recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-06T13:06:24Z",
+    "updated": "2025-08-06T13:06:24Z",
+    "url": "http://arxiv.org/abs/2508.04419v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04419v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "Oracle"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的算法选择问题，提出利用元学习和算法特征进行个性化模型选择，属于核心推荐技术优化。",
+    "translation": "基于算法特征的元学习推荐系统算法选择方法",
+    "summary_zh": "提出一种面向用户的元学习框架，通过结合用户元特征与从源代码自动提取的算法特征，动态为特定用户或上下文选择最优推荐算法。",
+    "key_points": [
+      "提出一种面向用户的元学习框架，通过结合用户元特征与从源代码自动提取的算法特征，动态为特定用户或上下文选择最优推荐算法"
+    ]
+  },
+  {
+    "arxiv_id": "2508.05688v2",
+    "title": "LLM4ES: Learning User Embeddings from Event Sequences via Large Language Models",
+    "authors": [
+      "Aleksei Shestov",
+      "Omar Zoloev",
+      "Maksim Makarenko",
+      "Mikhail Orlov",
+      "Egor Fadeev",
+      "Ivan Kireev",
+      "Andrey Savchenko"
+    ],
+    "summary": "This paper presents LLM4ES, a novel framework that exploits large pre-trained language models (LLMs) to derive user embeddings from event sequences. Event sequences are transformed into a textual representation, which is subsequently used to fine-tune an LLM through next-token prediction to generate high-quality embeddings. We introduce a text enrichment technique that enhances LLM adaptation to event sequence data, improving representation quality for low-variability domains. Experimental results demonstrate that LLM4ES achieves state-of-the-art performance in user classification tasks in financial and other domains, outperforming existing embedding methods. The resulting user embeddings can be incorporated into a wide range of applications, from user segmentation in finance to patient outcome prediction in healthcare.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-06T06:54:06Z",
+    "updated": "2025-12-17T11:35:54Z",
+    "url": "http://arxiv.org/abs/2508.05688v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.05688v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文提出利用 LLM 从事件序列中学习用户嵌入，虽涉及用户建模这一推荐核心环节，但实验验证集中在金融分类和医疗预测，缺乏直接的推荐/搜索场景应用，属于通用方法而非专用 RecSys 研究。",
+    "translation": "LLM4ES：通过大语言模型从事件序列中学习用户嵌入",
+    "summary_zh": "提出一种将用户事件序列转化为文本表示并利用大语言模型进行微调的框架，旨在生成高质量的用户嵌入以服务于多领域下游任务。",
+    "key_points": [
+      "提出一种将用户事件序列转化为文本表示并利用大语言模型进行微调的框架，旨在生成高质量的用户嵌入以服务于多领域下游任务"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04811v1",
+    "title": "HCRide: Harmonizing Passenger Fairness and Driver Preference for Human-Centered Ride-Hailing",
+    "authors": [
+      "Lin Jiang",
+      "Yu Yang",
+      "Guang Wang"
+    ],
+    "summary": "Order dispatch systems play a vital role in ride-hailing services, which directly influence operator revenue, driver profit, and passenger experience. Most existing work focuses on improving system efficiency in terms of operator revenue, which may cause a bad experience for both passengers and drivers. Hence, in this work, we aim to design a human-centered ride-hailing system by considering both passenger fairness and driver preference without compromising the overall system efficiency. However, it is nontrivial to achieve this target due to the potential conflicts between passenger fairness and driver preference since optimizing one may sacrifice the other. To address this challenge, we design HCRide, a Human-Centered Ride-hailing system based on a novel multi-agent reinforcement learning algorithm called Harmonization-oriented Actor-Bi-Critic (Habic), which includes three major components (i.e., a multi-agent competition mechanism, a dynamic Actor network, and a Bi-Critic network) to optimize system efficiency and passenger fairness with driver preference consideration. We extensively evaluate our HCRide using two real-world ride-hailing datasets from Shenzhen and New York City. Experimental results show our HCRide effectively improves system efficiency by 2.02%, fairness by 5.39%, and driver preference by 10.21% compared to state-of-the-art baselines.",
+    "categories": [
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2025-08-06T18:47:38Z",
+    "updated": "2025-08-06T18:47:38Z",
+    "url": "http://arxiv.org/abs/2508.04811v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04811v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "本文属于本地生活（网约车）领域的派单优化，符合 RecSys/Search 中的匹配与多目标排序场景，但核心方法是纯强化学习而非深度学习或 LLM 直接应用，且非电商/社交核心场景，故基础分中等，加上中国公司背景加分后为 6 分。",
+    "translation": "HCRide：协调乘客公平性与司机偏好的以人为本网约车系统",
+    "summary_zh": "提出一种基于多智能体强化学习（Habic 算法）的网约车派单框架，通过竞争机制和双评论家网络同时优化系统效率、乘客公平性及司机偏好。",
+    "key_points": [
+      "提出一种基于多智能体强化学习（Habic 算法）的网约车派单框架，通过竞争机制和双评论家网络同时优化系统效率、乘客公平性及司机偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04028v1",
+    "title": "Dual Prompt Learning for Adapting Vision-Language Models to Downstream Image-Text Retrieval",
+    "authors": [
+      "Yifan Wang",
+      "Tao Wang",
+      "Chenwei Tang",
+      "Caiyang Yu",
+      "Zhengqing Zang",
+      "Mengmi Zhang",
+      "Shudong Huang",
+      "Jiancheng Lv"
+    ],
+    "summary": "Recently, prompt learning has demonstrated remarkable success in adapting pre-trained Vision-Language Models (VLMs) to various downstream tasks such as image classification. However, its application to the downstream Image-Text Retrieval (ITR) task is more challenging. We find that the challenge lies in discriminating both fine-grained attributes and similar subcategories of the downstream data. To address this challenge, we propose Dual prompt Learning with Joint Category-Attribute Reweighting (DCAR), a novel dual-prompt learning framework to achieve precise image-text matching. The framework dynamically adjusts prompt vectors from both semantic and visual dimensions to improve the performance of CLIP on the downstream ITR task. Based on the prompt paradigm, DCAR jointly optimizes attribute and class features to enhance fine-grained representation learning. Specifically, (1) at the attribute level, it dynamically updates the weights of attribute descriptions based on text-image mutual information correlation; (2) at the category level, it introduces negative samples from multiple perspectives with category-matching weighting to learn subcategory distinctions. To validate our method, we construct the Fine-class Described Retrieval Dataset (FDRD), which serves as a challenging benchmark for ITR in downstream data domains. It covers over 1,500 downstream fine categories and 230,000 image-caption pairs with detailed attribute annotations. Extensive experiments on FDRD demonstrate that DCAR achieves state-of-the-art performance over existing baselines.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-08-06T02:44:08Z",
+    "updated": "2025-08-06T02:44:08Z",
+    "url": "http://arxiv.org/abs/2508.04028v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04028v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于图文检索（ITR）这一搜索核心环节，提出了双提示学习框架以解决细粒度匹配问题，属于多模态搜索的直接应用，但非 LLM 生成式推荐或大规模系统架构创新。",
+    "translation": "面向下游图文检索的视觉 - 语言模型双提示学习适配方法",
+    "summary_zh": "提出一种双提示学习与联合类别 - 属性重加权框架，通过动态调整语义和视觉维度的提示向量，增强预训练视觉 - 语言模型在细粒度图文检索任务中的区分能力。",
+    "key_points": [
+      "提出一种双提示学习与联合类别 - 属性重加权框架，通过动态调整语义和视觉维度的提示向量，增强预训练视觉 - 语言模型在细粒度图文检索任务中的区分能力"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04698v1",
+    "title": "FaST: Feature-aware Sampling and Tuning for Personalized Preference Alignment with Limited Data",
+    "authors": [
+      "Thibaut Thonet",
+      "Germán Kruszewski",
+      "Jos Rozen",
+      "Pierre Erbacher",
+      "Marc Dymetman"
+    ],
+    "summary": "LLM-powered conversational assistants are often deployed in a one-size-fits-all manner, which fails to accommodate individual user preferences. Recently, LLM personalization -- tailoring models to align with specific user preferences -- has gained increasing attention as a way to bridge this gap. In this work, we specifically focus on a practical yet challenging setting where only a small set of preference annotations can be collected per user -- a problem we define as Personalized Preference Alignment with Limited Data (PPALLI). To support research in this area, we introduce two datasets -- DnD and ELIP -- and benchmark a variety of alignment techniques on them. We further propose FaST, a highly parameter-efficient approach that leverages high-level features automatically discovered from the data, achieving the best overall performance.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-06T17:58:26Z",
+    "updated": "2025-08-06T17:58:26Z",
+    "url": "http://arxiv.org/abs/2508.04698v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04698v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 对齐与个性化研究，虽提及用户偏好，但未涉及推荐系统或搜索引擎的核心架构（如召回、排序）及具体业务场景应用。",
+    "translation": "FaST：有限数据下基于特征感知采样与调优的个性化偏好对齐",
+    "summary_zh": "针对小样本用户偏好标注场景，提出一种利用自动发现的高层特征进行参数高效微调的方法，以实现大语言模型的个性化偏好对齐。",
+    "key_points": [
+      "针对小样本用户偏好标注场景，提出一种利用自动发现的高层特征进行参数高效微调的方法，以实现大语言模型的个性化偏好对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04162v2",
+    "title": "SSEmb: A Joint Structural and Semantic Embedding Framework for Mathematical Formula Retrieval",
+    "authors": [
+      "Ruyin Li",
+      "Xiaoyu Chen"
+    ],
+    "summary": "Formula retrieval is an important topic in Mathematical Information Retrieval. We propose SSEmb, a novel embedding framework capable of capturing both structural and semantic features of mathematical formulas. Structurally, we employ Graph Contrastive Learning to encode formulas represented as Operator Graphs. To enhance structural diversity while preserving mathematical validity of these formula graphs, we introduce a novel graph data augmentation approach through a substitution strategy. Semantically, we utilize Sentence-BERT to encode the surrounding text of formulas. Finally, for each query and its candidates, structural and semantic similarities are calculated separately and then fused through a weighted scheme. In the ARQMath-3 formula retrieval task, SSEmb outperforms existing embedding-based methods by over 5 percentage points on P'@10 and nDCG'@10. Furthermore, SSEmb enhances the performance of all runs of other methods and achieves state-of-the-art results when combined with Approach0.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-06T07:39:17Z",
+    "updated": "2025-08-07T03:27:21Z",
+    "url": "http://arxiv.org/abs/2508.04162v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.04162v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于数学公式检索这一特定垂直领域的 NLP 任务，未涉及通用的推荐系统或搜索引擎核心架构，属于纯 NLP 研究而非 RecSys/Search 通用技术。",
+    "translation": "SSEmb：一种用于数学公式检索的联合结构与语义嵌入框架",
+    "summary_zh": "提出一种结合图对比学习编码公式结构特征与 Sentence-BERT 编码上下文语义特征的联合嵌入框架，通过加权融合策略提升数学公式检索效果。",
+    "key_points": [
+      "提出一种结合图对比学习编码公式结构特征与 Sentence-BERT 编码上下文语义特征的联合嵌入框架，通过加权融合策略提升数学公式检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04745v1",
+    "title": "Edge-Assisted Collaborative Fine-Tuning for Multi-User Personalized Artificial Intelligence Generated Content (AIGC)",
+    "authors": [
+      "Nan Li",
+      "Wanting Yang",
+      "Marie Siew",
+      "Zehui Xiong",
+      "Binbin Chen",
+      "Shiwen Mao",
+      "Kwok-Yan Lam"
+    ],
+    "summary": "Diffusion models (DMs) have emerged as powerful tools for high-quality content generation, yet their intensive computational requirements for inference pose challenges for resource-constrained edge devices. Cloud-based solutions aid in computation but often fall short in addressing privacy risks, personalization efficiency, and communication costs in multi-user edge-AIGC scenarios. To bridge this gap, we first analyze existing edge-AIGC applications in personalized content synthesis, revealing their limitations in efficiency and scalability. We then propose a novel cluster-aware hierarchical federated aggregation framework. Based on parameter-efficient local fine-tuning via Low-Rank Adaptation (LoRA), the framework first clusters clients based on the similarity of their uploaded task requirements, followed by an intra-cluster aggregation for enhanced personalization at the server-side. Subsequently, an inter-cluster knowledge interaction paradigm is implemented to enable hybrid-style content generation across diverse clusters.Building upon federated learning (FL) collaboration, our framework simultaneously trains personalized models for individual users at the devices and a shared global model enhanced with multiple LoRA adapters on the server,enabling efficient edge inference; meanwhile, all prompts for clustering and inference are encoded prior to transmission, thereby further mitigating the risk of plaintext leakage. Our evaluations demonstrate that the framework achieves accelerated convergence while maintaining practical viability for scalable multi-user personalized AIGC services under edge constraints.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-06T06:07:24Z",
+    "updated": "2025-08-06T06:07:24Z",
+    "url": "http://arxiv.org/abs/2508.04745v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04745v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于边缘计算场景下的 AIGC 生成效率与隐私保护，属于纯 LLM/扩散模型系统优化研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户兴趣建模）。",
+    "translation": "面向多用户个性化 AIGC 的边缘辅助协同微调",
+    "summary_zh": "提出一种基于聚类的分层联邦学习框架，利用 LoRA 技术在边缘设备上实现高效的多用户个性化内容生成与隐私保护。",
+    "key_points": [
+      "提出一种基于聚类的分层联邦学习框架，利用 LoRA 技术在边缘设备上实现高效的多用户个性化内容生成与隐私保护"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04057v1",
+    "title": "PAIRS: Parametric-Verified Adaptive Information Retrieval and Selection for Efficient RAG",
+    "authors": [
+      "Wang Chen",
+      "Guanqiang Qi",
+      "Weikang Li",
+      "Yang Li",
+      "Deguo Xia",
+      "Jizhou Huang"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has become a cornerstone technique for enhancing large language models (LLMs) with external knowledge. However, current RAG systems face two critical limitations: (1) they inefficiently retrieve information for every query, including simple questions that could be resolved using the LLM's parametric knowledge alone, and (2) they risk retrieving irrelevant documents when queries contain sparse information signals. To address these gaps, we introduce Parametric-verified Adaptive Information Retrieval and Selection (PAIRS), a training-free framework that integrates parametric and retrieved knowledge to adaptively determine whether to retrieve and how to select external information. Specifically, PAIRS employs a dual-path generation mechanism: First, the LLM produces both a direct answer and a context-augmented answer using self-generated pseudo-context. When these outputs converge, PAIRS bypasses external retrieval entirely, dramatically improving the RAG system's efficiency. For divergent cases, PAIRS activates a dual-path retrieval (DPR) process guided by both the original query and self-generated contextual signals, followed by an Adaptive Information Selection (AIS) module that filters documents through weighted similarity to both sources. This simple yet effective approach can not only enhance efficiency by eliminating unnecessary retrievals but also improve accuracy through contextually guided retrieval and adaptive information selection. Experimental results on six question-answering (QA) benchmarks show that PAIRS reduces retrieval costs by around 25% (triggering for only 75% of queries) while still improving accuracy-achieving +1.1% EM and +1.0% F1 over prior baselines on average.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-06T03:33:01Z",
+    "updated": "2025-08-06T03:33:01Z",
+    "url": "http://arxiv.org/abs/2508.04057v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04057v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 优化研究，专注于通用问答场景下的检索效率与准确性，未涉及推荐系统或搜索引擎的核心业务（如用户建模、物品排序、广告匹配等），因此属于低优先级。",
+    "translation": "PAIRS：用于高效 RAG 的参数验证自适应信息检索与选择",
+    "summary_zh": "提出一种无需训练的自适应框架，通过对比大模型参数知识与伪上下文生成结果的一致性，动态决定跳过外部检索或执行双路径检索以提升 RAG 效率与精度。",
+    "key_points": [
+      "提出一种无需训练的自适应框架，通过对比大模型参数知识与伪上下文生成结果的一致性，动态决定跳过外部检索或执行双路径检索以提升 RAG 效率与精度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.09170v1",
+    "title": "Multimodal RAG Enhanced Visual Description",
+    "authors": [
+      "Amit Kumar Jaiswal",
+      "Haiming Liu",
+      "Ingo Frommholz"
+    ],
+    "summary": "Textual descriptions for multimodal inputs entail recurrent refinement of queries to produce relevant output images. Despite efforts to address challenges such as scaling model size and data volume, the cost associated with pre-training and fine-tuning remains substantial. However, pre-trained large multimodal models (LMMs) encounter a modality gap, characterised by a misalignment between textual and visual representations within a common embedding space. Although fine-tuning can potentially mitigate this gap, it is typically expensive and impractical due to the requirement for extensive domain-driven data. To overcome this challenge, we propose a lightweight training-free approach utilising Retrieval-Augmented Generation (RAG) to extend across the modality using a linear mapping, which can be computed efficiently. During inference, this mapping is applied to images embedded by an LMM enabling retrieval of closest textual descriptions from the training set. These textual descriptions, in conjunction with an instruction, cater as an input prompt for the language model to generate new textual descriptions. In addition, we introduce an iterative technique for distilling the mapping by generating synthetic descriptions via the language model facilitating optimisation for standard utilised image description measures. Experimental results on two benchmark multimodal datasets demonstrate significant improvements.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-08-06T19:04:38Z",
+    "updated": "2025-08-06T19:04:38Z",
+    "url": "http://arxiv.org/abs/2508.09170v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.09170v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯多模态 LLM 研究，专注于解决图文表征对齐和图像描述生成问题，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），虽来自 TAL 公司但缺乏 RecSys 直接应用场景，故仅给低分。",
+    "translation": "多模态 RAG 增强的视觉描述生成",
+    "summary_zh": "提出一种无需训练的轻量级方法，利用检索增强生成（RAG）和线性映射解决预训练多模态模型中的图文表征错位问题，并通过迭代蒸馏技术优化图像描述生成质量。",
+    "key_points": [
+      "提出一种无需训练的轻量级方法，利用检索增强生成（RAG）和线性映射解决预训练多模态模型中的图文表征错位问题，并通过迭代蒸馏技术优化图像描述生成质量"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04258v1",
+    "title": "Deep Neural Network-Driven Adaptive Filtering",
+    "authors": [
+      "Qizhen Wang",
+      "Gang Wang",
+      "Ying-Chang Liang"
+    ],
+    "summary": "This paper proposes a deep neural network (DNN)-driven framework to address the longstanding generalization challenge in adaptive filtering (AF). In contrast to traditional AF frameworks that emphasize explicit cost function design, the proposed framework shifts the paradigm toward direct gradient acquisition. The DNN, functioning as a universal nonlinear operator, is structurally embedded into the core architecture of the AF system, establishing a direct mapping between filtering residuals and learning gradients. The maximum likelihood is adopted as the implicit cost function, rendering the derived algorithm inherently data-driven and thus endowed with exemplary generalization capability, which is validated by extensive numerical experiments across a spectrum of non-Gaussian scenarios. Corresponding mean value and mean square stability analyses are also conducted in detail.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2025-08-06T09:42:40Z",
+    "updated": "2025-08-06T09:42:40Z",
+    "url": "http://arxiv.org/abs/2508.04258v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.04258v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯信号处理领域的自适应滤波研究，未涉及推荐系统或搜索引擎的任何应用场景，属于排除类别。",
+    "translation": "深度神经网络驱动的自适应滤波",
+    "summary_zh": "提出一种将深度神经网络嵌入自适应滤波核心架构的框架，通过直接映射滤波残差与学习梯度来替代显式代价函数设计，以提升非高斯场景下的泛化能力。",
+    "key_points": [
+      "提出一种将深度神经网络嵌入自适应滤波核心架构的框架，通过直接映射滤波残差与学习梯度来替代显式代价函数设计，以提升非高斯场景下的泛化能力"
+    ]
+  }
+]

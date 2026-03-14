@@ -1,1 +1,296 @@
-[]
+[
+  {
+    "arxiv_id": "2508.01514v1",
+    "title": "End-to-End Personalization: Unifying Recommender Systems with Large Language Models",
+    "authors": [
+      "Danial Ebrat",
+      "Tina Aminian",
+      "Sepideh Ahmadian",
+      "Luis Rueda"
+    ],
+    "summary": "Recommender systems are essential for guiding users through the vast and diverse landscape of digital content by delivering personalized and relevant suggestions. However, improving both personalization and interpretability remains a challenge, particularly in scenarios involving limited user feedback or heterogeneous item attributes. In this article, we propose a novel hybrid recommendation framework that combines Graph Attention Networks (GATs) with Large Language Models (LLMs) to address these limitations. LLMs are first used to enrich user and item representations by generating semantically meaningful profiles based on metadata such as titles, genres, and overviews. These enriched embeddings serve as initial node features in a user and movie bipartite graph, which is processed using a GAT based collaborative filtering model. To enhance ranking accuracy, we introduce a hybrid loss function that combines Bayesian Personalized Ranking (BPR), cosine similarity, and robust negative sampling. Post-processing involves reranking the GAT-generated recommendations using the LLM, which also generates natural-language justifications to improve transparency. We evaluated our model on benchmark datasets, including MovieLens 100k and 1M, where it consistently outperforms strong baselines. Ablation studies confirm that LLM-based embeddings and the cosine similarity term significantly contribute to performance gains. This work demonstrates the potential of integrating LLMs to improve both the accuracy and interpretability of recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-02T22:46:50Z",
+    "updated": "2025-08-02T22:46:50Z",
+    "url": "http://arxiv.org/abs/2508.01514v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01514v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出结合 GAT 与 LLM 的混合架构以解决个性化和可解释性问题，属于 LLM for RecSys 的核心应用；且来自 TAL 公司，按规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "端到端个性化：统一推荐系统与大型语言模型",
+    "summary_zh": "提出一种混合推荐框架，利用 LLM 生成语义丰富的用户/物品特征作为图注意力网络输入，并通过 LLM 重排序生成自然语言解释，以同时提升推荐准确性与可解释性。",
+    "key_points": [
+      "提出一种混合推荐框架，利用 LLM 生成语义丰富的用户/物品特征作为图注意力网络输入，并通过 LLM 重排序生成自然语言解释，以同时提升推荐准确性与可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01375v1",
+    "title": "SaviorRec: Semantic-Behavior Alignment for Cold-Start Recommendation",
+    "authors": [
+      "Yining Yao",
+      "Ziwei Li",
+      "Shuwen Xiao",
+      "Boya Du",
+      "Jialin Zhu",
+      "Junjun Zheng",
+      "Xiangheng Kong",
+      "Yuning Jiang"
+    ],
+    "summary": "In recommendation systems, predicting Click-Through Rate (CTR) is crucial for accurately matching users with items. To improve recommendation performance for cold-start and long-tail items, recent studies focus on leveraging item multimodal features to model users' interests. However, obtaining multimodal representations for items relies on complex pre-trained encoders, which incurs unacceptable computation cost to train jointly with downstream ranking models. Therefore, it is important to maintain alignment between semantic and behavior space in a lightweight way.\n  To address these challenges, we propose a Semantic-Behavior Alignment for Cold-start Recommendation framework, which mainly focuses on utilizing multimodal representations that align with the user behavior space to predict CTR. First, we leverage domain-specific knowledge to train a multimodal encoder to generate behavior-aware semantic representations. Second, we use residual quantized semantic ID to dynamically bridge the gap between multimodal representations and the ranking model, facilitating the continuous semantic-behavior alignment. We conduct our offline and online experiments on the Taobao, one of the world's largest e-commerce platforms, and have achieved an increase of 0.83% in offline AUC, 13.21% clicks increase and 13.44% orders increase in the online A/B test, emphasizing the efficacy of our method.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-02T14:09:21Z",
+    "updated": "2025-08-02T14:09:21Z",
+    "url": "http://arxiv.org/abs/2508.01375v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01375v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐系统中的冷启动和长尾物品问题，提出了语义 - 行为对齐框架，并在淘宝平台验证了效果，属于核心领域的高优先级应用（含额外加分）。",
+    "translation": "SaviorRec：面向冷启动推荐的语义 - 行为对齐框架",
+    "summary_zh": "提出一种轻量级语义 - 行为对齐框架，通过领域知识训练多模态编码器生成行为感知语义表示，并利用残差量化语义 ID 动态桥接多模态特征与排序模型，以解决冷启动物品的 CTR 预测难题。",
+    "key_points": [
+      "提出一种轻量级语义 - 行为对齐框架，通过领域知识训练多模态编码器生成行为感知语义表示，并利用残差量化语义 ID 动态桥接多模态特征与排序模型，以解决冷启动物品的 CTR 预测难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01226v1",
+    "title": "CM$^3$: Calibrating Multimodal Recommendation",
+    "authors": [
+      "Xin Zhou",
+      "Yongjie Wang",
+      "Zhiqi Shen"
+    ],
+    "summary": "Alignment and uniformity are fundamental principles within the domain of contrastive learning. In recommender systems, prior work has established that optimizing the Bayesian Personalized Ranking (BPR) loss contributes to the objectives of alignment and uniformity. Specifically, alignment aims to draw together the representations of interacting users and items, while uniformity mandates a uniform distribution of user and item embeddings across a unit hypersphere. This study revisits the alignment and uniformity properties within the context of multimodal recommender systems, revealing a proclivity among extant models to prioritize uniformity to the detriment of alignment. Our hypothesis challenges the conventional assumption of equitable item treatment through a uniformity loss, proposing a more nuanced approach wherein items with similar multimodal attributes converge toward proximal representations within the hyperspheric manifold. Specifically, we leverage the inherent similarity between items' multimodal data to calibrate their uniformity distribution, thereby inducing a more pronounced repulsive force between dissimilar entities within the embedding space. A theoretical analysis elucidates the relationship between this calibrated uniformity loss and the conventional uniformity function. Moreover, to enhance the fusion of multimodal features, we introduce a Spherical Bézier method designed to integrate an arbitrary number of modalities while ensuring that the resulting fused features are constrained to the same hyperspherical manifold. Empirical evaluations conducted on five real-world datasets substantiate the superiority of our approach over competing baselines. We also shown that the proposed methods can achieve up to a 5.4% increase in NDCG@20 performance via the integration of MLLM-extracted features. Source code is available at: https://github.com/enoche/CM3.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-08-02T06:44:59Z",
+    "updated": "2025-08-02T06:44:59Z",
+    "url": "http://arxiv.org/abs/2508.01226v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01226v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的对比学习对齐与均匀性问题提出改进方法，属于核心推荐算法创新，且来自工业界（TAL），完全符合高优先级标准。",
+    "translation": "CM³：校准多模态推荐系统",
+    "summary_zh": "本文提出通过利用物品多模态相似性来校准嵌入空间的均匀性分布，并引入球面贝塞尔方法融合多模态特征，以解决现有模型过度追求均匀性而损害对齐性的问题。",
+    "key_points": [
+      "本文提出通过利用物品多模态相似性来校准嵌入空间的均匀性分布，并引入球面贝塞尔方法融合多模态特征，以解决现有模型过度追求均匀性而损害对齐性的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01405v2",
+    "title": "Balancing the Blend: An Experimental Analysis of Trade-offs in Hybrid Search",
+    "authors": [
+      "Mengzhao Wang",
+      "Boyu Tan",
+      "Yunjun Gao",
+      "Hai Jin",
+      "Yingfeng Zhang",
+      "Xiangyu Ke",
+      "Xiaoliang Xu",
+      "Yifan Zhu"
+    ],
+    "summary": "Hybrid search, the integration of lexical and semantic retrieval, has become a cornerstone of modern information retrieval systems, driven by demanding applications like Retrieval-Augmented Generation (RAG). The architectural design space for these systems is vast and complex, yet a systematic understanding of the trade-offs among their core components -- retrieval paradigms, combination schemes, and re-ranking methods -- is lacking. To address this, and informed by our experience building the Infinity open-source database, we present the first experimental analysis of advanced hybrid search architectures. Our framework integrates four retrieval paradigms -- Full-Text Search (FTS), Sparse Vector Search (SVS), Dense Vector Search (DVS), and Tensor Search (TenS) -- and evaluates their combinations and re-ranking strategies across 11 real-world datasets. Our results reveal three key findings: (1) A \"weakest link\" phenomenon, where a weak path can substantially degrade overall accuracy, highlighting the need for path-wise quality assessment before fusion. (2) A data-driven map of performance trade-offs, demonstrating that optimal configurations depend heavily on resource constraints and data characteristics, precluding a one-size-fits-all solution. (3) The identification of Tensor-based Re-ranking Fusion (TRF) as a high-efficacy alternative to mainstream fusion methods, offering the semantic power of tensor search at a fraction of the computational and memory cost. Our findings offer concrete guidelines for designing adaptive, scalable hybrid search systems and identify key directions for future research.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-08-02T15:24:01Z",
+    "updated": "2025-11-03T06:42:43Z",
+    "url": "http://arxiv.org/abs/2508.01405v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.01405v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "本文直接针对搜索系统的核心环节（混合检索架构、重排序策略）进行系统性分析与创新，提出了具体的融合方法（TRF），属于高优先级的搜索核心技术研究；虽涉及 RAG 背景，但聚焦于检索系统本身而非纯 LLM 研究，且来自中国公司，故给予高分。",
+    "translation": "平衡融合：混合搜索中权衡关系的实验分析",
+    "summary_zh": "本文通过整合四种检索范式，系统分析了混合搜索架构中检索路径、组合方案与重排序策略之间的权衡关系，并提出了一种基于张量的高效重排序融合方法以优化系统性能。",
+    "key_points": [
+      "本文通过整合四种检索范式，系统分析了混合搜索架构中检索路径、组合方案与重排序策略之间的权衡关系，并提出了一种基于张量的高效重排序融合方法以优化系统性能"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01128v1",
+    "title": "Towards Bridging Review Sparsity in Recommendation with Textual Edge Graph Representation",
+    "authors": [
+      "Leyao Wang",
+      "Xutao Mao",
+      "Xuhui Zhan",
+      "Yuying Zhao",
+      "Bo Ni",
+      "Ryan A. Rossi",
+      "Nesreen K. Ahmed",
+      "Tyler Derr"
+    ],
+    "summary": "Textual reviews enrich recommender systems with fine-grained preference signals and enhanced explainability. However, in real-world scenarios, users rarely leave reviews, resulting in severe sparsity that undermines the effectiveness of existing models. A natural solution is to impute or generate missing reviews to enrich the data. However, conventional imputation techniques -- such as matrix completion and LLM-based augmentation -- either lose contextualized semantics by embedding texts into vectors, or overlook structural dependencies among user-item interactions. To address these shortcomings, we propose TWISTER (ToWards Imputation on Sparsity with Textual Edge Graph Representation), a unified framework that imputes missing reviews by jointly modeling semantic and structural signals. Specifically, we represent user-item interactions as a Textual-Edge Graph (TEG), treating reviews as edge attributes. To capture relational context, we construct line-graph views and employ a large language model as a graph-aware aggregator. For each interaction lacking a textual review, our model aggregates the neighborhood's natural-language representations to generate a coherent and personalized review. Experiments on the Amazon and Goodreads datasets show that TWISTER consistently outperforms traditional numeric, graph-based, and LLM baselines, delivering higher-quality imputed reviews and, more importantly, enhanced recommendation performance. In summary, TWISTER generates reviews that are more helpful, authentic, and specific, while smoothing structural signals for improved recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-08-02T00:53:40Z",
+    "updated": "2025-08-02T00:53:40Z",
+    "url": "http://arxiv.org/abs/2508.01128v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01128v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe",
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "YaleUniversity VanderbiltUniversity VanderbiltUniversity",
+      "VanderbiltUniversity VanderbiltUniversity AdobeResearch",
+      "CiscoAIResearch VanderbiltUniversity"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的评论稀疏性核心问题，提出利用 LLM 和图结构生成缺失评论以增强推荐效果，属于典型的 LLM for RecSys 应用。",
+    "translation": "利用文本边图表示 bridging 推荐系统中的评论稀疏性",
+    "summary_zh": "提出 TWISTER 框架，将用户 - 物品交互建模为文本边图，利用大语言模型聚合邻居语义与结构信息来生成缺失的个性化评论，从而解决数据稀疏问题并提升推荐性能。",
+    "key_points": [
+      "提出 TWISTER 框架，将用户 - 物品交互建模为文本边图，利用大语言模型聚合邻居语义与结构信息来生成缺失的个性化评论，从而解决数据稀疏问题并提升推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01265v1",
+    "title": "A Study on Enhancing User Engagement by Employing Gamified Recommender Systems",
+    "authors": [
+      "Ali Fallahi",
+      "Azam Bastanfard",
+      "Amineh Amini",
+      "Hadi Saboohi"
+    ],
+    "summary": "Providing customized products and services in the modern business world is one of the most efficient solutions to improve users' experience and their engagements with the industries. To aim, recommender systems, by producing personalized recommendations, have a crucial role in the digital age. As a consequence of modern improvements in the internet and online-based technologies, using gamification rules also increased in various fields. Recent studies showed that considering gamification concepts in implementing recommendation systems not only can become helpful to overcome the cold start and lack of sufficient data, moreover, can effectively improve user engagement. Gamification can motivate individuals to have more activities on the system; these interactions are valuable resources of data for recommender engines. Unlike the past related works about using gamified recommendation systems in different environments or studies that particularly surveyed gamification strategies or recommenders separately, this work provides a comprehensive review of how gamified recommender systems can enhance user engagement in various domain applications. Furthermore, comparing different approaches for building recommender systems is followed by in-depth surveying about investigating the gamified recommender systems, including their approaches, limitations, evaluation metrics, proposed achievements, datasets, domain areas, and their recommendation techniques. This exhaustive analysis provides a detailed picture of the topic's popularity, gaps, and unexplored regions. It is envisaged that the proposed research and introduced possible future directions would serve as a stepping stone for researchers interested in using gamified recommender systems for user satisfaction and engagement.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-02T08:49:45Z",
+    "updated": "2025-08-02T08:49:45Z",
+    "url": "http://arxiv.org/abs/2508.01265v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01265v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于游戏化推荐系统的综述文章，虽直接涉及推荐系统领域，但缺乏具体的核心算法创新或新架构提出，且未明确提及中国公司背景的具体技术落地。",
+    "translation": "利用游戏化推荐系统提升用户参与度的研究",
+    "summary_zh": "本文全面综述了游戏化机制与推荐系统结合的方法，旨在通过激励用户交互来解决冷启动问题并提升用户参与度。",
+    "key_points": [
+      "本文全面综述了游戏化机制与推荐系统结合的方法，旨在通过激励用户交互来解决冷启动问题并提升用户参与度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01368v1",
+    "title": "Relation-Aware LNN-Transformer for Intersection-Centric Next-Step Prediction",
+    "authors": [
+      "Zhehong Ren",
+      "Tianluo Zhang",
+      "Yiheng Lu",
+      "Yushen Liang",
+      "Promethee Spathis"
+    ],
+    "summary": "Next-step location prediction plays a pivotal role in modeling human mobility, underpinning applications from personalized navigation to strategic urban planning. However, approaches that assume a closed world - restricting choices to a predefined set of points of interest (POIs) - often fail to capture exploratory or target-agnostic behavior and the topological constraints of urban road networks. Hence, we introduce a road-node-centric framework that represents road-user trajectories on the city's road-intersection graph, thereby relaxing the closed-world constraint and supporting next-step forecasting beyond fixed POI sets. To encode environmental context, we introduce a sector-wise directional POI aggregation that produces compact features capturing distance, bearing, density and presence cues. By combining these cues with structural graph embeddings, we obtain semantically grounded node representations. For sequence modeling, we integrate a Relation-Aware LNN-Transformer - a hybrid of a Continuous-time Forgetting Cell CfC-LNN and a bearing-biased self-attention module - to capture both fine-grained temporal dynamics and long-range spatial dependencies. Evaluated on city-scale road-user trajectories, our model outperforms six state-of-the-art baselines by up to 17 percentage points in accuracy at one hop and 10 percentage points in MRR, and maintains high resilience under noise, losing only 2.4 percentage points in accuracy at one under 50 meter GPS perturbation and 8.9 percentage points in accuracy at one hop under 25 percent POI noise.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-08-02T13:47:12Z",
+    "updated": "2025-08-02T13:47:12Z",
+    "url": "http://arxiv.org/abs/2508.01368v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01368v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于基于轨迹的下一位置预测，属于用户行为建模和序列推荐的边缘相关领域，但主要应用于城市规划和导航，缺乏电商或内容推荐等核心 RecSys 场景的直接应用；虽来自 TAL 公司加 1 分，但仍非核心推荐系统研究。",
+    "translation": "面向路口中心的下一步预测：关系感知 LNN-Transformer 模型",
+    "summary_zh": "提出一种以道路路口为中心的框架，结合扇区方向 POI 聚合与关系感知 LNN-Transformer，旨在突破封闭世界假设，捕捉细粒度时空动态以预测用户下一步移动位置。",
+    "key_points": [
+      "提出一种以道路路口为中心的框架，结合扇区方向 POI 聚合与关系感知 LNN-Transformer，旨在突破封闭世界假设，捕捉细粒度时空动态以预测用户下一步移动位置"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01432v1",
+    "title": "TripTailor: A Real-World Benchmark for Personalized Travel Planning",
+    "authors": [
+      "Yuanzhe Shen",
+      "Kaimin Wang",
+      "Changze Lv",
+      "Xiaoqing Zheng",
+      "Xuanjing Huang"
+    ],
+    "summary": "The continuous evolution and enhanced reasoning capabilities of large language models (LLMs) have elevated their role in complex tasks, notably in travel planning, where demand for personalized, high-quality itineraries is rising. However, current benchmarks often rely on unrealistic simulated data, failing to reflect the differences between LLM-generated and real-world itineraries. Existing evaluation metrics, which primarily emphasize constraints, fall short of providing a comprehensive assessment of the overall quality of travel plans. To address these limitations, we introduce TripTailor, a benchmark designed specifically for personalized travel planning in real-world scenarios. This dataset features an extensive collection of over 500,000 real-world points of interest (POIs) and nearly 4,000 diverse travel itineraries, complete with detailed information, providing a more authentic evaluation framework. Experiments show that fewer than 10\\% of the itineraries generated by the latest state-of-the-art LLMs achieve human-level performance. Moreover, we identify several critical challenges in travel planning, including the feasibility, rationality, and personalized customization of the proposed solutions. We hope that TripTailor will drive the development of travel planning agents capable of understanding and meeting user needs while generating practical itineraries. Our code and dataset are available at https://github.com/swxkfm/TripTailor",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-08-02T16:44:02Z",
+    "updated": "2025-08-02T16:44:02Z",
+    "url": "http://arxiv.org/abs/2508.01432v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01432v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要是一个针对 LLM 旅行规划能力的基准数据集（Benchmark），属于纯 LLM 评估研究，缺乏具体的推荐系统架构或算法创新；虽涉及个性化场景且来自中国公司（+1 分），但核心贡献不在 RecSys 核心技术上。",
+    "translation": "TripTailor：面向真实世界个性化旅行规划的基准",
+    "summary_zh": "提出 TripTailor 基准，利用大规模真实 POI 和行程数据评估 LLM 在复杂旅行规划任务中的可行性、合理性及个性化定制能力。",
+    "key_points": [
+      "提出 TripTailor 基准，利用大规模真实 POI 和行程数据评估 LLM 在复杂旅行规划任务中的可行性、合理性及个性化定制能力"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01296v1",
+    "title": "FedCD: A Fairness-aware Federated Cognitive Diagnosis Framework",
+    "authors": [
+      "Shangshang Yang",
+      "Jialin Han",
+      "Xiaoshan Yu",
+      "Ziwen Wang",
+      "Hao Jiang",
+      "Haiping Ma",
+      "Xingyi Zhang",
+      "Geyong Min"
+    ],
+    "summary": "Online intelligent education platforms have generated a vast amount of distributed student learning data. This influx of data presents opportunities for cognitive diagnosis (CD) to assess students' mastery of knowledge concepts while also raising significant data privacy and security challenges. To cope with this issue, federated learning (FL) becomes a promising solution by jointly training models across multiple local clients without sharing their original data. However, the data quality problem, caused by the ability differences and educational context differences between different groups/schools of students, further poses a challenge to the fairness of models. To address this challenge, this paper proposes a fairness-aware federated cognitive diagnosis framework (FedCD) to jointly train CD models built upon a novel parameter decoupling-based personalization strategy, preserving privacy of data and achieving precise and fair diagnosis of students on each client. As an FL paradigm, FedCD trains a local CD model for the students in each client based on its local student learning data, and each client uploads its partial model parameters to the central server for parameter aggregation according to the devised innovative personalization strategy. The main idea of this strategy is to decouple model parameters into two parts: the first is used as locally personalized parameters, containing diagnostic function-related model parameters, to diagnose each client's students fairly; the second is the globally shared parameters across clients and the server, containing exercise embedding parameters, which are updated via fairness-aware aggregation, to alleviate inter-school unfairness. Experiments on three real-world datasets demonstrate the effectiveness of the proposed FedCD framework and the personalization strategy compared to five FL approaches under three CD models.",
+    "categories": [
+      "cs.LG",
+      "cs.CY"
+    ],
+    "published": "2025-08-02T10:10:37Z",
+    "updated": "2025-08-02T10:10:37Z",
+    "url": "http://arxiv.org/abs/2508.01296v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01296v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "本文专注于教育领域的认知诊断与公平性，属于垂直领域应用，缺乏通用的推荐/搜索核心技术创新；虽为 OPPO 出品加 1 分，但纯教育场景且无 RecSys 直接关联，仍属低优先级。",
+    "translation": "FedCD：一种感知公平性的联邦认知诊断框架",
+    "summary_zh": "提出一种基于参数解耦的联邦学习框架，将模型分为本地个性化参数和全局共享参数，旨在保护数据隐私的同时解决不同学生群体间的诊断公平性问题。",
+    "key_points": [
+      "提出一种基于参数解耦的联邦学习框架，将模型分为本地个性化参数和全局共享参数，旨在保护数据隐私的同时解决不同学生群体间的诊断公平性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01479v1",
+    "title": "Reconstructing Trust Embeddings from Siamese Trust Scores: A Direct-Sum Approach with Fixed-Point Semantics",
+    "authors": [
+      "Faruk Alpay",
+      "Taylan Alpay",
+      "Bugra Kilictas"
+    ],
+    "summary": "We study the inverse problem of reconstructing high-dimensional trust embeddings from the one-dimensional Siamese trust scores that many distributed-security frameworks expose. Starting from two independent agents that publish time-stamped similarity scores for the same set of devices, we formalise the estimation task, derive an explicit direct-sum estimator that concatenates paired score series with four moment features, and prove that the resulting reconstruction map admits a unique fixed point under a contraction argument rooted in Banach theory. A suite of synthetic benchmarks (20 devices x 10 time steps) confirms that, even in the presence of Gaussian noise, the recovered embeddings preserve inter-device geometry as measured by Euclidean and cosine metrics; we complement these experiments with non-asymptotic error bounds that link reconstruction accuracy to score-sequence length. Beyond methodology, the paper demonstrates a practical privacy risk: publishing granular trust scores can leak latent behavioural information about both devices and evaluation models. We therefore discuss counter-measures -- score quantisation, calibrated noise, obfuscated embedding spaces -- and situate them within wider debates on transparency versus confidentiality in networked AI systems. All datasets, reproduction scripts and extended proofs accompany the submission so that results can be verified without proprietary code.",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2025-08-02T20:19:22Z",
+    "updated": "2025-08-02T20:19:22Z",
+    "url": "http://arxiv.org/abs/2508.01479v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.01479v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于分布式安全与隐私领域，研究信任嵌入的重构问题，未涉及推荐系统或搜索引擎的核心任务（如召回、排序、用户建模），纯安全研究不予高分。",
+    "translation": "从暹罗信任分数重构信任嵌入：一种具有不动点语义的直接和方法",
+    "summary_zh": "提出一种基于直接和估计器的方法，从一维暹罗信任分数中重构高维信任嵌入，并证明了该重构映射在巴拿赫压缩理论下的唯一不动点存在性。",
+    "key_points": [
+      "提出一种基于直接和估计器的方法，从一维暹罗信任分数中重构高维信任嵌入，并证明了该重构映射在巴拿赫压缩理论下的唯一不动点存在性"
+    ]
+  }
+]

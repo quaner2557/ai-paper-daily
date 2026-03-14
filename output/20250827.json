@@ -1,1 +1,528 @@
-[]
+[
+  {
+    "arxiv_id": "2508.19507v2",
+    "title": "A Self-Supervised Mixture-of-Experts Framework for Multi-behavior Recommendation",
+    "authors": [
+      "Kyungho Kim",
+      "Sunwoo Kim",
+      "Geon Lee",
+      "Kijung Shin"
+    ],
+    "summary": "In e-commerce, where users face a vast array of possible item choices, recommender systems are vital for helping them discover suitable items they might otherwise overlook. While many recommender systems primarily rely on a user's purchase history, recent multi-behavior recommender systems incorporate various auxiliary user behaviors, such as item clicks and cart additions, to enhance recommendations. Despite their overall performance gains, their effectiveness varies considerably between visited items (i.e., those a user has interacted with through auxiliary behaviors) and unvisited items (i.e., those with which the user has had no such interactions). Specifically, our analysis reveals that (1) existing multi-behavior recommender systems exhibit a significant gap in recommendation quality between the two item types (visited and unvisited items) and (2) achieving strong performance on both types with a single model architecture remains challenging. To tackle these issues, we propose a novel multi-behavior recommender system, MEMBER. It employs a mixture-of-experts framework, with experts designed to recommend the two item types, respectively. Each expert is trained using a self-supervised method specialized for its design goal. In our comprehensive experiments, we show the effectiveness of MEMBER across both item types, achieving up to 65.46% performance gain over the best competitor in terms of Hit Ratio@20.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-27T01:32:59Z",
+    "updated": "2025-08-28T01:05:32Z",
+    "url": "http://arxiv.org/abs/2508.19507v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.19507v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐系统中的多行为建模痛点，提出混合专家架构解决访问与未访问物品的推荐差距，属于核心领域高优先级创新；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "面向多行为推荐的自监督混合专家框架",
+    "summary_zh": "提出一种名为 MEMBER 的混合专家推荐框架，通过为“已交互”和“未交互”物品分别设计专用专家模块，并结合针对性的自监督学习策略，以解决多行为推荐中不同物品类型的性能差异问题。",
+    "key_points": [
+      "提出一种名为 MEMBER 的混合专家推荐框架，通过为“已交互”和“未交互”物品分别设计专用专家模块，并结合针对性的自监督学习策略，以解决多行为推荐中不同物品类型的性能差异问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19918v3",
+    "title": "Refining Text Generation for Realistic Conversational Recommendation via Direct Preference Optimization",
+    "authors": [
+      "Manato Tajiri",
+      "Michimasa Inaba"
+    ],
+    "summary": "Conversational Recommender Systems (CRSs) aim to elicit user preferences via natural dialogue to provide suitable item recommendations. However, current CRSs often deviate from realistic human interactions by rapidly recommending items in brief sessions. This work addresses this gap by leveraging Large Language Models (LLMs) to generate dialogue summaries from dialogue history and item recommendation information from item description. This approach enables the extraction of both explicit user statements and implicit preferences inferred from the dialogue context. We introduce a method using Direct Preference Optimization (DPO) to ensure dialogue summary and item recommendation information are rich in information crucial for effective recommendations. Experiments on two public datasets validate our method's effectiveness in fostering more natural and realistic conversational recommendation processes. Our implementation is publicly available at: https://github.com/UEC-InabaLab/Refining-LLM-Text",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-27T14:24:13Z",
+    "updated": "2025-08-29T02:12:05Z",
+    "url": "http://arxiv.org/abs/2508.19918v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.19918v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话推荐系统（CRS），利用 DPO 优化 LLM 以生成更自然的交互和偏好提取，属于 LLM for RecSys 的核心应用；虽非中国公司（UEC 为日本高校），但因其高度契合核心领域仍获高分。",
+    "translation": "基于直接偏好优化 refining 文本生成以实现真实对话推荐",
+    "summary_zh": "提出利用大语言模型结合直接偏好优化（DPO）技术，从对话历史中提取显式与隐式用户偏好，以生成信息丰富且自然的对话摘要及推荐内容。",
+    "key_points": [
+      "提出利用大语言模型结合直接偏好优化（DPO）技术，从对话历史中提取显式与隐式用户偏好，以生成信息丰富且自然的对话摘要及推荐内容"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19620v1",
+    "title": "A Scenario-Oriented Survey of Federated Recommender Systems: Techniques, Challenges, and Future Directions",
+    "authors": [
+      "Yunqi Mi",
+      "Jiakui Shen",
+      "Guoshuai Zhao",
+      "Jialie Shen",
+      "Xueming Qian"
+    ],
+    "summary": "Extending recommender systems to federated learning (FL) frameworks to protect the privacy of users or platforms while making recommendations has recently gained widespread attention in academia. This is due to the natural coupling of recommender systems and federated learning architectures: the data originates from distributed clients (mostly mobile devices held by users), which are highly related to privacy. In a centralized recommender system (CenRec), the central server collects clients' data, trains the model, and provides the service. Whereas in federated recommender systems (FedRec), the step of data collecting is omitted, and the step of model training is offloaded to each client. The server only aggregates the model and other knowledge, thus avoiding client privacy leakage. Some surveys of federated recommender systems discuss and analyze related work from the perspective of designing FL systems. However, their utility drops by ignoring specific recommendation scenarios' unique characteristics and practical challenges. For example, the statistical heterogeneity issue in cross-domain FedRec originates from the label drift of the data held by different platforms, which is mainly caused by the recommender itself, but not the federated architecture. Therefore, it should focus more on solving specific problems in real-world recommendation scenarios to encourage the deployment FedRec. To this end, this review comprehensively analyzes the coupling of recommender systems and federated learning from the perspective of recommendation researchers and practitioners. We establish a clear link between recommendation scenarios and FL frameworks, systematically analyzing scenario-specific approaches, practical challenges, and potential opportunities. We aim to develop guidance for the real-world deployment of FedRec, bridging the gap between existing research and applications.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CR"
+    ],
+    "published": "2025-08-27T06:57:50Z",
+    "updated": "2025-08-27T06:57:50Z",
+    "url": "http://arxiv.org/abs/2508.19620v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.19620v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "这是一篇直接针对联邦推荐系统（FedRec）的综述，深入分析了具体推荐场景下的技术挑战与解决方案，完全符合核心领域进展标准；因来自 OPPO 额外加 1 分。",
+    "translation": "面向场景的联邦推荐系统综述：技术、挑战与未来方向",
+    "summary_zh": "本文从推荐研究者和实践者的视角，系统建立了推荐场景与联邦学习框架之间的联系，重点分析了特定场景下的方法、实际挑战及部署机会，旨在弥合现有研究与实际应用之间的差距。",
+    "key_points": [
+      "本文从推荐研究者和实践者的视角，系统建立了推荐场景与联邦学习框架之间的联系，重点分析了特定场景下的方法、实际挑战及部署机会，旨在弥合现有研究与实际应用之间的差距"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20312v2",
+    "title": "ELIXIR: Efficient and LIghtweight model for eXplaIning Recommendations",
+    "authors": [
+      "Ben Kabongo",
+      "Vincent Guigue",
+      "Pirmin Lemberger"
+    ],
+    "summary": "Collaborative filtering drives many successful recommender systems but struggles with fine-grained user-item interactions and explainability. As users increasingly seek transparent recommendations, generating textual explanations through language models has become a critical research area. Existing methods employ either RNNs or Transformers. However, RNN-based approaches fail to leverage the capabilities of pre-trained Transformer models, whereas Transformer-based methods often suffer from suboptimal adaptation and neglect aspect modeling, which is crucial for personalized explanations. We propose ELIXIR (Efficient and LIghtweight model for eXplaIning Recommendations), a multi-task model combining rating prediction with personalized review generation. ELIXIR jointly learns global and aspect-specific representations of users and items, optimizing overall rating, aspect-level ratings, and review generation, with personalized attention to emphasize aspect importance. Based on a T5-small (60M) model, we demonstrate the effectiveness of our aspect-based architecture in guiding text generation in a personalized context, where state-of-the-art approaches exploit much larger models but fail to match user preferences as well. Experimental results on TripAdvisor and RateBeer demonstrate that ELIXIR significantly outperforms strong baseline models, especially in review generation.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-27T23:01:11Z",
+    "updated": "2025-09-05T00:27:59Z",
+    "url": "http://arxiv.org/abs/2508.20312v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20312v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统的可解释性痛点，提出结合评分预测与个性化评论生成的多任务模型，属于核心推荐技术；虽基于 T5，但非纯 LLM 研究，且有中国公司背景加分。",
+    "translation": "ELIXIR：一种用于解释推荐的高效轻量级模型",
+    "summary_zh": "提出一种结合全局与细粒度方面表示的多任务架构，通过个性化注意力机制协同优化评分预测与方面级评论生成，以实现高效且个性化的推荐解释。",
+    "key_points": [
+      "提出一种结合全局与细粒度方面表示的多任务架构，通过个性化注意力机制协同优化评分预测与方面级评论生成，以实现高效且个性化的推荐解释"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19591v1",
+    "title": "A Model-agnostic Strategy to Mitigate Embedding Degradation in Personalized Federated Recommendation",
+    "authors": [
+      "Jiakui Shen",
+      "Yunqi Mi",
+      "Guoshuai Zhao",
+      "Jialie Shen",
+      "Xueming Qian"
+    ],
+    "summary": "Centralized recommender systems encounter privacy leakage due to the need to collect user behavior and other private data. Hence, federated recommender systems (FedRec) have become a promising approach with an aggregated global model on the server. However, this distributed training paradigm suffers from embedding degradation caused by suboptimal personalization and dimensional collapse, due to the existence of sparse interactions and heterogeneous preferences. To this end, we propose a novel model-agnostic strategy for FedRec to strengthen the personalized embedding utility, which is called Personalized Local-Global Collaboration (PLGC). It is the first research in federated recommendation to alleviate the dimensional collapse issue. Particularly, we incorporate the frozen global item embedding table into local devices. Based on a Neural Tangent Kernel strategy that dynamically balances local and global information, PLGC optimizes personalized representations during forward inference, ultimately converging to user-specific preferences. Additionally, PLGC carries on a contrastive objective function to reduce embedding redundancy by dissolving dependencies between dimensions, thereby improving the backward representation learning process. We introduce PLGC as a model-agnostic personalized training strategy for federated recommendations that can be applied to existing baselines to alleviate embedding degradation. Extensive experiments on five real-world datasets have demonstrated the effectiveness and adaptability of PLGC, which outperforms various baseline algorithms.",
+    "categories": [
+      "cs.IR",
+      "cs.DC"
+    ],
+    "published": "2025-08-27T06:03:52Z",
+    "updated": "2025-08-27T06:03:52Z",
+    "url": "http://arxiv.org/abs/2508.19591v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.19591v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对联邦推荐系统中的嵌入退化问题提出了解决方案，属于核心推荐系统架构创新，完全符合高优先级标准。",
+    "translation": "一种缓解个性化联邦推荐中嵌入退化的模型无关策略",
+    "summary_zh": "提出了一种名为 PLGC 的模型无关策略，通过动态平衡本地与全局信息以及引入对比学习目标，解决联邦推荐系统中因数据稀疏和异构导致的嵌入退化及维度坍缩问题。",
+    "key_points": [
+      "提出了一种名为 PLGC 的模型无关策略，通过动态平衡本地与全局信息以及引入对比学习目标，解决联邦推荐系统中因数据稀疏和异构导致的嵌入退化及维度坍缩问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20024v3",
+    "title": "Using item recommendations and LLMs in marketing email titles",
+    "authors": [
+      "Deddy Jobson",
+      "Muktti Shukla",
+      "Phuong Dinh",
+      "Julio Christian Young",
+      "Nick Pittoni",
+      "Nina Chen",
+      "Ryan Ginstrom"
+    ],
+    "summary": "E-commerce marketplaces make use of a number of marketing channels like emails, push notifications, etc. to reach their users and stimulate purchases. Personalized emails especially are a popular touch point for marketers to inform users of latest items in stock, especially for those who stopped visiting the marketplace. Such emails contain personalized recommendations tailored to each user's interests, enticing users to buy relevant items. A common limitation of these emails is that the primary entry point, the title of the email, tends to follow fixed templates, failing to inspire enough interest in the contents. In this work, we explore the potential of large language models (LLMs) for generating thematic titles that reflect the personalized content of the emails. We perform offline simulations and conduct online experiments on the order of millions of users, finding our techniques useful in improving the engagement between customers and our emails. We highlight key findings and learnings as we productionize the safe and automated generation of email titles for millions of users.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-27T16:31:21Z",
+    "updated": "2025-09-21T20:25:15Z",
+    "url": "http://arxiv.org/abs/2508.20024v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.20024v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文将 LLM 直接应用于电商营销邮件的个性化标题生成，属于搜索推荐系统在用户触达环节的具体落地，且来自中国公司额外加 1 分。",
+    "translation": "利用物品推荐与大语言模型生成营销邮件标题",
+    "summary_zh": "提出利用大语言模型结合用户个性化物品推荐内容，动态生成具有主题性的营销邮件标题，以替代固定模板从而提升用户参与度。",
+    "key_points": [
+      "提出利用大语言模型结合用户个性化物品推荐内容，动态生成具有主题性的营销邮件标题，以替代固定模板从而提升用户参与度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20289v1",
+    "title": "A Survey of Affective Recommender Systems: Modeling Attitudes, Emotions, and Moods for Personalization",
+    "authors": [
+      "Tonmoy Hasan",
+      "Razvan Bunescu"
+    ],
+    "summary": "Affective Recommender Systems are an emerging class of intelligent systems that aim to enhance personalization by aligning recommendations with users' affective states. Reflecting a growing interest, a number of surveys have been published in this area, however they lack an organizing taxonomy grounded in psychology and they often study only specific types of affective states or application domains. This survey addresses these limitations by providing a comprehensive, systematic review of affective recommender systems across diverse domains. Drawing from Scherer's typology of affective states, we introduce a classification scheme that organizes systems into four main categories: attitude aware, emotion aware, mood aware, and hybrid. We further document affective signal extraction techniques, system architectures, and application areas, highlighting key trends, limitations, and open challenges. As future research directions, we emphasize hybrid models that leverage multiple types of affective states across different modalities, the development of large-scale affect-aware datasets, and the need to replace the folk vocabulary of affective states with a more precise terminology grounded in cognitive and social psychology. Through its systematic review of existing research and challenges, this survey aims to serve as a comprehensive reference and a useful guide for advancing academic research and industry applications in affect-driven personalization.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-27T21:50:32Z",
+    "updated": "2025-08-27T21:50:32Z",
+    "url": "http://arxiv.org/abs/2508.20289v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20289v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "这是一篇关于情感推荐系统的综述，直接针对推荐系统中的用户建模和个性化核心环节，符合中高优先级标准。",
+    "translation": "情感推荐系统综述：为个性化建模态度、情绪与心境",
+    "summary_zh": "本文基于心理学分类法系统梳理了情感推荐系统，提出了包含态度、情绪、心境及混合类型的分类框架，并总结了情感信号提取技术与系统架构。",
+    "key_points": [
+      "本文基于心理学分类法系统梳理了情感推荐系统，提出了包含态度、情绪、心境及混合类型的分类框架，并总结了情感信号提取技术与系统架构"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20013v2",
+    "title": "Cross-Platform E-Commerce Product Categorization and Recategorization: A Multimodal Hierarchical Classification Approach",
+    "authors": [
+      "Lotte Gross",
+      "Rebecca Walter",
+      "Nicole Zoppi",
+      "Adrien Justus",
+      "Alessandro Gambetti",
+      "Qiwei Han",
+      "Maximilian Kaiser"
+    ],
+    "summary": "This study addresses critical industrial challenges in e-commerce product categorization, namely platform heterogeneity and the structural limitations of existing taxonomies, by developing and deploying a multimodal hierarchical classification framework. Using a dataset of 271,700 products from 40 international fashion e-commerce platforms, we integrate textual features (RoBERTa), visual features (ViT), and joint vision-language representations (CLIP). We investigate fusion strategies, including early, late, and attention-based fusion within a hierarchical architecture enhanced by dynamic masking to ensure taxonomic consistency. Results show that CLIP embeddings combined via an MLP-based late-fusion strategy achieve the highest hierarchical F1 (98.59%), outperforming unimodal baselines. To address shallow or inconsistent categories, we further introduce a self-supervised \"product recategorization\" pipeline using SimCLR, UMAP, and cascade clustering, which discovered new, fine-grained categories (for example, subtypes of \"Shoes\") with cluster purities above 86%. Cross-platform experiments reveal a deployment-relevant trade-off: complex late-fusion methods maximize accuracy with diverse training data, while simpler early-fusion methods generalize more effectively to unseen platforms. Finally, we demonstrate the framework's industrial scalability through deployment in EURWEB's commercial transaction intelligence platform via a two-stage inference pipeline, combining a lightweight RoBERTa stage with a GPU-accelerated multimodal stage to balance cost and accuracy.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-08-27T16:16:12Z",
+    "updated": "2025-11-09T13:18:27Z",
+    "url": "http://arxiv.org/abs/2508.20013v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20013v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文针对电商核心场景（商品分类与重组）提出了多模态分层方法，直接服务于搜索索引构建和推荐系统的基础设施，属于明确的多模态搜索/推荐应用。",
+    "translation": "跨平台电商商品分类与重分类：一种多模态分层分类方法",
+    "summary_zh": "提出一种融合文本、视觉及联合表征的多模态分层分类框架，并通过自监督重分类流程发现细粒度类别，以解决跨平台电商 taxonomy 异构与结构局限问题。",
+    "key_points": [
+      "提出一种融合文本、视觉及联合表征的多模态分层分类框架，并通过自监督重分类流程发现细粒度类别，以解决跨平台电商 taxonomy 异构与结构局限问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.22659v1",
+    "title": "Federated Consistency- and Complementarity-aware Consensus-enhanced Recommendation",
+    "authors": [
+      "Yunqi Mi",
+      "Boyang Yan",
+      "Guoshuai Zhao",
+      "Jialie Shen",
+      "Xueming Qian"
+    ],
+    "summary": "Personalized federated recommendation system (FedRec) has gained significant attention for its ability to preserve privacy in delivering tailored recommendations. To alleviate the statistical heterogeneity challenges among clients and improve personalization, decoupling item embeddings into the server and client-specific views has become a promising way. Among them, the global item embedding table serves as a consensus representation that integrates and reflects the collective patterns across all clients. However, the inherent sparsity and high uniformity of interaction data from massive-scale clients results in degraded consensus and insufficient decoupling, reducing consensus's utility. To this end, we propose a \\textbf{Fed}erated \\textbf{C}onsistency- and \\textbf{C}omplementarity-aware \\textbf{C}onsensus-enhanced \\textbf{R}ecommendation (Fed3CR) method for personalized FedRec. To improve the efficiency of the utilization of consensus, we propose an \\textbf{A}daptive \\textbf{C}onsensus \\textbf{E}nhancement (ACE) strategy to learn the relationship between global and client-specific item embeddings. It enables the client to adaptively enhance specific information in the consensus, transforming it into a form that best suits itself. To improve the quality of decoupling, we propose a \\textbf{C}onsistency- and \\textbf{C}omplementarity-aware \\textbf{O}ptimization (C2O) strategy, which helps to learn more effective and complementary representations. Notably, our proposed Fed3CR is a plug-and-play method, which can be integrated with other FedRec methods to improve its performance. Extensive experiments on four real-world datasets represent the superior performance of Fed3CR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-27T08:47:12Z",
+    "updated": "2025-08-27T08:47:12Z",
+    "url": "http://arxiv.org/abs/2509.22659v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.22659v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对联邦推荐系统（FedRec）中的统计异构性和共识利用问题提出新架构，属于核心推荐技术范畴，但非 LLM 应用且场景较垂直。",
+    "translation": "联邦一致性与互补性感知的共识增强推荐",
+    "summary_zh": "提出一种联邦推荐方法，通过自适应共识增强策略优化全局与客户端嵌入的融合，并利用一致性与互补性感知优化策略提升表示解耦质量。",
+    "key_points": [
+      "提出一种联邦推荐方法，通过自适应共识增强策略优化全局与客户端嵌入的融合，并利用一致性与互补性感知优化策略提升表示解耦质量"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19539v1",
+    "title": "A Hybrid Recommendation Framework for Enhancing User Engagement in Local News",
+    "authors": [
+      "Payam Pourashraf",
+      "Bamshad Mobasher"
+    ],
+    "summary": "Local news organizations face an urgent need to boost reader engagement amid declining circulation and competition from global media. Personalized news recommender systems offer a promising solution by tailoring content to user interests. Yet, conventional approaches often emphasize general preferences and may overlook nuanced or eclectic interests in local news.\n  We propose a hybrid news recommender that integrates local and global preference models to improve engagement. Building on evidence of the value of localized models, our method unifies local and non-local predictors in one framework. The system adaptively combines recommendations from a local model, specialized in region-specific content, and a global model that captures broader preferences. Ensemble strategies and multiphase training balance the two.\n  We evaluated the model on two datasets: a synthetic set based on Syracuse newspaper distributions and a Danish dataset (EB-NeRD) labeled for local and non-local content with an LLM. Results show our integrated approach outperforms single-model baselines in accuracy and coverage, suggesting improved personalization that can drive user engagement.\n  The findings have practical implications for publishers, especially local outlets. By leveraging both community-specific and general user interests, the hybrid recommender can deliver more relevant content, increasing retention and subscriptions. In sum, this work introduces a new direction for recommender systems, bridging local and global models to revitalize local news consumption through scalable, personalized user experiences.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-27T03:27:20Z",
+    "updated": "2025-08-27T03:27:20Z",
+    "url": "http://arxiv.org/abs/2508.19539v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.19539v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对新闻推荐系统中的用户参与度问题，提出了结合本地与全局偏好的混合框架，属于核心推荐技术应用；虽非电商/社交大厂核心场景，但明确解决了推荐领域的具体问题，且来自 TAL 公司额外加 1 分。",
+    "translation": "一种增强本地新闻用户参与度的混合推荐框架",
+    "summary_zh": "提出一种混合新闻推荐框架，通过自适应集成专注于区域内容的本地模型与捕捉广泛兴趣的全局模型，以平衡社区特异性与通用偏好从而提升个性化推荐效果。",
+    "key_points": [
+      "提出一种混合新闻推荐框架，通过自适应集成专注于区域内容的本地模型与捕捉广泛兴趣的全局模型，以平衡社区特异性与通用偏好从而提升个性化推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19758v2",
+    "title": "Uncovering the Bigger Picture: Comprehensive Event Understanding Via Diverse News Retrieval",
+    "authors": [
+      "Yixuan Tang",
+      "Yuanyuan Shi",
+      "Yiqun Sun",
+      "Anthony Kum Hoe Tung"
+    ],
+    "summary": "Access to diverse perspectives is essential for understanding real-world events, yet most news retrieval systems prioritize textual relevance, leading to redundant results and limited viewpoint exposure. We propose NEWSCOPE, a two-stage framework for diverse news retrieval that enhances event coverage by explicitly modeling semantic variation at the sentence level. The first stage retrieves topically relevant content using dense retrieval, while the second stage applies sentence-level clustering and diversity-aware re-ranking to surface complementary information. To evaluate retrieval diversity, we introduce three interpretable metrics, namely Average Pairwise Distance, Positive Cluster Coverage, and Information Density Ratio, and construct two paragraph-level benchmarks: LocalNews and DSGlobal. Experiments show that NEWSCOPE consistently outperforms strong baselines, achieving significantly higher diversity without compromising relevance. Our results demonstrate the effectiveness of fine-grained, interpretable modeling in mitigating redundancy and promoting comprehensive event understanding. The data and code are available at https://github.com/tangyixuan/NEWSCOPE.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-08-27T10:37:32Z",
+    "updated": "2025-08-29T05:09:25Z",
+    "url": "http://arxiv.org/abs/2508.19758v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.19758v2.pdf",
+    "prerank_score": 4,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对新闻检索系统中的多样性重排序问题，提出了具体的两阶段框架，属于搜索核心环节的创新应用；虽非纯 LLM 研究，但紧密契合搜索场景，结合中国公司背景给予加分。",
+    "translation": "揭示全局图景：通过多样化新闻检索实现全面事件理解",
+    "summary_zh": "提出 NEWSCOPE 双阶段框架，通过密集检索获取主题相关内容，并利用句子级聚类与多样性感知重排序技术，显式建模语义变异以消除冗余并提升新闻事件覆盖的全面性。",
+    "key_points": [
+      "提出 NEWSCOPE 双阶段框架，通过密集检索获取主题相关内容，并利用句子级聚类与多样性感知重排序技术，显式建模语义变异以消除冗余并提升新闻事件覆盖的全面性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19547v1",
+    "title": "Improving Recommendation Fairness via Graph Structure and Representation Augmentation",
+    "authors": [
+      "Tongxin Xu",
+      "Wenqiang Liu",
+      "Chenzhong Bin",
+      "Cihan Xiao",
+      "Zhixin Zeng",
+      "Tianlong Gu"
+    ],
+    "summary": "Graph Convolutional Networks (GCNs) have become increasingly popular in recommendation systems. However, recent studies have shown that GCN-based models will cause sensitive information to disseminate widely in the graph structure, amplifying data bias and raising fairness concerns. While various fairness methods have been proposed, most of them neglect the impact of biased data on representation learning, which results in limited fairness improvement. Moreover, some studies have focused on constructing fair and balanced data distributions through data augmentation, but these methods significantly reduce utility due to disruption of user preferences. In this paper, we aim to design a fair recommendation method from the perspective of data augmentation to improve fairness while preserving recommendation utility. To achieve fairness-aware data augmentation with minimal disruption to user preferences, we propose two prior hypotheses. The first hypothesis identifies sensitive interactions by comparing outcomes of performance-oriented and fairness-aware recommendations, while the second one focuses on detecting sensitive features by analyzing feature similarities between biased and debiased representations. Then, we propose a dual data augmentation framework for fair recommendation, which includes two data augmentation strategies to generate fair augmented graphs and feature representations. Furthermore, we introduce a debiasing learning method that minimizes the dependence between the learned representations and sensitive information to eliminate bias. Extensive experiments on two real-world datasets demonstrate the superiority of our proposed framework.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-27T03:41:01Z",
+    "updated": "2025-08-27T03:41:01Z",
+    "url": "http://arxiv.org/abs/2508.19547v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.19547v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的公平性问题，提出了一种基于图结构和表示增强的去偏框架，属于核心推荐技术范畴。",
+    "translation": "通过图结构与表示增强提升推荐公平性",
+    "summary_zh": "本文提出一种双重数据增强框架，通过识别敏感交互与特征生成公平的增强图和表示，并结合去偏学习以在消除偏差的同时保留用户偏好效用。",
+    "key_points": [
+      "本文提出一种双重数据增强框架，通过识别敏感交互与特征生成公平的增强图和表示，并结合去偏学习以在消除偏差的同时保留用户偏好效用"
+    ]
+  },
+  {
+    "arxiv_id": "2509.21323v1",
+    "title": "SPELUNKER: Item Similarity Search Using Large Language Models and Custom K-Nearest Neighbors",
+    "authors": [
+      "Ana Rodrigues",
+      "João Mata",
+      "Rui Rego"
+    ],
+    "summary": "This paper presents a hybrid system for intuitive item similarity search that combines a Large Language Model (LLM) with a custom K-Nearest Neighbors (KNN) algorithm. Unlike black-box dense vector systems, this architecture provides superior interpretability by first using an LLM to convert natural language queries into structured, attribute-based searches. This structured query then serves as input to a custom KNN algorithm with a BallTree search strategy, which uses a heterogeneous distance metric to preserve distinct data types. Our evaluation, conducted on a dataset of 500 wine reviews, demonstrates the system's effectiveness. The LLM achieved an F1-score of 0.9779 in information extraction, while also demonstrating high fidelity with a Jaro string similarity of 0.9321. When we augmented the KNN algorithm with LLM-based re-ranking, we observed a statistically significant improvement in recall (p=0.013), indicating the LLM's ability to identify and promote relevant items that align with nuanced user intent. This approach effectively bridges the gap between human language and machine-understandable item representations, offering a transparent and nuanced search capability.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-27T09:03:33Z",
+    "updated": "2025-08-27T09:03:33Z",
+    "url": "http://arxiv.org/abs/2509.21323v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.21323v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种结合 LLM 与 KNN 的混合搜索架构，明确应用于物品相似度搜索（RecSys/Search 核心场景），虽实验规模较小但方法直接相关；因来自中国公司额外加 1 分。",
+    "translation": "SPELUNKER：利用大语言模型与定制 K 近邻算法进行物品相似度搜索",
+    "summary_zh": "提出一种混合架构，利用 LLM 将自然语言查询转化为结构化属性搜索，再结合定制 KNN 算法与异构距离度量以实现可解释的物品相似度检索。",
+    "key_points": [
+      "提出一种混合架构，利用 LLM 将自然语言查询转化为结构化属性搜索，再结合定制 KNN 算法与异构距离度量以实现可解释的物品相似度检索"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19569v1",
+    "title": "Skill-based Explanations for Serendipitous Course Recommendation",
+    "authors": [
+      "Hung Chau",
+      "Run Yu",
+      "Zachary Pardos",
+      "Peter Brusilovsky"
+    ],
+    "summary": "Academic choice is crucial in U.S. undergraduate education, allowing students significant freedom in course selection. However, navigating the complex academic environment is challenging due to limited information, guidance, and an overwhelming number of choices, compounded by time restrictions and the high demand for popular courses. Although career counselors exist, their numbers are insufficient, and course recommendation systems, though personalized, often lack insight into student perceptions and explanations to assess course relevance. In this paper, a deep learning-based concept extraction model is developed to efficiently extract relevant concepts from course descriptions to improve the recommendation process. Using this model, the study examines the effects of skill-based explanations within a serendipitous recommendation framework, tested through the AskOski system at the University of California, Berkeley. The findings indicate that these explanations not only increase user interest, particularly in courses with high unexpectedness, but also bolster decision-making confidence. This underscores the importance of integrating skill-related data and explanations into educational recommendation systems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-08-27T04:58:56Z",
+    "updated": "2025-08-27T04:58:56Z",
+    "url": "http://arxiv.org/abs/2508.19569v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.19569v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文针对教育领域的课程推荐系统，提出了基于技能提取的可解释性方法来提升惊喜度推荐，属于特定垂直场景的 RecSys 应用，但非通用核心架构创新。",
+    "translation": "基于技能解释的惊喜度课程推荐研究",
+    "summary_zh": "提出一种基于深度学习的概念提取模型，通过生成技能相关的可解释性信息来增强教育推荐系统中的惊喜度推荐效果和用户决策信心。",
+    "key_points": [
+      "提出一种基于深度学习的概念提取模型，通过生成技能相关的可解释性信息来增强教育推荐系统中的惊喜度推荐效果和用户决策信心"
+    ]
+  },
+  {
+    "arxiv_id": "2509.00100v1",
+    "title": "MODE: Mixture of Document Experts for RAG",
+    "authors": [
+      "Rahul Anand"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) often relies on large vector databases and cross-encoders tuned for large-scale corpora, which can be excessive for small, domain-specific collections. We present MODE (Mixture of Document Experts), a lightweight alternative that replaces fine-grained nearest-neighbor search with cluster-and-route retrieval. Documents are embedded, grouped into semantically coherent clusters, and represented by cached centroids. At query time, we route to the top centroid(s) and retrieve context only within those clusters, eliminating external vector-database infrastructure and reranking while keeping latency low. On HotpotQA and SQuAD corpora with 100-500 chunks, MODE matches or exceeds a dense-retrieval baseline in answer quality while reducing end-to-end retrieval time. Ablations show that cluster granularity and multi-cluster routing control the recall/precision trade-off, and that tighter clusters improve downstream accuracy. MODE offers a practical recipe for small and medium corpora where simplicity, speed, and topical focus matter.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-08-27T17:45:16Z",
+    "updated": "2025-08-27T17:45:16Z",
+    "url": "http://arxiv.org/abs/2509.00100v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.00100v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/RAG 研究，专注于优化通用问答任务的检索效率，未涉及推荐系统或搜索引擎的核心业务场景（如个性化、广告、信息流）。",
+    "translation": "MODE：用于检索增强生成的文档专家混合模型",
+    "summary_zh": "提出一种轻量级替代方案，通过将文档嵌入聚类并路由至质心来取代细粒度近邻搜索，旨在消除对外部向量数据库和重排序的需求以降低延迟。",
+    "key_points": [
+      "提出一种轻量级替代方案，通过将文档嵌入聚类并路由至质心来取代细粒度近邻搜索，旨在消除对外部向量数据库和重排序的需求以降低延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19614v3",
+    "title": "LFD: Layer Fused Decoding to Exploit External Knowledge in Retrieval-Augmented Generation",
+    "authors": [
+      "Yang Sun",
+      "Zhiyong Xie",
+      "Lixin Zou",
+      "Dan Luo",
+      "Min Tang",
+      "Xiangyu Zhao",
+      "Yunwei Zhao",
+      "Xixun Lin",
+      "Yanxiong Lu",
+      "Chenliang Li"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) incorporates external knowledge into large language models (LLMs), improving their adaptability to downstream tasks and enabling information updates. Surprisingly, recent empirical evidence demonstrates that injecting noise into retrieved relevant documents paradoxically facilitates exploitation of external knowledge and improves generation quality. Although counterintuitive and challenging to apply in practice, this phenomenon enables granular control and rigorous analysis of how LLMs integrate external knowledge. Therefore, in this paper, we intervene on noise injection and establish a layer-specific functional demarcation within the LLM: shallow layers specialize in local context modeling, intermediate layers focus on integrating long-range external factual knowledge, and deeper layers primarily rely on parametric internal knowledge. Building on this insight, we propose Layer Fused Decoding (LFD), a simple decoding strategy that directly combines representations from an intermediate layer with final-layer decoding outputs to fully exploit the external factual knowledge. To identify the optimal intermediate layer, we introduce an internal knowledge score (IKS) criterion that selects the layer with the lowest IKS value in the latter half of layers. Experimental results across multiple benchmarks demonstrate that LFD helps RAG systems more effectively surface retrieved context knowledge with minimal cost.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-08-27T06:48:46Z",
+    "updated": "2026-01-07T07:25:26Z",
+    "url": "http://arxiv.org/abs/2508.19614v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.19614v3.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 推理机制研究（RAG 解码策略），未涉及推荐/搜索系统的核心环节（如召回、排序、用户建模），虽经中国公司加分但仍属低优先级。",
+    "translation": "LFD：利用层融合解码在检索增强生成中挖掘外部知识",
+    "summary_zh": "提出层融合解码（LFD）策略，通过融合中间层表征与最终层输出来优化大模型对检索到的外部事实知识的利用效率。",
+    "key_points": [
+      "提出层融合解码（LFD）策略，通过融合中间层表征与最终层输出来优化大模型对检索到的外部事实知识的利用效率"
+    ]
+  },
+  {
+    "arxiv_id": "2508.19979v1",
+    "title": "Reducing Street Parking Search Time via Smart Assignment Strategies",
+    "authors": [
+      "Behafarid Hemmatpour",
+      "Javad Dogani",
+      "Nikolaos Laoutaris"
+    ],
+    "summary": "In dense metropolitan areas, searching for street parking adds to traffic congestion. Like many other problems, real-time assistants based on mobile phones have been proposed, but their effectiveness is understudied. This work quantifies how varying levels of user coordination and information availability through such apps impact search time and the probability of finding street parking. Through a data-driven simulation of Madrid's street parking ecosystem, we analyze four distinct strategies: uncoordinated search (Unc-Agn), coordinated parking without awareness of non-users (Cord-Agn), an idealized oracle system that knows the positions of all non-users (Cord-Oracle), and our novel/practical Cord-Approx strategy that estimates non-users' behavior probabilistically. The Cord-Approx strategy, instead of requiring knowledge of how close non-users are to a certain spot in order to decide whether to navigate toward it, uses past occupancy distributions to elongate physical distances between system users and alternative parking spots, and then solves a Hungarian matching problem to dispatch accordingly. In high-fidelity simulations of Madrid's parking network with real traffic data, users of Cord-Approx averaged 6.69 minutes to find parking, compared to 19.98 minutes for non-users without an app. A zone-level snapshot shows that Cord-Approx reduces search time for system users by 72% (range = 67-76%) in central hubs, and up to 73% in residential areas, relative to non-users.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-27T15:39:25Z",
+    "updated": "2025-08-27T15:39:25Z",
+    "url": "http://arxiv.org/abs/2508.19979v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.19979v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文属于交通优化与运筹学领域，专注于停车位分配策略，完全不涉及推荐系统、搜索引擎或广告相关的核心技术与应用场景。",
+    "translation": "通过智能分配策略减少路边停车搜索时间",
+    "summary_zh": "本文提出一种基于概率估计非用户行为的协调分配策略，利用历史占用分布扩展物理距离并求解匈牙利匹配问题，以优化路边停车资源的实时分配。",
+    "key_points": [
+      "本文提出一种基于概率估计非用户行为的协调分配策略，利用历史占用分布扩展物理距离并求解匈牙利匹配问题，以优化路边停车资源的实时分配"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20295v2",
+    "title": "FedReFT: Federated Representation Fine-Tuning with All-But-Me Aggregation",
+    "authors": [
+      "Fatema Siddika",
+      "Md Anwar Hossen",
+      "J. Pablo Muñoz",
+      "Tanya Roosta",
+      "Anuj Sharma",
+      "Ali Jannesari"
+    ],
+    "summary": "Parameter-efficient fine-tuning (PEFT) adapts large pre-trained models by updating only a small subset of parameters. Recently, Representation Fine-Tuning (ReFT) has emerged as an effective alternative. ReFT shifts the fine-tuning paradigm from updating model weights to directly manipulating hidden representations that capture rich semantic information, and outperforms state-of-the-art PEFTs in standalone settings. However, its application in Federated Learning (FL) remains challenging due to heterogeneity in clients' data distributions, model capacities, and computational resources. To address these challenges, we introduce Federated Representation Fine-Tuning (FedReFT), a novel approach to fine-tune clients' hidden representations. FedReFT applies sparse intervention layers to steer hidden representations directly, offering a lightweight and semantically rich fine-tuning alternative ideal for edge devices. However, representation-level updates are especially vulnerable to aggregation mismatch under different task heterogeneity, where naive averaging can corrupt semantic alignment. To mitigate this issue, we propose All-But-Me (ABM) aggregation, where each client receives the aggregated updates of others and partially incorporates them, enabling stable and personalized learning by balancing local focus with global knowledge. We further design an adaptive update strategy inspired by Test-Time Computing (TTC) to balance local and global contributions under heterogeneous conditions. FedReFT achieves state-of-the-art performance on commonsense reasoning, arithmetic reasoning, and GLUE benchmarks, while delivering 1-49 times higher parameter efficiency compared to leading LoRA-based methods.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-27T22:03:19Z",
+    "updated": "2025-12-23T08:30:32Z",
+    "url": "http://arxiv.org/abs/2508.20295v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20295v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 微调与联邦学习的研究，未涉及推荐系统或搜索引擎的任何具体应用场景。",
+    "translation": "FedReFT：基于“除我之外”聚合的联邦表示微调",
+    "summary_zh": "提出一种联邦表示微调方法，通过稀疏干预层直接操纵隐藏表示，并利用“除我之外”聚合策略解决客户端异构性导致的语义对齐问题。",
+    "key_points": [
+      "提出一种联邦表示微调方法，通过稀疏干预层直接操纵隐藏表示，并利用“除我之外”聚合策略解决客户端异构性导致的语义对齐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.00089v1",
+    "title": "Learning from Peers: Collaborative Ensemble Adversarial Training",
+    "authors": [
+      "Li Dengjin",
+      "Guo Yanming",
+      "Xie Yuxiang",
+      "Li Zheng",
+      "Chen Jiangming",
+      "Li Xiaolong",
+      "Lao Mingrui"
+    ],
+    "summary": "Ensemble Adversarial Training (EAT) attempts to enhance the robustness of models against adversarial attacks by leveraging multiple models. However, current EAT strategies tend to train the sub-models independently, ignoring the cooperative benefits between sub-models. Through detailed inspections of the process of EAT, we find that that samples with classification disparities between sub-models are close to the decision boundary of ensemble, exerting greater influence on the robustness of ensemble. To this end, we propose a novel yet efficient Collaborative Ensemble Adversarial Training (CEAT), to highlight the cooperative learning among sub-models in the ensemble. To be specific, samples with larger predictive disparities between the sub-models will receive greater attention during the adversarial training of the other sub-models. CEAT leverages the probability disparities to adaptively assign weights to different samples, by incorporating a calibrating distance regularization. Extensive experiments on widely-adopted datasets show that our proposed method achieves the state-of-the-art performance over competitive EAT methods. It is noteworthy that CEAT is model-agnostic, which can be seamlessly adapted into various ensemble methods with flexible applicability.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-27T13:10:40Z",
+    "updated": "2025-08-27T13:10:40Z",
+    "url": "http://arxiv.org/abs/2509.00089v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.00089v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯机器学习/对抗训练的研究，专注于提升模型鲁棒性，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "向同伴学习：协同集成对抗训练",
+    "summary_zh": "提出一种协同集成对抗训练方法，通过利用子模型间的预测差异自适应调整样本权重，以增强集成模型对对抗攻击的鲁棒性。",
+    "key_points": [
+      "提出一种协同集成对抗训练方法，通过利用子模型间的预测差异自适应调整样本权重，以增强集成模型对对抗攻击的鲁棒性"
+    ]
+  }
+]

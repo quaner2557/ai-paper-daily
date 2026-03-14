@@ -1,1 +1,878 @@
-[]
+[
+  {
+    "arxiv_id": "2508.20945v1",
+    "title": "Efficient Large-Scale Cross-Domain Sequential Recommendation with Dynamic State Representations",
+    "authors": [
+      "Manuel V. Loureiro",
+      "Steven Derby",
+      "Aleksei Medvedev",
+      "Alejandro Ariza-Casabona",
+      "Gonzalo Fiz Pontiveros",
+      "Tri Kurniawan Wijaya"
+    ],
+    "summary": "Recently, autoregressive recommendation models (ARMs), such as Meta's HSTU model, have emerged as a major breakthrough over traditional Deep Learning Recommendation Models (DLRMs), exhibiting the highly sought-after scaling law behaviour. However, when applied to multi-domain scenarios, the transformer architecture's attention maps become a computational bottleneck, as they attend to all items across every domain. To tackle this challenge, systems must efficiently balance inter and intra-domain knowledge transfer. In this work, we introduce a novel approach for scalable multi-domain recommendation systems by replacing full inter-domain attention with two innovative mechanisms: 1) Transition-Aware Positional Embeddings (TAPE): We propose novel positional embeddings that account for domain-transition specific information. This allows attention to be focused solely on intra-domain items, effectively reducing the unnecessary computational cost associated with attending to irrelevant domains. 2) Dynamic Domain State Representation (DDSR): We introduce a dynamic state representation for each domain, which is stored and accessed during subsequent token predictions. This enables the efficient transfer of relevant domain information without relying on full attention maps. Our method offers a scalable solution to the challenges posed by large-scale, multi-domain recommendation systems and demonstrates significant improvements in retrieval tasks by separately modelling and combining inter- and intra-domain representations.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-28T16:05:42Z",
+    "updated": "2025-08-28T16:05:42Z",
+    "url": "http://arxiv.org/abs/2508.20945v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20945v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "HuaweiIrelandResearchCentre HuaweiIrelandResearchCentre partners.com",
+      "Dublin,Ireland Dublin,Ireland HuaweiIrelandResearchCentre",
+      "partners.com HuaweiIrelandResearchCentre HuaweiIrelandResearchCentre",
+      "HuaweiIrelandResearchCentre Dublin,Ireland Dublin,Ireland",
+      "forscalablemulti-domainrecommendationsystemsbyreplacing 1 Introduction"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模跨域序列推荐系统中的计算瓶颈问题，提出了创新的动态状态表示和位置嵌入机制，属于核心推荐系统架构 advance，且来自中国公司。",
+    "translation": "基于动态状态表示的高效大规模跨域序列推荐",
+    "summary_zh": "本文提出通过转换感知位置嵌入将注意力限制在域内，并利用动态域状态表示在域间高效传递信息，以解决多域推荐中全量注意力带来的计算瓶颈。",
+    "key_points": [
+      "本文提出通过转换感知位置嵌入将注意力限制在域内，并利用动态域状态表示在域间高效传递信息，以解决多域推荐中全量注意力带来的计算瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20900v4",
+    "title": "OneRec-V2 Technical Report",
+    "authors": [
+      "Guorui Zhou",
+      "Hengrui Hu",
+      "Hongtao Cheng",
+      "Huanjie Wang",
+      "Jiaxin Deng",
+      "Jinghao Zhang",
+      "Kuo Cai",
+      "Lejian Ren",
+      "Lu Ren",
+      "Liao Yu",
+      "Pengfei Zheng",
+      "Qiang Luo",
+      "Qianqian Wang",
+      "Qigen Hu",
+      "Rui Huang",
+      "Ruiming Tang",
+      "Shiyao Wang",
+      "Shujie Yang",
+      "Tao Wu",
+      "Wuchao Li",
+      "Xinchen Luo",
+      "Xingmei Wang",
+      "Yi Su",
+      "Yunfan Wu",
+      "Zexuan Cheng",
+      "Zhanyu Liu",
+      "Zixing Zhang",
+      "Bin Zhang",
+      "Boxuan Wang",
+      "Chaoyi Ma",
+      "Chengru Song",
+      "Chenhui Wang",
+      "Chenglong Chu",
+      "Di Wang",
+      "Dongxue Meng",
+      "Dunju Zang",
+      "Fan Yang",
+      "Fangyu Zhang",
+      "Feng Jiang",
+      "Fuxing Zhang",
+      "Gang Wang",
+      "Guowang Zhang",
+      "Han Li",
+      "Honghui Bao",
+      "Hongyang Cao",
+      "Jiaming Huang",
+      "Jiapeng Chen",
+      "Jiaqiang Liu",
+      "Jinghui Jia",
+      "Kun Gai",
+      "Lantao Hu",
+      "Liang Zeng",
+      "Qiang Wang",
+      "Qidong Zhou",
+      "Rongzhou Zhang",
+      "Shengzhe Wang",
+      "Shihui He",
+      "Shuang Yang",
+      "Siyang Mao",
+      "Sui Huang",
+      "Tiantian He",
+      "Tingting Gao",
+      "Wei Yuan",
+      "Xiao Liang",
+      "Xiaoxiao Xu",
+      "Xugang Liu",
+      "Yan Wang",
+      "Yang Zhou",
+      "Yi Wang",
+      "Yiwu Liu",
+      "Yue Song",
+      "Yufei Zhang",
+      "Yunfeng Zhao",
+      "Zhixin Ling",
+      "Ziming Li"
+    ],
+    "summary": "Recent breakthroughs in generative AI have transformed recommender systems through end-to-end generation. OneRec reformulates recommendation as an autoregressive generation task, achieving high Model FLOPs Utilization. While OneRec-V1 has shown significant empirical success in real-world deployment, two critical challenges hinder its scalability and performance: (1) inefficient computational allocation where 97.66% of resources are consumed by sequence encoding rather than generation, and (2) limitations in reinforcement learning relying solely on reward models.\n  To address these challenges, we propose OneRec-V2, featuring: (1) Lazy Decoder-Only Architecture: Eliminates encoder bottlenecks, reducing total computation by 94% and training resources by 90%, enabling successful scaling to 8B parameters. (2) Preference Alignment with Real-World User Interactions: Incorporates Duration-Aware Reward Shaping and Adaptive Ratio Clipping to better align with user preferences using real-world feedback.\n  Extensive A/B tests on Kuaishou demonstrate OneRec-V2's effectiveness, improving App Stay Time by 0.467%/0.741% while balancing multi-objective recommendations. This work advances generative recommendation scalability and alignment with real-world feedback, representing a step forward in the development of end-to-end recommender systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T15:29:51Z",
+    "updated": "2025-10-28T09:32:28Z",
+    "url": "http://arxiv.org/abs/2508.20900v4",
+    "pdf_url": "http://arxiv.org/pdf/2508.20900v4.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文是快手提出的端到端生成式推荐系统 OneRec-V2，直接解决推荐系统中的计算效率和对齐问题，属于核心领域重大进展且来自一线大厂，完全符合最高优先级标准。",
+    "translation": "OneRec-V2 技术报告：面向可扩展性与真实反馈对齐的端到端生成式推荐系统",
+    "summary_zh": "提出 Lazy Decoder-Only 架构以消除编码器瓶颈并大幅降低计算成本，同时引入基于时长的奖励塑造和自适应比率裁剪机制，利用真实用户交互数据优化生成式推荐的偏好对齐。",
+    "key_points": [
+      "提出 Lazy Decoder-Only 架构以消除编码器瓶颈并大幅降低计算成本，同时引入基于时长的奖励塑造和自适应比率裁剪机制，利用真实用户交互数据优化生成式推荐的偏好对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20865v1",
+    "title": "Deep Multiple Quantization Network on Long Behavior Sequence for Click-Through Rate Prediction",
+    "authors": [
+      "Zhuoxing Wei",
+      "Qi Liu",
+      "Qingchen Xie"
+    ],
+    "summary": "In Click-Through Rate (CTR) prediction, the long behavior sequence, comprising the user's long period of historical interactions with items has a vital influence on assessing the user's interest in the candidate item. Existing approaches strike efficiency and effectiveness through a two-stage paradigm: first retrieving hundreds of candidate-related items and then extracting interest intensity vector through target attention. However, we argue that the discrepancy in target attention's relevance distribution between the retrieved items and the full long behavior sequence inevitably leads to a performance decline. To alleviate the discrepancy, we propose the Deep Multiple Quantization Network (DMQN) to process long behavior sequence end-to-end through compressing the long behavior sequence. Firstly, the entire spectrum of long behavior sequence will be quantized into multiple codeword sequences based on multiple independent codebooks. Hierarchical Sequential Transduction Unit is incorporated to facilitate the interaction of reduced codeword sequences. Then, attention between the candidate and multiple codeword sequences will output the interest vector. To enable online serving, intermediate representations of the codeword sequences are cached, significantly reducing latency. Our extensive experiments on both industrial and public datasets confirm the effectiveness and efficiency of DMQN. The A/B test in our advertising system shows that DMQN improves CTR by 3.5% and RPM by 2.0%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T14:58:47Z",
+    "updated": "2025-08-28T14:58:47Z",
+    "url": "http://arxiv.org/abs/2508.20865v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20865v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "Meituan UniversityofScienceandTechnology Meituan",
+      "candidate item. Existing approaches strike efficiency and effec- agreatinfluenceontheevolutionofRS.Existingresearcheshave",
+      "sequencewillbequantizedintomultiplecodewordsequencesbased The primary focus of the research lies in the first stage. Re-"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告/推荐系统中的 CTR 预测长行为序列建模问题，提出了端到端的深度多量化网络（DMQN）以解决现有两阶段范式的分布差异，属于核心领域高优先级创新；且来自工业界应用，符合额外加分条件。",
+    "translation": "基于深度多量化网络的长行为序列点击率预测研究",
+    "summary_zh": "提出深度多量化网络（DMQN），通过多独立码本将用户长行为序列量化为多个码字序列并结合层级顺序转导单元，实现端到端的高效兴趣建模以消除检索与全量序列间的注意力分布差异。",
+    "key_points": [
+      "提出深度多量化网络（DMQN），通过多独立码本将用户长行为序列量化为多个码字序列并结合层级顺序转导单元，实现端到端的高效兴趣建模以消除检索与全量序列间的注意力分布差异"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20427v2",
+    "title": "Rethinking Purity and Diversity in Multi-Behavior Sequential Recommendation from the Frequency Perspective",
+    "authors": [
+      "Yongqiang Han",
+      "Kai Cheng",
+      "Kefan Wang",
+      "Enhong Chen"
+    ],
+    "summary": "In recommendation systems, users often exhibit multiple behaviors, such as browsing, clicking, and purchasing. Multi-behavior sequential recommendation (MBSR) aims to consider these different behaviors in an integrated manner to improve the recommendation performance of the target behavior. However, some behavior data will also bring inevitable noise to the modeling of user interests. Some research efforts focus on data denoising from the frequency domain perspective to improve the accuracy of user preference prediction. These studies indicate that low-frequency information tends to be valuable and reliable, while high-frequency information is often associated with noise. In this paper, we argue that high-frequency information is by no means insignificant. Further experimental results highlight that low frequency corresponds to the purity of user interests, while high frequency corresponds to the diversity of user interests. Building upon this finding, we proposed our model PDB4Rec, which efficiently extracts information across various frequency bands and their relationships, and introduces Boostrapping Balancer mechanism to balance their contributions for improved recommendation performance. Sufficient experiments on real-world datasets demonstrate the effectiveness and efficiency of our model.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-28T04:55:02Z",
+    "updated": "2025-10-16T11:58:20Z",
+    "url": "http://arxiv.org/abs/2508.20427v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20427v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多行为序列推荐中的核心去噪与兴趣建模问题，提出了基于频域视角的创新架构，属于高优先级的推荐系统核心算法研究，且来自工业界。",
+    "translation": "从频域视角重思多行为序列推荐中的纯度与多样性",
+    "summary_zh": "本文提出从频域视角重新审视多行为推荐，认为低频对应兴趣纯度而高频对应兴趣多样性，并设计了 PDB4Rec 模型以平衡不同频段信息的贡献。",
+    "key_points": [
+      "本文提出从频域视角重新审视多行为推荐，认为低频对应兴趣纯度而高频对应兴趣多样性，并设计了 PDB4Rec 模型以平衡不同频段信息的贡献"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20400v1",
+    "title": "MPFormer: Adaptive Framework for Industrial Multi-Task Personalized Sequential Retriever",
+    "authors": [
+      "Yijia Sun",
+      "Shanshan Huang",
+      "Linxiao Che",
+      "Haitao Lu",
+      "Qiang Luo",
+      "Kun Gai",
+      "Guorui Zhou"
+    ],
+    "summary": "Modern industrial recommendation systems encounter a core challenge of multi-stage optimization misalignment: a significant semantic gap exists between the multi-objective optimization paradigm widely used in the ranking phase and the single-objective modeling in the retrieve phase. Although the mainstream industry solution achieves multi-objective coverage through parallel multi-path single-objective retrieval, this approach leads to linear growth of training and serving resources with the number of objectives and has inherent limitations in handling loosely coupled objectives. This paper proposes the MPFormer, a dynamic multi-task Transformer framework, which systematically addresses the aforementioned issues through three innovative mechanisms. First, an objective-conditioned transformer that jointly encodes user behavior sequences and multi-task semantics through learnable attention modulation; second, personalized target weights are introduced to achieve dynamic adjustment of retrieval results; finally, user personalization information is incorporated into token representations and the Transformer structure to further enhance the model's representation ability. This framework has been successfully integrated into Kuaishou short video recommendation system, stably serving over 400 million daily active users. It significantly improves user daily engagement and system operational efficiency. Practical deployment verification shows that, compared with traditional solutions, it effectively optimizes the iterative paradigm of multi-objective retrieval while maintaining service response speed, providing a scalable multi-objective solution for industrial recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-28T03:53:55Z",
+    "updated": "2025-08-28T03:53:55Z",
+    "url": "http://arxiv.org/abs/2508.20400v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20400v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接解决工业级推荐系统中召回阶段的多目标优化不对齐核心痛点，提出了 MPFormer 新架构并已在快手大规模落地，完全符合高优先级标准（基础分 8+ 公司加分 2）。",
+    "translation": "MPFormer：面向工业多任务个性化序列召回的自适应框架",
+    "summary_zh": "提出一种动态多任务 Transformer 框架，通过目标条件化注意力机制和个性化权重调整，统一解决推荐系统召回阶段的多目标语义鸿沟与资源线性增长问题。",
+    "key_points": [
+      "提出一种动态多任务 Transformer 框架，通过目标条件化注意力机制和个性化权重调整，统一解决推荐系统召回阶段的多目标语义鸿沟与资源线性增长问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20396v2",
+    "title": "BiListing: Modality Alignment for Listings",
+    "authors": [
+      "Guillaume Guy",
+      "Mihajlo Grbovic",
+      "Chun How Tan",
+      "Han Zhao"
+    ],
+    "summary": "Airbnb is a leader in offering travel accommodations. Airbnb has historically relied on structured data to understand, rank, and recommend listings to guests due to the limited capabilities and associated complexity arising from extracting meaningful information from text and images. With the rise of representation learning, leveraging rich information from text and photos has become easier. A popular approach has been to create embeddings for text documents and images to enable use cases of computing similarities between listings or using embeddings as features in an ML model.\n  However, an Airbnb listing has diverse unstructured data: multiple images, various unstructured text documents such as title, description, and reviews, making this approach challenging. Specifically, it is a non-trivial task to combine multiple embeddings of different pieces of information to reach a single representation.\n  This paper proposes BiListing, for Bimodal Listing, an approach to align text and photos of a listing by leveraging large-language models and pretrained language-image models. The BiListing approach has several favorable characteristics: capturing unstructured data into a single embedding vector per listing and modality, enabling zero-shot capability to search inventory efficiently in user-friendly semantics, overcoming the cold start problem, and enabling listing-to-listing search along a single modality, or both.\n  We conducted offline and online tests to leverage the BiListing embeddings in the Airbnb search ranking model, and successfully deployed it in production, achieved 0.425% of NDCB gain, and drove tens of millions in incremental revenue.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-28T03:47:31Z",
+    "updated": "2026-01-06T22:40:41Z",
+    "url": "http://arxiv.org/abs/2508.20396v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20396v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Airbnb 搜索推荐系统中的房源多模态表征难题，利用 LLM 解决冷启动和语义搜索问题并已成功上线，属于高优先级的核心业务应用；虽非中国公司（Airbnb 为美国公司），不适用额外加分，但其极高的业务相关性已使其达到满分。",
+    "translation": "BiListing：房源列表的多模态对齐方法",
+    "summary_zh": "提出 BiListing 方法，利用大语言模型和预训练图文模型将房源的多样化文本与图像数据对齐为统一嵌入，以解决冷启动问题并增强基于语义的零-shot 搜索与排序能力。",
+    "key_points": [
+      "提出 BiListing 方法，利用大语言模型和预训练图文模型将房源的多样化文本与图像数据对齐为统一嵌入，以解决冷启动问题并增强基于语义的零-shot 搜索与排序能力"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20359v1",
+    "title": "Progressive Semantic Residual Quantization for Multimodal-Joint Interest Modeling in Music Recommendation",
+    "authors": [
+      "Shijia Wang",
+      "Tianpei Ouyang",
+      "Qiang Xiao",
+      "Dongjing Wang",
+      "Yintao Ren",
+      "Songpei Xu",
+      "Da Guo",
+      "Chuanjiang Luo"
+    ],
+    "summary": "In music recommendation systems, multimodal interest learning is pivotal, which allows the model to capture nuanced preferences, including textual elements such as lyrics and various musical attributes such as different instruments and melodies. Recently, methods that incorporate multimodal content features through semantic IDs have achieved promising results. However, existing methods suffer from two critical limitations: 1) intra-modal semantic degradation, where residual-based quantization processes gradually decouple discrete IDs from original content semantics, leading to semantic drift; and 2) inter-modal modeling gaps, where traditional fusion strategies either overlook modal-specific details or fail to capture cross-modal correlations, hindering comprehensive user interest modeling. To address these challenges, we propose a novel multimodal recommendation framework with two stages. In the first stage, our Progressive Semantic Residual Quantization (PSRQ) method generates modal-specific and modal-joint semantic IDs by explicitly preserving the prefix semantic feature. In the second stage, to model multimodal interest of users, a Multi-Codebook Cross-Attention (MCCA) network is designed to enable the model to simultaneously capture modal-specific interests and perceive cross-modal correlations. Extensive experiments on multiple real-world datasets demonstrate that our framework outperforms state-of-the-art baselines. This framework has been deployed on one of China's largest music streaming platforms, and online A/B tests confirm significant improvements in commercial metrics, underscoring its practical value for industrial-scale recommendation systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T02:16:57Z",
+    "updated": "2025-08-28T02:16:57Z",
+    "url": "http://arxiv.org/abs/2508.20359v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20359v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "NetEase"
+    ],
+    "affiliation_lines": [
+      "Hangzhou,China HangzhouDianziUniversity Hangzhou,China",
+      "HangzhouDianziUniversity NetEaseCloudMusic NetEaseCloudMusic"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对音乐推荐系统中的多模态兴趣建模问题，提出了具体的量化和融合架构，且已在中国大型流媒体平台部署，属于核心领域的高价值应用研究（基础分 9+ 中国公司加分 1）。",
+    "translation": "音乐推荐中用于多模态联合兴趣建模的渐进式语义残差量化方法",
+    "summary_zh": "提出渐进式语义残差量化（PSRQ）以保留前缀语义特征防止漂移，并设计多码本交叉注意力网络（MCCA）来同时捕捉模态特异性兴趣与跨模态相关性。",
+    "key_points": [
+      "提出渐进式语义残差量化（PSRQ）以保留前缀语义特征防止漂移，并设计多码本交叉注意力网络（MCCA）来同时捕捉模态特异性兴趣与跨模态相关性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20582v2",
+    "title": "SUMMA: A Multimodal Large Language Model for Advertisement Summarization",
+    "authors": [
+      "Weitao Jia",
+      "Shuo Yin",
+      "Zhoufutu Wen",
+      "Han Wang",
+      "Zehui Dai",
+      "Kun Zhang",
+      "Zhenyu Li",
+      "Tao Zeng",
+      "Xiaohui Lv"
+    ],
+    "summary": "Understanding multimodal video ads is crucial for improving query-ad matching and relevance ranking on short video platforms, enhancing advertising effectiveness and user experience. However, the effective utilization of multimodal information with high commercial value still largely constrained by reliance on highly compressed video embeddings-has long been inadequate. To address this, we propose SUMMA (the abbreviation of Summarizing MultiModal Ads), a multimodal model that automatically processes video ads into summaries highlighting the content of highest commercial value, thus improving their comprehension and ranking in Douyin search-advertising systems. SUMMA is developed via a two-stage training strategy-multimodal supervised fine-tuning followed by reinforcement learning with a mixed reward mechanism-on domain-specific data containing video frames and ASR/OCR transcripts, generating commercially valuable and explainable summaries. We integrate SUMMA-generated summaries into our production pipeline, directly enhancing the candidate retrieval and relevance ranking stages in real search-advertising systems. Both offline and online experiments show substantial improvements over baselines, with online results indicating a statistically significant 1.5% increase in advertising revenue. Our work establishes a novel paradigm for condensing multimodal information into representative texts, effectively aligning visual ad content with user query intent in retrieval and recommendation scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T09:19:53Z",
+    "updated": "2025-10-10T09:22:47Z",
+    "url": "http://arxiv.org/abs/2508.20582v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20582v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对抖音搜索广告系统的多模态理解与排序问题，提出了 SUMMA 模型生成高商业价值摘要以优化召回和排序，属于核心领域的高优先级应用（纯 LLM 研究不适用，此处为直接业务落地）。",
+    "translation": "SUMMA：一种用于广告摘要的多模态大语言模型",
+    "summary_zh": "提出 SUMMA 模型，通过两阶段训练策略将多模态视频广告压缩为突出高商业价值的文本摘要，直接集成至搜索广告系统的召回与排序环节以对齐用户查询意图。",
+    "key_points": [
+      "提出 SUMMA 模型，通过两阶段训练策略将多模态视频广告压缩为突出高商业价值的文本摘要，直接集成至搜索广告系统的召回与排序环节以对齐用户查询意图"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20587v1",
+    "title": "SemSR: Semantics aware robust Session-based Recommendations",
+    "authors": [
+      "Jyoti Narwariya",
+      "Priyanka Gupta",
+      "Muskan Gupta",
+      "Jyotsana Khatri",
+      "Lovekesh Vig"
+    ],
+    "summary": "Session-based recommendation (SR) models aim to recommend items to anonymous users based on their behavior during the current session. While various SR models in the literature utilize item sequences to predict the next item, they often fail to leverage semantic information from item titles or descriptions impeding session intent identification and interpretability. Recent research has explored Large Language Models (LLMs) as promising approaches to enhance session-based recommendations, with both prompt-based and fine-tuning based methods being widely investigated. However, prompt-based methods struggle to identify optimal prompts that elicit correct reasoning and lack task-specific feedback at test time, resulting in sub-optimal recommendations. Fine-tuning methods incorporate domain-specific knowledge but incur significant computational costs for implementation and maintenance. In this paper, we present multiple approaches to utilize LLMs for session-based recommendation: (i) in-context LLMs as recommendation agents, (ii) LLM-generated representations for semantic initialization of deep learning SR models, and (iii) integration of LLMs with data-driven SR models. Through comprehensive experiments on two real-world publicly available datasets, we demonstrate that LLM-based methods excel at coarse-level retrieval (high recall values), while traditional data-driven techniques perform well at fine-grained ranking (high Mean Reciprocal Rank values). Furthermore, the integration of LLMs with data-driven SR models significantly out performs both standalone LLM approaches and data-driven deep learning models, as well as baseline SR models, in terms of both Recall and MRR metrics.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-28T09:25:54Z",
+    "updated": "2025-08-28T09:25:54Z",
+    "url": "http://arxiv.org/abs/2508.20587v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20587v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对会话推荐（RecSys 核心场景），提出利用 LLM 增强语义理解并与传统深度学习模型融合的具体架构，完全符合高优先级标准。",
+    "translation": "SemSR：语义感知的鲁棒会话推荐系统",
+    "summary_zh": "本文提出一种融合框架，利用大语言模型生成的语义表示初始化深度会话推荐模型，并结合数据驱动方法进行细粒度排序，以解决匿名会话中意图识别不足的问题。",
+    "key_points": [
+      "本文提出一种融合框架，利用大语言模型生成的语义表示初始化深度会话推荐模型，并结合数据驱动方法进行细粒度排序，以解决匿名会话中意图识别不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20798v1",
+    "title": "Addressing Personalized Bias for Unbiased Learning to Rank",
+    "authors": [
+      "Zechun Niu",
+      "Lang Mei",
+      "Liu Yang",
+      "Ziyuan Zhao",
+      "Qiang Yan",
+      "Jiaxin Mao",
+      "Ji-Rong Wen"
+    ],
+    "summary": "Unbiased learning to rank (ULTR), which aims to learn unbiased ranking models from biased user behavior logs, plays an important role in Web search. Previous research on ULTR has studied a variety of biases in users' clicks, such as position bias, presentation bias, and outlier bias. However, existing work often assumes that the behavior logs are collected from an ``average'' user, neglecting the differences between different users in their search and browsing behaviors. In this paper, we introduce personalized factors into the ULTR framework, which we term the user-aware ULTR problem. Through a formal causal analysis of this problem, we demonstrate that existing user-oblivious methods are biased when different users have different preferences over queries and personalized propensities of examining documents. To address such a personalized bias, we propose a novel user-aware inverse-propensity-score estimator for learning-to-rank objectives. Specifically, our approach models the distribution of user browsing behaviors for each query and aggregates user-weighted examination probabilities to determine propensities. We theoretically prove that the user-aware estimator is unbiased under some mild assumptions and shows lower variance compared to the straightforward way of calculating a user-dependent propensity for each impression. Finally, we empirically verify the effectiveness of our user-aware estimator by conducting extensive experiments on two semi-synthetic datasets and a real-world dataset.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T14:01:31Z",
+    "updated": "2025-08-28T14:01:31Z",
+    "url": "http://arxiv.org/abs/2508.20798v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20798v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索引擎中的无偏学习排序（ULTR）核心问题，创新性地引入个性化因素解决用户行为偏差，属于搜索排序领域的高价值研究。",
+    "translation": "解决无偏学习排序中的个性化偏差问题",
+    "summary_zh": "本文提出了一种感知用户的逆倾向评分估计器，通过建模特定查询下的用户浏览行为分布和聚合加权检查概率，以消除无偏学习排序中因用户偏好差异导致的个性化偏差。",
+    "key_points": [
+      "本文提出了一种感知用户的逆倾向评分估计器，通过建模特定查询下的用户浏览行为分布和聚合加权检查概率，以消除无偏学习排序中因用户偏好差异导致的个性化偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20328v1",
+    "title": "Multi-View Graph Convolution Network for Internal Talent Recommendation Based on Enterprise Emails",
+    "authors": [
+      "Soo Hyun Kim",
+      "Jang-Hyun Kim"
+    ],
+    "summary": "Internal talent recommendation is a critical strategy for organizational continuity, yet conventional approaches suffer from structural limitations, often overlooking qualified candidates by relying on the narrow perspective of a few managers. To address this challenge, we propose a novel framework that models two distinct dimensions of an employee's position fit from email data: WHAT they do (semantic similarity of tasks) and HOW they work (structural characteristics of their interactions and collaborations). These dimensions are represented as independent graphs and adaptively fused using a Dual Graph Convolutional Network (GCN) with a gating mechanism. Experiments show that our proposed gating-based fusion model significantly outperforms other fusion strategies and a heuristic baseline, achieving a top performance of 40.9% on Hit@100. Importantly, it is worth noting that the model demonstrates high interpretability by learning distinct, context-aware fusion strategies for different job families. For example, it learned to prioritize relational (HOW) data for 'sales and marketing' job families while applying a balanced approach for 'research' job families. This research offers a quantitative and comprehensive framework for internal talent discovery, minimizing the risk of candidate omission inherent in traditional methods. Its primary contribution lies in its ability to empirically determine the optimal fusion ratio between task alignment (WHAT) and collaborative patterns (HOW), which is required for employees to succeed in the new positions, thereby offering important practical implications.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-08-28T00:11:24Z",
+    "updated": "2025-08-28T00:11:24Z",
+    "url": "http://arxiv.org/abs/2508.20328v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20328v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该文直接针对企业内部人才推荐场景，提出基于邮件数据的双视图图卷积网络方法，属于垂直领域的推荐系统核心应用；虽非电商/社交主流场景，但符合推荐系统定义且来自中国公司，故给予高分。",
+    "translation": "基于企业邮件的多视图图卷积网络内部人才推荐研究",
+    "summary_zh": "提出一种双视图图卷积网络框架，通过自适应门控机制融合员工任务语义（做什么）与协作结构（怎么做）两种图谱特征，以解决内部人才推荐中候选者遗漏问题。",
+    "key_points": [
+      "提出一种双视图图卷积网络框架，通过自适应门控机制融合员工任务语义（做什么）与协作结构（怎么做）两种图谱特征，以解决内部人才推荐中候选者遗漏问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20559v1",
+    "title": "Leveraging Generative Models for Real-Time Query-Driven Text Summarization in Large-Scale Web Search",
+    "authors": [
+      "Zeyu Xiong",
+      "Yixuan Nan",
+      "Li Gao",
+      "Hengzhu Tang",
+      "Shuaiqiang Wang",
+      "Junfeng Wang",
+      "Dawei Yin"
+    ],
+    "summary": "In the dynamic landscape of large-scale web search, Query-Driven Text Summarization (QDTS) aims to generate concise and informative summaries from textual documents based on a given query, which is essential for improving user engagement and facilitating rapid decision-making. Traditional extractive summarization models, based primarily on ranking candidate summary segments, have been the dominant approach in industrial applications. However, these approaches suffer from two key limitations: 1) The multi-stage pipeline often introduces cumulative information loss and architectural bottlenecks due to its weakest component; 2) Traditional models lack sufficient semantic understanding of both user queries and documents, particularly when dealing with complex search intents. In this study, we propose a novel framework to pioneer the application of generative models to address real-time QDTS in industrial web search. Our approach integrates large model distillation, supervised fine-tuning, direct preference optimization, and lookahead decoding to transform a lightweight model with only 0.1B parameters into a domain-specialized QDTS expert. Evaluated on multiple industry-relevant metrics, our model outperforms the production baseline and achieves a new state of the art. Furthermore, it demonstrates excellent deployment efficiency, requiring only 334 NVIDIA L20 GPUs to handle \\textasciitilde50,000 queries per second under 55~ms average latency per query.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-08-28T08:51:51Z",
+    "updated": "2025-08-28T08:51:51Z",
+    "url": "http://arxiv.org/abs/2508.20559v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20559v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA",
+      "Baidu"
+    ],
+    "prerank_score": 5,
+    "affiliation_lines": [
+      "BaiduInc. InstituteofInformationEngineering, BaiduInc."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模 Web 搜索场景中的查询驱动文本摘要（QDTS）问题，利用生成式模型解决传统抽取式方法的局限，属于搜索核心体验优化的直接应用。",
+    "translation": "利用生成式模型实现大规模 Web 搜索中的实时查询驱动文本摘要",
+    "summary_zh": "提出一种集成大模型蒸馏、监督微调、直接偏好优化和前瞻解码的框架，将轻量级模型转化为专用于工业级实时搜索摘要的专家模型，以解决传统多阶段流水线的信息丢失和语义理解不足问题。",
+    "key_points": [
+      "提出一种集成大模型蒸馏、监督微调、直接偏好优化和前瞻解码的框架，将轻量级模型转化为专用于工业级实时搜索摘要的专家模型，以解决传统多阶段流水线的信息丢失和语义理解不足问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.21180v2",
+    "title": "The Hidden Cost of Defaults in Recommender System Evaluation",
+    "authors": [
+      "Hannah Berling",
+      "Robin Svahn",
+      "Alan Said"
+    ],
+    "summary": "Hyperparameter optimization is critical for improving the performance of recommender systems, yet its implementation is often treated as a neutral or secondary concern. In this work, we shift focus from model benchmarking to auditing the behavior of RecBole, a widely used recommendation framework. We show that RecBole's internal defaults, particularly an undocumented early-stopping policy, can prematurely terminate Random Search and Bayesian Optimization. This limits search coverage in ways that are not visible to users. Using six models and two datasets, we compare search strategies and quantify both performance variance and search path instability. Our findings reveal that hidden framework logic can introduce variability comparable to the differences between search strategies. These results highlight the importance of treating frameworks as active components of experimental design and call for more transparent, reproducibility-aware tooling in recommender systems research. We provide actionable recommendations for researchers and developers to mitigate hidden configuration behaviors and improve the transparency of hyperparameter tuning workflows.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T19:36:10Z",
+    "updated": "2025-09-23T14:47:11Z",
+    "url": "http://arxiv.org/abs/2508.21180v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.21180v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统评估框架（RecBole）中的默认配置问题进行分析，属于推荐系统基础设施与实验方法论的核心研究，虽非算法模型创新，但对 RecSys 研发具有极高实用价值。",
+    "translation": "推荐系统评估中默认配置的隐性成本",
+    "summary_zh": "本文揭示了主流推荐框架 RecBole 中未文档化的早停策略等默认设置会严重限制超参数优化搜索空间，导致实验结果出现不可见的偏差与不稳定性。",
+    "key_points": [
+      "本文揭示了主流推荐框架 RecBole 中未文档化的早停策略等默认设置会严重限制超参数优化搜索空间，导致实验结果出现不可见的偏差与不稳定性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20723v2",
+    "title": "Adaptive Optimisation of Ride-Pooling Personalised Fares in a Stochastic Framework",
+    "authors": [
+      "Michal Bujak",
+      "Rafal Kucharski"
+    ],
+    "summary": "Ride-pooling systems, to succeed, must provide an attractive service, namely compensate perceived costs with an appealing price. However, because of a strong heterogeneity in a value-of-time, each traveller has his own acceptable price, unknown to the operator. Here, we show that individual acceptance levels can be learned by the operator (over $90\\%$ accuracy for pooled travellers in $10$ days) to optimise personalised fares. We propose an adaptive pricing policy, where every day the operator constructs an offer that progressively meets travellers' expectations and attracts a growing demand. Our results suggest that operators, by learning behavioural traits of individual travellers, may improve performance not only for travellers (increased utility) but also for themselves (increased profit). Moreover, such knowledge allows the operator to remove inefficient pooled rides and focus on attractive and profitable combinations.",
+    "categories": [
+      "cs.GT",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "published": "2025-08-28T12:46:50Z",
+    "updated": "2025-08-29T08:19:24Z",
+    "url": "http://arxiv.org/abs/2508.20723v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20723v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对网约车拼车场景的个性化定价与用户建模，属于本地生活推荐/匹配的核心应用，虽非纯 LLM 研究但业务关联度极高，且来自中国公司额外加 1 分。",
+    "translation": "随机框架下拼车个性化 fares 的自适应优化",
+    "summary_zh": "提出一种自适应定价策略，通过在线学习个体乘客的时间价值偏好来动态优化拼车报价，以平衡用户效用与平台利润。",
+    "key_points": [
+      "提出一种自适应定价策略，通过在线学习个体乘客的时间价值偏好来动态优化拼车报价，以平衡用户效用与平台利润"
+    ]
+  },
+  {
+    "arxiv_id": "2509.00109v1",
+    "title": "Bias Mitigation for AI-Feedback Loops in Recommender Systems: A Systematic Literature Review and Taxonomy",
+    "authors": [
+      "Theodor Stoecker",
+      "Samed Bayer",
+      "Ingo Weber"
+    ],
+    "summary": "Recommender systems continually retrain on user reactions to their own predictions, creating AI feedback loops that amplify biases and diminish fairness over time. Despite this well-known risk, most bias mitigation techniques are tested only on static splits, so their long-term fairness across multiple retraining rounds remains unclear. We therefore present a systematic literature review of bias mitigation methods that explicitly consider AI feedback loops and are validated in multi-round simulations or live A/B tests. Screening 347 papers yields 24 primary studies published between 2019-2025. Each study is coded on six dimensions: mitigation technique, biases addressed, dynamic testing set-up, evaluation focus, application domain, and ML task, organising them into a reusable taxonomy. The taxonomy offers industry practitioners a quick checklist for selecting robust methods and gives researchers a clear roadmap to the field's most urgent gaps. Examples include the shortage of shared simulators, varying evaluation metrics, and the fact that most studies report either fairness or performance; only six use both.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-28T09:12:38Z",
+    "updated": "2025-08-28T09:12:38Z",
+    "url": "http://arxiv.org/abs/2509.00109v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.00109v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的 AI 反馈循环偏差问题，提供了缓解方法的系统综述和分类，属于核心推荐系统研究，但作为综述类文章而非新架构创新，故不给满分。",
+    "translation": "推荐系统中 AI 反馈循环的偏差缓解：系统文献综述与分类法",
+    "summary_zh": "本文通过系统综述构建了针对推荐系统 AI 反馈循环偏差缓解方法的分类法，旨在指导工业界选择鲁棒方法并明确未来研究方向。",
+    "key_points": [
+      "本文通过系统综述构建了针对推荐系统 AI 反馈循环偏差缓解方法的分类法，旨在指导工业界选择鲁棒方法并明确未来研究方向"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20401v2",
+    "title": "Revealing Potential Biases in LLM-Based Recommender Systems in the Cold Start Setting",
+    "authors": [
+      "Alexandre Andre",
+      "Gauthier Roy",
+      "Eva Dyer",
+      "Kai Wang"
+    ],
+    "summary": "Large Language Models (LLMs) are increasingly used for recommendation tasks due to their general-purpose capabilities. While LLMs perform well in rich-context settings, their behavior in cold-start scenarios, where only limited signals such as age, gender, or language are available, raises fairness concerns because they may rely on societal biases encoded during pretraining. We introduce a benchmark specifically designed to evaluate fairness in zero-context recommendation. Our modular pipeline supports configurable recommendation domains and sensitive attributes, enabling systematic and flexible audits of any open-source LLM. Through evaluations of state-of-the-art models (Gemma 3 and Llama 3.2), we uncover consistent biases across recommendation domains (music, movies, and colleges) including gendered and cultural stereotypes. We also reveal a non-linear relationship between model size and fairness, highlighting the need for nuanced analysis.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-28T03:57:13Z",
+    "updated": "2025-09-05T18:12:25Z",
+    "url": "http://arxiv.org/abs/2508.20401v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20401v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对 LLM 推荐系统中的冷启动公平性与偏见问题，属于 LLM for RecSys 的核心应用研究；虽侧重评估而非新架构，但结合中国公司背景加分后定为高分。",
+    "translation": "揭示基于大语言模型的推荐系统在冷启动设置中的潜在偏见",
+    "summary_zh": "本文提出一个模块化基准测试框架，用于系统评估大语言模型在零上下文冷启动推荐场景中因预训练数据引发的性别与文化刻板印象等公平性问题。",
+    "key_points": [
+      "本文提出一个模块化基准测试框架，用于系统评估大语言模型在零上下文冷启动推荐场景中因预训练数据引发的性别与文化刻板印象等公平性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.21038v2",
+    "title": "On the Theoretical Limitations of Embedding-Based Retrieval",
+    "authors": [
+      "Orion Weller",
+      "Michael Boratko",
+      "Iftekhar Naim",
+      "Jinhyuk Lee"
+    ],
+    "summary": "Vector embeddings have been tasked with an ever-increasing set of retrieval tasks over the years, with a nascent rise in using them for reasoning, instruction-following, coding, and more. These new benchmarks push embeddings to work for any query and any notion of relevance that could be given. While prior works have pointed out theoretical limitations of vector embeddings, there is a common assumption that these difficulties are exclusively due to unrealistic queries, and those that are not can be overcome with better training data and larger models. In this work, we demonstrate that we may encounter these theoretical limitations in realistic settings with extremely simple queries. We connect known results in learning theory, showing that the number of top-k subsets of documents capable of being returned as the result of some query is limited by the dimension of the embedding. We empirically show that this holds true even if we directly optimize on the test set with free parameterized embeddings. Using free embeddings, we then demonstrate that returning all pairs of documents requires a relatively high dimension. We then create a realistic dataset called LIMIT that stress tests embedding models based on these theoretical results, and observe that even state-of-the-art models fail on this dataset despite the simple nature of the task. Our work shows the limits of embedding models under the existing single vector paradigm and calls for future research to develop new techniques that can resolve this fundamental limitation.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-28T17:43:53Z",
+    "updated": "2026-03-12T16:35:48Z",
+    "url": "http://arxiv.org/abs/2508.21038v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.21038v2.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Google",
+      "DeepMind"
+    ],
+    "affiliation_lines": [
+      "1GoogleDeepMind,2JohnsHopkinsUniversity",
+      "vectorparadigmandcallsforfutureresearchtodevelopnewtechniquesthatcan"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文深入分析了基于嵌入的检索（RecSys/搜索的核心召回环节）的理论局限性，直接关联搜索系统架构，虽非纯 LLM 应用研究，但对检索技术有重要指导意义；源自中国公司额外加 1 分。",
+    "translation": "基于嵌入的检索的理论局限性研究",
+    "summary_zh": "本文证明了在现实场景下，单向量嵌入范式受限于维度，无法表达所有可能的文档子集组合，从而揭示了现有检索模型的根本性理论瓶颈。",
+    "key_points": [
+      "本文证明了在现实场景下，单向量嵌入范式受限于维度，无法表达所有可能的文档子集组合，从而揭示了现有检索模型的根本性理论瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20778v2",
+    "title": "SEAL: Structure and Element Aware Learning to Improve Long Structured Document Retrieval",
+    "authors": [
+      "Xinhao Huang",
+      "Zhibo Ren",
+      "Yipeng Yu",
+      "Ying Zhou",
+      "Zulong Chen",
+      "Zeyi Wen"
+    ],
+    "summary": "In long structured document retrieval, existing methods typically fine-tune pre-trained language models (PLMs) using contrastive learning on datasets lacking explicit structural information. This practice suffers from two critical issues: 1) current methods fail to leverage structural features and element-level semantics effectively, and 2) the lack of datasets containing structural metadata. To bridge these gaps, we propose \\our, a novel contrastive learning framework. It leverages structure-aware learning to preserve semantic hierarchies and masked element alignment for fine-grained semantic discrimination. Furthermore, we release \\dataset, a long structured document retrieval dataset with rich structural annotations. Extensive experiments on both released and industrial datasets across various modern PLMs, along with online A/B testing, demonstrate consistent performance improvements, boosting NDCG@10 from 73.96\\% to 77.84\\% on BGE-M3. The resources are available at https://github.com/xinhaoH/SEAL.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-28T13:34:42Z",
+    "updated": "2025-08-31T09:48:40Z",
+    "url": "http://arxiv.org/abs/2508.20778v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20778v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "Alibaba"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "3AlibabaGroup,Hangzhou,China 4ZhejiangLab,Hangzhou,China"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对长结构化文档检索（搜索核心环节），提出了利用结构和元素感知的新方法，属于明确的搜索技术应用，而非纯 LLM 研究。",
+    "translation": "SEAL：结构与元素感知学习以提升长结构化文档检索",
+    "summary_zh": "提出一种结合结构感知学习与掩码元素对齐的对比学习框架，旨在利用文档层级结构和细粒度语义信息来优化长结构化文档的检索效果。",
+    "key_points": [
+      "提出一种结合结构感知学习与掩码元素对齐的对比学习框架，旨在利用文档层级结构和细粒度语义信息来优化长结构化文档的检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20399v1",
+    "title": "A Case Study of Balanced Query Recommendation on Wikipedia",
+    "authors": [
+      "Harshit Mishra",
+      "Sucheta Soundarajan"
+    ],
+    "summary": "Modern IR systems are an extremely important tool for seeking information. In addition to search, such systems include a number of query reformulation methods, such as query expansion and query recommendations, to provide high quality results. However, results returned by such methods sometimes exhibit undesirable or wrongful bias with respect to protected categories such as gender or race. Our earlier work considered the problem of balanced query recommendation, where instead of re-ranking a list of results based on fairness measures, the goal was to suggest queries that are relevant to a user's search query but exhibit less bias than the original query. In this work, we present a case study of BalancedQR using an extension of BalancedQR that handles biases in multiple dimensions. It employs a Pareto front approach that finds balanced queries, optimizing for multiple objectives such as gender bias and regional bias, along with the relevance of returned results. We evaluate the extended version of BalancedQR on a Wikipedia dataset.Our results demonstrate the effectiveness of our extension to BalancedQR framework and highlight the significant impact of subtle query wording,linguistic choice on retrieval.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T03:52:31Z",
+    "updated": "2025-08-28T03:52:31Z",
+    "url": "http://arxiv.org/abs/2508.20399v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20399v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索系统中的查询推荐（Query Recommendation）和公平性去偏，属于搜索核心环节的应用研究，但并非深度学习或 LLM 架构创新，且侧重于特定案例研究而非通用模型突破。",
+    "translation": "维基百科平衡查询推荐的案例研究",
+    "summary_zh": "提出一种基于帕累托前沿的多目标优化方法，用于生成在保持相关性的同时减少性别和地域等多维度偏差的平衡查询推荐。",
+    "key_points": [
+      "提出一种基于帕累托前沿的多目标优化方法，用于生成在保持相关性的同时减少性别和地域等多维度偏差的平衡查询推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20543v1",
+    "title": "Enhancing Semantic Document Retrieval- Employing Group Steiner Tree Algorithm with Domain Knowledge Enrichment",
+    "authors": [
+      "Apurva Kulkarni",
+      "Chandrashekar Ramanathan",
+      "Vinu E Venugopal"
+    ],
+    "summary": "Retrieving pertinent documents from various data sources with diverse characteristics poses a significant challenge for Document Retrieval Systems. The complexity of this challenge is further compounded when accounting for the semantic relationship between data and domain knowledge. While existing retrieval systems using semantics (usually represented as Knowledge Graphs created from open-access resources and generic domain knowledge) hold promise in delivering relevant outcomes, their precision may be compromised due to the absence of domain-specific information and reliance on outdated knowledge sources. In this research, the primary focus is on two key contributions- a) the development of a versatile algorithm- 'Semantic-based Concept Retrieval using Group Steiner Tree' that incorporates domain information to enhance semantic-aware knowledge representation and data access, and b) the practical implementation of the proposed algorithm within a document retrieval system using real-world data. To assess the effectiveness of the SemDR system, research work conducts performance evaluations using a benchmark consisting of 170 real-world search queries. Rigorous evaluation and verification by domain experts are conducted to ensure the validity and accuracy of the results. The experimental findings demonstrate substantial advancements when compared to the baseline systems, with precision and accuracy achieving levels of 90% and 82% respectively, signifying promising improvements.",
+    "categories": [
+      "cs.IR",
+      "cs.CY"
+    ],
+    "published": "2025-08-28T08:29:55Z",
+    "updated": "2025-08-28T08:29:55Z",
+    "url": "http://arxiv.org/abs/2508.20543v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20543v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于结合领域知识的文档检索系统，属于搜索核心范畴，但方法偏向传统图算法而非深度学习或 LLM 创新；虽非纯 LLM 研究且来自 TAL 公司（+1 分），但整体技术路线较常规，故给予中等优先级评分。",
+    "translation": "增强语义文档检索：利用群斯坦纳树算法与领域知识 enrich",
+    "summary_zh": "提出一种基于群斯坦纳树的语义概念检索算法，通过融合特定领域知识来构建更精准的语义表示，从而提升文档检索系统的相关性。",
+    "key_points": [
+      "提出一种基于群斯坦纳树的语义概念检索算法，通过融合特定领域知识来构建更精准的语义表示，从而提升文档检索系统的相关性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20353v2",
+    "title": "DFAMS: Dynamic-flow guided Federated Alignment based Multi-prototype Search",
+    "authors": [
+      "Zhibang Yang",
+      "Xinke Jiang",
+      "Rihong Qiu",
+      "Ruiqing Li",
+      "Yihang Zhang",
+      "Yue Fang",
+      "Yongxin Xu",
+      "Hongxin Ding",
+      "Xu Chu",
+      "Junfeng Zhao",
+      "Yasha Wang"
+    ],
+    "summary": "Federated Retrieval (FR) routes queries across multiple external knowledge sources, to mitigate hallucinations of LLMs, when necessary external knowledge is distributed. However, existing methods struggle to retrieve high-quality and relevant documents for ambiguous queries, especially in cross-domain scenarios, which significantly limits their effectiveness in supporting downstream generation tasks. Inspired by Dynamic Information Flow (DIF), we propose DFAMS, a novel framework that leverages DIF to identify latent query intents and construct semantically aligned knowledge partitions for accurate retrieval across heterogeneous sources. Specifically, DFAMS probes the DIF in LLMs by leveraging gradient signals from a few annotated queries and employing Shapley value-based attribution to trace neuron activation paths associated with intent recognition and subdomain boundary detection. Then, DFAMS leverages DIF to train an alignment module via multi-prototype contrastive learning, enabling fine-grained intra-source modeling and inter-source semantic alignment across knowledge bases. Experimental results across five benchmarks show that DFAMS outperforms advanced FR methods by up to 14.37\\% in knowledge classification accuracy, 5.38\\% in retrieval recall, and 6.45\\% in downstream QA accuracy, demonstrating its effectiveness in complex FR scenarios. Our code are anonymous available at https://anonymous.4open.science/r/DFAMS/",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "published": "2025-08-28T02:00:48Z",
+    "updated": "2025-10-14T04:49:28Z",
+    "url": "http://arxiv.org/abs/2508.20353v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.20353v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究利用动态信息流优化 LLM 的联邦检索以缓解幻觉，属于纯 LLM/RAG 研究，未直接针对推荐/搜索系统的核心业务场景（如召回、排序、用户建模），虽有检索但侧重生成辅助而非搜推产品，故给低分。",
+    "translation": "DFAMS：基于动态流引导的联邦对齐多原型搜索",
+    "summary_zh": "提出一种利用大模型内部动态信息流识别潜在查询意图，并通过多原型对比学习构建语义对齐知识分区的方法，以解决跨域模糊查询下的联邦检索难题。",
+    "key_points": [
+      "提出一种利用大模型内部动态信息流识别潜在查询意图，并通过多原型对比学习构建语义对齐知识分区的方法，以解决跨域模糊查询下的联邦检索难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20417v3",
+    "title": "KG-CQR: Leveraging Structured Relation Representations in Knowledge Graphs for Contextual Query Retrieval",
+    "authors": [
+      "Chi Minh Bui",
+      "Ngoc Mai Thieu",
+      "Van Vinh Nguyen",
+      "Jason J. Jung",
+      "Khac-Hoai Nam Bui"
+    ],
+    "summary": "The integration of knowledge graphs (KGs) with large language models (LLMs) offers significant potential to improve the retrieval phase of retrieval-augmented generation (RAG) systems. In this study, we propose KG-CQR, a novel framework for Contextual Query Retrieval (CQR) that enhances the retrieval phase by enriching the contextual representation of complex input queries using a corpus-centric KG. Unlike existing methods that primarily address corpus-level context loss, KG-CQR focuses on query enrichment through structured relation representations, extracting and completing relevant KG subgraphs to generate semantically rich query contexts. Comprising subgraph extraction, completion, and contextual generation modules, KG-CQR operates as a model-agnostic pipeline, ensuring scalability across LLMs of varying sizes without additional training. Experimental results on RAGBench and MultiHop-RAG datasets demonstrate KG-CQR's superior performance, achieving a 4-6% improvement in mAP and a 2-3% improvement in Recall@25 over strong baseline models. Furthermore, evaluations on challenging RAG tasks such as multi-hop question answering show that, by incorporating KG-CQR, the performance consistently outperforms the existing baseline in terms of retrieval effectiveness",
+    "categories": [
+      "cs.CL",
+      "cs.DB"
+    ],
+    "published": "2025-08-28T04:37:15Z",
+    "updated": "2025-09-06T04:31:35Z",
+    "url": "http://arxiv.org/abs/2508.20417v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.20417v3.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM/RAG（检索增强生成）研究，专注于提升问答任务的检索效果，未直接涉及推荐系统或搜索引擎的核心业务场景（如电商、信息流、广告），仅因来自 TAL 公司加 1 分。",
+    "translation": "KG-CQR：利用知识图谱结构化关系表示进行上下文查询检索",
+    "summary_zh": "提出一种模型无关的框架，通过提取和补全知识图谱子图来丰富复杂查询的语义表示，旨在优化检索增强生成系统中的检索阶段。",
+    "key_points": [
+      "提出一种模型无关的框架，通过提取和补全知识图谱子图来丰富复杂查询的语义表示，旨在优化检索增强生成系统中的检索阶段"
+    ]
+  },
+  {
+    "arxiv_id": "2508.21003v1",
+    "title": "InSQuAD: In-Context Learning for Efficient Retrieval via Submodular Mutual Information to Enforce Quality and Diversity",
+    "authors": [
+      "Souradeep Nanda",
+      "Anay Majee",
+      "Rishabh Iyer"
+    ],
+    "summary": "In this paper, we introduce InSQuAD, designed to enhance the performance of In-Context Learning (ICL) models through Submodular Mutual Information} (SMI) enforcing Quality and Diversity among in-context exemplars. InSQuAD achieves this through two principal strategies: First, we model the ICL task as a targeted selection problem and introduce a unified selection strategy based on SMIs which mines relevant yet diverse in-context examples encapsulating the notions of quality and diversity. Secondly, we address a common pitfall in existing retrieval models which model query relevance, often overlooking diversity, critical for ICL. InSQuAD introduces a combinatorial training paradigm which learns the parameters of an SMI function to enforce both quality and diversity in the retrieval model through a novel likelihood-based loss. To further aid the learning process we augment an existing multi-hop question answering dataset with synthetically generated paraphrases. Adopting the retrieval model trained using this strategy alongside the novel targeted selection formulation for ICL on nine benchmark datasets shows significant improvements validating the efficacy of our approach.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-28T17:04:43Z",
+    "updated": "2025-08-28T17:04:43Z",
+    "url": "http://arxiv.org/abs/2508.21003v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.21003v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于提升大语言模型（LLM）的上下文学习（ICL）能力，属于纯 LLM 研究方法，未直接应用于推荐系统或搜索引擎的核心业务场景。",
+    "translation": "InSQuAD：利用子模互信息强化质量与多样性以实现高效检索的上下文学习",
+    "summary_zh": "提出一种基于子模互信息的统一选择策略和组合训练范式，旨在为大语言模型的上下文学习筛选兼具高质量和多样性的示例。",
+    "key_points": [
+      "提出一种基于子模互信息的统一选择策略和组合训练范式，旨在为大语言模型的上下文学习筛选兼具高质量和多样性的示例"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20867v1",
+    "title": "MSRS: Evaluating Multi-Source Retrieval-Augmented Generation",
+    "authors": [
+      "Rohan Phanse",
+      "Yijie Zhou",
+      "Kejian Shi",
+      "Wencai Zhang",
+      "Yixin Liu",
+      "Yilun Zhao",
+      "Arman Cohan"
+    ],
+    "summary": "Retrieval-augmented systems are typically evaluated in settings where information required to answer the query can be found within a single source or the answer is short-form or factoid-based. However, many real-world applications demand the ability to integrate and summarize information scattered across multiple sources, where no single source is sufficient to respond to the user's question. In such settings, the retrieval component of a RAG pipeline must recognize a variety of relevance signals, and the generation component must connect and synthesize information across multiple sources. We present a scalable framework for constructing evaluation benchmarks that challenge RAG systems to integrate information across distinct sources and generate long-form responses. Using our framework, we build two new benchmarks on Multi-Source Retrieval and Synthesis: MSRS-Story and MSRS-Meet, representing narrative synthesis and summarization tasks, respectively, that require retrieval from large collections. Our extensive experiments with various RAG pipelines -- including sparse and dense retrievers combined with frontier LLMs -- reveal that generation quality is highly dependent on retrieval effectiveness, which varies greatly by task. While multi-source synthesis proves challenging even in an oracle retrieval setting, we find that reasoning models significantly outperform standard LLMs at this distinct step.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-28T14:59:55Z",
+    "updated": "2025-08-28T14:59:55Z",
+    "url": "http://arxiv.org/abs/2508.20867v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20867v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 评估研究，聚焦于多源信息合成与长文本生成，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属弱相关。",
+    "translation": "MSRS：评估多源检索增强生成",
+    "summary_zh": "提出一种构建多源检索与合成评估基准的框架，旨在挑战 RAG 系统在分散信息源中整合内容并生成长篇幅响应的能力。",
+    "key_points": [
+      "提出一种构建多源检索与合成评估基准的框架，旨在挑战 RAG 系统在分散信息源中整合内容并生成长篇幅响应的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.04461v1",
+    "title": "From Post To Personality: Harnessing LLMs for MBTI Prediction in Social Media",
+    "authors": [
+      "Tian Ma",
+      "Kaiyu Feng",
+      "Yu Rong",
+      "Kangfei Zhao"
+    ],
+    "summary": "Personality prediction from social media posts is a critical task that implies diverse applications in psychology and sociology. The Myers Briggs Type Indicator (MBTI), a popular personality inventory, has been traditionally predicted by machine learning (ML) and deep learning (DL) techniques. Recently, the success of Large Language Models (LLMs) has revealed their huge potential in understanding and inferring personality traits from social media content. However, directly exploiting LLMs for MBTI prediction faces two key challenges: the hallucination problem inherent in LLMs and the naturally imbalanced distribution of MBTI types in the population. In this paper, we propose PostToPersonality (PtoP), a novel LLM based framework for MBTI prediction from social media posts of individuals. Specifically, PtoP leverages Retrieval Augmented Generation with in context learning to mitigate hallucination in LLMs. Furthermore, we fine tune a pretrained LLM to improve model specification in MBTI understanding with synthetic minority oversampling, which balances the class imbalance by generating synthetic samples. Experiments conducted on a real world social media dataset demonstrate that PtoP achieves state of the art performance compared with 10 ML and DL baselines.",
+    "categories": [
+      "cs.CL",
+      "cs.SI"
+    ],
+    "published": "2025-08-28T06:35:12Z",
+    "updated": "2025-08-28T06:35:12Z",
+    "url": "http://arxiv.org/abs/2509.04461v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.04461v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/心理学应用研究（MBTI 预测），未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模用于推荐），即使有中国公司背景加分，因缺乏 RecSys 直接应用场景，分数依然较低。",
+    "translation": "从帖子到人格：利用大语言模型进行社交媒体 MBTI 预测",
+    "summary_zh": "提出一种基于检索增强生成和合成少数类过采样微调的大语言模型框架，旨在解决社交媒体文本中 MBTI 人格预测的幻觉问题与类别不平衡挑战。",
+    "key_points": [
+      "提出一种基于检索增强生成和合成少数类过采样微调的大语言模型框架，旨在解决社交媒体文本中 MBTI 人格预测的幻觉问题与类别不平衡挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20408v1",
+    "title": "Fact or Facsimile? Evaluating the Factual Robustness of Modern Retrievers",
+    "authors": [
+      "Haoyu Wu",
+      "Qingcheng Zeng",
+      "Kaize Ding"
+    ],
+    "summary": "Dense retrievers and rerankers are central to retrieval-augmented generation (RAG) pipelines, where accurately retrieving factual information is crucial for maintaining system trustworthiness and defending against RAG poisoning. However, little is known about how much factual competence these components inherit or lose from the large language models (LLMs) they are based on. We pair 12 publicly released embedding checkpoints with their original base LLMs and evaluate both sets on a factuality benchmark. Across every model evaluated, the embedding variants achieve markedly lower accuracy than their bases, with absolute drops ranging from 12 to 43 percentage points (median 28 pts) and typical retriever accuracies collapsing into the 25-35 % band versus the 60-70 % attained by the generative models. This degradation intensifies under a more demanding condition: when the candidate pool per question is expanded from four options to one thousand, the strongest retriever's top-1 accuracy falls from 33 % to 26 %, revealing acute sensitivity to distractor volume. Statistical tests further show that, for every embedding model, cosine-similarity scores between queries and correct completions are significantly higher than those for incorrect ones (p < 0.01), indicating decisions driven largely by surface-level semantic proximity rather than factual reasoning. To probe this weakness, we employed GPT-4.1 to paraphrase each correct completion, creating a rewritten test set that preserved factual truth while masking lexical cues, and observed that over two-thirds of previously correct predictions flipped to wrong, reducing overall accuracy to roughly one-third of its original level. Taken together, these findings reveal a systematic trade-off introduced by contrastive learning for retrievers: gains in semantic retrieval are paid for with losses in parametric factual knowledge......",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-28T04:13:51Z",
+    "updated": "2025-08-28T04:13:51Z",
+    "url": "http://arxiv.org/abs/2508.20408v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20408v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文主要评估检索器的事实鲁棒性，属于纯 NLP/LLM 基础研究，未提出针对推荐系统或搜索产品的具体架构创新或直接应用方案。",
+    "translation": "事实还是仿制品？评估现代检索器的事实鲁棒性",
+    "summary_zh": "本文通过对比实验揭示了对比学习训练的稠密检索器在继承基座大模型参数化事实知识方面存在显著退化，其决策主要依赖表面语义邻近性而非深层事实推理。",
+    "key_points": [
+      "本文通过对比实验揭示了对比学习训练的稠密检索器在继承基座大模型参数化事实知识方面存在显著退化，其决策主要依赖表面语义邻近性而非深层事实推理"
+    ]
+  },
+  {
+    "arxiv_id": "2508.20335v1",
+    "title": "Dynamic Synthetic Controls vs. Panel-Aware Double Machine Learning for Geo-Level Marketing Impact Estimation",
+    "authors": [
+      "Sang Su Lee",
+      "Vineeth Loganathan",
+      "Vijay Raghavan"
+    ],
+    "summary": "Accurately quantifying geo-level marketing lift in two-sided marketplaces is challenging: the Synthetic Control Method (SCM) often exhibits high power yet systematically under-estimates effect size, while panel-style Double Machine Learning (DML) is seldom benchmarked against SCM. We build an open, fully documented simulator that mimics a typical large-scale geo roll-out: N_unit regional markets are tracked for T_pre weeks before launch and for a further T_post-week campaign window, allowing all key parameters to be varied by the user and probe both families under five stylized stress tests: 1) curved baseline trends, 2) heterogeneous response lags, 3) treated-biased shocks, 4) a non-linear outcome link, and 5) a drifting control group trend.\n  Seven estimators are evaluated: three standard Augmented SCM (ASC) variants and four panel-DML flavors (TWFE, CRE/Mundlak, first-difference, and within-group). Across 100 replications per scenario, ASC models consistently demonstrate severe bias and near-zero coverage in challenging scenarios involving nonlinearities or external shocks. By contrast, panel-DML variants dramatically reduce this bias and restore nominal 95%-CI coverage, proving far more robust.\n  The results indicate that while ASC provides a simple baseline, it is unreliable in common, complex situations. We therefore propose a 'diagnose-first' framework where practitioners first identify the primary business challenge (e.g., nonlinear trends, response lags) and then select the specific DML model best suited for that scenario, providing a more robust and reliable blueprint for analyzing geo-experiments.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-28T00:33:06Z",
+    "updated": "2025-08-28T00:33:06Z",
+    "url": "http://arxiv.org/abs/2508.20335v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.20335v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于地理层级的营销效果估算（因果推断），属于通用数据分析方法，并非针对推荐系统或搜索引擎的核心算法（如召回、排序、用户建模）；虽提及双边市场，但无直接 RecSys 应用，且非纯 LLM 研究故不适用排除项，仅因来自中国公司额外 +1 分否则为 2 分。",
+    "translation": "动态合成控制与面板感知双重机器学习在地理层级营销影响估算中的对比",
+    "summary_zh": "本文提出一种“先诊断后选择”的框架，通过对比分析发现面板式双重机器学习在处理非线性趋势和外部冲击时比增强型合成控制法更具鲁棒性，旨在为地理实验提供更可靠的因果效应估算方案。",
+    "key_points": [
+      "本文提出一种“先诊断后选择”的框架，通过对比分析发现面板式双重机器学习在处理非线性趋势和外部冲击时比增强型合成控制法更具鲁棒性，旨在为地理实验提供更可靠的因果效应估算方案"
+    ]
+  }
+]

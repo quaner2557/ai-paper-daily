@@ -1,1 +1,624 @@
-[]
+[
+  {
+    "arxiv_id": "2508.18442v1",
+    "title": "DenseRec: Revisiting Dense Content Embeddings for Sequential Transformer-based Recommendation",
+    "authors": [
+      "Jan Malte Lichtenberg",
+      "Antonio De Candia",
+      "Matteo Ruffini"
+    ],
+    "summary": "Transformer-based sequential recommenders, such as SASRec or BERT4Rec, typically rely solely on learned item ID embeddings, making them vulnerable to the item cold-start problem, particularly in environments with dynamic item catalogs. While dense content embeddings from pre-trained models offer potential solutions, direct integration into transformer-based recommenders has consistently underperformed compared to ID-only approaches. We revisit this integration challenge and propose DenseRec, a simple yet effective method that introduces a dual-path embedding approach. DenseRec learns a linear projection from the dense embedding space into the ID embedding space during training, enabling seamless generalization to previously unseen items without requiring specialized embedding models or complex infrastructure. In experiments on three real-world datasets, we find DenseRec to consistently outperform an ID-only SASRec baseline, even without additional hyperparameter tuning and while using compact embedding models. Our analysis suggests improvements primarily arise from better sequence representations in the presence of unseen items, positioning DenseRec as a practical and robust solution for cold-start sequential recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-25T19:47:20Z",
+    "updated": "2025-08-25T19:47:20Z",
+    "url": "http://arxiv.org/abs/2508.18442v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.18442v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的序列建模和物品冷启动核心问题，提出了将稠密内容嵌入与 ID 嵌入结合的 Dual-path 架构，属于高优先级的核心领域进展。",
+    "translation": "DenseRec：重审基于 Transformer 的序列推荐中的稠密内容嵌入",
+    "summary_zh": "提出一种双路径嵌入方法，通过线性投影将预训练的稠密内容嵌入映射到 ID 嵌入空间，以在不改变现有架构的前提下有效解决动态目录下的物品冷启动问题。",
+    "key_points": [
+      "提出一种双路径嵌入方法，通过线性投影将预训练的稠密内容嵌入映射到 ID 嵌入空间，以在不改变现有架构的前提下有效解决动态目录下的物品冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18166v4",
+    "title": "PCR-CA: Parallel Codebook Representations with Contrastive Alignment for Multiple-Category App Recommendation",
+    "authors": [
+      "Bin Tan",
+      "Wangyao Ge",
+      "Yidi Wang",
+      "Xin Liu",
+      "Jeff Burtoft",
+      "Hao Fan",
+      "Hui Wang"
+    ],
+    "summary": "Modern app store recommender systems struggle with multiple-category apps, as traditional taxonomies fail to capture overlapping semantics, leading to suboptimal personalization. We propose PCR-CA (Parallel Codebook Representations with Contrastive Alignment), an end-to-end framework for improved CTR prediction. PCR-CA first extracts compact multimodal embeddings from app text, then introduces a Parallel Codebook VQ-AE module that learns discrete semantic representations across multiple codebooks in parallel -- unlike hierarchical residual quantization (RQ-VAE). This design enables independent encoding of diverse aspects (e.g., gameplay, art style), better modeling multiple-category semantics. To bridge semantic and collaborative signals, we employ a contrastive alignment loss at both the user and item levels, enhancing representation learning for long-tail items. Additionally, a dual-attention fusion mechanism combines ID-based and semantic features to capture user interests, especially for long-tail apps. Experiments on a large-scale dataset show PCR-CA achieves a +0.76% AUC improvement over strong baselines, with +2.15% AUC gains for long-tail apps. Online A/B testing further validates our approach, showing a +10.52% lift in CTR and a +16.30% improvement in CVR, demonstrating PCR-CA's effectiveness in real-world deployment. The new framework has now been fully deployed on the Microsoft Store.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-25T16:16:06Z",
+    "updated": "2025-09-08T07:12:07Z",
+    "url": "http://arxiv.org/abs/2508.18166v4",
+    "pdf_url": "http://arxiv.org/pdf/2508.18166v4.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对应用商店推荐系统中的多类别建模难题，提出了端到端的 CTR 预测新架构，并已在微软商店实际部署，属于核心领域的高优先级工作；叠加中国公司背景额外加 1 分（基础分 9+1）。",
+    "translation": "PCR-CA：用于多类别应用推荐的并行码本表示与对比对齐方法",
+    "summary_zh": "提出一种并行码本矢量量化自编码器，通过并行学习离散语义表示以捕捉应用的多重类别特征，并结合用户 - 物品级对比对齐损失与双注意力融合机制，增强长尾应用的表征学习与兴趣匹配。",
+    "key_points": [
+      "提出一种并行码本矢量量化自编码器，通过并行学习离散语义表示以捕捉应用的多重类别特征，并结合用户 - 物品级对比对齐损失与双注意力融合机制，增强长尾应用的表征学习与兴趣匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17754v1",
+    "title": "DiffusionGS: Generative Search with Query Conditioned Diffusion in Kuaishou",
+    "authors": [
+      "Qinyao Li",
+      "Xiaoyang Zheng",
+      "Qihang Zhao",
+      "Ke Xu",
+      "Zhongbo Sun",
+      "Chao Wang",
+      "Chenyi Lei",
+      "Han Li",
+      "Wenwu Ou"
+    ],
+    "summary": "Personalized search ranking systems are critical for driving engagement and revenue in modern e-commerce and short-video platforms. While existing methods excel at estimating users' broad interests based on the filtered historical behaviors, they typically under-exploit explicit alignment between a user's real-time intent (represented by the user query) and their past actions. In this paper, we propose DiffusionGS, a novel and scalable approach powered by generative models. Our key insight is that user queries can serve as explicit intent anchors to facilitate the extraction of users' immediate interests from long-term, noisy historical behaviors. Specifically, we formulate interest extraction as a conditional denoising task, where the user's query guides a conditional diffusion process to produce a robust, user intent-aware representation from their behavioral sequence. We propose the User-aware Denoising Layer (UDL) to incorporate user-specific profiles into the optimization of attention distribution on the user's past actions. By reframing queries as intent priors and leveraging diffusion-based denoising, our method provides a powerful mechanism for capturing dynamic user interest shifts. Extensive offline and online experiments demonstrate the superiority of DiffusionGS over state-of-the-art methods.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-25T07:46:51Z",
+    "updated": "2025-08-25T07:46:51Z",
+    "url": "http://arxiv.org/abs/2508.17754v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17754v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "CityUniversityofHongKong KuaishouTechnology KuaishouTechnology",
+      "per,weproposeDiffusionGS,anovelandscalableapproachpow- QinyaoLi,XiaoyangZheng,QihangZhao,KeXu,ZhongboSun,Chao"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该文直接针对快手搜索场景，提出利用扩散模型以查询为条件进行用户兴趣去噪提取的创新架构，完美契合核心领域进展与工业界应用标准。",
+    "translation": "DiffusionGS：快手基于查询条件扩散模型的生成式搜索",
+    "summary_zh": "提出将用户查询作为显式意图锚点，通过条件扩散去噪过程从长序列历史行为中鲁棒地提取实时用户兴趣表征。",
+    "key_points": [
+      "提出将用户查询作为显式意图锚点，通过条件扩散去噪过程从长序列历史行为中鲁棒地提取实时用户兴趣表征"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17618v1",
+    "title": "Preference Trajectory Modeling via Flow Matching for Sequential Recommendation",
+    "authors": [
+      "Li Li",
+      "Mingyue Cheng",
+      "Yuyang Ye",
+      "Zhiding Liu",
+      "Enhong Chen"
+    ],
+    "summary": "Sequential recommendation predicts each user's next item based on their historical interaction sequence. Recently, diffusion models have attracted significant attention in this area due to their strong ability to model user interest distributions. They typically generate target items by denoising Gaussian noise conditioned on historical interactions. However, these models face two critical limitations. First, they exhibit high sensitivity to the condition, making it difficult to recover target items from pure Gaussian noise. Second, the inference process is computationally expensive, limiting practical deployment. To address these issues, we propose FlowRec, a simple yet effective sequential recommendation framework which leverages flow matching to explicitly model user preference trajectories from current states to future interests. Flow matching is an emerging generative paradigm, which offers greater flexibility in initial distributions and enables more efficient sampling. Based on this, we construct a personalized behavior-based prior distribution to replace Gaussian noise and learn a vector field to model user preference trajectories. To better align flow matching with the recommendation objective, we further design a single-step alignment loss incorporating both positive and negative samples, improving sampling efficiency and generation quality. Extensive experiments on four benchmark datasets verify the superiority of FlowRec over the state-of-the-art baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T02:55:42Z",
+    "updated": "2025-08-25T02:55:42Z",
+    "url": "http://arxiv.org/abs/2508.17618v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17618v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐任务，提出利用流匹配（Flow Matching）建模用户偏好轨迹以解决扩散模型的条件敏感性和推理效率问题，属于核心推荐算法创新；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "基于流匹配的序列推荐偏好轨迹建模",
+    "summary_zh": "本文提出 FlowRec 框架，利用流匹配技术构建个性化行为先验分布并学习向量场，以显式建模从当前状态到未来兴趣的用户偏好轨迹，从而提升序列推荐的生成质量与采样效率。",
+    "key_points": [
+      "本文提出 FlowRec 框架，利用流匹配技术构建个性化行为先验分布并学习向量场，以显式建模从当前状态到未来兴趣的用户偏好轨迹，从而提升序列推荐的生成质量与采样效率"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18118v1",
+    "title": "HLLM-Creator: Hierarchical LLM-based Personalized Creative Generation",
+    "authors": [
+      "Junyi Chen",
+      "Lu Chi",
+      "Siliang Xu",
+      "Shiwei Ran",
+      "Bingyue Peng",
+      "Zehuan Yuan"
+    ],
+    "summary": "AI-generated content technologies are widely used in content creation. However, current AIGC systems rely heavily on creators' inspiration, rarely generating truly user-personalized content. In real-world applications such as online advertising, a single product may have multiple selling points, with different users focusing on different features. This underscores the significant value of personalized, user-centric creative generation. Effective personalized content generation faces two main challenges: (1) accurately modeling user interests and integrating them into the content generation process while adhering to factual constraints, and (2) ensuring high efficiency and scalability to handle the massive user base in industrial scenarios. Additionally, the scarcity of personalized creative data in practice complicates model training, making data construction another key hurdle. We propose HLLM-Creator, a hierarchical LLM framework for efficient user interest modeling and personalized content generation. During inference, a combination of user clustering and a user-ad-matching-prediction based pruning strategy is employed to significantly enhance generation efficiency and reduce computational overhead, making the approach suitable for large-scale deployment. Moreover, we design a data construction pipeline based on chain-of-thought reasoning, which generates high-quality, user-specific creative titles and ensures factual consistency despite limited personalized data. This pipeline serves as a critical foundation for the effectiveness of our model. Extensive experiments on personalized title generation for Douyin Search Ads show the effectiveness of HLLM-Creator. Online A/B test shows a 0.476% increase on Adss, paving the way for more effective and efficient personalized generation in industrial scenarios. Codes for academic dataset are available at https://github.com/bytedance/HLLM.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-08-25T15:23:21Z",
+    "updated": "2025-08-25T15:23:21Z",
+    "url": "http://arxiv.org/abs/2508.18118v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.18118v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对抖音搜索广告场景，提出基于分层 LLM 的个性化创意生成框架，完美契合'LLM for RecSys/Search'及电商/社交广告核心需求，且来自字节跳动一线业务。",
+    "translation": "HLLM-Creator：基于分层大语言模型的个性化创意生成",
+    "summary_zh": "提出一种分层 LLM 框架，结合用户聚类与剪枝策略解决大规模个性化广告创意生成的效率难题，并利用思维链构建数据流水线以在少样本下保证生成内容的事实一致性。",
+    "key_points": [
+      "提出一种分层 LLM 框架，结合用户聚类与剪枝策略解决大规模个性化广告创意生成的效率难题，并利用思维链构建数据流水线以在少样本下保证生成内容的事实一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18379v2",
+    "title": "REALM: Recursive Relevance Modeling for LLM-based Document Re-Ranking",
+    "authors": [
+      "Pinhuan Wang",
+      "Zhiqiu Xia",
+      "Chunhua Liao",
+      "Feiyi Wang",
+      "Hang Liu"
+    ],
+    "summary": "Large Language Models (LLMs) have shown strong capabilities in document re-ranking, a key component in modern Information Retrieval (IR) systems. However, existing LLM-based approaches face notable limitations, including ranking uncertainty, unstable top-k recovery, and high token cost due to token-intensive prompting. To effectively address these limitations, we propose REALM, an uncertainty-aware re-ranking framework that models LLM-derived relevance as Gaussian distributions and refines them through recursive Bayesian updates. By explicitly capturing uncertainty and minimizing redundant queries, REALM achieves better rankings more efficiently. Experimental results demonstrate that our REALM surpasses state-of-the-art re-rankers while significantly reducing token usage and latency, improving NDCG@10 by 0.7-11.9 and simultaneously reducing the number of LLM inferences by 23.4-84.4%, promoting it as the next-generation re-ranker for modern IR systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T18:13:50Z",
+    "updated": "2025-10-02T15:20:02Z",
+    "url": "http://arxiv.org/abs/2508.18379v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.18379v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心重排序（Re-ranking）环节，提出利用 LLM 进行文档重排的新框架，属于 LLM for Search 的直接应用而非纯 LLM 研究；基础分 8 分，因来自中国公司额外加 1 分。",
+    "translation": "REALM：基于大语言模型文档重排序的递归相关性建模",
+    "summary_zh": "提出一种感知不确定性的重排序框架 REALM，通过将 LLM 生成的相关性建模为高斯分布并执行递归贝叶斯更新，以解决现有方法中的排名不确定性及高 Token 消耗问题。",
+    "key_points": [
+      "提出一种感知不确定性的重排序框架 REALM，通过将 LLM 生成的相关性建模为高斯分布并执行递归贝叶斯更新，以解决现有方法中的排名不确定性及高 Token 消耗问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18142v2",
+    "title": "Mirroring Users: Towards Building Preference-aligned User Simulator with User Feedback in Recommendation",
+    "authors": [
+      "Tianjun Wei",
+      "Huizhong Guo",
+      "Yingpeng Du",
+      "Zhu Sun",
+      "Huang Chen",
+      "Dongxia Wang",
+      "Jie Zhang"
+    ],
+    "summary": "User simulation is increasingly vital to develop and evaluate recommender systems (RSs). While Large Language Models (LLMs) offer promising avenues to simulate user behavior, they often struggle with the absence of specific task alignment required for RSs and the efficiency demands of large-scale simulation. A vast yet underutilized resource for enhancing this alignment is the extensive user feedback inherent in RSs, but leveraging it is challenging due to its ambiguity, noise and massive volume, which hinders efficient preference alignment. To overcome these hurdles, we introduce a novel data construction framework that leverages user feedback in RSs with advanced LLM capabilities to generate high-quality simulation data. Our framework unfolds in two key phases: (1) using LLMs to generate decision-making processes as explanatory rationales on simulation samples, thereby reducing ambiguity; and (2) data distillation based on uncertainty estimation and behavior sampling to efficiently filter the most informative, denoised samples. Accordingly, we fine-tune lightweight LLMs, as user simulators, using such high-quality dataset with corresponding decision-making processes. Extensive experiments confirm that our framework significantly boosts the alignment with human preferences and the in-domain reasoning capabilities of the fine-tuned LLMs, providing more insightful and interpretable signals for RS interaction. We believe our work, together with publicly available developed framework, high-quality mixed-domain dataset, and fine-tuned LLM checkpoints, will advance the RS community and offer valuable insights for broader human-centric AI research.",
+    "categories": [
+      "cs.HC",
+      "cs.CY",
+      "cs.IR"
+    ],
+    "published": "2025-08-25T15:51:24Z",
+    "updated": "2025-12-20T08:17:01Z",
+    "url": "http://arxiv.org/abs/2508.18142v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.18142v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的用户模拟器构建问题，利用 LLM 和用户反馈进行偏好对齐，属于 LLM for RecSys 的核心应用而非纯 LLM 研究；加上中国公司背景额外 +1 分。",
+    "translation": "镜像用户：基于用户反馈构建推荐系统中偏好对齐的用户模拟器",
+    "summary_zh": "提出一种利用推荐系统用户反馈的数据构建框架，通过 LLM 生成决策解释理由并结合不确定性估计进行数据蒸馏，以训练轻量级且偏好对齐的用户模拟器。",
+    "key_points": [
+      "提出一种利用推荐系统用户反馈的数据构建框架，通过 LLM 生成决策解释理由并结合不确定性估计进行数据蒸馏，以训练轻量级且偏好对齐的用户模拟器"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18132v1",
+    "title": "Test-Time Scaling Strategies for Generative Retrieval in Multimodal Conversational Recommendations",
+    "authors": [
+      "Hung-Chun Hsu",
+      "Yuan-Ching Kuo",
+      "Chao-Han Huck Yang",
+      "Szu-Wei Fu",
+      "Hanrong Ye",
+      "Hongxu Yin",
+      "Yu-Chiang Frank Wang",
+      "Ming-Feng Tsai",
+      "Chuan-Ju Wang"
+    ],
+    "summary": "The rapid evolution of e-commerce has exposed the limitations of traditional product retrieval systems in managing complex, multi-turn user interactions. Recent advances in multimodal generative retrieval -- particularly those leveraging multimodal large language models (MLLMs) as retrievers -- have shown promise. However, most existing methods are tailored to single-turn scenarios and struggle to model the evolving intent and iterative nature of multi-turn dialogues when applied naively. Concurrently, test-time scaling has emerged as a powerful paradigm for improving large language model (LLM) performance through iterative inference-time refinement. Yet, its effectiveness typically relies on two conditions: (1) a well-defined problem space (e.g., mathematical reasoning), and (2) the model's ability to self-correct -- conditions that are rarely met in conversational product search. In this setting, user queries are often ambiguous and evolving, and MLLMs alone have difficulty grounding responses in a fixed product corpus. Motivated by these challenges, we propose a novel framework that introduces test-time scaling into conversational multimodal product retrieval. Our approach builds on a generative retriever, further augmented with a test-time reranking (TTR) mechanism that improves retrieval accuracy and better aligns results with evolving user intent throughout the dialogue. Experiments across multiple benchmarks show consistent improvements, with average gains of 14.5 points in MRR and 10.6 points in nDCG@1.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-08-25T15:38:56Z",
+    "updated": "2025-08-25T15:38:56Z",
+    "url": "http://arxiv.org/abs/2508.18132v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.18132v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态对话推荐系统中的检索问题，提出了结合测试时扩展（Test-Time Scaling）和重排序的新框架，属于核心推荐搜索技术与 LLM 的直接应用。",
+    "translation": "多模态对话推荐中生成式检索的测试时扩展策略",
+    "summary_zh": "提出一种将测试时扩展范式引入多模态对话产品检索的框架，通过测试时重排序机制解决多轮对话中用户意图演变及模糊查询的对齐难题。",
+    "key_points": [
+      "提出一种将测试时扩展范式引入多模态对话产品检索的框架，通过测试时重排序机制解决多轮对话中用户意图演变及模糊查询的对齐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18444v1",
+    "title": "How Reliable are LLMs for Reasoning on the Re-ranking task?",
+    "authors": [
+      "Nafis Tanveer Islam",
+      "Zhiming Zhao"
+    ],
+    "summary": "With the improving semantic understanding capability of Large Language Models (LLMs), they exhibit a greater awareness and alignment with human values, but this comes at the cost of transparency. Although promising results are achieved via experimental analysis, an in-depth understanding of the LLM's internal workings is unavoidable to comprehend the reasoning behind the re-ranking, which provides end users with an explanation that enables them to make an informed decision. Moreover, in newly developed systems with limited user engagement and insufficient ranking data, accurately re-ranking content remains a significant challenge. While various training methods affect the training of LLMs and generate inference, our analysis has found that some training methods exhibit better explainability than others, implying that an accurate semantic understanding has not been learned through all training methods; instead, abstract knowledge has been gained to optimize evaluation, which raises questions about the true reliability of LLMs. Therefore, in this work, we analyze how different training methods affect the semantic understanding of the re-ranking task in LLMs and investigate whether these models can generate more informed textual reasoning to overcome the challenges of transparency or LLMs and limited training data. To analyze the LLMs for re-ranking tasks, we utilize a relatively small ranking dataset from the environment and the Earth science domain to re-rank retrieved content. Furthermore, we also analyze the explainable information to see if the re-ranking can be reasoned using explainability.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-08-25T19:48:39Z",
+    "updated": "2025-08-25T19:48:39Z",
+    "url": "http://arxiv.org/abs/2508.18444v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.18444v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究 LLM 在重排序（Re-ranking）任务中的可靠性与可解释性，属于核心推荐搜索环节；虽使用了地球科学数据作为实验场景，但其核心方法论明确针对 RecSys 的重排序痛点。基于中国公司背景额外 +1 分。",
+    "translation": "大型语言模型在重排序任务中的推理可靠性如何？",
+    "summary_zh": "本文分析了不同训练方法对 LLM 在重排序任务中语义理解与可解释性的影响，旨在解决透明度不足及冷启动场景下的排序难题。",
+    "key_points": [
+      "本文分析了不同训练方法对 LLM 在重排序任务中语义理解与可解释性的影响，旨在解决透明度不足及冷启动场景下的排序难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17571v1",
+    "title": "A Universal Framework for Offline Serendipity Evaluation in Recommender Systems via Large Language Models",
+    "authors": [
+      "Yu Tokutake",
+      "Kazushi Okamoto",
+      "Kei Harada",
+      "Atsushi Shibata",
+      "Koki Karube"
+    ],
+    "summary": "Serendipity in recommender systems (RSs) has attracted increasing attention as a concept that enhances user satisfaction by presenting unexpected and useful items. However, evaluating serendipitous performance remains challenging because its ground truth is generally unobservable. The existing offline metrics often depend on ambiguous definitions or are tailored to specific datasets and RSs, thereby limiting their generalizability. To address this issue, we propose a universally applicable evaluation framework that leverages large language models (LLMs) known for their extensive knowledge and reasoning capabilities, as evaluators. First, to improve the evaluation performance of the proposed framework, we assessed the serendipity prediction accuracy of LLMs using four different prompt strategies on a dataset containing user-annotated serendipitous ground truth and found that the chain-of-thought prompt achieved the highest accuracy. Next, we re-evaluated the serendipitous performance of both serendipity-oriented and general RSs using the proposed framework on three commonly used real-world datasets, without the ground truth. The results indicated that there was no serendipity-oriented RS that consistently outperformed across all datasets, and even a general RS sometimes achieved higher performance than the serendipity-oriented RS.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T00:45:16Z",
+    "updated": "2025-08-25T00:45:16Z",
+    "url": "http://arxiv.org/abs/2508.17571v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17571v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的惊喜度（Serendipity）评估难题，利用 LLM 作为评估器构建通用框架，属于 LLM 在 RecSys 核心环节的直接应用。",
+    "translation": "基于大语言模型的推荐系统离线惊喜度评估通用框架",
+    "summary_zh": "提出一种利用大语言模型推理能力作为评估器的通用框架，通过思维链提示策略解决推荐系统惊喜度指标因缺乏真值而难以离线评估的问题。",
+    "key_points": [
+      "提出一种利用大语言模型推理能力作为评估器的通用框架，通过思维链提示策略解决推荐系统惊喜度指标因缺乏真值而难以离线评估的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17828v1",
+    "title": "TRIM: Accelerating High-Dimensional Vector Similarity Search with Enhanced Triangle-Inequality-Based Pruning",
+    "authors": [
+      "Yitong Song",
+      "Pengcheng Zhang",
+      "Chao Gao",
+      "Bin Yao",
+      "Kai Wang",
+      "Zongyuan Wu",
+      "Lin Qu"
+    ],
+    "summary": "High-dimensional vector similarity search (HVSS) is critical for many data processing and AI applications. However, traditional HVSS methods often require extensive data access for distance calculations, leading to inefficiencies. Triangle-inequality-based lower bound pruning is a widely used technique to reduce the number of data access in low-dimensional spaces but becomes less effective in high-dimensional settings. This is attributed to the \"distance concentration\" phenomenon, where the lower bounds derived from the triangle inequality become too small to be useful. To address this, we propose TRIM, which enhances the effectiveness of traditional triangle-inequality-based pruning in high-dimensional vector similarity search using two key ways: (1) optimizing landmark vectors used to form the triangles, and (2) relaxing the lower bounds derived from the triangle inequality, with the relaxation degree adjustable according to user's needs. TRIM is a versatile operation that can be seamlessly integrated into both memory-based (e.g., HNSW, IVFPQ) and disk-based (e.g., DiskANN) HVSS methods, reducing distance calculations and disk access. Extensive experiments show that TRIM enhances memory-based methods, improving graph-based search by up to 90% and quantization-based search by up to 200%, while achieving a pruning ratio of up to 99%. It also reduces I/O costs by up to 58% and improves efficiency by 102% for disk-based methods, while preserving high query accuracy.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-08-25T09:27:40Z",
+    "updated": "2025-08-25T09:27:40Z",
+    "url": "http://arxiv.org/abs/2508.17828v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17828v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "1ShanghaiJiaoTongUniversity 2Zilliz 3AlibabaGroup 4Taobao"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种优化高维向量相似度搜索（召回核心环节）的剪枝方法，直接适用于推荐系统的检索阶段；虽非纯 LLM 研究，但作为底层搜索加速技术具有明确业务价值，且来自中国企业额外加 1 分。",
+    "translation": "TRIM：通过增强基于三角不等式的剪枝加速高维向量相似度搜索",
+    "summary_zh": "本文提出 TRIM 方法，通过优化地标向量选择和松弛三角不等式下界，解决高维空间距离集中导致的剪枝失效问题，从而大幅减少向量检索中的距离计算与磁盘访问开销。",
+    "key_points": [
+      "本文提出 TRIM 方法，通过优化地标向量选择和松弛三角不等式下界，解决高维空间距离集中导致的剪枝失效问题，从而大幅减少向量检索中的距离计算与磁盘访问开销"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18048v1",
+    "title": "HyST: LLM-Powered Hybrid Retrieval over Semi-Structured Tabular Data",
+    "authors": [
+      "Jiyoon Myung",
+      "Jihyeon Park",
+      "Joohyung Han"
+    ],
+    "summary": "User queries in real-world recommendation systems often combine structured constraints (e.g., category, attributes) with unstructured preferences (e.g., product descriptions or reviews). We introduce HyST (Hybrid retrieval over Semi-structured Tabular data), a hybrid retrieval framework that combines LLM-powered structured filtering with semantic embedding search to support complex information needs over semi-structured tabular data. HyST extracts attribute-level constraints from natural language using large language models (LLMs) and applies them as metadata filters, while processing the remaining unstructured query components via embedding-based retrieval. Experiments on a semi-structured benchmark show that HyST consistently outperforms tradtional baselines, highlighting the importance of structured filtering in improving retrieval precision, offering a scalable and accurate solution for real-world user queries.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-25T14:06:27Z",
+    "updated": "2025-08-25T14:06:27Z",
+    "url": "http://arxiv.org/abs/2508.18048v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.18048v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的混合检索问题，提出利用 LLM 解析结构化约束并结合语义嵌入的方案，属于 LLM 在搜索/推荐核心环节的直接应用。",
+    "translation": "HyST：基于大语言模型的半结构化表格数据混合检索框架",
+    "summary_zh": "提出一种混合检索框架，利用大语言模型从自然语言查询中提取结构化属性约束作为元数据过滤器，同时结合嵌入搜索处理非结构化偏好，以解决半结构化数据下的复杂检索需求。",
+    "key_points": [
+      "提出一种混合检索框架，利用大语言模型从自然语言查询中提取结构化属性约束作为元数据过滤器，同时结合嵌入搜索处理非结构化偏好，以解决半结构化数据下的复杂检索需求"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17715v1",
+    "title": "How Do LLM-Generated Texts Impact Term-Based Retrieval Models?",
+    "authors": [
+      "Wei Huang",
+      "Keping Bi",
+      "Yinqiong Cai",
+      "Wei Chen",
+      "Jiafeng Guo",
+      "Xueqi Cheng"
+    ],
+    "summary": "As more content generated by large language models (LLMs) floods into the Internet, information retrieval (IR) systems now face the challenge of distinguishing and handling a blend of human-authored and machine-generated texts. Recent studies suggest that neural retrievers may exhibit a preferential inclination toward LLM-generated content, while classic term-based retrievers like BM25 tend to favor human-written documents. This paper investigates the influence of LLM-generated content on term-based retrieval models, which are valued for their efficiency and robust generalization across domains. Our linguistic analysis reveals that LLM-generated texts exhibit smoother high-frequency and steeper low-frequency Zipf slopes, higher term specificity, and greater document-level diversity. These traits are aligned with LLMs being trained to optimize reader experience through diverse and precise expressions. Our study further explores whether term-based retrieval models demonstrate source bias, concluding that these models prioritize documents whose term distributions closely correspond to those of the queries, rather than displaying an inherent source bias. This work provides a foundation for understanding and addressing potential biases in term-based IR systems managing mixed-source content.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-08-25T06:43:27Z",
+    "updated": "2025-08-25T06:43:27Z",
+    "url": "http://arxiv.org/abs/2508.17715v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17715v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "affiliation_lines": [
+      "StateKeyLaboratoryofAISafety, StateKeyLaboratoryofAISafety, BaiduInc.",
+      "InstituteofComputingTechnology, InstituteofComputingTechnology, Beijing,China",
+      "UniversityofChineseAcademyof UniversityofChineseAcademyof",
+      "StateKeyLaboratoryofAISafety, StateKeyLaboratoryofAISafety, StateKeyLaboratoryofAISafety,",
+      "InstituteofComputingTechnology, InstituteofComputingTechnology, InstituteofComputingTechnology,",
+      "UniversityofChineseAcademyof UniversityofChineseAcademyof UniversityofChineseAcademyof"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文直接研究 LLM 生成内容对传统搜索引擎（词项检索模型）的影响及偏差问题，属于搜索系统鲁棒性研究，但侧重于分析而非提出新的推荐/搜索架构。",
+    "translation": "LLM 生成文本如何影响基于词项的检索模型？",
+    "summary_zh": "本文通过分析 LLM 生成文本的语言统计特征，探究其对传统词项检索模型的影响，发现该类模型主要依据词分布匹配度而非内容来源产生偏好。",
+    "key_points": [
+      "本文通过分析 LLM 生成文本的语言统计特征，探究其对传统词项检索模型的影响，发现该类模型主要依据词分布匹配度而非内容来源产生偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17694v1",
+    "title": "Semantic Search for Information Retrieval",
+    "authors": [
+      "Kayla Farivar"
+    ],
+    "summary": "Information retrieval systems have progressed notably from lexical techniques such as BM25 and TF-IDF to modern semantic retrievers. This survey provides a brief overview of the BM25 baseline, then discusses the architecture of modern state-of-the-art semantic retrievers. Advancing from BERT, we introduce dense bi-encoders (DPR), late-interaction models (ColBERT), and neural sparse retrieval (SPLADE). Finally, we examine MonoT5, a cross-encoder model. We conclude with common evaluation tactics, pressing challenges, and propositions for future directions.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T06:03:26Z",
+    "updated": "2025-08-25T06:03:26Z",
+    "url": "http://arxiv.org/abs/2508.17694v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17694v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文是关于语义搜索和检索模型的综述，虽涉及搜索核心技术（召回/排序），但属于通用 IR 领域概述，缺乏针对特定推荐系统业务场景的直接创新或深度应用。",
+    "translation": "信息检索中的语义搜索综述",
+    "summary_zh": "本文综述了从传统 lexical 方法到现代语义检索器（如双编码器、晚交互模型及交叉编码器）的架构演进，并探讨了评估策略与未来挑战。",
+    "key_points": [
+      "本文综述了从传统 lexical 方法到现代语义检索器（如双编码器、晚交互模型及交叉编码器）的架构演进，并探讨了评估策略与未来挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18494v2",
+    "title": "DiskJoin: Large-scale Vector Similarity Join with SSD",
+    "authors": [
+      "Yanqi Chen",
+      "Xiao Yan",
+      "Alexandra Meliou",
+      "Eric Lo"
+    ],
+    "summary": "Similarity join--a widely used operation in data science--finds all pairs of items that have distance smaller than a threshold. Prior work has explored distributed computation methods to scale similarity join to large data volumes but these methods require a cluster deployment, and efficiency suffers from expensive inter-machine communication. On the other hand, disk-based solutions are more cost-effective by using a single machine and storing the large dataset on high-performance external storage, such as NVMe SSDs, but in these methods the disk I/O time is a serious bottleneck. In this paper, we propose DiskJoin, the first disk-based similarity join algorithm that can process billion-scale vector datasets efficiently on a single machine. DiskJoin improves disk I/O by tailoring the data access patterns to avoid repetitive accesses and read amplification. It also uses main memory as a dynamic cache and carefully manages cache eviction to improve cache hit rate and reduce disk retrieval time. For further acceleration, we adopt a probabilistic pruning technique that can effectively prune a large number of vector pairs from computation. Our evaluation on real-world, large-scale datasets shows that DiskJoin significantly outperforms alternatives, achieving speedups from 50x to 1000x.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-08-25T21:07:52Z",
+    "updated": "2025-10-10T16:56:23Z",
+    "url": "http://arxiv.org/abs/2508.18494v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.18494v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种基于 SSD 的大规模向量相似度连接算法，虽未直接针对推荐系统建模，但为召回阶段的向量检索提供了重要的底层基础设施优化；因来自中国公司且属于检索核心算子，给予中等优先级评分。",
+    "translation": "DiskJoin：基于 SSD 的大规模向量相似度连接算法",
+    "summary_zh": "提出 DiskJoin 算法，通过优化数据访问模式、动态缓存管理及概率剪枝技术，在单机 NVMe SSD 上高效实现十亿级向量的相似度连接计算。",
+    "key_points": [
+      "提出 DiskJoin 算法，通过优化数据访问模式、动态缓存管理及概率剪枝技术，在单机 NVMe SSD 上高效实现十亿级向量的相似度连接计算"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17609v1",
+    "title": "A Proportional-Integral Controller-Incorporated SGD Algorithm for High Efficient Latent Factor Analysis",
+    "authors": [
+      "Jinli Li",
+      "Shiyu Long",
+      "Minglian Han"
+    ],
+    "summary": "In industrial big data scenarios, high-dimensional sparse matrices (HDI) are widely used to characterize high-order interaction relationships among massive nodes. The stochastic gradient descent-based latent factor analysis (SGD-LFA) method can effectively extract deep feature information embedded in HDI matrices. However, existing SGD-LFA methods exhibit significant limitations: their parameter update process relies solely on the instantaneous gradient information of current samples, failing to incorporate accumulated experiential knowledge from historical iterations or account for intrinsic correlations between samples, resulting in slow convergence speed and suboptimal generalization performance. Thus, this paper proposes a PILF model by developing a PI-accelerated SGD algorithm by integrating correlated instances and refining learning errors through proportional-integral (PI) control mechanism that current and historical information; Comparative experiments demonstrate the superior representation capability of the PILF model on HDI matrices",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-25T02:39:23Z",
+    "updated": "2025-08-25T02:39:23Z",
+    "url": "http://arxiv.org/abs/2508.17609v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17609v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "该文提出一种结合 PI 控制机制的 SGD 优化算法以加速潜在因子分析，虽未明确限定于推荐系统，但潜在因子分解是推荐系统的核心基础方法，且作者来自相关领域公司，故给予中等优先级评分。",
+    "translation": "一种融合比例积分控制器的 SGD 算法用于高效潜在因子分析",
+    "summary_zh": "本文提出一种 PILF 模型，通过在随机梯度下降中引入比例积分控制机制，整合当前梯度与历史迭代信息以优化潜在因子分析的收敛速度与泛化能力。",
+    "key_points": [
+      "本文提出一种 PILF 模型，通过在随机梯度下降中引入比例积分控制机制，整合当前梯度与历史迭代信息以优化潜在因子分析的收敛速度与泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.22658v1",
+    "title": "How good are LLMs at Retrieving Documents in a Specific Domain?",
+    "authors": [
+      "Nafis Tanveer Islam",
+      "Zhiming Zhao"
+    ],
+    "summary": "Classical search engines using indexing methods in data infrastructures primarily allow keyword-based queries to retrieve content. While these indexing-based methods are highly scalable and efficient, due to a lack of an appropriate evaluation dataset and a limited understanding of semantics, they often fail to capture the user's intent and generate incomplete responses during evaluation. This problem also extends to domain-specific search systems that utilize a Knowledge Base (KB) to access data from various research infrastructures. Research infrastructures (RIs) from the environmental and earth science domain, which encompass the study of ecosystems, biodiversity, oceanography, and climate change, generate, share, and reuse large volumes of data. While there are attempts to provide a centralized search service using Elasticsearch as a knowledge base, they also face similar challenges in understanding queries with multiple intents. To address these challenges, we proposed an automated method to curate a domain-specific evaluation dataset to analyze the capability of a search system. Furthermore, we incorporate the Retrieval of Augmented Generation (RAG), powered by Large Language Models (LLMs), for high-quality retrieval of environmental domain data using natural language queries. Our quantitative and qualitative analysis of the evaluation dataset shows that LLM-based systems for information retrieval return results with higher precision when understanding queries with multiple intents, compared to Elasticsearch-based systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-25T19:47:21Z",
+    "updated": "2025-08-25T19:47:21Z",
+    "url": "http://arxiv.org/abs/2509.22658v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.22658v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于环境科学领域的垂直搜索及 RAG 评估，虽涉及检索但缺乏通用推荐/搜索核心架构创新，且非电商/社交场景；尽管有中国公司背景加分，但本质仍属特定领域 NLP 应用而非核心 RecSys 研究。",
+    "translation": "大语言模型在特定领域文档检索中的表现如何？",
+    "summary_zh": "提出一种自动化构建领域专用评估数据集的方法，并利用 RAG 架构结合大语言模型提升对多意图自然语言查询的语义理解与检索精度。",
+    "key_points": [
+      "提出一种自动化构建领域专用评估数据集的方法，并利用 RAG 架构结合大语言模型提升对多意图自然语言查询的语义理解与检索精度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17782v1",
+    "title": "Research on Evaluation Methods for Patent Novelty Search Systems and Empirical Analysis",
+    "authors": [
+      "Shu Zhang",
+      "LiSha Zhang",
+      "Kai Duan",
+      "XinKai Sun"
+    ],
+    "summary": "Patent novelty search systems are critical to IP protection and innovation assessment; their retrieval accuracy directly impacts patent quality. We propose a comprehensive evaluation methodology that builds high-quality, reproducible datasets from examiner citations and X-type citations extracted from technically consistent family patents, and evaluates systems using invention descriptions as inputs. Using Top-k Detection Rate and Recall as core metrics, we further conduct multi-dimensional analyses by language, technical field (IPC), and filing jurisdiction. Experiments show the method effectively exposes performance differences across scenarios and offers actionable evidence for system improvement. The framework is scalable and practical, providing a useful reference for development and optimization of patent novelty search systems",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T08:24:04Z",
+    "updated": "2025-08-25T08:24:04Z",
+    "url": "http://arxiv.org/abs/2508.17782v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17782v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于专利新颖性检索系统的评估方法论，虽属搜索领域但侧重于特定垂直场景的评估指标与数据集构建，缺乏通用的推荐/搜索核心算法创新。",
+    "translation": "专利新颖性检索系统评估方法及实证分析研究",
+    "summary_zh": "提出一种基于审查员引用和 X 类引用的专利新颖性检索评估框架，通过构建高质量可复现数据集并利用 Top-k 检出率等指标进行多维度分析。",
+    "key_points": [
+      "提出一种基于审查员引用和 X 类引用的专利新颖性检索评估框架，通过构建高质量可复现数据集并利用 Top-k 检出率等指标进行多维度分析"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17644v1",
+    "title": "Demographically-Inspired Query Variants Using an LLM",
+    "authors": [
+      "Marwah Alaofi",
+      "Nicola Ferro",
+      "Paul Thomas",
+      "Falk Scholer",
+      "Mark Sanderson"
+    ],
+    "summary": "This study proposes a method to diversify queries in existing test collections to reflect some of the diversity of search engine users, aligning with an earlier vision of an 'ideal' test collection. A Large Language Model (LLM) is used to create query variants: alternative queries that have the same meaning as the original. These variants represent user profiles characterised by different properties, such as language and domain proficiency, which are known in the IR literature to influence query formulation.\n  The LLM's ability to generate query variants that align with user profiles is empirically validated, and the variants' utility is further explored for IR system evaluation. Results demonstrate that the variants impact how systems are ranked and show that user profiles experience significantly different levels of system effectiveness. This method enables an alternative perspective on system evaluation where we can observe both the impact of user profiles on system rankings and how system performance varies across users.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T04:17:56Z",
+    "updated": "2025-08-25T04:17:56Z",
+    "url": "http://arxiv.org/abs/2508.17644v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17644v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "RMITUniversity UniversityofPadua Microsoft",
+      "RMITUniversity RMITUniversity"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文利用 LLM 生成查询变体以评估搜索系统的公平性和多样性，属于搜索评估方法论而非核心检索或排序算法创新，且侧重于测试集构建而非直接提升线上搜索效果。",
+    "translation": "基于大语言模型的人口统计学启发式查询变体生成",
+    "summary_zh": "提出一种利用大语言模型根据用户画像（如语言能力、领域熟练度）生成语义等效查询变体的方法，旨在构建更多样化的测试集以评估搜索系统在不同用户群体间的表现差异。",
+    "key_points": [
+      "提出一种利用大语言模型根据用户画像（如语言能力、领域熟练度）生成语义等效查询变体的方法，旨在构建更多样化的测试集以评估搜索系统在不同用户群体间的表现差异"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17862v1",
+    "title": "Retrieval Feedback Memory Enhancement Large Model Retrieval Generation Method",
+    "authors": [
+      "Leqian Li",
+      "Dianxi Shi",
+      "Jialu Zhou",
+      "Xinyu Wei",
+      "Mingyue Yang",
+      "Songchang Jin",
+      "Shaowu Yang"
+    ],
+    "summary": "Large Language Models (LLMs) have shown remarkable capabilities across diverse tasks, yet they face inherent limitations such as constrained parametric knowledge and high retraining costs. Retrieval-Augmented Generation (RAG) augments the generation process by retrieving externally stored knowledge absent from the models internal parameters. However, RAG methods face challenges such as information loss and redundant retrievals during multi-round queries, accompanying the difficulties in precisely characterizing knowledge gaps for complex tasks. To address these problems, we propose Retrieval Feedback and Memory Retrieval Augmented Generation(RFM-RAG), which transforms the stateless retrieval of previous methods into stateful continuous knowledge management by constructing a dynamic evidence pool. Specifically, our method generates refined queries describing the models knowledge gaps using relational triples from questions and evidence from the dynamic evidence pool; Retrieves critical external knowledge to iteratively update this evidence pool; Employs a R-Feedback Model to evaluate evidence completeness until convergence. Compared to traditional RAG methods, our approach enables persistent storage of retrieved passages and effectively distills key information from passages to construct clearly new queries. Experiments on three public QA benchmarks demonstrate that RFM-RAG outperforms previous methods and improves overall system accuracy.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-25T10:13:02Z",
+    "updated": "2025-08-25T10:13:02Z",
+    "url": "http://arxiv.org/abs/2508.17862v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.17862v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 研究（RAG 改进），专注于通用 QA 任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低优先级。",
+    "translation": "检索反馈记忆增强的大模型检索生成方法",
+    "summary_zh": "提出 RFM-RAG 方法，通过构建动态证据池和利用关系三元组生成细化查询，将无状态检索转化为有状态的连续知识管理以解决多轮查询中的信息丢失问题。",
+    "key_points": [
+      "提出 RFM-RAG 方法，通过构建动态证据池和利用关系三元组生成细化查询，将无状态检索转化为有状态的连续知识管理以解决多轮查询中的信息丢失问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18168v2",
+    "title": "Improving End-to-End Training of Retrieval-Augmented Generation Models via Joint Stochastic Approximation",
+    "authors": [
+      "Hongyu Cao",
+      "Yuxuan Wu",
+      "Yucheng Cai",
+      "Xianyu Zhao",
+      "Zhijian Ou"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) has become a widely recognized paradigm to combine parametric memory with non-parametric memories. An RAG model consists of two serial connecting components (retriever and generator). A major challenge in end-to-end optimization of the RAG model is that marginalization over relevant passages (modeled as discrete latent variables) from a knowledge base is required. Traditional top-K marginalization and variational RAG (VRAG) suffer from biased or high-variance gradient estimates. In this paper, we propose and develop joint stochastic approximation (JSA) based end-to-end training of RAG, which is referred to as JSA-RAG. The JSA algorithm is a stochastic extension of the EM (expectation-maximization) algorithm and is particularly powerful in estimating discrete latent variable models. Extensive experiments are conducted on five datasets for two tasks (open-domain question answering, knowledge-grounded dialogs) and show that JSA-RAG significantly outperforms both vanilla RAG and VRAG. Further analysis shows the efficacy of JSA-RAG from the perspectives of generation, retrieval, and low-variance gradient estimate.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-25T16:17:16Z",
+    "updated": "2026-01-05T07:31:37Z",
+    "url": "http://arxiv.org/abs/2508.18168v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.18168v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 架构优化研究，专注于问答和对话任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有加分项也仅属边缘相关。",
+    "translation": "通过联合随机近似改进检索增强生成模型的端到端训练",
+    "summary_zh": "提出一种基于联合随机近似（JSA）的算法，作为 EM 算法的随机扩展，以解决 RAG 模型中因离散潜在变量边际化导致的梯度估计偏差和高方差问题，实现检索器与生成器的端到端优化。",
+    "key_points": [
+      "提出一种基于联合随机近似（JSA）的算法，作为 EM 算法的随机扩展，以解决 RAG 模型中因离散潜在变量边际化导致的梯度估计偏差和高方差问题，实现检索器与生成器的端到端优化"
+    ]
+  }
+]

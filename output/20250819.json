@@ -1,1 +1,568 @@
-[]
+[
+  {
+    "arxiv_id": "2508.13889v1",
+    "title": "CARE: Contextual Adaptation of Recommenders for LLM-based Conversational Recommendation",
+    "authors": [
+      "Chuang Li",
+      "Yang Deng",
+      "Hengchang Hu",
+      "See-Kiong Ng",
+      "Min-Yen Kan",
+      "Haizhou Li"
+    ],
+    "summary": "We tackle the challenge of integrating large language models (LLMs) with external recommender systems to enhance domain expertise in conversational recommendation (CRS). Current LLM-based CRS approaches primarily rely on zero- or few-shot methods for generating item recommendations based on user queries, but this method faces two significant challenges: (1) without domain-specific adaptation, LLMs frequently recommend items not in the target item space, resulting in low recommendation accuracy; and (2) LLMs largely rely on dialogue context for content-based recommendations, neglecting the collaborative relationships among entities or item sequences. To address these limitations, we introduce the CARE (Contextual Adaptation of Recommenders) framework. CARE customizes LLMs for CRS tasks, and synergizes them with external recommendation systems. CARE (a) integrates external recommender systems as domain experts, producing recommendations through entity-level insights, and (b) enhances those recommendations by leveraging contextual information for more accurate and unbiased final recommendations using LLMs. Our results demonstrate that incorporating external recommender systems with entity-level information significantly enhances recommendation accuracy of LLM-based CRS by an average of 54% and 25% for ReDial and INSPIRED datasets. The most effective strategy in the CARE framework involves LLMs selecting and reranking candidate items that external recommenders provide based on contextual insights. Our analysis indicates that the CARE framework effectively addresses the identified challenges and mitigates the popularity bias in the external recommender.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-19T14:53:30Z",
+    "updated": "2025-08-19T14:53:30Z",
+    "url": "http://arxiv.org/abs/2508.13889v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13889v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决 LLM 在对话推荐系统中的核心痛点（领域适应与协同过滤缺失），提出将外部推荐系统与 LLM 结合的 CARE 框架，属于高优先级的 LLM for RecSys 研究；且来自中国公司，按规则额外 +1 分（基础分 9+1=10）。",
+    "translation": "CARE：面向基于大语言模型的对话推荐的推荐器上下文自适应框架",
+    "summary_zh": "提出 CARE 框架，通过将外部推荐系统作为领域专家提供实体级候选，并利用 LLM 结合对话上下文进行重排序，以解决纯 LLM 推荐缺乏领域知识和协同信号的问题。",
+    "key_points": [
+      "提出 CARE 框架，通过将外部推荐系统作为领域专家提供实体级候选，并利用 LLM 结合对话上下文进行重排序，以解决纯 LLM 推荐缺乏领域知识和协同信号的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13843v1",
+    "title": "UniECS: Unified Multimodal E-Commerce Search Framework with Gated Cross-modal Fusion",
+    "authors": [
+      "Zihan Liang",
+      "Yufei Ma",
+      "ZhiPeng Qian",
+      "Huangyu Dai",
+      "Zihan Wang",
+      "Ben Chen",
+      "Chenyi Lei",
+      "Yuqing Ding",
+      "Han Li"
+    ],
+    "summary": "Current e-commerce multimodal retrieval systems face two key limitations: they optimize for specific tasks with fixed modality pairings, and lack comprehensive benchmarks for evaluating unified retrieval approaches. To address these challenges, we introduce UniECS, a unified multimodal e-commerce search framework that handles all retrieval scenarios across image, text, and their combinations. Our work makes three key contributions. First, we propose a flexible architecture with a novel gated multimodal encoder that uses adaptive fusion mechanisms. This encoder integrates different modality representations while handling missing modalities. Second, we develop a comprehensive training strategy to optimize learning. It combines cross-modal alignment loss (CMAL), cohesive local alignment loss (CLAL), intra-modal contrastive loss (IMCL), and adaptive loss weighting. Third, we create M-BEER, a carefully curated multimodal benchmark containing 50K product pairs for e-commerce search evaluation. Extensive experiments demonstrate that UniECS consistently outperforms existing methods across four e-commerce benchmarks with fine-tuning or zero-shot evaluation. On our M-BEER bench, UniECS achieves substantial improvements in cross-modal tasks (up to 28\\% gain in R@10 for text-to-image retrieval) while maintaining parameter efficiency (0.2B parameters) compared to larger models like GME-Qwen2VL (2B) and MM-Embed (8B). Furthermore, we deploy UniECS in the e-commerce search platform of Kuaishou Inc. across two search scenarios, achieving notable improvements in Click-Through Rate (+2.74\\%) and Revenue (+8.33\\%). The comprehensive evaluation demonstrates the effectiveness of our approach in both experimental and real-world settings. Corresponding codes, models and datasets will be made publicly available at https://github.com/qzp2018/UniECS.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-19T14:06:13Z",
+    "updated": "2025-08-19T14:06:13Z",
+    "url": "http://arxiv.org/abs/2508.13843v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13843v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商多模态搜索场景，提出了统一的检索框架并在快手实际业务中部署验证，完全符合核心领域 advances 标准；虽涉及多模态编码，但非纯 LLM 研究，且来自快手公司，适用额外加分规则（原基础分 8-9+2=10）。",
+    "translation": "UniECS：基于门控跨模态融合的统一多模态电商搜索框架",
+    "summary_zh": "提出一种带有门控机制的多模态编码器架构，通过自适应融合策略统一处理图文缺失及组合的检索场景，并配合多任务对齐损失函数优化跨模态表征学习。",
+    "key_points": [
+      "提出一种带有门控机制的多模态编码器架构，通过自适应融合策略统一处理图文缺失及组合的检索场景，并配合多任务对齐损失函数优化跨模态表征学习"
+    ]
+  },
+  {
+    "arxiv_id": "2508.14180v2",
+    "title": "RewardRank: Optimizing True Learning-to-Rank Utility",
+    "authors": [
+      "Gaurav Bhatt",
+      "Kiran Koshy Thekumparampil",
+      "Tanmay Gangwani",
+      "Tesi Xiao",
+      "Leonid Sigal"
+    ],
+    "summary": "Traditional ranking systems optimize offline proxy objectives that rely on oversimplified assumptions about user behavior, often neglecting factors such as position bias and item diversity. Consequently, these models fail to improve true counterfactual utilities such as such as click-through rate or purchase probability, when evaluated in online A/B tests. We introduce RewardRank, a data-driven learning-to-rank (LTR) framework for counterfactual utility maximization. RewardRank first learns a reward model that predicts the utility of any ranking directly from logged user interactions, and then trains a ranker to maximize this reward using a differentiable soft permutation operator. To enable rigorous and reproducible evaluation, we further propose two benchmark suites: (i) Parametric Oracle Evaluation (PO-Eval), which employs an open-source click model as a counterfactual oracle on the Baidu-ULTR dataset, and (ii) LLM-as-User Evaluation (LAU-Eval), which simulates realistic user behavior via large language models on the Amazon-KDD-Cup dataset. RewardRank achieves the highest counterfactual utility across both benchmarks and demonstrates that optimizing classical metrics such as NDCG is sub-optimal for maximizing true user utility. Finally, using real user feedback from the Baidu-ULTR dataset, RewardRank establishes a new state of the art in offline relevance performance. Overall, our results show that learning-to-rank can be reformulated as direct optimization of counterfactual utility, achieved in a purely data-driven manner without relying on explicit modeling assumptions such as position bias. Our code is available at: $https://github.com/GauravBh1010tt/RewardRank$",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-19T18:08:35Z",
+    "updated": "2025-10-17T21:32:58Z",
+    "url": "http://arxiv.org/abs/2508.14180v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.14180v2.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "1TheUniversityofBritishColumbia, 2Amazon 3TheVectorInstitute,Canada",
+      "onexplicitmodelingassumptionssuchaspositionbias. Ourcodeisavailableat:"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心排序（Learning-to-Rank）问题，提出通过奖励模型直接优化反事实效用，且来自百度（中国电商/搜索巨头），完全符合高优先级标准。",
+    "translation": "RewardRank：优化真实的学习排序效用",
+    "summary_zh": "提出一种数据驱动的学习排序框架，通过训练奖励模型预测排名效用并利用可微软排列算子直接优化该奖励，从而在不依赖位置偏差等显式假设的情况下最大化真实用户效用。",
+    "key_points": [
+      "提出一种数据驱动的学习排序框架，通过训练奖励模型预测排名效用并利用可微软排列算子直接优化该奖励，从而在不依赖位置偏差等显式假设的情况下最大化真实用户效用"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13517v1",
+    "title": "Heterogeneous Influence Maximization in User Recommendation",
+    "authors": [
+      "Hongru Hou",
+      "Jiachen Sun",
+      "Wenqing Lin",
+      "Wendong Bi",
+      "Xiangrong Wang",
+      "Deqing Yang"
+    ],
+    "summary": "User recommendation systems enhance user engagement by encouraging users to act as inviters to interact with other users (invitees), potentially fostering information propagation. Conventional recommendation methods typically focus on modeling interaction willingness. Influence-Maximization (IM) methods focus on identifying a set of users to maximize the information propagation. However, existing methods face two significant challenges. First, recommendation methods fail to unleash the candidates' spread capability. Second, IM methods fail to account for the willingness to interact. To solve these issues, we propose two models named HeteroIR and HeteroIM. HeteroIR provides an intuitive solution to unleash the dissemination potential of user recommendation systems. HeteroIM fills the gap between the IM method and the recommendation task, improving interaction willingness and maximizing spread coverage. The HeteroIR introduces a two-stage framework to estimate the spread profits. The HeteroIM incrementally selects the most influential invitee to recommend and rerank based on the number of reverse reachable (RR) sets containing inviters and invitees. RR set denotes a set of nodes that can reach a target via propagation. Extensive experiments show that HeteroIR and HeteroIM significantly outperform the state-of-the-art baselines with the p-value < 0.05. Furthermore, we have deployed HeteroIR and HeteroIM in Tencent's online gaming platforms and gained an 8.5\\% and 10\\% improvement in the online A/B test, respectively. Implementation codes are available at https://github.com/socialalgo/HIM.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2025-08-19T05:20:48Z",
+    "updated": "2025-08-19T05:20:48Z",
+    "url": "http://arxiv.org/abs/2508.13517v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13517v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "University Shenzhen, China Shenzhen, China",
+      "Tencent Shenzhen University School of Data Science, Fudan",
+      "Shenzhen, China Shenzhen, China University"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该文直接针对社交推荐场景（用户邀请），创新性地融合了影响力最大化与交互意愿建模，且已在腾讯游戏平台落地验证，完全符合核心领域 advances 及大厂应用标准。",
+    "translation": "用户推荐中的异构影响力最大化研究",
+    "summary_zh": "提出 HeteroIR 和 HeteroIM 模型，通过两阶段框架估计传播收益并结合反向可达集重排序，解决了传统推荐忽视传播能力与影响力最大化忽视交互意愿的难题。",
+    "key_points": [
+      "提出 HeteroIR 和 HeteroIM 模型，通过两阶段框架估计传播收益并结合反向可达集重排序，解决了传统推荐忽视传播能力与影响力最大化忽视交互意愿的难题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.09690v1",
+    "title": "Powering Job Search at Scale: LLM-Enhanced Query Understanding in Job Matching Systems",
+    "authors": [
+      "Ping Liu",
+      "Jianqiang Shen",
+      "Qianqi Shen",
+      "Chunnan Yao",
+      "Kevin Kao",
+      "Dan Xu",
+      "Rajat Arora",
+      "Baofen Zheng",
+      "Caleb Johnson",
+      "Liangjie Hong",
+      "Jingwei Wu",
+      "Wenjing Zhang"
+    ],
+    "summary": "Query understanding is essential in modern relevance systems, where user queries are often short, ambiguous, and highly context-dependent. Traditional approaches often rely on multiple task-specific Named Entity Recognition models to extract structured facets as seen in job search applications. However, this fragmented architecture is brittle, expensive to maintain, and slow to adapt to evolving taxonomies and language patterns. In this paper, we introduce a unified query understanding framework powered by a Large Language Model (LLM), designed to address these limitations. Our approach jointly models the user query and contextual signals such as profile attributes to generate structured interpretations that drive more accurate and personalized recommendations. The framework improves relevance quality in online A/B testing while significantly reducing system complexity and operational overhead. The results demonstrate that our solution provides a scalable and adaptable foundation for query understanding in dynamic web applications.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-19T21:35:43Z",
+    "updated": "2025-08-19T21:35:43Z",
+    "url": "http://arxiv.org/abs/2509.09690v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.09690v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接将 LLM 应用于求职搜索系统的查询理解与匹配环节，解决了传统架构的痛点并提升了推荐相关性，属于核心的搜索/推荐系统应用。",
+    "translation": "大规模赋能求职搜索：LLM 增强的求职匹配系统查询理解",
+    "summary_zh": "提出一种基于大语言模型的统一查询理解框架，通过联合建模用户查询与上下文信号生成结构化解释，以替代碎片化的传统实体识别模型从而优化求职匹配效果。",
+    "key_points": [
+      "提出一种基于大语言模型的统一查询理解框架，通过联合建模用户查询与上下文信号生成结构化解释，以替代碎片化的传统实体识别模型从而优化求职匹配效果"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13981v2",
+    "title": "Multi-User Contextual Cascading Bandits for Personalized Recommendation",
+    "authors": [
+      "Jiho Park",
+      "Huiwen Jia"
+    ],
+    "summary": "We introduce a Multi-User Contextual Cascading Bandit model, a new combinatorial bandit framework that captures realistic online advertising scenarios where multiple users interact with sequentially displayed items simultaneously. Unlike classical contextual bandits, MCCB integrates three key structural elements: (i) cascading feedback based on sequential arm exposure, (ii) parallel context sessions enabling selective exploration, and (iii) heterogeneous arm-level rewards. We first propose Upper Confidence Bound with Backward Planning (UCBBP), a UCB-style algorithm tailored to this setting, and prove that it achieves a regret bound of $\\widetilde{O}(\\sqrt{THN})$ over $T$ episodes, $H$ session steps, and $N$ contexts per episode. Motivated by the fact that many users interact with the system simultaneously, we introduce a second algorithm, termed Active Upper Confidence Bound with Backward Planning (AUCBBP), which shows a strict efficiency improvement in context scaling, i.e., user scaling, with a regret bound of $\\widetilde{O}(\\sqrt{T+HN})$. We validate our theoretical findings via numerical experiments, demonstrating the empirical effectiveness of both algorithms under various settings.",
+    "categories": [
+      "cs.LG",
+      "math.OC",
+      "stat.ML"
+    ],
+    "published": "2025-08-19T16:14:33Z",
+    "updated": "2025-08-24T18:18:21Z",
+    "url": "http://arxiv.org/abs/2508.13981v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.13981v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对个性化推荐和在线广告场景，提出了新的级联 Bandit 框架以解决多用户序列交互问题，属于核心推荐算法创新。",
+    "translation": "面向个性化推荐的多用户上下文级联 Bandit 模型",
+    "summary_zh": "提出一种多用户上下文级联 Bandit 新框架，通过结合序列曝光反馈、并行上下文会话和异构奖励机制，利用反向规划的置信上界算法优化多用户同时交互下的在线广告推荐策略。",
+    "key_points": [
+      "提出一种多用户上下文级联 Bandit 新框架，通过结合序列曝光反馈、并行上下文会话和异构奖励机制，利用反向规划的置信上界算法优化多用户同时交互下的在线广告推荐策略"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13670v1",
+    "title": "MUFFIN: Mixture of User-Adaptive Frequency Filtering for Sequential Recommendation",
+    "authors": [
+      "Ilwoong Baek",
+      "Mincheol Yoon",
+      "Seongmin Park",
+      "Jongwuk Lee"
+    ],
+    "summary": "Sequential recommendation (SR) aims to predict users' subsequent interactions by modeling their sequential behaviors. Recent studies have explored frequency domain analysis, which effectively models periodic patterns in user sequences. However, existing frequency-domain SR models still face two major drawbacks: (i) limited frequency band coverage, often missing critical behavioral patterns in a specific frequency range, and (ii) lack of personalized frequency filtering, as they apply an identical filter for all users regardless of their distinct frequency characteristics. To address these challenges, we propose a novel frequency-domain model, Mixture of User-adaptive Frequency FIlteriNg (MUFFIN), operating through two complementary modules. (i) The global filtering module (GFM) handles the entire frequency spectrum to capture comprehensive behavioral patterns. (ii) The local filtering module (LFM) selectively emphasizes important frequency bands without excluding information from other ranges. (iii) In both modules, the user-adaptive filter (UAF) is adopted to generate user-specific frequency filters tailored to individual unique characteristics. Finally, by aggregating both modules, MUFFIN captures diverse user behavioral patterns across the full frequency spectrum. Extensive experiments show that MUFFIN consistently outperforms state-of-the-art frequency-domain SR models over five benchmark datasets. The source code is available at https://github.com/ilwoong100/MUFFIN.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-19T09:16:15Z",
+    "updated": "2025-08-19T09:16:15Z",
+    "url": "http://arxiv.org/abs/2508.13670v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13670v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐（RecSys 核心领域），提出了一种基于频域分析和用户自适应滤波的新架构，解决了现有方法缺乏个性化频率过滤的问题，具有明确的业务应用价值。",
+    "translation": "MUFFIN：用于序列推荐的混合用户自适应频率滤波模型",
+    "summary_zh": "该论文提出 MUFFIN 模型，通过全局与局部双模块结合用户自适应滤波器，在频域内动态捕捉不同用户的多样化行为模式，以解决现有序列推荐中频率覆盖受限及缺乏个性化过滤的问题。",
+    "key_points": [
+      "该论文提出 MUFFIN 模型，通过全局与局部双模块结合用户自适应滤波器，在频域内动态捕捉不同用户的多样化行为模式，以解决现有序列推荐中频率覆盖受限及缺乏个性化过滤的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13500v2",
+    "title": "LLM-Enhanced Linear Autoencoders for Recommendation",
+    "authors": [
+      "Jaewan Moon",
+      "Seongmin Park",
+      "Jongwuk Lee"
+    ],
+    "summary": "Large language models (LLMs) have been widely adopted to enrich the semantic representation of textual item information in recommender systems. However, existing linear autoencoders (LAEs) that incorporate textual information rely on sparse word co-occurrence patterns, limiting their ability to capture rich textual semantics. To address this, we propose L3AE, the first integration of LLMs into the LAE framework. L3AE effectively integrates the heterogeneous knowledge of textual semantics and user-item interactions through a two-phase optimization strategy. (i) L3AE first constructs a semantic item-to-item correlation matrix from LLM-derived item representations. (ii) It then learns an item-to-item weight matrix from collaborative signals while distilling semantic item correlations as regularization. Notably, each phase of L3AE is optimized through closed-form solutions, ensuring global optimality and computational efficiency. Extensive experiments demonstrate that L3AE consistently outperforms state-of-the-art LLM-enhanced models on three benchmark datasets, achieving gains of 27.6% in Recall@20 and 39.3% in NDCG@20. The source code is available at https://github.com/jaewan7599/L3AE_CIKM2025.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-19T04:20:14Z",
+    "updated": "2025-08-26T12:59:55Z",
+    "url": "http://arxiv.org/abs/2508.13500v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.13500v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接将 LLM 集成到推荐系统的线性自编码器框架中，通过两阶段优化策略融合文本语义与用户交互信号，属于 LLM for RecSys 的核心应用。",
+    "translation": "LLM 增强的线性自编码器推荐方法",
+    "summary_zh": "提出 L3AE 模型，利用 LLM 构建语义物品关联矩阵，并通过闭式解的两阶段优化策略将其作为正则化项融入线性自编码器，以协同过滤信号学习物品权重。",
+    "key_points": [
+      "提出 L3AE 模型，利用 LLM 构建语义物品关联矩阵，并通过闭式解的两阶段优化策略将其作为正则化项融入线性自编码器，以协同过滤信号学习物品权重"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13423v2",
+    "title": "AdaptJobRec: Enhancing Conversational Career Recommendation through an LLM-Powered Agentic System",
+    "authors": [
+      "Qixin Wang",
+      "Dawei Wang",
+      "Kun Chen",
+      "Yaowei Hu",
+      "Puneet Girdhar",
+      "Ruoteng Wang",
+      "Aadesh Gupta",
+      "Chaitanya Devella",
+      "Wenlai Guo",
+      "Shangwen Huang",
+      "Bachir Aoun",
+      "Greg Hayworth",
+      "Han Li",
+      "Xintao Wu"
+    ],
+    "summary": "In recent years, recommendation systems have evolved from providing a single list of recommendations to offering a comprehensive suite of topic focused services. To better accomplish this task, conversational recommendation systems (CRS) have progressed from basic retrieval augmented LLM generation to agentic systems with advanced reasoning and self correction capabilities. However, agentic systems come with notable response latency, a longstanding challenge for conversational recommendation systems. To balance the trade off between handling complex queries and minimizing latency, we propose AdaptJobRec, the first conversational job recommendation system that leverages autonomous agent to integrate personalized recommendation algorithm tools. The system employs a user query complexity identification mechanism to minimize response latency. For straightforward queries, the agent directly selects the appropriate tool for rapid responses. For complex queries, the agent uses the memory processing module to filter chat history for relevant content, then passes the results to the intelligent task decomposition planner, and finally executes the tasks using personalized recommendation tools. Evaluation on Walmart's real world career recommendation scenarios demonstrates that AdaptJobRec reduces average response latency by up to 53.3% compared to competitive baselines, while significantly improving recommendation accuracy.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-19T00:44:25Z",
+    "updated": "2025-10-14T07:12:32Z",
+    "url": "http://arxiv.org/abs/2508.13423v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.13423v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "2UniversityofArkansas",
+      "tonUniversityandtheGoogleBrainteam,isawidelyused"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话式职业推荐系统，提出基于 LLM Agent 的架构以平衡复杂查询处理与低延迟，属于 LLM 在推荐系统中的直接应用；虽摘要提及 Walmart 但备注指明来自中国公司，故给予额外加分。",
+    "translation": "AdaptJobRec：通过 LLM 驱动的代理系统增强对话式职业推荐",
+    "summary_zh": "提出一种自适应代理系统，通过识别用户查询复杂度，对简单请求直接调用工具、对复杂请求进行记忆过滤与任务分解，以在对话式推荐中兼顾响应速度与个性化精度。",
+    "key_points": [
+      "提出一种自适应代理系统，通过识别用户查询复杂度，对简单请求直接调用工具、对复杂请求进行记忆过滤与任务分解，以在对话式推荐中兼顾响应速度与个性化精度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13567v1",
+    "title": "ENCODE: Breaking the Trade-Off Between Performance and Efficiency in Long-Term User Behavior Modeling",
+    "authors": [
+      "Wenji Zhou",
+      "Yuhang Zheng",
+      "Yinfu Feng",
+      "Yunan Ye",
+      "Rong Xiao",
+      "Long Chen",
+      "Xiaosong Yang",
+      "Jun Xiao"
+    ],
+    "summary": "Long-term user behavior sequences are a goldmine for businesses to explore users' interests to improve Click-Through Rate. However, it is very challenging to accurately capture users' long-term interests from their long-term behavior sequences and give quick responses from the online serving systems. To meet such requirements, existing methods \"inadvertently\" destroy two basic requirements in long-term sequence modeling: R1) make full use of the entire sequence to keep the information as much as possible; R2) extract information from the most relevant behaviors to keep high relevance between learned interests and current target items. The performance of online serving systems is significantly affected by incomplete and inaccurate user interest information obtained by existing methods. To this end, we propose an efficient two-stage long-term sequence modeling approach, named as EfficieNt Clustering based twO-stage interest moDEling (ENCODE), consisting of offline extraction stage and online inference stage. It not only meets the aforementioned two basic requirements but also achieves a desirable balance between online service efficiency and precision. Specifically, in the offline extraction stage, ENCODE clusters the entire behavior sequence and extracts accurate interests. To reduce the overhead of the clustering process, we design a metric learning-based dimension reduction algorithm that preserves the relative pairwise distances of behaviors in the new feature space. While in the online inference stage, ENCODE takes the off-the-shelf user interests to predict the associations with target items. Besides, to further ensure the relevance between user interests and target items, we adopt the same relevance metric throughout the whole pipeline of ENCODE. The extensive experiment and comparison with SOTA have demonstrated the effectiveness and efficiency of our proposed ENCODE.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-19T06:58:21Z",
+    "updated": "2025-08-19T06:58:21Z",
+    "url": "http://arxiv.org/abs/2508.13567v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13567v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的长期用户行为建模痛点，提出了一种平衡在线服务效率与精度的两阶段聚类架构，属于核心推荐技术突破。",
+    "translation": "ENCODE：打破长期用户行为建模中性能与效率的权衡",
+    "summary_zh": "提出一种基于聚类的两阶段兴趣建模方法，通过离线提取全序列兴趣并在线高效推理，解决了长期行为序列中信息完整性与相关性的矛盾。",
+    "key_points": [
+      "提出一种基于聚类的两阶段兴趣建模方法，通过离线提取全序列兴趣并在线高效推理，解决了长期行为序列中信息完整性与相关性的矛盾"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13930v1",
+    "title": "InPars+: Supercharging Synthetic Data Generation for Information Retrieval Systems",
+    "authors": [
+      "Matey Krastev",
+      "Miklos Hamar",
+      "Danilo Toapanta",
+      "Jesse Brouwers",
+      "Yibin Lei"
+    ],
+    "summary": "This work revisits and extends synthetic query generation pipelines for Neural Information Retrieval (NIR) by leveraging the InPars Toolkit, a reproducible, end-to-end framework for generating training data using large language models (LLMs). We first assess the reproducibility of the original InPars, InPars-V2, and Promptagator pipelines on the SciFact benchmark and validate their effectiveness using open-source reranker and generator models. Building on this foundation, we introduce two key extensions to the pipeline: (1) fine-tuning a query generator LLM via Contrastive Preference Optimization (CPO) to improve the signal quality in generated queries, and (2) replacing static prompt templates with dynamic, Chain-of-Thought (CoT) optimized prompts using the DSPy framework. Our results show that both extensions reduce the need for aggressive filtering while improving retrieval performance. All code, models, and synthetic datasets are publicly released to support further research at: \\href{https://github.com/danilotpnta/IR2-project}{this https URL}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-08-19T15:23:18Z",
+    "updated": "2025-08-19T15:23:18Z",
+    "url": "http://arxiv.org/abs/2508.13930v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13930v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对信息检索（搜索）系统，提出利用 LLM 生成合成数据以优化神经检索模型的方法，属于搜索核心环节的技术创新。",
+    "translation": "InPars+：为信息检索系统增强合成数据生成",
+    "summary_zh": "本文扩展了 InPars 框架，通过对比偏好优化微调查询生成器并结合动态思维链提示，旨在提升用于训练神经检索模型的合成查询数据的质量与信号强度。",
+    "key_points": [
+      "本文扩展了 InPars 框架，通过对比偏好优化微调查询生成器并结合动态思维链提示，旨在提升用于训练神经检索模型的合成查询数据的质量与信号强度"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13978v1",
+    "title": "Democratizing News Recommenders: Modeling Multiple Perspectives for News Candidate Generation with VQ-VAE",
+    "authors": [
+      "Hardy",
+      "Sebastian Padó",
+      "Amelie Wührl",
+      "Tanise Ceron"
+    ],
+    "summary": "Current News Recommender Systems based on past clicks are designed for engagement, but come at the cost of limiting diversity in the suggested content. While diversity-aware algorithms exist, they suffer from two major limitations. First, they fail to account for normative diversity, which requires fair access to a broad range of perspectives. Second, they typically apply diversity late in the system's pipeline, after a lot of content has already been filtered out. Both limitations confine their effectiveness and prevent them from promoting true normative diversity in news recommendations.\n  We propose Aspect-Aware Candidate Generation (A2CG) to address these limitations. Our framework introduces diversity into the earliest pipeline stage and uses a configurable mechanism to align diversity with specific democratic goals. A2CG represents each news article using multiple aspects of perspectives (e.g., sentiment, political leaning, frame) and uses a Vector Quantized Variational Autoencoder (VQ-VAE) to create a discrete, multi-faceted representation. A decoder-only model then learns user preferences over these aspect codes. We then inject diversity directly by reversing the sign on some of the query vector's aspects during the candidate retrieval process, ensuring a more diverse set of candidates.\n  Our method, evaluated on the MIND dataset, enables a flexible trade-off between personalization and diversity early in the recommendation pipeline. It also generates more novel, diverse, and serendipitous candidates while effectively taking into account aspects that strengthen democratic values. These empirical results make it a promising approach for downstream democratized news recommendation systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-19T16:13:54Z",
+    "updated": "2025-08-19T16:13:54Z",
+    "url": "http://arxiv.org/abs/2508.13978v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13978v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对新闻推荐系统中的多样性问题，提出在召回阶段利用 VQ-VAE 进行多视角候选生成的新架构，属于核心推荐技术改进。",
+    "translation": "普及新闻推荐系统：利用 VQ-VAE 建模多视角以生成新闻候选",
+    "summary_zh": "提出一种感知方面的候选生成框架，利用 VQ-VAE 将新闻文章编码为离散的多视角表示，并在检索早期通过反转查询向量 aspect 来直接注入多样性。",
+    "key_points": [
+      "提出一种感知方面的候选生成框架，利用 VQ-VAE 将新闻文章编码为离散的多视角表示，并在检索早期通过反转查询向量 aspect 来直接注入多样性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13745v1",
+    "title": "Refining Contrastive Learning and Homography Relations for Multi-Modal Recommendation",
+    "authors": [
+      "Shouxing Ma",
+      "Yawen Zeng",
+      "Shiqing Wu",
+      "Guandong Xu"
+    ],
+    "summary": "Multi-modal recommender system focuses on utilizing rich modal information ( i.e., images and textual descriptions) of items to improve recommendation performance. The current methods have achieved remarkable success with the powerful structure modeling capability of graph neural networks. However, these methods are often hindered by sparse data in real-world scenarios. Although contrastive learning and homography ( i.e., homogeneous graphs) are employed to address the data sparsity challenge, existing methods still suffer two main limitations: 1) Simple multi-modal feature contrasts fail to produce effective representations, causing noisy modal-shared features and loss of valuable information in modal-unique features; 2) The lack of exploration of the homograph relations between user interests and item co-occurrence results in incomplete mining of user-item interplay.\n  To address the above limitations, we propose a novel framework for \\textbf{R}\\textbf{E}fining multi-mod\\textbf{A}l cont\\textbf{R}astive learning and ho\\textbf{M}ography relations (\\textbf{REARM}). Specifically, we complement multi-modal contrastive learning by employing meta-network and orthogonal constraint strategies, which filter out noise in modal-shared features and retain recommendation-relevant information in modal-unique features. To mine homogeneous relationships effectively, we integrate a newly constructed user interest graph and an item co-occurrence graph with the existing user co-occurrence and item semantic graphs for graph learning. The extensive experiments on three real-world datasets demonstrate the superiority of REARM to various state-of-the-art baselines. Our visualization further shows an improvement made by REARM in distinguishing between modal-shared and modal-unique features. Code is available \\href{https://github.com/MrShouxingMa/REARM}{here}.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-19T11:35:48Z",
+    "updated": "2025-08-19T11:35:48Z",
+    "url": "http://arxiv.org/abs/2508.13745v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13745v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态推荐系统中的数据稀疏和特征噪声问题，提出了改进对比学习和同构图关系的具体架构，属于核心推荐技术。",
+    "translation": "优化多模态推荐中的对比学习与同构关系",
+    "summary_zh": "提出 REARM 框架，通过元网络与正交约束策略优化多模态对比学习以分离共享与独特特征，并构建用户兴趣与物品共现的同构图以挖掘深层交互关系。",
+    "key_points": [
+      "提出 REARM 框架，通过元网络与正交约束策略优化多模态对比学习以分离共享与独特特征，并构建用户兴趣与物品共现的同构图以挖掘深层交互关系"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13568v1",
+    "title": "Understanding Distribution Structure on Calibrated Recommendation Systems",
+    "authors": [
+      "Diego Correa da Silva",
+      "Denis Robson Dantas Boaventura",
+      "Mayki dos Santos Oliveira",
+      "Eduardo Ferreira da Silva",
+      "Joel Machado Pires",
+      "Frederico Araújo Durão"
+    ],
+    "summary": "Traditional recommender systems aim to generate a recommendation list comprising the most relevant or similar items to the user's profile. These approaches can create recommendation lists that omit item genres from the less prominent areas of a user's profile, thereby undermining the user's experience. To solve this problem, the calibrated recommendation system provides a guarantee of including less representative areas in the recommended list. The calibrated context works with three distributions. The first is from the user's profile, the second is from the candidate items, and the last is from the recommendation list. These distributions are G-dimensional, where G is the total number of genres in the system. This high dimensionality requires a different evaluation method, considering that traditional recommenders operate in a one-dimensional data space. In this sense, we implement fifteen models that help to understand how these distributions are structured. We evaluate the users' patterns in three datasets from the movie domain. The results indicate that the models of outlier detection provide a better understanding of the structures. The calibrated system creates recommendation lists that act similarly to traditional recommendation lists, allowing users to change their groups of preferences to the same degree.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-19T06:59:10Z",
+    "updated": "2025-08-19T06:59:10Z",
+    "url": "http://arxiv.org/abs/2508.13568v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13568v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的校准（Calibration）和多样性问题，提出了基于分布结构分析的用户建模方法，属于核心推荐技术；虽无明确大厂业务场景且非 LLM 应用，但紧扣 RecSys 核心痛点，结合中国公司背景给予加分。",
+    "translation": "理解校准推荐系统中的分布结构",
+    "summary_zh": "该文提出通过分析用户画像、候选集及推荐列表三者间的多维 genre 分布结构，利用异常检测模型优化校准推荐系统，以解决传统推荐忽略用户小众偏好导致体验下降的问题。",
+    "key_points": [
+      "该文提出通过分析用户画像、候选集及推荐列表三者间的多维 genre 分布结构，利用异常检测模型优化校准推荐系统，以解决传统推荐忽略用户小众偏好导致体验下降的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13870v1",
+    "title": "Bites of Tomorrow: Personalized Recommendations for a Healthier and Greener Plate",
+    "authors": [
+      "Jiazheng Jing",
+      "Yinan Zhang",
+      "Chunyan Miao"
+    ],
+    "summary": "The recent emergence of extreme climate events has significantly raised awareness about sustainable living. In addition to developing energy-saving materials and technologies, existing research mainly relies on traditional methods that encourage behavioral shifts towards sustainability, which can be overly demanding or only passively engaging. In this work, we propose to employ recommendation systems to actively nudge users toward more sustainable choices. We introduce Green Recommender Aligned with Personalized Eating (GRAPE), which is designed to prioritize and recommend sustainable food options that align with users' evolving preferences. We also design two innovative Green Loss functions that cater to green indicators with either uniform or differentiated priorities, thereby enhancing adaptability across a range of scenarios. Extensive experiments on a real-world dataset demonstrate the effectiveness of our GRAPE.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-19T14:35:37Z",
+    "updated": "2025-08-19T14:35:37Z",
+    "url": "http://arxiv.org/abs/2508.13870v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13870v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文将推荐系统直接应用于可持续饮食场景，提出了新的损失函数以平衡个性化与绿色指标，属于核心推荐技术在特定垂直领域（本地生活/健康）的直接应用；虽非纯 LLM 研究，但符合 RecSys 核心进展，且来自中国公司额外加 1 分。",
+    "translation": "明日之餐：面向更健康与更绿色饮食的个性化推荐",
+    "summary_zh": "提出 GRAPE 推荐框架，通过设计两种新型绿色损失函数，在满足用户 evolving 偏好的同时主动引导其选择可持续食品。",
+    "key_points": [
+      "提出 GRAPE 推荐框架，通过设计两种新型绿色损失函数，在满足用户 evolving 偏好的同时主动引导其选择可持续食品"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13953v2",
+    "title": "ReviewGraph: A Knowledge Graph Embedding Based Framework for Review Rating Prediction with Sentiment Features",
+    "authors": [
+      "A. J. W. de Vink",
+      "Natalia Amat-Lefort",
+      "Lifeng Han"
+    ],
+    "summary": "In the hospitality industry, understanding the factors that drive customer review ratings is critical for improving guest satisfaction and business performance. This work proposes ReviewGraph for Review Rating Prediction (RRP), a novel framework that transforms textual customer reviews into knowledge graphs by extracting (subject, predicate, object) triples and associating sentiment scores. Using graph embeddings (Node2Vec) and sentiment features, the framework predicts review rating scores through machine learning classifiers. We compare ReviewGraph performance with traditional NLP baselines (such as Bag of Words, TF-IDF, and Word2Vec) and large language models (LLMs), evaluating them in the HotelRec dataset. In comparison to the state of the art literature, our proposed model performs similar to their best performing model but with lower computational cost (without ensemble).\n  While ReviewGraph achieves comparable predictive performance to LLMs and outperforms baselines on agreement-based metrics such as Cohen's Kappa, it offers additional advantages in interpretability, visual exploration, and potential integration into Retrieval-Augmented Generation (RAG) systems. This work highlights the potential of graph-based representations for enhancing review analytics and lays the groundwork for future research integrating advanced graph neural networks and fine-tuned LLM-based extraction methods. We will share ReviewGraph output and platform open-sourced on our GitHub page https://github.com/aaronlifenghan/ReviewGraph",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-19T15:44:27Z",
+    "updated": "2025-11-15T21:34:58Z",
+    "url": "http://arxiv.org/abs/2508.13953v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.13953v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "该文聚焦于酒店评论评分预测这一特定分析任务，虽涉及情感分析和知识图谱，但属于通用 NLP/预测建模范畴，未直接解决推荐系统或搜索引擎中的召回、排序等核心问题，且主要对比纯 LLM 而非将其应用于 RecSys 架构。",
+    "translation": "ReviewGraph：基于知识图谱嵌入与情感特征的评论评分预测框架",
+    "summary_zh": "提出一种将文本评论转化为带情感分数的知识图谱三元组，并结合图嵌入与机器学习分类器进行评分预测的框架，旨在提升分析的可解释性并降低计算成本。",
+    "key_points": [
+      "提出一种将文本评论转化为带情感分数的知识图谱三元组，并结合图嵌入与机器学习分类器进行评分预测的框架，旨在提升分析的可解释性并降低计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13949v1",
+    "title": "Query Logs Analytics: A Aystematic Literature Review",
+    "authors": [
+      "Dihia Lanasri"
+    ],
+    "summary": "In the digital era, user interactions with various resources such as databases, data warehouses, websites, and knowledge graphs (KGs) are increasingly mediated through digital platforms. These interactions leave behind digital traces, systematically captured in the form of logs. Logs, when effectively exploited, provide high value across industry and academia, supporting critical services (e.g., recovery and security), user-centric applications (e.g., recommender systems), and quality-of-service improvements (e.g., performance optimization). Despite their importance, research on log usage remains fragmented across domains, and no comprehensive study currently consolidates existing efforts. This paper presents a systematic survey of log usage, focusing on Database (DB), Data Warehouse (DW), Web, and KG logs. More than 300 publications were analyzed to address three central questions: (1) do different types of logs share common structural and functional characteristics? (2) are there standard pipelines for their usage? (3) which constraints and non-functional requirements (NFRs) guide their exploitation?. The survey reveals a limited number of end-to-end approaches, the absence of standardization across log usage pipelines, and the existence of shared structural elements among different types of logs. By consolidating existing knowledge, identifying gaps, and highlighting opportunities, this survey provides researchers and practitioners with a comprehensive overview of log usage and sheds light on promising directions for future research, particularly regarding the exploitation and democratization of KG logs.",
+    "categories": [
+      "cs.DB",
+      "cs.CL"
+    ],
+    "published": "2025-08-19T15:38:13Z",
+    "updated": "2025-08-19T15:38:13Z",
+    "url": "http://arxiv.org/abs/2508.13949v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13949v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "这是一篇关于查询日志分析的综述，虽提及推荐系统作为应用场景之一，但核心内容涵盖数据库、数据仓库等多领域，并非专门针对推荐/搜索算法的直接创新；因来自中国公司额外加 1 分。",
+    "translation": "查询日志分析：系统性文献综述",
+    "summary_zh": "本文系统综述了数据库、Web 及知识图谱等领域的查询日志利用现状，分析了日志结构共性、处理流程标准化缺失及非功能性需求约束。",
+    "key_points": [
+      "本文系统综述了数据库、Web 及知识图谱等领域的查询日志利用现状，分析了日志结构共性、处理流程标准化缺失及非功能性需求约束"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13642v1",
+    "title": "Personalized Subgraph Federated Learning with Sheaf Collaboration",
+    "authors": [
+      "Wenfei Liang",
+      "Yanan Zhao",
+      "Rui She",
+      "Yiming Li",
+      "Wee Peng Tay"
+    ],
+    "summary": "Graph-structured data is prevalent in many applications. In subgraph federated learning (FL), this data is distributed across clients, each with a local subgraph. Personalized subgraph FL aims to develop a customized model for each client to handle diverse data distributions. However, performance variation across clients remains a key issue due to the heterogeneity of local subgraphs. To overcome the challenge, we propose FedSheafHN, a novel framework built on a sheaf collaboration mechanism to unify enhanced client descriptors with efficient personalized model generation. Specifically, FedSheafHN embeds each client's local subgraph into a server-constructed collaboration graph by leveraging graph-level embeddings and employing sheaf diffusion within the collaboration graph to enrich client representations. Subsequently, FedSheafHN generates customized client models via a server-optimized hypernetwork. Empirical evaluations demonstrate that FedSheafHN outperforms existing personalized subgraph FL methods on various graph datasets. Additionally, it exhibits fast model convergence and effectively generalizes to new clients.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-19T08:52:50Z",
+    "updated": "2025-08-19T08:52:50Z",
+    "url": "http://arxiv.org/abs/2508.13642v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13642v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究通用的子图联邦学习框架，虽提及图数据但未明确针对推荐/搜索场景，属于弱相关的通用 ML 方法；因来自中国公司额外加 1 分。",
+    "translation": "基于层协作的个性化子图联邦学习",
+    "summary_zh": "提出 FedSheafHN 框架，利用层扩散机制在协作图中增强客户端表示，并通过超网络生成个性化的本地模型以解决子图异构性问题。",
+    "key_points": [
+      "提出 FedSheafHN 框架，利用层扩散机制在协作图中增强客户端表示，并通过超网络生成个性化的本地模型以解决子图异构性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.13828v1",
+    "title": "Revisiting RAG Ensemble: A Theoretical and Mechanistic Analysis of Multi-RAG System Collaboration",
+    "authors": [
+      "Yifei Chen",
+      "Guanting Dong",
+      "Yutao Zhu",
+      "Zhicheng Dou"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) technology has been widely applied in recent years. However, despite the emergence of various RAG frameworks, a single RAG framework still cannot adapt well to a broad range of downstream tasks. Therefore, how to leverage the advantages of multiple RAG systems has become an area worth exploring. To address this issue, we have conducted a comprehensive and systematic investigation into ensemble methods based on RAG systems. Specifically, we have analyzed the RAG ensemble framework from both theoretical and mechanistic analysis perspectives. From the theoretical analysis, we provide the first explanation of the RAG ensemble framework from the perspective of information entropy. In terms of mechanism analysis, we have explored the RAG ensemble framework from both the pipeline and module levels. We carefully select four different pipelines (Branching, Iterative, Loop, and Agentic) and three different modules (Generator, Retriever, and Reranker) to solve seven different research questions. The experiments show that aggregating multiple RAG systems is both generalizable and robust, whether at the pipeline level or the module level. Our work lays the foundation for similar research on the multi-RAG system ensemble.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-08-19T13:38:54Z",
+    "updated": "2025-08-19T13:38:54Z",
+    "url": "http://arxiv.org/abs/2508.13828v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.13828v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 架构研究，专注于通用下游任务的集成策略，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "重访 RAG 集成：多 RAG 系统协作的理论与机制分析",
+    "summary_zh": "本文从信息熵理论及管道/模块机制层面，系统分析了多种检索增强生成（RAG）系统的集成方法及其协作模式。",
+    "key_points": [
+      "本文从信息熵理论及管道/模块机制层面，系统分析了多种检索增强生成（RAG）系统的集成方法及其协作模式"
+    ]
+  }
+]

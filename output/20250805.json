@@ -1,1 +1,496 @@
-[]
+[
+  {
+    "arxiv_id": "2508.03670v1",
+    "title": "Personalized Recommendation of Dish and Restaurant Collections on iFood",
+    "authors": [
+      "Fernando F. Granado",
+      "Davi A. Bezerra",
+      "Iuri Queiroz",
+      "Nathan Oliveira",
+      "Pedro Fernandes",
+      "Bruno Schock"
+    ],
+    "summary": "Food delivery platforms face the challenge of helping users navigate vast catalogs of restaurants and dishes to find meals they truly enjoy. This paper presents RED, an automated recommendation system designed for iFood, Latin America's largest on-demand food delivery platform, to personalize the selection of curated food collections displayed to millions of users. Our approach employs a LightGBM classifier that scores collections based on three feature groups: collection characteristics, user-collection similarity, and contextual information. To address the cold-start problem of recommending newly created collections, we develop content-based representations using item embeddings and implement monotonicity constraints to improve generalization. We tackle data scarcity by bootstrapping from category carousel interactions and address visibility bias through unbiased sampling of impressions and purchases in production. The system demonstrates significant real-world impact through extensive A/B testing with 5-10% of iFood's user base. Online results of our A/B tests add up to 97% improvement in Card Conversion Rate and 1.4% increase in overall App Conversion Rate compared to popularity-based baselines. Notably, our offline accuracy metrics strongly correlate with online performance, enabling reliable impact prediction before deployment. To our knowledge, this is the first work to detail large-scale recommendation of curated food collections in a dynamic commercial environment.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-05T17:34:19Z",
+    "updated": "2025-08-05T17:34:19Z",
+    "url": "http://arxiv.org/abs/2508.03670v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03670v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接针对外卖平台（iFood）的餐厅与菜品集合推荐系统，解决了冷启动、数据稀疏及偏差等核心工业界问题，属于高优先级的电商/本地生活推荐应用；虽非中国公司（TAL）论文不适用额外加分，但其极高的相关性与工业落地价值已满分。",
+    "translation": "iFood 平台上菜品与餐厅集合的个性化推荐",
+    "summary_zh": "提出一种基于 LightGBM 的自动化推荐系统 RED，通过融合集合特征、用户相似性及上下文信息，并结合内容嵌入与单调性约束解决新集合冷启动问题，利用无偏采样纠正可见性偏差以实现大规模餐饮集合的个性化排序。",
+    "key_points": [
+      "提出一种基于 LightGBM 的自动化推荐系统 RED，通过融合集合特征、用户相似性及上下文信息，并结合内容嵌入与单调性约束解决新集合冷启动问题，利用无偏采样纠正可见性偏差以实现大规模餐饮集合的个性化排序"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03668v1",
+    "title": "CTR-Sink: Attention Sink for Language Models in Click-Through Rate Prediction",
+    "authors": [
+      "Zixuan Li",
+      "Binzong Geng",
+      "Jing Xiong",
+      "Yong He",
+      "Yuxuan Hu",
+      "Jian Chen",
+      "Dingwei Chen",
+      "Xiyu Chang",
+      "Liang Zhang",
+      "Linjian Mo",
+      "Chengming Li",
+      "Chuan Yuan",
+      "Zhenan Sun"
+    ],
+    "summary": "Click-Through Rate (CTR) prediction, a core task in recommendation systems, estimates user click likelihood using historical behavioral data. Modeling user behavior sequences as text to leverage Language Models (LMs) for this task has gained traction, owing to LMs' strong semantic understanding and contextual modeling capabilities. However, a critical structural gap exists: user behavior sequences consist of discrete actions connected by semantically empty separators, differing fundamentally from the coherent natural language in LM pre-training. This mismatch causes semantic fragmentation, where LM attention scatters across irrelevant tokens instead of focusing on meaningful behavior boundaries and inter-behavior relationships, degrading prediction performance. To address this, we propose $\\textit{CTR-Sink}$, a novel framework introducing behavior-level attention sinks tailored for recommendation scenarios. Inspired by attention sink theory, it constructs attention focus sinks and dynamically regulates attention aggregation via external information. Specifically, we insert sink tokens between consecutive behaviors, incorporating recommendation-specific signals such as temporal distance to serve as stable attention sinks. To enhance generality, we design a two-stage training strategy that explicitly guides LM attention toward sink tokens and a attention sink mechanism that amplifies inter-sink dependencies to better capture behavioral correlations. Experiments on one industrial dataset and two open-source datasets (MovieLens, Kuairec), alongside visualization results, validate the method's effectiveness across scenarios.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-08-05T17:30:34Z",
+    "updated": "2025-08-05T17:30:34Z",
+    "url": "http://arxiv.org/abs/2508.03668v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03668v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere",
+      "Ant Group"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "NLPR,InstituteofAutomation, AntGroup AntGroup",
+      "UniversityofHongKong SunYat-senUniversity AntGroup",
+      "SMBU LinjianMo NLPR,InstituteofAutomation,"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心的 CTR 预测任务，提出利用 LLM 注意力机制改进用户行为序列建模的新架构，属于高优先级的 LLM for RecSys 研究；且来自中国公司，符合加分条件。",
+    "translation": "CTR-Sink：面向点击率预测的语言模型注意力汇聚机制",
+    "summary_zh": "针对将用户行为序列视为文本时产生的语义碎片化问题，提出 CTR-Sink 框架，通过在行为间插入携带时序信息的汇聚 token 并设计两阶段训练策略，引导语言模型注意力聚焦于关键行为边界以捕捉行为关联。",
+    "key_points": [
+      "针对将用户行为序列视为文本时产生的语义碎片化问题，提出 CTR-Sink 框架，通过在行为间插入携带时序信息的汇聚 token 并设计两阶段训练策略，引导语言模型注意力聚焦于关键行为边界以捕捉行为关联"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03628v6",
+    "title": "LLMDistill4Ads: Using Cross-Encoders to Distill from LLM Signals for Advertiser Keyphrase Recommendations at eBay",
+    "authors": [
+      "Soumik Dey",
+      "Benjamin Braun",
+      "Naveen Ravipati",
+      "Hansi Wu",
+      "Binbin Li"
+    ],
+    "summary": "E-commerce sellers are advised to bid on keyphrases to boost their advertising campaigns. These keyphrases must be relevant to prevent irrelevant items from cluttering Search systems and to maintain positive seller perception. It is vital that keyphrase suggestions align with seller, Search, and buyer judgments. Given the challenges in collecting negative feedback in these systems, LLMs have been used as a scalable proxy for human judgments. We present an empirical study on a major e-commerce platform of a distillation framework involving an LLM teacher, a cross-encoder assistant and a bi-encoder Embedding Based Retrieval (EBR) student model, aimed at mitigating click-induced biases and provide more diverse keyphrase recommendations while aligning advertising, search and buyer preferences.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-08-05T16:47:17Z",
+    "updated": "2026-02-18T19:55:53Z",
+    "url": "http://arxiv.org/abs/2508.03628v6",
+    "pdf_url": "http://arxiv.org/pdf/2508.03628v6.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商广告场景下的关键词推荐问题，利用 LLM 作为教师模型进行蒸馏以解决偏差和对齐问题，属于高优先级的 LLM for Ads 应用；虽备注提及 TAL 但摘要明确指出为 eBay 研究，故仅按核心领域满分评定，不额外加分。",
+    "translation": "LLMDistill4Ads：利用交叉编码器从 LLM 信号中蒸馏以用于 eBay 广告商关键词推荐",
+    "summary_zh": "提出一种包含 LLM 教师、交叉编码器助手和双编码器检索学生的蒸馏框架，旨在利用 LLM 作为人类判断的代理，缓解点击诱导偏差并提供多样化的广告关键词推荐。",
+    "key_points": [
+      "提出一种包含 LLM 教师、交叉编码器助手和双编码器检索学生的蒸馏框架，旨在利用 LLM 作为人类判断的代理，缓解点击诱导偏差并提供多样化的广告关键词推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03267v3",
+    "title": "HALO: Hindsight-Augmented Learning for Online Auto-Bidding",
+    "authors": [
+      "Pusen Dong",
+      "Chenglong Cao",
+      "Xinyu Zhou",
+      "Jirong You",
+      "Linhe Xu",
+      "Feifan Xu",
+      "Shuo Yuan"
+    ],
+    "summary": "Digital advertising platforms operate millisecond-level auctions through Real-Time Bidding (RTB) systems, where advertisers compete for ad impressions through algorithmic bids. This dynamic mechanism enables precise audience targeting but introduces profound operational complexity due to advertiser heterogeneity: budgets and ROI targets span orders of magnitude across advertisers, from individual merchants to multinational brands. This diversity creates a demanding adaptation landscape for Multi-Constraint Bidding (MCB). Traditional auto-bidding solutions fail in this environment due to two critical flaws: 1) severe sample inefficiency, where failed explorations under specific constraints yield no transferable knowledge for new budget-ROI combinations, and 2) limited generalization under constraint shifts, as they ignore physical relationships between constraints and bidding coefficients. To address this, we propose HALO: Hindsight-Augmented Learning for Online Auto-Bidding. HALO introduces a theoretically grounded hindsight mechanism that repurposes all explorations into training data for arbitrary constraint configuration via trajectory reorientation. Further, it employs B-spline functional representation, enabling continuous, derivative-aware bid mapping across constraint spaces. HALO ensures robust adaptation even when budget/ROI requirements differ drastically from training scenarios. Industrial dataset evaluations demonstrate the superiority of HALO in handling multi-scale constraints, reducing constraint violations while improving GMV.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-08-05T09:47:26Z",
+    "updated": "2025-08-08T02:37:04Z",
+    "url": "http://arxiv.org/abs/2508.03267v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.03267v3.pdf",
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告推荐系统中的核心环节——在线自动出价（Auto-Bidding），解决了多约束下的样本效率和泛化问题，属于高优先级的 Ads/RecSys 核心应用研究。",
+    "translation": "HALO：用于在线自动出价的 hindsight 增强学习",
+    "summary_zh": "提出 HALO 框架，利用基于轨迹重定向的 hindsight 机制将探索数据转化为通用训练样本，并结合 B 样条函数表示实现跨预算与 ROI 约束空间的连续可导出价映射。",
+    "key_points": [
+      "提出 HALO 框架，利用基于轨迹重定向的 hindsight 机制将探索数据转化为通用训练样本，并结合 B 样条函数表示实现跨预算与 ROI 约束空间的连续可导出价映射"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03172v1",
+    "title": "Dual-disentangle Framework for Diversified Sequential Recommendation",
+    "authors": [
+      "Haoran Zhang",
+      "Jingtong Liu",
+      "Jiangzhou Deng",
+      "Junpeng Guo"
+    ],
+    "summary": "Sequential recommendation predicts user preferences over time and has achieved remarkable success. However, the growing length of user interaction sequences and the complex entanglement of evolving user interests and intentions introduce significant challenges to diversity. To address these, we propose a model-agnostic Dual-disentangle framework for Diversified Sequential Recommendation (DDSRec). The framework refines user interest and intention modeling by adopting disentangling perspectives in interaction modeling and representation learning, thereby balancing accuracy and diversity in sequential recommendations. Extensive experiments on multiple public datasets demonstrate the effectiveness and superiority of DDSRec in terms of accuracy and diversity for sequential recommendations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-05T07:25:56Z",
+    "updated": "2025-08-05T07:25:56Z",
+    "url": "http://arxiv.org/abs/2508.03172v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03172v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐中的多样性问题，提出了双解耦框架以平衡准确性与多样性，属于核心推荐算法创新。",
+    "translation": "用于多样化序列推荐的双解耦框架",
+    "summary_zh": "提出一种模型无关的双解耦框架，通过在交互建模和表征学习中分离用户兴趣与意图，解决长序列下的纠缠问题以优化推荐多样性。",
+    "key_points": [
+      "提出一种模型无关的双解耦框架，通过在交互建模和表征学习中分离用户兴趣与意图，解决长序列下的纠缠问题以优化推荐多样性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03941v2",
+    "title": "Measuring the stability and plasticity of recommender systems",
+    "authors": [
+      "Maria João Lavoura",
+      "Robert Jungnickel",
+      "João Vinagre"
+    ],
+    "summary": "The typical offline protocol to evaluate recommendation algorithms is to collect a dataset of user-item interactions and then use a part of this dataset to train a model, and the remaining data to measure how closely the model recommendations match the observed user interactions. This protocol is straightforward, useful and practical, but it only captures performance of a particular model trained at some point in the past. We know, however, that online systems evolve over time. In general, it is a good idea that models reflect such changes, so models are frequently retrained with recent data. But if this is the case, to what extent can we trust previous evaluations? How will a model perform when a different pattern (re)emerges? In this paper we propose a methodology to study how recommendation models behave when they are retrained. The idea is to profile algorithms according to their ability to, on the one hand, retain past patterns - stability - and, on the other hand, (quickly) adapt to changes - plasticity. We devise an offline evaluation protocol that provides detail on the long-term behavior of models, and that is agnostic to datasets, algorithms and metrics. To illustrate the potential of this framework, we present preliminary results of three different types of algorithms on the GoodReads dataset that suggest different stability and plasticity profiles depending on the algorithmic technique, and a possible trade-off between stability and plasticity. Although additional experiments will be necessary to confirm these observations, they already illustrate the usefulness of the proposed framework to gain insights on the long term dynamics of recommendation models.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-05T22:15:43Z",
+    "updated": "2025-10-16T09:33:12Z",
+    "url": "http://arxiv.org/abs/2508.03941v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.03941v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统的核心评估问题，提出了衡量模型稳定性与可塑性的新方法论，属于推荐系统基础架构与评估的重要进展。",
+    "translation": "衡量推荐系统的稳定性与可塑性",
+    "summary_zh": "本文提出了一种不依赖特定数据集或算法的离线评估协议，旨在通过分析模型在重训练过程中保留历史模式（稳定性）与适应新变化（可塑性）的能力，来研究推荐模型的长期动态行为。",
+    "key_points": [
+      "本文提出了一种不依赖特定数据集或算法的离线评估协议，旨在通过分析模型在重训练过程中保留历史模式（稳定性）与适应新变化（可塑性）的能力，来研究推荐模型的长期动态行为"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03854v1",
+    "title": "Two-dimensional Sparse Parallelism for Large Scale Deep Learning Recommendation Model Training",
+    "authors": [
+      "Xin Zhang",
+      "Quanyu Zhu",
+      "Liangbei Xu",
+      "Zain Huda",
+      "Wang Zhou",
+      "Jin Fang",
+      "Dennis van der Staay",
+      "Yuxi Hu",
+      "Jade Nie",
+      "Jiyan Yang",
+      "Chunzhi Yang"
+    ],
+    "summary": "The increasing complexity of deep learning recommendation models (DLRM) has led to a growing need for large-scale distributed systems that can efficiently train vast amounts of data. In DLRM, the sparse embedding table is a crucial component for managing sparse categorical features. Typically, these tables in industrial DLRMs contain trillions of parameters, necessitating model parallelism strategies to address memory constraints. However, as training systems expand with massive GPUs, the traditional fully parallelism strategies for embedding table post significant scalability challenges, including imbalance and straggler issues, intensive lookup communication, and heavy embedding activation memory. To overcome these limitations, we propose a novel two-dimensional sparse parallelism approach. Rather than fully sharding tables across all GPUs, our solution introduces data parallelism on top of model parallelism. This enables efficient all-to-all communication and reduces peak memory consumption. Additionally, we have developed the momentum-scaled row-wise AdaGrad algorithm to mitigate performance losses associated with the shift in training paradigms. Our extensive experiments demonstrate that the proposed approach significantly enhances training efficiency while maintaining model performance parity. It achieves nearly linear training speed scaling up to 4K GPUs, setting a new state-of-the-art benchmark for recommendation model training.",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published": "2025-08-05T19:12:18Z",
+    "updated": "2025-08-05T19:12:18Z",
+    "url": "http://arxiv.org/abs/2508.03854v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03854v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模深度学习推荐模型（DLRM）的训练瓶颈，提出了创新的二维稀疏并行架构，属于推荐系统核心基础设施的关键进展。",
+    "translation": "面向大规模深度学习推荐模型训练的二维稀疏并行策略",
+    "summary_zh": "提出一种结合数据并行与模型并行的二维稀疏并行方法，通过优化嵌入表分片策略和通信机制，解决万亿参数推荐模型训练中的显存受限与扩展性难题。",
+    "key_points": [
+      "提出一种结合数据并行与模型并行的二维稀疏并行方法，通过优化嵌入表分片策略和通信机制，解决万亿参数推荐模型训练中的显存受限与扩展性难题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03606v1",
+    "title": "Demystifying Sequential Recommendations: Counterfactual Explanations via Genetic Algorithms",
+    "authors": [
+      "Domiziano Scarcelli",
+      "Filippo Betello",
+      "Giuseppe Perelli",
+      "Fabrizio Silvestri",
+      "Gabriele Tolomei"
+    ],
+    "summary": "Sequential Recommender Systems (SRSs) have demonstrated remarkable effectiveness in capturing users' evolving preferences. However, their inherent complexity as \"black box\" models poses significant challenges for explainability. This work presents the first counterfactual explanation technique specifically developed for SRSs, introducing a novel approach in this space, addressing the key question: What minimal changes in a user's interaction history would lead to different recommendations? To achieve this, we introduce a specialized genetic algorithm tailored for discrete sequences and show that generating counterfactual explanations for sequential data is an NP-Complete problem. We evaluate these approaches across four experimental settings, varying between targeted-untargeted and categorized-uncategorized scenarios, to comprehensively assess their capability in generating meaningful explanations. Using three different datasets and three models, we are able to demonstrate that our methods successfully generate interpretable counterfactual explanation while maintaining model fidelity close to one. Our findings contribute to the growing field of Explainable AI by providing a framework for understanding sequential recommendation decisions through the lens of \"what-if\" scenarios, ultimately enhancing user trust and system transparency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-05T16:22:45Z",
+    "updated": "2025-08-05T16:22:45Z",
+    "url": "http://arxiv.org/abs/2508.03606v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03606v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐系统（SRS）的可解释性难题，提出了基于遗传算法的反事实解释方法，属于核心推荐领域的创新应用；虽非纯 LLM 研究，但紧密结合推荐业务场景，且来自中国公司，符合高优先级标准。",
+    "translation": "揭秘序列推荐：基于遗传算法的反事实解释",
+    "summary_zh": "本文提出了一种专为序列推荐系统设计的反事实解释框架，利用 tailored 遗传算法在离散用户行为序列中搜索最小改动，以揭示“若历史行为如何变化会导致不同推荐”的因果逻辑。",
+    "key_points": [
+      "本文提出了一种专为序列推荐系统设计的反事实解释框架，利用 tailored 遗传算法在离散用户行为序列中搜索最小改动，以揭示“若历史行为如何变化会导致不同推荐”的因果逻辑"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03555v1",
+    "title": "PyLate: Flexible Training and Retrieval for Late Interaction Models",
+    "authors": [
+      "Antoine Chaffin",
+      "Raphaël Sourty"
+    ],
+    "summary": "Neural ranking has become a cornerstone of modern information retrieval. While single vector search remains the dominant paradigm, it suffers from the shortcoming of compressing all the information into a single vector. This compression leads to notable performance degradation in out-of-domain, long-context, and reasoning-intensive retrieval tasks. Multi-vector approaches pioneered by ColBERT aim to address these limitations by preserving individual token embeddings and computing similarity via the MaxSim operator. This architecture has demonstrated superior empirical advantages, including enhanced out-of-domain generalization, long-context handling, and performance in complex retrieval scenarios. Despite these compelling empirical results and clear theoretical advantages, the practical adoption and public availability of late interaction models remain low compared to their single-vector counterparts, primarily due to a lack of accessible and modular tools for training and experimenting with such models. To bridge this gap, we introduce PyLate, a streamlined library built on top of Sentence Transformers to support multi-vector architectures natively, inheriting its efficient training, advanced logging, and automated model card generation while requiring minimal code changes to code templates users are already familiar with. By offering multi-vector-specific features such as efficient indexes, PyLate aims to accelerate research and real-world application of late interaction models, thereby unlocking their full potential in modern IR systems. Finally, PyLate has already enabled the development of state-of-the-art models, including GTE-ModernColBERT and Reason-ModernColBERT, demonstrating its practical utility for both research and production environments.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-08-05T15:23:40Z",
+    "updated": "2025-08-05T15:23:40Z",
+    "url": "http://arxiv.org/abs/2508.03555v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03555v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了用于晚交互检索模型（Late Interaction Models）的训练与检索库 PyLate，直接服务于搜索系统的核心排序环节，虽为工具库但解决了多向量模型在工业界落地的关键痛点；因来自中国公司额外加 1 分。",
+    "translation": "PyLate：晚交互模型的灵活训练与检索框架",
+    "summary_zh": "本文提出基于 Sentence Transformers 构建的 PyLate 库，旨在通过原生支持多向量架构及高效索引，降低晚交互模型在搜索系统中的训练与应用门槛。",
+    "key_points": [
+      "本文提出基于 Sentence Transformers 构建的 PyLate 库，旨在通过原生支持多向量架构及高效索引，降低晚交互模型在搜索系统中的训练与应用门槛"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03518v1",
+    "title": "Parameter-Efficient Single Collaborative Branch for Recommendation",
+    "authors": [
+      "Marta Moscati",
+      "Shah Nawaz",
+      "Markus Schedl"
+    ],
+    "summary": "Recommender Systems (RS) often rely on representations of users and items in a joint embedding space and on a similarity metric to compute relevance scores. In modern RS, the modules to obtain user and item representations consist of two distinct and separate neural networks (NN). In multimodal representation learning, weight sharing has been proven effective in reducing the distance between multiple modalities of a same item. Inspired by these approaches, we propose a novel RS that leverages weight sharing between the user and item NN modules used to obtain the latent representations in the shared embedding space. The proposed framework consists of a single Collaborative Branch for Recommendation (CoBraR). We evaluate CoBraR by means of quantitative experiments on e-commerce and movie recommendation. Our experiments show that by reducing the number of parameters and improving beyond-accuracy aspects without compromising accuracy, CoBraR has the potential to be applied and extended for real-world scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-08-05T14:46:06Z",
+    "updated": "2025-08-05T14:46:06Z",
+    "url": "http://arxiv.org/abs/2508.03518v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03518v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统核心架构提出创新，通过用户与物品网络间的权重共享机制（单协作分支）优化表征学习，属于明确的推荐系统技术改进。",
+    "translation": "用于推荐的参数高效单协作分支方法",
+    "summary_zh": "提出一种名为 CoBraR 的新型推荐框架，通过在用户和物品表征网络间共享权重构建单一协作分支，旨在减少参数量并提升非准确性指标。",
+    "key_points": [
+      "提出一种名为 CoBraR 的新型推荐框架，通过在用户和物品表征网络间共享权重构建单一协作分支，旨在减少参数量并提升非准确性指标"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03306v3",
+    "title": "Reliable Evaluation Protocol for Low-Precision Retrieval",
+    "authors": [
+      "Kisu Yang",
+      "Yoonna Jang",
+      "Hwanseok Jang",
+      "Kenneth Choi",
+      "Isabelle Augenstein",
+      "Heuiseok Lim"
+    ],
+    "summary": "Lowering the numerical precision of model parameters and computations is widely adopted to improve the efficiency of retrieval systems. However, when computing relevance scores between the query and documents in low-precision, we observe spurious ties due to the reduced granularity. This introduces high variability in the results based on tie resolution, making the evaluation less reliable. To address this, we propose a more robust retrieval evaluation protocol designed to reduce score variation. It consists of: (1) High-Precision Scoring (HPS), which upcasts the final scoring step to higher precision to resolve tied candidates with minimal computational cost; and (2) Tie-aware Retrieval Metrics (TRM), which report expected scores, range, and bias to quantify order uncertainty of tied candidates. Our experiments test multiple models with three scoring functions on two retrieval datasets to demonstrate that HPS dramatically reduces tie-induced instability, and TRM accurately recovers expected metric values. This combination enables a more consistent and reliable evaluation system for lower-precision retrievals.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-08-05T10:27:57Z",
+    "updated": "2026-01-04T08:22:54Z",
+    "url": "http://arxiv.org/abs/2508.03306v3",
+    "pdf_url": "http://arxiv.org/pdf/2508.03306v3.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对检索系统（Retrieval Systems）中的低精度计算评估问题，提出了具体的协议和指标，属于搜索/推荐核心架构的优化，而非纯 LLM 研究。",
+    "translation": "低精度检索的可靠评估协议",
+    "summary_zh": "针对低精度检索中因数值粒度降低导致的评分并列问题，提出通过高精度重打分和感知并列的度量指标来构建更稳健的评估协议。",
+    "key_points": [
+      "针对低精度检索中因数值粒度降低导致的评分并列问题，提出通过高精度重打分和感知并列的度量指标来构建更稳健的评估协议"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03016v2",
+    "title": "KBest: Efficient Vector Search on Kunpeng CPU",
+    "authors": [
+      "Kaihao Ma",
+      "Meiling Wang",
+      "Senkevich Oleg",
+      "Zijian Li",
+      "Daihao Xue",
+      "Dmitriy Malyshev",
+      "Yangming Lv",
+      "Shihai Xiao",
+      "Xiao Yan",
+      "Radionov Alexander",
+      "Weidi Zeng",
+      "Yuanzhan Gao",
+      "Zhiyu Zou",
+      "Xin Yao",
+      "Lin Liu",
+      "Junhao Wu",
+      "Yiding Liu",
+      "Yaoyao Fu",
+      "Gongyi Wang",
+      "Gong Zhang",
+      "Fei Yi",
+      "Yingfan Liu"
+    ],
+    "summary": "Vector search, which returns the vectors most similar to a given query vector from a large vector dataset, underlies many important applications such as search, recommendation, and LLMs. To be economic, vector search needs to be efficient to reduce the resources required by a given query workload. However, existing vector search libraries (e.g., Faiss and DiskANN) are optimized for x86 CPU architectures (i.e., Intel and AMD CPUs) while Huawei Kunpeng CPUs are based on the ARM architecture and competitive in compute power. In this paper, we present KBest as a vector search library tailored for the latest Kunpeng 920 CPUs. To be efficient, KBest incorporates extensive hardware-aware and algorithmic optimizations, which include single-instruction-multiple-data (SIMD) accelerated distance computation, data prefetch, index refinement, early termination, and vector quantization. Experiment results show that KBest outperforms SOTA vector search libraries running on x86 CPUs, and our optimizations can improve the query throughput by over 2x. Currently, KBest serves applications from both our internal business and external enterprise clients with tens of millions of queries on a daily basis.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-08-05T02:52:15Z",
+    "updated": "2025-08-07T03:48:34Z",
+    "url": "http://arxiv.org/abs/2508.03016v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.03016v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel",
+      "Huawei"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "†HuaweiTechnologiesLtd. ‡WuhanUniversity ¶ HigherSchoolofEconomics §XidianUniversity"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于向量检索的底层系统优化（ARM 架构适配），虽提及推荐搜索为应用场景，但核心贡献在于工程加速而非推荐算法或模型创新，属于有潜力的通用方法。",
+    "translation": "KBest：面向鲲鹏 CPU 的高效向量检索系统",
+    "summary_zh": "提出专为华为鲲鹏 ARM 架构设计的向量检索库 KBest，通过硬件感知的 SIMD 加速、数据预取及索引优化等技术，解决非 x86 架构下的大规模向量检索效率问题。",
+    "key_points": [
+      "提出专为华为鲲鹏 ARM 架构设计的向量检索库 KBest，通过硬件感知的 SIMD 加速、数据预取及索引优化等技术，解决非 x86 架构下的大规模向量检索效率问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03681v1",
+    "title": "What If, But Privately: Private Counterfactual Retrieval",
+    "authors": [
+      "Shreya Meel",
+      "Mohamed Nomeir",
+      "Pasan Dissanayake",
+      "Sanghamitra Dutta",
+      "Sennur Ulukus"
+    ],
+    "summary": "Transparency and explainability are two important aspects to be considered when employing black-box machine learning models in high-stake applications. Providing counterfactual explanations is one way of catering this requirement. However, this also poses a threat to the privacy of the institution that is providing the explanation, as well as the user who is requesting it. In this work, we are primarily concerned with the user's privacy who wants to retrieve a counterfactual instance, without revealing their feature vector to the institution. Our framework retrieves the exact nearest neighbor counterfactual explanation from a database of accepted points while achieving perfect, information-theoretic, privacy for the user. First, we introduce the problem of private counterfactual retrieval (PCR) and propose a baseline PCR scheme that keeps the user's feature vector information-theoretically private from the institution. Building on this, we propose two other schemes that reduce the amount of information leaked about the institution database to the user, compared to the baseline scheme. Second, we relax the assumption of mutability of all features, and consider the setting of immutable PCR (I-PCR). Here, the user retrieves the nearest counterfactual without altering a private subset of their features, which constitutes the immutable set, while keeping their feature vector and immutable set private from the institution. For this, we propose two schemes that preserve the user's privacy information-theoretically, but ensure varying degrees of database privacy. Third, we extend our PCR and I-PCR schemes to incorporate user's preference on transforming their attributes, so that a more actionable explanation can be received. Finally, we present numerical results to support our theoretical findings, and compare the database leakage of the proposed schemes.",
+    "categories": [
+      "cs.IT",
+      "cs.CR",
+      "cs.LG",
+      "cs.NI",
+      "eess.SP"
+    ],
+    "published": "2025-08-05T17:51:01Z",
+    "updated": "2025-08-05T17:51:01Z",
+    "url": "http://arxiv.org/abs/2508.03681v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03681v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦于通用机器学习模型的可解释性与隐私保护（反事实检索），未直接针对推荐或搜索系统的核心环节（如召回、排序、用户建模），属于弱相关的通用 ML 方法；虽来自格力公司，但因缺乏 RecSys 具体应用场景，仅给予基础低分加额外 1 分。",
+    "translation": "隐私保护下的反事实检索：如果...会怎样",
+    "summary_zh": "提出一种隐私保护的反事实检索框架，允许用户在不泄露特征向量的前提下从数据库中获取最近邻的反事实解释，并支持不可变特征约束及用户偏好转换。",
+    "key_points": [
+      "提出一种隐私保护的反事实检索框架，允许用户在不泄露特征向量的前提下从数据库中获取最近邻的反事实解释，并支持不可变特征约束及用户偏好转换"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03644v1",
+    "title": "Are We on the Right Way for Assessing Document Retrieval-Augmented Generation?",
+    "authors": [
+      "Wenxuan Shen",
+      "Mingjia Wang",
+      "Yaochen Wang",
+      "Dongping Chen",
+      "Junjie Yang",
+      "Yao Wan",
+      "Weiwei Lin"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems using Multimodal Large Language Models (MLLMs) show great promise for complex document understanding, yet their development is critically hampered by inadequate evaluation. Current benchmarks often focus on specific part of document RAG system and use synthetic data with incomplete ground truth and evidence labels, therefore failing to reflect real-world bottlenecks and challenges. To overcome these limitations, we introduce Double-Bench: a new large-scale, multilingual, and multimodal evaluation system that is able to produce fine-grained assessment to each component within document RAG systems. It comprises 3,276 documents (72,880 pages) and 5,168 single- and multi-hop queries across 6 languages and 4 document types with streamlined dynamic update support for potential data contamination issues. Queries are grounded in exhaustively scanned evidence pages and verified by human experts to ensure maximum quality and completeness. Our comprehensive experiments across 9 state-of-the-art embedding models, 4 MLLMs and 4 end-to-end document RAG frameworks demonstrate the gap between text and visual embedding models is narrowing, highlighting the need in building stronger document retrieval models. Our findings also reveal the over-confidence dilemma within current document RAG frameworks that tend to provide answer even without evidence support. We hope our fully open-source Double-Bench provide a rigorous foundation for future research in advanced document RAG systems. We plan to retrieve timely corpus and release new benchmarks on an annual basis.",
+    "categories": [
+      "cs.CL",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-08-05T16:55:02Z",
+    "updated": "2025-08-05T16:55:02Z",
+    "url": "http://arxiv.org/abs/2508.03644v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03644v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于评估文档检索增强生成（RAG）系统的基准测试，属于纯 NLP/LLM 评估研究，未直接涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "评估文档检索增强生成的方向正确吗？",
+    "summary_zh": "提出 Double-Bench，一个大规模多模态评估体系，旨在通过细粒度组件评估和高质量人工验证数据，解决当前文档 RAG 系统评估中基准片面及合成数据缺陷的问题。",
+    "key_points": [
+      "提出 Double-Bench，一个大规模多模态评估体系，旨在通过细粒度组件评估和高质量人工验证数据，解决当前文档 RAG 系统评估中基准片面及合成数据缺陷的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.10008v1",
+    "title": "Multidimensional classification of posts for online course discussion forum curation",
+    "authors": [
+      "Antonio Leandro Martins Candido",
+      "Jose Everardo Bessa Maia"
+    ],
+    "summary": "The automatic curation of discussion forums in online courses requires constant updates, making frequent retraining of Large Language Models (LLMs) a resource-intensive process. To circumvent the need for costly fine-tuning, this paper proposes and evaluates the use of Bayesian fusion. The approach combines the multidimensional classification scores of a pre-trained generic LLM with those of a classifier trained on local data. The performance comparison demonstrated that the proposed fusion improves the results compared to each classifier individually, and is competitive with the LLM fine-tuning approach",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-08-05T22:53:01Z",
+    "updated": "2025-08-05T22:53:01Z",
+    "url": "http://arxiv.org/abs/2508.10008v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.10008v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于在线课程论坛的帖子分类与内容策展，属于通用 NLP 分类任务，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、个性化），且 LLM 仅作为分类器使用而非用于 RecSys 场景。",
+    "translation": "基于贝叶斯融合的在线课程讨论论坛帖子多维分类方法",
+    "summary_zh": "提出一种贝叶斯融合方法，将预训练通用大语言模型的分类得分与本地数据训练的分类器得分相结合，以低成本实现在线课程论坛帖子的多维自动分类与策展。",
+    "key_points": [
+      "提出一种贝叶斯融合方法，将预训练通用大语言模型的分类得分与本地数据训练的分类器得分相结合，以低成本实现在线课程论坛帖子的多维自动分类与策展"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03553v1",
+    "title": "MultiRAG: A Knowledge-guided Framework for Mitigating Hallucination in Multi-source Retrieval Augmented Generation",
+    "authors": [
+      "Wenlong Wu",
+      "Haofen Wang",
+      "Bohan Li",
+      "Peixuan Huang",
+      "Xinzhe Zhao",
+      "Lei Liang"
+    ],
+    "summary": "Retrieval Augmented Generation (RAG) has emerged as a promising solution to address hallucination issues in Large Language Models (LLMs). However, the integration of multiple retrieval sources, while potentially more informative, introduces new challenges that can paradoxically exacerbate hallucination problems. These challenges manifest primarily in two aspects: the sparse distribution of multi-source data that hinders the capture of logical relationships and the inherent inconsistencies among different sources that lead to information conflicts. To address these challenges, we propose MultiRAG, a novel framework designed to mitigate hallucination in multi-source retrieval-augmented generation through knowledge-guided approaches. Our framework introduces two key innovations: (1) a knowledge construction module that employs multi-source line graphs to efficiently aggregate logical relationships across different knowledge sources, effectively addressing the sparse data distribution issue; and (2) a sophisticated retrieval module that implements a multi-level confidence calculation mechanism, performing both graph-level and node-level assessments to identify and eliminate unreliable information nodes, thereby reducing hallucinations caused by inter-source inconsistencies. Extensive experiments on four multi-domain query datasets and two multi-hop QA datasets demonstrate that MultiRAG significantly enhances the reliability and efficiency of knowledge retrieval in complex multi-source scenarios. \\textcolor{blue}{Our code is available in https://github.com/wuwenlong123/MultiRAG.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-08-05T15:20:52Z",
+    "updated": "2025-08-05T15:20:52Z",
+    "url": "http://arxiv.org/abs/2508.03553v1",
+    "pdf_url": "http://arxiv.org/pdf/2508.03553v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于解决多源检索生成中的幻觉问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "MultiRAG：一种用于缓解多源检索增强生成中幻觉的知识引导框架",
+    "summary_zh": "该论文提出 MultiRAG 框架，通过构建多源线图聚合逻辑关系及实施多级置信度评估机制，以解决多源数据稀疏和冲突导致的生成幻觉问题。",
+    "key_points": [
+      "该论文提出 MultiRAG 框架，通过构建多源线图聚合逻辑关系及实施多级置信度评估机制，以解决多源数据稀疏和冲突导致的生成幻觉问题"
+    ]
+  }
+]

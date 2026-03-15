@@ -1,0 +1,303 @@
+[
+  {
+    "arxiv_id": "2506.07563v3",
+    "title": "MoE-MLoRA for Multi-Domain CTR Prediction: Efficient Adaptation with Expert Specialization",
+    "authors": [
+      "Ken Yaggel",
+      "Eyal German",
+      "Aviel Ben Siman Tov"
+    ],
+    "summary": "Personalized recommendation systems must adapt to user interactions across different domains. Traditional approaches like MLoRA apply a single adaptation per domain but lack flexibility in handling diverse user behaviors. To address this, we propose MoE-MLoRA, a mixture-of-experts framework where each expert is first trained independently to specialize in its domain before a gating network is trained to weight their contributions dynamically. We evaluate MoE-MLoRA across eight CTR models on Movielens and Taobao, showing that it improves performance in large-scale, dynamic datasets (+1.45 Weighed-AUC in Taobao-20) but offers limited benefits in structured datasets with low domain diversity and sparsity. Further analysis of the number of experts per domain reveals that larger ensembles do not always improve performance, indicating the need for model-aware tuning. Our findings highlight the potential of expert-based architectures for multi-domain recommendation systems, demonstrating that task-aware specialization and adaptive gating can enhance predictive accuracy in complex environments. The implementation and code are available in our GitHub repository.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-06-09T09:03:05Z",
+    "updated": "2025-06-11T07:55:32Z",
+    "url": "http://arxiv.org/abs/2506.07563v3",
+    "pdf_url": "http://arxiv.org/pdf/2506.07563v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景（淘宝）的多领域 CTR 预测提出 MoE-MLoRA 新架构，完美契合核心业务需求，且非纯 LLM 研究。",
+    "translation": "MoE-MLoRA：面向多领域 CTR 预测的专家专业化高效适配方法",
+    "summary_zh": "提出一种混合专家框架 MoE-MLoRA，通过先独立训练领域专用专家再动态 gating 融合的策略，解决推荐系统中多领域用户行为适配难题。",
+    "key_points": [
+      "提出一种混合专家框架 MoE-MLoRA，通过先独立训练领域专用专家再动态 gating 融合的策略，解决推荐系统中多领域用户行为适配难题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07466v3",
+    "title": "Capturing User Interests from Data Streams for Continual Sequential Recommendation",
+    "authors": [
+      "Gyuseok Lee",
+      "Hyunsik Yoo",
+      "Junyoung Hwang",
+      "SeongKu Kang",
+      "Hwanjo Yu"
+    ],
+    "summary": "Transformer-based sequential recommendation (SR) models excel at modeling long-range dependencies in user behavior via self-attention. However, updating them with continuously arriving behavior sequences incurs high computational costs or leads to catastrophic forgetting. Although continual learning, a standard approach for non-stationary data streams, has recently been applied to recommendation, existing methods gradually forget long-term user preferences and remain underexplored in SR. In this paper, we introduce Continual Sequential Transformer for Recommendation (CSTRec). CSTRec is designed to effectively adapt to current interests by leveraging well-preserved historical ones, thus capturing the trajectory of user interests over time. The core of CSTRec is Continual Sequential Attention (CSA), a linear attention tailored for continual SR, which enables CSTRec to partially retain historical knowledge without direct access to prior data. CSA has two key components: (1) Cauchy-Schwarz Normalization that stabilizes learning over time under uneven user interaction frequencies; (2) Collaborative Interest Enrichment that alleviates forgetting through shared, learnable interest pools. In addition, we introduce a new technique to facilitate the adaptation of new users by transferring historical knowledge from existing users with similar interests. Extensive experiments on three real-world datasets show that CSTRec outperforms state-of-the-art models in both knowledge retention and acquisition.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-09T06:20:23Z",
+    "updated": "2025-11-23T05:49:55Z",
+    "url": "http://arxiv.org/abs/2506.07466v3",
+    "pdf_url": "http://arxiv.org/pdf/2506.07466v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的持续学习问题，提出了 CSTRec 架构以解决灾难性遗忘并捕捉用户兴趣演变，属于核心推荐系统研究；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "从数据流中捕捉用户兴趣用于持续序列推荐",
+    "summary_zh": "提出持续序列 Transformer（CSTRec），通过专为持续学习设计的线性注意力机制（CSA）及协作兴趣池，在不访问历史数据的情况下有效保留长期偏好并适应用户兴趣的动态演变。",
+    "key_points": [
+      "提出持续序列 Transformer（CSTRec），通过专为持续学习设计的线性注意力机制（CSA）及协作兴趣池，在不访问历史数据的情况下有效保留长期偏好并适应用户兴趣的动态演变"
+    ]
+  },
+  {
+    "arxiv_id": "2506.08283v2",
+    "title": "Serendipitous Recommendation with Multimodal LLM",
+    "authors": [
+      "Haoting Wang",
+      "Jianling Wang",
+      "Hao Li",
+      "Fangjun Yi",
+      "Mengyu Fu",
+      "Youwei Zhang",
+      "Yifan Liu",
+      "Liang Liu",
+      "Minmin Chen",
+      "Ed H. Chi",
+      "Lichan Hong",
+      "Haokai Lu"
+    ],
+    "summary": "Conventional recommendation systems succeed in identifying relevant content but often fail to provide users with surprising or novel items. Multimodal Large Language Models (MLLMs) possess the world knowledge and multimodal understanding needed for serendipity, but their integration into billion-item-scale platforms presents significant challenges. In this paper, we propose a novel hierarchical framework where fine-tuned MLLMs provide high-level guidance to conventional recommendation models, steering them towards more serendipitous suggestions. This approach leverages MLLM strengths in understanding multimodal content and user interests while retaining the efficiency of traditional models for item-level recommendation. This mitigates the complexity of applying MLLMs directly to vast action spaces. We also demonstrate a chain-of-thought strategy enabling MLLMs to discover novel user interests by first understanding video content and then identifying relevant yet unexplored interest clusters. Through live experiments within a commercial short-form video platform serving billions of users, we show that our MLLM-powered approach significantly improves both recommendation serendipity and user satisfaction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-09T23:13:22Z",
+    "updated": "2025-09-22T17:48:24Z",
+    "url": "http://arxiv.org/abs/2506.08283v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.08283v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的“惊喜度”痛点，提出了一种结合多模态大语言模型（MLLM）与传统推荐模型的层级架构，并在亿级用户的短视频平台进行了验证，属于高优先级的 LLM for RecSys 应用。",
+    "translation": "基于多模态大语言的惊喜度推荐研究",
+    "summary_zh": "提出一种层级框架，利用微调后的多模态大语言模型提供高层指导，引导传统推荐模型发现用户未探索的兴趣簇，从而在保持效率的同时提升推荐结果的惊喜度。",
+    "key_points": [
+      "提出一种层级框架，利用微调后的多模态大语言模型提供高层指导，引导传统推荐模型发现用户未探索的兴趣簇，从而在保持效率的同时提升推荐结果的惊喜度"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07449v1",
+    "title": "LlamaRec-LKG-RAG: A Single-Pass, Learnable Knowledge Graph-RAG Framework for LLM-Based Ranking",
+    "authors": [
+      "Vahid Azizi",
+      "Fatemeh Koochaki"
+    ],
+    "summary": "Recent advances in Large Language Models (LLMs) have driven their adoption in recommender systems through Retrieval-Augmented Generation (RAG) frameworks. However, existing RAG approaches predominantly rely on flat, similarity-based retrieval that fails to leverage the rich relational structure inherent in user-item interactions. We introduce LlamaRec-LKG-RAG, a novel single-pass, end-to-end trainable framework that integrates personalized knowledge graph context into LLM-based recommendation ranking. Our approach extends the LlamaRec architecture by incorporating a lightweight user preference module that dynamically identifies salient relation paths within a heterogeneous knowledge graph constructed from user behavior and item metadata. These personalized subgraphs are seamlessly integrated into prompts for a fine-tuned Llama-2 model, enabling efficient and interpretable recommendations through a unified inference step. Comprehensive experiments on ML-100K and Amazon Beauty datasets demonstrate consistent and significant improvements over LlamaRec across key ranking metrics (MRR, NDCG, Recall). LlamaRec-LKG-RAG demonstrates the critical value of structured reasoning in LLM-based recommendations and establishes a foundation for scalable, knowledge-aware personalization in next-generation recommender systems. Code is available at~\\href{https://github.com/VahidAz/LlamaRec-LKG-RAG}{repository}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-06-09T05:52:03Z",
+    "updated": "2025-06-09T05:52:03Z",
+    "url": "http://arxiv.org/abs/2506.07449v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07449v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的排序环节，提出了一种结合知识图谱与 RAG 的 LLM 应用框架，解决了传统检索忽略关系结构的问题，属于高优先级的 LLM for RecSys 研究。",
+    "translation": "LlamaRec-LKG-RAG：一种用于基于 LLM 排序的单次通过可学习知识图谱 RAG 框架",
+    "summary_zh": "该论文提出一种端到端可训练的框架，通过轻量级模块动态提取用户偏好相关的知识图谱子图，并将其融入提示词以增强大语言模型在推荐排序中的结构化推理能力。",
+    "key_points": [
+      "该论文提出一种端到端可训练的框架，通过轻量级模块动态提取用户偏好相关的知识图谱子图，并将其融入提示词以增强大语言模型在推荐排序中的结构化推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07517v1",
+    "title": "Addressing Correlated Latent Exogenous Variables in Debiased Recommender Systems",
+    "authors": [
+      "Shuqiang Zhang",
+      "Yuchao Zhang",
+      "Jinkun Chen",
+      "Haochen Sui"
+    ],
+    "summary": "Recommendation systems (RS) aim to provide personalized content, but they face a challenge in unbiased learning due to selection bias, where users only interact with items they prefer. This bias leads to a distorted representation of user preferences, which hinders the accuracy and fairness of recommendations. To address the issue, various methods such as error imputation based, inverse propensity scoring, and doubly robust techniques have been developed. Despite the progress, from the structural causal model perspective, previous debiasing methods in RS assume the independence of the exogenous variables. In this paper, we release this assumption and propose a learning algorithm based on likelihood maximization to learn a prediction model. We first discuss the correlation and difference between unmeasured confounding and our scenario, then we propose a unified method that effectively handles latent exogenous variables. Specifically, our method models the data generation process with latent exogenous variables under mild normality assumptions. We then develop a Monte Carlo algorithm to numerically estimate the likelihood function. Extensive experiments on synthetic datasets and three real-world datasets demonstrate the effectiveness of our proposed method. The code is at https://github.com/WallaceSUI/kdd25-background-variable.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2025-06-09T07:50:21Z",
+    "updated": "2025-06-09T07:50:21Z",
+    "url": "http://arxiv.org/abs/2506.07517v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07517v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的去偏（Debiasing）核心问题，提出了处理相关潜在外生变量的新因果推断方法，属于高优先级的核心领域进展；虽涉及统计建模而非纯 LLM，但完全符合 RecSys 专用技术定义，且来自中国公司额外加 1 分。",
+    "translation": "解决去偏推荐系统中相关的潜在外生变量问题",
+    "summary_zh": "本文提出一种基于似然最大化的学习算法，通过放宽外生变量独立性假设并建模潜在相关变量，以解决推荐系统中因选择偏差导致的用户偏好表示失真问题。",
+    "key_points": [
+      "本文提出一种基于似然最大化的学习算法，通过放宽外生变量独立性假设并建模潜在相关变量，以解决推荐系统中因选择偏差导致的用户偏好表示失真问题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07773v1",
+    "title": "Trend-Aware Fashion Recommendation with Visual Segmentation and Semantic Similarity",
+    "authors": [
+      "Mohamed Djilani",
+      "Nassim Ali Ousalah",
+      "Nidhal Eddine Chenni"
+    ],
+    "summary": "We introduce a trend-aware and visually-grounded fashion recommendation system that integrates deep visual representations, garment-aware segmentation, semantic category similarity and user behavior simulation. Our pipeline extracts focused visual embeddings by masking non-garment regions via semantic segmentation followed by feature extraction using pretrained CNN backbones (ResNet-50, DenseNet-121, VGG16). To simulate realistic shopping behavior, we generate synthetic purchase histories influenced by user-specific trendiness and item popularity. Recommendations are computed using a weighted scoring function that fuses visual similarity, semantic coherence and popularity alignment. Experiments on the DeepFashion dataset demonstrate consistent gender alignment and improved category relevance, with ResNet-50 achieving 64.95% category similarity and lowest popularity MAE. An ablation study confirms the complementary roles of visual and popularity cues. Our method provides a scalable framework for personalized fashion recommendations that balances individual style with emerging trends. Our implementation is available at https://github.com/meddjilani/FashionRecommender",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2025-06-09T13:48:16Z",
+    "updated": "2025-06-09T13:48:16Z",
+    "url": "http://arxiv.org/abs/2506.07773v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07773v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对时尚推荐系统，提出了结合视觉分割、语义相似性和趋势感知的多模态推荐方法，属于核心推荐技术应用；虽未明确提及中国公司业务，但作为垂直领域多模态推荐研究，符合中高优先级标准。",
+    "translation": "基于视觉分割与语义相似性的趋势感知时尚推荐",
+    "summary_zh": "提出一种融合 garment 感知语义分割提取视觉特征、结合语义类别相似度与用户趋势行为模拟的时尚推荐框架，通过加权评分函数平衡个性化风格与流行趋势。",
+    "key_points": [
+      "提出一种融合 garment 感知语义分割提取视觉特征、结合语义类别相似度与用户趋势行为模拟的时尚推荐框架，通过加权评分函数平衡个性化风格与流行趋势"
+    ]
+  },
+  {
+    "arxiv_id": "2506.08196v1",
+    "title": "No Stupid Questions: An Analysis of Question Query Generation for Citation Recommendation",
+    "authors": [
+      "Brian D. Zimmerman",
+      "Julien Aubert-Béduchaud",
+      "Florian Boudin",
+      "Akiko Aizawa",
+      "Olga Vechtomova"
+    ],
+    "summary": "Existing techniques for citation recommendation are constrained by their adherence to article contents and metadata. We leverage GPT-4o-mini's latent expertise as an inquisitive assistant by instructing it to ask questions which, when answered, could expose new insights about an excerpt from a scientific article. We evaluate the utility of these questions as retrieval queries, measuring their effectiveness in retrieving and ranking masked target documents. In some cases, generated questions ended up being better queries than extractive keyword queries generated by the same model. We additionally propose MMR-RBO, a variation of Maximal Marginal Relevance (MMR) using Rank-Biased Overlap (RBO) to identify which questions will perform competitively with the keyword baseline. As all question queries yield unique result sets, we contend that there are no stupid questions.",
+    "categories": [
+      "cs.IR",
+      "cs.DL"
+    ],
+    "published": "2025-06-09T20:13:32Z",
+    "updated": "2025-06-09T20:13:32Z",
+    "url": "http://arxiv.org/abs/2506.08196v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.08196v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于学术文献引用推荐这一垂直且边缘的搜索场景，虽涉及查询生成和重排序（MMR-RBO），但属于特定领域的 NLP 应用，缺乏通用电商/社交推荐系统的核心架构创新或直接业务价值。",
+    "translation": "没有愚蠢的问题：面向引用推荐的问句查询生成分析",
+    "summary_zh": "利用大语言模型将文章片段转化为探索性问题作为检索查询，并提出基于秩偏差重叠的最大边际相关性方法（MMR-RBO）来优化问题选择，以提升学术文献的检索与推荐效果。",
+    "key_points": [
+      "利用大语言模型将文章片段转化为探索性问题作为检索查询，并提出基于秩偏差重叠的最大边际相关性方法（MMR-RBO）来优化问题选择，以提升学术文献的检索与推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13778v1",
+    "title": "Knowledge Compression via Question Generation: Enhancing Multihop Document Retrieval without Fine-tuning",
+    "authors": [
+      "Anvi Alex Eponon",
+      "Moein Shahiki-Tash",
+      "Ildar Batyrshin",
+      "Christian E. Maldonado-Sifuentes",
+      "Grigori Sidorov",
+      "Alexander Gelbukh"
+    ],
+    "summary": "This study presents a question-based knowledge encoding approach that improves retrieval-augmented generation (RAG) systems without requiring fine-tuning or traditional chunking. We encode textual content using generated questions that span the lexical and semantic space, creating targeted retrieval cues combined with a custom syntactic reranking method.\n  In single-hop retrieval over 109 scientific papers, our approach achieves a Recall@3 of 0.84, outperforming traditional chunking methods by 60 percent. We also introduce \"paper-cards\", concise paper summaries under 300 characters, which enhance BM25 retrieval, increasing MRR@3 from 0.56 to 0.85 on simplified technical queries.\n  For multihop tasks, our reranking method reaches an F1 score of 0.52 with LLaMA2-Chat-7B on the LongBench 2WikiMultihopQA dataset, surpassing chunking and fine-tuned baselines which score 0.328 and 0.412 respectively.\n  This method eliminates fine-tuning requirements, reduces retrieval latency, enables intuitive question-driven knowledge access, and decreases vector storage demands by 80%, positioning it as a scalable and efficient RAG alternative.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-06-09T16:15:11Z",
+    "updated": "2025-06-09T16:15:11Z",
+    "url": "http://arxiv.org/abs/2506.13778v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.13778v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/RAG 研究，专注于通用文档检索和问答任务，未明确针对推荐系统或搜索引擎的核心业务场景（如用户个性化、广告排序等），虽有检索技术但缺乏 RecSys 直接应用。",
+    "translation": "通过问题生成进行知识压缩：无需微调增强多跳文档检索",
+    "summary_zh": "提出一种基于生成问题的知识编码方法，结合自定义句法重排序，旨在无需微调的情况下提升检索增强生成（RAG）系统的多跳文档检索能力。",
+    "key_points": [
+      "提出一种基于生成问题的知识编码方法，结合自定义句法重排序，旨在无需微调的情况下提升检索增强生成（RAG）系统的多跳文档检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2506.08074v1",
+    "title": "Hierarchical Lexical Graph for Enhanced Multi-Hop Retrieval",
+    "authors": [
+      "Abdellah Ghassel",
+      "Ian Robinson",
+      "Gabriel Tanase",
+      "Hal Cooper",
+      "Bryan Thompson",
+      "Zhen Han",
+      "Vassilis N. Ioannidis",
+      "Soji Adeshina",
+      "Huzefa Rangwala"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) grounds large language models in external evidence, yet it still falters when answers must be pieced together across semantically distant documents. We close this gap with the Hierarchical Lexical Graph (HLG), a three-tier index that (i) traces every atomic proposition to its source, (ii) clusters propositions into latent topics, and (iii) links entities and relations to expose cross-document paths. On top of HLG we build two complementary, plug-and-play retrievers: StatementGraphRAG, which performs fine-grained entity-aware beam search over propositions for high-precision factoid questions, and TopicGraphRAG, which selects coarse topics before expanding along entity links to supply broad yet relevant context for exploratory queries. Additionally, existing benchmarks lack the complexity required to rigorously evaluate multi-hop summarization systems, often focusing on single-document queries or limited datasets. To address this, we introduce a synthetic dataset generation pipeline that curates realistic, multi-document question-answer pairs, enabling robust evaluation of multi-hop retrieval systems. Extensive experiments across five datasets demonstrate that our methods outperform naive chunk-based RAG achieving an average relative improvement of 23.1% in retrieval recall and correctness. Open-source Python library is available at https://github.com/awslabs/graphrag-toolkit.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-06-09T17:58:35Z",
+    "updated": "2025-06-09T17:58:35Z",
+    "url": "http://arxiv.org/abs/2506.08074v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.08074v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS",
+      "Amazon"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "Queen’sUniversity Amazon Amazon"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 研究，专注于提升大模型的多跳检索能力，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "用于增强多跳检索的分层词汇图",
+    "summary_zh": "提出一种分层词汇图索引结构，通过追踪原子命题并聚类潜在主题，结合两种互补的检索器来解决大模型在多文档语义距离较远时的检索难题。",
+    "key_points": [
+      "提出一种分层词汇图索引结构，通过追踪原子命题并聚类潜在主题，结合两种互补的检索器来解决大模型在多文档语义距离较远时的检索难题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07675v3",
+    "title": "QUITE: A Query Rewrite System Beyond Rules with LLM Agents",
+    "authors": [
+      "Yuyang Song",
+      "Hanxu Yan",
+      "Jiale Lao",
+      "Yibo Wang",
+      "Yufei Li",
+      "Yuanchun Zhou",
+      "Jianguo Wang",
+      "Mingjie Tang"
+    ],
+    "summary": "Query rewrite transforms SQL queries into semantically equivalent forms that run more efficiently. Existing approaches mainly rely on predefined rewrite rules, but they handle a limited subset of queries and can cause performance regressions. This limitation stems from three challenges of rule-based query rewrite: (1) it is hard to discover and verify new rules, (2) fixed rewrite rules do not generalize to new query patterns, and (3) some rewrite techniques cannot be expressed as fixed rules. Motivated by the fact that human experts exhibit significantly better rewrite ability but suffer from scalability, and Large Language Models (LLMs) have demonstrated nearly human-level semantic and reasoning abilities, we propose a new approach of using LLMs to rewrite SQL queries beyond rules. Due to the hallucination problems in LLMs, directly applying LLMs often leads to nonequivalent and suboptimal queries. To address this issue, we propose QUITE (query rewrite), a training-free and feedback-aware system based on LLM agents that rewrites SQL queries into semantically equivalent forms with significantly better performance, covering a broader range of query patterns and rewrite strategies compared to rule-based methods. Firstly, we design a multi-agent framework controlled by a finite state machine (FSM) to equip LLMs with the ability to use external tools and enhance the rewrite process with real-time database feedback. Secondly, we develop a rewrite middleware to enhance the ability of LLMs to generate optimized query equivalents. Finally, we employ a novel hint injection technique to improve execution plans for rewritten queries. Extensive experiments show that QUITE reduces query execution time by up to 35.8% over state-of-the-art approaches and produces 24.1% more rewrites than prior methods, covering query cases that earlier systems did not handle.",
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ],
+    "published": "2025-06-09T11:51:27Z",
+    "updated": "2026-01-02T16:51:25Z",
+    "url": "http://arxiv.org/abs/2506.07675v3",
+    "pdf_url": "http://arxiv.org/pdf/2506.07675v3.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯数据库系统优化研究，专注于利用 LLM Agent 重写 SQL 查询以提升执行效率，与推荐系统或搜索引擎的核心业务（召回、排序、用户建模等）完全无关。",
+    "translation": "QUITE：一种超越规则的大语言模型智能体查询重写系统",
+    "summary_zh": "该论文提出了一种基于多智能体框架和实时数据库反馈的无训练系统，利用大语言模型将 SQL 查询重写为语义等价但执行更高效的形态，以克服传统基于规则方法的局限性。",
+    "key_points": [
+      "该论文提出了一种基于多智能体框架和实时数据库反馈的无训练系统，利用大语言模型将 SQL 查询重写为语义等价但执行更高效的形态，以克服传统基于规则方法的局限性"
+    ]
+  }
+]

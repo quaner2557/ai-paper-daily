@@ -1,0 +1,358 @@
+[
+  {
+    "arxiv_id": "2506.15833v1",
+    "title": "Architecture is All You Need: Improving LLM Recommenders by Dropping the Text",
+    "authors": [
+      "Kevin Foley",
+      "Shaghayegh Agah",
+      "Kavya Priyanka Kakinada"
+    ],
+    "summary": "In recent years, there has been an explosion of interest in the applications of large pre-trained language models (PLMs) to recommender systems, with many studies showing strong performance of PLMs on common benchmark datasets. PLM-based recommender models benefit from flexible and customizable prompting, an unlimited vocabulary of recommendable items, and general ``world knowledge'' acquired through pre-training on massive text corpora. While PLM-based recommenders show promise in settings where data is limited, they are hard to implement in practice due to their large size and computational cost. Additionally, fine-tuning PLMs to improve performance on collaborative signals may degrade the model's capacity for world knowledge and generalizability. We propose a recommender model that uses the architecture of large language models (LLMs) while reducing layer count and dimensions and replacing the text-based subword tokenization of a typical LLM with discrete tokens that uniquely represent individual content items. We find that this simplified approach substantially outperforms both traditional sequential recommender models and PLM-based recommender models at a tiny fraction of the size and computational complexity of PLM-based models. Our results suggest that the principal benefit of LLMs in recommender systems is their architecture, rather than the world knowledge acquired during extensive pre-training.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-18T19:18:49Z",
+    "updated": "2025-06-18T19:18:49Z",
+    "url": "http://arxiv.org/abs/2506.15833v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15833v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出利用 LLM 架构但去除文本预训练知识的高效推荐模型，完美契合'LLM for RecSys'核心方向；且来自中国公司，按规则额外 +1 分（基础 9 分 +1 分）。",
+    "translation": "架构即所需：通过摒弃文本提升大语言模型推荐器性能",
+    "summary_zh": "提出一种仅保留 LLM 架构特征而移除文本子词分词与预训练世界知识的推荐模型，使用离散物品 Token 替代，以极低计算成本实现优于传统序列推荐及 PLM 推荐的效果。",
+    "key_points": [
+      "提出一种仅保留 LLM 架构特征而移除文本子词分词与预训练世界知识的推荐模型，使用离散物品 Token 替代，以极低计算成本实现优于传统序列推荐及 PLM 推荐的效果"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15284v1",
+    "title": "Multi-Interest Recommendation: A Survey",
+    "authors": [
+      "Zihao Li",
+      "Qiang Chen",
+      "Lixin Zou",
+      "Aixin Sun",
+      "Chenliang Li"
+    ],
+    "summary": "Existing recommendation methods often struggle to model users' multifaceted preferences due to the diversity and volatility of user behavior, as well as the inherent uncertainty and ambiguity of item attributes in practical scenarios. Multi-interest recommendation addresses this challenge by extracting multiple interest representations from users' historical interactions, enabling fine-grained preference modeling and more accurate recommendations. It has drawn broad interest in recommendation research. However, current recommendation surveys have either specialized in frontier recommendation methods or delved into specific tasks and downstream applications. In this work, we systematically review the progress, solutions, challenges, and future directions of multi-interest recommendation by answering the following three questions: (1) Why is multi-interest modeling significantly important for recommendation? (2) What aspects are focused on by multi-interest modeling in recommendation? and (3) How can multi-interest modeling be applied, along with the technical details of the representative modules? We hope that this survey establishes a fundamental framework and delivers a preliminary overview for researchers interested in this field and committed to further exploration. The implementation of multi-interest recommendation summarized in this survey is maintained at https://github.com/WHUIR/Multi-Interest-Recommendation-A-Survey.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-18T09:05:32Z",
+    "updated": "2025-06-18T09:05:32Z",
+    "url": "http://arxiv.org/abs/2506.15284v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15284v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文是推荐系统核心领域（多兴趣建模）的系统性综述，直接解决用户偏好多样性建模的关键问题，且来自中国机构，完全符合高优先级标准。",
+    "translation": "多兴趣推荐：一项综述",
+    "summary_zh": "本文系统梳理了多兴趣推荐技术，通过从用户历史交互中提取多重兴趣表征来解决用户偏好多样性和动态性建模难题，并构建了该领域的技术框架与未来方向。",
+    "key_points": [
+      "本文系统梳理了多兴趣推荐技术，通过从用户历史交互中提取多重兴趣表征来解决用户偏好多样性和动态性建模难题，并构建了该领域的技术框架与未来方向"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15267v1",
+    "title": "Next-User Retrieval: Enhancing Cold-Start Recommendations via Generative Next-User Modeling",
+    "authors": [
+      "Yu-Ting Lan",
+      "Yang Huo",
+      "Yi Shen",
+      "Xiao Yang",
+      "Zuotao Liu"
+    ],
+    "summary": "The item cold-start problem is critical for online recommendation systems, as the success of this phase determines whether high-quality new items can transition to popular ones, receive essential feedback to inspire creators, and thus lead to the long-term retention of creators. However, modern recommendation systems still struggle to address item cold-start challenges due to the heavy reliance on item and historical interactions, which are non-trivial for cold-start items lacking sufficient exposure and feedback. Lookalike algorithms provide a promising solution by extending feedback for new items based on lookalike users. Traditional lookalike algorithms face such limitations: (1) failing to effectively model the lookalike users and further improve recommendations with the existing rule- or model-based methods; and (2) struggling to utilize the interaction signals and incorporate diverse features in modern recommendation systems.\n  Inspired by lookalike algorithms, we propose Next-User Retrieval, a novel framework for enhancing cold-start recommendations via generative next-user modeling. Specifically, we employ a transformer-based model to capture the unidirectional relationships among recently interacted users and utilize these sequences to generate the next potential user who is most likely to interact with the item. The additional item features are also integrated as prefix prompt embeddings to assist the next-user generation. The effectiveness of Next-User Retrieval is evaluated through both offline experiments and online A/B tests. Our method achieves significant improvements with increases of 0.0142% in daily active users and +0.1144% in publications in Douyin, showcasing its practical applicability and scalability.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-18T08:42:01Z",
+    "updated": "2025-06-18T08:42:01Z",
+    "url": "http://arxiv.org/abs/2506.15267v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15267v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的物品冷启动问题，提出了基于生成式下一用户建模的创新框架，并已在抖音（Douyin）实际落地验证，完全符合核心领域进展及大厂应用的高优先级标准。",
+    "translation": "下一用户检索：通过生成式下一用户建模增强冷启动推荐",
+    "summary_zh": "本文提出一种名为“下一用户检索”的新框架，利用 Transformer 建模近期交互用户序列并融合物品特征作为前缀提示，以生成式方法预测最可能与新物品交互的潜在用户，从而解决推荐系统中的物品冷启动难题。",
+    "key_points": [
+      "本文提出一种名为“下一用户检索”的新框架，利用 Transformer 建模近期交互用户序列并融合物品特征作为前缀提示，以生成式方法预测最可能与新物品交互的潜在用户，从而解决推荐系统中的物品冷启动难题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15120v1",
+    "title": "Advancing Loss Functions in Recommender Systems: A Comparative Study with a Rényi Divergence-Based Solution",
+    "authors": [
+      "Shengjia Zhang",
+      "Jiawei Chen",
+      "Changdong Li",
+      "Sheng Zhou",
+      "Qihao Shi",
+      "Yan Feng",
+      "Chun Chen",
+      "Can Wang"
+    ],
+    "summary": "Loss functions play a pivotal role in optimizing recommendation models. Among various loss functions, Softmax Loss (SL) and Cosine Contrastive Loss (CCL) are particularly effective. Their theoretical connections and differences warrant in-depth exploration. This work conducts comprehensive analyses of these losses, yielding significant insights: 1) Common strengths -- both can be viewed as augmentations of traditional losses with Distributional Robust Optimization (DRO), enhancing robustness to distributional shifts; 2) Respective limitations -- stemming from their use of different distribution distance metrics in DRO optimization, SL exhibits high sensitivity to false negative instances, whereas CCL suffers from low data utilization. To address these limitations, this work proposes a new loss function, DrRL, which generalizes SL and CCL by leveraging Rényi-divergence in DRO optimization. DrRL incorporates the advantageous structures of both SL and CCL, and can be demonstrated to effectively mitigate their limitations. Extensive experiments have been conducted to validate the superiority of DrRL on both recommendation accuracy and robustness.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-06-18T03:39:13Z",
+    "updated": "2025-06-18T03:39:13Z",
+    "url": "http://arxiv.org/abs/2506.15120v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15120v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统的核心优化环节（损失函数），提出了基于 Rényi 散度的新方法来改进 Softmax 和对比损失，属于核心领域进展；且来自工业界（TAL），符合高优先级标准。",
+    "translation": "推进推荐系统损失函数：基于 Rényi 散度解法的比较研究",
+    "summary_zh": "该文通过分析 Softmax 损失与余弦对比损失在分布鲁棒优化中的局限性，提出了一种基于 Rényi 散度的通用损失函数 DrRL，旨在同时提升推荐模型对假负例的鲁棒性与数据利用率。",
+    "key_points": [
+      "该文通过分析 Softmax 损失与余弦对比损失在分布鲁棒优化中的局限性，提出了一种基于 Rényi 散度的通用损失函数 DrRL，旨在同时提升推荐模型对假负例的鲁棒性与数据利用率"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15576v2",
+    "title": "DiscRec: Disentangled Semantic-Collaborative Modeling for Generative Recommendation",
+    "authors": [
+      "Chang Liu",
+      "Yimeng Bai",
+      "Xiaoyan Zhao",
+      "Yang Zhang",
+      "Fuli Feng",
+      "Wenge Rong"
+    ],
+    "summary": "Generative recommendation is emerging as a powerful paradigm that directly generates item predictions, moving beyond traditional matching-based approaches. However, current methods face two key challenges: token-item misalignment, where uniform token-level modeling ignores item-level granularity that is critical for collaborative signal learning, and semantic-collaborative signal entanglement, where collaborative and semantic signals exhibit distinct distributions yet are fused in a unified embedding space, leading to conflicting optimization objectives that limit the recommendation performance. To address these issues, we propose DiscRec, a novel framework that enables Disentangled Semantic-Collaborative signal modeling with flexible fusion for generative Recommendation. First, DiscRec introduces item-level position embeddings, assigned based on indices within each semantic ID, enabling explicit modeling of item structure in input token sequences. Second, DiscRec employs a dual-branch module to disentangle the two signals at the embedding layer: a semantic branch encodes semantic signals using original token embeddings, while a collaborative branch applies localized attention restricted to tokens within the same item to effectively capture collaborative signals. A gating mechanism subsequently fuses both branches while preserving the model's ability to model sequential dependencies. Extensive experiments on four real-world datasets demonstrate that DiscRec effectively decouples these signals and consistently outperforms state-of-the-art baselines. Our codes are available on https://github.com/Ten-Mao/DiscRec.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-18T15:53:47Z",
+    "updated": "2025-06-22T14:01:07Z",
+    "url": "http://arxiv.org/abs/2506.15576v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.15576v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心问题（语义与协同信号纠缠、Token-Item 不对齐）提出了解决方案，属于 RecSys 核心架构创新，非纯 LLM 研究。",
+    "translation": "DiscRec：用于生成式推荐的去耦合语义 - 协同建模",
+    "summary_zh": "提出 DiscRec 框架，通过引入物品级位置嵌入和双分支模块，在嵌入层显式解耦语义与协同信号并利用门控机制融合，以解决生成式推荐中的信号纠缠与粒度不对齐问题。",
+    "key_points": [
+      "提出 DiscRec 框架，通过引入物品级位置嵌入和双分支模块，在嵌入层显式解耦语义与协同信号并利用门控机制融合，以解决生成式推荐中的信号纠缠与粒度不对齐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00032v2",
+    "title": "Ken Utilization Layer: Hebbian Replay Within a Student's Ken for Adaptive Exercise Recommendation",
+    "authors": [
+      "Grey Kuling",
+      "Marinka Zitnik"
+    ],
+    "summary": "Adaptive exercise recommendation (ER) aims to choose the next activity that matches a learner's evolving Zone of Proximal Development (ZPD). We present KUL-Rec, a biologically inspired ER system that couples a fast Hebbian memory with slow replay-based consolidation to enable continual, few-shot personalization from sparse interactions. The model operates in an embedding space, allowing a single architecture to handle both tabular knowledge-tracing logs and open-ended short-answer text. We align evaluation with tutoring needs using bidirectional ranking and rank-sensitive metrics (nDCG, Recall@K). Across ten public datasets, KUL-Rec improves macro nDCG (0.316 vs. 0.265 for the strongest baseline) and Recall@10 (0.305 vs. 0.211), while achieving low inference latency and an $\\approx99$\\% reduction in peak GPU memory relative to a competitive graph-based model. In a 13-week graduate course, KUL-Rec personalized weekly short-answer quizzes generated by a retrieval-augmented pipeline and the personalized quizzes were associated with lower perceived difficulty and higher helpfulness (p < .05). An embedding robustness audit highlights that encoder choice affects semantic alignment, motivating routine audits when deploying open-response assessment. Together, these results indicate that Hebbian replay with bounded consolidation offers a practical path to real-time, interpretable ER that scales across data modalities and classroom settings.",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.LG",
+      "cs.NE"
+    ],
+    "published": "2025-06-18T00:06:28Z",
+    "updated": "2025-11-17T15:10:41Z",
+    "url": "http://arxiv.org/abs/2507.00032v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.00032v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于自适应练习推荐（RecSys 在教育领域的垂直应用），提出了结合 Hebbian 记忆与重放机制的新架构来解决稀疏交互下的个性化问题，符合核心推荐技术范畴。",
+    "translation": "Ken 利用层：学生 Ken 内的赫布重放用于自适应练习推荐",
+    "summary_zh": "提出一种受生物学启发的推荐系统，通过耦合快速赫布记忆与慢速基于重放的巩固机制，在嵌入空间中实现针对稀疏交互的持续少-shot 个性化推荐。",
+    "key_points": [
+      "提出一种受生物学启发的推荐系统，通过耦合快速赫布记忆与慢速基于重放的巩固机制，在嵌入空间中实现针对稀疏交互的持续少-shot 个性化推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2506.17314v1",
+    "title": "PRAISE: Enhancing Product Descriptions with LLM-Driven Structured Insights",
+    "authors": [
+      "Adnan Qidwai",
+      "Srija Mukhopadhyay",
+      "Prerana Khatiwada",
+      "Dan Roth",
+      "Vivek Gupta"
+    ],
+    "summary": "Accurate and complete product descriptions are crucial for e-commerce, yet seller-provided information often falls short. Customer reviews offer valuable details but are laborious to sift through manually. We present PRAISE: Product Review Attribute Insight Structuring Engine, a novel system that uses Large Language Models (LLMs) to automatically extract, compare, and structure insights from customer reviews and seller descriptions. PRAISE provides users with an intuitive interface to identify missing, contradictory, or partially matching details between these two sources, presenting the discrepancies in a clear, structured format alongside supporting evidence from reviews. This allows sellers to easily enhance their product listings for clarity and persuasiveness, and buyers to better assess product reliability. Our demonstration showcases PRAISE's workflow, its effectiveness in generating actionable structured insights from unstructured reviews, and its potential to significantly improve the quality and trustworthiness of e-commerce product catalogs.",
+    "categories": [
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published": "2025-06-18T11:23:39Z",
+    "updated": "2025-06-18T11:23:39Z",
+    "url": "http://arxiv.org/abs/2506.17314v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.17314v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文利用 LLM 结构化电商评论以优化商品描述，属于搜索/推荐系统的上游数据增强环节，但核心侧重于内容生成工具而非直接的召回或排序算法创新。",
+    "translation": "PRAISE：利用大模型驱动的结构化洞察增强商品描述",
+    "summary_zh": "提出一种利用大语言模型自动从用户评论中提取、对比并结构化属性洞察的系统，旨在识别并补充卖家商品描述中的缺失或矛盾信息以提升目录质量。",
+    "key_points": [
+      "提出一种利用大语言模型自动从用户评论中提取、对比并结构化属性洞察的系统，旨在识别并补充卖家商品描述中的缺失或矛盾信息以提升目录质量"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15817v2",
+    "title": "Optimizing Bidding Strategies in First-Price Auctions in Binary Feedback Setting with Predictions",
+    "authors": [
+      "Jason Tandiary"
+    ],
+    "summary": "This paper studies Vickrey first-price auctions under binary feedback. Leveraging the enhanced performance of machine learning algorithms, the new algorithm uses past information to improve the regret bounds of the BROAD-OMD algorithm. Motivated by the growing relevance of first-price auctions and the predictive capabilities of machine learning models, this paper proposes a new algorithm within the BROAD-OMD framework (Hu et al., 2025) that leverages predictions of the highest competing bid. This paper's main contribution is an algorithm that achieves zero regret under accurate predictions. Additionally, a bounded regret bound of O(T^(3/4) * Vt^(1/4)) is established under certain normality conditions.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-06-18T19:03:29Z",
+    "updated": "2025-07-07T19:29:36Z",
+    "url": "http://arxiv.org/abs/2506.15817v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.15817v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文针对广告系统中的第一价格拍卖出价策略优化，属于搜索/推荐中的广告变现核心环节，但侧重于博弈论与在线学习算法而非直接的排序或召回模型。",
+    "translation": "基于预测的二元反馈设定下第一价格拍卖出价策略优化",
+    "summary_zh": "提出一种利用机器学习预测最高竞争出价的 BROAD-OMD 改进算法，旨在二元反馈环境下优化第一价格拍卖的后悔界并实现零后悔。",
+    "key_points": [
+      "提出一种利用机器学习预测最高竞争出价的 BROAD-OMD 改进算法，旨在二元反馈环境下优化第一价格拍卖的后悔界并实现零后悔"
+    ]
+  },
+  {
+    "arxiv_id": "2506.17325v1",
+    "title": "RadarSeq: A Temporal Vision Framework for User Churn Prediction via Radar Chart Sequences",
+    "authors": [
+      "Sina Najafi",
+      "M. Hadi Sepanj",
+      "Fahimeh Jafari"
+    ],
+    "summary": "Predicting user churn in non-subscription gig platforms, where disengagement is implicit, poses unique challenges due to the absence of explicit labels and the dynamic nature of user behavior. Existing methods often rely on aggregated snapshots or static visual representations, which obscure temporal cues critical for early detection. In this work, we propose a temporally-aware computer vision framework that models user behavioral patterns as a sequence of radar chart images, each encoding day-level behavioral features. By integrating a pretrained CNN encoder with a bidirectional LSTM, our architecture captures both spatial and temporal patterns underlying churn behavior. Extensive experiments on a large real-world dataset demonstrate that our method outperforms classical models and ViT-based radar chart baselines, yielding gains of 17.7 in F1 score, 29.4 in precision, and 16.1 in AUC, along with improved interpretability. The framework's modular design, explainability tools, and efficient deployment characteristics make it suitable for large-scale churn modeling in dynamic gig-economy platforms.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-06-18T22:20:49Z",
+    "updated": "2025-06-18T22:20:49Z",
+    "url": "http://arxiv.org/abs/2506.17325v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.17325v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "该论文针对零工经济平台的用户流失预测（用户建模/行为预测），属于推荐系统相关的核心应用场景，但方法本质是将行为序列转化为图像序列的通用 CV+ 时序建模，并非专为 RecSys 架构设计的创新。",
+    "translation": "RadarSeq：基于雷达图序列时序视觉框架的用户流失预测",
+    "summary_zh": "提出一种时序视觉框架，将用户每日行为特征编码为雷达图图像序列，结合 CNN 与双向 LSTM 捕捉行为模式中的时空特征以预测隐性流失。",
+    "key_points": [
+      "提出一种时序视觉框架，将用户每日行为特征编码为雷达图图像序列，结合 CNN 与双向 LSTM 捕捉行为模式中的时空特征以预测隐性流失"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15862v1",
+    "title": "MoR: Better Handling Diverse Queries with a Mixture of Sparse, Dense, and Human Retrievers",
+    "authors": [
+      "Jushaan Singh Kalra",
+      "Xinran Zhao",
+      "To Eun Kim",
+      "Fengyu Cai",
+      "Fernando Diaz",
+      "Tongshuang Wu"
+    ],
+    "summary": "Retrieval-augmented Generation (RAG) is powerful, but its effectiveness hinges on which retrievers we use and how. Different retrievers offer distinct, often complementary signals: BM25 captures lexical matches; dense retrievers, semantic similarity. Yet in practice, we typically fix a single retriever based on heuristics, which fails to generalize across diverse information needs. Can we dynamically select and integrate multiple retrievers for each individual query, without the need for manual selection? In our work, we validate this intuition with quantitative analysis and introduce mixture of retrievers: a zero-shot, weighted combination of heterogeneous retrievers. Extensive experiments show that such mixtures are effective and efficient: Despite totaling just 0.8B parameters, this mixture outperforms every individual retriever and even larger 7B models by +10.8% and +3.9% on average, respectively. Further analysis also shows that this mixture framework can help incorporate specialized non-oracle human information sources as retrievers to achieve good collaboration, with a 58.9% relative performance improvement over simulated humans alone.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-06-18T20:15:23Z",
+    "updated": "2025-06-18T20:15:23Z",
+    "url": "http://arxiv.org/abs/2506.15862v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15862v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/RAG 检索研究，旨在优化通用问答生成，未明确针对推荐系统或搜索产品的核心业务场景（如电商、信息流），且无 RecSys 特定应用。",
+    "translation": "MoR：通过混合稀疏、稠密及人工检索器更好地处理多样化查询",
+    "summary_zh": "提出一种零样本的混合检索器框架，动态加权组合异构检索信号以自适应满足不同查询需求，无需人工选择即可集成专用信息源。",
+    "key_points": [
+      "提出一种零样本的混合检索器框架，动态加权组合异构检索信号以自适应满足不同查询需求，无需人工选择即可集成专用信息源"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15246v1",
+    "title": "TopClustRAG at SIGIR 2025 LiveRAG Challenge",
+    "authors": [
+      "Juli Bakagianni",
+      "John Pavlopoulos",
+      "Aristidis Likas"
+    ],
+    "summary": "We present TopClustRAG, a retrieval-augmented generation (RAG) system developed for the LiveRAG Challenge, which evaluates end-to-end question answering over large-scale web corpora. Our system employs a hybrid retrieval strategy combining sparse and dense indices, followed by K-Means clustering to group semantically similar passages. Representative passages from each cluster are used to construct cluster-specific prompts for a large language model (LLM), generating intermediate answers that are filtered, reranked, and finally synthesized into a single, comprehensive response. This multi-stage pipeline enhances answer diversity, relevance, and faithfulness to retrieved evidence. Evaluated on the FineWeb Sample-10BT dataset, TopClustRAG ranked 2nd in faithfulness and 7th in correctness on the official leaderboard, demonstrating the effectiveness of clustering-based context filtering and prompt aggregation in large-scale RAG systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-06-18T08:24:27Z",
+    "updated": "2025-06-18T08:24:27Z",
+    "url": "http://arxiv.org/abs/2506.15246v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15246v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用问答任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、个性化）。",
+    "translation": "TopClustRAG：面向 SIGIR 2025 LiveRAG 挑战赛的检索增强生成系统",
+    "summary_zh": "提出一种结合混合检索与 K-Means 聚类的 RAG 框架，通过构建簇特定提示词生成中间答案并聚合，以提升大模型回答的多样性与忠实度。",
+    "key_points": [
+      "提出一种结合混合检索与 K-Means 聚类的 RAG 框架，通过构建簇特定提示词生成中间答案并聚合，以提升大模型回答的多样性与忠实度"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15513v1",
+    "title": "RePCS: Diagnosing Data Memorization in LLM-Powered Retrieval-Augmented Generation",
+    "authors": [
+      "Le Vu Anh",
+      "Nguyen Viet Anh",
+      "Mehmet Dik",
+      "Luong Van Nghia"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) has become a common strategy for updating large language model (LLM) responses with current, external information. However, models may still rely on memorized training data, bypass the retrieved evidence, and produce contaminated outputs. We introduce Retrieval-Path Contamination Scoring (RePCS), a diagnostic method that detects such behavior without requiring model access or retraining. RePCS compares two inference paths: (i) a parametric path using only the query, and (ii) a retrieval-augmented path using both the query and retrieved context by computing the Kullback-Leibler (KL) divergence between their output distributions. A low divergence suggests that the retrieved context had minimal impact, indicating potential memorization. This procedure is model-agnostic, requires no gradient or internal state access, and adds only a single additional forward pass. We further derive PAC-style guarantees that link the KL threshold to user-defined false positive and false negative rates. On the Prompt-WNQA benchmark, RePCS achieves a ROC-AUC of 0.918. This result outperforms the strongest prior method by 6.5 percentage points while keeping latency overhead below 4.7% on an NVIDIA T4 GPU. RePCS offers a lightweight, black-box safeguard to verify whether a RAG system meaningfully leverages retrieval, making it especially valuable in safety-critical applications.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-06-18T14:48:19Z",
+    "updated": "2025-06-18T14:48:19Z",
+    "url": "http://arxiv.org/abs/2506.15513v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15513v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 诊断研究，专注于检测模型记忆化问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "RePCS：诊断 LLM 驱动检索增强生成中的数据记忆化",
+    "summary_zh": "提出一种无需模型内部访问的黑盒诊断方法，通过对比参数化路径与检索增强路径的输出分布差异，检测 RAG 系统是否过度依赖训练数据记忆而忽略检索内容。",
+    "key_points": [
+      "提出一种无需模型内部访问的黑盒诊断方法，通过对比参数化路径与检索增强路径的输出分布差异，检测 RAG 系统是否过度依赖训练数据记忆而忽略检索内容"
+    ]
+  },
+  {
+    "arxiv_id": "2506.15241v1",
+    "title": "Research on Graph-Retrieval Augmented Generation Based on Historical Text Knowledge Graphs",
+    "authors": [
+      "Yang Fan",
+      "Zhang Qi",
+      "Xing Wenqian",
+      "Liu Chang",
+      "Liu Liu"
+    ],
+    "summary": "This article addresses domain knowledge gaps in general large language models for historical text analysis in the context of computational humanities and AIGC technology. We propose the Graph RAG framework, combining chain-of-thought prompting, self-instruction generation, and process supervision to create a The First Four Histories character relationship dataset with minimal manual annotation. This dataset supports automated historical knowledge extraction, reducing labor costs. In the graph-augmented generation phase, we introduce a collaborative mechanism between knowledge graphs and retrieval-augmented generation, improving the alignment of general models with historical knowledge. Experiments show that the domain-specific model Xunzi-Qwen1.5-14B, with Simplified Chinese input and chain-of-thought prompting, achieves optimal performance in relation extraction (F1 = 0.68). The DeepSeek model integrated with GraphRAG improves F1 by 11% (0.08-0.19) on the open-domain C-CLUE relation extraction dataset, surpassing the F1 value of Xunzi-Qwen1.5-14B (0.12), effectively alleviating hallucinations phenomenon, and improving interpretability. This framework offers a low-resource solution for classical text knowledge extraction, advancing historical knowledge services and humanities research.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-06-18T08:20:29Z",
+    "updated": "2025-06-18T08:20:29Z",
+    "url": "http://arxiv.org/abs/2506.15241v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.15241v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 研究论文，专注于计算人文领域的历史文本知识提取，完全未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），因此属于排除项。尽管来自中国企业且使用了 Graph RAG 技术，但因缺乏 RecSys 应用场景，基础分极低，仅因来源地额外加 1 分。",
+    "translation": "基于历史文本知识图谱的图检索增强生成研究",
+    "summary_zh": "提出一种结合思维链提示与知识图谱协同机制的 Graph RAG 框架，旨在解决大模型在历史文本分析中的领域知识缺失问题，实现低资源下的人物关系自动化抽取。",
+    "key_points": [
+      "提出一种结合思维链提示与知识图谱协同机制的 Graph RAG 框架，旨在解决大模型在历史文本分析中的领域知识缺失问题，实现低资源下的人物关系自动化抽取"
+    ]
+  }
+]

@@ -1,0 +1,497 @@
+[
+  {
+    "arxiv_id": "2506.05069v2",
+    "title": "Reason-to-Recommend: Using Interaction-of-Thought Reasoning to Enhance LLM Recommendation",
+    "authors": [
+      "Keyu Zhao",
+      "Fengli Xu",
+      "Yong Li"
+    ],
+    "summary": "Driven by advances in Large Language Models (LLMs), integrating them into recommendation tasks has gained interest due to their strong semantic understanding and prompt flexibility. Prior work encoded user-item interactions or metadata into prompts for recommendations. In parallel, LLM reasoning, boosted by test-time scaling and reinforcement learning, has excelled in fields like mathematics and code, where reasoning traces and correctness signals are clear, enabling high performance and interpretability. However, directly applying these reasoning methods to recommendation is ineffective because user feedback is implicit and lacks reasoning supervision. To address this, we propose $\\textbf{R2Rec}$, a reasoning-enhanced recommendation framework that samples interaction chains from the user-item graph and converts them into structured interaction-of-thoughts via a progressive masked prompting strategy, with each thought representing stepwise reasoning grounded in interaction context. This allows LLMs to simulate step-by-step decision-making based on implicit patterns. We design a two-stage training pipeline: supervised fine-tuning teaches basic reasoning from high-quality traces, and reinforcement learning refines reasoning via reward signals, alleviating sparse explicit supervision. Experiments on three real-world datasets show R2Rec outperforms classical and LLM-based baselines with an average $\\textbf{10.48%}$ improvement in HitRatio@1 and $\\textbf{131.81%}$ gain over the original LLM. Furthermore, the explicit reasoning chains enhance interpretability by revealing the decision process. Our code is available at: https://anonymous.4open.science/r/R2Rec-7C5D.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-06-05T14:16:44Z",
+    "updated": "2025-06-09T09:08:12Z",
+    "url": "http://arxiv.org/abs/2506.05069v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.05069v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统任务，提出利用交互思维链（Interaction-of-Thought）解决 LLM 在隐式反馈场景下的推理难题，属于高优先级的 LLM for RecSys 核心应用研究。",
+    "translation": "Reason-to-Recommend：利用交互思维推理增强大语言模型推荐",
+    "summary_zh": "提出 R2Rec 框架，通过从用户 - 物品图中采样交互链并转化为结构化思维步骤，结合监督微调与强化学习，使 LLM 能够基于隐式反馈进行逐步推理决策以提升推荐效果。",
+    "key_points": [
+      "提出 R2Rec 框架，通过从用户 - 物品图中采样交互链并转化为结构化思维步骤，结合监督微调与强化学习，使 LLM 能够基于隐式反馈进行逐步推理决策以提升推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05044v1",
+    "title": "Rethinking Contrastive Learning in Session-based Recommendation",
+    "authors": [
+      "Xiaokun Zhang",
+      "Bo Xu",
+      "Fenglong Ma",
+      "Zhizheng Wang",
+      "Liang Yang",
+      "Hongfei Lin"
+    ],
+    "summary": "Session-based recommendation aims to predict intents of anonymous users based on limited behaviors. With the ability in alleviating data sparsity, contrastive learning is prevailing in the task. However, we spot that existing contrastive learning based methods still suffer from three obstacles: (1) they overlook item-level sparsity and primarily focus on session-level sparsity; (2) they typically augment sessions using item IDs like crop, mask and reorder, failing to ensure the semantic consistency of augmented views; (3) they treat all positive-negative signals equally, without considering their varying utility. To this end, we propose a novel multi-modal adaptive contrastive learning framework called MACL for session-based recommendation. In MACL, a multi-modal augmentation is devised to generate semantically consistent views at both item and session levels by leveraging item multi-modal features. Besides, we present an adaptive contrastive loss that distinguishes varying contributions of positive-negative signals to improve self-supervised learning. Extensive experiments on three real-world datasets demonstrate the superiority of MACL over state-of-the-art methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-05T13:52:57Z",
+    "updated": "2025-06-05T13:52:57Z",
+    "url": "http://arxiv.org/abs/2506.05044v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.05044v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对会话推荐系统中的对比学习缺陷提出改进，属于核心推荐算法创新，完全符合高优先级标准。",
+    "translation": "重思会话推荐中的对比学习",
+    "summary_zh": "提出一种多模态自适应对比学习框架，通过利用物品多模态特征生成语义一致的增强视图，并设计自适应损失函数以区分正负样本信号的贡献度，从而解决现有方法在物品级稀疏性和语义一致性上的不足。",
+    "key_points": [
+      "提出一种多模态自适应对比学习框架，通过利用物品多模态特征生成语义一致的增强视图，并设计自适应损失函数以区分正负样本信号的贡献度，从而解决现有方法在物品级稀疏性和语义一致性上的不足"
+    ]
+  },
+  {
+    "arxiv_id": "2506.04762v1",
+    "title": "GOLFer: Smaller LM-Generated Documents Hallucination Filter & Combiner for Query Expansion in Information Retrieval",
+    "authors": [
+      "Lingyuan Liu",
+      "Mengxiang Zhang"
+    ],
+    "summary": "Large language models (LLMs)-based query expansion for information retrieval augments queries with generated hypothetical documents with LLMs. However, its performance relies heavily on the scale of the language models (LMs), necessitating larger, more advanced LLMs. This approach is costly, computationally intensive, and often has limited accessibility. To address these limitations, we introduce GOLFer - Smaller LMs-Generated Documents Hallucination Filter & Combiner - a novel method leveraging smaller open-source LMs for query expansion. GOLFer comprises two modules: a hallucination filter and a documents combiner. The former detects and removes non-factual and inconsistent sentences in generated documents, a common issue with smaller LMs, while the latter combines the filtered content with the query using a weight vector to balance their influence. We evaluate GOLFer alongside dominant LLM-based query expansion methods on three web search and ten low-resource datasets. Experimental results demonstrate that GOLFer consistently outperforms other methods using smaller LMs, and maintains competitive performance against methods using large-size LLMs, demonstrating its effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-06-05T08:45:48Z",
+    "updated": "2025-06-05T08:45:48Z",
+    "url": "http://arxiv.org/abs/2506.04762v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.04762v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索引擎中的查询扩展（Query Expansion）任务，提出利用小模型生成文档并结合幻觉过滤的方法，属于明确的搜索核心技术创新；虽涉及 LLM 但非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "GOLFer：用于信息检索查询扩展的小模型生成文档幻觉过滤与组合器",
+    "summary_zh": "提出一种利用小型语言模型进行查询扩展的新方法，通过幻觉过滤模块剔除生成内容中的非事实信息，并利用加权组合模块平衡生成内容与原始查询的影响，以降低对大模型的依赖。",
+    "key_points": [
+      "提出一种利用小型语言模型进行查询扩展的新方法，通过幻觉过滤模块剔除生成内容中的非事实信息，并利用加权组合模块平衡生成内容与原始查询的影响，以降低对大模型的依赖"
+    ]
+  },
+  {
+    "arxiv_id": "2506.04760v1",
+    "title": "Exp4Fuse: A Rank Fusion Framework for Enhanced Sparse Retrieval using Large Language Model-based Query Expansion",
+    "authors": [
+      "Lingyuan Liu",
+      "Mengxiang Zhang"
+    ],
+    "summary": "Large Language Models (LLMs) have shown potential in generating hypothetical documents for query expansion, thereby enhancing information retrieval performance. However, the efficacy of this method is highly dependent on the quality of the generated documents, which often requires complex prompt strategies and the integration of advanced dense retrieval techniques. This can be both costly and computationally intensive. To mitigate these limitations, we explore the use of zero-shot LLM-based query expansion to improve sparse retrieval, particularly for learned sparse retrievers. We introduce a novel fusion ranking framework, Exp4Fuse, which enhances the performance of sparse retrievers through an indirect application of zero-shot LLM-based query expansion. Exp4Fuse operates by simultaneously considering two retrieval routes-one based on the original query and the other on the LLM-augmented query. It then generates two ranked lists using a sparse retriever and fuses them using a modified reciprocal rank fusion method. We conduct extensive evaluations of Exp4Fuse against leading LLM-based query expansion methods and advanced retrieval techniques on three MS MARCO-related datasets and seven low-resource datasets. Experimental results reveal that Exp4Fuse not only surpasses existing LLM-based query expansion methods in enhancing sparse retrievers but also, when combined with advanced sparse retrievers, achieves SOTA results on several benchmarks. This highlights the superior performance and effectiveness of Exp4Fuse in improving query expansion for sparse retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-06-05T08:44:34Z",
+    "updated": "2025-06-05T08:44:34Z",
+    "url": "http://arxiv.org/abs/2506.04760v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.04760v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种利用 LLM 进行查询扩展以增强稀疏检索的排序融合框架，直接应用于搜索核心环节（检索/排序），属于明确的搜索技术应用；虽涉及 LLM 但非纯 LLM 研究，且来自中国公司（TAL）故额外 +1 分。",
+    "translation": "Exp4Fuse：一种基于大语言模型查询扩展的增强型稀疏检索排序融合框架",
+    "summary_zh": "提出 Exp4Fuse 框架，通过并行处理原始查询与 LLM 零样本扩展查询的稀疏检索结果，并利用改进的倒数排名融合方法提升检索效果。",
+    "key_points": [
+      "提出 Exp4Fuse 框架，通过并行处理原始查询与 LLM 零样本扩展查询的稀疏检索结果，并利用改进的倒数排名融合方法提升检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2506.04551v1",
+    "title": "PUB: An LLM-Enhanced Personality-Driven User Behaviour Simulator for Recommender System Evaluation",
+    "authors": [
+      "Chenglong Ma",
+      "Ziqi Xu",
+      "Yongli Ren",
+      "Danula Hettiachchi",
+      "Jeffrey Chan"
+    ],
+    "summary": "Traditional offline evaluation methods for recommender systems struggle to capture the complexity of modern platforms due to sparse behavioural signals, noisy data, and limited modelling of user personality traits. While simulation frameworks can generate synthetic data to address these gaps, existing methods fail to replicate behavioural diversity, limiting their effectiveness. To overcome these challenges, we propose the Personality-driven User Behaviour Simulator (PUB), an LLM-based simulation framework that integrates the Big Five personality traits to model personalised user behaviour. PUB dynamically infers user personality from behavioural logs (e.g., ratings, reviews) and item metadata, then generates synthetic interactions that preserve statistical fidelity to real-world data. Experiments on the Amazon review datasets show that logs generated by PUB closely align with real user behaviour and reveal meaningful associations between personality traits and recommendation outcomes. These results highlight the potential of the personality-driven simulator to advance recommender system evaluation, offering scalable, controllable, high-fidelity alternatives to resource-intensive real-world experiments.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-05T01:57:36Z",
+    "updated": "2025-06-05T01:57:36Z",
+    "url": "http://arxiv.org/abs/2506.04551v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.04551v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统评估中的核心痛点（数据稀疏、缺乏个性建模），利用 LLM 构建用户行为模拟器以生成高保真合成数据，属于 LLM 在 RecSys 基础设施层面的直接应用。",
+    "translation": "PUB：一种用于推荐系统评估的基于大语言模型的个性化用户行为模拟器",
+    "summary_zh": "提出一种融合大五人格理论的 LLM 驱动框架，通过动态推断用户个性并生成统计特性逼真的合成交互数据，以解决推荐系统离线评估中行为多样性不足的问题。",
+    "key_points": [
+      "提出一种融合大五人格理论的 LLM 驱动框架，通过动态推断用户个性并生成统计特性逼真的合成交互数据，以解决推荐系统离线评估中行为多样性不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.04525v3",
+    "title": "Can Users Fix Algorithms? A Game-Theoretic Analysis of Collective Content Amplification in Recommender Systems",
+    "authors": [
+      "Ekaterina Fedorova",
+      "Madeline Kitch",
+      "Chara Podimata"
+    ],
+    "summary": "Users of social media platforms based on recommendation systems (e.g. TikTok, X, YouTube) strategically interact with platform content to influence future recommendations. On some such platforms, users have been documented to form large-scale grassroots movements encouraging others to purposefully interact with algorithmically suppressed content in order to counteractively ``boost'' its recommendation. However, despite widespread documentation of this phenomenon, there is little theoretical work analyzing its impact on the platform or users themselves. We study a game between users and a RecSys, where users (potentially strategically) interact with the content available to them, and the RecSys -- limited by preference learning ability -- provides each user her approximately most-preferred item. We compare recommendations and social welfare when users interact with content according to their personal interests and when a collective of users intentionally interacts with an otherwise suppressed item. We provide sufficient conditions to ensure a pareto improvement in recommendations and strict increases in user social welfare under collective interaction, and provide a robust algorithm to find an effective collective strategy. Interestingly, despite the intended algorithmic protest of these movements, we show that for commonly assumed recommender utility functions, effective collective strategies also improve the utility of the RecSys. Our theoretical analysis is complemented by empirical results of effective collective interaction strategies on the GoodReads dataset and an online survey on how real-world users attempt to influence others' recommendations on RecSys platforms. Our findings examine how and when platforms' recommendation algorithms may incentivize users to collectivize and interact with content in algorithmic protest as well as what this collectivization means for the platform.",
+    "categories": [
+      "cs.GT",
+      "cs.CY",
+      "cs.HC",
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2025-06-05T00:14:40Z",
+    "updated": "2026-02-12T21:48:49Z",
+    "url": "http://arxiv.org/abs/2506.04525v3",
+    "pdf_url": "http://arxiv.org/pdf/2506.04525v3.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的用户策略性行为与算法博弈进行理论分析，明确应用于 TikTok/YouTube 等社交推荐场景，属于核心用户建模与系统机制研究。",
+    "translation": "用户能否修正算法？推荐系统中集体内容放大的博弈论分析",
+    "summary_zh": "本文构建用户与推荐系统的博弈模型，分析用户通过集体策略性互动对抗算法抑制的机制，并证明了在特定条件下这种集体行为能同时提升用户福利与系统效用。",
+    "key_points": [
+      "本文构建用户与推荐系统的博弈模型，分析用户通过集体策略性互动对抗算法抑制的机制，并证明了在特定条件下这种集体行为能同时提升用户福利与系统效用"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05625v1",
+    "title": "Heterogeneous Sequel-Aware Graph Neural Networks for Sequential Learning",
+    "authors": [
+      "Anushka Tiwari",
+      "Haimonti Dutta",
+      "Shahrzad Khanizadeh"
+    ],
+    "summary": "Graph-based recommendation systems use higher-order user and item embeddings for next-item predictions. Dynamically adding collaborative signals from neighbors helps to use similar users' preferences during learning. While item-item correlations and their impact on recommendations have been studied, the efficacy of temporal item sequences for recommendations is much less explored. In this paper, we examine temporal item sequence (sequel-aware) embeddings along with higher-order user embeddings and show that sequel-aware Graph Neural Networks have better (or comparable) recommendation performance than graph-based recommendation systems that do not consider sequel information. Extensive empirical results comparing Heterogeneous Sequel-aware Graph Neural Networks (HSAL-GNNs) to other algorithms for sequential learning (such as transformers, graph neural networks, auto-encoders) are presented on three synthetic and three real-world datasets. Our results indicate that the incorporation of sequence information from items greatly enhances recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-06-05T22:58:24Z",
+    "updated": "2025-06-05T22:58:24Z",
+    "url": "http://arxiv.org/abs/2506.05625v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.05625v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于序列推荐系统，提出结合时序物品序列（sequel-aware）与高阶用户嵌入的图神经网络方法，属于核心推荐技术。",
+    "translation": "用于序列学习的异构续序感知图神经网络",
+    "summary_zh": "提出一种异构续序感知图神经网络，通过融合时序物品序列嵌入与高阶用户嵌入，以增强基于图的序列推荐能力。",
+    "key_points": [
+      "提出一种异构续序感知图神经网络，通过融合时序物品序列嵌入与高阶用户嵌入，以增强基于图的序列推荐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2506.04790v1",
+    "title": "LotusFilter: Fast Diverse Nearest Neighbor Search via a Learned Cutoff Table",
+    "authors": [
+      "Yusuke Matsui"
+    ],
+    "summary": "Approximate nearest neighbor search (ANNS) is an essential building block for applications like RAG but can sometimes yield results that are overly similar to each other. In certain scenarios, search results should be similar to the query and yet diverse. We propose LotusFilter, a post-processing module to diversify ANNS results. We precompute a cutoff table summarizing vectors that are close to each other. During the filtering, LotusFilter greedily looks up the table to delete redundant vectors from the candidates. We demonstrated that the LotusFilter operates fast (0.02 [ms/query]) in settings resembling real-world RAG applications, utilizing features such as OpenAI embeddings. Our code is publicly available at https://github.com/matsui528/lotf.",
+    "categories": [
+      "cs.CV",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-06-05T09:17:30Z",
+    "updated": "2025-06-05T09:17:30Z",
+    "url": "http://arxiv.org/abs/2506.04790v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.04790v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种用于近似最近邻搜索（ANNS）结果去重和多样化的后处理方法，虽主要应用于 RAG 场景，但 ANNS 是推荐/搜索召回阶段的核心组件，具有明确的间接应用价值；因非直接针对 RecSys 业务场景且偏向通用检索优化，故给中优先级分数并加上中国公司加分。",
+    "translation": "LotusFilter：基于学习截止表的快速多样化最近邻搜索",
+    "summary_zh": "提出 LotusFilter 模块，通过预计算向量相似度截止表并在推理时贪婪查找，以极低延迟过滤掉候选集中冗余向量，从而实现近似最近邻搜索结果的高效多样化。",
+    "key_points": [
+      "提出 LotusFilter 模块，通过预计算向量相似度截止表并在推理时贪婪查找，以极低延迟过滤掉候选集中冗余向量，从而实现近似最近邻搜索结果的高效多样化"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05196v1",
+    "title": "Locality Preserving Markovian Transition for Instance Retrieval",
+    "authors": [
+      "Jifei Luo",
+      "Wenzheng Wu",
+      "Hantao Yao",
+      "Lu Yu",
+      "Changsheng Xu"
+    ],
+    "summary": "Diffusion-based re-ranking methods are effective in modeling the data manifolds through similarity propagation in affinity graphs. However, positive signals tend to diminish over several steps away from the source, reducing discriminative power beyond local regions. To address this issue, we introduce the Locality Preserving Markovian Transition (LPMT) framework, which employs a long-term thermodynamic transition process with multiple states for accurate manifold distance measurement. The proposed LPMT first integrates diffusion processes across separate graphs using Bidirectional Collaborative Diffusion (BCD) to establish strong similarity relationships. Afterwards, Locality State Embedding (LSE) encodes each instance into a distribution for enhanced local consistency. These distributions are interconnected via the Thermodynamic Markovian Transition (TMT) process, enabling efficient global retrieval while maintaining local effectiveness. Experimental results across diverse tasks confirm the effectiveness of LPMT for instance retrieval.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-06-05T16:07:31Z",
+    "updated": "2025-06-05T16:07:31Z",
+    "url": "http://arxiv.org/abs/2506.05196v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.05196v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "论文提出了一种基于扩散和马尔可夫转移的实例检索重排序方法，属于搜索/推荐的核心环节（重排序），但主要聚焦于通用计算机视觉检索任务，缺乏明确的电商或社交推荐业务场景，故给予中等优先级评分并加上中国公司加分。",
+    "translation": "用于实例检索的局部保持马尔可夫转移方法",
+    "summary_zh": "该论文提出 LPMT 框架，通过双向协同扩散建立强相似关系，并利用热力学马尔可夫转移过程连接局部状态嵌入，以在保持局部一致性的同时实现高效的全局实例检索重排序。",
+    "key_points": [
+      "该论文提出 LPMT 框架，通过双向协同扩散建立强相似关系，并利用热力学马尔可夫转移过程连接局部状态嵌入，以在保持局部一致性的同时实现高效的全局实例检索重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05606v4",
+    "title": "OPeRA: A Dataset of Observation, Persona, Rationale, and Action for Evaluating LLMs on Human Online Shopping Behavior Simulation",
+    "authors": [
+      "Ziyi Wang",
+      "Yuxuan Lu",
+      "Wenbo Li",
+      "Amirali Amini",
+      "Bo Sun",
+      "Yakov Bart",
+      "Weimin Lyu",
+      "Jiri Gesi",
+      "Tian Wang",
+      "Jing Huang",
+      "Yu Su",
+      "Upol Ehsan",
+      "Malihe Alikhani",
+      "Toby Jia-Jun Li",
+      "Lydia Chilton",
+      "Dakuo Wang"
+    ],
+    "summary": "Can large language models (LLMs) accurately simulate the next web action of a specific user? While LLMs have shown promising capabilities in generating ``believable'' human behaviors, evaluating their ability to mimic real user behaviors remains an open challenge, largely due to the lack of high-quality, publicly available datasets that capture both the observable actions and the internal reasoning of an actual human user. To address this gap, we introduce OPERA, a novel dataset of Observation, Persona, Rationale, and Action collected from real human participants during online shopping sessions. OPERA is the first public dataset that comprehensively captures: user personas, browser observations, fine-grained web actions, and self-reported just-in-time rationales. We developed both an online questionnaire and a custom browser plugin to gather this dataset with high fidelity. Using OPERA, we establish the first benchmark to evaluate how well current LLMs can predict a specific user's next action and rationale with a given persona and <observation, action, rationale> history. This dataset lays the groundwork for future research into LLM agents that aim to act as personalized digital twins for human.",
+    "categories": [
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published": "2025-06-05T21:37:49Z",
+    "updated": "2025-07-24T06:52:49Z",
+    "url": "http://arxiv.org/abs/2506.05606v4",
+    "pdf_url": "http://arxiv.org/pdf/2506.05606v4.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要贡献是一个用于评估 LLM 模拟用户行为的数据集和基准，属于纯 LLM 评估研究，并未提出直接应用于推荐或搜索系统的核心算法或架构创新。虽涉及电商场景且来自中国公司（+1 分），但本质仍是资源型论文而非技术突破。",
+    "translation": "OPeRA：用于评估 LLM 模拟人类在线购物行为的数据集",
+    "summary_zh": "提出首个包含用户画像、观察、理由和动作的细粒度电商行为数据集 OPeRA，旨在建立基准以评估大语言模型模拟特定用户下一步操作及内在推理的能力。",
+    "key_points": [
+      "提出首个包含用户画像、观察、理由和动作的细粒度电商行为数据集 OPeRA，旨在建立基准以评估大语言模型模拟特定用户下一步操作及内在推理的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05176v3",
+    "title": "Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models",
+    "authors": [
+      "Yanzhao Zhang",
+      "Mingxin Li",
+      "Dingkun Long",
+      "Xin Zhang",
+      "Huan Lin",
+      "Baosong Yang",
+      "Pengjun Xie",
+      "An Yang",
+      "Dayiheng Liu",
+      "Junyang Lin",
+      "Fei Huang",
+      "Jingren Zhou"
+    ],
+    "summary": "In this work, we introduce the Qwen3 Embedding series, a significant advancement over its predecessor, the GTE-Qwen series, in text embedding and reranking capabilities, built upon the Qwen3 foundation models. Leveraging the Qwen3 LLMs' robust capabilities in multilingual text understanding and generation, our innovative multi-stage training pipeline combines large-scale unsupervised pre-training with supervised fine-tuning on high-quality datasets. Effective model merging strategies further ensure the robustness and adaptability of the Qwen3 Embedding series. During the training process, the Qwen3 LLMs serve not only as backbone models but also play a crucial role in synthesizing high-quality, rich, and diverse training data across multiple domains and languages, thus enhancing the training pipeline. The Qwen3 Embedding series offers a spectrum of model sizes (0.6B, 4B, 8B) for both embedding and reranking tasks, addressing diverse deployment scenarios where users can optimize for either efficiency or effectiveness. Empirical evaluations demonstrate that the Qwen3 Embedding series achieves state-of-the-art results across diverse benchmarks. Notably, it excels on the multilingual evaluation benchmark MTEB for text embedding, as well as in various retrieval tasks, including code retrieval, cross-lingual retrieval and multilingual retrieval. To facilitate reproducibility and promote community-driven research and development, the Qwen3 Embedding models are publicly available under the Apache 2.0 license.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-06-05T15:49:48Z",
+    "updated": "2025-06-11T02:54:49Z",
+    "url": "http://arxiv.org/abs/2506.05176v3",
+    "pdf_url": "http://arxiv.org/pdf/2506.05176v3.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "TongyiLab AlibabaGroup",
+      "Tofacilitatereproducibilityandpromotecommunity-drivenresearchanddevelopment,",
+      "theQwen3EmbeddingmodelsarepubliclyavailableundertheApache2.0license."
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文主要介绍纯文本嵌入和重排序基础模型（Qwen3 Embedding）的构建与训练，属于通用 NLP/LLM 研究，虽提及检索任务但未针对推荐系统或搜索产品的具体业务场景提出专用架构或创新。",
+    "translation": "Qwen3 嵌入：通过基础模型推进文本嵌入与重排序技术",
+    "summary_zh": "提出基于 Qwen3 大语言模型的多阶段训练流水线，利用模型合成高质量数据以增强多语言文本嵌入和重排序能力，并提供多种尺寸模型以适应不同部署需求。",
+    "key_points": [
+      "提出基于 Qwen3 大语言模型的多阶段训练流水线，利用模型合成高质量数据以增强多语言文本嵌入和重排序能力，并提供多种尺寸模型以适应不同部署需求"
+    ]
+  },
+  {
+    "arxiv_id": "2506.04929v2",
+    "title": "ConECT Dataset: Overcoming Data Scarcity in Context-Aware E-Commerce MT",
+    "authors": [
+      "Mikołaj Pokrywka",
+      "Wojciech Kusa",
+      "Mieszko Rutkowski",
+      "Mikołaj Koszowski"
+    ],
+    "summary": "Neural Machine Translation (NMT) has improved translation by using Transformer-based models, but it still struggles with word ambiguity and context. This problem is especially important in domain-specific applications, which often have problems with unclear sentences or poor data quality. Our research explores how adding information to models can improve translations in the context of e-commerce data. To this end we create ConECT -- a new Czech-to-Polish e-commerce product translation dataset coupled with images and product metadata consisting of 11,400 sentence pairs. We then investigate and compare different methods that are applicable to context-aware translation. We test a vision-language model (VLM), finding that visual context aids translation quality. Additionally, we explore the incorporation of contextual information into text-to-text models, such as the product's category path or image descriptions. The results of our study demonstrate that the incorporation of contextual information leads to an improvement in the quality of machine translation. We make the new dataset publicly available.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-06-05T12:02:01Z",
+    "updated": "2025-06-09T14:39:22Z",
+    "url": "http://arxiv.org/abs/2506.04929v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.04929v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP（机器翻译）研究，旨在解决电商领域的翻译歧义问题，并未涉及推荐系统或搜索引擎的核心算法（如召回、排序、用户建模）。",
+    "translation": "ConECT 数据集：克服情境感知电商机器翻译中的数据稀缺问题",
+    "summary_zh": "该论文提出了一个结合图像和元数据的捷克语到波兰语电商翻译数据集，并验证了引入视觉及文本上下文信息能提升机器翻译质量。",
+    "key_points": [
+      "该论文提出了一个结合图像和元数据的捷克语到波兰语电商翻译数据集，并验证了引入视觉及文本上下文信息能提升机器翻译质量"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05167v2",
+    "title": "ECoRAG: Evidentiality-guided Compression for Long Context RAG",
+    "authors": [
+      "Yeonseok Jeong",
+      "Jinsu Kim",
+      "Dohyeon Lee",
+      "Seung-won Hwang"
+    ],
+    "summary": "Large Language Models (LLMs) have shown remarkable performance in Open-Domain Question Answering (ODQA) by leveraging external documents through Retrieval-Augmented Generation (RAG). To reduce RAG overhead, from longer context, context compression is necessary. However, prior compression methods do not focus on filtering out non-evidential information, which limit the performance in LLM-based RAG. We thus propose Evidentiality-guided RAG, or ECoRAG framework. ECoRAG improves LLM performance by compressing retrieved documents based on evidentiality, ensuring whether answer generation is supported by the correct evidence. As an additional step, ECoRAG reflects whether the compressed content provides sufficient evidence, and if not, retrieves more until sufficient. Experiments show that ECoRAG improves LLM performance on ODQA tasks, outperforming existing compression methods. Furthermore, ECoRAG is highly cost-efficient, as it not only reduces latency but also minimizes token usage by retaining only the necessary information to generate the correct answer. Code is available at https://github.com/ldilab/ECoRAG.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-06-05T15:43:49Z",
+    "updated": "2025-06-06T07:57:28Z",
+    "url": "http://arxiv.org/abs/2506.05167v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.05167v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 和开放域问答（ODQA）研究，旨在优化 RAG 中的上下文压缩，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "ECoRAG：证据引导的长上下文检索增强生成压缩方法",
+    "summary_zh": "提出一种基于证据性引导的 RAG 框架，通过过滤非证据信息压缩检索文档，并在证据不足时动态触发额外检索以提升生成准确性。",
+    "key_points": [
+      "提出一种基于证据性引导的 RAG 框架，通过过滤非证据信息压缩检索文档，并在证据不足时动态触发额外检索以提升生成准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05121v2",
+    "title": "The NTNU System at the S&I Challenge 2025 SLA Open Track",
+    "authors": [
+      "Hong-Yun Lin",
+      "Tien-Hong Lo",
+      "Yu-Hsuan Fang",
+      "Jhen-Ke Lin",
+      "Chung-Chun Wang",
+      "Hao-Chien Lu",
+      "Berlin Chen"
+    ],
+    "summary": "A recent line of research on spoken language assessment (SLA) employs neural models such as BERT and wav2vec 2.0 (W2V) to evaluate speaking proficiency across linguistic and acoustic modalities. Although both models effectively capture features relevant to oral competence, each exhibits modality-specific limitations. BERT-based methods rely on ASR transcripts, which often fail to capture prosodic and phonetic cues for SLA. In contrast, W2V-based methods excel at modeling acoustic features but lack semantic interpretability. To overcome these limitations, we propose a system that integrates W2V with Phi-4 multimodal large language model (MLLM) through a score fusion strategy. The proposed system achieves a root mean square error (RMSE) of 0.375 on the official test set of the Speak & Improve Challenge 2025, securing second place in the competition. For comparison, the RMSEs of the top-ranked, third-ranked, and official baseline systems are 0.364, 0.384, and 0.444, respectively.",
+    "categories": [
+      "cs.CL",
+      "cs.SD",
+      "eess.AS"
+    ],
+    "published": "2025-06-05T15:09:23Z",
+    "updated": "2025-09-11T16:44:28Z",
+    "url": "http://arxiv.org/abs/2506.05121v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.05121v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/语音评估（SLA）研究，专注于口语能力评分，与推荐系统或搜索引擎的核心任务（召回、排序、用户建模等）完全无关。",
+    "translation": "NTNU 系统在 2025 年 S&I 挑战赛 SLA 开放赛道中的表现",
+    "summary_zh": "该论文提出了一种融合 wav2vec 2.0 声学特征与 Phi-4 多模态大语言模型语义信息的系统，旨在通过多模态分数融合策略解决口语评估中单一模态的局限性。",
+    "key_points": [
+      "该论文提出了一种融合 wav2vec 2",
+      "0 声学特征与 Phi-4 多模态大语言模型语义信息的系统，旨在通过多模态分数融合策略解决口语评估中单一模态的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05334v2",
+    "title": "Search Arena: Analyzing Search-Augmented LLMs",
+    "authors": [
+      "Mihran Miroyan",
+      "Tsung-Han Wu",
+      "Logan King",
+      "Tianle Li",
+      "Jiayi Pan",
+      "Xinyan Hu",
+      "Wei-Lin Chiang",
+      "Anastasios N. Angelopoulos",
+      "Trevor Darrell",
+      "Narges Norouzi",
+      "Joseph E. Gonzalez"
+    ],
+    "summary": "Search-augmented language models combine web search with Large Language Models (LLMs) to improve response groundedness and freshness. However, analyzing these systems remains challenging: existing datasets are limited in scale and narrow in scope, often constrained to static, single-turn, fact-checking questions. In this work, we introduce Search Arena, a crowd-sourced, large-scale, human-preference dataset of over 24,000 paired multi-turn user interactions with search-augmented LLMs. The dataset spans diverse intents and languages, and contains full system traces with around 12,000 human preference votes. Our analysis reveals that user preferences are influenced by the number of citations, even when the cited content does not directly support the attributed claims, uncovering a gap between perceived and actual credibility. Furthermore, user preferences vary across cited sources, revealing that community-driven platforms are generally preferred and static encyclopedic sources are not always appropriate and reliable. To assess performance across different settings, we conduct cross-arena analyses by testing search-augmented LLMs in a general-purpose chat environment and conventional LLMs in search-intensive settings. We find that web search does not degrade and may even improve performance in non-search settings; however, the quality in search settings is significantly affected if solely relying on the model's parametric knowledge. We open-sourced the dataset to support future research. Our dataset and code are available at: https://github.com/lmarena/search-arena.",
+    "categories": [
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-06-05T17:59:26Z",
+    "updated": "2026-03-02T23:17:18Z",
+    "url": "http://arxiv.org/abs/2506.05334v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.05334v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于评估搜索增强型大语言模型的通用对话能力和用户偏好，未涉及推荐系统或搜索引擎的核心架构（如召回、排序、重排序）优化。",
+    "translation": "Search Arena：分析搜索增强型大语言模型",
+    "summary_zh": "本文提出了一个大规模众包数据集 Search Arena，用于通过多轮人机交互分析搜索增强型大语言模型中用户偏好与引用来源可信度之间的关系及模型表现。",
+    "key_points": [
+      "本文提出了一个大规模众包数据集 Search Arena，用于通过多轮人机交互分析搜索增强型大语言模型中用户偏好与引用来源可信度之间的关系及模型表现"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05154v4",
+    "title": "Resisting Contextual Interference in RAG via Parametric-Knowledge Reinforcement",
+    "authors": [
+      "Chenyu Lin",
+      "Yilin Wen",
+      "Du Su",
+      "Hexiang Tan",
+      "Fei Sun",
+      "Muhan Chen",
+      "Chenfu Bao",
+      "Zhonghou Lyu"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) improves performance on knowledge-intensive tasks but can be derailed by wrong, irrelevant, or conflicting retrieved text, causing models to rely on inaccurate evidence and cascade errors. We propose Knowledgeable-R1, a reinforcement-learning framework that explicitly trains large language models to use parametric knowledge (PK) to resist contextual interference while still exploiting external context when it is reliably helpful. Knowledgeable-R1 introduces a joint sampling scheme that generates paired responses with and without retrieval, and learns both local advantages (within each decoding regime) and global advantages under the same input to quantify when to ignore misleading context versus adopt it. We employ an asymmetric advantage transformation that amplifies exploratory behaviors toward parametric knowledge. Experiments show that Knowledgeable-R1 significantly improves robustness and reasoning accuracy in knowledge conflict scenarios and general RAG scenarios, outperforming SOTA baselines by +22.89% in counterfactual scenarios, and without degradation when the retrieved context is fully accurate.Our code are available at https://github.com/lcy80366872/knowledgeable-R1.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-06-05T15:34:15Z",
+    "updated": "2026-02-25T12:22:09Z",
+    "url": "http://arxiv.org/abs/2506.05154v4",
+    "pdf_url": "http://arxiv.org/pdf/2506.05154v4.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "affiliation_lines": [
+      "1BaiduInc. 2InstituteofComputingTechnology,ChineseAcademyofSciences",
+      "outdegradationwhentheretrievedcontextisfullyaccurate. Ourcodeareavailable"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于通过强化学习解决 RAG 中的知识冲突问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "通过参数化知识强化抵抗 RAG 中的上下文干扰",
+    "summary_zh": "提出一种强化学习框架，训练大模型利用内部参数化知识识别并抵抗检索到的错误或冲突上下文的干扰，同时保留对可靠外部信息的利用能力。",
+    "key_points": [
+      "提出一种强化学习框架，训练大模型利用内部参数化知识识别并抵抗检索到的错误或冲突上下文的干扰，同时保留对可靠外部信息的利用能力"
+    ]
+  }
+]

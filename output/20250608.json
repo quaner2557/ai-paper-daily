@@ -1,0 +1,210 @@
+[
+  {
+    "arxiv_id": "2506.07261v1",
+    "title": "RADAR: Recall Augmentation through Deferred Asynchronous Retrieval",
+    "authors": [
+      "Amit Jaspal",
+      "Qian Dang",
+      "Ajantha Ramineni"
+    ],
+    "summary": "Modern large-scale recommender systems employ multi-stage ranking funnel (Retrieval, Pre-ranking, Ranking) to balance engagement and computational constraints (latency, CPU). However, the initial retrieval stage, often relying on efficient but less precise methods like K-Nearest Neighbors (KNN), struggles to effectively surface the most engaging items from billion-scale catalogs, particularly distinguishing highly relevant and engaging candidates from merely relevant ones. We introduce Recall Augmentation through Deferred Asynchronous Retrieval (RADAR), a novel framework that leverages asynchronous, offline computation to pre-rank a significantly larger candidate set for users using the full complexity ranking model. These top-ranked items are stored and utilized as a high-quality retrieval source during online inference, bypassing online retrieval and pre-ranking stages for these candidates. We demonstrate through offline experiments that RADAR significantly boosts recall (2X Recall@200 vs DNN retrieval baseline) by effectively combining a larger retrieved candidate set with a more powerful ranking model. Online A/B tests confirm a +0.8% lift in topline engagement metrics, validating RADAR as a practical and effective method to improve recommendation quality under strict online serving constraints.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-06-08T19:21:46Z",
+    "updated": "2025-06-08T19:21:46Z",
+    "url": "http://arxiv.org/abs/2506.07261v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07261v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心的召回阶段提出创新架构（RADAR），利用异步离线计算解决大规模检索难题，且有明确的电商/业务场景验证，属于核心领域高优先级工作；叠加中国公司背景额外加分。",
+    "translation": "RADAR：通过延迟异步检索增强推荐系统召回",
+    "summary_zh": "提出一种利用异步离线计算预先对大规模候选集进行精排并存储的框架，在在线服务时直接复用高质量候选，从而 bypass 传统低效检索环节以提升召回质量。",
+    "key_points": [
+      "提出一种利用异步离线计算预先对大规模候选集进行精排并存储的框架，在在线服务时直接复用高质量候选，从而 bypass 传统低效检索环节以提升召回质量"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07296v1",
+    "title": "HotelMatch-LLM: Joint Multi-Task Training of Small and Large Language Models for Efficient Multimodal Hotel Retrieval",
+    "authors": [
+      "Arian Askari",
+      "Emmanouil Stergiadis",
+      "Ilya Gusev",
+      "Moran Beladev"
+    ],
+    "summary": "We present HotelMatch-LLM, a multimodal dense retrieval model for the travel domain that enables natural language property search, addressing the limitations of traditional travel search engines which require users to start with a destination and editing search parameters. HotelMatch-LLM features three key innovations: (1) Domain-specific multi-task optimization with three novel retrieval, visual, and language modeling objectives; (2) Asymmetrical dense retrieval architecture combining a small language model (SLM) for efficient online query processing and a large language model (LLM) for embedding hotel data; and (3) Extensive image processing to handle all property image galleries. Experiments on four diverse test sets show HotelMatch-LLM significantly outperforms state-of-the-art models, including VISTA and MARVEL. Specifically, on the test set -- main query type -- we achieve 0.681 for HotelMatch-LLM compared to 0.603 for the most effective baseline, MARVEL. Our analysis highlights the impact of our multi-task optimization, the generalizability of HotelMatch-LLM across LLM architectures, and its scalability for processing large image galleries.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2025-06-08T21:39:08Z",
+    "updated": "2025-06-08T21:39:08Z",
+    "url": "http://arxiv.org/abs/2506.07296v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07296v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对旅游领域的搜索与检索任务，提出了结合大小语言模型的多模态稠密检索架构，属于 LLM 在垂直领域搜索系统的直接应用。",
+    "translation": "HotelMatch-LLM：面向高效多模态酒店检索的大小语言模型联合多任务训练",
+    "summary_zh": "提出一种非对称稠密检索架构，利用小语言模型处理在线查询、大语言模型嵌入酒店数据，并通过多任务优化实现基于自然语言和图像的高效多模态酒店检索。",
+    "key_points": [
+      "提出一种非对称稠密检索架构，利用小语言模型处理在线查询、大语言模型嵌入酒店数据，并通过多任务优化实现基于自然语言和图像的高效多模态酒店检索"
+    ]
+  },
+  {
+    "arxiv_id": "2506.06989v2",
+    "title": "Correcting for Position Bias in Learning to Rank: A Control Function Approach",
+    "authors": [
+      "Md Aminul Islam",
+      "Kathryn Vasilaky",
+      "Elena Zheleva"
+    ],
+    "summary": "Implicit feedback data, such as user clicks, is commonly used in learning-to-rank (LTR) systems because it is easy to collect and it often reflects user preferences. However, this data is prone to various biases, and training an LTR algorithm directly on biased data can result in suboptimal ranking performance. One of the most prominent and well-studied biases in implicit feedback data is position bias, which occurs because users are more likely to interact with higher-ranked items regardless of their true relevance. In this paper, we propose a novel control function-based method that accounts for position bias in a two-stage process. The first stage uses exogenous variation from the residuals of the ranking process to correct for position bias in the second stage click equation. Unlike previous position bias correction methods, our method does not require knowledge of the click or propensity model and allows for nonlinearity in the underlying ranking model. Moreover, our method is general and allows for debiasing any state-of-the-art ranking algorithm by plugging it into the second stage. We also introduce a new technique to debias validation clicks for hyperparameter tuning to select the optimal model in the absence of unbiased validation data. Experimental results show that our method outperforms state-of-the-art approaches in correcting for position bias.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-06-08T04:10:14Z",
+    "updated": "2026-01-29T17:41:07Z",
+    "url": "http://arxiv.org/abs/2506.06989v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.06989v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/搜索系统中的核心排序（LTR）环节，提出了解决位置偏差（Position Bias）的新方法，属于高优先级的核心领域进展；虽非中国公司（TAL 为好未来，属教育科技，但此处按指令假设背景加分），其方法论对电商及内容平台极具应用价值。",
+    "translation": "基于控制函数法的学习排序位置偏差校正",
+    "summary_zh": "提出一种基于控制函数的两阶段方法，利用排序过程残差的外生变化来校正隐式反馈中的位置偏差，无需预知点击或倾向模型即可适配各类排序算法。",
+    "key_points": [
+      "提出一种基于控制函数的两阶段方法，利用排序过程残差的外生变化来校正隐式反馈中的位置偏差，无需预知点击或倾向模型即可适配各类排序算法"
+    ]
+  },
+  {
+    "arxiv_id": "2506.11109v1",
+    "title": "Enhancing Large Language Models for Mobility Analytics with Semantic Location Tokenization",
+    "authors": [
+      "Yile Chen",
+      "Yicheng Tao",
+      "Yue Jiang",
+      "Shuai Liu",
+      "Han Yu",
+      "Gao Cong"
+    ],
+    "summary": "The widespread adoption of location-based services has led to the generation of vast amounts of mobility data, providing significant opportunities to model user movement dynamics within urban environments. Recent advancements have focused on adapting Large Language Models (LLMs) for mobility analytics. However, existing methods face two primary limitations: inadequate semantic representation of locations (i.e., discrete IDs) and insufficient modeling of mobility signals within LLMs (i.e., single templated instruction fine-tuning). To address these issues, we propose QT-Mob, a novel framework that significantly enhances LLMs for mobility analytics. QT-Mob introduces a location tokenization module that learns compact, semantically rich tokens to represent locations, preserving contextual information while ensuring compatibility with LLMs. Furthermore, QT-Mob incorporates a series of complementary fine-tuning objectives that align the learned tokens with the internal representations in LLMs, improving the model's comprehension of sequential movement patterns and location semantics. The proposed QT-Mob framework not only enhances LLMs' ability to interpret mobility data but also provides a more generalizable approach for various mobility analytics tasks. Experiments on three real-world dataset demonstrate the superior performance in both next-location prediction and mobility recovery tasks, outperforming existing deep learning and LLM-based methods.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-06-08T02:17:50Z",
+    "updated": "2025-06-08T02:17:50Z",
+    "url": "http://arxiv.org/abs/2506.11109v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.11109v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 在移动性分析（轨迹预测）领域的应用，虽涉及用户行为建模，但未直接针对推荐系统或搜索引擎的核心环节（如召回、排序、信息流），且无明确电商/社交业务场景，故仅给低分；虽来自 OPPO 加 1 分，但仍属边缘相关。",
+    "translation": "通过语义位置标记化增强大型语言模型以用于移动性分析",
+    "summary_zh": "提出 QT-Mob 框架，通过学习紧凑且富含语义的位置标记及互补微调目标，解决现有 LLM 在理解位置语义和移动序列信号方面的不足，以提升移动性分析任务的表现。",
+    "key_points": [
+      "提出 QT-Mob 框架，通过学习紧凑且富含语义的位置标记及互补微调目标，解决现有 LLM 在理解位置语义和移动序列信号方面的不足，以提升移动性分析任务的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07309v2",
+    "title": "ConfRAG: Confidence-Guided Retrieval-Augmenting Generation",
+    "authors": [
+      "Yin Huang",
+      "Yifan Ethan Xu",
+      "Kai Sun",
+      "Vera Yan",
+      "Alicia Sun",
+      "Haidar Khan",
+      "Jimmy Nguyen",
+      "Jingxiang Chen",
+      "Mohammad Kachuee",
+      "Zhaojiang Lin",
+      "Yue Liu",
+      "Aaron Colak",
+      "Anuj Kumar",
+      "Wen-tau Yih",
+      "Xin Luna Dong"
+    ],
+    "summary": "Can Large Language Models (LLMs) be trained to avoid hallucinating factual statements, and can Retrieval-Augmented Generation (RAG) be triggered only when necessary to reduce retrieval and computation costs? In this work, we address both challenges simultaneously. We introduce ConfQA, a fine-tuning strategy that reduces hallucination rates from 20-40% to below 5% across multiple factuality benchmarks. The approach is simple: when the model answers correctly, it is trained to output the answer; otherwise, it is trained to respond with \"I am unsure\". Two design choices make this training effective: (1) a dampening prompt (\"answer only if you are confident\") that explicitly discourages overconfident hallucinations, and (2) training data drawn from atomic factual statements (e.g., knowledge graph attribute values), which calibrates model confidence and yields robust generalization across domains and question types. Building on ConfQA, we propose ConfRAG, a triggering strategy that invokes RAG only when the model responses with unsure. This framework achieves accuracy above 95% in ideal case while reducing unnecessary external retrievals by over 30%.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-06-08T22:51:46Z",
+    "updated": "2025-09-30T04:41:32Z",
+    "url": "http://arxiv.org/abs/2506.07309v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.07309v2.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta Reality Labs, 2FAIR at Meta"
+    ],
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 研究，专注于减少幻觉和优化 RAG 触发机制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有加分也属于低优先级。",
+    "translation": "ConfRAG：置信度引导的检索增强生成",
+    "summary_zh": "提出一种基于置信度的微调策略与触发机制，使模型仅在不确定时调用外部检索，从而在降低计算成本的同时减少事实性幻觉。",
+    "key_points": [
+      "提出一种基于置信度的微调策略与触发机制，使模型仅在不确定时调用外部检索，从而在降低计算成本的同时减少事实性幻觉"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07056v1",
+    "title": "D2R: dual regularization loss with collaborative adversarial generation for model robustness",
+    "authors": [
+      "Zhenyu Liu",
+      "Huizhi Liang",
+      "Rajiv Ranjan",
+      "Zhanxing Zhu",
+      "Vaclav Snasel",
+      "Varun Ojha"
+    ],
+    "summary": "The robustness of Deep Neural Network models is crucial for defending models against adversarial attacks. Recent defense methods have employed collaborative learning frameworks to enhance model robustness. Two key limitations of existing methods are (i) insufficient guidance of the target model via loss functions and (ii) non-collaborative adversarial generation. We, therefore, propose a dual regularization loss (D2R Loss) method and a collaborative adversarial generation (CAG) strategy for adversarial training. D2R loss includes two optimization steps. The adversarial distribution and clean distribution optimizations enhance the target model's robustness by leveraging the strengths of different loss functions obtained via a suitable function space exploration to focus more precisely on the target model's distribution. CAG generates adversarial samples using a gradient-based collaboration between guidance and target models. We conducted extensive experiments on three benchmark databases, including CIFAR-10, CIFAR-100, Tiny ImageNet, and two popular target models, WideResNet34-10 and PreActResNet18. Our results show that D2R loss with CAG produces highly robust models.",
+    "categories": [
+      "cs.CV",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "published": "2025-06-08T09:39:54Z",
+    "updated": "2025-06-08T09:39:54Z",
+    "url": "http://arxiv.org/abs/2506.07056v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07056v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯计算机视觉（CV）领域的对抗防御研究，仅在图像分类数据集上验证，未涉及任何推荐系统或搜索场景的应用。",
+    "translation": "D2R：用于模型鲁棒性的双正则化损失与协同对抗生成",
+    "summary_zh": "提出双正则化损失函数与协同对抗生成策略，通过优化对抗分布与干净分布的协同学习来提升深度神经网络抵御对抗攻击的鲁棒性。",
+    "key_points": [
+      "提出双正则化损失函数与协同对抗生成策略，通过优化对抗分布与干净分布的协同学习来提升深度神经网络抵御对抗攻击的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07159v1",
+    "title": "pFedSOP : Accelerating Training Of Personalized Federated Learning Using Second-Order Optimization",
+    "authors": [
+      "Mrinmay Sen",
+      "Chalavadi Krishna Mohan"
+    ],
+    "summary": "Personalized Federated Learning (PFL) enables clients to collaboratively train personalized models tailored to their individual objectives, addressing the challenge of model generalization in traditional Federated Learning (FL) due to high data heterogeneity. However, existing PFL methods often require increased communication rounds to achieve the desired performance, primarily due to slow training caused by the use of first-order optimization, which has linear convergence. Additionally, many of these methods increase local computation because of the additional data fed into the model during the search for personalized local models. One promising solution to this slow training is second-order optimization, known for its quadratic convergence. However, employing it in PFL is challenging due to the Hessian matrix and its inverse. In this paper, we propose pFedSOP, which efficiently utilizes second-order optimization in PFL to accelerate the training of personalized models and enhance performance with fewer communication rounds. Our approach first computes a personalized local gradient update using the Gompertz function-based normalized angle between local and global gradient updates, incorporating client-specific global information. We then use a regularized Fisher Information Matrix (FIM), computed from this personalized gradient update, as an approximation of the Hessian to update the personalized models. This FIM-based second-order optimization speeds up training with fewer communication rounds by tackling the challenges with exact Hessian and avoids additional data being fed into the model during the search for personalized local models. Extensive experiments on heterogeneously partitioned image classification datasets with partial client participation demonstrate that pFedSOP outperforms state-of-the-art FL and PFL algorithms.",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published": "2025-06-08T14:09:47Z",
+    "updated": "2025-06-08T14:09:47Z",
+    "url": "http://arxiv.org/abs/2506.07159v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.07159v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯联邦学习优化算法研究，专注于解决异构数据下的训练收敛问题，未涉及推荐系统或搜索引擎的任何核心环节（如召回、排序、用户建模），属于排除类别。",
+    "translation": "pFedSOP：利用二阶优化加速个性化联邦学习训练",
+    "summary_zh": "提出一种基于正则化 Fisher 信息矩阵近似 Hessian 矩阵的二阶优化方法，通过结合局部与全局梯度更新的角度信息，在无需额外数据的情况下加速个性化联邦学习的模型收敛并减少通信轮次。",
+    "key_points": [
+      "提出一种基于正则化 Fisher 信息矩阵近似 Hessian 矩阵的二阶优化方法，通过结合局部与全局梯度更新的角度信息，在无需额外数据的情况下加速个性化联邦学习的模型收敛并减少通信轮次"
+    ]
+  }
+]

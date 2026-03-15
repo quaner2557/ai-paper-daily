@@ -1,0 +1,225 @@
+[
+  {
+    "arxiv_id": "2505.05035v1",
+    "title": "Divide-and-Conquer: Cold-Start Bundle Recommendation via Mixture of Diffusion Experts",
+    "authors": [
+      "Ming Li",
+      "Lin Li",
+      "Xiaohui Tao",
+      "Dong Zhang",
+      "Jimmy Xiangji Huang"
+    ],
+    "summary": "Cold-start bundle recommendation focuses on modeling new bundles with insufficient information to provide recommendations. Advanced bundle recommendation models usually learn bundle representations from multiple views (e.g., interaction view) at both the bundle and item levels. Consequently, the cold-start problem for bundles is more challenging than that for traditional items due to the dual-level multi-view complexity. In this paper, we propose a novel Mixture of Diffusion Experts (MoDiffE) framework, which employs a divide-and-conquer strategy for cold-start bundle recommendation and follows three steps:(1) Divide: The bundle cold-start problem is divided into independent but similar sub-problems sequentially by level and view, which can be summarized as the poor representation of feature-missing bundles in prior-embedding models. (2) Conquer: Beyond prior-embedding models that fundamentally provide the embedded representations, we introduce a diffusion-based method to solve all sub-problems in a unified way, which directly generates diffusion representations using diffusion models without depending on specific features. (3) Combine: A cold-aware hierarchical Mixture of Experts (MoE) is employed to combine results of the sub-problems for final recommendations, where the two models for each view serve as experts and are adaptively fused for different bundles in a multi-layer manner. Additionally, MoDiffE adopts a multi-stage decoupled training pipeline and introduces a cold-start gating augmentation method to enable the training of gating for cold bundles. Through extensive experiments on three real-world datasets, we demonstrate that MoDiffE significantly outperforms existing solutions in handling cold-start bundle recommendation. It achieves up to a 0.1027 absolute gain in Recall@20 in cold-start scenarios and up to a 47.43\\% relative improvement in all-bundle scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-08T08:13:44Z",
+    "updated": "2025-05-08T08:13:44Z",
+    "url": "http://arxiv.org/abs/2505.05035v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.05035v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的核心难题（捆绑包冷启动），提出了结合扩散模型与 MoE 的新架构，且来自工业界（TAL），完全符合高优先级标准。",
+    "translation": "分而治之：基于混合扩散专家的冷启动捆绑包推荐",
+    "summary_zh": "提出一种混合扩散专家框架，通过分治策略将冷启动问题分解为子问题，利用扩散模型直接生成不依赖具体特征的表示，并结合冷感知层级 MoE 进行自适应融合以完成推荐。",
+    "key_points": [
+      "提出一种混合扩散专家框架，通过分治策略将冷启动问题分解为子问题，利用扩散模型直接生成不依赖具体特征的表示，并结合冷感知层级 MoE 进行自适应融合以完成推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2505.04960v1",
+    "title": "Learning Item Representations Directly from Multimodal Features for Effective Recommendation",
+    "authors": [
+      "Xin Zhou",
+      "Xiaoxiong Zhang",
+      "Dusit Niyato",
+      "Zhiqi Shen"
+    ],
+    "summary": "Conventional multimodal recommender systems predominantly leverage Bayesian Personalized Ranking (BPR) optimization to learn item representations by amalgamating item identity (ID) embeddings with multimodal features. Nevertheless, our empirical and theoretical findings unequivocally demonstrate a pronounced optimization gradient bias in favor of acquiring representations from multimodal features over item ID embeddings. As a consequence, item ID embeddings frequently exhibit suboptimal characteristics despite the convergence of multimodal feature parameters. Given the rich informational content inherent in multimodal features, in this paper, we propose a novel model (i.e., LIRDRec) that learns item representations directly from these features to augment recommendation performance. Recognizing that features derived from each modality may capture disparate yet correlated aspects of items, we propose a multimodal transformation mechanism, integrated with modality-specific encoders, to effectively fuse features from all modalities. Moreover, to differentiate the influence of diverse modality types, we devise a progressive weight copying fusion module within LIRDRec. This module incrementally learns the weight assigned to each modality in synthesizing the final user or item representations. Finally, we utilize the powerful visual understanding of Multimodal Large Language Models (MLLMs) to convert the item images into texts and extract semantics embeddings upon the texts via LLMs. Empirical evaluations conducted on five real-world datasets validate the superiority of our approach relative to competing baselines. It is worth noting the proposed model, equipped with embeddings extracted from MLLMs and LLMs, can further improve the recommendation accuracy of NDCG@20 by an average of 4.21% compared to the original embeddings.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-05-08T05:42:22Z",
+    "updated": "2025-05-08T05:42:22Z",
+    "url": "http://arxiv.org/abs/2505.04960v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.04960v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统，提出利用 MLLM/LLM 增强物品表征并解决 ID 嵌入优化偏差问题，完全符合核心领域进展及 LLM for RecSys 的高优先级标准。",
+    "translation": "直接从多模态特征学习物品表征以实现高效推荐",
+    "summary_zh": "本文提出 LIRDRec 模型，通过多模态转换机制和渐进式权重复制融合模块，直接利用多模态特征（含 MLLM/LLM 提取的语义）学习物品表征，以解决传统方法中 ID 嵌入优化不足的问题。",
+    "key_points": [
+      "本文提出 LIRDRec 模型，通过多模态转换机制和渐进式权重复制融合模块，直接利用多模态特征（含 MLLM/LLM 提取的语义）学习物品表征，以解决传统方法中 ID 嵌入优化不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.05605v1",
+    "title": "The Evolution of Embedding Table Optimization and Multi-Epoch Training in Pinterest Ads Conversion",
+    "authors": [
+      "Andrew Qiu",
+      "Shubham Barhate",
+      "Hin Wai Lui",
+      "Runze Su",
+      "Rafael Rios Müller",
+      "Kungang Li",
+      "Ling Leng",
+      "Han Sun",
+      "Shayan Ehsani",
+      "Zhifang Liu"
+    ],
+    "summary": "Deep learning for conversion prediction has found widespread applications in online advertising. These models have become more complex as they are trained to jointly predict multiple objectives such as click, add-to-cart, checkout and other conversion types. Additionally, the capacity and performance of these models can often be increased with the use of embedding tables that encode high cardinality categorical features such as advertiser, user, campaign, and product identifiers (IDs). These embedding tables can be pre-trained, but also learned end-to-end jointly with the model to directly optimize the model objectives. Training these large tables is challenging due to: gradient sparsity, the high cardinality of the categorical features, the non-uniform distribution of IDs and the very high label sparsity. These issues make training prone to both slow convergence and overfitting after the first epoch. Previous works addressed the multi-epoch overfitting issue by using: stronger feature hashing to reduce cardinality, filtering of low frequency IDs, regularization of the embedding tables, re-initialization of the embedding tables after each epoch, etc. Some of these techniques reduce overfitting at the expense of reduced model performance if used too aggressively. In this paper, we share key learnings from the development of embedding table optimization and multi-epoch training in Pinterest Ads Conversion models. We showcase how our Sparse Optimizer speeds up convergence, and how multi-epoch overfitting varies in severity between different objectives in a multi-task model depending on label sparsity. We propose a new approach to deal with multi-epoch overfitting: the use of a frequency-adaptive learning rate on the embedding tables and compare it to embedding re-initialization. We evaluate both methods offline using an industrial large-scale production dataset.",
+    "categories": [
+      "cs.LG",
+      "cs.CE",
+      "cs.IR",
+      "stat.AP"
+    ],
+    "published": "2025-05-08T19:18:32Z",
+    "updated": "2025-05-08T19:18:32Z",
+    "url": "http://arxiv.org/abs/2505.05605v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.05605v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告推荐系统中的核心问题（嵌入表优化与多轮训练过拟合），提出了频率自适应学习率等具体解决方案，属于高优先级的工业界推荐/广告系统实践。",
+    "translation": "Pinterest 广告转化中嵌入表优化与多轮训练的演进",
+    "summary_zh": "本文针对广告转化率预测模型中嵌入表训练面临的梯度稀疏与多轮过拟合难题，提出了一种频率自适应学习率方法以替代传统的嵌入重初始化策略，从而优化多任务模型在稀疏标签下的收敛性与泛化能力。",
+    "key_points": [
+      "本文针对广告转化率预测模型中嵌入表训练面临的梯度稀疏与多轮过拟合难题，提出了一种频率自适应学习率方法以替代传统的嵌入重初始化策略，从而优化多任务模型在稀疏标签下的收敛性与泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2505.05196v1",
+    "title": "Stealthy LLM-Driven Data Poisoning Attacks Against Embedding-Based Retrieval-Augmented Recommender Systems",
+    "authors": [
+      "Fatemeh Nazary",
+      "Yashar Deldjoo",
+      "Tommaso Di Noia",
+      "Eugenio Di Sciascio"
+    ],
+    "summary": "We present a systematic study of provider-side data poisoning in retrieval-augmented recommender systems (RAG-based). By modifying only a small fraction of tokens within item descriptions -- for instance, adding emotional keywords or borrowing phrases from semantically related items -- an attacker can significantly promote or demote targeted items. We formalize these attacks under token-edit and semantic-similarity constraints, and we examine their effectiveness in both promotion (long-tail items) and demotion (short-head items) scenarios. Our experiments on MovieLens, using two large language model (LLM) retrieval modules, show that even subtle attacks shift final rankings and item exposures while eluding naive detection. The results underscore the vulnerability of RAG-based pipelines to small-scale metadata rewrites and emphasize the need for robust textual consistency checks and provenance tracking to thwart stealthy provider-side poisoning.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-08T12:53:42Z",
+    "updated": "2025-05-08T12:53:42Z",
+    "url": "http://arxiv.org/abs/2505.05196v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.05196v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于检索增强生成（RAG）的推荐系统，研究了数据投毒攻击及其对排序和曝光的影响，属于推荐系统安全与鲁棒性的核心应用研究，而非纯 LLM 理论。",
+    "translation": "针对基于嵌入检索增强推荐系统的隐蔽大模型数据投毒攻击",
+    "summary_zh": "本文提出了一种针对 RAG 推荐系统的提供商侧数据投毒方法，通过微调物品描述中的少量令牌来操纵目标物品的排序和曝光，揭示了此类系统对元数据篡改的脆弱性。",
+    "key_points": [
+      "本文提出了一种针对 RAG 推荐系统的提供商侧数据投毒方法，通过微调物品描述中的少量令牌来操纵目标物品的排序和曝光，揭示了此类系统对元数据篡改的脆弱性"
+    ]
+  },
+  {
+    "arxiv_id": "2505.05016v1",
+    "title": "The Pitfalls of Growing Group Complexity: LLMs and Social Choice-Based Aggregation for Group Recommendations",
+    "authors": [
+      "Cedric Waterschoot",
+      "Nava Tintarev",
+      "Francesco Barile"
+    ],
+    "summary": "Large Language Models (LLMs) are increasingly applied in recommender systems aimed at both individuals and groups. Previously, Group Recommender Systems (GRS) often used social choice-based aggregation strategies to derive a single recommendation based on the preferences of multiple people. In this paper, we investigate under which conditions language models can perform these strategies correctly based on zero-shot learning and analyse whether the formatting of the group scenario in the prompt affects accuracy. We specifically focused on the impact of group complexity (number of users and items), different LLMs, different prompting conditions, including In-Context learning or generating explanations, and the formatting of group preferences. Our results show that performance starts to deteriorate when considering more than 100 ratings. However, not all language models were equally sensitive to growing group complexity. Additionally, we showed that In-Context Learning (ICL) can significantly increase the performance at higher degrees of group complexity, while adding other prompt modifications, specifying domain cues or prompting for explanations, did not impact accuracy. We conclude that future research should include group complexity as a factor in GRS evaluation due to its effect on LLM performance. Furthermore, we showed that formatting the group scenarios differently, such as rating lists per user or per item, affected accuracy. All in all, our study implies that smaller LLMs are capable of generating group recommendations under the right conditions, making the case for using smaller models that require less computing power and costs.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-05-08T07:43:01Z",
+    "updated": "2025-05-08T07:43:01Z",
+    "url": "http://arxiv.org/abs/2505.05016v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.05016v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究 LLM 在群组推荐系统（GRS）中的应用，分析了群体复杂度对推荐聚合策略的影响，属于明确的推荐系统应用场景；虽为纯 LLM 应用研究而非新架构创新，但紧扣 RecSys 核心问题，且来自中国企业额外加 1 分。",
+    "translation": "群体复杂度增长的陷阱：基于 LLM 与社会选择聚合的群组推荐研究",
+    "summary_zh": "本文探讨了大语言模型在零-shot 学习下执行基于社会选择的群组推荐聚合策略的能力，重点分析了群体规模（复杂度）及提示词格式对推荐准确性的影响机制。",
+    "key_points": [
+      "本文探讨了大语言模型在零-shot 学习下执行基于社会选择的群组推荐聚合策略的能力，重点分析了群体规模（复杂度）及提示词格式对推荐准确性的影响机制"
+    ]
+  },
+  {
+    "arxiv_id": "2505.04948v2",
+    "title": "Prompt-Based LLMs for Position Bias-Aware Reranking in Personalized Recommendations",
+    "authors": [
+      "Md Aminul Islam",
+      "Ahmed Sayeed Faruk"
+    ],
+    "summary": "Recommender systems are essential for delivering personalized content across digital platforms by modeling user preferences and behaviors. Recently, large language models (LLMs) have been adopted for prompt-based recommendation due to their ability to generate personalized outputs without task-specific training. However, LLM-based methods face limitations such as limited context window size, inefficient pointwise and pairwise prompting, and difficulty handling listwise ranking due to token constraints. LLMs can also be sensitive to position bias, as they may overemphasize earlier items in the prompt regardless of their true relevance. To address and investigate these issues, we propose a hybrid framework that combines a traditional recommendation model with an LLM for reranking top-k items using structured prompts. We evaluate the effects of user history reordering and instructional prompts for mitigating position bias. Experiments on MovieLens-100K show that randomizing user history improves ranking quality, but LLM-based reranking does not outperform the base model. Explicit instructions to reduce position bias are also ineffective. Our evaluations reveal limitations in LLMs' ability to model ranking context and mitigate bias. Our code is publicly available at https://github.com/aminul7506/LLMForReRanking.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-05-08T05:01:44Z",
+    "updated": "2025-05-27T02:44:15Z",
+    "url": "http://arxiv.org/abs/2505.04948v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.04948v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的重排序（Reranking）环节，研究利用 LLM 解决位置偏差问题，属于 LLM 在 RecSys 中的直接应用；虽实验结论显示效果未超越基线，但核心议题高度相关。",
+    "translation": "基于提示的大语言模型用于个性化推荐中的位置偏差感知重排序",
+    "summary_zh": "提出一种结合传统推荐模型与大语言模型的混合重排序框架，通过结构化提示、用户历史重排序及指令微调来探究并缓解 LLM 在列表级排序中的位置偏差问题。",
+    "key_points": [
+      "提出一种结合传统推荐模型与大语言模型的混合重排序框架，通过结构化提示、用户历史重排序及指令微调来探究并缓解 LLM 在列表级排序中的位置偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.05434v1",
+    "title": "Artifact Sharing for Information Retrieval Research",
+    "authors": [
+      "Sean MacAvaney"
+    ],
+    "summary": "Sharing artifacts -- such as trained models, pre-built indexes, and the code to use them -- aids in reproducibility efforts by allowing researchers to validate intermediate steps and improves the sustainability of research by allowing multiple groups to build off one another's prior computational work. Although there are de facto consensuses on how to share research code (through a git repository linked to from publications) and trained models (via HuggingFace Hub), there is no consensus for other types of artifacts, such as built indexes. Given the practical utility of using shared indexes, researchers have resorted to self-hosting these resources or performing ad hoc file transfers upon request, ultimately limiting the artifacts' discoverability and reuse. This demonstration introduces a flexible and interoperable way to share artifacts for Information Retrieval research, improving both their accessibility and usability.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-08T17:23:32Z",
+    "updated": "2025-05-08T17:23:32Z",
+    "url": "http://arxiv.org/abs/2505.05434v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.05434v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文关注信息检索（IR）研究的工件共享和复现性基础设施，虽与搜索领域边缘相关，但并未提出任何核心的推荐/搜索算法、模型架构或直接的业务应用创新。",
+    "translation": "面向信息检索研究的工件共享机制",
+    "summary_zh": "本文提出了一种灵活且可互操作的框架，用于标准化共享训练模型、预建索引及代码等研究工件，旨在解决当前缺乏统一标准导致的资源发现难和复用率低的问题。",
+    "key_points": [
+      "本文提出了一种灵活且可互操作的框架，用于标准化共享训练模型、预建索引及代码等研究工件，旨在解决当前缺乏统一标准导致的资源发现难和复用率低的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.05666v1",
+    "title": "Lost in OCR Translation? Vision-Based Approaches to Robust Document Retrieval",
+    "authors": [
+      "Alexander Most",
+      "Joseph Winjum",
+      "Ayan Biswas",
+      "Shawn Jones",
+      "Nishath Rajiv Ranasinghe",
+      "Dan O'Malley",
+      "Manish Bhattarai"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has become a popular technique for enhancing the reliability and utility of Large Language Models (LLMs) by grounding responses in external documents. Traditional RAG systems rely on Optical Character Recognition (OCR) to first process scanned documents into text. However, even state-of-the-art OCRs can introduce errors, especially in degraded or complex documents. Recent vision-language approaches, such as ColPali, propose direct visual embedding of documents, eliminating the need for OCR. This study presents a systematic comparison between a vision-based RAG system (ColPali) and more traditional OCR-based pipelines utilizing Llama 3.2 (90B) and Nougat OCR across varying document qualities. Beyond conventional retrieval accuracy metrics, we introduce a semantic answer evaluation benchmark to assess end-to-end question-answering performance. Our findings indicate that while vision-based RAG performs well on documents it has been fine-tuned on, OCR-based RAG is better able to generalize to unseen documents of varying quality. We highlight the key trade-offs between computational efficiency and semantic accuracy, offering practical guidance for RAG practitioners in selecting between OCR-dependent and vision-based document retrieval systems in production environments.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-05-08T21:54:02Z",
+    "updated": "2025-05-08T21:54:02Z",
+    "url": "http://arxiv.org/abs/2505.05666v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.05666v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文主要研究 RAG 系统中的文档检索与 OCR 问题，属于通用 NLP/LLM 应用范畴，未直接针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "迷失在 OCR 翻译中？面向鲁棒文档检索的视觉方法研究",
+    "summary_zh": "本文对比了基于视觉嵌入与基于 OCR 文本的 RAG 检索方案，分析了两者在不同文档质量下的泛化能力与语义准确性权衡。",
+    "key_points": [
+      "本文对比了基于视觉嵌入与基于 OCR 文本的 RAG 检索方案，分析了两者在不同文档质量下的泛化能力与语义准确性权衡"
+    ]
+  }
+]

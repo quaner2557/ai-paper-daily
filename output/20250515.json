@@ -1,0 +1,241 @@
+[
+  {
+    "arxiv_id": "2505.18177v1",
+    "title": "FedGRec: Dynamic Spatio-Temporal Federated Graph Learning for Secure and Efficient Cross-Border Recommendations",
+    "authors": [
+      "Zhizhong Tan",
+      "Jiexin Zheng",
+      "Xingxing Yang",
+      "Chi Zhang",
+      "Weiping Deng",
+      "Wenyong Wang"
+    ],
+    "summary": "Due to the highly sensitive nature of certain data in cross-border sharing, collaborative cross-border recommendations and data sharing are often subject to stringent privacy protection regulations, resulting in insufficient data for model training. Consequently, achieving efficient cross-border business recommendations while ensuring privacy security poses a significant challenge. Although federated learning has demonstrated broad potential in collaborative training without exposing raw data, most existing federated learning-based GNN training methods still rely on federated averaging strategies, which perform suboptimally on highly heterogeneous graph data. To address this issue, we propose FedGRec, a privacy-preserving federated graph learning method for cross-border recommendations. FedGRec captures user preferences from distributed multi-domain data to enhance recommendation performance across all domains without privacy leakage. Specifically, FedGRec leverages collaborative signals from local subgraphs associated with users or items to enrich their representation learning. Additionally, it employs dynamic spatiotemporal modeling to integrate global and local user preferences in real time based on business recommendation states, thereby deriving the final representations of target users and candidate items. By automatically filtering relevant behaviors, FedGRec effectively mitigates noise interference from unreliable neighbors. Furthermore, through a personalized federated aggregation strategy, FedGRec adapts global preferences to heterogeneous domain data, enabling collaborative learning of user preferences across multiple domains. Extensive experiments on three datasets demonstrate that FedGRec consistently outperforms competitive single-domain and cross-domain baselines while effectively preserving data privacy in cross-border recommendations.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-05-15T02:08:22Z",
+    "updated": "2025-05-15T02:08:22Z",
+    "url": "http://arxiv.org/abs/2505.18177v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.18177v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨境推荐系统中的隐私保护与数据异构问题，提出了基于联邦图学习的专用架构，属于核心推荐领域的高价值应用。",
+    "translation": "FedGRec：面向安全高效跨境推荐的动态时空联邦图学习",
+    "summary_zh": "提出一种联邦图学习框架，通过利用局部子图协作信号和动态时空建模，在保护隐私的前提下整合全球与本地用户偏好以解决跨境数据异构难题。",
+    "key_points": [
+      "提出一种联邦图学习框架，通过利用局部子图协作信号和动态时空建模，在保护隐私的前提下整合全球与本地用户偏好以解决跨境数据异构难题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.11552v2",
+    "title": "GSPRec: Temporal-Aware Graph Spectral Filtering for Recommendation",
+    "authors": [
+      "Ahmad Bin Rabiah",
+      "Julian McAuley"
+    ],
+    "summary": "Graph-based recommendation systems are effective at modeling collaborative patterns but often suffer from two limitations: overreliance on low-pass filtering, which suppresses user-specific signals, and omission of sequential dynamics in graph construction. We introduce GSPRec, a graph spectral model that integrates temporal transitions through sequentially-informed graph construction and applies frequency-aware filtering in the spectral domain. GSPRec encodes item transitions via multi-hop diffusion to enable the use of symmetric Laplacians for spectral processing. To capture user preferences, we design a dual-filtering mechanism: a Gaussian bandpass filter to extract mid-frequency, user-level patterns, and a low-pass filter to retain global trends. Extensive experiments on four public datasets show that GSPRec consistently outperforms baselines, with an average improvement of 6.77% in NDCG@10. Ablation studies show the complementary benefits of both sequential graph augmentation and bandpass filtering.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-15T15:49:56Z",
+    "updated": "2025-09-24T04:09:49Z",
+    "url": "http://arxiv.org/abs/2505.11552v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.11552v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的图神经网络方法，提出了结合时序动态和频谱滤波的新架构，属于核心推荐技术改进。",
+    "translation": "GSPRec：用于推荐的时序感知图谱谱滤波",
+    "summary_zh": "提出一种图谱模型，通过序列感知的图构建整合时序转移，并利用高斯带通与低 pass 双滤波机制分别提取用户级模式与全局趋势以优化推荐。",
+    "key_points": [
+      "提出一种图谱模型，通过序列感知的图构建整合时序转移，并利用高斯带通与低 pass 双滤波机制分别提取用户级模式与全局趋势以优化推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2505.10212v1",
+    "title": "Do LLMs Memorize Recommendation Datasets? A Preliminary Study on MovieLens-1M",
+    "authors": [
+      "Dario Di Palma",
+      "Felice Antonio Merra",
+      "Maurizio Sfilio",
+      "Vito Walter Anelli",
+      "Fedelucio Narducci",
+      "Tommaso Di Noia"
+    ],
+    "summary": "Large Language Models (LLMs) have become increasingly central to recommendation scenarios due to their remarkable natural language understanding and generation capabilities. Although significant research has explored the use of LLMs for various recommendation tasks, little effort has been dedicated to verifying whether they have memorized public recommendation dataset as part of their training data. This is undesirable because memorization reduces the generalizability of research findings, as benchmarking on memorized datasets does not guarantee generalization to unseen datasets. Furthermore, memorization can amplify biases, for example, some popular items may be recommended more frequently than others.\n  In this work, we investigate whether LLMs have memorized public recommendation datasets. Specifically, we examine two model families (GPT and Llama) across multiple sizes, focusing on one of the most widely used dataset in recommender systems: MovieLens-1M. First, we define dataset memorization as the extent to which item attributes, user profiles, and user-item interactions can be retrieved by prompting the LLMs. Second, we analyze the impact of memorization on recommendation performance. Lastly, we examine whether memorization varies across model families and model sizes. Our results reveal that all models exhibit some degree of memorization of MovieLens-1M, and that recommendation performance is related to the extent of memorization. We have made all the code publicly available at: https://github.com/sisinflab/LLM-MemoryInspector",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-15T12:16:36Z",
+    "updated": "2025-05-15T12:16:36Z",
+    "url": "http://arxiv.org/abs/2505.10212v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.10212v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于推荐系统中 LLM 的数据记忆问题及其对泛化性和偏差的影响，属于 RecSys 领域的关键评估研究，但侧重于分析而非提出新的推荐架构或算法。",
+    "translation": "LLM 是否记住了推荐数据集？基于 MovieLens-1M 的初步研究",
+    "summary_zh": "本文定义了通过提示检索属性与交互来衡量 LLM 对推荐数据集的记忆程度，并分析了这种记忆现象如何影响推荐性能及在不同模型间的差异。",
+    "key_points": [
+      "本文定义了通过提示检索属性与交互来衡量 LLM 对推荐数据集的记忆程度，并分析了这种记忆现象如何影响推荐性能及在不同模型间的差异"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09945v1",
+    "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+    "authors": [
+      "Deeksha Prahlad",
+      "Chanhee Lee",
+      "Dongha Kim",
+      "Hokeun Kim"
+    ],
+    "summary": "The advent of large language models (LLMs) has allowed numerous applications, including the generation of queried responses, to be leveraged in chatbots and other conversational assistants. Being trained on a plethora of data, LLMs often undergo high levels of over-fitting, resulting in the generation of extra and incorrect data, thus causing hallucinations in output generation. One of the root causes of such problems is the lack of timely, factual, and personalized information fed to the LLM. In this paper, we propose an approach to address these problems by introducing retrieval augmented generation (RAG) using knowledge graphs (KGs) to assist the LLM in personalized response generation tailored to the users. KGs have the advantage of storing continuously updated factual information in a structured way. While our KGs can be used for a variety of frequently updated personal data, such as calendar, contact, and location data, we focus on calendar data in this paper. Our experimental results show that our approach works significantly better in understanding personal information and generating accurate responses compared to the baseline LLMs using personal data as text inputs, with a moderate reduction in response time.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-05-15T04:01:58Z",
+    "updated": "2025-05-15T04:01:58Z",
+    "url": "http://arxiv.org/abs/2505.09945v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09945v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 应用研究（利用 RAG 和 KG 解决幻觉及个性化问答），主要场景为个人助理而非推荐系统或搜索引擎的核心环节（如召回、排序），虽涉及个性化但非 RecSys 核心领域，故给低分；因来自中国公司额外 +1 分。",
+    "translation": "利用检索增强生成与知识图谱实现大语言模型个性化",
+    "summary_zh": "提出一种结合知识图谱的检索增强生成方法，通过结构化存储动态个人数据来增强大语言模型的上下文理解，以解决幻觉问题并生成 tailored 的用户响应。",
+    "key_points": [
+      "提出一种结合知识图谱的检索增强生成方法，通过结构化存储动态个人数据来增强大语言模型的上下文理解，以解决幻觉问题并生成 tailored 的用户响应"
+    ]
+  },
+  {
+    "arxiv_id": "2505.10043v3",
+    "title": "Boosting Text-to-Chart Retrieval through Training with Synthesized Semantic Insights",
+    "authors": [
+      "Yifan Wu",
+      "Lutao Yan",
+      "Yizhang Zhu",
+      "Yinan Mei",
+      "Jiannan Wang",
+      "Nan Tang",
+      "Yuyu Luo"
+    ],
+    "summary": "Charts are crucial for data analysis and decision-making.Text-to-chart retrieval systems have become increasingly important for Business Intelligence (BI), where users need to find relevant charts that match their analytical needs. These needs can be categorized into precise queries that are well-specified and fuzzy queries that are more exploratory -- both require understanding the semantics and context of the charts. However, existing text-to-chart retrieval solutions often fail to capture the semantic content and contextual information of charts, primarily due to the lack of comprehensive metadata (or semantic insights). To address this limitation, we propose a training data development pipeline that automatically synthesizes hierarchical semantic insights for charts, covering visual patterns (visual-oriented), statistical properties (statistics-oriented), and practical applications (task-oriented), which produces 207,498 semantic insights for 69,166 charts. Based on these, we train a CLIP-based model named ChartFinder to learn better representations of charts for text-to-chart retrieval. Our method leverages rich semantic insights during the training phase to develop a model that understands both visual and semantic aspects of charts.To evaluate text-to-chart retrieval performance, we curate the first benchmark, CRBench, for this task with 21,862 charts and 326 text queries from real-world BI applications, with ground-truth labels verified by the crowd workers.Experiments show that ChartFinder significantly outperforms existing methods in text-to-chart retrieval tasks across various settings. For precise queries, ChartFinder achieves up to 66.9% NDCG@10, which is 11.58% higher than state-of-the-art models. In fuzzy query tasks, our method also demonstrates consistent improvements, with an average increase of 5% across nearly all metrics.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-15T07:41:14Z",
+    "updated": "2025-10-07T04:25:15Z",
+    "url": "http://arxiv.org/abs/2505.10043v3",
+    "pdf_url": "http://arxiv.org/pdf/2505.10043v3.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于商业智能（BI）场景下的图表检索，属于特定领域的垂直搜索应用，而非通用的推荐系统或核心搜索架构创新；虽涉及多模态检索，但缺乏电商/社交等主流 RecSys 场景的直接关联性。",
+    "translation": "通过合成语义洞察训练提升文本到图表的检索效果",
+    "summary_zh": "提出一种自动合成图表分层语义洞察的数据流水线，并据此训练基于 CLIP 的模型以学习融合视觉与语义信息的图表表征，从而优化文本到图表的检索能力。",
+    "key_points": [
+      "提出一种自动合成图表分层语义洞察的数据流水线，并据此训练基于 CLIP 的模型以学习融合视觉与语义信息的图表表征，从而优化文本到图表的检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2505.10089v1",
+    "title": "XRAG: Cross-lingual Retrieval-Augmented Generation",
+    "authors": [
+      "Wei Liu",
+      "Sony Trenous",
+      "Leonardo F. R. Ribeiro",
+      "Bill Byrne",
+      "Felix Hieber"
+    ],
+    "summary": "We propose XRAG, a novel benchmark designed to evaluate the generation abilities of LLMs in cross-lingual Retrieval-Augmented Generation (RAG) settings where the user language does not match the retrieval results. XRAG is constructed from recent news articles to ensure that its questions require external knowledge to be answered. It covers the real-world scenarios of monolingual and multilingual retrieval, and provides relevancy annotations for each retrieved document. Our novel dataset construction pipeline results in questions that require complex reasoning, as evidenced by the significant gap between human and LLM performance. Consequently, XRAG serves as a valuable benchmark for studying LLM reasoning abilities, even before considering the additional cross-lingual complexity. Experimental results on five LLMs uncover two previously unreported challenges in cross-lingual RAG: 1) in the monolingual retrieval setting, all evaluated models struggle with response language correctness; 2) in the multilingual retrieval setting, the main challenge lies in reasoning over retrieved information across languages rather than generation of non-English text.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-05-15T08:47:55Z",
+    "updated": "2025-05-15T08:47:55Z",
+    "url": "http://arxiv.org/abs/2505.10089v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.10089v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 基准测试研究，专注于跨语言 RAG 的评估而非推荐/搜索系统的核心架构或应用创新，虽来自中国企业但相关性依然较低。",
+    "translation": "XRAG：跨语言检索增强生成基准",
+    "summary_zh": "提出 XRAG 基准以评估大模型在用户语言与检索结果语言不匹配场景下的跨语言推理与生成能力。",
+    "key_points": [
+      "提出 XRAG 基准以评估大模型在用户语言与检索结果语言不匹配场景下的跨语言推理与生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2505.10493v2",
+    "title": "DACL-RAG: Data Augmentation Strategy with Curriculum Learning for Retrieval-Augmented Generation",
+    "authors": [
+      "Shaohan Wang",
+      "Licheng Zhang",
+      "Zheren Fu",
+      "Zhendong Mao",
+      "Yongdong Zhang"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is an effective method to enhance the capabilities of large language models (LLMs). Existing methods typically optimize the retriever or the generator in a RAG system by directly using the top-k retrieved documents. However, two key issues inherent in the training data constrain the effectiveness of this training paradigm: (1) across different queries, the top-k retrieved documents vary greatly in content quality, with some providing valuable knowledge while others lack critical information or are even misleading, and training on such data in a purely random manner may impair the generator's ability to extract key information; (2) for a given query, the limited set of k documents often exhibits low discriminability, and training solely on them makes it difficult for the retriever to learn how to distinguish between relevant and irrelevant documents. To address these issues, we introduce DACL-RAG, a multi-stage RAG training framework that combines a multi-level Data Augmentation strategy with a multi-stage Curriculum Learning paradigm. The data augmentation strategy constructs comprehensive and diverse training sets with controllable difficulty levels through sample evolution, while the curriculum learning paradigm organizes them into progressive stages for training, ensuring stable and consistent improvements, thereby optimizing the overall performance and generalization of the RAG system more effectively. Our DACL-RAG framework demonstrates consistent effectiveness across four open-domain QA datasets, achieving performance gains of 2% to 4% over multiple advanced methods.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-05-15T16:53:04Z",
+    "updated": "2025-10-04T03:57:52Z",
+    "url": "http://arxiv.org/abs/2505.10493v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.10493v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究论文，专注于开放域问答（QA）任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "DACL-RAG：结合课程学习的数据增强策略用于检索增强生成",
+    "summary_zh": "该论文提出一种多阶段训练框架，通过多级数据增强构建可控难度的样本，并结合课程学习范式逐步训练，以解决 RAG 系统中检索文档质量波动和区分度低的问题。",
+    "key_points": [
+      "该论文提出一种多阶段训练框架，通过多级数据增强构建可控难度的样本，并结合课程学习范式逐步训练，以解决 RAG 系统中检索文档质量波动和区分度低的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.10413v1",
+    "title": "Hierarchical Document Refinement for Long-context Retrieval-augmented Generation",
+    "authors": [
+      "Jiajie Jin",
+      "Xiaoxi Li",
+      "Guanting Dong",
+      "Yuyao Zhang",
+      "Yutao Zhu",
+      "Yongkang Wu",
+      "Zhonghua Li",
+      "Qi Ye",
+      "Zhicheng Dou"
+    ],
+    "summary": "Real-world RAG applications often encounter long-context input scenarios, where redundant information and noise results in higher inference costs and reduced performance. To address these challenges, we propose LongRefiner, an efficient plug-and-play refiner that leverages the inherent structural characteristics of long documents. LongRefiner employs dual-level query analysis, hierarchical document structuring, and adaptive refinement through multi-task learning on a single foundation model. Experiments on seven QA datasets demonstrate that LongRefiner achieves competitive performance in various scenarios while using 10x fewer computational costs and latency compared to the best baseline. Further analysis validates that LongRefiner is scalable, efficient, and effective, providing practical insights for real-world long-text RAG applications. Our code is available at https://github.com/ignorejjj/LongRefiner.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-05-15T15:34:15Z",
+    "updated": "2025-05-15T15:34:15Z",
+    "url": "http://arxiv.org/abs/2505.10413v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.10413v1.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1GaolingSchoolofArtificialIntelligence,RenminUniversityofChina",
+      "2HuaweiPoissonLab",
+      "plications. Our code is available at https:"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用问答场景下的长文档优化，未涉及推荐系统或搜索引擎的核心业务逻辑（如召回、排序、用户建模）。",
+    "translation": "面向长上下文检索增强生成的分层文档精炼方法",
+    "summary_zh": "提出 LongRefiner 框架，利用文档层级结构和多任务学习对长文本进行自适应精炼，以降低 RAG 系统的推理成本并减少噪声干扰。",
+    "key_points": [
+      "提出 LongRefiner 框架，利用文档层级结构和多任务学习对长文本进行自适应精炼，以降低 RAG 系统的推理成本并减少噪声干扰"
+    ]
+  }
+]

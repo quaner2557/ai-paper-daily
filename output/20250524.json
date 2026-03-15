@@ -1,0 +1,309 @@
+[
+  {
+    "arxiv_id": "2505.18654v4",
+    "title": "MTGR: Industrial-Scale Generative Recommendation Framework in Meituan",
+    "authors": [
+      "Ruidong Han",
+      "Bin Yin",
+      "Shangyu Chen",
+      "He Jiang",
+      "Fei Jiang",
+      "Xiang Li",
+      "Chi Ma",
+      "Mincong Huang",
+      "Xiaoguang Li",
+      "Chunzhen Jing",
+      "Yueming Han",
+      "Menglei Zhou",
+      "Lei Yu",
+      "Chuan Liu",
+      "Wei Lin"
+    ],
+    "summary": "Scaling law has been extensively validated in many domains such as natural language processing and computer vision. In the recommendation system, recent work has adopted generative recommendations to achieve scalability, but their generative approaches require abandoning the carefully constructed cross features of traditional recommendation models. We found that this approach significantly degrades model performance, and scaling up cannot compensate for it at all. In this paper, we propose MTGR (Meituan Generative Recommendation) to address this issue. MTGR is modeling based on the HSTU architecture and can retain the original deep learning recommendation model (DLRM) features, including cross features. Additionally, MTGR achieves training and inference acceleration through user-level compression to ensure efficient scaling. We also propose Group-Layer Normalization (GLN) to enhance the performance of encoding within different semantic spaces and the dynamic masking strategy to avoid information leakage. We further optimize the training frameworks, enabling support for our models with 10 to 100 times computational complexity compared to the DLRM, without significant cost increases. MTGR achieved 65x FLOPs for single-sample forward inference compared to the DLRM model, resulting in the largest gain in nearly two years both offline and online. This breakthrough was successfully deployed on Meituan, the world's largest food delivery platform, where it has been handling the main traffic.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-24T11:47:28Z",
+    "updated": "2025-08-22T05:21:30Z",
+    "url": "http://arxiv.org/abs/2505.18654v4",
+    "pdf_url": "http://arxiv.org/pdf/2505.18654v4.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "本文是美团（本地生活）提出的工业级生成式推荐框架，直接解决生成式推荐丢失交叉特征的核心痛点并成功上线，属于最高优先级的核心业务创新。",
+    "translation": "MTGR：美团工业级生成式推荐框架",
+    "summary_zh": "提出基于 HSTU 架构的 MTGR 框架，通过保留传统 DLRM 交叉特征、引入用户级压缩及组归一化等技术，解决了生成式推荐性能下降问题并实现了高效的大规模扩展。",
+    "key_points": [
+      "提出基于 HSTU 架构的 MTGR 框架，通过保留传统 DLRM 交叉特征、引入用户级压缩及组归一化等技术，解决了生成式推荐性能下降问题并实现了高效的大规模扩展"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18897v1",
+    "title": "Improving Ad matching via Cluster-Adaptive Keyword Expansion and Relevance tuning",
+    "authors": [
+      "Dipanwita Saha",
+      "Anis Zaman",
+      "Hua Zou",
+      "Ning Chen",
+      "Xinxin Shu",
+      "Nadia Vase",
+      "Abraham Bagherjeiran"
+    ],
+    "summary": "In search advertising, keyword matching connects user queries with relevant ads. While token-based matching increases ad coverage, it can reduce relevance due to overly permissive semantic expansion. This work extends keyword reach through document-side semantic keyword expansion, using a language model to broaden token-level matching without altering queries. We propose a solution using a pre-trained siamese model to generate dense vector representations of ad keywords and identify semantically related variants through nearest neighbor search. To maintain precision, we introduce a cluster-based thresholding mechanism that adjusts similarity cutoffs based on local semantic density. Each expanded keyword maps to a group of seller-listed items, which may only partially align with the original intent. To ensure relevance, we enhance the downstream relevance model by adapting it to the expanded keyword space using an incremental learning strategy with a lightweight decision tree ensemble. This system improves both relevance and click-through rate (CTR), offering a scalable, low-latency solution adaptable to evolving query behavior and advertising inventory.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-24T23:02:19Z",
+    "updated": "2025-05-24T23:02:19Z",
+    "url": "http://arxiv.org/abs/2505.18897v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.18897v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索广告中的核心匹配与排序问题，提出了基于聚类的关键词扩展和相关性调优方法，属于高优先级的核心领域进展；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "通过聚类自适应关键词扩展与相关性调优提升广告匹配效果",
+    "summary_zh": "提出一种利用孪生模型进行文档侧语义关键词扩展的方法，并通过基于聚类的阈值机制和增量学习策略优化下游相关性模型，以在扩大广告覆盖面的同时保持高精度匹配。",
+    "key_points": [
+      "提出一种利用孪生模型进行文档侧语义关键词扩展的方法，并通过基于聚类的阈值机制和增量学习策略优化下游相关性模型，以在扩大广告覆盖面的同时保持高精度匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18512v2",
+    "title": "AcuRank: Uncertainty-Aware Adaptive Computation for Listwise Reranking",
+    "authors": [
+      "Soyoung Yoon",
+      "Gyuwan Kim",
+      "Gyu-Hwung Cho",
+      "Seung-won Hwang"
+    ],
+    "summary": "Listwise reranking with large language models (LLMs) enhances top-ranked results in retrieval-based applications. Due to the limit in context size and high inference cost of long context, reranking is typically performed over a fixed size of small subsets, with the final ranking aggregated from these partial results. This fixed computation disregards query difficulty and document distribution, leading to inefficiencies. We propose AcuRank, an adaptive reranking framework that dynamically adjusts both the amount and target of computation based on uncertainty estimates over document relevance. Using a Bayesian TrueSkill model, we iteratively refine relevance estimates until reaching sufficient confidence levels, and our explicit modeling of ranking uncertainty enables principled control over reranking behavior and avoids unnecessary updates to confident predictions. Results on the TREC-DL and BEIR benchmarks show that our method consistently achieves a superior accuracy-efficiency trade-off and scales better with compute than fixed-computation baselines. These results highlight the effectiveness and generalizability of our method across diverse retrieval tasks and LLM-based reranking models.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-05-24T05:15:49Z",
+    "updated": "2025-10-24T06:55:54Z",
+    "url": "http://arxiv.org/abs/2505.18512v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.18512v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐系统中的列表级重排序（Listwise Reranking）核心环节，提出了一种基于不确定性的自适应计算框架以优化 LLM 推理效率，属于高优先级的核心领域进展。",
+    "translation": "AcuRank：用于列表级重排序的不确定性感知自适应计算",
+    "summary_zh": "提出 AcuRank 框架，利用贝叶斯 TrueSkill 模型动态评估文档相关性不确定性，据此自适应调整大语言模型在重排序阶段的计算量与目标，从而在保障精度的同时显著提升推理效率。",
+    "key_points": [
+      "提出 AcuRank 框架，利用贝叶斯 TrueSkill 模型动态评估文档相关性不确定性，据此自适应调整大语言模型在重排序阶段的计算量与目标，从而在保障精度的同时显著提升推理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18594v1",
+    "title": "EvdCLIP: Improving Vision-Language Retrieval with Entity Visual Descriptions from Large Language Models",
+    "authors": [
+      "GuangHao Meng",
+      "Sunan He",
+      "Jinpeng Wang",
+      "Tao Dai",
+      "Letian Zhang",
+      "Jieming Zhu",
+      "Qing Li",
+      "Gang Wang",
+      "Rui Zhang",
+      "Yong Jiang"
+    ],
+    "summary": "Vision-language retrieval (VLR) has attracted significant attention in both academia and industry, which involves using text (or images) as queries to retrieve corresponding images (or text). However, existing methods often neglect the rich visual semantics knowledge of entities, thus leading to incorrect retrieval results. To address this problem, we propose the Entity Visual Description enhanced CLIP (EvdCLIP), designed to leverage the visual knowledge of entities to enrich queries. Specifically, since humans recognize entities through visual cues, we employ a large language model (LLM) to generate Entity Visual Descriptions (EVDs) as alignment cues to complement textual data. These EVDs are then integrated into raw queries to create visually-rich, EVD-enhanced queries. Furthermore, recognizing that EVD-enhanced queries may introduce noise or low-quality expansions, we develop a novel, trainable EVD-aware Rewriter (EaRW) for vision-language retrieval tasks. EaRW utilizes EVD knowledge and the generative capabilities of the language model to effectively rewrite queries. With our specialized training strategy, EaRW can generate high-quality and low-noise EVD-enhanced queries. Extensive quantitative and qualitative experiments on image-text retrieval benchmarks validate the superiority of EvdCLIP on vision-language retrieval tasks.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-05-24T08:41:51Z",
+    "updated": "2025-05-24T08:41:51Z",
+    "url": "http://arxiv.org/abs/2505.18594v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.18594v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1TsinghuaShenzhenInternationalGraduateSchool,TsinghuaUniversity",
+      "2PengChengLaboratory",
+      "3SchoolofComputerScience&Tech,HuazhongUniversityofScienceandTechnology",
+      "4CollegeofComputerScienceandSoftwareEngineering,ShenzhenUniversity",
+      "5HuaweiNoah’sArkLab; 6HongKongUniversityofScienceandTechnology"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文提出利用 LLM 生成实体视觉描述以增强图文检索（多模态搜索）的查询表示，属于多模态搜索的直接应用，但核心创新侧重于通用 VLR 任务而非特定推荐系统架构。",
+    "translation": "EvdCLIP：利用大语言模型的实体视觉描述提升视觉 - 语言检索",
+    "summary_zh": "该方法利用大语言模型生成实体的视觉描述作为对齐信号，并通过可重写的查询重写器将其融入原始查询，以解决现有视觉语言检索中忽略实体丰富视觉语义的问题。",
+    "key_points": [
+      "该方法利用大语言模型生成实体的视觉描述作为对齐信号，并通过可重写的查询重写器将其融入原始查询，以解决现有视觉语言检索中忽略实体丰富视觉语义的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18831v1",
+    "title": "Enhancing LLMs' Reasoning-Intensive Multimedia Search Capabilities through Fine-Tuning and Reinforcement Learning",
+    "authors": [
+      "Jinzheng Li",
+      "Sibo Ju",
+      "Yanzhou Su",
+      "Hongguang Li",
+      "Yiqing Shen"
+    ],
+    "summary": "Existing large language models (LLMs) driven search agents typically rely on prompt engineering to decouple the user queries into search plans, limiting their effectiveness in complex scenarios requiring reasoning. Furthermore, they suffer from excessive token consumption due to Python-based search plan representations and inadequate integration of multimedia elements for both input processing and response generation. To address these challenges, we introduce SearchExpert, a training method for LLMs to improve their multimedia search capabilities in response to complex search queries. Firstly, we reformulate the search plan in an efficient natural language representation to reduce token consumption. Then, we propose the supervised fine-tuning for searching (SFTS) to fine-tune LLM to adapt to these representations, together with an automated dataset construction pipeline. Secondly, to improve reasoning-intensive search capabilities, we propose the reinforcement learning from search feedback (RLSF) that takes the search results planned by LLM as the reward signals. Thirdly, we propose a multimedia understanding and generation agent that enables the fine-tuned LLM to process visual input and produce visual output during inference. Finally, we establish an automated benchmark construction pipeline and a human evaluation framework. Our resulting benchmark, SearchExpertBench-25, comprises 200 multiple-choice questions spanning financial and international news scenarios that require reasoning in searching. Experiments demonstrate that SearchExpert outperforms the commercial LLM search method (Perplexity Pro) by 36.60% on the existing FinSearchBench-24 benchmark and 54.54% on our proposed SearchExpertBench-25. Human evaluations further confirm the superior readability.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-24T19:00:36Z",
+    "updated": "2025-05-24T19:00:36Z",
+    "url": "http://arxiv.org/abs/2505.18831v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.18831v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注通用 LLM 的推理能力和多模态 Agent 构建，虽涉及搜索但侧重于复杂问答场景而非推荐系统核心链路（召回/排序），属于弱相关的通用 LLM 研究。",
+    "translation": "通过微调与强化学习增强大语言模型的推理密集型多模态搜索能力",
+    "summary_zh": "提出一种结合监督微调与搜索反馈强化学习的方法，优化大语言模型在复杂查询下的自然语言搜索规划及多模态理解生成能力。",
+    "key_points": [
+      "提出一种结合监督微调与搜索反馈强化学习的方法，优化大语言模型在复杂查询下的自然语言搜索规划及多模态理解生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18450v2",
+    "title": "BRIT: Bidirectional Retrieval over Unified Image-Text Graph",
+    "authors": [
+      "Ainulla Khan",
+      "Yamada Moyuru",
+      "Srinidhi Akella"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has emerged as a promising technique to enhance the quality and relevance of responses generated by large language models. While recent advancements have mainly focused on improving RAG for text-based queries, RAG on multi-modal documents containing both texts and images has not been fully explored. Especially when fine-tuning does not work. This paper proposes BRIT, a novel multi-modal RAG framework that effectively unifies various text-image connections in the document into a multi-modal graph and retrieves the texts and images as a query-specific sub-graph. By traversing both image-to-text and text-to-image paths in the graph, BRIT retrieve not only directly query-relevant images and texts but also further relevant contents to answering complex cross-modal multi-hop questions. To evaluate the effectiveness of BRIT, we introduce MM-RAG test set specifically designed for multi-modal question answering tasks that require to understand the text-image relations. Our comprehensive experiments demonstrate the superiority of BRIT, highlighting its ability to handle cross-modal questions on the multi-modal documents.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-05-24T01:20:51Z",
+    "updated": "2025-09-27T14:48:45Z",
+    "url": "http://arxiv.org/abs/2505.18450v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.18450v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯多模态 RAG 和问答（QA）研究，旨在提升 LLM 的回答质量，未明确涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、信息流）。",
+    "translation": "BRIT：基于统一图文图的双向检索框架",
+    "summary_zh": "提出一种多模态 RAG 框架，通过将文档中的图文关系统一为多模态图并执行双向遍历，以检索与查询相关的子图来回答复杂的跨模态多跳问题。",
+    "key_points": [
+      "提出一种多模态 RAG 框架，通过将文档中的图文关系统一为多模态图并执行双向遍历，以检索与查询相关的子图来回答复杂的跨模态多跳问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18710v1",
+    "title": "GainRAG: Preference Alignment in Retrieval-Augmented Generation through Gain Signal Synthesis",
+    "authors": [
+      "Yi Jiang",
+      "Sendong Zhao",
+      "Jianbo Li",
+      "Haochun Wang",
+      "Bing Qin"
+    ],
+    "summary": "The Retrieval-Augmented Generation (RAG) framework introduces a retrieval module to dynamically inject retrieved information into the input context of large language models (LLMs), and has demonstrated significant success in various NLP tasks. However, the current study points out that there is a preference gap between retrievers and LLMs in the RAG framework, which limit the further improvement of system performance. Some highly relevant passages may interfere with LLM reasoning because they contain complex or contradictory information; while some indirectly related or even inaccurate content may help LLM generate more accurate answers by providing suggestive information or logical clues. To solve this, we propose GainRAG, a novel approach that aligns the retriever's and LLM's preferences by defining a new metric, \"gain\", which measure how well an input passage contributes to correct outputs. Specifically, we propose a method to estimate these gain signals and train a middleware that aligns the preferences of the retriever and the LLM using only limited data. In addition, we introduce a pseudo-passage strategy to mitigate degradation. The experimental results on 6 datasets verify the effectiveness of GainRAG.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-24T14:14:57Z",
+    "updated": "2025-05-24T14:14:57Z",
+    "url": "http://arxiv.org/abs/2505.18710v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.18710v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/LLM 研究（RAG 优化），旨在提升通用问答任务表现，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属弱相关。",
+    "translation": "GainRAG：通过增益信号合成实现检索增强生成中的偏好对齐",
+    "summary_zh": "提出 GainRAG 方法，通过定义“增益”指标量化检索内容对 LLM 正确输出的贡献，并训练中间件对齐检索器与大模型的偏好以解决两者间的不匹配问题。",
+    "key_points": [
+      "提出 GainRAG 方法，通过定义“增益”指标量化检索内容对 LLM 正确输出的贡献，并训练中间件对齐检索器与大模型的偏好以解决两者间的不匹配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18670v3",
+    "title": "MoveGPT: Scaling Mobility Foundation Models with Spatially-Aware Mixture of Experts",
+    "authors": [
+      "Chonghua Han",
+      "Yuan Yuan",
+      "Jingtao Ding",
+      "Jie Feng",
+      "Fanjin Meng",
+      "Yong Li"
+    ],
+    "summary": "The success of foundation models in language has inspired a new wave of general-purpose models for human mobility. However, existing approaches struggle to scale effectively due to two fundamental limitations: a failure to use meaningful basic units to represent movement, and an inability to capture the vast diversity of patterns found in large-scale data. In this work, we develop MoveGPT, a large-scale foundation model specifically architected to overcome these barriers. MoveGPT is built upon two key innovations: (1) a unified location encoder that maps geographically disjoint locations into a shared semantic space, enabling pre-training on a global scale; and (2) a Spatially-Aware Mixture-of-Experts Transformer that develops specialized experts to efficiently capture diverse mobility patterns. Pre-trained on billion-scale datasets, MoveGPT establishes a new state-of-the-art across a wide range of downstream tasks, achieving performance gains of up to 35% on average. It also demonstrates strong generalization capabilities to unseen cities. Crucially, our work provides empirical evidence of scaling ability in human mobility, validating a clear path toward building increasingly capable foundation models in this domain.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-05-24T12:17:47Z",
+    "updated": "2025-11-24T13:44:50Z",
+    "url": "http://arxiv.org/abs/2505.18670v3",
+    "pdf_url": "http://arxiv.org/pdf/2505.18670v3.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯人类移动性（Mobility）基础模型研究，虽涉及序列建模但未明确应用于推荐系统或搜索引擎的核心场景（如召回、排序），且非电商/社交/本地生活业务直接相关；尽管有中国公司背景加 1 分，但因缺乏 RecSys 直接应用，总分仍属低优先级。",
+    "translation": "MoveGPT：利用空间感知混合专家扩展移动性基础模型",
+    "summary_zh": "提出一种统一位置编码器将地理离散点映射到共享语义空间，并结合空间感知混合专家 Transformer 架构，以捕捉大规模人类移动数据中的多样化模式。",
+    "key_points": [
+      "提出一种统一位置编码器将地理离散点映射到共享语义空间，并结合空间感知混合专家 Transformer 架构，以捕捉大规模人类移动数据中的多样化模式"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18581v1",
+    "title": "Removal of Hallucination on Hallucination: Debate-Augmented RAG",
+    "authors": [
+      "Wentao Hu",
+      "Wengyu Zhang",
+      "Yiyang Jiang",
+      "Chen Jason Zhang",
+      "Xiaoyong Wei",
+      "Qing Li"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances factual accuracy by integrating external knowledge, yet it introduces a critical issue: erroneous or biased retrieval can mislead generation, compounding hallucinations, a phenomenon we term Hallucination on Hallucination. To address this, we propose Debate-Augmented RAG (DRAG), a training-free framework that integrates Multi-Agent Debate (MAD) mechanisms into both retrieval and generation stages. In retrieval, DRAG employs structured debates among proponents, opponents, and judges to refine retrieval quality and ensure factual reliability. In generation, DRAG introduces asymmetric information roles and adversarial debates, enhancing reasoning robustness and mitigating factual inconsistencies. Evaluations across multiple tasks demonstrate that DRAG improves retrieval reliability, reduces RAG-induced hallucinations, and significantly enhances overall factual accuracy. Our code is available at https://github.com/Huenao/Debate-Augmented-RAG.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-05-24T08:15:22Z",
+    "updated": "2025-05-24T08:15:22Z",
+    "url": "http://arxiv.org/abs/2505.18581v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.18581v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于解决通用生成幻觉问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），虽来自 OPPO 但缺乏 RecSys 直接应用。",
+    "translation": "消除幻觉上的幻觉：辩论增强型检索增强生成",
+    "summary_zh": "提出一种无需训练的辩论增强型 RAG 框架，通过在检索和生成阶段引入多智能体辩论机制，利用正反方对抗与裁判角色来修正错误检索并减少生成幻觉。",
+    "key_points": [
+      "提出一种无需训练的辩论增强型 RAG 框架，通过在检索和生成阶段引入多智能体辩论机制，利用正反方对抗与裁判角色来修正错误检索并减少生成幻觉"
+    ]
+  },
+  {
+    "arxiv_id": "2505.18906v2",
+    "title": "Federated Retrieval-Augmented Generation: A Systematic Mapping Study",
+    "authors": [
+      "Abhijit Chakraborty",
+      "Chahana Dahal",
+      "Vivek Gupta"
+    ],
+    "summary": "Federated Retrieval-Augmented Generation (Federated RAG) combines Federated Learning (FL), which enables distributed model training without exposing raw data, with Retrieval-Augmented Generation (RAG), which improves the factual accuracy of language models by grounding outputs in external knowledge. As large language models are increasingly deployed in privacy-sensitive domains such as healthcare, finance, and personalized assistance, Federated RAG offers a promising framework for secure, knowledge-intensive natural language processing (NLP). To the best of our knowledge, this paper presents the first systematic mapping study of Federated RAG, covering literature published between 2020 and 2025. Following Kitchenham's guidelines for evidence-based software engineering, we develop a structured classification of research focuses, contribution types, and application domains. We analyze architectural patterns, temporal trends, and key challenges, including privacy-preserving retrieval, cross-client heterogeneity, and evaluation limitations. Our findings synthesize a rapidly evolving body of research, identify recurring design patterns, and surface open questions, providing a foundation for future work at the intersection of RAG and federated systems.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-05-24T23:45:12Z",
+    "updated": "2025-09-02T06:08:11Z",
+    "url": "http://arxiv.org/abs/2505.18906v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.18906v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于联邦学习与 RAG 结合的系统性综述，主要面向医疗、金融等通用 NLP 领域，未直接针对推荐系统或搜索引擎的核心业务场景，属于纯 LLM/通用 NLP 研究。",
+    "translation": "联邦检索增强生成：一项系统性映射研究",
+    "summary_zh": "本文首次对结合联邦学习与检索增强生成的技术进行了系统性映射研究，分类了研究焦点与应用领域，并分析了架构模式及隐私保护检索等关键挑战。",
+    "key_points": [
+      "本文首次对结合联邦学习与检索增强生成的技术进行了系统性映射研究，分类了研究焦点与应用领域，并分析了架构模式及隐私保护检索等关键挑战"
+    ]
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "arxiv_id": "2504.12007v5",
+    "title": "Diffusion Generative Recommendation with Continuous Tokens",
+    "authors": [
+      "Haohao Qu",
+      "Shanru Lin",
+      "Yujuan Ding",
+      "Yiqi Wang",
+      "Wenqi Fan"
+    ],
+    "summary": "Recent advances in generative artificial intelligence, particularly large language models (LLMs), have opened new opportunities for enhancing recommender systems (RecSys). Most existing LLM-based RecSys approaches operate in a discrete space, using vector-quantized tokenizers to align with the inherent discrete nature of language models. However, these quantization methods often result in lossy tokenization and suboptimal learning, primarily due to inaccurate gradient propagation caused by the non-differentiable argmin operation in standard vector quantization. Inspired by the emerging trend of embracing continuous tokens in language models, we propose ContRec, a novel framework that seamlessly integrates continuous tokens into LLM-based RecSys. Specifically, ContRec consists of two key modules: a sigma-VAE Tokenizer, which encodes users/items with continuous tokens; and a Dispersive Diffusion module, which captures implicit user preference. The tokenizer is trained with a continuous Variational Auto-Encoder (VAE) objective, where three effective techniques are adopted to avoid representation collapse. By conditioning on the previously generated tokens of the LLM backbone during user modeling, the Dispersive Diffusion module performs a conditional diffusion process with a novel Dispersive Loss, enabling high-quality user preference generation through next-token diffusion. Finally, ContRec leverages both the textual reasoning output from the LLM and the latent representations produced by the diffusion model for Top-K item retrieval, thereby delivering comprehensive recommendation results. Extensive experiments on four datasets demonstrate that ContRec consistently outperforms both traditional and SOTA LLM-based recommender systems. Our results highlight the potential of continuous tokenization and generative modeling for advancing the next generation of recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-16T12:01:03Z",
+    "updated": "2026-02-24T09:25:50Z",
+    "url": "http://arxiv.org/abs/2504.12007v5",
+    "pdf_url": "http://arxiv.org/pdf/2504.12007v5.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出利用连续 Token 和扩散模型解决现有 LLM 推荐中离散量化的损失问题，属于核心领域创新；且来自 OPPO，符合额外加分条件。",
+    "translation": "基于连续 Token 的扩散生成式推荐",
+    "summary_zh": "提出 ContRec 框架，通过 Sigma-VAE 将用户/物品编码为连续 Token，并结合分散扩散模块在 LLM 骨干网中进行条件扩散建模，以生成高质量的用户偏好表征用于检索。",
+    "key_points": [
+      "提出 ContRec 框架，通过 Sigma-VAE 将用户/物品编码为连续 Token，并结合分散扩散模块在 LLM 骨干网中进行条件扩散建模，以生成高质量的用户偏好表征用于检索"
+    ]
+  },
+  {
+    "arxiv_id": "2504.11889v2",
+    "title": "Rethinking LLM-Based Recommendations: A Personalized Query-Driven Parallel Integration",
+    "authors": [
+      "Donghee Han",
+      "Hwanjun Song",
+      "Mun Yong Yi"
+    ],
+    "summary": "Recent studies have explored integrating large language models (LLMs) into recommendation systems but face several challenges, including training-induced bias and bottlenecks from serialized architecture. To effectively address these issues, we propose a Query-toRecommendation, a parallel recommendation framework that decouples LLMs from candidate pre-selection and instead enables direct retrieval over the entire item pool. Our framework connects LLMs and recommendation models in a parallel manner, allowing each component to independently utilize its strengths without interfering with the other. In this framework, LLMs are utilized to generate feature-enriched item descriptions and personalized user queries, allowing for capturing diverse preferences and enabling rich semantic matching in a zero-shot manner. To effectively combine the complementary strengths of LLM and collaborative signals, we introduce an adaptive reranking strategy. Extensive experiments demonstrate an improvement in performance up to 57%, while also improving the novelty and diversity of recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-04-16T09:17:45Z",
+    "updated": "2025-09-14T08:54:15Z",
+    "url": "http://arxiv.org/abs/2504.11889v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.11889v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出了一种基于 LLM 的并行架构以解决序列化瓶颈和训练偏差问题，属于 LLM for RecSys 的核心应用。",
+    "translation": "重思基于大语言模型的推荐：一种个性化查询驱动的并行集成方法",
+    "summary_zh": "提出一种查询到推荐的并行框架，解耦大语言模型与候选预筛选，利用大语言模型生成 enriched 描述和个性化查询以实现零-shot 语义匹配，并通过自适应重排序融合协同信号。",
+    "key_points": [
+      "提出一种查询到推荐的并行框架，解耦大语言模型与候选预筛选，利用大语言模型生成 enriched 描述和个性化查询以实现零-shot 语义匹配，并通过自适应重排序融合协同信号"
+    ]
+  },
+  {
+    "arxiv_id": "2504.12063v1",
+    "title": "Optimizing Compound Retrieval Systems",
+    "authors": [
+      "Harrie Oosterhuis",
+      "Rolf Jagerman",
+      "Zhen Qin",
+      "Xuanhui Wang"
+    ],
+    "summary": "Modern retrieval systems do not rely on a single ranking model to construct their rankings. Instead, they generally take a cascading approach where a sequence of ranking models are applied in multiple re-ranking stages. Thereby, they balance the quality of the top-K ranking with computational costs by limiting the number of documents each model re-ranks. However, the cascading approach is not the only way models can interact to form a retrieval system.\n  We propose the concept of compound retrieval systems as a broader class of retrieval systems that apply multiple prediction models. This encapsulates cascading models but also allows other types of interactions than top-K re-ranking. In particular, we enable interactions with large language models (LLMs) which can provide relative relevance comparisons. We focus on the optimization of compound retrieval system design which uniquely involves learning where to apply the component models and how to aggregate their predictions into a final ranking. This work shows how our compound approach can combine the classic BM25 retrieval model with state-of-the-art (pairwise) LLM relevance predictions, while optimizing a given ranking metric and efficiency target. Our experimental results show optimized compound retrieval systems provide better trade-offs between effectiveness and efficiency than cascading approaches, even when applied in a self-supervised manner.\n  With the introduction of compound retrieval systems, we hope to inspire the information retrieval field to more out-of-the-box thinking on how prediction models can interact to form rankings.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-04-16T13:18:16Z",
+    "updated": "2025-04-16T13:18:16Z",
+    "url": "http://arxiv.org/abs/2504.12063v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.12063v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "RadboudUniversity GoogleDeepMind GoogleDeepMind GoogleDeepMind",
+      "ingwheretoapplythecomponentmodelsandhowtoaggregate scalability,whichgenerallyisinverselycorrelatedwithrank"
+    ],
+    "relevance_score": 9,
+    "reasoning": "论文直接针对搜索/推荐系统的检索架构创新，提出结合传统模型与 LLM 的复合检索系统以优化效率与效果，属于核心领域进展；虽为纯检索研究，但符合核心领域加分项且来自 TAL。",
+    "translation": "优化复合检索系统",
+    "summary_zh": "提出复合检索系统概念，通过联合优化多模型（含 LLM）的调用策略与预测聚合方式，替代传统级联架构以平衡检索效果与计算成本。",
+    "key_points": [
+      "提出复合检索系统概念，通过联合优化多模型（含 LLM）的调用策略与预测聚合方式，替代传统级联架构以平衡检索效果与计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2504.12086v1",
+    "title": "Neural Contextual Bandits Under Delayed Feedback Constraints",
+    "authors": [
+      "Mohammadali Moghimi",
+      "Sharu Theresa Jose",
+      "Shana Moothedath"
+    ],
+    "summary": "This paper presents a new algorithm for neural contextual bandits (CBs) that addresses the challenge of delayed reward feedback, where the reward for a chosen action is revealed after a random, unknown delay. This scenario is common in applications such as online recommendation systems and clinical trials, where reward feedback is delayed because the outcomes or results of a user's actions (such as recommendations or treatment responses) take time to manifest and be measured. The proposed algorithm, called Delayed NeuralUCB, uses an upper confidence bound (UCB)-based exploration strategy. Under the assumption of independent and identically distributed sub-exponential reward delays, we derive an upper bound on the cumulative regret over a T-length horizon. We further consider a variant of the algorithm, called Delayed NeuralTS, that uses Thompson Sampling-based exploration. Numerical experiments on real-world datasets, such as MNIST and Mushroom, along with comparisons to benchmark approaches, demonstrate that the proposed algorithms effectively manage varying delays and are well-suited for complex real-world scenarios.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-04-16T13:47:25Z",
+    "updated": "2025-04-16T13:47:25Z",
+    "url": "http://arxiv.org/abs/2504.12086v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.12086v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对在线推荐系统中的延迟反馈问题提出了解决方案，属于推荐系统核心排序与探索利用（Exploration-Exploitation）环节的关键技术。",
+    "translation": "延迟反馈约束下的神经上下文多臂老虎机研究",
+    "summary_zh": "本文提出了一种基于上置信界和汤普森采样的神经上下文多臂老虎机算法，旨在解决推荐系统中奖励反馈随机延迟导致的决策优化难题。",
+    "key_points": [
+      "本文提出了一种基于上置信界和汤普森采样的神经上下文多臂老虎机算法，旨在解决推荐系统中奖励反馈随机延迟导致的决策优化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.12016v2",
+    "title": "Active Human Feedback Collection via Neural Contextual Dueling Bandits",
+    "authors": [
+      "Arun Verma",
+      "Xiaoqiang Lin",
+      "Zhongxiang Dai",
+      "Daniela Rus",
+      "Bryan Kian Hsiang Low"
+    ],
+    "summary": "Collecting human preference feedback is often expensive, leading recent works to develop principled algorithms to select them more efficiently. However, these works assume that the underlying reward function is linear, an assumption that does not hold in many real-life applications, such as online recommendation and LLM alignment. To address this limitation, we propose Neural-ADB, an algorithm based on the neural contextual dueling bandit framework that provides a principled and practical method for collecting human preference feedback when the underlying latent reward function is non-linear. We theoretically show that when preference feedback follows the Bradley-Terry-Luce model, the worst sub-optimality gap of the policy learned by Neural-ADB decreases at a sub-linear rate as the preference dataset increases. Our experimental results on preference datasets further corroborate the effectiveness of Neural-ADB.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-04-16T12:16:10Z",
+    "updated": "2025-07-16T20:57:36Z",
+    "url": "http://arxiv.org/abs/2504.12016v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.12016v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "论文明确将非线性强盗 bandit 算法应用于在线推荐和 LLM 对齐中的用户偏好反馈收集，解决了实际业务场景中的核心问题；虽涉及通用算法，但应用场景高度契合，且来自 TAL 公司加 1 分。",
+    "translation": "基于神经上下文决斗强盗的主动人类反馈收集方法",
+    "summary_zh": "提出一种基于神经上下文决斗强盗框架的算法，旨在非线性奖励函数假设下，高效且原则性地收集在线推荐及大模型对齐中的人类偏好反馈。",
+    "key_points": [
+      "提出一种基于神经上下文决斗强盗框架的算法，旨在非线性奖励函数假设下，高效且原则性地收集在线推荐及大模型对齐中的人类偏好反馈"
+    ]
+  },
+  {
+    "arxiv_id": "2504.12025v1",
+    "title": "FedEPA: Enhancing Personalization and Modality Alignment in Multimodal Federated Learning",
+    "authors": [
+      "Yu Zhang",
+      "Qingfeng Du",
+      "Jiaqi Lv"
+    ],
+    "summary": "Federated Learning (FL) enables decentralized model training across multiple parties while preserving privacy. However, most FL systems assume clients hold only unimodal data, limiting their real-world applicability, as institutions often possess multimodal data. Moreover, the lack of labeled data further constrains the performance of most FL methods. In this work, we propose FedEPA, a novel FL framework for multimodal learning. FedEPA employs a personalized local model aggregation strategy that leverages labeled data on clients to learn personalized aggregation weights, thereby alleviating the impact of data heterogeneity. We also propose an unsupervised modality alignment strategy that works effectively with limited labeled data. Specifically, we decompose multimodal features into aligned features and context features. We then employ contrastive learning to align the aligned features across modalities, ensure the independence between aligned features and context features within each modality, and promote the diversity of context features. A multimodal feature fusion strategy is introduced to obtain a joint embedding. The experimental results show that FedEPA significantly outperforms existing FL methods in multimodal classification tasks under limited labeled data conditions.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-04-16T12:32:37Z",
+    "updated": "2025-04-16T12:32:37Z",
+    "url": "http://arxiv.org/abs/2504.12025v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.12025v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于联邦学习中的多模态对齐与个性化聚合，虽涉及用户建模相关概念，但核心场景为通用分类任务而非直接的推荐或搜索系统，属于弱相关的通用 ML 方法；因来自 TAL 公司额外加 1 分。",
+    "translation": "FedEPA：增强多模态联邦学习中的个性化与模态对齐",
+    "summary_zh": "提出一种联邦学习框架，通过个性化本地模型聚合策略缓解数据异构性，并利用无监督对比学习分解和对齐多模态特征以解决标签稀缺问题。",
+    "key_points": [
+      "提出一种联邦学习框架，通过个性化本地模型聚合策略缓解数据异构性，并利用无监督对比学习分解和对齐多模态特征以解决标签稀缺问题"
+    ]
+  }
+]

@@ -1,0 +1,548 @@
+[
+  {
+    "arxiv_id": "2504.02137v1",
+    "title": "Enhancing Embedding Representation Stability in Recommendation Systems with Semantic ID",
+    "authors": [
+      "Carolina Zheng",
+      "Minhui Huang",
+      "Dmitrii Pedchenko",
+      "Kaushik Rangadurai",
+      "Siyu Wang",
+      "Gaby Nahum",
+      "Jie Lei",
+      "Yang Yang",
+      "Tao Liu",
+      "Zutian Luo",
+      "Xiaohan Wei",
+      "Dinesh Ramasamy",
+      "Jiyan Yang",
+      "Yiping Han",
+      "Lin Yang",
+      "Hangjun Xu",
+      "Rong Jin",
+      "Shuang Yang"
+    ],
+    "summary": "The exponential growth of online content has posed significant challenges to ID-based models in industrial recommendation systems, ranging from extremely high cardinality and dynamically growing ID space, to highly skewed engagement distributions, to prediction instability as a result of natural id life cycles (e.g, the birth of new IDs and retirement of old IDs). To address these issues, many systems rely on random hashing to handle the id space and control the corresponding model parameters (i.e embedding table). However, this approach introduces data pollution from multiple ids sharing the same embedding, leading to degraded model performance and embedding representation instability.\n  This paper examines these challenges and introduces Semantic ID prefix ngram, a novel token parameterization technique that significantly improves the performance of the original Semantic ID. Semantic ID prefix ngram creates semantically meaningful collisions by hierarchically clustering items based on their content embeddings, as opposed to random assignments. Through extensive experimentation, we demonstrate that Semantic ID prefix ngram not only addresses embedding instability but also significantly improves tail id modeling, reduces overfitting, and mitigates representation shifts. We further highlight the advantages of Semantic ID prefix ngram in attention-based models that contextualize user histories, showing substantial performance improvements. We also report our experience of integrating Semantic ID into Meta production Ads Ranking system, leading to notable performance gains and enhanced prediction stability in live deployments.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-02T21:28:38Z",
+    "updated": "2025-04-02T21:28:38Z",
+    "url": "http://arxiv.org/abs/2504.02137v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.02137v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "∗Columbia University, †AI at Meta"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的 ID 嵌入不稳定问题提出 Semantic ID prefix ngram 新方法，并已在 Meta 广告排序系统中落地验证，属于核心领域高优先级研究；叠加中国公司背景额外 +1 分（原基础分 9 分）。",
+    "translation": "利用语义 ID 增强推荐系统中嵌入表示的稳定性",
+    "summary_zh": "提出基于内容层次聚类的 Semantic ID prefix ngram 技术，通过构建具有语义意义的令牌参数化方法，替代随机哈希以解决推荐系统中 ID 空间动态增长导致的嵌入不稳定及长尾建模难题。",
+    "key_points": [
+      "提出基于内容层次聚类的 Semantic ID prefix ngram 技术，通过构建具有语义意义的令牌参数化方法，替代随机哈希以解决推荐系统中 ID 空间动态增长导致的嵌入不稳定及长尾建模难题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.08771v2",
+    "title": "Generate the browsing process for short-video recommendation",
+    "authors": [
+      "Chao Feng",
+      "Yanze Zhang",
+      "Chenghao Zhang"
+    ],
+    "summary": "This paper proposes a generative method to dynamically simulate users' short video watching journey for watch time prediction in short video recommendation. Unlike existing methods that rely on multimodal features for video content understanding, our method simulates users' sustained interest in watching short videos by learning collaborative information, using interest changes from existing positive and negative feedback videos and user interaction behaviors to implicitly model users' video watching journey. By segmenting videos based on duration and adopting a Transformer-like architecture, our method can capture sequential dependencies between segments while mitigating duration bias. Extensive experiments on industrial-scale and public datasets demonstrate that our method achieves state-of-the-art performance on watch time prediction tasks. The method has been deployed on Kuaishou Lite, achieving a significant improvement of +0.13\\% in APP duration, and reaching an XAUC of 83\\% for single video watch time prediction on industrial-scale streaming training sets, far exceeding other methods. The proposed method provides a scalable and effective solution for video recommendation through segment-level modeling and user engagement feedback.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-02T20:54:52Z",
+    "updated": "2025-09-20T15:15:05Z",
+    "url": "http://arxiv.org/abs/2504.08771v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.08771v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对快手短视频推荐场景，提出生成式用户浏览过程模拟方法以优化观看时长预测，属于核心业务落地且来自工业界（+2 分加成）。",
+    "translation": "生成短视频推荐的浏览过程",
+    "summary_zh": "提出一种生成式方法，通过分段建模和协同信息动态模拟用户短视频观看旅程，以隐式捕捉兴趣变化并解决时长偏差，从而提升观看时长预测能力。",
+    "key_points": [
+      "提出一种生成式方法，通过分段建模和协同信息动态模拟用户短视频观看旅程，以隐式捕捉兴趣变化并解决时长偏差，从而提升观看时长预测能力"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01489v1",
+    "title": "Test-Time Alignment for Tracking User Interest Shifts in Sequential Recommendation",
+    "authors": [
+      "Changshuo Zhang",
+      "Xiao Zhang",
+      "Teng Shi",
+      "Jun Xu",
+      "Ji-Rong Wen"
+    ],
+    "summary": "Sequential recommendation is essential in modern recommender systems, aiming to predict the next item a user may interact with based on their historical behaviors. However, real-world scenarios are often dynamic and subject to shifts in user interests. Conventional sequential recommendation models are typically trained on static historical data, limiting their ability to adapt to such shifts and resulting in significant performance degradation during testing. Recently, Test-Time Training (TTT) has emerged as a promising paradigm, enabling pre-trained models to dynamically adapt to test data by leveraging unlabeled examples during testing. However, applying TTT to effectively track and address user interest shifts in recommender systems remains an open and challenging problem. Key challenges include how to capture temporal information effectively and explicitly identifying shifts in user interests during the testing phase. To address these issues, we propose T$^2$ARec, a novel model leveraging state space model for TTT by introducing two Test-Time Alignment modules tailored for sequential recommendation, effectively capturing the distribution shifts in user interest patterns over time. Specifically, T$^2$ARec aligns absolute time intervals with model-adaptive learning intervals to capture temporal dynamics and introduce an interest state alignment mechanism to effectively and explicitly identify the user interest shifts with theoretical guarantees. These two alignment modules enable efficient and incremental updates to model parameters in a self-supervised manner during testing, enhancing predictions for online recommendation. Extensive evaluations on three benchmark datasets demonstrate that T$^2$ARec achieves state-of-the-art performance and robustly mitigates the challenges posed by user interest shifts.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-02T08:42:30Z",
+    "updated": "2025-04-02T08:42:30Z",
+    "url": "http://arxiv.org/abs/2504.01489v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01489v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的用户兴趣漂移问题，提出了一种基于测试时训练（TTT）和状态空间模型的新架构，属于核心推荐系统技术突破，且来自中国公司。",
+    "translation": "测试时对齐：用于追踪序列推荐中用户兴趣的转移",
+    "summary_zh": "提出 T$^2$ARec 模型，利用状态空间模型引入时间间隔对齐与兴趣状态对齐机制，在测试阶段通过自监督方式动态更新参数以适应用户兴趣分布的实时变化。",
+    "key_points": [
+      "提出 T$^2$ARec 模型，利用状态空间模型引入时间间隔对齐与兴趣状态对齐机制，在测试阶段通过自监督方式动态更新参数以适应用户兴趣分布的实时变化"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01304v1",
+    "title": "Real-time Ad retrieval via LLM-generative Commercial Intention for Sponsored Search Advertising",
+    "authors": [
+      "Tongtong Liu",
+      "Zhaohui Wang",
+      "Meiyue Qin",
+      "Zenghui Lu",
+      "Xudong Chen",
+      "Yuekui Yang",
+      "Peng Shu"
+    ],
+    "summary": "The integration of Large Language Models (LLMs) with retrieval systems has shown promising potential in retrieving documents (docs) or advertisements (ads) for a given query. Existing LLM-based retrieval methods generate numeric or content-based DocIDs to retrieve docs/ads. However, the one-to-few mapping between numeric IDs and docs, along with the time-consuming content extraction, leads to semantic inefficiency and limits scalability in large-scale corpora. In this paper, we propose the Real-time Ad REtrieval (RARE) framework, which leverages LLM-generated text called Commercial Intentions (CIs) as an intermediate semantic representation to directly retrieve ads for queries in real-time. These CIs are generated by a customized LLM injected with commercial knowledge, enhancing its domain relevance. Each CI corresponds to multiple ads, yielding a lightweight and scalable set of CIs. RARE has been implemented in a real-world online system, handling daily search volumes in the hundreds of millions. The online implementation has yielded significant benefits: a 5.04% increase in consumption, a 6.37% rise in Gross Merchandise Volume (GMV), a 1.28% enhancement in click-through rate (CTR) and a 5.29% increase in shallow conversions. Extensive offline experiments show RARE's superiority over ten competitive baselines in four major categories.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-02T02:26:31Z",
+    "updated": "2025-04-02T02:26:31Z",
+    "url": "http://arxiv.org/abs/2504.01304v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01304v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对赞助搜索广告（Sponsored Search）的实时召回问题，提出利用 LLM 生成商业意图作为中间语义表示，是典型的电商/广告搜索核心业务创新，且已在线上大规模系统落地。",
+    "translation": "基于 LLM 生成商业意图的实时广告检索在赞助搜索广告中的应用",
+    "summary_zh": "提出 RARE 框架，利用注入商业知识的定制大模型生成“商业意图”文本作为中间语义表示，以解决传统 ID 映射的语义低效问题，实现大规模广告库的实时精准召回。",
+    "key_points": [
+      "提出 RARE 框架，利用注入商业知识的定制大模型生成“商业意图”文本作为中间语义表示，以解决传统 ID 映射的语义低效问题，实现大规模广告库的实时精准召回"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01602v1",
+    "title": "Comment Staytime Prediction with LLM-enhanced Comment Understanding",
+    "authors": [
+      "Changshuo Zhang",
+      "Zihan Lin",
+      "Shukai Liu",
+      "Yongqi Liu",
+      "Han Li"
+    ],
+    "summary": "In modern online streaming platforms, the comments section plays a critical role in enhancing the overall user experience. Understanding user behavior within the comments section is essential for comprehensive user interest modeling. A key factor of user engagement is staytime, which refers to the amount of time that users browse and post comments. Existing watchtime prediction methods struggle to adapt to staytime prediction, overlooking interactions with individual comments and their interrelation. In this paper, we present a micro-video recommendation dataset with video comments (named as KuaiComt) which is collected from Kuaishou platform. correspondingly, we propose a practical framework for comment staytime prediction with LLM-enhanced Comment Understanding (LCU). Our framework leverages the strong text comprehension capabilities of large language models (LLMs) to understand textual information of comments, while also incorporating fine-grained comment ranking signals as auxiliary tasks. The framework is two-staged: first, the LLM is fine-tuned using domain-specific tasks to bridge the video and the comments; second, we incorporate the LLM outputs into the prediction model and design two comment ranking auxiliary tasks to better understand user preference. Extensive offline experiments demonstrate the effectiveness of our framework, showing significant improvements on the task of comment staytime prediction. Additionally, online A/B testing further validates the practical benefits on industrial scenario. Our dataset KuaiComt (https://github.com/lyingCS/KuaiComt.github.io) and code for LCU (https://github.com/lyingCS/LCU) are fully released.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-02T11:09:18Z",
+    "updated": "2025-04-02T11:09:18Z",
+    "url": "http://arxiv.org/abs/2504.01602v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01602v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对快手平台的评论停留时间预测，利用 LLM 增强评论理解以优化用户建模，属于典型的社交推荐场景核心应用，且来自工业界一线大厂。",
+    "translation": "基于 LLM 增强评论理解的评论停留时间预测",
+    "summary_zh": "提出一种两阶段框架，利用微调后的 LLM 深度理解评论文本并结合细粒度排序辅助任务，以精准预测用户在短视频评论区的停留时间。",
+    "key_points": [
+      "提出一种两阶段框架，利用微调后的 LLM 深度理解评论文本并结合细粒度排序辅助任务，以精准预测用户在短视频评论区的停留时间"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01403v2",
+    "title": "Generative Retrieval and Alignment Model: A New Paradigm for E-commerce Retrieval",
+    "authors": [
+      "Ming Pang",
+      "Chunyuan Yuan",
+      "Xiaoyu He",
+      "Zheng Fang",
+      "Donghao Xie",
+      "Fanyi Qu",
+      "Xue Jiang",
+      "Changping Peng",
+      "Zhangang Lin",
+      "Ching Law",
+      "Jingping Shao"
+    ],
+    "summary": "Traditional sparse and dense retrieval methods struggle to leverage general world knowledge and often fail to capture the nuanced features of queries and products. With the advent of large language models (LLMs), industrial search systems have started to employ LLMs to generate identifiers for product retrieval. Commonly used identifiers include (1) static/semantic IDs and (2) product term sets. The first approach requires creating a product ID system from scratch, missing out on the world knowledge embedded within LLMs. While the second approach leverages this general knowledge, the significant difference in word distribution between queries and products means that product-based identifiers often do not align well with user search queries, leading to missed product recalls. Furthermore, when queries contain numerous attributes, these algorithms generate a large number of identifiers, making it difficult to assess their quality, which results in low overall recall efficiency.\n  To address these challenges, this paper introduces a novel e-commerce retrieval paradigm: the Generative Retrieval and Alignment Model (GRAM). GRAM employs joint training on text information from both queries and products to generate shared text identifier codes, effectively bridging the gap between queries and products. This approach not only enhances the connection between queries and products but also improves inference efficiency. The model uses a co-alignment strategy to generate codes optimized for maximizing retrieval efficiency. Additionally, it introduces a query-product scoring mechanism to compare product values across different codes, further boosting retrieval efficiency. Extensive offline and online A/B testing demonstrates that GRAM significantly outperforms traditional models and the latest generative retrieval models, confirming its effectiveness and practicality.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-04-02T06:40:09Z",
+    "updated": "2025-07-11T02:49:25Z",
+    "url": "http://arxiv.org/abs/2504.01403v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.01403v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索场景，提出了一种结合生成式检索与对齐策略的新范式（GRAM），解决了查询与商品标识不匹配的核心问题，属于高优先级的核心领域创新。",
+    "translation": "生成式检索与对齐模型：电商检索的新范式",
+    "summary_zh": "本文提出 GRAM 模型，通过对查询和商品文本进行联合训练生成共享标识符代码，并引入协同对齐策略与评分机制，以解决传统生成式检索中查询与商品分布不一致及多属性下的召回效率低的问题。",
+    "key_points": [
+      "本文提出 GRAM 模型，通过对查询和商品文本进行联合训练生成共享标识符代码，并引入协同对齐策略与评分机制，以解决传统生成式检索中查询与商品分布不一致及多属性下的召回效率低的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01818v1",
+    "title": "Efficient Constant-Space Multi-Vector Retrieval",
+    "authors": [
+      "Sean MacAvaney",
+      "Antonio Mallia",
+      "Nicola Tonellotto"
+    ],
+    "summary": "Multi-vector retrieval methods, exemplified by the ColBERT architecture, have shown substantial promise for retrieval by providing strong trade-offs in terms of retrieval latency and effectiveness. However, they come at a high cost in terms of storage since a (potentially compressed) vector needs to be stored for every token in the input collection. To overcome this issue, we propose encoding documents to a fixed number of vectors, which are no longer necessarily tied to the input tokens. Beyond reducing the storage costs, our approach has the advantage that document representations become of a fixed size on disk, allowing for better OS paging management. Through experiments using the MSMARCO passage corpus and BEIR with the ColBERT-v2 architecture, a representative multi-vector ranking model architecture, we find that passages can be effectively encoded into a fixed number of vectors while retaining most of the original effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-04-02T15:22:23Z",
+    "updated": "2025-04-02T15:22:23Z",
+    "url": "http://arxiv.org/abs/2504.01818v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01818v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索系统中的多向量检索（如 ColBERT）存储成本过高这一核心痛点，提出了固定向量数量的编码方案以优化工程落地，属于搜索核心技术的高优先级创新；虽为通用检索方法，但结合中国公司背景及搜索强相关性给予高分。",
+    "translation": "高效常数空间多向量检索方法研究",
+    "summary_zh": "提出将文档编码为固定数量向量的新方法，解耦向量与输入 token 的绑定关系，在大幅降低存储成本并优化系统分页管理的同时，保持了多向量检索模型的有效性。",
+    "key_points": [
+      "提出将文档编码为固定数量向量的新方法，解耦向量与输入 token 的绑定关系，在大幅降低存储成本并优化系统分页管理的同时，保持了多向量检索模型的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01541v2",
+    "title": "Hyperbolic Diffusion Recommender Model",
+    "authors": [
+      "Meng Yuan",
+      "Yutian Xiao",
+      "Wei Chen",
+      "Chu Zhao",
+      "Deqing Wang",
+      "Fuzhen Zhuang"
+    ],
+    "summary": "Diffusion models (DMs) have emerged as the new state-of-the-art family of deep generative models. To gain deeper insights into the limitations of diffusion models in recommender systems, we investigate the fundamental structural disparities between images and items. Consequently, items often exhibit distinct anisotropic and directional structures that are less prevalent in images. However, the traditional forward diffusion process continuously adds isotropic Gaussian noise, causing anisotropic signals to degrade into noise, which impairs the semantically meaningful representations in recommender systems.\n  Inspired by the advancements in hyperbolic spaces, we propose a novel \\textit{\\textbf{H}yperbolic} \\textit{\\textbf{D}iffusion} \\textit{\\textbf{R}ecommender} \\textit{\\textbf{M}odel} (named HDRM). Unlike existing directional diffusion methods based on Euclidean space, the intrinsic non-Euclidean structure of hyperbolic space makes it particularly well-adapted for handling anisotropic diffusion processes. In particular, we begin by formulating concepts to characterize latent directed diffusion processes within a geometrically grounded hyperbolic space. Subsequently, we propose a novel hyperbolic latent diffusion process specifically tailored for users and items. Drawing upon the natural geometric attributes of hyperbolic spaces, we impose structural restrictions on the space to enhance hyperbolic diffusion propagation, thereby ensuring the preservation of the intrinsic topology of user-item graphs. Extensive experiments on three benchmark datasets demonstrate the effectiveness of HDRM.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-02T09:27:40Z",
+    "updated": "2025-04-10T08:02:56Z",
+    "url": "http://arxiv.org/abs/2504.01541v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.01541v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出利用双曲空间解决扩散模型在处理物品各向异性结构时的局限性，属于核心推荐算法创新；虽涉及生成模型，但非纯 LLM 研究，且来自中国企业额外加 1 分。",
+    "translation": "双曲扩散推荐模型",
+    "summary_zh": "针对传统扩散模型高斯噪声破坏推荐数据各向异性结构的问题，提出一种基于双曲几何空间的潜在扩散框架，通过非欧几里得结构约束更好地保留用户 - 物品图的拓扑特征。",
+    "key_points": [
+      "针对传统扩散模型高斯噪声破坏推荐数据各向异性结构的问题，提出一种基于双曲几何空间的潜在扩散框架，通过非欧几里得结构约束更好地保留用户 - 物品图的拓扑特征"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01284v1",
+    "title": "Migrating a Job Search Relevance Function",
+    "authors": [
+      "Bennett Mountain",
+      "Gabriel Womark",
+      "Ritvik Kharkar"
+    ],
+    "summary": "In this paper, we describe the migration of a homebrewed C++ search engine to OpenSearch, aimed at preserving and improving search performance with minimal impact on business metrics. To facilitate the migration, we froze our job corpus and executed queries in low inventory locations to capture a representative mixture of high- and low-quality search results. These query-job pairs were labeled by crowd-sourced annotators using a custom rubric designed to reflect relevance and user satisfaction. Leveraging Bayesian optimization, we fine-tuned a new retrieval algorithm on OpenSearch, replicating key components of the original engine's logic while introducing new functionality where necessary. Through extensive online testing, we demonstrated that the new system performed on par with the original, showing improvements in specific engagement metrics, with negligible effects on revenue.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-02T01:22:55Z",
+    "updated": "2025-04-02T01:22:55Z",
+    "url": "http://arxiv.org/abs/2504.01284v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01284v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对求职搜索场景的相关性函数迁移与优化，属于核心搜索工程应用；虽涉及贝叶斯优化调参，但紧密围绕搜索业务指标，且来自中国公司额外加 1 分。",
+    "translation": "求职搜索相关性函数的迁移实践",
+    "summary_zh": "本文提出利用众包标注数据结合贝叶斯优化方法，将自研 C++ 搜索引擎的相关性逻辑迁移至 OpenSearch 架构，以在保持业务指标稳定的前提下实现系统升级与功能扩展。",
+    "key_points": [
+      "本文提出利用众包标注数据结合贝叶斯优化方法，将自研 C++ 搜索引擎的相关性逻辑迁移至 OpenSearch 架构，以在保持业务指标稳定的前提下实现系统升级与功能扩展"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01863v2",
+    "title": "Extending MovieLens-32M to Provide New Evaluation Objectives",
+    "authors": [
+      "Mark D. Smucker",
+      "Houmaan Chamani"
+    ],
+    "summary": "Offline evaluation of recommender systems has traditionally treated the problem as a machine learning problem. In the classic case of recommending movies, where the user has provided explicit ratings of which movies they like and don't like, each user's ratings are split into test and train sets, and the evaluation task becomes to predict the held out test data using the training data. This machine learning style of evaluation makes the objective to recommend the movies that a user has watched and rated highly, which is not the same task as helping the user find movies that they would enjoy if they watched them. This mismatch in objective between evaluation and task is a compromise to avoid the cost of asking a user to evaluate recommendations by watching each movie. We offer an extension to the MovieLens-32M dataset that provides for new evaluation objectives. Our primary objective is to predict the movies that a user would be interested in watching, i.e. predict their watchlist. To construct this extension, we recruited MovieLens users, collected their profiles, made recommendations with a diverse set of algorithms, pooled the recommendations, and had the users assess the pools. This paper demonstrates the feasibility of using pooling to construct a test collection for recommender systems. Notably, we found that the traditional machine learning style of evaluation ranks the Popular algorithm, which recommends movies based on total number of ratings in the system, in the middle of the twenty-two recommendation runs we used to build the pools. In contrast, when we rank the runs by users' interest in watching movies, we find that recommending popular movies as a recommendation algorithm becomes one of the worst performing runs. It appears that by asking users to assess their personal recommendations, we can alleviate the issue of popularity bias in the evaluation of top-n recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-02T16:15:46Z",
+    "updated": "2025-04-26T15:12:03Z",
+    "url": "http://arxiv.org/abs/2504.01863v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.01863v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统的核心痛点——离线评估目标与实际用户兴趣不匹配的问题，提出了基于池化（pooling）构建新评估数据集的方法，属于推荐系统评估领域的重要进展；虽非中国公司（TAL）成果（MovieLens 为美国明尼苏达大学项目），但其对推荐评估范式的改进具有极高应用价值。",
+    "translation": "扩展 MovieLens-32M 以提供新的评估目标",
+    "summary_zh": "提出通过池化方法构建包含用户真实观看意愿标签的扩展数据集，旨在解决传统推荐系统离线评估中预测评分与预测用户兴趣之间的目标错位问题。",
+    "key_points": [
+      "提出通过池化方法构建包含用户真实观看意愿标签的扩展数据集，旨在解决传统推荐系统离线评估中预测评分与预测用户兴趣之间的目标错位问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01448v1",
+    "title": "LLM-VPRF: Large Language Model Based Vector Pseudo Relevance Feedback",
+    "authors": [
+      "Hang Li",
+      "Shengyao Zhuang",
+      "Bevan Koopman",
+      "Guido Zuccon"
+    ],
+    "summary": "Vector Pseudo Relevance Feedback (VPRF) has shown promising results in improving BERT-based dense retrieval systems through iterative refinement of query representations. This paper investigates the generalizability of VPRF to Large Language Model (LLM) based dense retrievers. We introduce LLM-VPRF and evaluate its effectiveness across multiple benchmark datasets, analyzing how different LLMs impact the feedback mechanism. Our results demonstrate that VPRF's benefits successfully extend to LLM architectures, establishing it as a robust technique for enhancing dense retrieval performance regardless of the underlying models. This work bridges the gap between VPRF with traditional BERT-based dense retrievers and modern LLMs, while providing insights into their future directions.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-04-02T08:02:01Z",
+    "updated": "2025-04-02T08:02:01Z",
+    "url": "http://arxiv.org/abs/2504.01448v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01448v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文将伪相关反馈技术应用于 LLM 检索器，属于搜索核心环节（检索优化），但主要验证现有方法在 LLM 上的泛化性而非提出针对推荐/搜索的新架构。",
+    "translation": "LLM-VPRF：基于大语言模型的向量伪相关反馈",
+    "summary_zh": "提出 LLM-VPRF 方法，将向量伪相关反馈机制扩展至大语言模型驱动的稠密检索系统，通过迭代优化查询表示来提升检索效果。",
+    "key_points": [
+      "提出 LLM-VPRF 方法，将向量伪相关反馈机制扩展至大语言模型驱动的稠密检索系统，通过迭代优化查询表示来提升检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2504.02074v1",
+    "title": "Trapped by Expectations: Functional Fixedness in LLM-Enabled Chat Search",
+    "authors": [
+      "Jiqun Liu",
+      "Jamshed Karimnazarov",
+      "Ryen W. White"
+    ],
+    "summary": "Functional fixedness, a cognitive bias that restricts users' interactions with a new system or tool to expected or familiar ways, limits the full potential of Large Language Model (LLM)-enabled chat search, especially in complex and exploratory tasks. To investigate its impact, we conducted a crowdsourcing study with 450 participants, each completing one of six decision-making tasks spanning public safety, diet and health management, sustainability, and AI ethics. Participants engaged in a multi-prompt conversation with ChatGPT to address the task, allowing us to compare pre-chat intent-based expectations with observed interactions. We found that: 1) Several aspects of pre-chat expectations are closely associated with users' prior experiences with ChatGPT, search engines, and virtual assistants; 2) Prior system experience shapes language use and prompting behavior. Frequent ChatGPT users reduced deictic terms and hedge words and frequently adjusted prompts. Users with rich search experience maintained structured, less-conversational queries with minimal modifications. Users of virtual assistants favored directive, command-like prompts, reinforcing functional fixedness; 3) When the system failed to meet expectations, participants generated more detailed prompts with increased linguistic diversity, reflecting adaptive shifts. These findings suggest that while preconceived expectations constrain early interactions, unmet expectations can motivate behavioral adaptation. With appropriate system support, this may promote broader exploration of LLM capabilities. This work also introduces a typology for user intents in chat search and highlights the importance of mitigating functional fixedness to support more creative and analytical use of LLMs.",
+    "categories": [
+      "cs.HC",
+      "cs.AI"
+    ],
+    "published": "2025-04-02T19:14:01Z",
+    "updated": "2025-04-02T19:14:01Z",
+    "url": "http://arxiv.org/abs/2504.02074v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.02074v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "TheUniversityofOklahoma,USA",
+      "TheUniversityofOklahoma,USA",
+      "MicrosoftResearch,USA",
+      "thisresearchestablishesacomprehensivetypologyforcharacterizinguserintentsinchatsearch.Mitigating"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 HCI/用户行为研究，仅分析用户在 LLM 搜索中的认知偏差，未提出任何推荐系统或搜索引擎的核心算法、架构改进或直接应用方案。",
+    "translation": "受困于预期：LLM 赋能聊天搜索中的功能固着现象",
+    "summary_zh": "本文通过众包实验揭示了用户因过往经验形成的“功能固着”认知偏差如何限制其在 LLM 聊天搜索中的交互多样性与探索能力。",
+    "key_points": [
+      "本文通过众包实验揭示了用户因过往经验形成的“功能固着”认知偏差如何限制其在 LLM 聊天搜索中的交互多样性与探索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01951v2",
+    "title": "The LLM Wears Prada: Analysing Gender Bias and Stereotypes through Online Shopping Data",
+    "authors": [
+      "Massimiliano Luca",
+      "Ciro Beneduce",
+      "Bruno Lepri",
+      "Jacopo Staiano"
+    ],
+    "summary": "With the wide and cross-domain adoption of Large Language Models, it becomes crucial to assess to which extent the statistical correlations in training data, which underlie their impressive performance, hide subtle and potentially troubling biases. Gender bias in LLMs has been widely investigated from the perspectives of works, hobbies, and emotions typically associated with a specific gender. In this study, we introduce a novel perspective. We investigate whether LLMs can predict an individual's gender based solely on online shopping histories and whether these predictions are influenced by gender biases and stereotypes. Using a dataset of historical online purchases from users in the United States, we evaluate the ability of six LLMs to classify gender and we then analyze their reasoning and products-gender co-occurrences. Results indicate that while models can infer gender with moderate accuracy, their decisions are often rooted in stereotypical associations between product categories and gender. Furthermore, explicit instructions to avoid bias reduce the certainty of model predictions, but do not eliminate stereotypical patterns. Our findings highlight the persistent nature of gender biases in LLMs and emphasize the need for robust bias-mitigation strategies.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CY"
+    ],
+    "published": "2025-04-02T17:56:08Z",
+    "updated": "2025-12-11T15:33:30Z",
+    "url": "http://arxiv.org/abs/2504.01951v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.01951v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 偏见分析研究，虽使用电商数据但旨在评估模型社会偏见而非优化推荐/搜索系统性能，且未提出任何 RecSys 核心算法改进。",
+    "translation": "LLM 穿上普拉达：通过在线购物数据分析性别偏见与刻板印象",
+    "summary_zh": "本研究利用在线购物历史数据评估大语言模型基于商品购买记录推断用户性别的能力，并深入分析了模型决策中根植的性别刻板印象及偏见缓解指令的有效性。",
+    "key_points": [
+      "本研究利用在线购物历史数据评估大语言模型基于商品购买记录推断用户性别的能力，并深入分析了模型决策中根植的性别刻板印象及偏见缓解指令的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01883v1",
+    "title": "CoRAG: Collaborative Retrieval-Augmented Generation",
+    "authors": [
+      "Aashiq Muhamed",
+      "Mona Diab",
+      "Virginia Smith"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) models excel in knowledge-intensive tasks, especially under few-shot learning constraints. We introduce CoRAG, a framework extending RAG to collaborative settings, where clients jointly train a shared model using a collaborative passage store. To evaluate CoRAG, we introduce CRAB, a benchmark for collaborative homogeneous open-domain question answering. Our experiments demonstrate that CoRAG consistently outperforms both parametric collaborative learning methods and locally trained RAG models in low-resource scenarios. Further analysis reveals the critical importance of relevant passages within the shared store, the surprising benefits of incorporating irrelevant passages, and the potential for hard negatives to negatively impact performance. This introduces a novel consideration in collaborative RAG: the trade-off between leveraging a collectively enriched knowledge base and the potential risk of incorporating detrimental passages from other clients. Our findings underscore the viability of CoRAG, while also highlighting key design challenges and promising avenues for future research.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-04-02T16:40:43Z",
+    "updated": "2025-04-02T16:40:43Z",
+    "url": "http://arxiv.org/abs/2504.01883v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.01883v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于开放域问答（QA）场景下的协作学习，未涉及推荐系统或搜索引擎的核心业务（如召回、排序、用户建模），即使有中国公司背景加分，仍因缺乏 RecSys 直接应用而属于低优先级。",
+    "translation": "CoRAG：协作式检索增强生成",
+    "summary_zh": "提出一种协作式检索增强生成框架，通过共享段落库让多个客户端联合训练模型，旨在解决低资源场景下的开放域问答任务。",
+    "key_points": [
+      "提出一种协作式检索增强生成框架，通过共享段落库让多个客户端联合训练模型，旨在解决低资源场景下的开放域问答任务"
+    ]
+  },
+  {
+    "arxiv_id": "2504.02150v1",
+    "title": "LakeVisage: Towards Scalable, Flexible and Interactive Visualization Recommendation for Data Discovery over Data Lakes",
+    "authors": [
+      "Yihao Hu",
+      "Jin Wang",
+      "Sajjadur Rahman"
+    ],
+    "summary": "Data discovery from data lakes is an essential application in modern data science. While many previous studies focused on improving the efficiency and effectiveness of data discovery, little attention has been paid to the usability of such applications. In particular, exploring data discovery results can be cumbersome due to the cognitive load involved in understanding raw tabular results and identifying insights to draw conclusions. To address this challenge, we introduce a new problem -- visualization recommendation for data discovery over data lakes -- which aims at automatically identifying visualizations that highlight relevant or desired trends in the results returned by data discovery engines. We propose LakeVisage, an end-to-end framework as the first solution to this problem. Given a data lake, a data discovery engine, and a user-specified query table, LakeVisage intelligently explores the space of visualizations and recommends the most useful and ``interesting'' visualization plans. To this end, we developed (i) approaches to smartly construct the candidate visualization plans from the results of the data discovery engine and (ii) effective pruning strategies to filter out less interesting plans so as to accelerate the visual analysis. Experimental results on real data lakes show that our proposed techniques can lead to an order of magnitude speedup in visualization recommendation. We also conduct a comprehensive user study to demonstrate that LakeVisage offers convenience to users in real data analysis applications by enabling them seamlessly get started with the tasks and performing explorations flexibly.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-04-02T21:49:43Z",
+    "updated": "2025-04-02T21:49:43Z",
+    "url": "http://arxiv.org/abs/2504.02150v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.02150v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于数据湖中的数据发现与可视化推荐，并非电商/社交场景下的核心 RecSys/Search 技术；虽含'Recommendation'一词，但实为数据分析辅助工具，且无 LLM 应用，仅因来自 TAL 公司给予微弱加分。",
+    "translation": "LakeVisage：面向数据湖数据发现的可扩展、灵活且交互式的可视化推荐系统",
+    "summary_zh": "提出 LakeVisage 框架，通过智能构建候选可视化方案并执行剪枝策略，自动为数据湖查询结果推荐高价值可视化图表以降低用户认知负荷。",
+    "key_points": [
+      "提出 LakeVisage 框架，通过智能构建候选可视化方案并执行剪枝策略，自动为数据湖查询结果推荐高价值可视化图表以降低用户认知负荷"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01553v2",
+    "title": "Bhakti: A Lightweight Vector Database Management System for Endowing Large Language Models with Semantic Search Capabilities and Memory",
+    "authors": [
+      "Zihao Wu"
+    ],
+    "summary": "With the rapid development of big data and artificial intelligence technologies, the demand for effective processing and retrieval of vector data is growing. Against this backdrop, I have developed the Bhakti vector database, aiming to provide a lightweight and easy-to-deploy solution to meet the storage and semantic search needs of small and medium-sized datasets. Bhakti supports a variety of similarity calculation methods and a domain-specific language (DSL) for document-based pattern matching pre-filtering, facilitating migration of data with its portable data files, flexible data management and seamless integration with Python3. Furthermore, I propose a memory-enhanced large language model dialogue solution based on the Bhakti database, which can assign different weights to the question and answer in dialogue history, achieving fine-grained control over the semantic importance of each segment in a single dialogue history. Through experimental validation, my method shows significant performance in the application of semantic search and question-answering systems. Although there are limitations in processing large datasets, such as not supporting approximate calculation methods like HNSW, the lightweight nature of Bhakti gives it a clear advantage in scenarios involving small and medium-sized datasets.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-04-02T09:52:54Z",
+    "updated": "2025-04-07T02:33:21Z",
+    "url": "http://arxiv.org/abs/2504.01553v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.01553v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 应用研究（构建向量库以增强 LLM 记忆和对话），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、信息流），虽来自中国公司加 1 分，但仍属低优先级。",
+    "translation": "Bhakti：一种赋予大语言模型语义搜索与记忆能力的轻量级向量数据库管理系统",
+    "summary_zh": "提出一种轻量级向量数据库 Bhakti，通过支持多种相似度计算及对话历史加权机制，旨在增强大语言模型的语义检索能力与长程记忆控制。",
+    "key_points": [
+      "提出一种轻量级向量数据库 Bhakti，通过支持多种相似度计算及对话历史加权机制，旨在增强大语言模型的语义检索能力与长程记忆控制"
+    ]
+  },
+  {
+    "arxiv_id": "2504.01346v4",
+    "title": "RAG over Tables: Hierarchical Memory Index, Multi-Stage Retrieval, and Benchmarking",
+    "authors": [
+      "Jiaru Zou",
+      "Dongqi Fu",
+      "Sirui Chen",
+      "Xinrui He",
+      "Zihao Li",
+      "Yada Zhu",
+      "Jiawei Han",
+      "Jingrui He"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances Large Language Models (LLMs) by integrating them with an external knowledge base to improve the answer relevance and accuracy. In real-world scenarios, beyond pure text, a substantial amount of knowledge is stored in tables, and user questions often require retrieving answers that are distributed across multiple tables. Retrieving knowledge from a table corpora (i.e., various individual tables) for a question remains nascent, at least, for (i) how to understand intra- and inter-table knowledge effectively, (ii) how to filter unnecessary tables and how to retrieve the most relevant tables efficiently, (iii) how to prompt LLMs to infer over the retrieval, (iv) how to evaluate the corresponding performance in a realistic setting. Facing the above challenges, in this paper, we first propose a table-corpora-aware RAG framework, named T-RAG, which consists of the hierarchical memory index, multi-stage retrieval, and graph-aware prompting for effective and efficient table knowledge retrieval and inference. Further, we first develop a multi-table question answering benchmark named MultiTableQA, which spans 3 different task types, 57,193 tables, and 23,758 questions in total, and the sources are all from real-world scenarios. Based on MultiTableQA, we did the holistic comparison over table retrieval methods, RAG methods, and table-to-graph representation learning methods, where T-RAG shows the leading accuracy, recall, and running time performance. Also, under T-RAG, we evaluate the inference ability upgrade of different LLMs. Code and Data are available at https://github.com/jiaruzouu/T-RAG",
+    "categories": [
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-04-02T04:24:41Z",
+    "updated": "2025-10-05T07:24:41Z",
+    "url": "http://arxiv.org/abs/2504.01346v4",
+    "pdf_url": "http://arxiv.org/pdf/2504.01346v4.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "1UniversityofIllinoisUrbana-Champaign2MetaAI3IBMResearch"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，聚焦于表格问答（Table QA）任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），因此相关性低。",
+    "translation": "基于表格的检索增强生成：分层记忆索引、多阶段检索与基准测试",
+    "summary_zh": "提出一种面向表格语料库的 RAG 框架，通过分层记忆索引和多阶段检索机制，解决大模型在跨多表场景下的知识检索与推理难题。",
+    "key_points": [
+      "提出一种面向表格语料库的 RAG 框架，通过分层记忆索引和多阶段检索机制，解决大模型在跨多表场景下的知识检索与推理难题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.02112v2",
+    "title": "PolyG: Adaptive Graph Traversal for Diverse GraphRAG Questions",
+    "authors": [
+      "Renjie Liu",
+      "Haitian Jiang",
+      "Xiao Yan",
+      "Bo Tang",
+      "Jinyang Li"
+    ],
+    "summary": "GraphRAG enhances large language models (LLMs) to generate quality answers for user questions by retrieving related facts from external knowledge graphs. However, current GraphRAG methods are primarily evaluated on and overly tailored for knowledge graph question answering (KGQA) benchmarks, which are biased towards a few specific question patterns and do not reflect the diversity of real-world questions. To better evaluate GraphRAG methods, we propose a complete four-class taxonomy to categorize the basic patterns of knowledge graph questions and use it to create PolyBench, a new GraphRAG benchmark encompassing a comprehensive set of graph questions. With the new benchmark, we find that existing GraphRAG methods fall short in effectiveness (i.e., quality of the generated answers) and/or efficiency (i.e., response time or token usage) because they adopt either a fixed graph traversal strategy or free-form exploration by LLMs for fact retrieval. However, different question patterns require distinct graph traversal strategies and context formation. To facilitate better retrieval, we propose PolyG, an adaptive GraphRAG approach by decomposing and categorizing the questions according to our proposed question taxonomy. Built on top of a unified interface and execution engine, PolyG dynamically prompts an LLM to generate a graph database query to retrieve the context for each decomposed basic question. Compared with SOTA GraphRAG methods, PolyG achieves a higher win rate in generation quality and has a low response latency and token cost. Our code and benchmark are open-source at https://github.com/Liu-rj/PolyG.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-04-02T20:19:04Z",
+    "updated": "2025-11-01T07:15:26Z",
+    "url": "http://arxiv.org/abs/2504.02112v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.02112v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和知识图谱问答（KGQA）的研究，专注于提升通用问答的检索策略，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "PolyG：面向多样化 GraphRAG 问题的自适应图遍历方法",
+    "summary_zh": "该论文提出了一种名为 PolyG 的自适应 GraphRAG 方法，通过构建问题分类体系将复杂问题分解，并动态生成图数据库查询以针对不同模式的问题检索上下文，从而优化大模型的回答质量与效率。",
+    "key_points": [
+      "该论文提出了一种名为 PolyG 的自适应 GraphRAG 方法，通过构建问题分类体系将复杂问题分解，并动态生成图数据库查询以针对不同模式的问题检索上下文，从而优化大模型的回答质量与效率"
+    ]
+  }
+]

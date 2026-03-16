@@ -272,7 +272,7 @@
     <div class="container">
         <div class="header">
             <h1>📚 AI Paper Daily</h1>
-            <p>论文日历导航 | 2025 年 4 月 - 12 月</p>
+            <p>论文日历导航 | 2025 年 4 月 - 至今</p>
         </div>
 
         <div class="content">
@@ -292,10 +292,6 @@
                 <a href="OVERVIEW.md" class="quick-link">
                     <strong>📊 数据总览</strong>
                     <span>查看月度统计与趋势分析</span>
-                </a>
-                <a href="https://github.com/quaner2557/ai-paper-daily" class="quick-link" target="_blank">
-                    <strong>🔗 GitHub 仓库</strong>
-                    <span>访问项目源码</span>
                 </a>
             </div>
 
@@ -338,8 +334,11 @@
         const monthNames = ["1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
         const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
 
-        let currentYear = 2025;
-        let currentMonth = 3; // 4 月 (0-indexed)
+        // 自动获取最新月份
+        const allMonths = Object.keys(paperData).sort();
+        const latestMonth = allMonths[allMonths.length - 1];
+        let currentYear = parseInt(latestMonth.substring(0, 4));
+        let currentMonth = parseInt(latestMonth.substring(4, 6)) - 1; // 转为 0-indexed
 
         function getDaysInMonth(year, month) {
             return new Date(year, month + 1, 0).getDate();
@@ -357,9 +356,12 @@
 
             monthYear.textContent = `${currentYear}年 ${monthNames[currentMonth]}`;
 
-            // 禁用按钮
-            prevBtn.disabled = (currentYear === 2025 && currentMonth === 3);
-            nextBtn.disabled = (currentYear === 2025 && currentMonth === 11);
+            // 禁用按钮（根据实际数据范围）
+            const currentMonthKey = `${currentYear}${String(currentMonth + 1).padStart(2, '0')}`;
+            const firstMonth = allMonths[0];
+            const lastMonth = allMonths[allMonths.length - 1];
+            prevBtn.disabled = (currentMonthKey <= firstMonth);
+            nextBtn.disabled = (currentMonthKey >= lastMonth);
 
             grid.innerHTML = '';
 

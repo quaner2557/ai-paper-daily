@@ -175,16 +175,16 @@ class RelatedPaperFinder:
         except Exception as e:
             return 0
     
-    def _prerank_with_flash(self, user_abstract: str, top_n: int = 200) -> list:
-        """使用 Flash 模型对所有精排论文打分（50 并发 + 重试机制）"""
+    def _finerank_with_plus(self, candidates: list, user_abstract: str) -> list:
+        """使用 Plus 模型对候选论文精细打分（500 并发 + 失败重试）"""
         start_time = time.time()
-        total = len(self.all_papers)
+        total = len(candidates)
         
-        print(f"   开始 Flash 模型并行打分（{total}篇，50 个并发）...")
+        print(f"   开始 Plus 模型并行打分（{total}篇，500 个并发）...")
         
         scored = []
-        tasks = list(enumerate(self.all_papers))
-        max_retries = 2
+        tasks = list(enumerate(candidates))
+        max_retries = 3  # 失败后重试 3 次
         
         def score_with_retry(args):
             """带重试的打分函数"""
@@ -193,14 +193,15 @@ class RelatedPaperFinder:
                 return idx, 0
             
             for attempt in range(max_retries + 1):
-                score = self._score_relevance(user_abstract, paper, use_plus=False)
-                if score > 0 or attempt == max_retries:
+                score = self._score_relevance(user_abstract, paper, use_plus=True)
+                if score > 0:
                     return idx, score
-                time.sleep(1)  # 重试前等待 1 秒
+                if attempt < max_retries:
+                    time.sleep(2 ** attempt)  # 指数退避：1 秒，2 秒，4 秒
             
             return idx, 0
         
-        with ThreadPoolExecutor(max_workers=50) as executor:
+        with ThreadPoolExecutor(max_workers=500) as executor:
             future_to_idx = {executor.submit(score_with_retry, task): task[0] for task in tasks}
             
             completed = 0
@@ -293,29 +294,11 @@ class RelatedPaperFinder:
         print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
         print()
         
-        # 阶段 2：Plus 模型精细打分（用完整摘要）
-        scored_papers = []
+        # 阶段 2：Plus 模型精细打分（500 并发 + 重试）
+        print(f"⚡ 阶段 2/2：Qwen-Plus 并行精排（{len(candidates)}篇，500 个并发 + 3 次重试）")
+        print(f"   预计耗时：~1 分钟")
+        scored_papers = self._finerank_with_plus(candidates, finerank_abstract)
         
-        for i, paper in enumerate(candidates, 1):
-            if not paper.get('summary'):
-                continue
-            
-            # 使用完整摘要进行精排打分
-            score = self._score_relevance(finerank_abstract, paper, use_plus=True)
-            
-            if score > 0:
-                paper['_relevance_score'] = score
-                scored_papers.append(paper)
-            
-            # 进度显示（每 10 篇显示一次）
-            if i % 10 == 0:
-                progress = (i / len(candidates)) * 100
-                elapsed = time.time() - total_start
-                eta = (elapsed / progress * 100) - elapsed if progress > 0 else 0
-                sys.stderr.write(f"\r   精排进度：{i}/{len(candidates)} ({progress:.1f}%) | {elapsed:.0f}秒 | 剩余{eta:.0f}秒   ")
-                sys.stderr.flush()
-        
-        scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
         self._save_abstract_cache()
         
         total_time = time.time() - total_start

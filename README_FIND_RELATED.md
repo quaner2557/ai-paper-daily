@@ -129,6 +129,24 @@ LLM_FINERANK_MODEL=qwen3.5-plus   # 精排模型（准确）
 
 ---
 
+## 💾 缓存机制
+
+**自动缓存摘要：**
+- 首次运行时自动保存摘要到 `output/cache/abstract_cache.json`
+- 后续运行优先读取缓存，避免重复 API 调用
+- 防止触发 API 限流
+- 显著加快速度（缓存命中时）
+
+**缓存文件：**
+```
+output/
+├── cache/
+│   └── abstract_cache.json  # 摘要缓存
+└── related_papers.json      # 搜索结果
+```
+
+---
+
 ## 📝 示例
 
 **输入摘要：**

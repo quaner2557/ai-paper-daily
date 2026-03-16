@@ -25,6 +25,9 @@ class RelatedPaperFinder:
     
     def __init__(self):
         self.output_dir = Path('output')
+        self.cache_dir = self.output_dir / 'cache'
+        self.cache_dir.mkdir(exist_ok=True)
+        
         self.llm_api_key = os.getenv("LLM_API_KEY", "")
         self.llm_base_url = os.getenv("LLM_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
         # 双模型配置：粗筛用 flash（便宜快速），精排用 plus（准确）
@@ -34,6 +37,10 @@ class RelatedPaperFinder:
         # 加载所有精选论文
         self.all_papers = self._load_all_papers()
         print(f"✅ 已加载 {len(self.all_papers)} 篇精选论文")
+        
+        # 加载摘要缓存
+        self.abstract_cache = self._load_abstract_cache()
+        print(f"💾 已加载 {len(self.abstract_cache)} 篇论文摘要缓存")
     
     def _load_all_papers(self):
         """从 output 目录加载所有精选论文"""
@@ -63,6 +70,51 @@ class RelatedPaperFinder:
                 print(f"⚠️  读取 {filename} 失败：{e}")
         
         return all_papers
+    
+    def _load_abstract_cache(self):
+        """加载摘要缓存"""
+        cache_file = self.cache_dir / 'abstract_cache.json'
+        if cache_file.exists():
+            try:
+                with open(cache_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except:
+                pass
+        return {}
+    
+    def _save_abstract_cache(self):
+        """保存摘要缓存到本地"""
+        cache_file = self.cache_dir / 'abstract_cache.json'
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            json.dump(self.abstract_cache, f, ensure_ascii=False, indent=2)
+        print(f"💾 摘要缓存已保存：{len(self.abstract_cache)} 篇")
+    
+    def _get_paper_abstract(self, paper: dict) -> str:
+        """
+        获取论文摘要（优先从缓存读取）
+        
+        Args:
+            paper: 论文信息
+        
+        Returns:
+            摘要文本
+        """
+        arxiv_id = paper.get('arxiv_id', '')
+        if not arxiv_id:
+            return paper.get('summary', '')
+        
+        # 检查缓存
+        if arxiv_id in self.abstract_cache:
+            return self.abstract_cache[arxiv_id]
+        
+        # 缓存未命中，使用论文中的摘要
+        summary = paper.get('summary', '')
+        if summary:
+            # 添加到缓存
+            self.abstract_cache[arxiv_id] = summary
+            self._save_abstract_cache()
+        
+        return summary
     
     def find_related(self, user_abstract: str, top_k: int = 10, candidate_n: int = 200) -> list:
         """
@@ -109,6 +161,9 @@ class RelatedPaperFinder:
         
         # 按相关性排序
         scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
+        
+        # 保存缓存
+        self._save_abstract_cache()
         
         # 返回 top_k
         return scored_papers[:top_k]
@@ -164,6 +219,9 @@ class RelatedPaperFinder:
         
         if use_plus:
             # Plus 模型：详细评估
+            # 从缓存获取摘要
+            summary = self._get_paper_abstract(paper)
+            
             prompt = f"""你是一个学术论文评审专家。请评估以下论文与用户研究主题的相关性。
 
 **用户研究摘要：**
@@ -171,7 +229,7 @@ class RelatedPaperFinder:
 
 **待评估论文：**
 标题：{paper.get('title', 'N/A')}
-摘要：{paper.get('summary', 'N/A')}
+摘要：{summary if summary else 'N/A'}
 分类：{', '.join(paper.get('categories', []))}
 
 请从以下维度评估相关性（0-10 分）：
@@ -186,12 +244,15 @@ class RelatedPaperFinder:
             temperature = 0.1
         else:
             # Flash 模型：快速评估（简化 prompt）
+            # 从缓存获取摘要
+            summary = self._get_paper_abstract(paper)
+            
             prompt = f"""评估论文相关性（0-5 分）：
 
 用户：{user_abstract[:300]}...
 
 论文：{paper.get('title', 'N/A')}
-摘要：{paper.get('summary', 'N/A')[:300]}...
+摘要：{summary[:300] if summary else 'N/A'}...
 
 直接返回数字分数。"""
             

@@ -363,22 +363,24 @@ class RelatedPaperFinder:
             return
         
         for i, paper in enumerate(related_papers, 1):
-            score = paper.get('_relevance_score', 0)
+            prerank_score = paper.get('_prerank_score', 0)  # 粗排分数
+            finerank_score = paper.get('_relevance_score', 0)  # 精排分数
             
             # 相关性等级
-            if score >= 8:
+            if finerank_score >= 8:
                 level = "🔥 高度相关"
-            elif score >= 6:
+            elif finerank_score >= 6:
                 level = "⭐ 中等相关"
-            elif score >= 4:
+            elif finerank_score >= 4:
                 level = "📌 低度相关"
             else:
                 level = "⚪ 微弱相关"
             
             print(f"\n{i}. {paper.get('title', 'N/A')}")
-            print(f"   相关性：{level} ({score:.1f}/10)")
+            print(f"   相关性：{level} (精排 {finerank_score:.1f}/10)")
+            print(f"   粗排分数：{prerank_score:.1f}/10")
             print(f"   日期：{paper.get('_source_date', 'N/A')}")
-            print(f"   评分：{paper.get('relevance_score', 'N/A')}/10")
+            print(f"   原始评分：{paper.get('relevance_score', 'N/A')}/10")
             print(f"   分类：{', '.join(paper.get('categories', []))}")
             print(f"   链接：{paper.get('url', 'N/A')}")
             
@@ -393,12 +395,29 @@ class RelatedPaperFinder:
         print("="*80)
     
     def save_results(self, related_papers: list, user_abstract: str, output_file: str = 'related_papers.json'):
-        """保存结果到文件"""
+        """保存结果到文件（包含粗排和精排分数）"""
+        # 准备保存的数据，确保包含所有分数
+        papers_to_save = []
+        for paper in related_papers:
+            paper_data = paper.copy()
+            # 确保分数字段存在
+            if '_prerank_score' not in paper_data:
+                paper_data['_prerank_score'] = 0
+            if '_relevance_score' not in paper_data:
+                paper_data['_relevance_score'] = 0
+        
         result = {
             'user_abstract': user_abstract,
             'search_time': datetime.now().isoformat(),
             'total_papers_searched': len(self.all_papers),
-            'related_papers': related_papers
+            'prerank_model': self.prerank_model,
+            'finerank_model': self.finerank_model,
+            'related_papers': papers_to_save,
+            'summary': {
+                'total_found': len(related_papers),
+                'avg_prerank_score': sum(p.get('_prerank_score', 0) for p in related_papers) / len(related_papers) if related_papers else 0,
+                'avg_finerank_score': sum(p.get('_relevance_score', 0) for p in related_papers) / len(related_papers) if related_papers else 0
+            }
         }
         
         output_path = self.output_dir / output_file
@@ -406,6 +425,7 @@ class RelatedPaperFinder:
             json.dump(result, f, ensure_ascii=False, indent=2)
         
         print(f"\n💾 结果已保存到：{output_path}")
+        print(f"📊 包含字段：粗排分数 (_prerank_score), 精排分数 (_relevance_score)")
 
 
 def main():

@@ -1091,7 +1091,8 @@ Provide your analysis strictly in the following JSON format.
     
     <div class="summary">
         <strong>📊 今日概览</strong><br>
-        展示论文：{total_displayed} | 
+        总论文数：{len(papers)} 篇 | 
+        展示：{total_displayed} 篇 | 
         工业界：{len(industry_papers)} 篇 | 
         其他：{len(other_papers)} 篇 | 
         平均评分：{avg_score:.1f}

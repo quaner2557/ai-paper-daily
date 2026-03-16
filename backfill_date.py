@@ -46,8 +46,19 @@ class BackfillProcessor(AIPaperDaily):
     def run_for_date(self, target_date: str) -> bool:
         """为指定日期运行完整流程（使用 arXiv 日期范围搜索）"""
         if target_date in self.processed_dates:
-            logger.info(f"⏭️  跳过 {target_date} - 已存在")
-            return True
+            # 检查文件是否为空
+            json_path = self.output_dir / f"{target_date}.json"
+            if json_path.exists():
+                file_size = json_path.stat().st_size
+                if file_size <= 2:  # 空文件或只有 []
+                    logger.info(f"🔄 重新生成 {target_date} - 文件为空")
+                    return False  # 不跳过，重新生成
+                else:
+                    logger.info(f"⏭️  跳过 {target_date} - 已存在")
+                    return True
+            else:
+                logger.info(f"⏭️  跳过 {target_date} - 已存在")
+                return True
         
         logger.info(f"{'='*60}")
         logger.info(f"🚀 AI Paper Daily - 回刷 {target_date}")

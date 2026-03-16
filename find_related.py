@@ -47,12 +47,12 @@ class RelatedPaperFinder:
         print(f"💾 已加载 {len(self.abstract_cache)} 篇论文摘要缓存")
     
     def _load_all_papers(self):
-        """从 output 目录加载所有精选论文"""
+        """从 output 目录加载每天精排后展示的论文（最多 15 篇/天）"""
         all_papers = []
         
         for filename in sorted(self.output_dir.glob("*.json")):
-            # 跳过 paper_data.json
-            if filename.name == 'paper_data.json':
+            # 跳过特殊文件
+            if filename.name in ['paper_data.json', 'abstract_cache.json', 'cache_stats.json', 'related_papers.json']:
                 continue
             
             try:
@@ -66,12 +66,19 @@ class RelatedPaperFinder:
                 
                 # 添加日期信息
                 date_str = filename.stem
+                
+                # 只保留精排后展示的论文（relevance_score >= 6 的）
                 for paper in papers:
-                    paper['_source_date'] = date_str
-                    all_papers.append(paper)
+                    score = paper.get('relevance_score', 0)
+                    if score >= 6:  # 只保留推送阈值的论文
+                        paper['_source_date'] = date_str
+                        all_papers.append(paper)
                     
             except Exception as e:
                 print(f"⚠️  读取 {filename} 失败：{e}")
+        
+        # 按日期和分数排序
+        all_papers.sort(key=lambda x: (x.get('_source_date', ''), x.get('relevance_score', 0)), reverse=True)
         
         return all_papers
     
@@ -144,7 +151,7 @@ class RelatedPaperFinder:
         
         # 阶段 1：Flash 模型快速初筛
         print(f"⚡ 阶段 1/2：Qwen-Flash 快速初筛（{len(self.all_papers)}篇 → {candidate_n}篇候选）")
-        print(f"   预计耗时：~3 分钟")
+        print(f"   预计耗时：~1 分钟")
         candidates = self._prerank_with_flash(user_abstract, top_n=candidate_n)
         phase1_time = time.time() - total_start
         print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
@@ -152,7 +159,7 @@ class RelatedPaperFinder:
         
         # 阶段 2：Plus 模型精细打分
         print(f"🎯 阶段 2/2：Qwen-Plus 精细打分（{len(candidates)}篇）")
-        print(f"   预计耗时：~6 分钟")
+        print(f"   预计耗时：~3 分钟")
         scored_papers = []
         
         for i, paper in enumerate(candidates, 1):
@@ -205,13 +212,15 @@ class RelatedPaperFinder:
         start_time = time.time()
         total = len(self.all_papers)
         
-        # 提取用户摘要中的关键词（英文单词和中文词组）
-        words = re.findall(r'\b[a-zA-Z]{3,}\b|[\u4e00-\u9fa5]{2,}', user_abstract.lower())
+        # 提取用户摘要中的关键词（去掉停用词）
+        stopwords = {'the', 'and', 'or', 'of', 'in', 'to', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'shall', 'can', 'need', 'dare', 'ought', 'used', 'model', 'models', 'based', 'using', 'approach', 'method', 'paper', 'propose', 'present', 'show', 'demonstrate', 'results', 'data', 'study', 'research', 'work', 'task', 'tasks', 'problem', 'problems', 'solution', 'solutions', 'system', 'systems', 'framework', 'frameworks', 'learning', 'training', 'testing', 'evaluation', 'performance', 'experiment', 'experiments', 'analysis', 'comparison', 'state', 'art', 'recent', 'novel', 'new', 'first', 'better', 'best', 'improved', 'efficient', 'effective', 'scalable', 'robust', 'general', 'specific', 'different', 'various', 'multiple', 'single', 'one', 'two', 'three', 'many', 'few', 'several', 'large', 'small', 'big', 'high', 'low', 'good', 'bad', 'important', 'significant', 'main', 'key', 'primary', 'secondary', 'final', 'initial', 'overall', 'total', 'average', 'mean', 'median', 'mode', 'standard', 'deviation', 'variance', 'correlation', 'regression', 'classification', 'clustering', 'recommendation', 'recommendations', 'predict', 'prediction', 'predictions', 'predicting', 'recommend', 'recommending', 'discriminative', 'generative', 'pretraining', 'overfitting', 'issue', 'issues', 'encounters', 'significant', 'induced', 'sparsity', 'worsens', 'larger', 'causing', 'underperform', 'smaller', 'ones', 'address', 'enhance', 'scalability', 'drawing', 'inspiration', 'exhibits', 'evident', 'signs', 'leverages', 'learned', 'pretrained', 'initialize', 'subsequently', 'applies', 'sparse', 'parameter', 'freezing', 'strategy', 'extensive', 'conducted', 'industrial', 'scale', 'publicly', 'available', 'datasets', 'demonstrate', 'superior', 'delivers', 'remarkable', 'improvements', 'online', 'tests', 'offers', 'primary', 'advantages', 'substantially', 'narrows', 'generalization', 'gap', 'resulting', 'test', 'leveraging', 'delivering', 'consistent', 'gains', 'scaled', 'specifically', 'observe', 'dense', 'parameters', 'scale', 'closely', 'adhering', 'power', 'laws', 'findings', 'pave', 'way', 'unifying', 'architectures', 'language', 'enabling', 'direct', 'application', 'techniques', 'well', 'established', 'methods'}
+        
+        words = re.findall(r'\b[a-zA-Z]{4,}\b|[\u4e00-\u9fa5]{2,}', user_abstract.lower())
         from collections import Counter
-        word_freq = Counter(words)
+        word_freq = Counter(w for w in words if w not in stopwords)
         keywords = [w for w, _ in word_freq.most_common(20)]
         
-        print(f"   关键词：{', '.join(keywords[:5])}...")
+        print(f"   关键词：{', '.join(keywords[:10])}")
         print(f"   开始关键词预筛选...")
         
         # 关键词预筛选（不调用 API）
@@ -226,12 +235,12 @@ class RelatedPaperFinder:
             text = f"{title} {summary}"
             
             match_count = sum(1 for kw in keywords if kw in text)
-            if match_count >= 2:  # 至少匹配 2 个关键词
+            if match_count >= 1:  # 至少匹配 1 个关键词
                 paper['_keyword_score'] = match_count
                 keyword_candidates.append(paper)
             
-            # 进度显示
-            if i % 5000 == 0:
+            # 进度显示（每 1000 篇显示一次）
+            if i % 1000 == 0:
                 progress = (i / total) * 100
                 sys.stderr.write(f"\r   关键词筛选：{i}/{total} ({progress:.1f}%) | 候选 {len(keyword_candidates)} 篇   ")
                 sys.stderr.flush()
@@ -240,11 +249,11 @@ class RelatedPaperFinder:
         sys.stderr.flush()
         print(f"   ✅ 关键词筛选完成：{len(keyword_candidates)} 篇候选")
         
-        # 如果关键词筛选结果太多，限制到 500 篇
-        if len(keyword_candidates) > 500:
+        # 如果关键词筛选结果太多，限制到 300 篇
+        if len(keyword_candidates) > 300:
             keyword_candidates.sort(key=lambda x: x.get('_keyword_score', 0), reverse=True)
-            keyword_candidates = keyword_candidates[:500]
-            print(f"   限制到 Top 500 篇")
+            keyword_candidates = keyword_candidates[:300]
+            print(f"   限制到 Top 300 篇")
         
         # 对关键词候选论文用 Flash 模型打分
         print(f"   开始 Flash 模型打分（{len(keyword_candidates)}篇）...")

@@ -150,8 +150,8 @@ class RelatedPaperFinder:
         total_start = time.time()
         
         # 阶段 1：Flash 模型快速初筛
-        print(f"⚡ 阶段 1/2：Qwen-Flash 快速初筛（{len(self.all_papers)}篇 → {candidate_n}篇候选）")
-        print(f"   预计耗时：~1 分钟")
+        print(f"⚡ 阶段 1/2：Qwen-Flash 并行初筛（{len(self.all_papers)}篇 → {candidate_n}篇候选）")
+        print(f"   预计耗时：~3 分钟（10 个并发）")
         candidates = self._prerank_with_flash(user_abstract, top_n=candidate_n)
         phase1_time = time.time() - total_start
         print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
@@ -201,83 +201,58 @@ class RelatedPaperFinder:
     
     def _prerank_with_flash(self, user_abstract: str, top_n: int = 200) -> list:
         """
-        使用关键词 + Flash 模型快速初筛
+        使用 Flash 模型对所有精排论文打分（并行调用）
         
-        1. 先用关键词快速筛选（不调用 API）
-        2. 对候选论文用 Flash 模型打分
+        直接对 self.all_papers 全部论文调用 API，不用关键词预筛选
         """
         import time
-        import re
+        from concurrent.futures import ThreadPoolExecutor, as_completed
         
         start_time = time.time()
         total = len(self.all_papers)
         
-        # 提取用户摘要中的关键词（去掉停用词）
-        stopwords = {'the', 'and', 'or', 'of', 'in', 'to', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'shall', 'can', 'need', 'dare', 'ought', 'used', 'model', 'models', 'based', 'using', 'approach', 'method', 'paper', 'propose', 'present', 'show', 'demonstrate', 'results', 'data', 'study', 'research', 'work', 'task', 'tasks', 'problem', 'problems', 'solution', 'solutions', 'system', 'systems', 'framework', 'frameworks', 'learning', 'training', 'testing', 'evaluation', 'performance', 'experiment', 'experiments', 'analysis', 'comparison', 'state', 'art', 'recent', 'novel', 'new', 'first', 'better', 'best', 'improved', 'efficient', 'effective', 'scalable', 'robust', 'general', 'specific', 'different', 'various', 'multiple', 'single', 'one', 'two', 'three', 'many', 'few', 'several', 'large', 'small', 'big', 'high', 'low', 'good', 'bad', 'important', 'significant', 'main', 'key', 'primary', 'secondary', 'final', 'initial', 'overall', 'total', 'average', 'mean', 'median', 'mode', 'standard', 'deviation', 'variance', 'correlation', 'regression', 'classification', 'clustering', 'recommendation', 'recommendations', 'predict', 'prediction', 'predictions', 'predicting', 'recommend', 'recommending', 'discriminative', 'generative', 'pretraining', 'overfitting', 'issue', 'issues', 'encounters', 'significant', 'induced', 'sparsity', 'worsens', 'larger', 'causing', 'underperform', 'smaller', 'ones', 'address', 'enhance', 'scalability', 'drawing', 'inspiration', 'exhibits', 'evident', 'signs', 'leverages', 'learned', 'pretrained', 'initialize', 'subsequently', 'applies', 'sparse', 'parameter', 'freezing', 'strategy', 'extensive', 'conducted', 'industrial', 'scale', 'publicly', 'available', 'datasets', 'demonstrate', 'superior', 'delivers', 'remarkable', 'improvements', 'online', 'tests', 'offers', 'primary', 'advantages', 'substantially', 'narrows', 'generalization', 'gap', 'resulting', 'test', 'leveraging', 'delivering', 'consistent', 'gains', 'scaled', 'specifically', 'observe', 'dense', 'parameters', 'scale', 'closely', 'adhering', 'power', 'laws', 'findings', 'pave', 'way', 'unifying', 'architectures', 'language', 'enabling', 'direct', 'application', 'techniques', 'well', 'established', 'methods'}
+        print(f"   开始 Flash 模型并行打分（{total}篇，10 个并发）...")
         
-        words = re.findall(r'\b[a-zA-Z]{4,}\b|[\u4e00-\u9fa5]{2,}', user_abstract.lower())
-        from collections import Counter
-        word_freq = Counter(w for w in words if w not in stopwords)
-        keywords = [w for w, _ in word_freq.most_common(20)]
-        
-        print(f"   关键词：{', '.join(keywords[:10])}")
-        print(f"   开始关键词预筛选...")
-        
-        # 关键词预筛选（不调用 API）
-        keyword_candidates = []
-        for i, paper in enumerate(self.all_papers, 1):
+        # 准备打分任务
+        def score_paper(args):
+            idx, paper = args
             if not paper.get('summary'):
-                continue
-            
-            # 检查标题和摘要是否包含关键词
-            title = paper.get('title', '').lower()
-            summary = paper.get('summary', '').lower()
-            text = f"{title} {summary}"
-            
-            match_count = sum(1 for kw in keywords if kw in text)
-            if match_count >= 1:  # 至少匹配 1 个关键词
-                paper['_keyword_score'] = match_count
-                keyword_candidates.append(paper)
-            
-            # 进度显示（每 1000 篇显示一次）
-            if i % 1000 == 0:
-                progress = (i / total) * 100
-                sys.stderr.write(f"\r   关键词筛选：{i}/{total} ({progress:.1f}%) | 候选 {len(keyword_candidates)} 篇   ")
-                sys.stderr.flush()
-        
-        sys.stderr.write("\n")
-        sys.stderr.flush()
-        print(f"   ✅ 关键词筛选完成：{len(keyword_candidates)} 篇候选")
-        
-        # 如果关键词筛选结果太多，限制到 300 篇
-        if len(keyword_candidates) > 300:
-            keyword_candidates.sort(key=lambda x: x.get('_keyword_score', 0), reverse=True)
-            keyword_candidates = keyword_candidates[:300]
-            print(f"   限制到 Top 300 篇")
-        
-        # 对关键词候选论文用 Flash 模型打分
-        print(f"   开始 Flash 模型打分（{len(keyword_candidates)}篇）...")
-        scored = []
-        
-        for i, paper in enumerate(keyword_candidates, 1):
+                return idx, 0
             score = self._score_relevance(user_abstract, paper, use_plus=False)
+            return idx, score
+        
+        # 并行调用（最多 10 个并发）
+        scored = []
+        tasks = list(enumerate(self.all_papers))
+        
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            future_to_idx = {executor.submit(score_paper, task): task[0] for task in tasks}
             
-            if score >= 2:
-                paper['_prerank_score'] = score
-                scored.append(paper)
-            
-            # 进度显示
-            if i % 50 == 0:
-                progress = (i / len(keyword_candidates)) * 100
-                elapsed = time.time() - start_time
-                sys.stderr.write(f"\r   Flash 打分：{i}/{len(keyword_candidates)} ({progress:.1f}%) | 合格 {len(scored)} 篇 | {elapsed:.0f}秒   ")
-                sys.stderr.flush()
+            completed = 0
+            for future in as_completed(future_to_idx):
+                idx, score = future.result()
+                completed += 1
+                
+                if score >= 2:
+                    paper = self.all_papers[idx]
+                    paper['_prerank_score'] = score
+                    scored.append(paper)
+                
+                # 每完成 100 篇显示一次进度
+                if completed % 100 == 0 or completed == total:
+                    progress = (completed / total) * 100
+                    elapsed = time.time() - start_time
+                    eta = (elapsed / completed * total) - elapsed if completed > 0 else 0
+                    sys.stderr.write(f"\r   进度：{completed}/{total} ({progress:.1f}%) | 合格 {len(scored)} 篇 | 已{elapsed:.0f}秒 | 剩{eta:.0f}秒   ")
+                    sys.stderr.flush()
         
         # 按分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)
         
         elapsed = time.time() - start_time
-        print(f"\n   ✅ 初筛完成：{len(scored)} 篇合格，耗时 {elapsed:.1f}秒")
+        sys.stderr.write("\n")
+        sys.stderr.flush()
+        print(f"   ✅ 初筛完成：{len(scored)} 篇合格，耗时 {elapsed:.1f}秒")
         
         return scored[:top_n]
     

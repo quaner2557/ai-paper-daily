@@ -158,7 +158,7 @@ class RelatedPaperFinder:
                 f"{self.llm_base_url}/chat/completions",
                 headers=headers,
                 json=payload,
-                timeout=60  # 增加到 60 秒超时
+                timeout=180  # 3 分钟超时
             )
             
             if response.status_code == 200:

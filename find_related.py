@@ -128,19 +128,27 @@ class RelatedPaperFinder:
         Returns:
             按相关性排序的论文列表
         """
+        import time
+        
         print(f"\n🔍 开始查找相关论文...")
         print(f"📝 摘要长度：{len(user_abstract)} 字符")
         print(f"📚 总论文数：{len(self.all_papers)} 篇")
+        print(f"🎯 目标返回：{top_k} 篇")
         print()
         
+        total_start = time.time()
+        
         # 阶段 1：Flash 模型快速初筛
-        print(f"⚡ 阶段 1：Qwen-Flash 快速初筛（目标 {candidate_n} 篇候选）...")
+        print(f"⚡ 阶段 1/2：Qwen-Flash 快速初筛（{len(self.all_papers)}篇 → {candidate_n}篇候选）")
+        print(f"   预计耗时：~3 分钟")
         candidates = self._prerank_with_flash(user_abstract, top_n=candidate_n)
-        print(f"   ✅ 筛选出 {len(candidates)} 篇候选论文")
+        phase1_time = time.time() - total_start
+        print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
         print()
         
         # 阶段 2：Plus 模型精细打分
-        print(f"🎯 阶段 2：Qwen-Plus 精细打分...")
+        print(f"🎯 阶段 2/2：Qwen-Plus 精细打分（{len(candidates)}篇）")
+        print(f"   预计耗时：~6 分钟")
         scored_papers = []
         
         for i, paper in enumerate(candidates, 1):
@@ -154,16 +162,23 @@ class RelatedPaperFinder:
             if score > 0:
                 paper['_relevance_score'] = score
                 scored_papers.append(paper)
-                
-            # 进度显示
-            if i % 50 == 0:
-                print(f"   已处理 {i}/{len(candidates)} 篇...")
+            
+            # 进度显示（每 10 篇显示一次，包含百分比）
+            if i % 10 == 0 or i == len(candidates):
+                progress = (i / len(candidates)) * 100
+                elapsed = time.time() - total_start
+                eta = (elapsed / progress * 100) - elapsed if progress > 0 else 0
+                print(f"   进度：{i}/{len(candidates)} ({progress:.1f}%) | 已耗时 {elapsed:.0f}秒 | 预计剩余 {eta:.0f}秒")
         
         # 按相关性排序
         scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
         
         # 保存缓存
         self._save_abstract_cache()
+        
+        total_time = time.time() - total_start
+        print()
+        print(f"✅ 全部完成！总耗时 {total_time/60:.1f}分钟")
         
         # 返回 top_k
         return scored_papers[:top_k]
@@ -178,6 +193,7 @@ class RelatedPaperFinder:
         
         scored = []
         start_time = time.time()
+        total = len(self.all_papers)
         
         for i, paper in enumerate(self.all_papers, 1):
             if not paper.get('summary'):
@@ -190,16 +206,16 @@ class RelatedPaperFinder:
                 paper['_prerank_score'] = score
                 scored.append(paper)
             
-            # 进度显示
-            if i % 500 == 0:
+            # 进度显示（每 1000 篇显示一次，包含百分比）
+            if i % 1000 == 0 or i == total:
+                progress = (i / total) * 100
                 elapsed = time.time() - start_time
-                print(f"   已处理 {i}/{len(self.all_papers)} 篇，当前候选 {len(scored)} 篇 ({elapsed:.1f}s)...")
+                print(f"   初筛进度：{i}/{total} ({progress:.1f}%) | 当前候选 {len(scored)} 篇 | 已耗时 {elapsed:.0f}秒")
         
         # 按初筛分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)
         
         elapsed = time.time() - start_time
-        print(f"   初筛完成：{len(scored)} 篇候选，耗时 {elapsed:.1f}秒")
         
         return scored[:top_n]
     

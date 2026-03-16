@@ -88,6 +88,10 @@ jobs:
           exit 1
         fi
         echo "🚀 Backfilling date: $BACKFILL_DATE"
+        # 清理空文件（避免被检测为已存在）
+        for date in $(seq $BACKFILL_DATE $BACKFILL_DATE); do
+          rm -f output/${date}.json output/${date}.md output/${date}.html
+        done
         python backfill_date.py --start $BACKFILL_DATE --end $BACKFILL_DATE
         
     - name: Commit and push results

@@ -12,6 +12,7 @@ import json
 import os
 import sys
 import argparse
+import time
 from pathlib import Path
 from datetime import datetime
 import requests
@@ -19,6 +20,9 @@ import requests
 # 加载环境变量
 from dotenv import load_dotenv
 load_dotenv()
+
+# 确保输出实时显示
+sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
 
 class RelatedPaperFinder:
     """相关论文查找器"""
@@ -169,6 +173,7 @@ class RelatedPaperFinder:
                 elapsed = time.time() - total_start
                 eta = (elapsed / progress * 100) - elapsed if progress > 0 else 0
                 print(f"   进度：{i}/{len(candidates)} ({progress:.1f}%) | 已耗时 {elapsed:.0f}秒 | 预计剩余 {eta:.0f}秒")
+                sys.stdout.flush()
         
         # 按相关性排序
         scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
@@ -211,6 +216,7 @@ class RelatedPaperFinder:
                 progress = (i / total) * 100
                 elapsed = time.time() - start_time
                 print(f"   初筛进度：{i}/{total} ({progress:.1f}%) | 当前候选 {len(scored)} 篇 | 已耗时 {elapsed:.0f}秒")
+                sys.stdout.flush()
         
         # 按初筛分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)

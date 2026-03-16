@@ -168,12 +168,12 @@ class RelatedPaperFinder:
                 scored_papers.append(paper)
             
             # 进度显示（每 10 篇显示一次，包含百分比）
-            if i % 10 == 0 or i == len(candidates):
+            if i % 10 == 0:
                 progress = (i / len(candidates)) * 100
                 elapsed = time.time() - total_start
                 eta = (elapsed / progress * 100) - elapsed if progress > 0 else 0
-                print(f"   进度：{i}/{len(candidates)} ({progress:.1f}%) | 已耗时 {elapsed:.0f}秒 | 预计剩余 {eta:.0f}秒")
-                sys.stdout.flush()
+                sys.stderr.write(f"\r   精排进度：{i}/{len(candidates)} ({progress:.1f}%) | {elapsed:.0f}秒 | 剩余{eta:.0f}秒   ")
+                sys.stderr.flush()
         
         # 按相关性排序
         scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
@@ -182,8 +182,12 @@ class RelatedPaperFinder:
         self._save_abstract_cache()
         
         total_time = time.time() - total_start
-        print()
+        
+        # 换行并显示完成信息
+        sys.stderr.write("\n")
+        sys.stderr.flush()
         print(f"✅ 全部完成！总耗时 {total_time/60:.1f}分钟")
+        print(f"📊 找到 {len(scored_papers)} 篇相关论文")
         
         # 返回 top_k
         return scored_papers[:top_k]
@@ -212,11 +216,12 @@ class RelatedPaperFinder:
                 scored.append(paper)
             
             # 进度显示（每 1000 篇显示一次，包含百分比）
-            if i % 1000 == 0 or i == total:
+            if i % 1000 == 0:
                 progress = (i / total) * 100
                 elapsed = time.time() - start_time
-                print(f"   初筛进度：{i}/{total} ({progress:.1f}%) | 当前候选 {len(scored)} 篇 | 已耗时 {elapsed:.0f}秒")
-                sys.stdout.flush()
+                # 使用 sys.stderr 确保实时输出
+                sys.stderr.write(f"\r   初筛进度：{i}/{total} ({progress:.1f}%) | 当前候选 {len(scored)} 篇 | {elapsed:.0f}秒   ")
+                sys.stderr.flush()
         
         # 按初筛分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)

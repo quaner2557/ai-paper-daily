@@ -194,39 +194,81 @@ class RelatedPaperFinder:
     
     def _prerank_with_flash(self, user_abstract: str, top_n: int = 200) -> list:
         """
-        使用 Flash 模型快速初筛
+        使用关键词 + Flash 模型快速初筛
         
-        批量处理，每篇论文快速打分（0-5 分），取前 top_n 篇
+        1. 先用关键词快速筛选（不调用 API）
+        2. 对候选论文用 Flash 模型打分
         """
         import time
+        import re
         
-        scored = []
         start_time = time.time()
         total = len(self.all_papers)
         
+        # 提取用户摘要中的关键词（英文单词和中文词组）
+        words = re.findall(r'\b[a-zA-Z]{3,}\b|[\u4e00-\u9fa5]{2,}', user_abstract.lower())
+        from collections import Counter
+        word_freq = Counter(words)
+        keywords = [w for w, _ in word_freq.most_common(20)]
+        
+        print(f"   关键词：{', '.join(keywords[:5])}...")
+        print(f"   开始关键词预筛选...")
+        
+        # 关键词预筛选（不调用 API）
+        keyword_candidates = []
         for i, paper in enumerate(self.all_papers, 1):
             if not paper.get('summary'):
                 continue
             
-            # Flash 模型快速打分（简化 prompt）
+            # 检查标题和摘要是否包含关键词
+            title = paper.get('title', '').lower()
+            summary = paper.get('summary', '').lower()
+            text = f"{title} {summary}"
+            
+            match_count = sum(1 for kw in keywords if kw in text)
+            if match_count >= 2:  # 至少匹配 2 个关键词
+                paper['_keyword_score'] = match_count
+                keyword_candidates.append(paper)
+            
+            # 进度显示
+            if i % 5000 == 0:
+                progress = (i / total) * 100
+                sys.stderr.write(f"\r   关键词筛选：{i}/{total} ({progress:.1f}%) | 候选 {len(keyword_candidates)} 篇   ")
+                sys.stderr.flush()
+        
+        sys.stderr.write("\n")
+        sys.stderr.flush()
+        print(f"   ✅ 关键词筛选完成：{len(keyword_candidates)} 篇候选")
+        
+        # 如果关键词筛选结果太多，限制到 500 篇
+        if len(keyword_candidates) > 500:
+            keyword_candidates.sort(key=lambda x: x.get('_keyword_score', 0), reverse=True)
+            keyword_candidates = keyword_candidates[:500]
+            print(f"   限制到 Top 500 篇")
+        
+        # 对关键词候选论文用 Flash 模型打分
+        print(f"   开始 Flash 模型打分（{len(keyword_candidates)}篇）...")
+        scored = []
+        
+        for i, paper in enumerate(keyword_candidates, 1):
             score = self._score_relevance(user_abstract, paper, use_plus=False)
             
-            if score >= 2:  # 保留 2 分以上的论文
+            if score >= 2:
                 paper['_prerank_score'] = score
                 scored.append(paper)
             
-            # 进度显示（每 1000 篇显示一次，包含百分比）
-            if i % 1000 == 0:
-                progress = (i / total) * 100
+            # 进度显示
+            if i % 50 == 0:
+                progress = (i / len(keyword_candidates)) * 100
                 elapsed = time.time() - start_time
-                # 使用 sys.stderr 确保实时输出
-                sys.stderr.write(f"\r   初筛进度：{i}/{total} ({progress:.1f}%) | 当前候选 {len(scored)} 篇 | {elapsed:.0f}秒   ")
+                sys.stderr.write(f"\r   Flash 打分：{i}/{len(keyword_candidates)} ({progress:.1f}%) | 合格 {len(scored)} 篇 | {elapsed:.0f}秒   ")
                 sys.stderr.flush()
         
-        # 按初筛分数排序
+        # 按分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)
         
         elapsed = time.time() - start_time
+        print(f"\n   ✅ 初筛完成：{len(scored)} 篇合格，耗时 {elapsed:.1f}秒")
         
         return scored[:top_n]
     

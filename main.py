@@ -1439,6 +1439,52 @@ Provide your analysis strictly in the following JSON format.
             except Exception as e:
                 logger.error(f"DingTalk notification error: {e}")
     
+    def _update_abstract_cache(self, papers: list):
+        """
+        自动更新摘要缓存
+        
+        Args:
+            papers: 当日论文列表
+        """
+        try:
+            from pathlib import Path
+            import json
+            
+            cache_dir = self.output_dir / 'cache'
+            cache_dir.mkdir(exist_ok=True)
+            cache_file = cache_dir / 'abstract_cache.json'
+            
+            # 加载现有缓存
+            abstract_cache = {}
+            if cache_file.exists():
+                try:
+                    with open(cache_file, 'r', encoding='utf-8') as f:
+                        abstract_cache = json.load(f)
+                except:
+                    pass
+            
+            # 添加新论文的摘要
+            new_count = 0
+            for paper in papers:
+                arxiv_id = paper.get('arxiv_id', '')
+                summary = paper.get('summary', '')
+                
+                if arxiv_id and summary and arxiv_id not in abstract_cache:
+                    abstract_cache[arxiv_id] = summary
+                    new_count += 1
+            
+            # 保存缓存
+            if new_count > 0:
+                with open(cache_file, 'w', encoding='utf-8') as f:
+                    json.dump(abstract_cache, f, ensure_ascii=False, indent=2)
+                
+                logger.info(f"💾 摘要缓存已更新：新增 {new_count} 篇，总计 {len(abstract_cache)} 篇")
+            else:
+                logger.info("💾 摘要缓存无需更新（所有论文已在缓存中）")
+                
+        except Exception as e:
+            logger.warning(f"⚠️ 更新摘要缓存失败：{e}")
+    
     def send_error_notification(self, error_msg: str, date_str: str):
         """发送错误通知"""
         date_obj = datetime.strptime(date_str, "%Y%m%d")
@@ -1541,6 +1587,9 @@ Provide your analysis strictly in the following JSON format.
             
             # 7. 钉钉推送
             self.send_to_dingtalk(scored_papers, date_str)
+            
+            # 8. 自动更新摘要缓存
+            self._update_abstract_cache(scored_papers)
             
             logger.info("=" * 60)
             logger.info(f"AI Paper Daily - Complete! Processed {len(scored_papers)} papers")

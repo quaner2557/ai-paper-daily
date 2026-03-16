@@ -27,7 +27,9 @@ class RelatedPaperFinder:
         self.output_dir = Path('output')
         self.llm_api_key = os.getenv("LLM_API_KEY", "")
         self.llm_base_url = os.getenv("LLM_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
-        self.llm_model = os.getenv("LLM_MODEL", "qwen3.5-plus")
+        # 双模型配置：粗筛用 flash（便宜快速），精排用 plus（准确）
+        self.prerank_model = os.getenv("LLM_PRERANK_MODEL", "qwen3.5-flash")
+        self.finerank_model = os.getenv("LLM_FINERANK_MODEL", "qwen3.5-plus")
         
         # 加载所有精选论文
         self.all_papers = self._load_all_papers()
@@ -62,14 +64,14 @@ class RelatedPaperFinder:
         
         return all_papers
     
-    def find_related(self, user_abstract: str, top_k: int = 10, use_fast_filter: bool = True) -> list:
+    def find_related(self, user_abstract: str, top_k: int = 10, candidate_n: int = 200) -> list:
         """
-        根据用户提供的摘要查找相关论文
+        根据用户提供的摘要查找相关论文（两阶段 LLM 筛选）
         
         Args:
             user_abstract: 用户文章摘要
             top_k: 返回最相关的 K 篇论文
-            use_fast_filter: 是否使用快速筛选（两阶段）
+            candidate_n: 初筛候选数量（默认 200）
             
         Returns:
             按相关性排序的论文列表
@@ -79,17 +81,14 @@ class RelatedPaperFinder:
         print(f"📚 总论文数：{len(self.all_papers)} 篇")
         print()
         
-        # 阶段 1：快速筛选（关键词匹配）
-        if use_fast_filter and len(self.all_papers) > 500:
-            print("⚡ 阶段 1：快速关键词筛选...")
-            candidates = self._fast_filter(user_abstract, top_n=300)
-            print(f"   筛选出 {len(candidates)} 篇候选论文")
-            print()
-        else:
-            candidates = self.all_papers
+        # 阶段 1：Flash 模型快速初筛
+        print(f"⚡ 阶段 1：Qwen-Flash 快速初筛（目标 {candidate_n} 篇候选）...")
+        candidates = self._prerank_with_flash(user_abstract, top_n=candidate_n)
+        print(f"   ✅ 筛选出 {len(candidates)} 篇候选论文")
+        print()
         
-        # 阶段 2：LLM 精细打分
-        print("🎯 阶段 2：LLM 相关性打分...")
+        # 阶段 2：Plus 模型精细打分
+        print(f"🎯 阶段 2：Qwen-Plus 精细打分...")
         scored_papers = []
         
         for i, paper in enumerate(candidates, 1):
@@ -98,7 +97,7 @@ class RelatedPaperFinder:
                 continue
             
             # 调用 LLM 打分
-            score = self._score_relevance(user_abstract, paper)
+            score = self._score_relevance(user_abstract, paper, use_plus=True)
             
             if score > 0:
                 paper['_relevance_score'] = score
@@ -114,53 +113,58 @@ class RelatedPaperFinder:
         # 返回 top_k
         return scored_papers[:top_k]
     
-    def _fast_filter(self, user_abstract: str, top_n: int = 300) -> list:
+    def _prerank_with_flash(self, user_abstract: str, top_n: int = 200) -> list:
         """
-        快速关键词筛选（TF-IDF 简化版）
+        使用 Flash 模型快速初筛
         
-        提取用户摘要中的关键词，匹配论文标题和摘要
+        批量处理，每篇论文快速打分（0-5 分），取前 top_n 篇
         """
-        import re
+        import time
         
-        # 提取关键词（名词、专业术语）
-        # 简单实现：提取长度>3 的单词和中文词组
-        words = re.findall(r'\b[a-zA-Z]{4,}\b|[\u4e00-\u9fa5]{2,}', user_abstract.lower())
-        
-        # 统计词频
-        from collections import Counter
-        word_freq = Counter(words)
-        
-        # 取前 20 个关键词
-        keywords = [w for w, _ in word_freq.most_common(20)]
-        
-        if not keywords:
-            return self.all_papers[:top_n]
-        
-        # 匹配论文
         scored = []
-        for paper in self.all_papers:
-            title = (paper.get('title', '') + ' ' + paper.get('summary', '')).lower()
-            
-            # 计算匹配度
-            match_count = sum(1 for kw in keywords if kw in title)
-            
-            if match_count > 0:
-                paper['_keyword_score'] = match_count
-                scored.append(paper)
+        start_time = time.time()
         
-        # 按关键词匹配数排序
-        scored.sort(key=lambda x: x.get('_keyword_score', 0), reverse=True)
+        for i, paper in enumerate(self.all_papers, 1):
+            if not paper.get('summary'):
+                continue
+            
+            # Flash 模型快速打分（简化 prompt）
+            score = self._score_relevance(user_abstract, paper, use_plus=False)
+            
+            if score >= 2:  # 保留 2 分以上的论文
+                paper['_prerank_score'] = score
+                scored.append(paper)
+            
+            # 进度显示
+            if i % 500 == 0:
+                elapsed = time.time() - start_time
+                print(f"   已处理 {i}/{len(self.all_papers)} 篇，当前候选 {len(scored)} 篇 ({elapsed:.1f}s)...")
+        
+        # 按初筛分数排序
+        scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)
+        
+        elapsed = time.time() - start_time
+        print(f"   初筛完成：{len(scored)} 篇候选，耗时 {elapsed:.1f}秒")
         
         return scored[:top_n]
     
-    def _score_relevance(self, user_abstract: str, paper: dict) -> float:
+    def _score_relevance(self, user_abstract: str, paper: dict, use_plus: bool = False) -> float:
         """
         使用 LLM 评估论文与用户摘要的相关性
+        
+        Args:
+            user_abstract: 用户摘要
+            paper: 论文信息
+            use_plus: True 用 Plus 模型（精细），False 用 Flash 模型（快速）
         
         Returns:
             相关性分数 0-10
         """
-        prompt = f"""你是一个学术论文评审专家。请评估以下论文与用户研究主题的相关性。
+        model = self.finerank_model if use_plus else self.prerank_model
+        
+        if use_plus:
+            # Plus 模型：详细评估
+            prompt = f"""你是一个学术论文评审专家。请评估以下论文与用户研究主题的相关性。
 
 **用户研究摘要：**
 {user_abstract}
@@ -177,7 +181,23 @@ class RelatedPaperFinder:
 4. 是否可以互相引用或参考
 
 **直接返回一个 0-10 的数字分数，不要其他内容。**"""
+            
+            max_tokens = 10
+            temperature = 0.1
+        else:
+            # Flash 模型：快速评估（简化 prompt）
+            prompt = f"""评估论文相关性（0-5 分）：
 
+用户：{user_abstract[:300]}...
+
+论文：{paper.get('title', 'N/A')}
+摘要：{paper.get('summary', 'N/A')[:300]}...
+
+直接返回数字分数。"""
+            
+            max_tokens = 5
+            temperature = 0.3
+        
         try:
             headers = {
                 "Authorization": f"Bearer {self.llm_api_key}",
@@ -185,10 +205,10 @@ class RelatedPaperFinder:
             }
             
             payload = {
-                "model": self.llm_model,
+                "model": model,
                 "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.1,
-                "max_tokens": 10
+                "temperature": temperature,
+                "max_tokens": max_tokens
             }
             
             response = requests.post(
@@ -207,12 +227,15 @@ class RelatedPaperFinder:
                 match = re.search(r'(\d+\.?\d*)', score_text)
                 if match:
                     score = float(match.group(1))
-                    return min(10, max(0, score))  # 限制在 0-10 范围
+                    if use_plus:
+                        return min(10, max(0, score))  # 0-10
+                    else:
+                        return min(5, max(0, score)) * 2  # 转为 0-10
             
             return 0
             
         except Exception as e:
-            print(f"  ⚠️  LLM 调用失败：{e}")
+            # print(f"  ⚠️  LLM 调用失败：{e}")
             return 0
     
     def print_results(self, related_papers: list):

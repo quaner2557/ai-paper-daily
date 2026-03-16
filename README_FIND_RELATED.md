@@ -99,10 +99,11 @@ LLM 从以下维度评估相关性（0-10 分）：
 确保 `.env` 文件配置正确：
 
 ```bash
-# LLM 配置
+# LLM 配置（双模型）
 LLM_API_KEY=your_api_key
 LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
-LLM_MODEL=qwen3.5-plus
+LLM_PRERANK_MODEL=qwen3.5-flash   # 初筛模型（快速、便宜）
+LLM_FINERANK_MODEL=qwen3.5-plus   # 精排模型（准确）
 ```
 
 ---
@@ -113,6 +114,18 @@ LLM_MODEL=qwen3.5-plus
 2. **相关工作写作** - 快速找到可引用的论文
 3. **论文投稿** - 了解相关领域的最新进展
 4. **合作机会** - 发现做类似研究的团队
+
+---
+
+## ⚡ 性能优化
+
+**两阶段 LLM 筛选：**
+
+| 阶段 | 模型 | 处理数 | 耗时 |
+|------|------|--------|------|
+| 初筛 | Qwen-Flash | 4000 篇 → 200 篇 | ~3 分钟 |
+| 精排 | Qwen-Plus | 200 篇 | ~6 分钟 |
+| **总计** | - | - | **~9 分钟** |
 
 ---
 

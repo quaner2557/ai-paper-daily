@@ -62,26 +62,37 @@ class RelatedPaperFinder:
         
         return all_papers
     
-    def find_related(self, user_abstract: str, top_k: int = 10) -> list:
+    def find_related(self, user_abstract: str, top_k: int = 10, use_fast_filter: bool = True) -> list:
         """
         根据用户提供的摘要查找相关论文
         
         Args:
             user_abstract: 用户文章摘要
             top_k: 返回最相关的 K 篇论文
+            use_fast_filter: 是否使用快速筛选（两阶段）
             
         Returns:
             按相关性排序的论文列表
         """
         print(f"\n🔍 开始查找相关论文...")
         print(f"📝 摘要长度：{len(user_abstract)} 字符")
-        print(f"📚 候选论文数：{len(self.all_papers)} 篇")
+        print(f"📚 总论文数：{len(self.all_papers)} 篇")
         print()
         
-        # 使用 LLM 对每篇论文进行相关性打分
+        # 阶段 1：快速筛选（关键词匹配）
+        if use_fast_filter and len(self.all_papers) > 500:
+            print("⚡ 阶段 1：快速关键词筛选...")
+            candidates = self._fast_filter(user_abstract, top_n=300)
+            print(f"   筛选出 {len(candidates)} 篇候选论文")
+            print()
+        else:
+            candidates = self.all_papers
+        
+        # 阶段 2：LLM 精细打分
+        print("🎯 阶段 2：LLM 相关性打分...")
         scored_papers = []
         
-        for i, paper in enumerate(self.all_papers, 1):
+        for i, paper in enumerate(candidates, 1):
             # 跳过没有摘要的论文
             if not paper.get('summary'):
                 continue
@@ -95,13 +106,52 @@ class RelatedPaperFinder:
                 
             # 进度显示
             if i % 50 == 0:
-                print(f"  已处理 {i}/{len(self.all_papers)} 篇...")
+                print(f"   已处理 {i}/{len(candidates)} 篇...")
         
         # 按相关性排序
         scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
         
         # 返回 top_k
         return scored_papers[:top_k]
+    
+    def _fast_filter(self, user_abstract: str, top_n: int = 300) -> list:
+        """
+        快速关键词筛选（TF-IDF 简化版）
+        
+        提取用户摘要中的关键词，匹配论文标题和摘要
+        """
+        import re
+        
+        # 提取关键词（名词、专业术语）
+        # 简单实现：提取长度>3 的单词和中文词组
+        words = re.findall(r'\b[a-zA-Z]{4,}\b|[\u4e00-\u9fa5]{2,}', user_abstract.lower())
+        
+        # 统计词频
+        from collections import Counter
+        word_freq = Counter(words)
+        
+        # 取前 20 个关键词
+        keywords = [w for w, _ in word_freq.most_common(20)]
+        
+        if not keywords:
+            return self.all_papers[:top_n]
+        
+        # 匹配论文
+        scored = []
+        for paper in self.all_papers:
+            title = (paper.get('title', '') + ' ' + paper.get('summary', '')).lower()
+            
+            # 计算匹配度
+            match_count = sum(1 for kw in keywords if kw in title)
+            
+            if match_count > 0:
+                paper['_keyword_score'] = match_count
+                scored.append(paper)
+        
+        # 按关键词匹配数排序
+        scored.sort(key=lambda x: x.get('_keyword_score', 0), reverse=True)
+        
+        return scored[:top_n]
     
     def _score_relevance(self, user_abstract: str, paper: dict) -> float:
         """

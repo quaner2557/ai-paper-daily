@@ -24,6 +24,14 @@ load_dotenv()
 # 确保输出实时显示
 sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
 
+# 尝试导入 openai 库（用于 Batch API）
+try:
+    from openai import OpenAI
+    HAS_OPENAI = True
+except ImportError:
+    HAS_OPENAI = False
+    print("⚠️  未安装 openai 库，请运行：pip install openai")
+
 class RelatedPaperFinder:
     """相关论文查找器"""
     
@@ -201,50 +209,108 @@ class RelatedPaperFinder:
     
     def _prerank_with_flash(self, user_abstract: str, top_n: int = 200) -> list:
         """
-        使用 Flash 模型对所有精排论文打分（并行调用）
+        使用 Flash 模型对所有精排论文打分（Batch API 批量调用）
         
         直接对 self.all_papers 全部论文调用 API，不用关键词预筛选
         """
         import time
-        from concurrent.futures import ThreadPoolExecutor, as_completed
         
         start_time = time.time()
         total = len(self.all_papers)
         
-        print(f"   开始 Flash 模型并行打分（{total}篇，10 个并发）...")
+        print(f"   开始 Flash 模型 Batch 打分（{total}篇）...")
         
-        # 准备打分任务
-        def score_paper(args):
-            idx, paper = args
+        # 检查是否有 openai 库
+        if not HAS_OPENAI:
+            print("   ❌ 缺少 openai 库，请运行：pip install openai")
+            return []
+        
+        # 初始化 Batch API 客户端
+        api_key = os.getenv("LLM_API_KEY")
+        base_url = os.getenv("LLM_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
+        # 使用 Batch API URL
+        batch_base_url = base_url.replace("compatible-mode", "batch/compatible-mode")
+        
+        client = OpenAI(
+            api_key=api_key,
+            base_url=batch_base_url,
+        ).with_options(timeout=1800.0)  # 30 分钟超时
+        
+        # 准备所有论文的打分请求
+        print(f"   准备 {total} 个 Batch 请求...")
+        batch_requests = []
+        
+        for idx, paper in enumerate(self.all_papers):
             if not paper.get('summary'):
-                return idx, 0
-            score = self._score_relevance(user_abstract, paper, use_plus=False)
-            return idx, score
-        
-        # 并行调用（最多 10 个并发）
-        scored = []
-        tasks = list(enumerate(self.all_papers))
-        
-        with ThreadPoolExecutor(max_workers=10) as executor:
-            future_to_idx = {executor.submit(score_paper, task): task[0] for task in tasks}
+                continue
             
-            completed = 0
-            for future in as_completed(future_to_idx):
-                idx, score = future.result()
-                completed += 1
-                
-                if score >= 2:
-                    paper = self.all_papers[idx]
-                    paper['_prerank_score'] = score
-                    scored.append(paper)
-                
-                # 每完成 100 篇显示一次进度
-                if completed % 100 == 0 or completed == total:
-                    progress = (completed / total) * 100
-                    elapsed = time.time() - start_time
-                    eta = (elapsed / completed * total) - elapsed if completed > 0 else 0
-                    sys.stderr.write(f"\r   进度：{completed}/{total} ({progress:.1f}%) | 合格 {len(scored)} 篇 | 已{elapsed:.0f}秒 | 剩{eta:.0f}秒   ")
-                    sys.stderr.flush()
+            # 构建 prompt
+            summary = paper.get('summary', '')[:1000]  # 限制长度
+            title = paper.get('title', '')
+            
+            prompt = f"""评估论文相关性（0-10 分）：
+
+用户摘要：{user_abstract[:500]}...
+
+论文标题：{title}
+论文摘要：{summary}...
+
+直接返回 0-10 的数字分数。"""
+            
+            batch_requests.append({
+                "custom_id": f"paper_{idx}",
+                "method": "POST",
+                "url": "/chat/completions",
+                "body": {
+                    "model": self.prerank_model,
+                    "messages": [
+                        {"role": "system", "content": "你是一个学术论文评审专家。直接返回 0-10 的数字分数。"},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "max_tokens": 5,
+                    "temperature": 0.3
+                }
+            })
+        
+        # 保存 Batch 请求到临时文件
+        batch_file = Path("/tmp/batch_requests.jsonl")
+        with open(batch_file, 'w', encoding='utf-8') as f:
+            for req in batch_requests:
+                f.write(json.dumps(req) + "\n")
+        
+        print(f"   已保存 {len(batch_requests)} 个请求到 {batch_file}")
+        print(f"   上传 Batch 文件到阿里云百炼...")
+        
+        # TODO: Batch API 实现步骤
+        # 1. 上传 Batch 文件到阿里云百炼
+        # 2. 创建 Batch 任务
+        # 3. 轮询等待 Batch 完成
+        # 4. 下载并解析结果
+        # 
+        # 参考阿里云百炼文档：
+        # https://help.aliyun.com/zh/model-studio/developer-reference/batch-call-api
+        # 
+        # 临时使用串行调用（等待 Batch API 实现）
+        print("   ⚠️  Batch API 待实现，暂时使用串行调用...")
+        print("   💡 提示：需要确认阿里云百炼 Batch API 的具体接口")
+        
+        scored = []
+        for i, paper in enumerate(self.all_papers, 1):
+            if not paper.get('summary'):
+                continue
+            
+            score = self._score_relevance(user_abstract, paper, use_plus=False)
+            
+            if score >= 2:
+                paper['_prerank_score'] = score
+                scored.append(paper)
+            
+            # 进度显示
+            if i % 100 == 0:
+                progress = (i / total) * 100
+                elapsed = time.time() - start_time
+                sys.stderr.write(f"\r   进度：{i}/{total} ({progress:.1f}%) | 合格 {len(scored)} 篇 | {elapsed:.0f}秒   ")
+                sys.stderr.flush()
         
         # 按分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)

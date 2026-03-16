@@ -251,13 +251,15 @@ class RelatedPaperFinder:
         
         return scored
     
-    def find_related(self, prerank_text: str, finerank_text: str, top_k: int = 10, prerank_top_n: int = 300) -> list:
+    def find_related(self, prerank_text: str, finerank_text: str, top_k: int = 10, prerank_top_n: int = 300, save_all_finerank: bool = True) -> list:
         """根据用户提供的摘要查找相关论文（两阶段：Flash 粗排 + Plus 精排）"""
         print(f"\n🔍 开始查找相关论文...")
         print(f"📝 粗排文本：{prerank_text[:80]}...")
         print(f"📝 精排文本：{finerank_text[:80]}...")
         print(f"📚 总论文数：{len(self.all_papers)} 篇")
         print(f"🎯 目标返回：{top_k} 篇")
+        if save_all_finerank:
+            print(f"💾 精排结果：保留所有打分完整的论文")
         print()
         
         total_start = time.time()
@@ -272,7 +274,7 @@ class RelatedPaperFinder:
         print()
         
         # 阶段 2：Plus 模型精排
-        print(f"⚡ 阶段 2/2：Qwen3.5-Plus 精排（{len(candidates)}篇 → Top {top_k}）")
+        print(f"⚡ 阶段 2/2：Qwen3.5-Plus 精排（{len(candidates)}篇）")
         print(f"   预计耗时：~1 分钟（500 并发）")
         scored_papers = self._batch_score(finerank_text, candidates, use_plus=True, max_workers=500, max_retries=3)
         
@@ -282,9 +284,11 @@ class RelatedPaperFinder:
         sys.stderr.write("\n")
         sys.stderr.flush()
         print(f"✅ 全部完成！总耗时 {total_time/60:.1f}分钟")
-        print(f"📊 找到 {len(scored_papers)} 篇相关论文")
+        print(f"📊 精排打分完成：{len(scored_papers)} 篇")
+        print(f"📋 返回 Top {min(top_k, len(scored_papers))} 篇（完整结果已保存）")
         
-        return scored_papers[:top_k]
+        # 返回时不截断，完整结果保存到文件
+        return scored_papers if save_all_finerank else scored_papers[:top_k]
     
     def print_results(self, related_papers: list):
         """打印相关论文结果"""
@@ -380,9 +384,10 @@ def main():
     parser.add_argument('-a', '--abstract', type=str, help='文章摘要（单阶段模式）')
     parser.add_argument('--prerank', type=str, help='粗排文本（两阶段模式）')
     parser.add_argument('--finerank', type=str, help='精排摘要（两阶段模式）')
-    parser.add_argument('-k', '--top-k', type=int, default=10, help='返回论文数量（默认 10）')
+    parser.add_argument('-k', '--top-k', type=int, default=10, help='返回论文数量（默认 10，仅用于打印）')
     parser.add_argument('-n', '--prerank-top-n', type=int, default=300, help='粗排候选数（默认 300）')
     parser.add_argument('-o', '--output', type=str, default='related_papers.json', help='输出文件名')
+    parser.add_argument('--all-results', action='store_true', help='保存所有精排打分结果（不截断）')
     parser.add_argument('--abstract-file', type=str, help='从文件读取摘要')
     parser.add_argument('--no-interactive', action='store_true', help='非交互模式')
     
@@ -446,9 +451,12 @@ def main():
         prerank_text=prerank_input,
         finerank_text=finerank_input,
         top_k=args.top_k,
-        prerank_top_n=args.prerank_top_n
+        prerank_top_n=args.prerank_top_n,
+        save_all_finerank=args.all_results  # 默认保存所有精排结果
     )
-    finder.print_results(related_papers)
+    # 打印时只显示 Top K
+    finder.print_results(related_papers[:args.top_k])
+    # 保存完整结果
     finder.save_results(related_papers, prerank_input, finerank_input, args.output)
     
     print("\n✅ 完成！")

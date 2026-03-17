@@ -1,0 +1,44 @@
+name: Update Calendar Index
+
+on:
+  schedule:
+    # 每天北京时间 8:00 运行 (UTC 0:00)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Run calendar update script
+      run: |
+        python3 update_calendar_index.py
+      
+    - name: Commit and push if changed
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # 检查是否有变更
+        if ! git diff --quiet; then
+          git add output/index.html
+          git commit -m "chore: 自动更新日历导航页面 $(date +%Y-%m-%d)"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          echo "✅ 日历导航页面已更新"
+        else
+          echo "ℹ️  日历导航页面无需更新"
+        fi
+      continue-on-error: true

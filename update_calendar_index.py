@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-自动更新论文日历导航页面 (index.html)
+自动更新论文日历导航页面 (index.html + paper_data.json)
 - 扫描 output 目录下所有 JSON 文件
 - 统计每天的论文数量
-- 更新 index.html 中的 paperData 和统计数据
+- 更新 paper_data.json（动态数据文件）
+- 更新 index.html 中的统计数据和最后更新时间
 """
 
 import json
@@ -15,16 +16,18 @@ from datetime import datetime, timezone, timedelta
 
 OUTPUT_DIR = Path(__file__).parent / 'output'
 INDEX_HTML = OUTPUT_DIR / 'index.html'
+PAPER_DATA_JSON = OUTPUT_DIR / 'paper_data.json'
 
 def scan_papers():
     """扫描所有 JSON 文件，统计每天的论文数量"""
     paper_data = {}
     
     for json_file in OUTPUT_DIR.glob('*.json'):
-        # 跳过非日期文件
+        # 跳过非日期文件和缓存文件
         if json_file.name in ['paper_data.json', 'abstract_cache.json', 'cache_stats.json',
                                'related_papers_ctr_cvr.json', 'prerank_cache.json',
-                               'papers_metadata_10000.json', 'raw_papers_10000.json']:
+                               'papers_metadata_10000.json', 'raw_papers_10000.json',
+                               'related_papers_test.json']:
             continue
         
         # 提取日期 (YYYYMMDD.json)
@@ -73,8 +76,15 @@ def calculate_stats(paper_data):
         'avg_papers': avg_papers
     }
 
+def save_paper_data_json(paper_data):
+    """保存 paper_data.json 文件"""
+    with open(PAPER_DATA_JSON, 'w', encoding='utf-8') as f:
+        json.dump(paper_data, f, ensure_ascii=False, indent=2)
+    print(f"💾 已保存：{PAPER_DATA_JSON}")
+    return True
+
 def update_index_html(paper_data, stats):
-    """更新 index.html 文件"""
+    """更新 index.html 文件（只更新统计数据和引用）"""
     if not INDEX_HTML.exists():
         print(f"❌ {INDEX_HTML} 不存在")
         return False
@@ -82,33 +92,12 @@ def update_index_html(paper_data, stats):
     with open(INDEX_HTML, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # 1. 更新 paperData
-    paper_data_json = json.dumps(paper_data, ensure_ascii=False, separators=(',', ':'))
-    
-    # 使用正则替换 paperData 对象
-    pattern = r'paperData\s*=\s*\{[^}]+\};'
-    # 需要匹配嵌套的 JSON，使用更复杂的模式
-    start_marker = 'paperData = '
-    start_idx = content.find(start_marker)
-    if start_idx == -1:
-        print("❌ 找不到 paperData 定义")
+    # 1. 检查是否有动态加载代码，如果没有则添加
+    if 'fetch("paper_data.json")' not in content:
+        print("⚠️  index.html 还没有动态加载代码，需要更新 HTML 模板")
+        # 这里可以添加自动更新 HTML 模板的逻辑
+        # 暂时先跳过，手动更新一次 HTML 模板
         return False
-    
-    # 找到 JSON 对象的结束位置
-    json_start = start_idx + len(start_marker)
-    brace_count = 0
-    json_end = json_start
-    for i, char in enumerate(content[json_start:], json_start):
-        if char == '{':
-            brace_count += 1
-        elif char == '}':
-            brace_count -= 1
-            if brace_count == 0:
-                json_end = i + 1
-                break
-    
-    old_paper_data = content[json_start:json_end]
-    content = content[:json_start] + paper_data_json + content[json_end:]
     
     # 2. 更新统计数据
     content = re.sub(
@@ -180,15 +169,18 @@ def main():
     print(f"   总论文：{stats['total_papers']:,}")
     print(f"   日均论文：{stats['avg_papers']}")
     
-    # 3. 更新 HTML
+    # 3. 保存 paper_data.json
+    print("\n💾 保存 paper_data.json...")
+    save_paper_data_json(paper_data)
+    
+    # 4. 更新 HTML
     print("\n✏️  更新 index.html...")
     if update_index_html(paper_data, stats):
         print("✅ index.html 更新成功!")
     else:
-        print("❌ index.html 更新失败")
-        return
+        print("⚠️  index.html 需要手动更新模板以支持动态加载")
     
-    # 4. 显示最新月份
+    # 5. 显示最新月份
     latest_month = sorted_months[-1]
     latest_days = paper_data[latest_month]
     latest_day = max(latest_days.keys())

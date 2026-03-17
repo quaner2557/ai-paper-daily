@@ -339,6 +339,7 @@ class RelatedPaperFinder:
                 paper_data['_prerank_score'] = 0
             if '_finerank_score' not in paper_data:
                 paper_data['_finerank_score'] = 0
+            papers_to_save.append(paper_data)
         
         result = {
             'prerank_text': prerank_text,

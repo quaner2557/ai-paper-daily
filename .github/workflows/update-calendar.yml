@@ -23,9 +23,10 @@ jobs:
       with:
         python-version: '3.11'
         
-    - name: Run calendar update script
+    - name: Run calendar update scripts
       run: |
         python3 update_calendar_index.py
+        python3 update_html_template.py
       
     - name: Commit and push if changed
       run: |
@@ -34,7 +35,7 @@ jobs:
         
         # 检查是否有变更
         if ! git diff --quiet; then
-          git add output/index.html
+          git add output/index.html output/paper_data.json
           git commit -m "chore: 自动更新日历导航页面 $(date +%Y-%m-%d)"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
           echo "✅ 日历导航页面已更新"

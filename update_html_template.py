@@ -128,17 +128,29 @@ NEW_SCRIPT = '''    <script>
                 dayEl.className = 'calendar-day';
                 
                 if (paperCount > 0) {
-                    dayEl.style.background = paperCount >= 15 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 
-                                            paperCount >= 10 ? 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' :
-                                            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';
+                    // 更柔和的颜色方案
+                    if (paperCount >= 15) {
+                        // 深蓝色：高产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%)';
+                    } else if (paperCount >= 10) {
+                        // 青绿色：中等产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #6B9080 0%, #88B3A3 100%)';
+                    } else if (paperCount >= 5) {
+                        // 淡蓝色：正常产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #7FA1C3 0%, #9AB5D1 100%)';
+                    } else {
+                        // 浅灰色：少量产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #A8B8C8 0%, #B8C8D8 100%)';
+                    }
                     dayEl.style.color = 'white';
-                    dayEl.innerHTML = `<span style="font-size: 1.2em; font-weight: bold;">${day}</span><span style="font-size: 0.7em; opacity: 0.9;">${paperCount}篇</span>`;
+                    dayEl.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+                    dayEl.innerHTML = `<span style="font-size: 1.2em; font-weight: bold;">${day}</span><span style="font-size: 0.7em; opacity: 0.95;">${paperCount}篇</span>`;
                     dayEl.onclick = () => window.open(`${dateStr}.html`, '_blank');
                     dayEl.style.cursor = 'pointer';
                 } else {
-                    dayEl.style.background = '#f5f5f5';
-                    dayEl.style.color = '#ccc';
-                    dayEl.innerHTML = `<span>${day}</span>`;
+                    dayEl.style.background = '#f8f9fa';
+                    dayEl.style.color = '#999';
+                    dayEl.innerHTML = `<span style="font-size: 1.1em;">${day}</span>`;
                 }
                 
                 // 标记今天

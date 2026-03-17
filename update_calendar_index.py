@@ -43,7 +43,8 @@ def scan_papers():
             with open(json_file, 'r', encoding='utf-8') as f:
                 papers = json.load(f)
                 if isinstance(papers, list):
-                    count = len(papers)
+                    # 使用展示论文数（relevance_score >= 6 的论文，即实际展示的）
+                    count = len([p for p in papers if p.get('relevance_score', 0) >= 6])
                 else:
                     count = 0
                 

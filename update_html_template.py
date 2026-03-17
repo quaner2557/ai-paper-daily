@@ -142,8 +142,8 @@ NEW_SCRIPT = '''    <script>
                 }
                 
                 // 标记今天
-                const isToday = year === today.getFullYear() && 
-                               month === today.getMonth() && 
+                const isToday = currentYear === today.getFullYear() && 
+                               currentMonth === today.getMonth() && 
                                day === today.getDate();
                 if (isToday) {
                     dayEl.style.border = '3px solid #f5576c';

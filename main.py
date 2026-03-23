@@ -217,18 +217,28 @@ class AIPaperDaily:
         all_papers = []
         seen_ids = set()  # 本次运行内去重
         
-        # 获取论文（分批获取）
+        # 获取论文（分批获取，达到目标数量后立即停止）
         batch_papers = []
         start = 0
         max_results = 500  # 每批 500 篇
         max_batches = 20  # 最多 20 批（10000 篇），足够覆盖单日的论文量
         
         while start < (max_batches * max_results):
-            papers = self._fetch_arxiv_batch(categories_query, start, max_results, date_range)
+            # 动态调整每批获取数量：如果已接近目标，只获取剩余需要的数量
+            remaining_needed = target_count - len(batch_papers)
+            if remaining_needed <= 0:
+                logger.info(f"Reached target count ({target_count}), stopping fetch")
+                break
+            
+            # 每批最多获取 remaining_needed + 50（预留去重缓冲）
+            current_batch_size = min(max_results, remaining_needed + 50)
+            
+            papers = self._fetch_arxiv_batch(categories_query, start, current_batch_size, date_range)
             if not papers:
                 break
             
             # 去重
+            new_count = 0
             for paper in papers:
                 arxiv_id = paper['arxiv_id']
                 if arxiv_id in processed_ids or arxiv_id in seen_ids:
@@ -236,15 +246,21 @@ class AIPaperDaily:
                 
                 batch_papers.append(paper)
                 seen_ids.add(arxiv_id)
+                new_count += 1
             
-            start += max_results
-            if len(papers) < max_results:
+            logger.info(f"Batch {start//max_results + 1}: fetched {len(papers)}, {new_count} new (total unique: {len(batch_papers)})")
+            
+            start += current_batch_size
+            
+            # 如果这批获取的数量少于请求数量，说明 arXiv 已经没有更多论文了
+            if len(papers) < current_batch_size:
+                logger.info("Reached end of arXiv results")
                 break
         
         logger.info(f"Fetched {len(batch_papers)} papers (after dedup: {len(seen_ids)})")
         all_papers.extend(batch_papers)
         
-        # 限制返回数量
+        # 限制返回数量（兜底保护）
         result = all_papers[:target_count]
         logger.info(f"Returning {len(result)} papers for preranking (unique: {len(seen_ids)})")
         

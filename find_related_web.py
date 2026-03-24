@@ -106,11 +106,11 @@ class RelatedPaperFinder:
             'search_time': round(total_time, 2)
         }
     
-    def _prerank_with_batch_flash(self, user_abstract: str, papers: list, top_n: int = 200, batch_size: int = 20):
-        """使用 Batch API 并行初筛（20 个并发）"""
+    def _prerank_with_batch_flash(self, user_abstract: str, papers: list, top_n: int = 200, batch_size: int = 200):
+        """使用 Batch API 并行初筛（200 个并发）"""
         import requests
         
-        print(f"   开始 Flash Batch 打分（{len(papers)}篇，batch_size={batch_size}）...")
+        print(f"   开始 Flash Batch 打分（{len(papers)}篇，并发数={batch_size}）...")
         start_time = time.time()
         
         scored = []
@@ -131,7 +131,7 @@ class RelatedPaperFinder:
                 # 收集结果
                 for future, paper in futures:
                     try:
-                        score = future.result(timeout=30)
+                        score = future.result(timeout=60)
                         if score >= 2:
                             paper['_prerank_score'] = score
                             scored.append(paper)
@@ -140,7 +140,7 @@ class RelatedPaperFinder:
             
             # 进度显示
             progress = min(batch_idx + batch_size, len(papers))
-            if progress % 100 == 0 or progress >= len(papers):
+            if progress % 200 == 0 or progress >= len(papers):
                 elapsed = time.time() - start_time
                 print(f"   初筛进度：{progress}/{len(papers)} | 合格 {len(scored)} 篇 | {elapsed:.1f}秒")
         
@@ -152,11 +152,11 @@ class RelatedPaperFinder:
         
         return scored[:top_n]
     
-    def _finerank_with_batch_plus(self, user_abstract: str, papers: list, batch_size: int = 10):
-        """使用 Batch API 并行精细打分（10 个并发）"""
+    def _finerank_with_batch_plus(self, user_abstract: str, papers: list, batch_size: int = 200):
+        """使用 Batch API 并行精细打分（200 个并发）"""
         import requests
         
-        print(f"   开始 Plus Batch 打分（{len(papers)}篇，batch_size={batch_size}）...")
+        print(f"   开始 Plus Batch 打分（{len(papers)}篇，并发数={batch_size}）...")
         start_time = time.time()
         
         scored_papers = []
@@ -177,7 +177,7 @@ class RelatedPaperFinder:
                 # 收集结果
                 for future, paper, idx in futures:
                     try:
-                        score = future.result(timeout=60)
+                        score = future.result(timeout=90)
                         if score > 0:
                             paper['_relevance_score'] = score
                             scored_papers.append(paper)
@@ -186,7 +186,7 @@ class RelatedPaperFinder:
             
             # 进度显示
             progress = min(batch_idx + batch_size, len(papers))
-            if progress % 20 == 0 or progress >= len(papers):
+            if progress % 200 == 0 or progress >= len(papers):
                 elapsed = time.time() - start_time
                 print(f"   精排进度：{progress}/{len(papers)} | 合格 {len(scored_papers)} 篇 | {elapsed:.1f}秒")
         
@@ -348,8 +348,8 @@ def main():
     print(f"📁 论文库：{len(APIHandler.finder.all_papers) if APIHandler.finder else 0} 篇（首次访问时加载）")
     print()
     print("✅ Batch API 模式：已启用")
-    print("   - Flash 初筛：20 并发")
-    print("   - Plus 精排：10 并发")
+    print("   - Flash 初筛：200 并发，timeout=60 秒")
+    print("   - Plus 精排：200 并发，timeout=90 秒")
     print()
     print("按 Ctrl+C 停止服务")
     print("="*60)

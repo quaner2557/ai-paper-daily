@@ -88,8 +88,8 @@ class RelatedPaperFinder:
         phase1_time = time.time() - total_start
         print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
         
-        # 阶段 2: Plus 模型 Batch 批量精细打分
-        print(f"🎯 阶段 2/2：Plus Batch 精细打分（{len(candidates)}篇）")
+        # 阶段 2: Plus 模型 Batch 批量精细打分（返回所有打分后的论文，不限制数量）
+        print(f"🎯 阶段 2/2：Plus Batch 精细打分（{len(candidates)}篇，返回全部）")
         scored_papers = self._finerank_with_batch_plus(user_abstract, candidates)
         
         # 按相关性排序
@@ -100,7 +100,7 @@ class RelatedPaperFinder:
         print(f"📊 找到 {len(scored_papers)} 篇相关论文")
         
         return {
-            'related_papers': scored_papers[:top_k],
+            'related_papers': scored_papers,  # 返回所有精排后的论文，不限制数量
             'total_papers_searched': len(self.all_papers),
             'candidates_count': len(candidates),
             'search_time': round(total_time, 2)

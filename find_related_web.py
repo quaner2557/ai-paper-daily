@@ -1,0 +1,305 @@
+#!/usr/bin/env python3
+"""
+相关论文查找器 Web API 服务
+
+使用方法:
+    python3 find_related_web.py
+    # 访问 http://localhost:5000
+"""
+
+import json
+import os
+import sys
+import time
+from pathlib import Path
+from datetime import datetime
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+import urllib.parse
+
+# 添加当前目录到路径
+sys.path.insert(0, str(Path(__file__).parent))
+
+class RelatedPaperFinder:
+    """相关论文查找器（简化版，用于 Web API）"""
+    
+    def __init__(self, api_key):
+        self.output_dir = Path('output')
+        self.llm_api_key = api_key
+        self.llm_base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+        self.prerank_model = "qwen3.5-flash"
+        self.finerank_model = "qwen3.5-plus"
+        
+        # 加载所有精选论文
+        self.all_papers = self._load_all_papers()
+        print(f"✅ 已加载 {len(self.all_papers)} 篇精选论文")
+    
+    def _load_all_papers(self):
+        """从 output 目录加载每天精排后展示的论文"""
+        all_papers = []
+        
+        for filename in sorted(self.output_dir.glob("*.json")):
+            if filename.name in ['paper_data.json', 'abstract_cache.json', 'cache_stats.json', 'related_papers.json']:
+                continue
+            
+            try:
+                with open(filename, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                
+                if isinstance(data, list):
+                    papers = data
+                else:
+                    papers = data.get('papers', [])
+                
+                date_str = filename.stem
+                
+                # 只保留精排后展示的论文（relevance_score >= 6）
+                for paper in papers:
+                    score = paper.get('relevance_score', 0)
+                    if score >= 6:
+                        paper['_source_date'] = date_str
+                        all_papers.append(paper)
+                        
+            except Exception as e:
+                print(f"⚠️  读取 {filename} 失败：{e}")
+        
+        all_papers.sort(key=lambda x: (x.get('_source_date', ''), x.get('relevance_score', 0)), reverse=True)
+        return all_papers
+    
+    def find_related(self, user_abstract: str, top_k: int = 10, candidate_n: int = 200, keywords: str = ""):
+        """查找相关论文"""
+        total_start = time.time()
+        
+        # 关键词预筛选（如果有）
+        papers_to_search = self.all_papers
+        if keywords.strip():
+            keyword_list = [k.strip().lower() for k in keywords.split(',')]
+            filtered = []
+            for paper in self.all_papers:
+                text = (paper.get('title', '') + ' ' + paper.get('summary', '')).lower()
+                if any(kw in text for kw in keyword_list):
+                    filtered.append(paper)
+            papers_to_search = filtered
+            print(f"🏷️  关键词筛选：{len(self.all_papers)} → {len(filtered)} 篇")
+        
+        # 阶段 1: Flash 模型快速初筛
+        print(f"⚡ 阶段 1/2：Flash 初筛（{len(papers_to_search)}篇 → {candidate_n}篇候选）")
+        candidates = self._prerank_with_flash(user_abstract, papers_to_search, top_n=candidate_n)
+        phase1_time = time.time() - total_start
+        print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
+        
+        # 阶段 2: Plus 模型精细打分
+        print(f"🎯 阶段 2/2：Plus 精细打分（{len(candidates)}篇）")
+        scored_papers = []
+        
+        for i, paper in enumerate(candidates, 1):
+            if not paper.get('summary'):
+                continue
+            
+            score = self._score_relevance(user_abstract, paper, use_plus=True)
+            
+            if score > 0:
+                paper['_relevance_score'] = score
+                scored_papers.append(paper)
+            
+            if i % 10 == 0:
+                print(f"   进度：{i}/{len(candidates)}")
+        
+        # 按相关性排序
+        scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
+        
+        total_time = time.time() - total_start
+        print(f"✅ 全部完成！总耗时 {total_time/60:.1f}分钟")
+        print(f"📊 找到 {len(scored_papers)} 篇相关论文")
+        
+        return {
+            'related_papers': scored_papers[:top_k],
+            'total_papers_searched': len(self.all_papers),
+            'candidates_count': len(candidates),
+            'search_time': round(total_time, 2)
+        }
+    
+    def _prerank_with_flash(self, user_abstract: str, papers: list, top_n: int = 200):
+        """使用 Flash 模型快速初筛"""
+        import requests
+        
+        scored = []
+        for i, paper in enumerate(papers):
+            if not paper.get('summary'):
+                continue
+            
+            score = self._score_relevance(user_abstract, paper, use_plus=False)
+            
+            if score >= 2:
+                paper['_prerank_score'] = score
+                scored.append(paper)
+            
+            if i % 100 == 0:
+                print(f"   初筛进度：{i}/{len(papers)} | 合格 {len(scored)} 篇")
+        
+        scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)
+        return scored[:top_n]
+    
+    def _score_relevance(self, user_abstract: str, paper: dict, use_plus: bool = False):
+        """使用 LLM 评估相关性"""
+        import requests
+        
+        model = self.finerank_model if use_plus else self.prerank_model
+        
+        if use_plus:
+            summary = paper.get('summary', '')
+            prompt = f"""你是一个学术论文评审专家。请评估以下论文与用户研究主题的相关性。
+
+**用户研究摘要：**
+{user_abstract}
+
+**待评估论文：**
+标题：{paper.get('title', 'N/A')}
+摘要：{summary if summary else 'N/A'}
+分类：{', '.join(paper.get('categories', []))}
+
+请从以下维度评估相关性（0-10 分）：
+1. 研究任务/问题是否相似
+2. 方法/技术是否有共通之处
+3. 应用领域是否相关
+4. 是否可以互相引用或参考
+
+**直接返回一个 0-10 的数字分数，不要其他内容。**"""
+            
+            max_tokens = 10
+            temperature = 0.1
+        else:
+            summary = paper.get('summary', '')
+            prompt = f"""评估论文相关性（0-5 分）：
+
+用户：{user_abstract[:300]}...
+
+论文：{paper.get('title', 'N/A')}
+摘要：{summary[:300] if summary else 'N/A'}...
+
+直接返回数字分数。"""
+            
+            max_tokens = 5
+            temperature = 0.3
+        
+        try:
+            headers = {
+                "Authorization": f"Bearer {self.llm_api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            payload = {
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": temperature,
+                "max_tokens": max_tokens
+            }
+            
+            response = requests.post(
+                f"{self.llm_base_url}/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                score_text = result['choices'][0]['message']['content'].strip()
+                
+                import re
+                match = re.search(r'(\d+\.?\d*)', score_text)
+                if match:
+                    score = float(match.group(1))
+                    if use_plus:
+                        return min(10, max(0, score))
+                    else:
+                        return min(5, max(0, score)) * 2
+            
+            return 0
+            
+        except Exception as e:
+            return 0
+
+
+# Web 服务
+class APIHandler(SimpleHTTPRequestHandler):
+    finder = None
+    
+    def do_GET(self):
+        if self.path == '/' or self.path == '/index.html':
+            self.path = '/index_web.html'
+            return SimpleHTTPRequestHandler.do_GET(self)
+        else:
+            self.send_error(404)
+    
+    def do_POST(self):
+        if self.path == '/api/find-related':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            
+            try:
+                data = json.loads(post_data.decode('utf-8'))
+                
+                api_key = data.get('api_key')
+                abstract = data.get('abstract')
+                keywords = data.get('keywords', '')
+                candidate_n = data.get('candidate_n', 200)
+                top_k = data.get('top_k', 10)
+                
+                if not api_key or not abstract:
+                    self.send_response(400)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({'message': '缺少必要参数'}).encode())
+                    return
+                
+                # 创建查找器
+                if APIHandler.finder is None or APIHandler.finder.llm_api_key != api_key:
+                    APIHandler.finder = RelatedPaperFinder(api_key)
+                
+                # 查找相关论文
+                result = APIHandler.finder.find_related(
+                    user_abstract=abstract,
+                    top_k=top_k,
+                    candidate_n=candidate_n,
+                    keywords=keywords
+                )
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps(result, ensure_ascii=False, indent=2).encode())
+                
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({'message': str(e)}).encode())
+        else:
+            self.send_error(404)
+    
+    def log_message(self, format, *args):
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {args[0]}")
+
+
+def main():
+    port = 5000
+    server = HTTPServer(('localhost', port), APIHandler)
+    
+    print("="*60)
+    print("🚀 AI 论文相关度查找器 Web 服务已启动")
+    print("="*60)
+    print(f"📍 访问地址：http://localhost:{port}")
+    print(f"📁 论文库：{len(APIHandler.finder.all_papers) if APIHandler.finder else 0} 篇（首次访问时加载）")
+    print()
+    print("按 Ctrl+C 停止服务")
+    print("="*60)
+    
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\n👋 服务已停止")
+        server.shutdown()
+
+
+if __name__ == '__main__':
+    main()

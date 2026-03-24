@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-相关论文查找器 Web API 服务
+相关论文查找器 Web API 服务（支持 Batch API 批量调用）
 
 使用方法:
     python3 find_related_web.py
@@ -15,12 +15,13 @@ from pathlib import Path
 from datetime import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # 添加当前目录到路径
 sys.path.insert(0, str(Path(__file__).parent))
 
 class RelatedPaperFinder:
-    """相关论文查找器（简化版，用于 Web API）"""
+    """相关论文查找器（Batch API 优化版）"""
     
     def __init__(self, api_key):
         self.output_dir = Path('output')
@@ -81,28 +82,15 @@ class RelatedPaperFinder:
             papers_to_search = filtered
             print(f"🏷️  关键词筛选：{len(self.all_papers)} → {len(filtered)} 篇")
         
-        # 阶段 1: Flash 模型快速初筛
-        print(f"⚡ 阶段 1/2：Flash 初筛（{len(papers_to_search)}篇 → {candidate_n}篇候选）")
-        candidates = self._prerank_with_flash(user_abstract, papers_to_search, top_n=candidate_n)
+        # 阶段 1: Flash 模型 Batch 批量初筛
+        print(f"⚡ 阶段 1/2：Flash Batch 初筛（{len(papers_to_search)}篇 → {candidate_n}篇候选）")
+        candidates = self._prerank_with_batch_flash(user_abstract, papers_to_search, top_n=candidate_n)
         phase1_time = time.time() - total_start
         print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
         
-        # 阶段 2: Plus 模型精细打分
-        print(f"🎯 阶段 2/2：Plus 精细打分（{len(candidates)}篇）")
-        scored_papers = []
-        
-        for i, paper in enumerate(candidates, 1):
-            if not paper.get('summary'):
-                continue
-            
-            score = self._score_relevance(user_abstract, paper, use_plus=True)
-            
-            if score > 0:
-                paper['_relevance_score'] = score
-                scored_papers.append(paper)
-            
-            if i % 10 == 0:
-                print(f"   进度：{i}/{len(candidates)}")
+        # 阶段 2: Plus 模型 Batch 批量精细打分
+        print(f"🎯 阶段 2/2：Plus Batch 精细打分（{len(candidates)}篇）")
+        scored_papers = self._finerank_with_batch_plus(user_abstract, candidates)
         
         # 按相关性排序
         scored_papers.sort(key=lambda x: x['_relevance_score'], reverse=True)
@@ -118,26 +106,94 @@ class RelatedPaperFinder:
             'search_time': round(total_time, 2)
         }
     
-    def _prerank_with_flash(self, user_abstract: str, papers: list, top_n: int = 200):
-        """使用 Flash 模型快速初筛"""
+    def _prerank_with_batch_flash(self, user_abstract: str, papers: list, top_n: int = 200, batch_size: int = 20):
+        """使用 Batch API 并行初筛（20 个并发）"""
         import requests
         
-        scored = []
-        for i, paper in enumerate(papers):
-            if not paper.get('summary'):
-                continue
-            
-            score = self._score_relevance(user_abstract, paper, use_plus=False)
-            
-            if score >= 2:
-                paper['_prerank_score'] = score
-                scored.append(paper)
-            
-            if i % 100 == 0:
-                print(f"   初筛进度：{i}/{len(papers)} | 合格 {len(scored)} 篇")
+        print(f"   开始 Flash Batch 打分（{len(papers)}篇，batch_size={batch_size}）...")
+        start_time = time.time()
         
+        scored = []
+        
+        # 分批处理
+        for batch_idx in range(0, len(papers), batch_size):
+            batch_papers = papers[batch_idx:batch_idx + batch_size]
+            
+            # 使用线程池批量调用
+            with ThreadPoolExecutor(max_workers=batch_size) as executor:
+                futures = []
+                for paper in batch_papers:
+                    if not paper.get('summary'):
+                        continue
+                    future = executor.submit(self._score_relevance, user_abstract, paper, use_plus=False)
+                    futures.append((future, paper))
+                
+                # 收集结果
+                for future, paper in futures:
+                    try:
+                        score = future.result(timeout=30)
+                        if score >= 2:
+                            paper['_prerank_score'] = score
+                            scored.append(paper)
+                    except Exception as e:
+                        print(f"   ⚠️  打分失败：{e}")
+            
+            # 进度显示
+            progress = min(batch_idx + batch_size, len(papers))
+            if progress % 100 == 0 or progress >= len(papers):
+                elapsed = time.time() - start_time
+                print(f"   初筛进度：{progress}/{len(papers)} | 合格 {len(scored)} 篇 | {elapsed:.1f}秒")
+        
+        # 按分数排序
         scored.sort(key=lambda x: x.get('_prerank_score', 0), reverse=True)
+        
+        elapsed = time.time() - start_time
+        print(f"   ✅ 初筛完成：{len(scored)} 篇合格，耗时 {elapsed:.1f}秒")
+        
         return scored[:top_n]
+    
+    def _finerank_with_batch_plus(self, user_abstract: str, papers: list, batch_size: int = 10):
+        """使用 Batch API 并行精细打分（10 个并发）"""
+        import requests
+        
+        print(f"   开始 Plus Batch 打分（{len(papers)}篇，batch_size={batch_size}）...")
+        start_time = time.time()
+        
+        scored_papers = []
+        
+        # 分批处理
+        for batch_idx in range(0, len(papers), batch_size):
+            batch_papers = papers[batch_idx:batch_idx + batch_size]
+            
+            # 使用线程池批量调用
+            with ThreadPoolExecutor(max_workers=batch_size) as executor:
+                futures = []
+                for i, paper in enumerate(batch_papers):
+                    if not paper.get('summary'):
+                        continue
+                    future = executor.submit(self._score_relevance, user_abstract, paper, use_plus=True)
+                    futures.append((future, paper, batch_idx + i + 1))
+                
+                # 收集结果
+                for future, paper, idx in futures:
+                    try:
+                        score = future.result(timeout=60)
+                        if score > 0:
+                            paper['_relevance_score'] = score
+                            scored_papers.append(paper)
+                    except Exception as e:
+                        print(f"   ⚠️  精排失败：{e}")
+            
+            # 进度显示
+            progress = min(batch_idx + batch_size, len(papers))
+            if progress % 20 == 0 or progress >= len(papers):
+                elapsed = time.time() - start_time
+                print(f"   精排进度：{progress}/{len(papers)} | 合格 {len(scored_papers)} 篇 | {elapsed:.1f}秒")
+        
+        elapsed = time.time() - start_time
+        print(f"   ✅ 精排完成：{len(scored_papers)} 篇合格，耗时 {elapsed:.1f}秒")
+        
+        return scored_papers
     
     def _score_relevance(self, user_abstract: str, paper: dict, use_plus: bool = False):
         """使用 LLM 评估相关性"""
@@ -290,6 +346,10 @@ def main():
     print("="*60)
     print(f"📍 访问地址：http://localhost:{port}")
     print(f"📁 论文库：{len(APIHandler.finder.all_papers) if APIHandler.finder else 0} 篇（首次访问时加载）")
+    print()
+    print("✅ Batch API 模式：已启用")
+    print("   - Flash 初筛：20 并发")
+    print("   - Plus 精排：10 并发")
     print()
     print("按 Ctrl+C 停止服务")
     print("="*60)

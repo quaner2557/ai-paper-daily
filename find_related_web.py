@@ -99,12 +99,61 @@ class RelatedPaperFinder:
         print(f"✅ 全部完成！总耗时 {total_time/60:.1f}分钟")
         print(f"📊 找到 {len(scored_papers)} 篇相关论文")
         
+        # 保存结果到本地文件
+        self._save_results(scored_papers, user_abstract, keywords, total_time)
+        
         return {
             'related_papers': scored_papers,  # 返回所有精排后的论文，不限制数量
             'total_papers_searched': len(self.all_papers),
             'candidates_count': len(candidates),
             'search_time': round(total_time, 2)
         }
+    
+    def _save_results(self, scored_papers: list, user_abstract: str, keywords: str, search_time: float):
+        """保存结果到本地 JSON 文件"""
+        from datetime import datetime
+        
+        # 生成文件名（带时间戳）
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"related_papers_{timestamp}.json"
+        filepath = self.output_dir / filename
+        
+        # 准备保存的数据
+        papers_to_save = []
+        for i, paper in enumerate(scored_papers, 1):
+            paper_data = {
+                'rank': i,
+                'title': paper.get('title', 'N/A'),
+                'pdf_url': paper.get('url', 'N/A'),
+                'relevance_score': paper.get('_relevance_score', 0),
+                'prerank_score': paper.get('_prerank_score', 0),
+                'original_score': paper.get('relevance_score', 0),
+                'arxiv_id': paper.get('arxiv_id', 'N/A'),
+                'authors': paper.get('authors', []),
+                'categories': paper.get('categories', []),
+                'source_date': paper.get('_source_date', 'N/A'),
+                'summary': paper.get('summary', '')[:500]  # 限制摘要长度
+            }
+            papers_to_save.append(paper_data)
+        
+        result = {
+            'search_metadata': {
+                'timestamp': datetime.now().isoformat(),
+                'user_abstract': user_abstract,
+                'keywords': keywords,
+                'search_time_seconds': round(search_time, 2),
+                'total_papers_searched': len(self.all_papers),
+                'total_related': len(scored_papers)
+            },
+            'papers': papers_to_save
+        }
+        
+        # 保存到文件
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        
+        print(f"💾 结果已保存到：{filepath}")
+        print(f"📄 包含字段：rank, title, pdf_url, relevance_score, prerank_score, arxiv_id, authors, categories")
     
     def _prerank_with_batch_flash(self, user_abstract: str, papers: list, top_n: int = 200, batch_size: int = 200):
         """使用 Batch API 并行初筛（200 个并发）"""

@@ -82,14 +82,14 @@ class RelatedPaperFinder:
             papers_to_search = filtered
             print(f"🏷️  关键词筛选：{len(self.all_papers)} → {len(filtered)} 篇")
         
-        # 阶段 1: Flash 模型 Batch 批量初筛（不限制候选数量，所有合格论文都进入精排）
-        print(f"⚡ 阶段 1/2：Flash Batch 初筛（{len(papers_to_search)}篇，全部候选）")
-        candidates = self._prerank_with_batch_flash(user_abstract, papers_to_search, top_n=None)
+        # 阶段 1: Flash 模型 Batch 批量初筛
+        print(f"⚡ 阶段 1/2：Flash Batch 初筛（{len(papers_to_search)}篇 → {candidate_n}篇候选）")
+        candidates = self._prerank_with_batch_flash(user_abstract, papers_to_search, top_n=candidate_n)
         phase1_time = time.time() - total_start
         print(f"   ✅ 完成！筛选出 {len(candidates)} 篇候选论文（耗时 {phase1_time:.1f}秒）")
         
-        # 阶段 2: Plus 模型 Batch 批量精细打分（返回所有打分后的论文，不限制数量）
-        print(f"🎯 阶段 2/2：Plus Batch 精细打分（{len(candidates)}篇，返回全部）")
+        # 阶段 2: Plus 模型 Batch 批量精细打分
+        print(f"🎯 阶段 2/2：Plus Batch 精细打分（{len(candidates)}篇）")
         scored_papers = self._finerank_with_batch_plus(user_abstract, candidates)
         
         # 按相关性排序
@@ -103,7 +103,7 @@ class RelatedPaperFinder:
         self._save_results(scored_papers, user_abstract, keywords, total_time)
         
         return {
-            'related_papers': scored_papers,  # 返回所有精排后的论文，不限制数量
+            'related_papers': scored_papers[:top_k],  # 返回前 top_k 篇
             'total_papers_searched': len(self.all_papers),
             'candidates_count': len(candidates),
             'search_time': round(total_time, 2)
@@ -155,8 +155,8 @@ class RelatedPaperFinder:
         print(f"💾 结果已保存到：{filepath}")
         print(f"📄 包含字段：rank, title, pdf_url, relevance_score, prerank_score, arxiv_id, authors, categories")
     
-    def _prerank_with_batch_flash(self, user_abstract: str, papers: list, top_n: int = None, batch_size: int = 200):
-        """使用 Batch API 并行初筛（200 个并发，不限制返回数量）"""
+    def _prerank_with_batch_flash(self, user_abstract: str, papers: list, top_n: int = 200, batch_size: int = 200):
+        """使用 Batch API 并行初筛（200 个并发）"""
         import requests
         
         print(f"   开始 Flash Batch 打分（{len(papers)}篇，并发数={batch_size}）...")
@@ -199,9 +199,6 @@ class RelatedPaperFinder:
         elapsed = time.time() - start_time
         print(f"   ✅ 初筛完成：{len(scored)} 篇合格，耗时 {elapsed:.1f}秒")
         
-        # 不限制返回数量（top_n=None 时返回全部）
-        if top_n is None:
-            return scored
         return scored[:top_n]
     
     def _finerank_with_batch_plus(self, user_abstract: str, papers: list, batch_size: int = 200):

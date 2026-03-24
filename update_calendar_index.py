@@ -43,8 +43,14 @@ def scan_papers():
             with open(json_file, 'r', encoding='utf-8') as f:
                 papers = json.load(f)
                 if isinstance(papers, list):
-                    # 使用展示论文数（relevance_score >= 6 的论文，即实际展示的）
-                    count = len([p for p in papers if p.get('relevance_score', 0) >= 6])
+                    # 统计实际展示的论文数（工业界 Top5 + 其他 Top10）
+                    # 先过滤>=6 分的论文
+                    filtered = [p for p in papers if p.get('relevance_score', 0) >= 6]
+                    # 分离工业界和其他
+                    industry = [p for p in filtered if p.get('is_industry', False)]
+                    other = [p for p in filtered if not p.get('is_industry', False)]
+                    # 实际展示数量
+                    count = min(len(industry), 5) + min(len(other), 10)
                 else:
                     count = 0
                 

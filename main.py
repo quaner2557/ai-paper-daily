@@ -1039,8 +1039,12 @@ Provide your analysis strictly in the following JSON format.
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
-        # 使用英文标题
-        display_title = paper['title']
+        # 使用翻译标题（去掉 [待翻译] 标记）
+        translation = paper.get('translation', '')
+        if translation:
+            display_title = translation.replace('[待翻译] ', '')
+        else:
+            display_title = paper['title']
         
         md = f"""### {index}. [{display_title}]({paper['url']})
 
@@ -1145,8 +1149,13 @@ Provide your analysis strictly in the following JSON format.
         score = paper.get('relevance_score', 0)
         stars = "⭐" * min(score, 10)
         
-        # 使用精排的中文翻译标题
-        display_title = paper.get('translation', paper['title'])
+        # 使用精排的中文翻译标题（去掉 [待翻译] 标记）
+        translation = paper.get('translation', '')
+        if translation:
+            # 去掉 [待翻译] 前缀
+            display_title = translation.replace('[待翻译] ', '')
+        else:
+            display_title = paper['title']
         
         html = f"""
     <div class="paper {'industry' if is_industry else ''}">

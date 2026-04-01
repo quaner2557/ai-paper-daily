@@ -1,0 +1,339 @@
+[
+  {
+    "arxiv_id": "2603.28124v1",
+    "title": "RCLRec: Reverse Curriculum Learning for Modeling Sparse Conversions in Generative Recommendation",
+    "authors": [
+      "Yulei Huang",
+      "Hao Deng",
+      "Haibo Xing",
+      "Jinxin Hu",
+      "Chuanfei Xu",
+      "Zulong Chen",
+      "Yu Zhang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Conversion objectives in large-scale recommender systems are sparse, making them difficult to optimize. Generative recommendation (GR) partially alleviates data sparsity by organizing multi-type behaviors into a unified token sequence with shared representations, but conversion signals remain insufficiently modeled. While recent behavior-aware GR models encode behavior types and employ behavior-aware attention to highlight decision-related intermediate behaviors, they still rely on standard attention over the full history and provide no additional supervision for conversions, leaving conversion sparsity largely unresolved. To address these challenges, we propose RCLRec, a reverse curriculum learning-based GR framework for sparse conversion supervision. For each conversion target, RCLRec constructs a short curriculum by selecting a subsequence of conversion-related items from the history in reverse. Their semantic tokens are fed to the decoder as a prefix, together with the target conversion tokens, under a joint generation objective. This design provides additional instance-specific intermediate supervision, alleviating conversion sparsity and focusing the model on the user's critical decision process. We further introduce a curriculum quality-aware loss to ensure that the selected curricula are informative for conversion prediction. Experiments on offline datasets and an online A/B test show that RCLRec achieves superior performance, with +2.09% advertising revenue and +1.86% orders in online deployment.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-30T07:41:33Z",
+    "updated": "2026-03-30T07:41:33Z",
+    "url": "http://arxiv.org/abs/2603.28124v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.28124v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "AlibabaInternationalDigital AI,GuangdongLaboratoryof AlibabaGroup"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的稀疏转化难题，提出基于逆向课程学习的生成式推荐新框架，属于核心领域的高价值创新；且来自中国公司，按规则额外加分后达到满分。",
+    "translation": "RCLRec：用于生成式推荐中稀疏转化建模的逆向课程学习",
+    "summary_zh": "提出一种逆向课程学习框架，通过从历史行为中反向构建与转化相关的子序列作为前缀，为生成式推荐模型提供实例级的中间监督信号，以解决转化数据稀疏问题。",
+    "key_points": [
+      "提出一种逆向课程学习框架，通过从历史行为中反向构建与转化相关的子序列作为前缀，为生成式推荐模型提供实例级的中间监督信号，以解决转化数据稀疏问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27952v1",
+    "title": "On the Accuracy Limits of Sequential Recommender Systems: An Entropy-Based Approach",
+    "authors": [
+      "En Xu",
+      "Jingtao Ding",
+      "Yong Li"
+    ],
+    "summary": "Sequential recommender systems have achieved steady gains in offline accuracy, yet it remains unclear how close current models are to the intrinsic accuracy limit imposed by the data. A reliable, model-agnostic estimate of this ceiling would enable principled difficulty assessment and headroom estimation before costly model development. Existing predictability analyses typically combine entropy estimation with Fano's inequality inversion; however, in recommendation they are hindered by sensitivity to candidate-space specification and distortion from Fano-based scaling in low-predictability regimes. We develop an entropy-induced, training-free approach for quantifying accuracy limits in sequential recommendation, yielding a candidate-size-agnostic estimate. Experiments on controlled synthetic generators and diverse real-world benchmarks show that the estimator tracks oracle-controlled difficulty more faithfully than baselines, remains insensitive to candidate-set size, and achieves high rank consistency with best-achieved offline accuracy across state-of-the-art sequential recommenders (Spearman rho up to 0.914). It also supports user-group diagnostics by stratifying users by novelty preference, long-tail exposure, and activity, revealing systematic predictability differences. Furthermore, predictability can guide training data selection: training sets constructed from high-predictability users yield strong downstream performance under reduced data budgets. Overall, the proposed estimator provides a practical reference for assessing attainable accuracy limits, supporting user-group diagnostics, and informing data-centric decisions in sequential recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-30T01:57:30Z",
+    "updated": "2026-03-30T01:57:30Z",
+    "url": "http://arxiv.org/abs/2603.27952v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27952v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统的核心问题（准确率上限评估），提出了基于熵的无训练估算方法，属于推荐系统基础理论与方法论的重大创新，且来自中国公司。",
+    "translation": "序列推荐系统准确率极限：一种基于熵的方法",
+    "summary_zh": "提出了一种基于熵诱导的无训练方法，用于估算序列推荐中不受候选集大小影响的内在准确率上限，以指导难度评估、用户诊断及数据选择。",
+    "key_points": [
+      "提出了一种基于熵诱导的无训练方法，用于估算序列推荐中不受候选集大小影响的内在准确率上限，以指导难度评估、用户诊断及数据选择"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27678v1",
+    "title": "Prototype-Aligned Federated Soft-Prompts for Continual Web Personalization",
+    "authors": [
+      "Canran Xiao",
+      "Liwei Hou"
+    ],
+    "summary": "Continual web personalization is essential for engagement, yet real-world non-stationarity and privacy constraints make it hard to adapt quickly without forgetting long-term preferences. We target this gap by seeking a privacy-conscious, parameter-efficient interface that controls stability-plasticity at the user/session level while tying user memory to a shared semantic prior. We propose ProtoFed-SP, a prompt-based framework that injects dual-timescale soft prompts into a frozen backbone: a fast, sparse short-term prompt tracks session intent, while a slow long-term prompt is anchored to a small server-side prototype library that is continually refreshed via differentially private federated aggregation. Queries are routed to Top-M prototypes to compose a personalized prompt. Across eight benchmarks, ProtoFed-SP improves NDCG@10 by +2.9% and HR@10 by +2.0% over the strongest baselines, with notable gains on Amazon-Books (+5.0% NDCG vs. INFER), H&M (+2.5% vs. Dual-LoRA), and Taobao (+2.2% vs. FedRAP). It also lowers forgetting (AF) and Steps-to-95% and preserves accuracy under practical DP budgets. Our contribution is a unifying, privacy-aware prompting interface with prototype anchoring that delivers robust continual personalization and offers a transparent, controllable mechanism to balance stability and plasticity in deployment.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-03-29T12:59:59Z",
+    "updated": "2026-03-29T12:59:59Z",
+    "url": "http://arxiv.org/abs/2603.27678v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27678v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商（淘宝）和通用 Web 场景的持续个性化推荐问题，提出了一种结合联邦学习、差分隐私和原型对齐的软提示框架，完美契合核心领域进展与隐私保护需求。",
+    "translation": "原型对齐联邦软提示用于持续 Web 个性化",
+    "summary_zh": "提出一种基于双时间尺度软提示的联邦学习框架，通过将会话级短期意图与服务器端原型库锚定的长期偏好相结合，在保护隐私的前提下解决推荐系统中的稳定性 - 可塑性权衡问题。",
+    "key_points": [
+      "提出一种基于双时间尺度软提示的联邦学习框架，通过将会话级短期意图与服务器端原型库锚定的长期偏好相结合，在保护隐私的前提下解决推荐系统中的稳定性 - 可塑性权衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.28512v1",
+    "title": "TIEG-Youpu Solution for NeurIPS 2022 WikiKG90Mv2-LSC",
+    "authors": [
+      "Feng Nie",
+      "Zhixiu Ye",
+      "Sifa Xie",
+      "Shuang Wu",
+      "Xin Yuan",
+      "Liang Yao",
+      "Jiazhen Peng",
+      "Xu Cheng"
+    ],
+    "summary": "WikiKG90Mv2 in NeurIPS 2022 is a large encyclopedic knowledge graph. Embedding knowledge graphs into continuous vector spaces is important for many practical applications, such as knowledge acquisition, question answering, and recommendation systems. Compared to existing knowledge graphs, WikiKG90Mv2 is a large scale knowledge graph, which is composed of more than 90 millions of entities. Both efficiency and accuracy should be considered when building graph embedding models for knowledge graph at scale. To this end, we follow the retrieve then re-rank pipeline, and make novel modifications in both retrieval and re-ranking stage. Specifically, we propose a priority infilling retrieval model to obtain candidates that are structurally and semantically similar. Then we propose an ensemble based re-ranking model with neighbor enhanced representations to produce final link prediction results among retrieved candidates. Experimental results show that our proposed method outperforms existing baseline methods and improves MRR of validation set from 0.2342 to 0.2839.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-03-30T14:45:30Z",
+    "updated": "2026-03-30T14:45:30Z",
+    "url": "http://arxiv.org/abs/2603.28512v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.28512v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "Tencent,Shenzhen TsinghuaUniversity,Beijing"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文聚焦知识图谱嵌入与链接预测，虽提及推荐系统作为应用场景，但核心属于通用 KG 研究而非直接的推荐/搜索架构创新；因来自好未来（TAL）且采用检索重排序范式，给予额外加分。",
+    "translation": "TIEG-Youpu：NeurIPS 2022 WikiKG90Mv2 大规模知识图谱竞赛解决方案",
+    "summary_zh": "提出一种优先填充检索模型以获取结构语义相似候选，并结合基于邻居增强表示的集成重排序模型，构建适用于超大规模知识图谱的“检索后重排序”链接预测框架。",
+    "key_points": [
+      "提出一种优先填充检索模型以获取结构语义相似候选，并结合基于邻居增强表示的集成重排序模型，构建适用于超大规模知识图谱的“检索后重排序”链接预测框架"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27723v1",
+    "title": "TMTE: Effective Multimodal Graph Learning with Task-aware Modality and Topology Co-evolution",
+    "authors": [
+      "Yinlin Zhu",
+      "Xunkai Li",
+      "Di Wu",
+      "Wang Luo",
+      "Miao Hu",
+      "Di Wu"
+    ],
+    "summary": "Multimodal-attributed graphs (MAGs) are a fundamental data structure for multimodal graph learning (MGL), enabling both graph-centric and modality-centric tasks. However, our empirical analysis reveals inherent topology quality limitations in real-world MAGs, including noisy interactions, missing connections, and task-agnostic relational structures. A single graph derived from generic relationships is therefore unlikely to be universally optimal for diverse downstream tasks. To address this challenge, we propose Task-aware Modality and Topology co-Evolution (TMTE), a novel MGL framework that jointly and iteratively optimizes graph topology and multimodal representations toward the target task. TMTE is motivated by the bidirectional coupling between modality and topology: multimodal attributes induce relational structures, while graph topology shapes modality representations. Concretely, TMTE casts topology evolution as multi-perspective metric learning over modality embeddings with an anchor-based approximation, and formulates modality evolution as smoothness-regularized fusion with cross-modal alignment, yielding a closed-loop task-aware co-evolution process. Extensive experiments on 9 MAG datasets and 1 non-graph multimodal dataset across 6 graph-centric and modality-centric tasks show that TMTE consistently achieves state-of-the-art performance. Our code is available at https://anonymous.4open.science/r/TMTE-1873.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-03-29T14:54:59Z",
+    "updated": "2026-03-29T14:54:59Z",
+    "url": "http://arxiv.org/abs/2603.27723v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27723v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种通用的多模态图学习方法，虽未明确针对推荐/搜索场景，但图结构与多模态融合技术可迁移应用于召回或排序环节，属于有潜力的通用方法。",
+    "translation": "TMTE：任务感知的模态与拓扑协同进化高效多模态图学习",
+    "summary_zh": "提出 TMTE 框架，通过任务驱动的模态嵌入与图拓扑结构双向迭代优化，解决真实多模态图中噪声连接及结构非任务适配问题。",
+    "key_points": [
+      "提出 TMTE 框架，通过任务驱动的模态嵌入与图拓扑结构双向迭代优化，解决真实多模态图中噪声连接及结构非任务适配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27476v1",
+    "title": "PeopleSearchBench: A Multi-Dimensional Benchmark for Evaluating AI-Powered People Search Platforms",
+    "authors": [
+      "Wei Wang",
+      "Tianyu Shi",
+      "Shuai Zhang",
+      "Boyang Xia",
+      "Zequn Xie",
+      "Chenyu Zeng",
+      "Qi Zhang",
+      "Lynn Ai",
+      "Yaqi Yu",
+      "Kaiming Zhang",
+      "Feiyue Tang"
+    ],
+    "summary": "AI-powered people search platforms are increasingly used in recruiting, sales prospecting, and professional networking, yet no widely accepted benchmark exists for evaluating their performance. We introduce PeopleSearchBench, an open-source benchmark that compares four people search platforms on 119 real-world queries across four use cases: corporate recruiting, B2B sales prospecting, expert search with deterministic answers, and influencer/KOL discovery. A key contribution is Criteria-Grounded Verification, a factual relevance pipeline that extracts explicit, verifiable criteria from each query and uses live web search to determine whether returned people satisfy them. This produces binary relevance judgments grounded in factual verification rather than subjective holistic LLM-as-judge scores. We evaluate systems on three dimensions: Relevance Precision (padded nDCG@10), Effective Coverage (task completion and qualified result yield), and Information Utility (profile completeness and usefulness), averaged equally into an overall score. Lessie, a specialized AI people search agent, performs best overall, scoring 65.2, 18.5% higher than the second-ranked system, and is the only system to achieve 100% task completion across all 119 queries. We also report confidence intervals, human validation of the verification pipeline (Cohen's kappa = 0.84), ablations, and full documentation of queries, prompts, and normalization procedures. Code, query definitions, and aggregated results are available on GitHub.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-03-29T02:21:09Z",
+    "updated": "2026-03-29T02:21:09Z",
+    "url": "http://arxiv.org/abs/2603.27476v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27476v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注构建评估“人才搜索”平台的基准测试，属于特定垂直领域的评估研究，而非通用的推荐/搜索核心算法创新或架构改进，且未涉及 LLM 在 RecSys 中的直接应用方法。",
+    "translation": "PeopleSearchBench：评估 AI 驱动人才搜索平台的多维基准",
+    "summary_zh": "提出 PeopleSearchBench 基准，通过基于事实标准的验证流程，从相关性精度、有效覆盖率和信息效用三个维度评估 AI 人才搜索系统的性能。",
+    "key_points": [
+      "提出 PeopleSearchBench 基准，通过基于事实标准的验证流程，从相关性精度、有效覆盖率和信息效用三个维度评估 AI 人才搜索系统的性能"
+    ]
+  },
+  {
+    "arxiv_id": "2603.28444v1",
+    "title": "Entropic Claim Resolution: Uncertainty-Driven Evidence Selection for RAG",
+    "authors": [
+      "Davide Di Gioia"
+    ],
+    "summary": "Current Retrieval-Augmented Generation (RAG) systems predominantly rely on relevance-based dense retrieval, sequentially fetching documents to maximize semantic similarity with the query. However, in knowledge-intensive and real-world scenarios characterized by conflicting evidence or fundamental query ambiguity, relevance alone is insufficient for resolving epistemic uncertainty. We introduce Entropic Claim Resolution (ECR), a novel inference-time algorithm that reframes RAG reasoning as entropy minimization over competing semantic answer hypotheses. Unlike action-driven agentic frameworks (e.g., ReAct) or fixed-pipeline RAG architectures, ECR sequentially selects atomic evidence claims by maximizing Expected Entropy Reduction (EER), a decision-theoretic criterion for the value of information. The process dynamically terminates when the system reaches a mathematically defined state of epistemic sufficiency (H <= epsilon, subject to epistemic coherence). We integrate ECR into a production-grade multi-strategy retrieval pipeline (CSGR++) and analyze its theoretical properties. Our framework provides a rigorous foundation for uncertainty-aware evidence selection, shifting the paradigm from retrieving what is most relevant to retrieving what is most discriminative.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-03-30T13:49:03Z",
+    "updated": "2026-03-30T13:49:03Z",
+    "url": "http://arxiv.org/abs/2603.28444v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.28444v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 推理研究，聚焦于解决知识冲突和不确定性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有 +1 分加分，仍属低优先级。",
+    "translation": "熵声明消解：用于 RAG 的不确定性驱动证据选择",
+    "summary_zh": "提出一种基于熵最小化的推理时算法，通过最大化期望熵减来动态选择最具判别力的证据片段，以解决检索增强生成中的认知不确定性问题。",
+    "key_points": [
+      "提出一种基于熵最小化的推理时算法，通过最大化期望熵减来动态选择最具判别力的证据片段，以解决检索增强生成中的认知不确定性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.28197v1",
+    "title": "EpiPersona: Persona Projection and Episode Coupling for Pluralistic Preference Modeling",
+    "authors": [
+      "Yujie Zhang",
+      "Weikang Yuan",
+      "Zhuoren Jiang",
+      "Pengwei Yan"
+    ],
+    "summary": "Pluralistic alignment is essential for adapting large language models (LLMs) to the diverse preferences of individuals and minority groups. However, existing approaches often mix stable personal traits with episode-specific factors, limiting their ability to generalize across episodes. To address this challenge, we introduce EpiPersona, a framework for explicit persona-episode coupling. EpiPersona first projects noisy preference feedback into a low-dimensional persona space, where similar personas are aggregated into shared discrete codes. This process separates enduring personal characteristics from situational signals without relying on predefined preference dimensions. The inferred persona representation is then coupled with the current episode, enabling episode-aware preference prediction. Extensive experiments show that EpiPersona consistently outperforms the baselines. It achieves notable performance gains in hard episodic-shift scenarios, while remaining effective with sparse preference data.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-03-30T09:04:24Z",
+    "updated": "2026-03-30T09:04:24Z",
+    "url": "http://arxiv.org/abs/2603.28197v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.28197v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 对齐与偏好建模研究，旨在解决通用 LLM 的多元化对齐问题，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "EpiPersona：用于多元偏好建模的人物投影与情节耦合",
+    "summary_zh": "提出一种显式人物 - 情节耦合框架，通过将噪声偏好反馈投影到低维人物空间并聚合为离散代码，从而分离稳定个人特征与情境信号以实现情节感知的偏好预测。",
+    "key_points": [
+      "提出一种显式人物 - 情节耦合框架，通过将噪声偏好反馈投影到低维人物空间并聚合为离散代码，从而分离稳定个人特征与情境信号以实现情节感知的偏好预测"
+    ]
+  },
+  {
+    "arxiv_id": "2603.28006v1",
+    "title": "FedDES: Graph-Based Dynamic Ensemble Selection for Personalized Federated Learning",
+    "authors": [
+      "Brianna Mueller",
+      "W. Nick Street"
+    ],
+    "summary": "Statistical heterogeneity in Federated Learning (FL) often leads to negative transfer, where a single global model fails to serve diverse client distributions. Personalized federated learning (pFL) aims to address this by tailoring models to individual clients. However, under most existing pFL approaches, clients integrate peer client contributions uniformly, which ignores the reality that not all peers are likely to be equally beneficial. Additionally, the potential for personalization at the instance level remains largely unexplored, even though the reliability of different peer models often varies across individual samples within the same client.\n  We introduce FedDES (Federated Dynamic Ensemble Selection), a decentralized pFL framework that achieves instance-level personalization through dynamic ensemble selection. Central to our approach is a Graph Neural Network (GNN) meta-learner trained on a heterogeneous graph modeling interactions between data samples and candidate classifiers. For each test query, the GNN dynamically selects and weights peer client models, forming an ensemble of the most competent classifiers while effectively suppressing contributions from those that are irrelevant or potentially harmful for performance. Experiments on CIFAR-10 and real-world ICU healthcare data demonstrate that FedDES outperforms state-of-the-art pFL baselines in non-IID settings, offering robust protection against negative transfer.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-03-30T03:57:52Z",
+    "updated": "2026-03-30T03:57:52Z",
+    "url": "http://arxiv.org/abs/2603.28006v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.28006v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦于联邦学习中的个性化建模，虽提及实例级个性化，但实验场景为通用图像分类和医疗数据，缺乏明确的推荐系统或搜索引擎应用场景，属于弱相关的通用机器学习研究。",
+    "translation": "FedDES：面向个性化联邦学习的基于图的动态集成选择",
+    "summary_zh": "提出一种基于图神经网络的去中心化联邦学习框架，通过动态选择和加权客户端模型来实现实例级别的个性化集成，以解决数据异构导致的负迁移问题。",
+    "key_points": [
+      "提出一种基于图神经网络的去中心化联邦学习框架，通过动态选择和加权客户端模型来实现实例级别的个性化集成，以解决数据异构导致的负迁移问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27889v1",
+    "title": "Article and Comment Frames Shape the Quality of Online Comments",
+    "authors": [
+      "Matteo Guida",
+      "Yulia Otmakhova",
+      "Eduard Hovy",
+      "Lea Frermann"
+    ],
+    "summary": "Framing theory posits that how information is presented shapes audience responses, but computational work has largely ignored audience reactions. While recent work showed that article framing systematically shapes the content of reader responses, this paper asks: Does framing also affect response quality? Analyzing 1M comments across 2.7K news articles, we operationalize quality as comment health (constructive, good-faith contributions). We find that article frames significantly predict comment health while controlling for topic, and that comments that adopt the article frame are healthier than those that depart from it. Further, unhealthy top-level comments tend to generate more unhealthy responses, independent of the frame being used in the comment. Our results establish a link between framing theory and discourse quality, laying the groundwork for downstream applications. We illustrate this potential with a proactive frame-aware LLM- based system to mitigate unhealthy discourse",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-03-29T22:01:27Z",
+    "updated": "2026-03-29T22:01:27Z",
+    "url": "http://arxiv.org/abs/2603.27889v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27889v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文主要研究新闻框架对评论质量的影响，属于计算社会科学/NLP 范畴，虽提及 LLM 应用但并非针对推荐/搜索核心链路（召回、排序等）的优化，相关性较弱。",
+    "translation": "文章与评论框架塑造在线评论的质量",
+    "summary_zh": "该文提出新闻文章的叙事框架显著影响读者评论的健康度，并设计了一个基于 LLM 的主动式框架感知系统以缓解不健康的 discourse。",
+    "key_points": [
+      "该文提出新闻文章的叙事框架显著影响读者评论的健康度，并设计了一个基于 LLM 的主动式框架感知系统以缓解不健康的 discourse"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27752v1",
+    "title": "Retromorphic Testing with Hierarchical Verification for Hallucination Detection in RAG",
+    "authors": [
+      "Boxi Yu",
+      "Yuzhong Zhang",
+      "Liting Lin",
+      "Lionel Briand",
+      "Emir Muñoz"
+    ],
+    "summary": "Large language models (LLMs) continue to hallucinate in retrieval-augmented generation (RAG), producing claims that are unsupported by or conflict with the retrieved context. Detecting such errors remains challenging when faithfulness is evaluated solely with respect to the retrieved context. Existing approaches either provide coarse-grained, answer-level scores or focus on open-domain factuality, often lacking fine-grained, evidence-grounded diagnostics.\n  We present RT4CHART, a retromorphic testing framework for context-faithfulness assessment. RT4CHART decomposes model outputs into independently verifiable claims and performs hierarchical, local-to-global verification against the retrieved context. Each claim is assigned one of three labels: entailed, contradicted, or baseless. Furthermore, RT4CHART maps claim-level decisions back to specific answer spans and retrieves explicit supporting or refuting evidence from the context, enabling fine-grained and interpretable auditing.\n  We evaluate RT4CHART on RAGTruth++ (408 samples) and RAGTruth-Enhance (2,675 samples), a newly re-annotated benchmark. RT4CHART achieves the best answer-level hallucination detection F1 among all baselines. On RAGTruth++, it reaches an F1 score of 0.776, outperforming the strongest baseline by 83%. On RAGTruth-Enhance, it achieves a span-level F1 of 47.5%.\n  Ablation studies show that the hierarchical verification design is the primary driver of performance gains. Finally, our re-annotation reveals 1.68x more hallucination cases than the original labels, suggesting that existing benchmarks substantially underestimate the prevalence of hallucinations.",
+    "categories": [
+      "cs.CL",
+      "cs.SE"
+    ],
+    "published": "2026-03-29T16:12:18Z",
+    "updated": "2026-03-29T16:12:18Z",
+    "url": "http://arxiv.org/abs/2603.27752v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27752v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于 RAG 系统中的幻觉检测与验证方法，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "基于分层验证的逆态测试用于 RAG 幻觉检测",
+    "summary_zh": "提出一种逆态测试框架，通过将模型输出分解为独立可验证的主张并进行分层局部到全局的上下文一致性检查，以实现对 RAG 生成内容中幻觉的细粒度检测与归因。",
+    "key_points": [
+      "提出一种逆态测试框架，通过将模型输出分解为独立可验证的主张并进行分层局部到全局的上下文一致性检查，以实现对 RAG 生成内容中幻觉的细粒度检测与归因"
+    ]
+  },
+  {
+    "arxiv_id": "2603.27253v1",
+    "title": "Mitigating Hallucination on Hallucination in RAG via Ensemble Voting",
+    "authors": [
+      "Zequn Xie",
+      "Zhengyang Sun"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) aims to reduce hallucinations in Large Language Models (LLMs) by integrating external knowledge. However, RAG introduces a critical challenge: hallucination on hallucination,\" where flawed retrieval results mislead the generation model, leading to compounded hallucinations. To address this issue, we propose VOTE-RAG, a novel, training-free framework with a two-stage structure and efficient, parallelizable voting mechanisms. VOTE-RAG includes: (1) Retrieval Voting, where multiple agents generate diverse queries in parallel and aggregate all retrieved documents; (2) Response Voting, where multiple agents independently generate answers based on the aggregated documents, with the final output determined by majority vote. We conduct comparative experiments on six benchmark datasets. Our results show that VOTE-RAG achieves performance comparable to or surpassing more complex frameworks. Additionally, VOTE-RAG features a simpler architecture, is fully parallelizable, and avoids the problem drift\" risk. Our work demonstrates that simple, reliable ensemble voting is a superior and more efficient method for mitigating RAG hallucinations.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-03-28T12:07:30Z",
+    "updated": "2026-03-28T12:07:30Z",
+    "url": "http://arxiv.org/abs/2603.27253v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.27253v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于解决 RAG 中的幻觉问题，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "通过集成投票缓解 RAG 中的递归幻觉问题",
+    "summary_zh": "提出一种无需训练的 VOTE-RAG 框架，利用检索和响应阶段的多智能体并行投票机制，以减轻因检索错误导致的生成模型复合幻觉问题。",
+    "key_points": [
+      "提出一种无需训练的 VOTE-RAG 框架，利用检索和响应阶段的多智能体并行投票机制，以减轻因检索错误导致的生成模型复合幻觉问题"
+    ]
+  }
+]

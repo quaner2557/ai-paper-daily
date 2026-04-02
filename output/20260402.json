@@ -1,0 +1,292 @@
+[
+  {
+    "arxiv_id": "2603.29247v1",
+    "title": "MemRerank: Preference Memory for Personalized Product Reranking",
+    "authors": [
+      "Zhiyuan Peng",
+      "Xuyang Wu",
+      "Huaixiao Tou",
+      "Yi Fang",
+      "Yi Gong"
+    ],
+    "summary": "LLM-based shopping agents increasingly rely on long purchase histories and multi-turn interactions for personalization, yet naively appending raw history to prompts is often ineffective due to noise, length, and relevance mismatch. We propose MemRerank, a preference memory framework that distills user purchase history into concise, query-independent signals for personalized product reranking. To study this problem, we build an end-to-end benchmark and evaluation framework centered on an LLM-based \\textbf{1-in-5} selection task, which measures both memory quality and downstream reranking utility. We further train the memory extractor with reinforcement learning (RL), using downstream reranking performance as supervision. Experiments with two LLM-based rerankers show that MemRerank consistently outperforms no-memory, raw-history, and off-the-shelf memory baselines, yielding up to \\textbf{+10.61} absolute points in 1-in-5 accuracy. These results suggest that explicit preference memory is a practical and effective building block for personalization in agentic e-commerce systems.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-03-31T04:16:18Z",
+    "updated": "2026-03-31T04:16:18Z",
+    "url": "http://arxiv.org/abs/2603.29247v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29247v1.pdf",
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景下的个性化重排序（Reranking）问题，提出利用强化学习构建用户偏好记忆模块以优化 LLM 代理的推荐效果，属于核心领域的高价值应用；叠加中国公司背景额外加分。",
+    "translation": "MemRerank：用于个性化商品重排序的偏好记忆机制",
+    "summary_zh": "提出一种偏好记忆框架，将用户冗长的购买历史蒸馏为简洁的查询无关信号，并通过强化学习优化记忆提取器以提升 LLM 驱动的商品重排序效果。",
+    "key_points": [
+      "提出一种偏好记忆框架，将用户冗长的购买历史蒸馏为简洁的查询无关信号，并通过强化学习优化记忆提取器以提升 LLM 驱动的商品重排序效果"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29259v1",
+    "title": "Aligning Multimodal Sequential Recommendations via Robust Direct Preference Optimization with Sparse MoE",
+    "authors": [
+      "Hejin Huang",
+      "Jusheng Zhang",
+      "Kaitong Cai",
+      "Jian Wang",
+      "Rong Pan"
+    ],
+    "summary": "Preference-based alignment objectives have been widely adopted, from RLHF-style pairwise learning in large language models to emerging applications in recommender systems. Yet, existing work rarely examines how Direct Preference Optimization (DPO) behaves under implicit feedback, where unobserved items are not reliable negatives. We conduct systematic experiments on multimodal sequential recommendation to compare common negative-selection strategies and their interaction with DPO training. Our central finding is that a simple modification, replacing deterministic hard negatives with stochastic sampling from a dynamic top-K candidate pool, consistently improves ranking performance. We attribute its effectiveness to two factors: (1) reducing erroneous suppressive gradients caused by false negatives, and (2) retaining informative hard signals while smoothing optimization via controlled stochasticity. With an optional sparse Mixture-of-Experts encoder for efficient capacity scaling, RoDPO achieves up to 5.25% NDCG@5 on three Amazon benchmarks, with nearly unchanged inference cost.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-03-31T04:49:32Z",
+    "updated": "2026-03-31T04:49:32Z",
+    "url": "http://arxiv.org/abs/2603.29259v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29259v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态序列推荐系统，提出了改进的 DPO 方法以解决隐式反馈中的负采样问题，属于核心推荐算法创新；且来自中国公司，符合加分条件。",
+    "translation": "基于鲁棒直接偏好优化与稀疏 MoE 的多模态序列推荐对齐",
+    "summary_zh": "提出一种鲁棒直接偏好优化（RoDPO）方法，通过动态 Top-K 随机负采样替代确定性硬负样本，解决隐式反馈下的错误抑制梯度问题，并结合稀疏 MoE 编码器提升多模态序列推荐效果。",
+    "key_points": [
+      "提出一种鲁棒直接偏好优化（RoDPO）方法，通过动态 Top-K 随机负采样替代确定性硬负样本，解决隐式反馈下的错误抑制梯度问题，并结合稀疏 MoE 编码器提升多模态序列推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29705v1",
+    "title": "Drift-Aware Continual Tokenization for Generative Recommendation",
+    "authors": [
+      "Yuebo Feng",
+      "Jiahao Liu",
+      "Mingzhe Han",
+      "Dongsheng Li",
+      "Hansu Gu",
+      "Peng Zhang",
+      "Tun Lu",
+      "Ning Gu"
+    ],
+    "summary": "Generative recommendation commonly adopts a two-stage pipeline in which a learnable tokenizer maps items to discrete token sequences (i.e. identifiers) and an autoregressive generative recommender model (GRM) performs prediction based on these identifiers. Recent tokenizers further incorporate collaborative signals so that items with similar user-behavior patterns receive similar codes, substantially improving recommendation quality. However, real-world environments evolve continuously: new items cause identifier collision and shifts, while new interactions induce collaborative drift in existing items (e.g., changing co-occurrence patterns and popularity). Fully retraining both tokenizer and GRM is often prohibitively expensive, yet naively fine-tuning the tokenizer can alter token sequences for the majority of existing items, undermining the GRM's learned token-embedding alignment. To balance plasticity and stability for collaborative tokenizers, we propose DACT, a Drift-Aware Continual Tokenization framework with two stages: (i) tokenizer fine-tuning, augmented with a jointly trained Collaborative Drift Identification Module (CDIM) that outputs item-level drift confidence and enables differentiated optimization for drifting and stationary items; and (ii) hierarchical code reassignment using a relaxed-to-strict strategy to update token sequences while limiting unnecessary changes. Experiments on three real-world datasets with two representative GRMs show that DACT consistently achieves better performance than baselines, demonstrating effective adaptation to collaborative evolution with reduced disruption to prior knowledge. Our implementation is publicly available at https://github.com/HomesAmaranta/DACT for reproducibility.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-31T13:02:47Z",
+    "updated": "2026-03-31T13:02:47Z",
+    "url": "http://arxiv.org/abs/2603.29705v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29705v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "FudanUniversity FudanUniversity FudanUniversity",
+      "MicrosoftResearchAsia Independent FudanUniversity",
+      "FudanUniversity FudanUniversity",
+      "Generativerecommendationcommonlyadoptsatwo-stagepipeline •Informationsystems→Personalization;Collaborativefil-",
+      "Recenttokenizersfurtherincorporatecollaborativesignalssothat GenerativeRecommendation,ContinualTokenization,Collabora-",
+      "collisionandshifts,whilenewinteractionsinducecollaborative",
+      "ticityandstabilityforcollaborativetokenizers,weproposeDACT, Inrecentyears,generativerecommendation[4,42"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心问题（标识符漂移与持续学习），提出了具体的架构创新以解决真实场景下的演化挑战，属于高优先级的核心领域进展。",
+    "translation": "面向生成式推荐的漂移感知持续分词方法",
+    "summary_zh": "提出一种漂移感知持续分词框架，通过协同漂移识别模块区分动态与静态物品进行差异化优化，并结合分层代码重分配策略，在适应数据分布演化的同时保持生成模型对令牌嵌入的对齐稳定性。",
+    "key_points": [
+      "提出一种漂移感知持续分词框架，通过协同漂移识别模块区分动态与静态物品进行差异化优化，并结合分层代码重分配策略，在适应数据分布演化的同时保持生成模型对令牌嵌入的对齐稳定性"
+    ]
+  },
+  {
+    "arxiv_id": "2603.28994v1",
+    "title": "Zero-shot Cross-domain Knowledge Distillation: A Case study on YouTube Music",
+    "authors": [
+      "Srivaths Ranganathan",
+      "Nikhil Khani",
+      "Shawn Andrews",
+      "Chieh Lo",
+      "Li Wei",
+      "Gergo Varady",
+      "Jochen Klingenhoefer",
+      "Tim Steele",
+      "Bernardo Cunha",
+      "Aniruddh Nath",
+      "Yanwei Song"
+    ],
+    "summary": "Knowledge Distillation (KD) has been widely used to improve the quality of latency sensitive models serving live traffic. However, applying KD in production recommender systems with low traffic is challenging: the limited amount of data restricts the teacher model size, and the cost of training a large dedicated teacher may not be justified. Cross-domain KD offers a cost-effective alternative by leveraging a teacher from a data-rich source domain, but introduces unique technical difficulties, as the features, user interfaces, and prediction tasks can significantly differ.\n  We present a case study of using zero-shot cross-domain KD for multi-task ranking models, transferring knowledge from a (100x) large-scale video recommendation platform (YouTube) to a music recommendation application with significantly lower traffic. We share offline and live experiment results and present findings evaluating different KD techniques in this setting across two ranking models on the music app. Our results demonstrate that zero-shot cross-domain KD is a practical and effective approach to improve the performance of ranking models on low traffic surfaces.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-30T20:47:58Z",
+    "updated": "2026-03-30T20:47:58Z",
+    "url": "http://arxiv.org/abs/2603.28994v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.28994v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的排序环节，提出了利用跨域零样本知识蒸馏解决低流量场景下模型训练难题的实用方案，属于核心推荐技术落地。",
+    "translation": "零样本跨域知识蒸馏：YouTube Music 案例研究",
+    "summary_zh": "本文提出一种零样本跨域知识蒸馏方法，将大规模视频推荐平台的教师模型知识迁移至低流量的音乐推荐排序任务中，以解决数据稀缺导致的模型训练瓶颈。",
+    "key_points": [
+      "本文提出一种零样本跨域知识蒸馏方法，将大规模视频推荐平台的教师模型知识迁移至低流量的音乐推荐排序任务中，以解决数据稀缺导致的模型训练瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29845v1",
+    "title": "Cold-Starts in Generative Recommendation: A Reproducibility Study",
+    "authors": [
+      "Zhen Zhang",
+      "Jujia Zhao",
+      "Xinyu Ma",
+      "Xin Xin",
+      "Maarten de Rijke",
+      "Zhaochun Ren"
+    ],
+    "summary": "Cold-start recommendation remains a central challenge in dynamic, open-world platforms, requiring models to recommend for newly registered users (user cold-start) and to recommend newly introduced items to existing users (item cold-start) under sparse or missing interaction signals. Recent generative recommenders built on pre-trained language models (PLMs) are often expected to mitigate cold-start by using item semantic information (e.g., titles and descriptions) and test-time conditioning on limited user context. However, cold-start is rarely treated as a primary evaluation setting in existing studies, and reported gains are difficult to interpret because key design choices, such as model scale, identifier design, and training strategy, are frequently changed together. In this work, we present a systematic reproducibility study of generative recommendation under a unified suite of cold-start protocols.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-31T15:06:31Z",
+    "updated": "2026-03-31T15:06:31Z",
+    "url": "http://arxiv.org/abs/2603.29845v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29845v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "affiliation_lines": [
+      "ShandongUniversity LeidenUniversity BaiduInc.",
+      "ShandongUniversity UniversityofAmsterdam LeidenUniversity",
+      "Study.InProceedingsof49thInternationalACMSIGIRConferenceonResearch"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的核心冷启动问题，系统评估了生成式推荐模型在此场景下的表现，属于 LLM 在 RecSys 中的直接应用研究。",
+    "translation": "生成式推荐中的冷启动问题：一项可复现性研究",
+    "summary_zh": "本文建立了一套统一的冷启动评估协议，系统性地研究了基于预训练语言模型的生成式推荐系统在用户和物品冷启动场景下的可复现性及关键设计选择的影响。",
+    "key_points": [
+      "本文建立了一套统一的冷启动评估协议，系统性地研究了基于预训练语言模型的生成式推荐系统在用户和物品冷启动场景下的可复现性及关键设计选择的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29261v1",
+    "title": "Monodense Deep Neural Model for Determining Item Price Elasticity",
+    "authors": [
+      "Lakshya Garg",
+      "Sai Yaswanth",
+      "Deep Narayan Mishra",
+      "Karthik Kumaran",
+      "Anupriya Sharma",
+      "Mayank Uniyal"
+    ],
+    "summary": "Item Price Elasticity is used to quantify the responsiveness of consumer demand to changes in item prices, enabling businesses to create pricing strategies and optimize revenue management. Sectors such as store retail, e-commerce, and consumer goods rely on elasticity information derived from historical sales and pricing data. This elasticity provides an understanding of purchasing behavior across different items, consumer discount sensitivity, and demand elastic departments. This information is particularly valuable for competitive markets and resource-constrained businesses decision making which aims to maximize profitability and market share. Price elasticity also uncovers historical shifts in consumer responsiveness over time. In this paper, we model item-level price elasticity using large-scale transactional datasets, by proposing a novel elasticity estimation framework which has the capability to work in an absence of treatment control setting. We test this framework by using Machine learning based algorithms listed below, including our newly proposed Monodense deep neural network.\n  (1) Monodense-DL network -- Hybrid neural network architecture combining embedding, dense, and Monodense layers (2) DML -- Double machine learning setting using regression models (3) LGBM -- Light Gradient Boosting Model\n  We evaluate our model on multi-category retail data spanning millions of transactions using a back testing framework. Experimental results demonstrate the superiority of our proposed neural network model within the framework compared to other prevalent ML based methods listed above.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-03-31T04:50:51Z",
+    "updated": "2026-03-31T04:50:51Z",
+    "url": "http://arxiv.org/abs/2603.29261v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29261v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文针对电商/零售场景下的定价策略（推荐系统变现的关键环节），提出了基于深度学习的商品价格弹性估算框架，属于搜索推荐在广告/商业化方向的直接应用；虽非核心排序算法，但紧密关联业务决策，且来自中国公司，故给予中高评分。",
+    "translation": "用于确定商品价格弹性的 Monodense 深度神经网络模型",
+    "summary_zh": "提出一种结合嵌入层、稠密层及单调约束层（Monodense）的混合深度学习架构，旨在无需对照实验设置下，利用大规模交易数据精准建模商品级别的价格弹性以优化定价策略。",
+    "key_points": [
+      "提出一种结合嵌入层、稠密层及单调约束层（Monodense）的混合深度学习架构，旨在无需对照实验设置下，利用大规模交易数据精准建模商品级别的价格弹性以优化定价策略"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29291v1",
+    "title": "MELT: Improve Composed Image Retrieval via the Modification Frequentation-Rarity Balance Network",
+    "authors": [
+      "Guozhi Qiu",
+      "Zhiwei Chen",
+      "Zixu Li",
+      "Qinlei Huang",
+      "Zhiheng Fu",
+      "Xuemeng Song",
+      "Yupeng Hu"
+    ],
+    "summary": "Composed Image Retrieval (CIR) uses a reference image and a modification text as a query to retrieve a target image satisfying the requirement of ``modifying the reference image according to the text instructions''. However, existing CIR methods face two limitations: (1) frequency bias leading to ``Rare Sample Neglect'', and (2) susceptibility of similarity scores to interference from hard negative samples and noise. To address these limitations, we confront two key challenges: asymmetric rare semantic localization and robust similarity estimation under hard negative samples. To solve these challenges, we propose the Modification frEquentation-rarity baLance neTwork MELT. MELT assigns increased attention to rare modification semantics in multimodal contexts while applying diffusion-based denoising to hard negative samples with high similarity scores, enhancing multimodal fusion and matching. Extensive experiments on two CIR benchmarks validate the superior performance of MELT. Codes are available at https://github.com/luckylittlezhi/MELT.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-31T05:52:58Z",
+    "updated": "2026-03-31T05:52:58Z",
+    "url": "http://arxiv.org/abs/2603.29291v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29291v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文针对组合图像检索（CIR）这一搜索子任务提出了改进方法，属于多模态搜索范畴，但主要聚焦于特定算法优化而非通用推荐系统架构或大规模业务应用。",
+    "translation": "MELT：通过修改频率 - 稀有度平衡网络提升组合图像检索效果",
+    "summary_zh": "提出 MELT 网络，通过在多模态语境中增强对稀有修改语义的关注，并利用基于扩散的去噪技术处理硬负样本，以解决组合图像检索中的频率偏差和噪声干扰问题。",
+    "key_points": [
+      "提出 MELT 网络，通过在多模态语境中增强对稀有修改语义的关注，并利用基于扩散的去噪技术处理硬负样本，以解决组合图像检索中的频率偏差和噪声干扰问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29631v1",
+    "title": "Storing Less, Finding More: How Novelty Filtering Improves Cross-Modal Retrieval on Edge Cameras",
+    "authors": [
+      "Sherif Abdelwahab"
+    ],
+    "summary": "Always-on edge cameras generate continuous video streams where redundant frames degrade cross-modal retrieval by crowding correct results out of top-k search. This paper presents a streaming retrieval architecture: an on-device epsilon-net filter retains only semantically novel frames, building a denoised embedding index; a cross-modal adapter and cloud re-ranker compensate for the compact encoder's weak alignment. A single-pass streaming filter outperforms offline alternatives (k-means, farthest-point, uniform, random) across eight vision-language models (8M-632M) on two egocentric datasets (AEA, EPIC-KITCHENS). Combined, the architecture reaches 45.6% Hit@5 on held-out data using an 8M on-device encoder at an estimated 2.7 mW.",
+    "categories": [
+      "cs.CV",
+      "cs.DC",
+      "cs.IR"
+    ],
+    "published": "2026-03-31T11:54:38Z",
+    "updated": "2026-03-31T11:54:38Z",
+    "url": "http://arxiv.org/abs/2603.29631v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29631v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于边缘摄像头的跨模态检索去重，虽涉及搜索核心环节（检索），但属于特定端侧场景的通用 CV/NLP 应用，缺乏电商/社交等主流推荐系统业务关联，且非纯 LLM 研究故给予中等分数。",
+    "translation": "少存多找：新颖性过滤如何提升边缘摄像头的跨模态检索",
+    "summary_zh": "提出一种流式检索架构，通过端侧 epsilon-net 过滤器仅保留语义新颖帧以构建去噪嵌入索引，并结合云端重排序器补偿轻量编码器的对齐不足。",
+    "key_points": [
+      "提出一种流式检索架构，通过端侧 epsilon-net 过滤器仅保留语义新颖帧以构建去噪嵌入索引，并结合云端重排序器补偿轻量编码器的对齐不足"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29211v1",
+    "title": "Xuanwu: Evolving General Multimodal Models into an Industrial-Grade Foundation for Content Ecosystems",
+    "authors": [
+      "Zhiqian Zhang",
+      "Xu Zhao",
+      "Xiaoqing Xu",
+      "Guangdong Liang",
+      "Weijia Wang",
+      "Xiaolei Lv",
+      "Bo Li",
+      "Jun Gao"
+    ],
+    "summary": "In recent years, multimodal large models have continued to improve on general benchmarks. However, in real-world content moderation and adversarial settings, mainstream models still suffer from degraded generalization and catastrophic forgetting because of limited fine-grained visual perception and insufficient modeling of long-tail noise. In this paper, we present Xuanwu VL-2B as a case study of how general multimodal models can be developed into an industrial-grade foundation model for content ecosystems. The model adopts a compact InternViT-300M + MLP + Qwen3 1.7B architecture, balancing fine-grained visual perception, language-semantic alignment, and deployment cost within an approximately 2B-parameter budget. To balance business specialization with the retention of general capabilities, we developed a data iteration and curation mechanism and trained the model through a progressive three-stage pipeline: pre-training, mid-training, and post-training. Ablation studies and offline business evaluations show that Xuanwu VL-2B achieves an average score of 67.90 across seven OpenCompass multimodal metrics (vs. 64.27 for InternVL 3.5 2B), an average recall of 94.38% over seven independent business moderation tasks, and a weighted overall recall of 82.82% on policy-violating text in challenging adversarial OCR scenarios, outperforming Gemini-2.5-Pro (76.72%). These results show that, under a limited parameter budget, Xuanwu VL-2B achieves a practical balance among business alignment, visual perception, general capability retention, and deployment cost.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "published": "2026-03-31T03:27:49Z",
+    "updated": "2026-03-31T03:27:49Z",
+    "url": "http://arxiv.org/abs/2603.29211v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.29211v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注内容审核（Content Moderation）和安全对抗场景，属于多模态大模型的垂直应用，而非核心的推荐、搜索或广告排序算法研究。",
+    "translation": "玄武：将通用多模态模型演化为内容生态的工业级基座",
+    "summary_zh": "提出一种三阶段渐进式训练流程与数据迭代机制，旨在平衡细粒度视觉感知、语言语义对齐与通用能力保留，以构建适用于内容审核场景的低参数多模态基座模型。",
+    "key_points": [
+      "提出一种三阶段渐进式训练流程与数据迭代机制，旨在平衡细粒度视觉感知、语言语义对齐与通用能力保留，以构建适用于内容审核场景的低参数多模态基座模型"
+    ]
+  }
+]

@@ -100,7 +100,7 @@ def update_index_html(paper_data, stats):
         content = f.read()
     
     # 1. 检查是否有动态加载代码，如果没有则添加
-    if 'fetch("paper_data.json")' not in content:
+    if 'fetch(' not in content or 'paper_data.json' not in content:
         print("⚠️  index.html 还没有动态加载代码，需要更新 HTML 模板")
         # 这里可以添加自动更新 HTML 模板的逻辑
         # 暂时先跳过，手动更新一次 HTML 模板

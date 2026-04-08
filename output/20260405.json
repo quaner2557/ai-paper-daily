@@ -1,1 +1,225 @@
-[]
+[
+  {
+    "arxiv_id": "2604.03949v1",
+    "title": "Semantic IDs for Recommender Systems at Snapchat: Use Cases, Technical Challenges, and Design Choices",
+    "authors": [
+      "Clark Mingxuan Ju",
+      "Tong Zhao",
+      "Leonardo Neves",
+      "Liam Collins",
+      "Bhuvesh Kumar",
+      "Jiwen Ren",
+      "Lili Zhang",
+      "Wenfeng Zhuo",
+      "Vincent Zhang",
+      "Xiao Bai",
+      "Jinchao Li",
+      "Karthik Iyer",
+      "Zihao Fan",
+      "Yilun Xu",
+      "Yiwen Chen",
+      "Peicheng Yu",
+      "Manish Malik",
+      "Neil Shah"
+    ],
+    "summary": "Effective item identifiers (IDs) are an important component for recommender systems (RecSys) in practice, and are commonly adopted in many use cases such as retrieval and ranking. IDs can encode collaborative filtering signals within training data, such that RecSys models can extrapolate during the inference and personalize the prediction based on users' behavioral histories. Recently, Semantic IDs (SIDs) have become a trending paradigm for RecSys. In comparison to the conventional atomic ID, an SID is an ordered list of codes, derived from tokenizers such as residual quantization, applied to semantic representations commonly extracted from foundation models or collaborative signals. SIDs have drastically smaller cardinality than the atomic counterpart, and induce semantic clustering in the ID space. At Snapchat, we apply SIDs as auxiliary features for ranking models, and also explore SIDs as additional retrieval sources in different ML applications. In this paper, we discuss practical technical challenges we encountered while applying SIDs, experiments we have conducted, and design choices we have iterated to mitigate these challenges. Backed by promising offline results on both internal data and academic benchmarks as well as online A/B studies, SID variants have been launched in multiple production models with positive metrics impact.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-05T03:46:52Z",
+    "updated": "2026-04-05T03:46:52Z",
+    "url": "http://arxiv.org/abs/2604.03949v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.03949v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接探讨推荐系统中的语义 ID（Semantic IDs）技术，涵盖召回与排序核心环节，并结合 Snapchat 实际业务场景解决了具体工程挑战，完全符合高优先级标准；虽非中国公司（Snapchat 为美国公司），但其极高的相关性和实战价值已属满分范畴。",
+    "translation": "Snapchat 推荐系统中的语义 ID：应用场景、技术挑战与设计选择",
+    "summary_zh": "本文提出将基于残差量化生成的语义 ID 作为辅助特征应用于排序模型及检索源，通过构建具有语义聚类特性的低基数 ID 空间来增强推荐系统的个性化预测能力。",
+    "key_points": [
+      "本文提出将基于残差量化生成的语义 ID 作为辅助特征应用于排序模型及检索源，通过构建具有语义聚类特性的低基数 ID 空间来增强推荐系统的个性化预测能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.03925v1",
+    "title": "AdaptFuse: Training-Free Sequential Preference Learning via Externalized Bayesian Inference",
+    "authors": [
+      "Fangzhou Lin",
+      "Peiran Li",
+      "Shuo Xing",
+      "Siyuan Yang",
+      "Qianwen Ge",
+      "Kazunori Yamada",
+      "Ziming Zhang",
+      "Haichong Zhang",
+      "Zhengzhong Tu"
+    ],
+    "summary": "Large language models struggle to accumulate evidence across multiple rounds of user interaction, failing to update their beliefs in a manner consistent with Bayesian inference. Existing solutions require fine-tuning on sensitive user interaction data, limiting their applicability in privacy-conscious settings. We propose AdaptFuse, a training-free framework that externalizes probabilistic computation entirely from the LLM: a symbolic module maintains a Bayesian posterior over a discrete hypothesis set, while a frozen LLM contributes semantic reasoning via multi-sample Dirichlet aggregation. The two signals are combined through entropy-adaptive fusion, which automatically weights each source by its predictive confidence, shifting reliance from the LLM to the symbolic posterior as evidence accumulates. We evaluate across three domains: flight recommendation, hotel recommendation, and web shopping; on Gemma 2 9B, Llama 3 8B, and Qwen 2.5 7B. AdaptFuse consistently outperforms both prompting baselines and fine-tuned Bayesian Teaching models on all tasks, with accuracy improving monotonically over interaction rounds. These results demonstrate that principled inference-time algorithms can substitute for fine-tuning in personalized recommendation, without storing or training on sensitive user data. All the code and materials will be open-sourced.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-05T01:35:50Z",
+    "updated": "2026-04-05T01:35:50Z",
+    "url": "http://arxiv.org/abs/2604.03925v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.03925v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐场景（航班、酒店、购物）提出无需训练的序列偏好学习方法，解决了 LLM 在个性化推荐中无法有效积累用户证据的痛点，属于 LLM for RecSys 的高优先级应用。",
+    "translation": "AdaptFuse：基于外部化贝叶斯推理的免训练序列偏好学习",
+    "summary_zh": "提出一种免训练框架，通过符号模块维护贝叶斯后验并与冻结 LLM 的语义推理进行熵自适应融合，实现在不微调且不存储敏感数据的情况下，随交互轮次动态更新用户偏好以提升推荐准确性。",
+    "key_points": [
+      "提出一种免训练框架，通过符号模块维护贝叶斯后验并与冻结 LLM 的语义推理进行熵自适应融合，实现在不微调且不存储敏感数据的情况下，随交互轮次动态更新用户偏好以提升推荐准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04038v1",
+    "title": "FLAME: Condensing Ensemble Diversity into a Single Network for Efficient Sequential Recommendation",
+    "authors": [
+      "WooJoo Kim",
+      "JunYoung Kim",
+      "JaeHyung Lim",
+      "SeongJin Choi",
+      "SeongKu Kang",
+      "HwanJo Yu"
+    ],
+    "summary": "Sequential recommendation requires capturing diverse user behaviors, which a single network often fails to capture. While ensemble methods mitigate this by leveraging multiple networks, training them all from scratch leads to high computational cost and instability from noisy mutual supervision. We propose {\\bf F}rozen and {\\bf L}earnable networks with {\\bf A}ligned {\\bf M}odular {\\bf E}nsemble ({\\bf FLAME}), a novel framework that condenses ensemble-level diversity into a single network for efficient sequential recommendation. During training, FLAME simulates exponential diversity using only two networks via {\\it modular ensemble}. By decomposing each network into sub-modules (e.g., layers or blocks) and dynamically combining them, FLAME generates a rich space of diverse representation patterns. To stabilize this process, we pretrain and freeze one network to serve as a semantic anchor and employ {\\it guided mutual learning}. This aligns the diverse representations into the space of the remaining learnable network, ensuring robust optimization. Consequently, at inference, FLAME utilizes only the learnable network, achieving ensemble-level performance with zero overhead compared to a single network. Experiments on six datasets show that FLAME outperforms state-of-the-art baselines, achieving up to 7.69$\\times$ faster convergence and 9.70\\% improvement in NDCG@20. We provide the source code of FLAME at https://github.com/woo-joo/FLAME_SIGIR26.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-05T09:41:30Z",
+    "updated": "2026-04-05T09:41:30Z",
+    "url": "http://arxiv.org/abs/2604.04038v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04038v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐（Sequential Recommendation）核心任务，提出了一种将集成多样性压缩到单一网络的高效架构 FLAME，解决了推荐系统中的计算成本与多样性捕捉难题。",
+    "translation": "FLAME：将集成多样性压缩至单一网络以实现高效序列推荐",
+    "summary_zh": "提出 FLAME 框架，通过模块化集成动态组合子模块模拟指数级多样性，并利用冻结网络作为语义锚点引导学习，从而在推理阶段以单网络零开销实现集成级别的序列推荐性能。",
+    "key_points": [
+      "提出 FLAME 框架，通过模块化集成动态组合子模块模拟指数级多样性，并利用冻结网络作为语义锚点引导学习，从而在推理阶段以单网络零开销实现集成级别的序列推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04270v1",
+    "title": "A Logical-Rule Autoencoder for Interpretable Recommendations",
+    "authors": [
+      "Jinhao Pan",
+      "Bowen Wei",
+      "Ziwei Zhu"
+    ],
+    "summary": "Most deep learning recommendation models operate as black boxes, relying on latent representations that obscure their decision process. This lack of intrinsic interpretability raises concerns in applications that require transparency and accountability. In this work, we propose a Logical-rule Interpretable Autoencoder (LIA) for collaborative filtering that is interpretable by design. LIA introduces a learnable logical rule layer in which each rule neuron is equipped with a gate parameter that automatically selects between AND and OR operators during training, enabling the model to discover diverse logical patterns directly from data. To support functional completeness without doubling the input dimensionality, LIA encodes negation through the sign of connection weights, providing a parameter-efficient mechanism for expressing both positive and negated item conditions within each rule. By learning explicit, human-readable reconstruction rules, LIA allows users to directly trace the decision process behind each recommendation. Extensive experiments show that our method achieves improved recommendation performance over traditional baselines while remaining fully interpretable. Code and data are available at https://github.com/weibowen555/LIA.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-05T21:21:37Z",
+    "updated": "2026-04-05T21:21:37Z",
+    "url": "http://arxiv.org/abs/2604.04270v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04270v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文提出了一种专为协同过滤设计的可解释自编码器，直接解决推荐系统的核心痛点（黑盒问题），属于核心领域创新；虽非 LLM 研究，但作为来自微博公司的深度学习方法，符合高优先级标准并获额外加分。",
+    "translation": "一种用于可解释推荐的逻辑规则自编码器",
+    "summary_zh": "提出逻辑规则可解释自编码器（LIA），通过在潜在表示层引入可学习逻辑门和符号权重机制，使模型能直接从数据中发现人类可读的逻辑规则以实现内建可解释性。",
+    "key_points": [
+      "提出逻辑规则可解释自编码器（LIA），通过在潜在表示层引入可学习逻辑门和符号权重机制，使模型能直接从数据中发现人类可读的逻辑规则以实现内建可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04269v1",
+    "title": "Beyond Fluency: Toward Reliable Trajectories in Agentic IR",
+    "authors": [
+      "Anushree Sinha",
+      "Srivaths Ranganathan",
+      "Debanshu Das",
+      "Abhishek Dharmaratnakar"
+    ],
+    "summary": "Information Retrieval is shifting from passive document ranking toward autonomous agentic workflows that operate in multi-step Reason-Act-Observe loops. In such long-horizon trajectories, minor early errors can cascade, leading to functional misalignment between internal reasoning and external tool execution despite continued linguistic fluency.\n  This position paper synthesizes failure modes observed in industrial agentic systems, categorizing errors across planning, retrieval, reasoning, and execution. We argue that safe deployment requires moving beyond endpoint accuracy toward trajectory integrity and causal attribution.\n  To address compounding error and deceptive fluency, we propose verification gates at each interaction unit and advocate systematic abstention under calibrated uncertainty. Reliable Agentic IR systems must prioritize process correctness and grounded execution over plausible but unverified completion.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-04-05T21:20:57Z",
+    "updated": "2026-04-05T21:20:57Z",
+    "url": "http://arxiv.org/abs/2604.04269v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04269v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于通用代理式信息检索（Agentic IR）的可靠性与错误级联问题，虽涉及检索环节，但属于系统架构与可靠性研究的立场论文，缺乏针对推荐/搜索核心算法（如排序、匹配、用户建模）的具体创新。",
+    "translation": "超越流畅性：迈向可靠的代理式信息检索轨迹",
+    "summary_zh": "本文提出在代理式信息检索的多步推理 - 执行循环中，应通过引入验证门控和不确定性下的系统性弃权机制，优先保障过程正确性与因果归因，以解决早期错误级联导致的功能失调问题。",
+    "key_points": [
+      "本文提出在代理式信息检索的多步推理 - 执行循环中，应通过引入验证门控和不确定性下的系统性弃权机制，优先保障过程正确性与因果归因，以解决早期错误级联导致的功能失调问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04088v1",
+    "title": "Embedding Enhancement via Fine-Tuned Language Models for Learner-Item Cognitive Modeling",
+    "authors": [
+      "Yuanhao Liu",
+      "Zihan Zhou",
+      "Kaiying Wu",
+      "Shuo Liu",
+      "Yiyang Huang",
+      "Jiajun Guo",
+      "Aimin Zhou",
+      "Hong Qian"
+    ],
+    "summary": "Learner-item cognitive modeling plays a central role in the web-based online intelligent education system by enabling cognitive diagnosis (CD) across diverse online educational scenarios. Although ID embedding remains the mainstream approach in cognitive modeling due to its effectiveness and flexibility, recent advances in language models (LMs) have introduced new possibilities for incorporating rich semantic representations to enhance CD performance. This highlights the need for a comprehensive analysis of how LMs enhance embeddings through semantic integration across mainstream CD tasks. This paper identifies two key challenges in fully leveraging LMs in existing work: Misalignment between the training objectives of LMs and CD models creates a distribution gap in feature spaces; A unified framework is essential for integrating textual embeddings across varied CD tasks while preserving the strengths of existing cognitive modeling paradigms to ensure the robustness of embedding enhancement. To address these challenges, this paper introduces EduEmbed, a unified embedding enhancement framework that leverages fine-tuned LMs to enrich learner-item cognitive modeling across diverse CD tasks. EduEmbed operates in two stages. In the first stage, we fine-tune LMs based on role-specific representations and an interaction diagnoser to bridge the semantic gap of CD models. In the second stage, we employ a textual adapter to extract task-relevant semantics and integrate them with existing modeling paradigms to improve generalization. We evaluate the proposed framework on four CD tasks and computerized adaptive testing (CAT) task, achieving robust performance. Further analysis reveals the impact of semantic information across diverse tasks, offering key insights for future research on the application of LMs in CD for online intelligent education systems.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CY",
+      "cs.LG"
+    ],
+    "published": "2026-04-05T12:11:54Z",
+    "updated": "2026-04-05T12:11:54Z",
+    "url": "http://arxiv.org/abs/2604.04088v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04088v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "EastChinaNormalUniversity EastChinaNormalUniversity EastChinaNormalUniversity",
+      "TencentInc EastChinaNormalUniversity EastChinaNormalUniversity",
+      "EastChinaNormalUniversity EastChinaNormalUniversity",
+      "ShanghaiInnovationInstitute ShanghaiInnovationInstitute",
+      "IDembeddingremainsthemainstreamapproachincognitivemod- acrossdiversetasks,offeringkeyinsightsforfutureresearchonthe"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文专注于教育领域的认知诊断（CD），属于垂直领域应用而非通用推荐/搜索核心技术；虽涉及嵌入增强和 LM 微调，但缺乏电商、社交或通用搜索场景的直接适用性。",
+    "translation": "基于微调语言模型的嵌入增强用于学习者 - 项目认知建模",
+    "summary_zh": "提出 EduEmbed 框架，通过微调语言模型和对齐训练目标来解决语义分布差距，并将文本语义自适应地集成到现有的认知诊断建模范式中以增强学习者 - 项目表征。",
+    "key_points": [
+      "提出 EduEmbed 框架，通过微调语言模型和对齐训练目标来解决语义分布差距，并将文本语义自适应地集成到现有的认知诊断建模范式中以增强学习者 - 项目表征"
+    ]
+  },
+  {
+    "arxiv_id": "2604.03920v1",
+    "title": "From Plausible to Causal: Counterfactual Semantics for Policy Evaluation in Simulated Online Communities",
+    "authors": [
+      "Agam Goyal",
+      "Yian Wang",
+      "Eshwar Chandrasekharan",
+      "Hari Sundaram"
+    ],
+    "summary": "LLM-based social simulations can generate believable community interactions, enabling ``policy wind tunnels'' where governance interventions are tested before deployment. But believability is not causality. Claims like ``intervention $A$ reduces escalation'' require causal semantics that current simulation work typically does not specify. We propose adopting the causal counterfactual framework, distinguishing \\textit{necessary causation} (would the outcome have occurred without the intervention?) from \\textit{sufficient causation} (does the intervention reliably produce the outcome?). This distinction maps onto different stakeholder needs: moderators diagnosing incidents require evidence about necessity, while platform designers choosing policies require evidence about sufficiency. We formalize this mapping, show how simulation design can support estimation under explicit assumptions, and argue that the resulting quantities should be interpreted as simulator-conditional causal estimates whose policy relevance depends on simulator fidelity. Establishing this framework now is essential: it helps define what adequate fidelity means and moves the field from simulations that look realistic toward simulations that can support policy changes.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-05T01:08:35Z",
+    "updated": "2026-04-05T01:08:35Z",
+    "url": "http://arxiv.org/abs/2604.03920v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.03920v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 社会模拟与因果推断的研究，专注于社区治理策略评估，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模）。",
+    "translation": "从合理到因果：模拟在线社区中策略评估的反事实语义",
+    "summary_zh": "本文提出在基于 LLM 的社会模拟中引入因果反事实框架，区分必要因果与充分因果，以支持对社区治理干预策略的严谨评估。",
+    "key_points": [
+      "本文提出在基于 LLM 的社会模拟中引入因果反事实框架，区分必要因果与充分因果，以支持对社区治理干预策略的严谨评估"
+    ]
+  }
+]

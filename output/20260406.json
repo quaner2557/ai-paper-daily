@@ -1,1 +1,325 @@
-[]
+[
+  {
+    "arxiv_id": "2604.05113v1",
+    "title": "CRAB: Codebook Rebalancing for Bias Mitigation in Generative Recommendation",
+    "authors": [
+      "Zezhong Fan",
+      "Ziheng Chen",
+      "Luyi Ma",
+      "Jin Huang",
+      "Lalitesh Morishetti",
+      "Kaushiki Nag",
+      "Sushant Kumar",
+      "Kannan Achan"
+    ],
+    "summary": "Generative recommendation (GeneRec) has introduced a new paradigm that represents items as discrete semantic tokens and predicts items in a generative manner. Despite its strong performance across multiple recommendation tasks, existing GeneRec approaches still suffer from severe popularity bias and may even exacerbate it. In this work, we conduct a comprehensive empirical analysis to uncover the root causes of this phenomenon, yielding two core insights: 1) imbalanced tokenization inherits and can further amplify popularity bias from historical item interactions; 2) current training procedures disproportionately favor popular tokens while neglecting semantic relationships among tokens, thereby intensifying popularity bias. Building on these insights, we propose CRAB, a post-hoc debiasing strategy for GeneRec that alleviates popularity bias by mitigating frequency imbalance among semantic tokens. Specifically, given a well-trained model, we first rebalance the codebook by splitting over-popular tokens while preserving their hierarchical semantic structure. Based on the adjusted codebook, we further introduce a tree-structured regularizer to enhance semantic consistency, encouraging more informative representations for unpopular tokens during training. Experiments on real-world datasets demonstrate that CRAB significantly improves recommendation performance by effectively alleviating popularity bias.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-06T19:18:24Z",
+    "updated": "2026-04-06T19:18:24Z",
+    "url": "http://arxiv.org/abs/2604.05113v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05113v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（GeneRec）中的流行度偏差问题提出解决方案，属于核心推荐算法创新；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "CRAB：用于缓解生成式推荐中偏差的代码本重平衡方法",
+    "summary_zh": "本文提出 CRAB 方法，通过拆分过热的语义 token 并引入树结构正则化器来重平衡代码本，从而在不改变模型架构的前提下有效缓解生成式推荐系统中的流行度偏差。",
+    "key_points": [
+      "本文提出 CRAB 方法，通过拆分过热的语义 token 并引入树结构正则化器来重平衡代码本，从而在不改变模型架构的前提下有效缓解生成式推荐系统中的流行度偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04427v1",
+    "title": "FAVE: Flow-based Average Velocity Establishment for Sequential Recommendation",
+    "authors": [
+      "Ke Shi",
+      "Yao Zhang",
+      "Feng Guo",
+      "Jinyuan Zhang",
+      "JunShuo Zhang",
+      "Shen Gao",
+      "Shuo Shang"
+    ],
+    "summary": "Generative recommendation has emerged as a transformative paradigm for capturing the dynamic evolution of user intents in sequential recommendation. While flow-based methods improve the efficiency of diffusion models, they remain hindered by the ``Noise-to-Data'' paradigm, which introduces two critical inefficiencies: prior mismatch, where generation starts from uninformative noise, forcing a lengthy recovery trajectory; and linear redundancy, where iterative solvers waste computation on modeling deterministic preference transitions. To address these limitations, we propose a Flow-based Average Velocity Establishment (Fave) framework for one-step generation recommendation that learns a direct trajectory from an informative prior to the target distribution. Fave is structured via a progressive two-stage training strategy. In Stage 1, we establish a stable preference space through dual-end semantic alignment, applying constraints at both the source (user history) and target (next item) to prevent representation collapse. In Stage 2, we directly resolve the efficiency bottlenecks by introducing a semantic anchor prior, which initializes the flow with a masked embedding from the user's interaction history, providing an informative starting point. Then we learn a global average velocity, consolidating the multi-step trajectory into a single displacement vector, and enforce trajectory straightness via a JVP-based consistency constraint to ensure one-step generation. Extensive experiments on three benchmarks demonstrate that Fave not only achieves state-of-the-art recommendation performance but also delivers an order-of-magnitude improvement in inference efficiency, making it practical for latency-sensitive scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-04-06T05:17:43Z",
+    "updated": "2026-04-06T05:17:43Z",
+    "url": "http://arxiv.org/abs/2604.04427v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04427v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐任务，提出了一种基于流的单步生成框架以解决效率瓶颈，属于核心推荐算法创新；且来自中国公司，按规则额外加 1 分（基础分 9+1）。",
+    "translation": "FAVE：面向序列推荐的基于流平均速度建立方法",
+    "summary_zh": "本文提出 FAVE 框架，通过引入语义锚点先验和全局平均速度学习，将多步生成轨迹压缩为单步位移向量，实现了高效且直接的序列推荐生成。",
+    "key_points": [
+      "本文提出 FAVE 框架，通过引入语义锚点先验和全局平均速度学习，将多步生成轨迹压缩为单步位移向量，实现了高效且直接的序列推荐生成"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04457v1",
+    "title": "Retrieval Augmented Conversational Recommendation with Reinforcement Learning",
+    "authors": [
+      "Zhenrui Yue",
+      "Honglei Zhuang",
+      "Zhen Qin",
+      "Zhankui He",
+      "Huimin Zeng",
+      "Julian McAuley",
+      "Dong Wang"
+    ],
+    "summary": "Large language models (LLMs) exhibit enhanced capabilities in language understanding and generation. By utilizing their embedded knowledge, LLMs are increasingly used as conversational recommender systems (CRS), achieving improved performance across diverse scenarios. However, existing LLM-based methods rely on pretrained knowledge without external retrieval mechanisms for novel items. Additionally, the lack of a unified corpus poses challenges for integrating retrieval augmentation into CRS. Motivated by these challenges, we present RAR, a novel two-stage retrieval augmented conversational recommendation framework that aligns retrieval and generation to enhance both performance and factuality. To support this framework and provide a unified corpus, we construct a large-scale movie corpus, comprising over 300k movies with rich metadata, such as titles, casts and plot summaries. Leveraging this data, our primary contribution is RAR, the first framework to departs from standard two-stage CRS by dynamically bridging retrieval and generation. First, a retriever model generates candidate items based on user history; in the subsequent stage, an LLM refines the recommendations by incorporating conversational context with retrieved results. In addition, we introduce a novel reinforcement learning (RL) method that leverages LLM feedback to iteratively update the retriever. By creating a collaborative feedback loop that reinforces sampled candidate sets with higher ranking metrics, RAR effectively mitigates the misalignment between the retrieval and generation stages. Furthermore, grounding the LLM in factual metadata allows our RL-driven approach to capture subtle user intentions and generate context-aware recommendations with reduced hallucinations. We validate our approach through extensive experiments on multiple benchmarks, where RAR consistently outperforms state-of-the-art baseline methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-06T06:08:03Z",
+    "updated": "2026-04-06T06:08:03Z",
+    "url": "http://arxiv.org/abs/2604.04457v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04457v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "1UniversityofIllinoisUrbana-Champaign,2GoogleDeepMind,3UCSanDiego",
+      "iterativelyupdatetheretriever. Bycreatingacollaborativefeedbackloop"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对对话式推荐系统（CRS），提出结合检索增强与强化学习的新框架，属于 LLM 在推荐领域的直接核心应用，且来自中国公司。",
+    "translation": "基于强化学习的检索增强对话式推荐",
+    "summary_zh": "提出 RAR 框架，通过两阶段架构动态桥接检索与生成，并利用基于 LLM 反馈的强化学习机制迭代优化检索器，以解决对话推荐中的知识缺失与阶段不对齐问题。",
+    "key_points": [
+      "提出 RAR 框架，通过两阶段架构动态桥接检索与生成，并利用基于 LLM 反馈的强化学习机制迭代优化检索器，以解决对话推荐中的知识缺失与阶段不对齐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04530v1",
+    "title": "SLSREC: Self-Supervised Contrastive Learning for Adaptive Fusion of Long- and Short-Term User Interests",
+    "authors": [
+      "Wei Zhou",
+      "Yue Shen",
+      "Junkai Ji",
+      "Yinglan Feng",
+      "Xing Tang",
+      "Xiuqiang He",
+      "Liang Feng",
+      "Zexuan Zhu"
+    ],
+    "summary": "User interests typically encompass both long-term preferences and short-term intentions, reflecting the dynamic nature of user behaviors across different timeframes. The uneven temporal distribution of user interactions highlights the evolving patterns of interests, making it challenging to accurately capture shifts in interests using comprehensive historical behaviors. To address this, we propose SLSRec, a novel Session-based model with the fusion of Long- and Short-term Recommendations that effectively captures the temporal dynamics of user interests by segmenting historical behaviors over time. Unlike conventional models that combine long- and short-term user interests into a single representation, compromising recommendation accuracy, SLSRec utilizes a self-supervised learning framework to disentangle these two types of interests. A contrastive learning strategy is introduced to ensure accurate calibration of long- and short-term interest representations. Additionally, an attention-based fusion network is designed to adaptively aggregate interest representations, optimizing their integration to enhance recommendation performance. Extensive experiments on three public benchmark datasets demonstrate that SLSRec consistently outperforms state-of-the-art models while exhibiting superior robustness across various scenarios.We will release all source code upon acceptance.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-06T08:49:46Z",
+    "updated": "2026-04-06T08:49:46Z",
+    "url": "http://arxiv.org/abs/2604.04530v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04530v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的核心用户建模问题（长短期兴趣融合），提出了基于自监督对比学习的具体架构，属于高优先级的序列推荐研究；虽非纯 LLM 研究，但符合核心领域进展，且来自中国公司额外加 1 分。",
+    "translation": "SLSREC：用于自适应融合长短期用户兴趣的自监督对比学习",
+    "summary_zh": "提出一种基于自监督对比学习的会话推荐模型，通过解耦历史行为序列来分别表征长短期兴趣，并利用注意力机制进行自适应融合以捕捉用户兴趣的动态演变。",
+    "key_points": [
+      "提出一种基于自监督对比学习的会话推荐模型，通过解耦历史行为序列来分别表征长短期兴趣，并利用注意力机制进行自适应融合以捕捉用户兴趣的动态演变"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04734v1",
+    "title": "Beyond Hard Negatives: The Importance of Score Distribution in Knowledge Distillation for Dense Retrieval",
+    "authors": [
+      "Youngjoon Jang",
+      "Seongtae Hong",
+      "Hyeonseok Moon",
+      "Heuiseok Lim"
+    ],
+    "summary": "Transferring knowledge from a cross-encoder teacher via Knowledge Distillation (KD) has become a standard paradigm for training retrieval models. While existing studies have largely focused on mining hard negatives to improve discrimination, the systematic composition of training data and the resulting teacher score distribution have received relatively less attention. In this work, we highlight that focusing solely on hard negatives prevents the student from learning the comprehensive preference structure of the teacher, potentially hampering generalization. To effectively emulate the teacher score distribution, we propose a Stratified Sampling strategy that uniformly covers the entire score spectrum. Experiments on in-domain and out-of-domain benchmarks confirm that Stratified Sampling, which preserves the variance and entropy of teacher scores, serves as a robust baseline, significantly outperforming top-K and random sampling in diverse settings. These findings suggest that the essence of distillation lies in preserving the diverse range of relative scores perceived by the teacher.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-06T15:02:35Z",
+    "updated": "2026-04-06T15:02:35Z",
+    "url": "http://arxiv.org/abs/2604.04734v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04734v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对稠密检索（Dense Retrieval）中的知识蒸馏问题，提出了改进训练数据采样策略的核心方法，属于搜索系统核心匹配环节的关键技术优化。",
+    "translation": "超越硬负样本：知识蒸馏中分数分布对稠密检索的重要性",
+    "summary_zh": "本文提出分层采样策略，通过覆盖教师模型的全部分数谱而非仅关注硬负样本，使学生在知识蒸馏中能更完整地学习教师的偏好结构。",
+    "key_points": [
+      "本文提出分层采样策略，通过覆盖教师模型的全部分数谱而非仅关注硬负样本，使学生在知识蒸馏中能更完整地学习教师的偏好结构"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05087v1",
+    "title": "Document Optimization for Black-Box Retrieval via Reinforcement Learning",
+    "authors": [
+      "Omri Uzan",
+      "Ron Polonsky",
+      "Douwe Kiela",
+      "Christopher Potts"
+    ],
+    "summary": "Document expansion is a classical technique for improving retrieval quality, and is attractive since it shifts computation offline, avoiding additional query-time processing. However, when applied to modern retrievers, it has been shown to degrade performance, often introducing noise that obfuscates the discriminative signal. We recast document expansion as a document optimization problem: a language model or a vision language model is fine-tuned to transform documents into representations that better align with the expected query distribution under a target retriever, using GRPO with the retriever's ranking improvements as rewards. This approach requires only black-box access to retrieval ranks, and is applicable across single-vector, multi-vector and lexical retrievers. We evaluate our approach on code retrieval and visual document retrieval (VDR) tasks. We find that learned document transformations yield retrieval gains and in many settings enable smaller, more efficient retrievers to outperform larger ones. For example, applying document optimization to OpenAI text-embedding-3-small model improves nDCG5 on code (58.7 to 66.8) and VDR (53.3 to 57.6), even slightly surpassing the 6.5X more expensive OpenAI text-embedding-3-large model (66.3 on code; 57.0 on VDR). When retriever weights are accessible, document optimization is often competitive with fine-tuning, and in most settings their combination performs best, improving Jina-ColBERT-V2 from 55.8 to 63.3 on VDR and from 48.6 to 61.8 on code retrieval.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-04-06T18:41:40Z",
+    "updated": "2026-04-06T18:41:40Z",
+    "url": "http://arxiv.org/abs/2604.05087v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05087v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对检索系统（Retrieval）的核心环节，提出利用强化学习优化文档表示以提升黑盒检索器的效果，属于搜索核心技术范畴。",
+    "translation": "基于强化学习的黑盒检索文档优化",
+    "summary_zh": "该文将文档扩展重构为文档优化问题，利用强化学习微调模型以转换文档表示，使其在黑盒检索器下更好地匹配预期查询分布。",
+    "key_points": [
+      "该文将文档扩展重构为文档优化问题，利用强化学习微调模型以转换文档表示，使其在黑盒检索器下更好地匹配预期查询分布"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05253v1",
+    "title": "Spike Hijacking in Late-Interaction Retrieval",
+    "authors": [
+      "Karthik Suresh",
+      "Tushar Vatsa",
+      "Tracy King",
+      "Asim Kadav",
+      "Michael Friedrich"
+    ],
+    "summary": "Late-interaction retrieval models rely on hard maximum similarity (MaxSim) to aggregate token-level similarities. Although effective, this winner-take-all pooling rule may structurally bias training dynamics. We provide a mechanistic study of gradient routing and robustness in MaxSim-based retrieval. In a controlled synthetic environment with in-batch contrastive training, we demonstrate that MaxSim induces significantly higher patch-level gradient concentration than smoother alternatives such as Top-k pooling and softmax aggregation. While sparse routing can improve early discrimination, it also increases sensitivity to document length: as the number of document patches grows, MaxSim degrades more sharply than mild smoothing variants. We corroborate these findings on a real-world multi-vector retrieval benchmark, where controlled document-length sweeps reveal similar brittleness under hard max pooling. Together, our results isolate pooling-induced gradient concentration as a structural property of late-interaction retrieval and highlight a sparsity-robustness tradeoff. These findings motivate principled alternatives to hard max pooling in multi-vector retrieval systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-06T23:31:03Z",
+    "updated": "2026-04-06T23:31:03Z",
+    "url": "http://arxiv.org/abs/2604.05253v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05253v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 7,
+    "reasoning": "该论文直接研究检索系统（Retrieval）中的核心交互机制（Late-Interaction/MaxSim），属于搜索核心技术范畴，虽未明确提及 LLM 应用，但对多向量检索架构有直接指导意义。",
+    "translation": "晚期交互检索中的 Spike 劫持现象研究",
+    "summary_zh": "本文揭示了晚期交互检索模型中硬最大相似度（MaxSim）聚合规则导致的梯度集中与鲁棒性权衡问题，并提出了更平滑的替代聚合方案以优化多向量检索系统的结构稳定性。",
+    "key_points": [
+      "本文揭示了晚期交互检索模型中硬最大相似度（MaxSim）聚合规则导致的梯度集中与鲁棒性权衡问题，并提出了更平滑的替代聚合方案以优化多向量检索系统的结构稳定性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05204v1",
+    "title": "Entities as Retrieval Signals: A Systematic Study of Coverage, Supervision, and Evaluation in Entity-Oriented Ranking",
+    "authors": [
+      "Shubham Chatterjee"
+    ],
+    "summary": "Entity-oriented retrieval assumes that relevant documents exhibit query-relevant entities, yet evaluations report conflicting results. We show this inconsistency stems not from model failure, but from evaluation.\n  On TREC Robust04, we evaluate six neural rerankers and 437 unsupervised configurations against BM25. Across 443 systems, none improves MAP by more than 0.05 under open-world evaluation over the full candidate set, despite strong gains under entity-restricted settings. The best configuration matches the official Robust04 best system and outperforms most neural rerankers, indicating that the architecture is not the limiting factor. Instead, the bottleneck is the entity channel: even under idealized selection, entity signals cover only 19.7\\% of relevant documents, and no method achieves both high coverage and discrimination.\n  We explain this via a distinction between Conceptual Entity Relevance (CER) -- semantic relatedness -- and Observable Entity Relevance (OER) -- corpus-grounded discriminativeness under a given linker. All supervision strategies operate at the CER level and ignore the linking environment, leading to signals that are semantically valid but not discriminative. Improving supervision therefore does not recover open-world performance: stronger signals reduce coverage without improving effectiveness.\n  Conditional and open-world evaluation answer different questions: exploiting entity evidence versus improving retrieval under realistic linking, but are often conflated. Progress requires datasets with entity-level discriminativeness and evaluation that reports both coverage and effectiveness. Until then, conditional gains do not imply open-world effectiveness, and open-world failures do not invalidate entity-based models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-06T22:02:35Z",
+    "updated": "2026-04-06T22:02:35Z",
+    "url": "http://arxiv.org/abs/2604.05204v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05204v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索系统中的实体检索与重排序评估，属于核心搜索技术范畴，但主要揭示现有方法的局限性而非提出新的架构创新。",
+    "translation": "实体作为检索信号：面向实体排序中覆盖率、监督与评估的系统性研究",
+    "summary_zh": "本文通过区分概念实体相关性与可观察实体相关性，揭示了实体检索在开放世界评估中性能受限的根本原因是实体链接导致的覆盖率瓶颈而非模型架构缺陷。",
+    "key_points": [
+      "本文通过区分概念实体相关性与可观察实体相关性，揭示了实体检索在开放世界评估中性能受限的根本原因是实体链接导致的覆盖率瓶颈而非模型架构缺陷"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04468v1",
+    "title": "What Makes a Sale? Rethinking End-to-End Seller--Buyer Retail Dynamics with LLM Agents",
+    "authors": [
+      "Jeonghwan Choi",
+      "Jibin Hwang",
+      "Gyeonghun Sun",
+      "Minjeong Ban",
+      "Taewon Yun",
+      "Hyeonjae Cheon",
+      "Hwanjun Song"
+    ],
+    "summary": "Evaluating retail strategies before deployment is difficult, as outcomes are determined across multiple stages, from seller-side persuasion through buyer-seller interaction to purchase decisions. However, existing retail simulators capture only partial aspects of this process and do not model cross-stage dependencies, making it difficult to assess how early decisions affect downstream outcomes. We present RetailSim, an end-to-end retail simulation framework that models this pipeline in a unified environment, explicitly designed for simulation fidelity through diverse product spaces, persona-driven agents, and multi-turn interactions. We evaluate RetailSim with a dual protocol comprising human evaluation of behavioral fidelity and meta-evaluation against real-world economic regularities, showing that it successfully reproduces key patterns such as demographic purchasing behavior, the price-demand relationship, and heterogeneous price elasticity. We further demonstrate its practical utility via decision-oriented use cases, including persona inference, seller-buyer interaction analysis, and sales strategy evaluation, showing RetailSim's potential as a controlled testbed for exploring retail strategies.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-06T06:38:35Z",
+    "updated": "2026-04-06T06:38:35Z",
+    "url": "http://arxiv.org/abs/2604.04468v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04468v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注利用 LLM Agent 构建零售仿真环境以评估销售策略，属于通用模拟与决策分析，缺乏针对推荐系统或搜索引擎核心环节（如召回、排序、个性化匹配）的直接技术创新。",
+    "translation": "什么促成了销售？利用 LLM 智能体重构端到端卖家 - 买家零售动态",
+    "summary_zh": "提出 RetailSim 框架，通过多轮交互和角色驱动的智能体模拟端到端零售流程，旨在为销售策略评估提供高保真测试环境。",
+    "key_points": [
+      "提出 RetailSim 框架，通过多轮交互和角色驱动的智能体模拟端到端零售流程，旨在为销售策略评估提供高保真测试环境"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04482v1",
+    "title": "Scalable and Explainable Learner-Video Interaction Prediction using Multimodal Large Language Models",
+    "authors": [
+      "Dominik Glandorf",
+      "Fares Fawzi",
+      "Tanja Käser"
+    ],
+    "summary": "Learners' use of video controls in educational videos provides implicit signals of cognitive processing and instructional design quality, yet the lack of scalable and explainable predictive models limits instructors' ability to anticipate such behavior before deployment. We propose a scalable, interpretable pipeline for predicting population-level watching, pausing, skipping, and rewinding behavior as proxies for cognitive load from video content alone. Our approach leverages multimodal large language models (MLLMs) to compute embeddings of short video segments and trains a neural classifier to identify temporally fine-grained interaction peaks. Drawing from multimedia learning theory on instructional design for optimal cognitive load, we code features of the video segments using GPT-5 and employ them as a basis for interpreting model predictions via concept activation vectors. We evaluate our pipeline on 77 million video control events from 66 online courses. Our findings demonstrate that classifiers based on MLLM embeddings reliably predict interaction peaks, generalize to unseen academic fields, and encode interpretable, theory-relevant instructional concepts. Overall, our results show the feasibility of cost-efficient, interpretable pre-screening of educational video design and open new opportunities to empirically examine multimedia learning theory at scale.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-06T07:12:46Z",
+    "updated": "2026-04-06T07:12:46Z",
+    "url": "http://arxiv.org/abs/2604.04482v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04482v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦教育视频的认知负荷预测与教学设计评估，属于教育技术（EdTech）领域，缺乏通用推荐系统或搜索引擎的核心场景（如召回、排序、个性化），虽使用多模态大模型但非直接用于 RecSys 产品。",
+    "translation": "基于多模态大模型的可扩展且可解释的学习者 - 视频交互预测",
+    "summary_zh": "提出一种利用多模态大模型提取视频片段嵌入并结合概念激活向量的流水线，旨在仅通过视频内容预测学习者的观看、暂停等交互行为以评估认知负荷和教学设计质量。",
+    "key_points": [
+      "提出一种利用多模态大模型提取视频片段嵌入并结合概念激活向量的流水线，旨在仅通过视频内容预测学习者的观看、暂停等交互行为以评估认知负荷和教学设计质量"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04651v1",
+    "title": "Search, Do not Guess: Teaching Small Language Models to Be Effective Search Agents",
+    "authors": [
+      "Yizhou Liu",
+      "Qi Sun",
+      "Yulin Chen",
+      "Siyue Zhang",
+      "Chen Zhao"
+    ],
+    "summary": "Agents equipped with search tools have emerged as effective solutions for knowledge-intensive tasks. While Large Language Models (LLMs) exhibit strong reasoning capabilities, their high computational cost limits practical deployment for search agents. Consequently, recent work has focused on distilling agentic behaviors from LLMs into Small Language Models (SLMs). Through comprehensive evaluation on complex multi-hop reasoning tasks, we find that despite possessing less parametric knowledge, SLMs invoke search tools less frequently and are more prone to hallucinations. To address this issue, we propose \\policy, a lightweight fine-tuning approach that explicitly trains SLMs to reliably retrieve and generate answers grounded in retrieved evidence. Compared to agent distillation from LLMs, our approach improves performance by 17.3 scores on Bamboogle and 15.3 scores on HotpotQA, achieving LLM-level results across benchmarks. Our further analysis reveals that adaptive search strategies in SLMs often degrade performance, highlighting the necessity of consistent search behavior for reliable reasoning.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-06T13:00:38Z",
+    "updated": "2026-04-06T13:00:38Z",
+    "url": "http://arxiv.org/abs/2604.04651v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.04651v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究，专注于通过微调小型语言模型（SLM）来优化通用知识问答中的搜索代理行为，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "搜索而非猜测：教导小型语言模型成为高效的搜索代理",
+    "summary_zh": "提出一种轻量级微调方法，显式训练小型语言模型可靠地调用搜索工具并基于检索证据生成答案，以解决其在复杂推理任务中搜索频率低和幻觉多的问题。",
+    "key_points": [
+      "提出一种轻量级微调方法，显式训练小型语言模型可靠地调用搜索工具并基于检索证据生成答案，以解决其在复杂推理任务中搜索频率低和幻觉多的问题"
+    ]
+  }
+]

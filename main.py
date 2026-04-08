@@ -40,8 +40,8 @@ logger = logging.getLogger(__name__)
 class AIPaperDaily:
     """AI 论文每日追踪器"""
     
-    # arXiv API 基础 URL
-    ARXIV_API_BASE = "http://export.arxiv.org/api/query"
+    # arXiv API 基础 URL (使用 HTTPS)
+    ARXIV_API_BASE = "https://export.arxiv.org/api/query"
     
     def __init__(self):
         # 加载配置
@@ -128,23 +128,34 @@ class AIPaperDaily:
         except Exception as e:
             logger.error(f"Error saving prerank cache: {e}")
     
-    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int, date_range: Optional[str] = None, max_retries: int = 3) -> List[Dict]:
-        """批量获取 arXiv 论文（内部方法，带重试）"""
+    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int, date_range: Optional[str] = None, max_retries: int = 5) -> List[Dict]:
+        """批量获取 arXiv 论文（内部方法，带重试和指数退避）"""
+        import urllib.parse
+        
         papers = []
         
         query = f"({categories_query})"
         if date_range:
             query += f" AND submittedDate:{date_range}"
-        url = f"{self.ARXIV_API_BASE}?search_query={query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+        
+        # URL 编码查询参数，避免特殊字符（如空格、方括号）导致的问题
+        encoded_query = urllib.parse.quote(query, safe='')
+        url = f"{self.ARXIV_API_BASE}?search_query={encoded_query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
         
         for attempt in range(max_retries):
             try:
                 logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}" + (f", date_range={date_range}" if date_range else "") + f" (attempt {attempt+1}/{max_retries})")
                 response = requests.get(url, timeout=60)
                 
-                if response.status_code != 200:
+                if response.status_code == 429:
+                    # arXiv 速率限制，使用指数退避
+                    wait_time = 30 * (2 ** attempt)  # 30s, 60s, 120s, 240s, 480s
+                    logger.warning(f"arXiv API rate limited (429), waiting {wait_time}s before retry...")
+                    time.sleep(wait_time)
+                    continue
+                elif response.status_code != 200:
                     logger.warning(f"arXiv API error: {response.status_code}, retrying...")
-                    time.sleep(5)
+                    time.sleep(10)
                     continue
                 
                 # 解析成功响应
@@ -170,7 +181,8 @@ class AIPaperDaily:
             except Exception as e:
                 logger.warning(f"Request failed (attempt {attempt+1}/{max_retries}): {e}")
                 if attempt < max_retries - 1:
-                    time.sleep(5)
+                    wait_time = 10 * (2 ** attempt)  # 指数退避
+                    time.sleep(wait_time)
                 else:
                     logger.error(f"All {max_retries} attempts failed")
         
@@ -208,11 +220,11 @@ class AIPaperDaily:
             date_range = f"[{date_str}000000 TO {date_str}235959]"
             logger.info(f"Backfill mode: Fetching papers for {date_str} using date range search")
         else:
-            # 默认模式：获取过去 2 天的论文
-            end_date = datetime.now(tz_shanghai) - timedelta(days=1)
-            start_date = end_date - timedelta(days=1)
-            date_range = None
-            logger.info(f"Fetching papers from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')} (fixed 2-day window)")
+            # 默认模式：获取两天前那一天的论文（例如今天是 4 月 8 日，获取 4 月 6 日的论文）
+            target_date = datetime.now(tz_shanghai) - timedelta(days=2)
+            date_str = target_date.strftime('%Y%m%d')
+            date_range = f"[{date_str}000000 TO {date_str}235959]"
+            logger.info(f"Fetching papers for {date_str} (2 days ago) using date range search")
         
         all_papers = []
         seen_ids = set()  # 本次运行内去重

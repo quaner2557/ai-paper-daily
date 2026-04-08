@@ -1,1 +1,263 @@
-[]
+[
+  {
+    "arxiv_id": "2603.22922v1",
+    "title": "Quality Over Clicks: Intrinsic Quality-Driven Iterative Reinforcement Learning for Cold-Start E-Commerce Query Suggestion",
+    "authors": [
+      "Qi Sun",
+      "Kejun Xiao",
+      "Huaipeng Zhao",
+      "Tao Luo",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Existing dialogue systems rely on Query Suggestion (QS) to enhance user engagement. Recent efforts typically employ large language models with Click-Through Rate (CTR) model, yet fail in cold-start scenarios due to their heavy reliance on abundant online click data for effective CTR model training. To bridge this gap, we propose Cold-EQS, an iterative reinforcement learning framework for Cold-Start E-commerce Query Suggestion (EQS). Specifically, we leverage answerability, factuality, and information gain as reward to continuously optimize the quality of suggested queries. To continuously optimize our QS model, we estimate uncertainty for grouped candidate suggested queries to select hard and ambiguous samples from online user queries lacking click signals. In addition, we provide an EQS-Benchmark comprising 16,949 online user queries for offline training and evaluation. Extensive offline and online experiments consistently demonstrate a strong positive correlation between online and offline effectiveness. Both offline and online experimental results demonstrate the superiority of our Cold-EQS, achieving a significant +6.81% improvement in online chatUV.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-03-24T08:11:39Z",
+    "updated": "2026-03-24T08:11:39Z",
+    "url": "http://arxiv.org/abs/2603.22922v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.22922v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索中的冷启动查询建议问题，提出基于内在质量的强化学习框架，属于核心搜索场景创新；虽涉及 LLM 但非纯 LLM 研究，且来自中国公司（TAL），符合加分条件。",
+    "translation": "质量优于点击：面向冷启动电商查询建议的内在质量驱动迭代强化学习",
+    "summary_zh": "提出一种利用可回答性、事实性和信息增益作为奖励信号的迭代强化学习框架，通过不确定性估计筛选困难样本，以在无点击数据的冷启动场景下优化电商查询建议质量。",
+    "key_points": [
+      "提出一种利用可回答性、事实性和信息增益作为奖励信号的迭代强化学习框架，通过不确定性估计筛选困难样本，以在无点击数据的冷启动场景下优化电商查询建议质量"
+    ]
+  },
+  {
+    "arxiv_id": "2603.22779v2",
+    "title": "KARMA: Knowledge-Action Regularized Multimodal Alignment for Personalized Search at Taobao",
+    "authors": [
+      "Zhi Sun",
+      "Wenming Zhang",
+      "Yi Wei",
+      "Liren Yu",
+      "Zhixuan Zhang",
+      "Dan Ou",
+      "Haihong Tang"
+    ],
+    "summary": "Large Language Models (LLMs) are equipped with profound semantic knowledge, making them a natural choice for injecting semantic generalization into personalized search systems. However, in practice we find that directly fine-tuning LLMs on industrial personalized tasks (e.g. next item prediction) often yields suboptimal results. We attribute this bottleneck to a critical Knowledge--Action Gap: the inherent conflict between preserving pre-trained semantic knowledge and aligning with specific personalized actions by discriminative objectives. Empirically, action-only training objectives induce Semantic Collapse, such as attention \"sinks\". This degradation severely cripples the LLM's generalization, failing to bring improvements to personalized search systems.\n  We propose KARMA (Knowledge--Action Regularized Multimodal Alignment), a unified framework that treats semantic reconstruction as a train-only regularizer. KARMA optimizes a next-interest embedding for retrieval (Action) while enforcing semantic decodability (Knowledge) through two complementary objectives: (i) history-conditioned semantic generation, which anchors optimization to the LLM's native next-token distribution, and (ii) embedding-conditioned semantic reconstruction, which constrains the interest embedding to remain semantically recoverable.\n  On Taobao search system, KARMA mitigates semantic collapse (attention-sink analysis) and improves both action metrics and semantic fidelity. In ablations, semantic decodability yields up to +22.5 HR@200. With KARMA, we achieve +0.25 CTR AUC in ranking, +1.86 HR in pre-ranking and +2.51 HR in recalling. Deployed online with low inference overhead at ranking & pre-ranking stage, KARMA drives +0.9% increase in GMV.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-03-24T04:13:30Z",
+    "updated": "2026-03-31T09:40:53Z",
+    "url": "http://arxiv.org/abs/2603.22779v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.22779v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对淘宝个性化搜索场景，提出了 KARMA 框架以解决 LLM 在推荐任务中的语义坍塌问题，属于核心领域的高价值工业界落地研究。",
+    "translation": "KARMA：面向淘宝个性化搜索的知识 - 动作正则化多模态对齐",
+    "summary_zh": "提出 KARMA 框架，通过引入语义重构作为训练正则项，在优化检索动作目标的同时强制保持 LLM 的语义解码能力，从而解决个性化搜索中直接微调导致的语义坍塌问题。",
+    "key_points": [
+      "提出 KARMA 框架，通过引入语义重构作为训练正则项，在优化检索动作目标的同时强制保持 LLM 的语义解码能力，从而解决个性化搜索中直接微调导致的语义坍塌问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.23780v1",
+    "title": "Lightweight Fairness for LLM-Based Recommendations via Kernelized Projection and Gated Adapters",
+    "authors": [
+      "Nan Cui",
+      "Wendy Hui Wang",
+      "Yue Ning"
+    ],
+    "summary": "Large Language Models (LLMs) have introduced new capabilities to recommender systems, enabling dynamic, context-aware, and conversational recommendations. However, LLM-based recommender systems inherit and may amplify social biases embedded in their pre-training data, especially when demographic cues are present. Existing fairness solutions either require extra parameters fine-tuning, or suffer from optimization instability. We propose a lightweight and scalable bias mitigation method that combines a kernelized Iterative Null-space Projection (INLP) with a gated Mixture-of-Experts (MoE) adapter. Our approach estimates a closed-form projection that removes single or multiple sensitive attributes from LLM representations with no additional trainable parameters. To preserve task utility, we introduce a two-level MoE adapter that selectively restores useful signals without reintroducing bias. Experiments on two public datasets show that our method reduces attribute leakage across multiple protected variables while maintaining competitive recommendation accuracy.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-03-24T23:26:04Z",
+    "updated": "2026-03-24T23:26:04Z",
+    "url": "http://arxiv.org/abs/2603.23780v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.23780v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 推荐系统中的公平性偏差问题，提出了无需额外训练参数的去偏方法，属于 LLM for RecSys 的核心应用；虽涉及纯 LLM 技术，但紧密绑定推荐场景，且来自中国公司，故给予高分。",
+    "translation": "基于核化投影与门控适配器的轻量级 LLM 推荐公平性研究",
+    "summary_zh": "提出一种结合核化迭代零空间投影与门控混合专家适配器的轻量级方法，旨在从 LLM 表征中移除敏感属性偏差，同时在无额外可训练参数的情况下保留推荐任务的有效性。",
+    "key_points": [
+      "提出一种结合核化迭代零空间投影与门控混合专家适配器的轻量级方法，旨在从 LLM 表征中移除敏感属性偏差，同时在无额外可训练参数的情况下保留推荐任务的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2603.23183v1",
+    "title": "Reasoning over Semantic IDs Enhances Generative Recommendation",
+    "authors": [
+      "Yingzhi He",
+      "Yan Sun",
+      "Junfei Tan",
+      "Yuxin Chen",
+      "Xiaoyu Kong",
+      "Chunxu Shen",
+      "Xiang Wang",
+      "An Zhang",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Recent advances in generative recommendation have leveraged pretrained LLMs by formulating sequential recommendation as autoregressive generation over a unified token space comprising language tokens and itemic identifiers, where each item is represented by a compact sequence of discrete tokens, namely Semantic IDs (SIDs). This SID-based formulation enables efficient decoding over large-scale item corpora and provides a natural interface for LLM-based recommenders to leverage rich world knowledge. Meanwhile, breakthroughs in LLM reasoning motivate reasoning-enhanced recommendation, yet effective reasoning over SIDs remains underexplored and challenging. Itemic tokens are not natively meaningful to LLMs; moreover, recommendation-oriented SID reasoning is hard to evaluate, making high-quality supervision scarce.\n  To address these challenges, we propose SIDReasoner, a two-stage framework that elicits reasoning over SIDs by strengthening SID--language alignment to unlock transferable LLM reasoning, rather than relying on large amounts of recommendation-specific reasoning traces. Concretely, SIDReasoner first enhances SID-language alignment via multi-task training on an enriched SID-centered corpus synthesized by a stronger teacher model, grounding itemic tokens in diverse semantic and behavioral contexts. Building on this enhanced alignment, SIDReasoner further improves recommendation reasoning through outcome-driven reinforced optimization, which guides the model toward effective reasoning trajectories without requiring explicit reasoning annotations. Extensive experiments on three real-world datasets demonstrate the effectiveness of our reasoning-augmented SID-based generative recommendation. Beyond accuracy, the results highlight the broader potential of large reasoning models for generative recommendation, including improved interpretability and cross-domain generalization.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-03-24T13:31:48Z",
+    "updated": "2026-03-24T13:31:48Z",
+    "url": "http://arxiv.org/abs/2603.23183v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.23183v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "NationalUniversityofSingapore UniversityofScienceandTechnology UniversityofScienceandTechnology",
+      "NationalUniversityofSingapore UniversityofScienceandTechnology TencentInc.",
+      "UniversityofScienceandTechnology UniversityofScienceandTechnology NationalUniversityofSingapore",
+      "breakthroughsinLLMreasoningmotivatereasoning-enhancedrec- areavailableathttps://github.com/HappyPointer/SIDReasoner."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统，提出利用 LLM 推理能力增强语义 ID（SID）表征的新框架，属于 LLM 在推荐领域的深度应用而非纯 LLM 研究。",
+    "translation": "基于语义 ID 的推理增强生成式推荐",
+    "summary_zh": "提出 SIDReasoner 框架，通过多任务训练增强语义 ID 与语言的对齐，并结合结果驱动的强化优化，在不依赖大量标注数据的情况下激发大模型对物品标识的推理能力以提升推荐效果。",
+    "key_points": [
+      "提出 SIDReasoner 框架，通过多任务训练增强语义 ID 与语言的对齐，并结合结果驱动的强化优化，在不依赖大量标注数据的情况下激发大模型对物品标识的推理能力以提升推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2603.22916v1",
+    "title": "GateSID: Adaptive Gating for Semantic-Collaborative Alignment in Cold-Start Recommendation",
+    "authors": [
+      "Hai Zhu",
+      "Yantao Yu",
+      "Lei Shen",
+      "Bing Wang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "In cold-start scenarios, the scarcity of collaborative signals for new items exacerbates the Matthew effect, which undermines platform diversity and remains a persistent challenge in real-world recommender systems. Existing methods typically enhance collaborative signals with semantic information, but they often suffer from a collaborative-semantic tradeoff: collaborative signals are effective for popular items but unreliable for cold-start items, whereas over-reliance on semantic information may obscure meaningful collaborative differences. To address this issue, we propose GateSID, a framework that uses an adaptive gating network to dynamically balance semantic and collaborative signals according to item maturity. Specifically, we first discretize multimodal features into hierarchical Semantic IDs using Residual Quantized VAE. Building on this representation, we design two key components: (1) Gating-Fused Shared Attention, which fuses intra-modal attention distributions with item-level gating weights derived from embeddings and statistical features; and (2) Gate-Regulated Contrastive Alignment, which adaptively calibrates cross-modal alignment, enforcing stronger semantic-behavior consistency for cold-start items while relaxing the constraint for popular items to preserve reliable collaborative signals. Extensive offline experiments on large-scale industrial datasets demonstrate that GateSID consistently outperforms strong baselines. Online A/B tests further confirm its practical value, yielding +2.6% GMV, +1.1% CTR, and +1.6% orders with less than 5 ms additional latency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-24T08:04:41Z",
+    "updated": "2026-03-24T08:04:41Z",
+    "url": "http://arxiv.org/abs/2603.22916v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.22916v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的冷启动核心难题，提出自适应门控机制以动态平衡语义与协同信号，并已在工业界在线 A/B 测试中验证其业务价值。",
+    "translation": "GateSID：冷启动推荐中语义 - 协同对齐的自适应门控机制",
+    "summary_zh": "提出 GateSID 框架，利用自适应门控网络根据物品成熟度动态调节语义信息与协同信号的融合权重，并通过分层语义 ID 和门控对比对齐解决冷启动场景下的信号权衡问题。",
+    "key_points": [
+      "提出 GateSID 框架，利用自适应门控网络根据物品成熟度动态调节语义信息与协同信号的融合权重，并通过分层语义 ID 和门控对比对齐解决冷启动场景下的信号权衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.03280v1",
+    "title": "Multi-Agent Training-free Urban Food Delivery System using Resilient UMST Network",
+    "authors": [
+      "Md Nahid Hasan",
+      "Vishwam Tiwari",
+      "Aditya Challa",
+      "Vaskar Raychoudhury",
+      "Snehanshu Saha"
+    ],
+    "summary": "Delivery systems have become a core part of urban life, supporting the demand for food, medicine, and other goods. Yet traditional logistics networks remain fragile, often struggling to adapt to road closures, accidents, and shifting demand. Online Food Delivery (OFD) platforms now represent a cornerstone of urban logistics, with the global market projected to grow to over 500 billion USD by 2030. Designing delivery networks that are efficient and resilient remains a major challenge: fully connected graphs provide flexibility but are computationally infeasible at scale, while single Minimum Spanning Trees (MSTs) are efficient but easily disrupted.\n  We propose the Union of Minimum Spanning Trees (UMST) approach to construct delivery networks that are sparse yet robust. UMST generates multiple MSTs through randomized edge perturbations and unites them, producing graphs with far fewer edges than fully connected networks while maintaining multiple alternative routes between delivery hotspots. Across multiple U.S. cities, UMST achieves 20--40$\\times$ fewer edges than fully connected graphs while enabling substantial order bundling with 75--83% participation rates. Compared to learning-based baselines including MADDPG and Graph Neural Networks, UMST delivers competitive performance (88-96% success rates, 44-53% distance savings) without requiring training, achieving 30$\\times$ faster execution while maintaining interpretable routing structures. Its combination of structural efficiency and operational flexibility offers a scalable and resilient foundation for urban delivery networks.",
+    "categories": [
+      "cs.MA",
+      "cs.LG"
+    ],
+    "published": "2026-03-24T13:40:54Z",
+    "updated": "2026-03-24T13:40:54Z",
+    "url": "http://arxiv.org/abs/2604.03280v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.03280v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于物流配送网络的路径规划与鲁棒性优化，属于运筹学与物流领域，虽涉及外卖场景但完全未触及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），且非纯 LLM 研究故不给最低分。",
+    "translation": "基于弹性 UMST 网络的多智能体免训练城市食品配送系统",
+    "summary_zh": "提出一种联合最小生成树（UMST）方法，通过随机扰动构建稀疏且鲁棒的配送网络图，旨在无需训练即可实现高效的城市外卖订单捆绑与路径规划。",
+    "key_points": [
+      "提出一种联合最小生成树（UMST）方法，通过随机扰动构建稀疏且鲁棒的配送网络图，旨在无需训练即可实现高效的城市外卖订单捆绑与路径规划"
+    ]
+  },
+  {
+    "arxiv_id": "2603.23125v1",
+    "title": "From Questions to Trust Reports: A LLM-IR Framework for the TREC 2025 DRAGUN Track",
+    "authors": [
+      "Ignacy Alwasiak",
+      "Kene Nnolim",
+      "Jaclyn Thi",
+      "Samy Ateia",
+      "Markus Bink",
+      "Gregor Donabauer",
+      "David Elsweiler",
+      "Udo Kruschwitz"
+    ],
+    "summary": "The DRAGUN Track at TREC 2025 targets the growing need for effective support tools that help users evaluate the trustworthiness of online news. We describe the UR_Trecking system submitted for both Task 1 (critical question generation) and Task 2 (retrieval-augmented trustworthiness reporting). Our approach combines LLM-based question generation with semantic filtering, diversity enforcement using clustering, and several query expansion strategies (including reasoning-based Chain-of-Thought expansion) to retrieve relevant evidence from the MS MARCO V2.1 segmented corpus. Retrieved documents are re-ranked using a monoT5 model and filtered using an LLM relevance judge together with a domain-level trustworthiness dataset. For Task 2, selected evidence is synthesized by an LLM into concise trustworthiness reports with citations. Results from the official evaluation indicate that Chain-of-Thought query expansion and re-ranking substantially improve both relevance and domain trust compared to baseline retrieval, while question-generation performance shows moderate quality with room for improvement. We conclude by outlining key challenges encountered and suggesting directions for enhancing robustness and trustworthiness assessment in future iterations of the system.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-24T12:22:27Z",
+    "updated": "2026-03-24T12:22:27Z",
+    "url": "http://arxiv.org/abs/2603.23125v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.23125v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/信息检索（TREC 评测）研究，专注于新闻可信度评估和报告生成，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "从问题到信任报告：面向 TREC 2025 DRAGUN 赛道的 LLM-IR 框架",
+    "summary_zh": "提出一种结合大语言模型问题生成、语义过滤及推理式查询扩展的检索增强框架，旨在通过多阶段重排序和证据合成来生成带引用的新闻可信度评估报告。",
+    "key_points": [
+      "提出一种结合大语言模型问题生成、语义过滤及推理式查询扩展的检索增强框架，旨在通过多阶段重排序和证据合成来生成带引用的新闻可信度评估报告"
+    ]
+  },
+  {
+    "arxiv_id": "2603.22934v2",
+    "title": "ProGRank: Probe-Gradient Reranking to Defend Dense-Retriever RAG from Corpus Poisoning",
+    "authors": [
+      "Xiangyu Yin",
+      "Yi Qi",
+      "Chih-Hong Cheng"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) improves the reliability of large language model applications by grounding generation in retrieved evidence, but it also introduces a new attack surface: corpus poisoning. In this setting, an adversary injects or edits passages so that they are ranked into the Top-$K$ results for target queries and then affect downstream generation. Existing defences against corpus poisoning often rely on content filtering, auxiliary models, or generator-side reasoning, which can make deployment more difficult. We propose ProGRank, a post hoc, training-free retriever-side defence for dense-retriever RAG. ProGRank stress-tests each query--passage pair under mild randomized perturbations and extracts probe gradients from a small fixed parameter subset of the retriever. From these signals, it derives two instability signals, representational consistency and dispersion risk, and combines them with a score gate in a reranking step. ProGRank preserves the original passage content, requires no retraining, and also supports a surrogate-based variant when the deployed retriever is unavailable. Extensive experiments across three datasets, three dense retriever backbones, representative corpus poisoning attacks, and both retrieval-stage and end-to-end settings show that ProGRank provides stronger defence performance and a favorable robustness--utility trade-off. It also remains competitive under adaptive evasive attacks.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-03-24T08:29:15Z",
+    "updated": "2026-03-27T20:58:54Z",
+    "url": "http://arxiv.org/abs/2603.22934v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.22934v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于防御 RAG 系统的语料库投毒攻击，属于 LLM 安全与鲁棒性研究，并未提出针对推荐或搜索核心业务（如召回、排序、个性化）的改进方法。",
+    "translation": "ProGRank：利用探测梯度重排序防御密集检索器 RAG 免受语料库投毒",
+    "summary_zh": "提出一种无需训练的重排序防御机制，通过分析检索器对微小扰动的梯度响应来识别并降低被投毒文档的排名，从而保护 RAG 系统生成结果的可靠性。",
+    "key_points": [
+      "提出一种无需训练的重排序防御机制，通过分析检索器对微小扰动的梯度响应来识别并降低被投毒文档的排名，从而保护 RAG 系统生成结果的可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2603.22813v1",
+    "title": "Learning What Matters Now: Dynamic Preference Inference under Contextual Shifts",
+    "authors": [
+      "Xianwei Cao",
+      "Dou Quan",
+      "Zhenliang Zhang",
+      "Shuang Wang"
+    ],
+    "summary": "Humans often juggle multiple, sometimes conflicting objectives and shift their priorities as circumstances change, rather than following a fixed objective function. In contrast, most computational decision-making and multi-objective RL methods assume static preference weights or a known scalar reward. In this work, we study sequential decision-making problem when these preference weights are unobserved latent variables that drift with context. Specifically, we propose Dynamic Preference Inference (DPI), a cognitively inspired framework in which an agent maintains a probabilistic belief over preference weights, updates this belief from recent interaction, and conditions its policy on inferred preferences. We instantiate DPI as a variational preference inference module trained jointly with a preference-conditioned actor-critic, using vector-valued returns as evidence about latent trade-offs. In queueing, maze, and multi-objective continuous-control environments with event-driven changes in objectives, DPI adapts its inferred preferences to new regimes and achieves higher post-shift performance than fixed-weight and heuristic envelope baselines.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-03-24T05:22:04Z",
+    "updated": "2026-03-24T05:22:04Z",
+    "url": "http://arxiv.org/abs/2603.22813v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.22813v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯强化学习（Multi-objective RL）研究，专注于通用控制环境中的动态偏好推断，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "学习当下关键：上下文偏移下的动态偏好推断",
+    "summary_zh": "提出动态偏好推断（DPI）框架，通过维护潜在偏好权重的概率信念并基于近期交互更新，使智能体在目标随上下文漂移的序列决策中能自适应调整策略。",
+    "key_points": [
+      "提出动态偏好推断（DPI）框架，通过维护潜在偏好权重的概率信念并基于近期交互更新，使智能体在目标随上下文漂移的序列决策中能自适应调整策略"
+    ]
+  }
+]

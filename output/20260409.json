@@ -1,0 +1,516 @@
+[
+  {
+    "arxiv_id": "2604.05379v1",
+    "title": "Retrieve-then-Adapt: Retrieval-Augmented Test-Time Adaptation for Sequential Recommendation",
+    "authors": [
+      "Xing Tang",
+      "Jingyang Bin",
+      "Ziqiang Cui",
+      "Xiaokun Zhang",
+      "Fuyuan Lyu",
+      "Jingyan Jiang",
+      "Dugang Liu",
+      "Chen Ma",
+      "Xiuqiang He"
+    ],
+    "summary": "The sequential recommendation (SR) task aims to predict the next item based on users' historical interaction sequences. Typically trained on historical data, SR models often struggle to adapt to real-time preference shifts during inference due to challenges posed by distributional divergence and parameterized constraints. Existing approaches to address this issue include test-time training, test-time augmentation, and retrieval-augmented fine-tuning. However, these methods either introduce significant computational overhead, rely on random augmentation strategies, or require a carefully designed two-stage training paradigm. In this paper, we argue that the key to effective test-time adaptation lies in achieving both effective augmentation and efficient adaptation. To this end, we propose Retrieve-then-Adapt (ReAd), a novel framework that dynamically adapts a deployed SR model to the test distribution through retrieved user preference signals. Specifically, given a trained SR model, ReAd first retrieves collaboratively similar items for a test user from a constructed collaborative memory database. A lightweight retrieval learning module then integrates these items into an informative augmentation embedding that captures both collaborative signals and prediction-refinement cues. Finally, the initial SR prediction is refined via a fusion mechanism that incorporates this embedding. Extensive experiments across five benchmark datasets demonstrate that ReAd consistently outperforms existing SR methods.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-07T03:24:56Z",
+    "updated": "2026-04-07T03:24:56Z",
+    "url": "http://arxiv.org/abs/2604.05379v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05379v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐（RecSys 核心领域）中的测试时适应问题，提出检索增强框架，完全符合高优先级标准；且来自中国公司，按规定额外 +1 分（基础 9 分 +1 分=10 分）。",
+    "translation": "先检索后适应：用于序列推荐的检索增强测试时适应方法",
+    "summary_zh": "提出 Retrieve-then-Adapt 框架，通过在测试阶段从协作记忆库检索相似用户偏好信号并融合到轻量级增强嵌入中，动态调整部署的序列推荐模型以适应用户实时偏好变化。",
+    "key_points": [
+      "提出 Retrieve-then-Adapt 框架，通过在测试阶段从协作记忆库检索相似用户偏好信号并融合到轻量级增强嵌入中，动态调整部署的序列推荐模型以适应用户实时偏好变化"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05329v1",
+    "title": "Semantic Trimming and Auxiliary Multi-step Prediction for Generative Recommendation",
+    "authors": [
+      "Tianyu Zhan",
+      "Kairui Fu",
+      "Chengfei Lv",
+      "Zheqi Lv",
+      "Shengyu Zhang"
+    ],
+    "summary": "Generative Recommendation (GR) has recently transitioned from atomic item-indexing to Semantic ID (SID)-based frameworks to capture intrinsic item relationships and enhance generalization. However, the adoption of high-granularity SIDs leads to two critical challenges: prohibitive training overhead due to sequence expansion and unstable performance reliability characterized by non-monotonic accuracy fluctuations. We identify that these disparate issues are fundamentally rooted in the Semantic Dilution Effect, where redundant tokens waste massive computation and dilute the already sparse learning signals in recommendation. To counteract this, we propose STAMP (Semantic Trimming and Auxiliary Multi-step Prediction), a framework utilizing a dual-end optimization strategy. We argue that effective SID learning requires simultaneously addressing low input information density and sparse output supervision. On the input side, Semantic Adaptive Pruning (SAP) dynamically filters redundancy during the forward pass, converting noise-laden sequences into compact, information-rich representations. On the output side, Multi-step Auxiliary Prediction (MAP) employs a multi-token objective to densify feedback, strengthening long-range dependency capture and ensuring robust learning signals despite compressed inputs. Unifying input purification and signal amplification, STAMP enhances both training efficiency and representation capability. Experiments on public Amazon and large-scale industrial datasets show STAMP achieves 1.23--1.38$\\times$ speedup and 17.2\\%--54.7\\% VRAM reduction while maintaining or improving performance across multiple architectures.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T02:00:23Z",
+    "updated": "2026-04-07T02:00:23Z",
+    "url": "http://arxiv.org/abs/2604.05329v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05329v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba",
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "ZhejiangUniversity ZhejiangUniversity Alibaba",
+      "ZhejiangUniversity ZhejiangUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）中的语义 ID 冗余和训练效率问题提出创新架构，属于核心推荐领域进展；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "面向生成式推荐的语义剪枝与辅助多步预测方法",
+    "summary_zh": "本文提出 STAMP 框架，通过输入端的语义自适应剪枝去除冗余令牌以提升信息密度，并结合输出端的多步辅助预测目标增强稀疏监督信号，从而解决生成式推荐中语义稀释导致的训练低效与性能不稳定问题。",
+    "key_points": [
+      "本文提出 STAMP 框架，通过输入端的语义自适应剪枝去除冗余令牌以提升信息密度，并结合输出端的多步辅助预测目标增强稀疏监督信号，从而解决生成式推荐中语义稀释导致的训练低效与性能不稳定问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05314v1",
+    "title": "Next-Scale Generative Reranking: A Tree-based Generative Rerank Method at Meituan",
+    "authors": [
+      "Shuli Wang",
+      "Changhao Li",
+      "Ke Fan",
+      "Senjie Kou Junwei Yin",
+      "Chi Wang",
+      "Yinhua Zhu",
+      "Haitao Wang",
+      "Xingxing Wang"
+    ],
+    "summary": "In modern multi-stage recommendation systems, reranking plays a critical role by modeling contextual information. Due to inherent challenges such as the combinatorial space complexity, an increasing number of methods adopt the generative paradigm: the generator produces the optimal list during inference, while an evaluator guides the generator's optimization during the training phase. However, these methods still face two problems. Firstly, these generators fail to produce optimal generation results due to the lack of both local and global perspectives, regardless of whether the generation strategy is autoregressive or non-autoregressive. Secondly, the goal inconsistency problem between the generator and the evaluator during training complicates the guidance signal and leading to suboptimal performance. To address these issues, we propose the \\textbf{N}ext-\\textbf{S}cale \\textbf{G}eneration \\textbf{R}eranking (NSGR), a tree-based generative framework. Specifically, we introduce a next-scale generator (NSG) that progressively expands a recommendation list from user interests in a coarse-to-fine manner, balancing global and local perspectives. Furthermore, we design a multi-scale neighbor loss, which leverages a tree-based multi-scale evaluator (MSE) to provide scale-specific guidance to the NSG at each scale. Extensive experiments on public and industrial datasets validate the effectiveness of NSGR. And NSGR has been successfully deployed on the Meituan food delivery platform.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T01:35:20Z",
+    "updated": "2026-04-07T01:35:20Z",
+    "url": "http://arxiv.org/abs/2604.05314v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05314v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接解决推荐系统重排序核心问题，提出基于树的生成式框架，且已在美团本地生活平台成功部署，完全符合高优先级标准并获额外加分。",
+    "translation": "下一代尺度生成式重排序：美团基于树的生成式重排序方法",
+    "summary_zh": "提出一种基于树的生成式重排序框架，通过由粗到细的下一尺度生成器平衡全局与局部视角，并利用多尺度邻居损失解决生成器与评估器的目标不一致问题。",
+    "key_points": [
+      "提出一种基于树的生成式重排序框架，通过由粗到细的下一尺度生成器平衡全局与局部视角，并利用多尺度邻居损失解决生成器与评估器的目标不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05845v1",
+    "title": "JD-BP: A Joint-Decision Generative Framework for Auto-Bidding and Pricing",
+    "authors": [
+      "Linghui Meng",
+      "Chun Gan",
+      "Shengsheng Niu",
+      "Chengcheng Zhang",
+      "Chenchen Li",
+      "Chuan Yang",
+      "Yi Mao",
+      "Xin Zhu",
+      "Jie He",
+      "Zhangang Lin",
+      "Ching Law"
+    ],
+    "summary": "Auto-bidding services optimize real-time bidding strategies for advertisers under key performance indicator (KPI) constraints such as target return on investment and budget. However, uncertainties such as model prediction errors and feedback latency can cause bidding strategies to deviate from ex-post optimality, leading to inefficient allocation. To address this issue, we propose JD-BP, a Joint generative Decision framework for Bidding and Pricing. Unlike prior methods, JD-BP jointly outputs a bid value and a pricing correction term that acts additively with the payment rule such as GSP. To mitigate adverse effects of historical constraint violations, we design a memory-less Return-to-Go that encourages future value maximizing of bidding actions while the cumulated bias is handled by the pricing correction. Moreover, a trajectory augmentation algorithm is proposed to generate joint bidding-pricing trajectories from a (possibly arbitrary) base bidding policy, enabling efficient plug-and-play deployment of our algorithm from existing RL/generative bidding models. Finally, we employ an Energy-Based Direct Preference Optimization method in conjunction with a cross-attention module to enhance the joint learning performance of bidding and pricing correction. Offline experiments on the AuctionNet dataset demonstrate that JD-BP achieves state-of-the-art performance. Online A/B tests at JD.com confirm its practical effectiveness, showing a 4.70% increase in ad revenue and a 6.48% improvement in target cost.",
+    "categories": [
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-04-07T13:11:12Z",
+    "updated": "2026-04-07T13:11:12Z",
+    "url": "http://arxiv.org/abs/2604.05845v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05845v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "JD.com",
+      "JD"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "JD.com JD.com JD.com TheChineseUniversityof"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文直接针对京东广告系统的自动出价与定价问题，提出了联合生成决策框架，属于电商核心广告推荐技术，且来自一线大厂实战。",
+    "translation": "JD-BP：一种用于自动出价与定价的联合决策生成框架",
+    "summary_zh": "提出一种联合生成决策框架，通过同时输出出价值和定价修正项，并结合无记忆回报机制与轨迹增强算法，以解决广告自动 bidding 中的约束违反与延迟反馈问题。",
+    "key_points": [
+      "提出一种联合生成决策框架，通过同时输出出价值和定价修正项，并结合无记忆回报机制与轨迹增强算法，以解决广告自动 bidding 中的约束违反与延迟反馈问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05365v1",
+    "title": "From Clues to Generation: Language-Guided Conditional Diffusion for Cross-Domain Recommendation",
+    "authors": [
+      "Ziang Lu",
+      "Lei Sang",
+      "Lin Mu",
+      "Yiwen Zhang"
+    ],
+    "summary": "Cross-domain Recommendation (CDR) exploits multi-domain correlations to alleviate data sparsity. As a core task within this field, inter-domain recommendation focuses on predicting preferences for users who interact in a source domain but lack behavioral records in a target domain. Existing approaches predominantly rely on overlapping users as anchors for knowledge transfer. In real-world scenarios, overlapping users are often scarce, leaving the vast majority of users with only single-domain interactions. For these users, the absence of explicit alignment signals makes fine-grained preference transfer intrinsically difficult. To address this challenge, this paper proposes Language-Guided Conditional Diffusion for CDR (LGCD), a novel framework that integrates Large Language Models (LLMs) and diffusion models for inter-domain sequential recommendation. Specifically, we leverage LLM reasoning to bridge the domain gap by inferring potential target preferences for single-domain users and mapping them to real items, thereby constructing pseudo-overlapping data. We distinguish between real and pseudo-interaction pathways and introduce additional supervision constraints to mitigate the semantic noise brought by pseudo-interaction. Furthermore, we design a conditional diffusion architecture to precisely guide the generation of target user representations based on source-domain patterns. Extensive experiments demonstrate that LGCD significantly outperforms state-of-the-art methods in inter-domain recommendation tasks.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T03:05:22Z",
+    "updated": "2026-04-07T03:05:22Z",
+    "url": "http://arxiv.org/abs/2604.05365v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05365v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨域推荐中的冷启动和数据稀疏问题，创新性地结合 LLM 推理与扩散模型生成伪重叠数据以辅助用户偏好迁移，属于核心推荐系统架构创新。",
+    "translation": "从线索到生成：用于跨域推荐的语言引导条件扩散模型",
+    "summary_zh": "提出一种融合大语言模型推理与条件扩散生成的框架，通过推断单域用户的潜在目标偏好并构建伪重叠数据，解决无显式对齐信号下的细粒度跨域偏好迁移难题。",
+    "key_points": [
+      "提出一种融合大语言模型推理与条件扩散生成的框架，通过推断单域用户的潜在目标偏好并构建伪重叠数据，解决无显式对齐信号下的细粒度跨域偏好迁移难题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05309v1",
+    "title": "Pay Attention to Sequence Split: Uncovering the Impacts of Sub-Sequence Splitting on Sequential Recommendation Models",
+    "authors": [
+      "Yizhou Dang",
+      "Yifan Wu",
+      "Minhan Huang",
+      "Chuang Zhao",
+      "Lianbo Ma",
+      "Guibing Guo",
+      "Xingwei Wang",
+      "Zhu Sun"
+    ],
+    "summary": "Sub-sequence splitting (SSS) has been demonstrated as an effective approach to mitigate data sparsity in sequential recommendation (SR) by splitting a raw user interaction sequence into multiple sub-sequences. Previous studies have demonstrated its ability to enhance the performance of SR models significantly. However, in this work, we discover that \\textbf{(i). SSS may interfere with the evaluation of the model's actual performance.} We observed that many recent state-of-the-art SR models employ SSS during the data reading stage (not mentioned in the papers). When we removed this operation, performance significantly declined, even falling below that of earlier classical SR models. The varying improvements achieved by SSS and different splitting methods across different models prompt us to analyze further when SSS proves effective. We find that \\textbf{(ii). SSS demonstrates strong capabilities only when specific splitting methods, target strategies, and loss functions are used together.} Inappropriate combinations may even harm performance. Furthermore, we analyze why sub-sequence splitting yields such remarkable performance gains and find that \\textbf{(iii). it evens out the distribution of training data while increasing the likelihood that different items are targeted.} Finally, we provide suggestions for overcoming SSS interference, along with a discussion on data augmentation methods and future directions. We hope this work will prompt the broader community to re-examine the impact of data splitting on SR and promote fairer, more rigorous model evaluation. All analysis code and data will be made available upon acceptance. We provide a simple, anonymous implementation at https://github.com/KingGugu/SSS4SR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T01:28:14Z",
+    "updated": "2026-04-07T01:28:14Z",
+    "url": "http://arxiv.org/abs/2604.05309v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05309v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐（Sequential Recommendation）中的核心数据预处理技术（子序列分割）进行深入分析，揭示了其对模型评估和性能的真实影响，属于推荐系统核心领域的重要研究。",
+    "translation": "关注序列分割：揭示子序列分割对序列推荐模型的影响",
+    "summary_zh": "本文揭示了子序列分割技术在序列推荐中常被忽视的评估干扰问题，并阐明了其通过平衡训练数据分布和提升目标项覆盖率来增强模型性能的内在机制。",
+    "key_points": [
+      "本文揭示了子序列分割技术在序列推荐中常被忽视的评估干扰问题，并阐明了其通过平衡训练数据分布和提升目标项覆盖率来增强模型性能的内在机制"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05341v1",
+    "title": "Curr-RLCER:Curriculum Reinforcement Learning For Coherence Explainable Recommendation",
+    "authors": [
+      "Xiangchen Pan",
+      "Wei Wei"
+    ],
+    "summary": "Explainable recommendation systems (RSs) are designed to explicitly uncover the rationale of each recommendation, thereby enhancing the transparency and credibility of RSs. Previous methods often jointly predicted ratings and generated explanations, but overlooked the incoherence of such two objectives. To address this issue, we propose Curr-RLCER, a reinforcement learning framework for explanation coherent recommendation with dynamic rating alignment. It employs curriculum learning, transitioning from basic predictions (i.e., click through rating-CTR, selection-based rating) to open-ended recommendation explanation generation. In particular, the rewards of each stage are designed for progressively enhancing the stability of RSs. Furthermore, a coherence-driven reward mechanism is also proposed to enforce the coherence between generated explanations and predicted ratings, supported by a specifically designed evaluation scheme. The extensive experimental results on three explainable recommendation datasets indicate that the proposed framework is effective. Codes and datasets are available at https://github.com/pxcstart/Curr-RLCER.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T02:25:36Z",
+    "updated": "2026-04-07T02:25:36Z",
+    "url": "http://arxiv.org/abs/2604.05341v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05341v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对可解释推荐系统中的评分与解释不一致问题，提出基于课程强化学习的解决方案，属于核心推荐技术；且来自 TAL（好未来），根据规则额外加 1 分。",
+    "translation": "Curr-RLCER：用于连贯可解释推荐的课程强化学习框架",
+    "summary_zh": "提出一种课程强化学习框架，通过从基础预测到开放生成解释的渐进式训练及一致性奖励机制，解决推荐评分与生成解释之间的不连贯问题。",
+    "key_points": [
+      "提出一种课程强化学习框架，通过从基础预测到开放生成解释的渐进式训练及一致性奖励机制，解决推荐评分与生成解释之间的不连贯问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05684v1",
+    "title": "Improving Semantic Proximity in Information Retrieval through Cross-Lingual Alignment",
+    "authors": [
+      "Seongtae Hong",
+      "Youngjoon Jang",
+      "Jungseob Lee",
+      "Hyeonseok Moon",
+      "Heuiseok Lim"
+    ],
+    "summary": "With the increasing accessibility and utilization of multilingual documents, Cross-Lingual Information Retrieval (CLIR) has emerged as an important research area. Conventionally, CLIR tasks have been conducted under settings where the language of documents differs from that of queries, and typically, the documents are composed in a single coherent language. In this paper, we highlight that in such a setting, the cross-lingual alignment capability may not be evaluated adequately. Specifically, we observe that, in a document pool where English documents coexist with another language, most multilingual retrievers tend to prioritize unrelated English documents over the related document written in the same language as the query. To rigorously analyze and quantify this phenomenon, we introduce various scenarios and metrics designed to evaluate the cross-lingual alignment performance of multilingual retrieval models. Furthermore, to improve cross-lingual performance under these challenging conditions, we propose a novel training strategy aimed at enhancing cross-lingual alignment. Using only a small dataset consisting of 2.8k samples, our method significantly improves the cross-lingual retrieval performance while simultaneously mitigating the English inclination problem. Extensive analyses demonstrate that the proposed method substantially enhances the cross-lingual alignment capabilities of most multilingual embedding models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T10:35:52Z",
+    "updated": "2026-04-07T10:35:52Z",
+    "url": "http://arxiv.org/abs/2604.05684v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05684v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对跨语言信息检索（CLIR）中的语义对齐问题提出改进策略，属于搜索核心技术的明确应用，非纯 LLM 基础研究。",
+    "translation": "通过跨语言对齐提升信息检索中的语义邻近度",
+    "summary_zh": "针对多语言检索模型倾向于忽略同语言相关文档而优先匹配无关英文文档的问题，提出一种新的训练策略以增强跨语言对齐能力并缓解英语偏好偏差。",
+    "key_points": [
+      "针对多语言检索模型倾向于忽略同语言相关文档而优先匹配无关英文文档的问题，提出一种新的训练策略以增强跨语言对齐能力并缓解英语偏好偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06123v1",
+    "title": "A Large-Scale Empirical Comparison of Meta-Learners and Causal Forests for Heterogeneous Treatment Effect Estimation in Marketing Uplift Modeling",
+    "authors": [
+      "Aman Singh"
+    ],
+    "summary": "Estimating Conditional Average Treatment Effects (CATE) at the individual level is central to precision marketing, yet systematic benchmarking of uplift modeling methods at industrial scale remains limited. We present UpliftBench, an empirical evaluation of four CATE estimators: S-Learner, T-Learner, X-Learner (all with LightGBM base learners), and Causal Forest (EconML), applied to the Criteo Uplift v2.1 dataset comprising 13.98 million customer records. The near-random treatment assignment (propensity AUC = 0.509) provides strong internal validity for causal estimation. Evaluated via Qini coefficient and cumulative gain curves, the S-Learner achieves the highest Qini score of 0.376, with the top 20% of customers ranked by predicted CATE capturing 77.7% of all incremental conversions, a 3.9x improvement over random targeting. SHAP analysis identifies f8 as the dominant heterogeneous treatment effect (HTE) driver among the 12 anonymized covariates. Causal Forest uncertainty quantification reveals that 1.9% of customers are confident persuadables (lower 95% CI > 0) and 0.1% are confident sleeping dogs (upper 95% CI < 0). Our results provide practitioners with evidence-based guidance on method selection for large-scale uplift modeling pipelines.",
+    "categories": [
+      "stat.CO",
+      "cs.LG",
+      "econ.EM",
+      "stat.ME"
+    ],
+    "published": "2026-04-07T17:35:45Z",
+    "updated": "2026-04-07T17:35:45Z",
+    "url": "http://arxiv.org/abs/2604.06123v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.06123v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于营销提升建模（Uplift Modeling），这是推荐系统和广告排序中因果推断的核心应用场景，直接解决精准营销问题；虽非纯 LLM 研究，但符合核心推荐/广告业务需求，且来自中国公司额外加 1 分。",
+    "translation": "大规模实证对比：营销提升建模中的元学习器与因果森林异质处理效应估计",
+    "summary_zh": "本文提出 UpliftBench 基准，在大规模工业数据上系统评估了 S-Learner、T-Learner、X-Learner 及因果森林等四种方法在个体级条件平均处理效应（CATE）估计中的表现，为构建大规模提升建模流水线提供方法论指导。",
+    "key_points": [
+      "本文提出 UpliftBench 基准，在大规模工业数据上系统评估了 S-Learner、T-Learner、X-Learner 及因果森林等四种方法在个体级条件平均处理效应（CATE）估计中的表现，为构建大规模提升建模流水线提供方法论指导"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05764v1",
+    "title": "Generative Retrieval Overcomes Limitations of Dense Retrieval but Struggles with Identifier Ambiguity",
+    "authors": [
+      "Adrian Bracher",
+      "Svitlana Vakulenko"
+    ],
+    "summary": "While dense retrieval models, which embed queries and documents into a shared low-dimensional space, have gained widespread popu- larity, they were shown to exhibit important theoretical limitations and considerably lag behind traditional sparse retrieval models in certain settings. Generative retrieval has emerged as an alternative approach to dense retrieval by using a language model to predict query-document relevance directly. In this paper, we demonstrate strengths and weaknesses of generative retrieval approaches us- ing a simple synthetic dataset, called LIMIT, that was previously introduced to empirically demonstrate the theoretical limitations of embedding-based retrieval but was not used to evaluate genera- tive retrieval. We close this research gap and show that generative retrieval achieves the best performance on this dataset without any additional training required (0.92 and 0.99 R@2 for SEAL and MINDER, respectively), compared to dense approaches (< 0.03 Re- call@2) and BM25 (0.86 R@2). However, we then proceed to extend the original LIMIT dataset by adding simple hard negative samples and observe the performance degrading for all the models including the generative retrieval models (0.51 R@2) as well as BM25 (0.21 R@2). Error analysis identifies a failure in the decoding mechanism, caused by the inability to produce identifiers that are unique to relevant documents. Future generative retrieval must address these issues, either by designing identifiers that are more suitable to the decoding process or by adapting decoding and scoring algorithms to preserve relevance signals.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T12:08:00Z",
+    "updated": "2026-04-07T12:08:00Z",
+    "url": "http://arxiv.org/abs/2604.05764v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05764v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文直接研究生成式检索（Generative Retrieval）在搜索场景下的优势与标识符歧义问题，属于搜索核心技术范畴，但主要基于合成数据集进行理论分析而非实际业务系统创新。",
+    "translation": "生成式检索克服了稠密检索的局限性但在标识符歧义上存在困难",
+    "summary_zh": "本文通过扩展合成数据集 LIMIT，揭示了生成式检索虽能克服稠密检索的理论局限，但因解码机制无法生成唯一文档标识符而受限于硬负样本导致的性能下降。",
+    "key_points": [
+      "本文通过扩展合成数据集 LIMIT，揭示了生成式检索虽能克服稠密检索的理论局限，但因解码机制无法生成唯一文档标识符而受限于硬负样本导致的性能下降"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05268v1",
+    "title": "Region-R1: Reinforcing Query-Side Region Cropping for Multi-Modal Re-Ranking",
+    "authors": [
+      "Chan-Wei Hu",
+      "Zhengzhong Tu"
+    ],
+    "summary": "Multi-modal retrieval-augmented generation (MM-RAG) relies heavily on re-rankers to surface the most relevant evidence for image-question queries. However, standard re-rankers typically process the full query image as a global embedding, making them susceptible to visual distractors (e.g., background clutter) that skew similarity scores. We propose Region-R1, a query-side region cropping framework that formulates region selection as a decision-making problem during re-ranking, allowing the system to learn to retain the full image or focus only on a question-relevant region before scoring the retrieved candidates. Region-R1 learns a policy with a novel region-aware group relative policy optimization (r-GRPO) to dynamically crop a discriminative region. Across two challenging benchmarks, E-VQA and InfoSeek, Region-R1 delivers consistent gains, achieving state-of-the-art performances by increasing conditional Recall@1 by up to 20%. These results show the great promise of query-side adaptation as a simple but effective way to strengthen MM-RAG re-ranking.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-07T00:05:12Z",
+    "updated": "2026-04-07T00:05:12Z",
+    "url": "http://arxiv.org/abs/2604.05268v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05268v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于多模态 RAG 中的重排序环节，提出了查询侧区域裁剪方法，但主要应用于 VQA 和视觉问答基准，缺乏明确的电商或通用推荐搜索业务场景，属于有潜力的通用多模态方法。",
+    "translation": "Region-R1：强化查询侧区域裁剪用于多模态重排序",
+    "summary_zh": "提出一种将区域选择建模为决策问题的重排序框架，通过强化学习策略动态裁剪查询图像中与问题相关的判别性区域，以消除视觉干扰并提升多模态检索证据的相关性评分。",
+    "key_points": [
+      "提出一种将区域选择建模为决策问题的重排序框架，通过强化学习策略动态裁剪查询图像中与问题相关的判别性区域，以消除视觉干扰并提升多模态检索证据的相关性评分"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06163v1",
+    "title": "Data, Not Model: Explaining Bias toward LLM Texts in Neural Retrievers",
+    "authors": [
+      "Wei Huang",
+      "Keping Bi",
+      "Yinqiong Cai",
+      "Wei Chen",
+      "Jiafeng Guo",
+      "Xueqi Cheng"
+    ],
+    "summary": "Recent studies show that neural retrievers often display source bias, favoring passages generated by LLMs over human-written ones, even when both are semantically similar. This bias has been considered an inherent flaw of retrievers, raising concerns about the fairness and reliability of modern information access systems. Our work challenges this view by showing that source bias stems from supervision in retrieval datasets rather than the models themselves. We found that non-semantic differences, like fluency and term specificity, exist between positive and negative documents, mirroring differences between LLM and human texts. In the embedding space, the bias direction from negatives to positives aligns with the direction from human-written to LLM-generated texts. We theoretically show that retrievers inevitably absorb the artifact imbalances in the training data during contrastive learning, which leads to their preferences over LLM texts. To mitigate the effect, we propose two approaches: 1) reducing artifact differences in training data and 2) adjusting LLM text vectors by removing their projection on the bias vector. Both methods substantially reduce source bias. We hope our study alleviates some concerns regarding LLM-generated texts in information access systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T17:57:07Z",
+    "updated": "2026-04-07T17:57:07Z",
+    "url": "http://arxiv.org/abs/2604.06163v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.06163v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要分析神经检索器中的数据来源偏差及其成因，虽涉及检索系统公平性，但核心聚焦于 LLM 生成文本的特性分析而非推荐/搜索核心架构创新或业务应用，属于边缘相关研究。",
+    "translation": "数据而非模型：解释神经检索器对 LLM 文本的偏差",
+    "summary_zh": "本文提出神经检索器对 LLM 文本的偏好源于训练数据中非语义特征（如流畅度）的偏差而非模型本身，并通过修正训练数据 artifacts 及调整向量投影来减轻该偏差。",
+    "key_points": [
+      "本文提出神经检索器对 LLM 文本的偏好源于训练数据中非语义特征（如流畅度）的偏差而非模型本身，并通过修正训练数据 artifacts 及调整向量投影来减轻该偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06156v1",
+    "title": "MMEmb-R1: Reasoning-Enhanced Multimodal Embedding with Pair-Aware Selection and Adaptive Control",
+    "authors": [
+      "Yuchi Wang",
+      "Haiyang Yu",
+      "Weikang Bian",
+      "Jiefeng Long",
+      "Xiao Liang",
+      "Chao Feng",
+      "Hongsheng Li"
+    ],
+    "summary": "MLLMs have been successfully applied to multimodal embedding tasks, yet their generative reasoning capabilities remain underutilized. Directly incorporating chain-of-thought reasoning into embedding learning introduces two fundamental challenges. First, structural misalignment between instance-level reasoning and pairwise contrastive supervision may lead to shortcut behavior, where the model merely learns the superficial format of reasoning. Second, reasoning is not universally beneficial for embedding tasks. Enforcing reasoning for all inputs may introduce unnecessary computation and latency, and can even obscure salient semantic signals for simple cases. To address these issues, we propose MMEmb-R1, an adaptive reasoning-based multimodal embedding framework. We formulate reasoning as a latent variable and introduce pair-aware reasoning selection that employs counterfactual intervention to identify reasoning paths beneficial for query-target alignment. Furthermore, we adopt reinforcement learning to selectively invoke reasoning only when necessary. Experiments on the MMEB-V2 benchmark demonstrate that our model achieves a score of 71.2 with only 4B parameters, establishing a new state-of-the-art while significantly reducing reasoning overhead and inference latency.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-07T17:55:17Z",
+    "updated": "2026-04-07T17:55:17Z",
+    "url": "http://arxiv.org/abs/2604.06156v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.06156v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "1MMLab,TheChineseUniversityofHongKong 2ByteDance"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该文属于纯多模态表征学习研究，虽提及检索相关的嵌入任务，但未针对推荐/搜索系统的具体场景（如排序、个性化）提出创新，且核心聚焦于通用 MLLM 推理机制优化。",
+    "translation": "MMEmb-R1：基于成对感知选择与自适应控制的推理增强多模态嵌入",
+    "summary_zh": "提出一种自适应推理多模态嵌入框架，通过成对感知选择和强化学习动态决定何时启用链式思维推理，以解决结构错位和计算冗余问题。",
+    "key_points": [
+      "提出一种自适应推理多模态嵌入框架，通过成对感知选择和强化学习动态决定何时启用链式思维推理，以解决结构错位和计算冗余问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05461v1",
+    "title": "Content Fuzzing for Escaping Information Cocoons on Digital Social Media",
+    "authors": [
+      "Yifeng He",
+      "Ziye Tang",
+      "Hao Chen"
+    ],
+    "summary": "Information cocoons on social media limit users' exposure to posts with diverse viewpoints. Modern platforms use stance detection as an important signal in recommendation and ranking pipelines, which can route posts primarily to like-minded audiences and reduce cross-cutting exposure. This restricts the reach of dissenting opinions and hinders constructive discourse. We take the creator's perspective and investigate how content can be revised to reach beyond existing affinity clusters. We present ContentFuzz, a confidence-guided fuzzing framework that rewrites posts while preserving their human-interpreted intent and induces different machine-inferred stance labels. ContentFuzz aims to route posts beyond their original cocoons. Our method guides a large language model (LLM) to generate meaning-preserving rewrites using confidence feedback from stance detection models. Evaluated on four representative stance detection models across three datasets in two languages, ContentFuzz effectively changes machine-classified stance labels, while maintaining semantic integrity with respect to the original content.",
+    "categories": [
+      "cs.CL",
+      "cs.SI"
+    ],
+    "published": "2026-04-07T05:49:58Z",
+    "updated": "2026-04-07T05:49:58Z",
+    "url": "http://arxiv.org/abs/2604.05461v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05461v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注利用 LLM 改写内容以绕过立场检测，属于内容安全/对抗样本研究，虽提及推荐管道但并非直接优化推荐算法或架构，且纯 LLM 应用性质较强，故给低分（基础分 3+ 中国公司加分 1）。",
+    "translation": "内容模糊化：逃离数字社交媒体中的信息茧房",
+    "summary_zh": "提出一种基于置信度反馈的内容模糊化框架，利用大语言模型在保持人类语义意图不变的前提下重写帖子，以改变机器推断的立场标签从而突破信息茧房。",
+    "key_points": [
+      "提出一种基于置信度反馈的内容模糊化框架，利用大语言模型在保持人类语义意图不变的前提下重写帖子，以改变机器推断的立场标签从而突破信息茧房"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05766v1",
+    "title": "The LLM Effect on IR Benchmarks: A Meta-Analysis of Effectiveness, Baselines, and Contamination",
+    "authors": [
+      "Moritz Staudinger",
+      "Wojciech Kusa",
+      "Allan Hanbury"
+    ],
+    "summary": "Benchmark collections have long enabled controlled comparison and cumulative progress in Information Retrieval (IR). However, prior meta-analyses have shown that reported effectiveness gains often fail to accumulate, in part due to the use of weak or outdated baselines. While large language models are increasingly used in retrieval pipelines, their impact on established IR benchmarks has not been systematically analyzed. In this study, we analyze 143 publications reporting results on the TREC Robust04 collection and the TREC Deep Learning 2020 (DL20) passage retrieval benchmark to examine longitudinal trends in retrieval effectiveness and baseline strength. We observe what we term an \\emph{LLM effect}: recent systems incorporating LLM components achieve 8.8\\% higher nDCG@10 on DL20 compared to the best result from TREC 2020 and approximately 20\\% higher on Robust04 since 2023. However, adapting a data contamination detection approach to reranking reveals measurable contamination in both benchmarks. While excluding contaminated topics reduces effectiveness, confidence intervals remain wide, making it difficult to determine whether the LLM effect reflects genuine methodological advances or memorization from pretraining data.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T12:10:08Z",
+    "updated": "2026-04-07T12:10:08Z",
+    "url": "http://arxiv.org/abs/2604.05766v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05766v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文是对 IR 基准测试中 LLM 影响的元分析，侧重于评估数据污染和基线强度，而非提出新的推荐或搜索算法架构，属于纯 LLM/IR 评估研究。",
+    "translation": "LLM 对信息检索基准的影响：有效性、基线与数据污染的元分析",
+    "summary_zh": "本文通过元分析揭示了 LLM 在信息检索基准上的性能提升可能部分源于训练数据污染，而非纯粹的算法创新。",
+    "key_points": [
+      "本文通过元分析揭示了 LLM 在信息检索基准上的性能提升可能部分源于训练数据污染，而非纯粹的算法创新"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06097v1",
+    "title": "Masking or Mitigating? Deconstructing the Impact of Query Rewriting on Retriever Biases in RAG",
+    "authors": [
+      "Agam Goyal",
+      "Koyel Mukherjee",
+      "Apoorv Saxena",
+      "Anirudh Phukan",
+      "Eshwar Chandrasekharan",
+      "Hari Sundaram"
+    ],
+    "summary": "Dense retrievers in retrieval-augmented generation (RAG) systems exhibit systematic biases -- including brevity, position, literal matching, and repetition biases -- that can compromise retrieval quality. Query rewriting techniques are now standard in RAG pipelines, yet their impact on these biases remains unexplored. We present the first systematic study of how query enhancement techniques affect dense retrieval biases, evaluating five methods across six retrievers. Our findings reveal that simple LLM-based rewriting achieves the strongest aggregate bias reduction (54\\%), yet fails under adversarial conditions where multiple biases combine. Mechanistic analysis uncovers two distinct mechanisms: simple rewriting reduces bias through increased score variance, while pseudo-document generation methods achieve reduction through genuine decorrelation from bias-inducing features. However, no technique uniformly addresses all biases, and effects vary substantially across retrievers. Our results provide practical guidance for selecting query enhancement strategies based on specific bias vulnerabilities. More broadly, we establish a taxonomy distinguishing query-document interaction biases from document encoding biases, clarifying the limits of query-side interventions for debiasing RAG systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-07T17:10:15Z",
+    "updated": "2026-04-07T17:10:15Z",
+    "url": "http://arxiv.org/abs/2604.06097v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.06097v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe"
+    ],
+    "affiliation_lines": [
+      "♠SiebelSchoolofComputingandDataScience,UniversityofIllinoisUrbana-Champaign",
+      "♣AdobeResearch ♡InceptionLabs ♢IndianInstituteofScience"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 基础研究，聚焦于检索偏差分析与查询重写机制，未涉及推荐系统或搜索产品的核心业务场景（如排序、个性化、用户建模）。",
+    "translation": "掩盖还是缓解？解构查询重写对 RAG 检索器偏差的影响",
+    "summary_zh": "本文系统研究了查询重写技术如何影响密集检索器中的系统性偏差，揭示了简单重写与伪文档生成两种不同的去偏机制及其局限性。",
+    "key_points": [
+      "本文系统研究了查询重写技术如何影响密集检索器中的系统性偏差，揭示了简单重写与伪文档生成两种不同的去偏机制及其局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05467v1",
+    "title": "CUE-R: Beyond the Final Answer in Retrieval-Augmented Generation",
+    "authors": [
+      "Siddharth Jain",
+      "Venkat Narayan Vedam"
+    ],
+    "summary": "As language models shift from single-shot answer generation toward multi-step reasoning that retrieves and consumes evidence mid-inference, evaluating the role of individual retrieved items becomes more important. Existing RAG evaluation typically targets final-answer quality, citation faithfulness, or answer-level attribution, but none of these directly targets the intervention-based, per-evidence-item utility view we study here. We introduce CUE-R, a lightweight intervention-based framework for measuring per-evidence-item operational utility in single-shot RAG using shallow observable retrieval-use traces. CUE-R perturbs individual evidence items via REMOVE, REPLACE, and DUPLICATE operators, then measures changes along three utility axes (correctness, proxy-based grounding faithfulness, and confidence error) plus a trace-divergence signal. We also outline an operational evidence-role taxonomy for interpreting intervention outcomes. Experiments on HotpotQA and 2WikiMultihopQA with Qwen-3 8B and GPT-5.2 reveal a consistent pattern: REMOVE and REPLACE substantially harm correctness and grounding while producing large trace shifts, whereas DUPLICATE is often answer-redundant yet not fully behaviorally neutral. A zero-retrieval control confirms that these effects arise from degradation of meaningful retrieval. A two-support ablation further shows that multi-hop evidence items can interact non-additively: removing both supports harms performance far more than either single removal. Our results suggest that answer-only evaluation misses important evidence effects and that intervention-based utility analysis is a practical complement for RAG evaluation.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-04-07T06:05:08Z",
+    "updated": "2026-04-07T06:05:08Z",
+    "url": "http://arxiv.org/abs/2604.05467v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.05467v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 评估研究，专注于通用问答中的证据效用分析，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "CUE-R：超越检索增强生成的最终答案",
+    "summary_zh": "提出一种基于干预的轻量级框架 CUE-R，通过扰动单个证据项并观测推理轨迹变化，来量化检索增强生成中每个证据项的操作效用。",
+    "key_points": [
+      "提出一种基于干预的轻量级框架 CUE-R，通过扰动单个证据项并观测推理轨迹变化，来量化检索增强生成中每个证据项的操作效用"
+    ]
+  }
+]

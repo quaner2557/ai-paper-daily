@@ -1,0 +1,357 @@
+[
+  {
+    "arxiv_id": "2604.07930v1",
+    "title": "Unified Supervision for Walmarts Sponsored Search Retrieval via Joint Semantic Relevance and Behavioral Engagement Modeling",
+    "authors": [
+      "Shasvat Desai",
+      "Md Omar Faruk Rokon",
+      "Jhalak Nilesh Acharya",
+      "Isha Shah",
+      "Hong Yao",
+      "Utkarsh Porwal",
+      "Kuang-chih Lee"
+    ],
+    "summary": "Modern search systems rely on a fast first stage retriever to fetch relevant items from a massive catalog of items. Deployed search systems often use user engagement signals to supervise bi-encoder retriever training at scale, because these signals are continuously logged from real traffic and require no additional annotation effort. However, engagement is an imperfect proxy for semantic relevance. Items may receive interactions due to popularity, promotion, attractive visuals, titles, or price, despite weak query-item relevance. These limitations are further accentuated in Walmart's e-commerce sponsored search. User engagement on ad items is often structurally sparse because the frequency with which an ad is shown depends on factors beyond relevance such as whether the advertiser is currently running that ad, the outcome of the auction for available ad slots, bid competitiveness, and advertiser budget. Thus, even highly relevant query ad pairs can have limited engagement signals simply due to limited impressions. We propose a bi-encoder training framework for Walmart's sponsored search retrieval in e-commerce that uses semantic relevance as the primary supervision signal, with engagement used only as a preference signal among relevant items. Concretely, we construct a context-rich training target by combining 1. graded relevance labels from a cascade of cross-encoder teacher models, 2. a multichannel retrieval prior score derived from the rank positions and cross-channel agreement of retrieval systems running in production, and 3. user engagement applied only to semantically relevant items to refine preferences. Our approach outperforms the current production system in both offline evaluation and online AB tests, yielding consistent gains in average relevance and NDCG.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-09T07:49:41Z",
+    "updated": "2026-04-09T07:49:41Z",
+    "url": "http://arxiv.org/abs/2604.07930v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07930v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对沃尔玛电商赞助搜索的检索问题，提出了结合语义相关性与用户行为的新训练框架，属于核心领域的高优先级应用；虽非中国公司（TAL/Gree）出品不适用额外加分，但其本身价值已属满分。",
+    "translation": "通过联合语义相关性与行为参与度建模实现沃尔玛赞助搜索检索的统一监督",
+    "summary_zh": "提出一种双编码器训练框架，以级联交叉编码器生成的分级相关性标签为主监督信号，仅将用户参与度作为相关项间的偏好优化信号，解决了赞助搜索中因曝光限制导致的行为信号稀疏及噪声问题。",
+    "key_points": [
+      "提出一种双编码器训练框架，以级联交叉编码器生成的分级相关性标签为主监督信号，仅将用户参与度作为相关项间的偏好优化信号，解决了赞助搜索中因曝光限制导致的行为信号稀疏及噪声问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.08181v1",
+    "title": "Long-Term Embeddings for Balanced Personalization",
+    "authors": [
+      "Andrii Dzhoha",
+      "Egor Malykh"
+    ],
+    "summary": "Modern transformer-based sequential recommenders excel at capturing short-term intent but often suffer from recency bias, overlooking stable long-term preferences. While extending sequence lengths is an intuitive fix, it is computationally inefficient, and recent interactions tend to dominate the model's attention. We propose Long-Term Embeddings (LTE) as a high-inertia contextual anchor to bridge this gap. We address a critical production challenge: the point-in-time consistency problem caused by infrastructure constraints, as feature stores typically host only a single \"live\" version of features. This leads to an offline-online mismatch during model deployments and rollbacks, as models are forced to process evolved representations they never saw during training. To resolve this, we introduce an LTE framework that constrains embeddings to a fixed semantic basis of content-based item representations, ensuring cross-version compatibility. Furthermore, we investigate integration strategies for causal language modeling, considering the data leakage issue that occurs when the LTE and the transformer's short-term sequence share a temporal horizon. We evaluate two representations: a heuristic average and an asymmetric autoencoder with a fixed decoder grounded in the semantic basis to enable behavioral fine-tuning while maintaining stability. Online A/B tests on Zalando demonstrate that integrating LTE as a contextual prefix token using a lagged window yields significant uplifts in both user engagement and financial metrics.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-09T12:36:29Z",
+    "updated": "2026-04-09T12:36:29Z",
+    "url": "http://arxiv.org/abs/2604.08181v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.08181v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的近期偏差和长短期偏好平衡问题，并提出了具体的工程架构（LTE）来解决生产环境中的离线 - 在线不一致挑战，属于核心推荐系统进展；虽非中国公司（Zalando 为欧洲电商），但其极高的相关性和工程价值仍给满分。",
+    "translation": "用于平衡个性化的长期嵌入方法",
+    "summary_zh": "提出长期嵌入（LTE）框架，通过将嵌入约束在固定的语义基础上作为高惯性上下文锚点，以平衡序列推荐中的近期偏差与长期偏好，并解决特征存储版本迭代导致的离线 - 在线不一致问题。",
+    "key_points": [
+      "提出长期嵌入（LTE）框架，通过将嵌入约束在固定的语义基础上作为高惯性上下文锚点，以平衡序列推荐中的近期偏差与长期偏好，并解决特征存储版本迭代导致的离线 - 在线不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07992v1",
+    "title": "Context-Aware Disentanglement for Cross-Domain Sequential Recommendation: A Causal View",
+    "authors": [
+      "Xingzi Wang",
+      "Qingtian Bian",
+      "Hui Fang"
+    ],
+    "summary": "Cross-Domain Sequential Recommendation (CDSR) aims to en-hance recommendation quality by transferring knowledge across domains, offering effective solutions to data sparsity and cold-start issues. However, existing methods face three major limitations: (1) they overlook varying contexts in user interaction sequences, resulting in spurious correlations that obscure the true causal relationships driving user preferences; (2) the learning of domain- shared and domain-specific preferences is hindered by gradient conflicts between domains, leading to a seesaw effect where performance in one domain improves at the expense of the other; (3) most methods rely on the unrealistic assumption of substantial user overlap across domains. To address these issues, we propose CoDiS, a context-aware disentanglement framework grounded in a causal view to accurately disentangle domain-shared and domain-specific preferences. Specifically, Our approach includes a variational context adjustment method to reduce confounding effects of contexts, expert isolation and selection strategies to resolve gradient conflict, and a variational adversarial disentangling module for the thorough disentanglement of domain-shared and domain-specific representations. Extensive experiments on three real-world datasets demonstrate that CoDiS consistently outperforms state-of-the-art CDSR baselines with statistical significance. Code is available at:https://anonymous.4open.science/r/CoDiS-6FA0.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-09T09:00:49Z",
+    "updated": "2026-04-09T09:00:49Z",
+    "url": "http://arxiv.org/abs/2604.07992v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07992v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨域序列推荐（CDSR）中的核心痛点（上下文混淆、梯度冲突），提出基于因果视角的解耦框架，属于推荐系统核心领域的高价值创新。",
+    "translation": "基于因果视角的跨域序列推荐上下文感知解耦研究",
+    "summary_zh": "本文提出 CoDiS 框架，通过因果视角下的变分上下文调整、专家隔离选择及对抗解耦模块，精准分离域共享与域特定偏好以解决跨域推荐中的虚假相关和梯度冲突问题。",
+    "key_points": [
+      "本文提出 CoDiS 框架，通过因果视角下的变分上下文调整、专家隔离选择及对抗解耦模块，精准分离域共享与域特定偏好以解决跨域推荐中的虚假相关和梯度冲突问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07851v1",
+    "title": "ReRec: Reasoning-Augmented LLM-based Recommendation Assistant via Reinforcement Fine-tuning",
+    "authors": [
+      "Jiani Huang",
+      "Shijie Wang",
+      "Liangbo Ning",
+      "Wenqi Fan",
+      "Qing Li"
+    ],
+    "summary": "With the rise of LLMs, there is an increasing need for intelligent recommendation assistants that can handle complex queries and provide personalized, reasoning-driven recommendations. LLM-based recommenders show potential but face challenges in multi-step reasoning, underscoring the need for reasoning-augmented systems. To address this gap, we propose ReRec, a novel reinforcement fine-tuning (RFT) framework designed to improve LLM reasoning in complex recommendation tasks. Our framework introduces three key components: (1) Dual-Graph Enhanced Reward Shaping, integrating recommendation metrics like NDCG@K with Query Alignment and Preference Alignment Scores to provide fine-grained reward signals for LLM optimization; (2) Reasoning-aware Advantage Estimation, which decomposes LLM outputs into reasoning segments and penalizes incorrect steps to enhance reasoning of recommendation; and (3) Online Curriculum Scheduler, dynamically assess query difficulty and organize training curriculum to ensure stable learning during RFT. Experiments demonstrate that ReRec outperforms state-of-the-art baselines and preserves core abilities like instruction-following and general knowledge. Our codes are available at https://github.com/jiani-huang/ReRec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-09T06:07:03Z",
+    "updated": "2026-04-09T06:07:03Z",
+    "url": "http://arxiv.org/abs/2604.07851v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07851v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统场景，提出利用强化微调（RFT）增强 LLM 在复杂推荐任务中的多步推理能力，属于 LLM for RecSys 的核心应用。",
+    "translation": "ReRec：基于强化微调的推理增强型 LLM 推荐助手",
+    "summary_zh": "提出 ReRec 框架，通过双图增强奖励塑造、推理感知优势估计和在线课程调度三项核心机制，利用强化微调技术提升大语言模型在复杂推荐任务中的多步推理与个性化决策能力。",
+    "key_points": [
+      "提出 ReRec 框架，通过双图增强奖励塑造、推理感知优势估计和在线课程调度三项核心机制，利用强化微调技术提升大语言模型在复杂推荐任务中的多步推理与个性化决策能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07825v1",
+    "title": "Filling the Gaps: Selective Knowledge Augmentation for LLM Recommenders",
+    "authors": [
+      "Jaehyun Lee",
+      "Sanghwan Jang",
+      "SeongKu Kang",
+      "Hwanjo Yu"
+    ],
+    "summary": "Large language models (LLMs) have recently emerged as powerful training-free recommenders. However, their knowledge of individual items is inevitably uneven due to imbalanced information exposure during pretraining, a phenomenon we refer to as knowledge gap problem. To address this, most prior methods have employed a naive uniform augmentation that appends external information for every item in the input prompt. However, this approach not only wastes limited context budget on redundant augmentation for well-known items but can also hinder the model's effective reasoning. To this end, we propose KnowSA_CKP (Knowledge-aware Selective Augmentation with Comparative Knowledge Probing) to mitigate the knowledge gap problem. KnowSA_CKP estimates the LLM's internal knowledge by evaluating its capability to capture collaborative relationships and selectively injects additional information only where it is most needed. By avoiding unnecessary augmentation for well-known items, KnowSA_CKP focuses on items that benefit most from knowledge supplementation, thereby making more effective use of the context budget. KnowSA_CKP requires no fine-tuning step, and consistently improves both recommendation accuracy and context efficiency across four real-world datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-09T05:27:04Z",
+    "updated": "2026-04-09T05:27:04Z",
+    "url": "http://arxiv.org/abs/2604.07825v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07825v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 推荐系统中的“知识缺口”问题，提出了一种选择性知识增强方法以优化上下文预算，属于 LLM for RecSys 的核心应用研究。",
+    "translation": "填补空白：面向大语言模型推荐系统的选择性知识增强",
+    "summary_zh": "针对大语言模型推荐中因预训练数据不均导致的知识缺口问题，提出一种通过评估模型内部协作关系能力来动态选择性地注入外部信息的增强方法，旨在避免对已知物品的冗余增强并提升上下文利用效率。",
+    "key_points": [
+      "针对大语言模型推荐中因预训练数据不均导致的知识缺口问题，提出一种通过评估模型内部协作关系能力来动态选择性地注入外部信息的增强方法，旨在避免对已知物品的冗余增强并提升上下文利用效率"
+    ]
+  },
+  {
+    "arxiv_id": "2604.08011v1",
+    "title": "Beyond Dense Connectivity: Explicit Sparsity for Scalable Recommendation",
+    "authors": [
+      "Yantao Yu",
+      "Sen Qiao",
+      "Lei Shen",
+      "Bing Wang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Recent progress in scaling large models has motivated recommender systems to increase model depth and capacity to better leverage massive behavioral data. However, recommendation inputs are high-dimensional and extremely sparse, and simply scaling dense backbones (e.g., deep MLPs) often yields diminishing returns or even performance degradation. Our analysis of industrial CTR models reveals a phenomenon of implicit connection sparsity: most learned connection weights tend towards zero, while only a small fraction remain prominent. This indicates a structural mismatch between dense connectivity and sparse recommendation data; by compelling the model to process vast low-utility connections instead of valid signals, the dense architecture itself becomes the primary bottleneck to effective pattern modeling. We propose \\textbf{SSR} (Explicit \\textbf{S}parsity for \\textbf{S}calable \\textbf{R}ecommendation), a framework that incorporates sparsity explicitly into the architecture. SSR employs a multi-view \"filter-then-fuse\" mechanism, decomposing inputs into parallel views for dimension-level sparse filtering followed by dense fusion. Specifically, we realize the sparsity via two strategies: a Static Random Filter that achieves efficient structural sparsity via fixed dimension subsets, and Iterative Competitive Sparse (ICS), a differentiable dynamic mechanism that employs bio-inspired competition to adaptively retain high-response dimensions. Experiments on three public datasets and a billion-scale industrial dataset from AliExpress (a global e-commerce platform) show that SSR outperforms state-of-the-art baselines under similar budgets. Crucially, SSR exhibits superior scalability, delivering continuous performance gains where dense models saturate.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-09T09:13:21Z",
+    "updated": "2026-04-09T09:13:21Z",
+    "url": "http://arxiv.org/abs/2604.08011v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.08011v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统核心痛点（稀疏数据与稠密架构的失配），提出了显式稀疏架构 SSR，并在阿里速卖通工业级数据集上验证，属于电商推荐核心架构创新。",
+    "translation": "超越稠密连接：面向可扩展推荐的显式稀疏性研究",
+    "summary_zh": "针对推荐数据高维稀疏特性与稠密模型架构的结构性失配问题，提出一种名为 SSR 的显式稀疏框架，通过“先过滤后融合”的多视图机制及动态竞争策略，高效提取高响应特征维度以提升模型可扩展性。",
+    "key_points": [
+      "针对推荐数据高维稀疏特性与稠密模型架构的结构性失配问题，提出一种名为 SSR 的显式稀疏框架，通过“先过滤后融合”的多视图机制及动态竞争策略，高效提取高响应特征维度以提升模型可扩展性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07739v1",
+    "title": "Efficient Dataset Selection for Continual Adaptation of Generative Recommenders",
+    "authors": [
+      "Cathy Jiao",
+      "Juan Elenter",
+      "Praveen Ravichandran",
+      "Bernd Huber",
+      "Joseph Cauteruccio",
+      "Todd Wasson",
+      "Timothy Heath",
+      "Chenyan Xiong",
+      "Mounia Lalmas",
+      "Paul Bennett"
+    ],
+    "summary": "Recommendation systems must continuously adapt to evolving user behavior, yet the volume of data generated in large-scale streaming environments makes frequent full retraining impractical. This work investigates how targeted data selection can mitigate performance degradation caused by temporal distributional drift while maintaining scalability. We evaluate a range of representation choices and sampling strategies for curating small but informative subsets of user interaction data. Our results demonstrate that gradient-based representations, coupled with distribution-matching, improve downstream model performance, achieving training efficiency gains while preserving robustness to drift. These findings highlight data curation as a practical mechanism for scalable monitoring and adaptive model updates in production-scale recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-09T02:48:52Z",
+    "updated": "2026-04-09T02:48:52Z",
+    "url": "http://arxiv.org/abs/2604.07739v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07739v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式推荐系统的持续适应问题，提出通过数据选择解决分布漂移和训练效率问题，属于核心推荐技术。",
+    "translation": "生成式推荐系统持续适应的高效数据集选择方法",
+    "summary_zh": "本文提出一种基于梯度表示和分布匹配的数据选择策略，旨在从海量流式数据中筛选高价值子集，以解决生成式推荐系统因时间分布漂移导致的性能下降及全量重训练成本过高的问题。",
+    "key_points": [
+      "本文提出一种基于梯度表示和分布匹配的数据选择策略，旨在从海量流式数据中筛选高价值子集，以解决生成式推荐系统因时间分布漂移导致的性能下降及全量重训练成本过高的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07869v1",
+    "title": "Ensembles at Any Cost? Accuracy-Energy Trade-offs in Recommender Systems",
+    "authors": [
+      "Jannik Nitschke",
+      "Lukas Wegmeth",
+      "Joeran Beel"
+    ],
+    "summary": "Ensemble methods are frequently used in recommender systems to improve accuracy by combining multiple models. Recent work reports sizable performance gains, but most studies still optimize primarily for accuracy and robustness rather than for energy efficiency. This paper measures accuracy energy trade offs of ensemble techniques relative to strong single models. We run 93 controlled experiments in two pipelines: 1. explicit rating prediction with Surprise (RMSE) and 2. implicit feedback ranking with LensKit (NDCG@10). We evaluate four datasets ranging from 100,000 to 7.8 million interactions (MovieLens 100K, MovieLens 1M, ModCloth, Anime). We compare four ensemble strategies (Average, Weighted, Stacking or Rank Fusion, Top Performers) against baselines and optimized single models. Whole system energy is measured with EMERS using a smart plug and converted to CO2 equivalents. Across settings, ensembles improve accuracy by 0.3% to 5.7% while increasing energy by 19% to 2,549%. On MovieLens 1M, a Top Performers ensemble improves RMSE by 0.96% at an 18.8% energy overhead over SVD++. On MovieLens 100K, an averaging ensemble improves NDCG@10 by 5.7% with 103% additional energy. On Anime, a Surprise Top Performers ensemble improves RMSE by 1.2% but consumes 2,005% more energy (0.21 vs. 0.01 Wh), increasing emissions from 2.6 to 53.8 mg CO2 equivalents, and LensKit ensembles fail due to memory limits. Overall, selective ensembles are more energy efficient than exhaustive averaging,",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-09T06:33:19Z",
+    "updated": "2026-04-09T06:33:19Z",
+    "url": "http://arxiv.org/abs/2604.07869v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07869v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的集成学习策略，深入分析了准确率与能耗之间的权衡，属于核心推荐技术优化范畴。",
+    "translation": "不惜代价的集成？推荐系统中的准确率与能耗权衡",
+    "summary_zh": "本文通过大规模对照实验，量化了推荐系统中不同集成策略相对于强单模型在准确率提升与能耗增加之间的具体权衡关系。",
+    "key_points": [
+      "本文通过大规模对照实验，量化了推荐系统中不同集成策略相对于强单模型在准确率提升与能耗增加之间的具体权衡关系"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07895v1",
+    "title": "DialBGM: A Benchmark for Background Music Recommendation from Everyday Multi-Turn Dialogues",
+    "authors": [
+      "Joonhyeok Shin",
+      "Jaehoon Kang",
+      "Yujun Lee",
+      "Hannah Lee",
+      "Yejin Lee",
+      "Yoonji Park",
+      "Kyuhong Shim"
+    ],
+    "summary": "Selecting an appropriate background music (BGM) that supports natural human conversation is a common production step in media and interactive systems. In this paper, we introduce dialogue-conditioned BGM recommendation, where a model should select non-intrusive, fitting music for a multi-turn conversation that often contains no music descriptors. To study this novel problem, we present DialBGM, a benchmark of 1,200 open-domain daily dialogues, each paired with four candidate music clips and annotated with human preference rankings. Rankings are determined by background suitability criteria, including contextual relevance, non-intrusiveness, and consistency. We evaluate a wide range of open-source and proprietary models, including audio-language models and multimodal LLMs, and show that current models fall far short of human judgments; no model exceeds 35% Hit@1 when selecting the top-ranked clip. DialBGM provides a standardized benchmark for developing discourse-aware methods for BGM selection and for evaluating both retrieval-based and generative models.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-09T07:06:26Z",
+    "updated": "2026-04-09T07:06:26Z",
+    "url": "http://arxiv.org/abs/2604.07895v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07895v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一个针对对话场景的背景音乐推荐新基准，属于多模态推荐的具体应用，但主要贡献在于数据集构建而非核心推荐算法创新。",
+    "translation": "DialBGM：基于日常多轮对话的背景音乐推荐基准",
+    "summary_zh": "本文提出了对话条件化的背景音乐推荐任务及 DialBGM 基准数据集，旨在解决在无音乐描述符的多轮对话中选取非侵入性且上下文相关的背景音乐问题。",
+    "key_points": [
+      "本文提出了对话条件化的背景音乐推荐任务及 DialBGM 基准数据集，旨在解决在无音乐描述符的多轮对话中选取非侵入性且上下文相关的背景音乐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07894v1",
+    "title": "TSUBASA: Improving Long-Horizon Personalization via Evolving Memory and Self-Learning with Context Distillation",
+    "authors": [
+      "Xinliang Frederick Zhang",
+      "Lu Wang"
+    ],
+    "summary": "Personalized large language models (PLLMs) have garnered significant attention for their ability to align outputs with individual's needs and preferences. However, they still struggle with long-horizon tasks, such as tracking a user's extensive history of conversations or activities. Existing memory mechanisms often fail to capture evolving behaviors, and RAG paradigms are trapped by a quality-efficiency tradeoff. Meanwhile, parametric adaptation is bottlenecked by train-inference gap due to the scarcity of labeled data. To enhance the long-horizon capabilities of PLLMs, we introduce TSUBASA, a two-pronged approach designed to improve memory writing via dynamic memory evolution, and memory reading via self-learning with a context distillation objective to internalize user experiences. Extensive evaluations on long-horizon benchmarks using the Qwen-3 model family (4B to 32B) validate the effectiveness of TSUBASA, surpassing competitive memory-augmented systems that rely primarily on memory writing, such as Mem0 and Memory-R1. Our analyses further confirms that TSUBASA breaks the quality-efficiency barrier to achieve Pareto improvements, delivering robust, high-fidelity personalization with a reduced token budget.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-09T07:04:19Z",
+    "updated": "2026-04-09T07:04:19Z",
+    "url": "http://arxiv.org/abs/2604.07894v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07894v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 个人化记忆机制研究，虽提及用户行为追踪，但未明确针对推荐/搜索核心场景（如召回、排序），且缺乏具体 RecSys 业务落地验证，仅因中国公司背景加 1 分。",
+    "translation": "TSUBASA：通过演化记忆与上下文蒸馏自学习提升长程个性化能力",
+    "summary_zh": "提出一种双管齐下的方法，通过动态记忆演化优化写入，并利用上下文蒸馏目标的自学习机制优化读取，以增强大语言模型在长程任务中的个性化表现。",
+    "key_points": [
+      "提出一种双管齐下的方法，通过动态记忆演化优化写入，并利用上下文蒸馏目标的自学习机制优化读取，以增强大语言模型在长程任务中的个性化表现"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07929v1",
+    "title": "Same Outcomes, Different Journeys: A Trace-Level Framework for Comparing Human and GUI-Agent Behavior in Production Search Systems",
+    "authors": [
+      "Maria Movin",
+      "Claudia Hauff",
+      "Aron Henriksson",
+      "Panagiotis Papapetrou"
+    ],
+    "summary": "LLM-driven GUI agents are increasingly used in production systems to automate workflows and simulate users for evaluation and optimization. Yet most GUI-agent evaluations emphasize task success and provide limited evidence on whether agents interact in human-like ways. We present a trace-level evaluation framework that compares human and agent behavior across (i) task outcome and effort, (ii) query formulation, and (iii) navigation across interface states. We instantiate the framework in a controlled study in a production audio-streaming search application, where 39 participants and a state-of-the-art GUI agent perform ten multi-hop search tasks. The agent achieves task success comparable to participants and generates broadly aligned queries, but follows systematically different navigation strategies: participants exhibit content-centric, exploratory behavior, while the agent is more search-centric and low-branching. These results show that outcome and query alignment do not imply behavioral alignment, motivating trace-level diagnostics when deploying GUI agents as proxies for users in production search systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-09T07:49:02Z",
+    "updated": "2026-04-09T07:49:02Z",
+    "url": "http://arxiv.org/abs/2604.07929v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07929v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要评估 LLM 驱动的 GUI Agent 与人类在搜索系统中的行为差异，属于 Agent 评估而非推荐/搜索核心算法（召回、排序等）的创新，且侧重于行为分析而非系统优化。",
+    "translation": "相同结果不同路径：生产搜索系统中人类与 GUI 智能体行为的轨迹级对比框架",
+    "summary_zh": "提出一种轨迹级评估框架，通过对比任务结果、查询构建和导航路径，揭示 LLM 驱动的 GUI 智能体虽能达成类似人类的搜索结果，但在导航策略上存在系统性差异。",
+    "key_points": [
+      "提出一种轨迹级评估框架，通过对比任务结果、查询构建和导航路径，揭示 LLM 驱动的 GUI 智能体虽能达成类似人类的搜索结果，但在导航策略上存在系统性差异"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07788v1",
+    "title": "PeReGrINE: Evaluating Personalized Review Fidelity with User Item Graph Context",
+    "authors": [
+      "Steven Au",
+      "Baihan Lin"
+    ],
+    "summary": "We introduce PeReGrINE, a benchmark and evaluation framework for personalized review generation grounded in graph-structured user--item evidence. PeReGrINE restructures Amazon Reviews 2023 into a temporally consistent bipartite graph, where each target review is conditioned on bounded evidence from user history, item context, and neighborhood interactions under explicit temporal cutoffs. To represent persistent user preferences without conditioning directly on sparse raw histories, we compute a User Style Parameter that summarizes each user's linguistic and affective tendencies over prior reviews. This setup supports controlled comparison of four graph-derived retrieval settings: product-only, user-only, neighbor-only, and combined evidence. Beyond standard generation metrics, we introduce Dissonance Analysis, a macro-level evaluation framework that measures deviation from expected user style and product-level consensus. We also study visual evidence as an auxiliary context source and find that it can improve textual quality in some settings, while graph-derived evidence remains the main driver of personalization and consistency. Across product categories, PeReGrINE offers a reproducible way to study how evidence composition affects review fidelity, personalization, and grounding in retrieval-conditioned language models.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-04-09T04:36:28Z",
+    "updated": "2026-04-09T04:36:28Z",
+    "url": "http://arxiv.org/abs/2604.07788v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07788v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要提出一个用于评估个性化评论生成的基准和框架，属于 NLP 生成任务评估范畴，虽涉及用户建模但缺乏直接的推荐/搜索系统核心环节（如召回、排序）应用，且非纯 LLM 研究故不给最低分，但相关性较弱。",
+    "translation": "PeReGrINE：基于用户 - 物品图上下文评估个性化评论保真度",
+    "summary_zh": "提出 PeReGrINE 框架，通过构建时序一致的用户 - 物品二分图并提取用户风格参数，在受限证据下评估语言模型生成个性化评论的保真度与一致性。",
+    "key_points": [
+      "提出 PeReGrINE 框架，通过构建时序一致的用户 - 物品二分图并提取用户风格参数，在受限证据下评估语言模型生成个性化评论的保真度与一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07863v1",
+    "title": "Task-Adaptive Retrieval over Agentic Multi-Modal Web Histories via Learned Graph Memory",
+    "authors": [
+      "Saman Forouzandeh",
+      "Kamal Berahmand",
+      "Mahdi Jalili"
+    ],
+    "summary": "Retrieving relevant observations from long multi-modal web interaction histories is challenging because relevance depends on the evolving task state, modality (screenshots, HTML text, structured signals), and temporal distance. Prior approaches typically rely on static similarity thresholds or fixed-capacity buffers, which fail to adapt relevance to the current task context. We propose \\textbf{ACGM}, a learned graph-memory retriever that constructs \\emph{task-adaptive} relevance graphs over agent histories using policy-gradient optimization from downstream task success. ACGM captures heterogeneous temporal dynamics with modality-specific decay (visual decays $4.3\\times$ faster than text: $λ_v{=}0.47$ vs.\\ $λ_x{=}0.11$) and learns sparse connectivity (3.2 edges/node), enabling efficient $O(\\log T)$ retrieval. Across WebShop, VisualWebArena, and Mind2Web, ACGM improves retrieval quality to \\textbf{82.7 nDCG@10} (+9.3 over GPT-4o, $p{<}0.001$) and \\textbf{89.2\\% Precision@10} (+7.7), outperforming 19 strong dense, re-ranking, multi-modal, and graph-based baselines. Code to reproduce our results is available at{\\color{blue}\\href{https://github.com/S-Forouzandeh/ACGM-Agentic-Web}{Saman Forouzandeh}}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-09T06:24:16Z",
+    "updated": "2026-04-09T06:24:16Z",
+    "url": "http://arxiv.org/abs/2604.07863v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07863v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 Agent/LLM 研究，专注于通用网页交互历史检索，未涉及推荐系统或搜索引擎的核心业务场景（如电商推荐、信息流排序等），因此评分较低。",
+    "translation": "基于学习图记忆的代理多模态网页历史任务自适应检索",
+    "summary_zh": "提出一种基于策略梯度优化的学习型图记忆检索器，通过构建任务自适应的相关性图和多模态特异性衰减机制，动态从长序列网页交互历史中检索关键观测信息。",
+    "key_points": [
+      "提出一种基于策略梯度优化的学习型图记忆检索器，通过构建任务自适应的相关性图和多模态特异性衰减机制，动态从长序列网页交互历史中检索关键观测信息"
+    ]
+  }
+]

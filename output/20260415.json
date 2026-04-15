@@ -1,0 +1,151 @@
+[
+  {
+    "arxiv_id": "2604.11440v1",
+    "title": "R3-VAE: Reference Vector-Guided Rating Residual Quantization VAE for Generative Recommendation",
+    "authors": [
+      "Qiang Wan",
+      "Ze Yang",
+      "Dawei Yang",
+      "Ying Fan",
+      "Xin Yan",
+      "Siyang Liu"
+    ],
+    "summary": "Generative Recommendation (GR) has gained traction for its merits of superior performance and cold-start capability. As the vital role in GR, Semantic Identifiers (SIDs) represent item semantics through discrete tokens. However, current techniques for SID generation based on vector quantization face two main challenges: (i) training instability, stemming from insufficient gradient propagation through the straight-through estimator and sensitivity to initialization; and (ii) inefficient SID quality assessment, where industrial practice still depends on costly GR training and A/B testing. To address these challenges, we propose Reference Vector-Guided Rating Residual Quantization VAE (R3-VAE). This framework incorporates three key innovations: (i) a reference vector that functions as a semantic anchor for the initial features, thereby mitigating sensitivity to initialization; (ii) a dot product-based rating mechanism designed to stabilize the training process and prevent codebook collapse; and (iii) two SID evaluation metrics, Semantic Cohesion and Preference Discrimination, serving as regularization terms during training. Empirical results on six benchmarks demonstrate that R3-VAE outperforms state-of-the-art methods, achieving an average improvement of 14.2% in Recall@10 and 15.5% in NDCG@10 across three Amazon datasets. Furthermore, we perform GR training and online A/B tests on a prominent news recommendation platform. Our method achieves a 1.62% improvement in MRR and a 0.83% gain in StayTime/U versus baselines. Additionally, we employ R3-VAE to replace the item ID of CTR model, resulting in significant improvements in content cold start by 15.36%, corroborating the strong applicability and business value in industry-scale recommendation scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-13T13:23:29Z",
+    "updated": "2026-04-13T13:23:29Z",
+    "url": "http://arxiv.org/abs/2604.11440v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.11440v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心语义标识符（SID）生成问题，提出了具体的 VAE 架构创新并已在工业界新闻推荐场景验证，完全符合核心领域进展标准；叠加中国公司背景额外加分。",
+    "translation": "R3-VAE：用于生成式推荐的参考向量引导评分残差量化变分自编码器",
+    "summary_zh": "提出一种参考向量引导的残差量化 VAE 框架，通过引入语义锚点参考向量、基于点积的评分机制及新的正则化指标，解决生成式推荐中语义标识符生成的训练不稳定与评估低效问题。",
+    "key_points": [
+      "提出一种参考向量引导的残差量化 VAE 框架，通过引入语义锚点参考向量、基于点积的评分机制及新的正则化指标，解决生成式推荐中语义标识符生成的训练不稳定与评估低效问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.11092v1",
+    "title": "ARHN: Answer-Centric Relabeling of Hard Negatives with Open-Source LLMs for Dense Retrieval",
+    "authors": [
+      "Hyewon Choi",
+      "Jooyoung Choi",
+      "Hansol Jang",
+      "Hyun Kim",
+      "Chulmin Yun",
+      "ChangWook Jun",
+      "Stanley Jungkyu Choi"
+    ],
+    "summary": "Neural retrievers are often trained on large-scale triplet data comprising a query, a positive passage, and a set of hard negatives. In practice, hard-negative mining can introduce false negatives and other ambiguous negatives, including passages that are relevant or contain partial answers to the query. Such label noise yields inconsistent supervision and can degrade retrieval effectiveness.\n  We propose ARHN (Answer-centric Relabeling of Hard Negatives), a two-stage framework that leverages open-source LLMs to refine hard negative samples using answer-centric relevance signals. In the first stage, for each query-passage pair, ARHN prompts the LLM to generate a passage-grounded answer snippet or to indicate that the passage does not support an answer. In the second stage, ARHN applies an LLM-based listwise ranking over the candidate set to order passages by direct answerability to the query. Passages ranked above the original positive are relabeled to additional positives. Among passages ranked below the positive, ARHN excludes any that contain an answer snippet from the negative set to avoid ambiguous supervision.\n  We evaluated ARHN on the BEIR benchmark under three configurations: relabeling only, filtering only, and their combination. Across datasets, the combined strategy consistently improves over either step in isolation, indicating that jointly relabeling false negatives and filtering ambiguous negatives yields cleaner supervision for training neural retrieval models. By relying strictly on open-source models, ARHN establishes a cost-effective and scalable refinement pipeline suitable for large-scale training.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-13T07:11:30Z",
+    "updated": "2026-04-13T07:11:30Z",
+    "url": "http://arxiv.org/abs/2604.11092v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.11092v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对稠密检索（Dense Retrieval）中的硬负样本噪声问题，提出利用 LLM 进行重标注和过滤的具体方法，属于搜索核心环节的技术创新。",
+    "translation": "ARHN：利用开源大模型对稠密检索中的硬负样本进行以答案为中心的重标注",
+    "summary_zh": "提出一种两阶段框架，利用开源大模型生成基于段落的答案片段并进行列表级排序，以此识别并重标注假负例、过滤模糊负例，从而为神经检索模型提供更干净的监督信号。",
+    "key_points": [
+      "提出一种两阶段框架，利用开源大模型生成基于段落的答案片段并进行列表级排序，以此识别并重标注假负例、过滤模糊负例，从而为神经检索模型提供更干净的监督信号"
+    ]
+  },
+  {
+    "arxiv_id": "2604.11095v1",
+    "title": "Bottleneck Tokens for Unified Multimodal Retrieval",
+    "authors": [
+      "Siyu Sun",
+      "Jing Ren",
+      "Zhaohe Liao",
+      "Dongxiao Mao",
+      "Xiangyuan Ren",
+      "Yiyi Zhang",
+      "Haohua Zhao",
+      "Weixiong Lin",
+      "Jiang Shaohua",
+      "Liqing Zhang",
+      "Yuchao Zheng"
+    ],
+    "summary": "Adapting decoder-only multimodal large language models (MLLMs) for unified multimodal retrieval faces two structural gaps. First, existing methods rely on implicit pooling, which overloads the hidden state of a standard vocabulary token (e.g., <EOS>) as the sequence-level representation, a mechanism never designed for information aggregation. Second, contrastive fine-tuning specifies what the embedding should match but provides no token-level guidance on how information should be compressed into it. We address both gaps with two complementary components. Architecturally, we introduce Bottleneck Tokens (BToks), a small set of learnable tokens that serve as a fixed-capacity explicit pooling mechanism. For training, we propose Generative Information Condensation: a next-token prediction objective coupled with a Condensation Mask that severs the direct attention path from target tokens to query tokens. All predictive signals are thereby forced through the BToks, converting the generative loss into dense, token-level supervision for semantic compression. At inference time, only the input and BToks are processed in a single forward pass with negligible overhead over conventional last-token pooling. On MMEB-V2 (78 datasets, 3 modalities, 9 meta-tasks), our approach achieves state-of-the-art among 2B-scale methods under comparable data conditions, attaining an Overall score of 59.0 (+3.6 over VLM2Vec-V2) with substantial gains on semantically demanding tasks (e.g., +12.6 on Video-QA).",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-04-13T07:12:12Z",
+    "updated": "2026-04-13T07:12:12Z",
+    "url": "http://arxiv.org/abs/2604.11095v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.11095v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种改进多模态大模型（MLLM）用于统一检索的架构方法，虽未明确限定于推荐系统业务场景，但其核心的‘统一多模态检索’技术直接服务于多模态搜索与召回环节，属于有潜力的通用方法。",
+    "translation": "用于统一多模态检索的瓶颈令牌",
+    "summary_zh": "该论文提出引入可学习的“瓶颈令牌”作为显式池化机制，并结合生成式信息压缩目标，强制多模态大模型将语义信息压缩至固定令牌中，以解决现有隐式池化在统一多模态检索中的结构缺陷。",
+    "key_points": [
+      "该论文提出引入可学习的“瓶颈令牌”作为显式池化机制，并结合生成式信息压缩目标，强制多模态大模型将语义信息压缩至固定令牌中，以解决现有隐式池化在统一多模态检索中的结构缺陷"
+    ]
+  },
+  {
+    "arxiv_id": "2604.11365v1",
+    "title": "Learning from Contrasts: Synthesizing Reasoning Paths from Diverse Search Trajectories",
+    "authors": [
+      "Peiyang Liu",
+      "Zhirui Chen",
+      "Xi Wang",
+      "Di Liang",
+      "Youru Li",
+      "Zhi Cai",
+      "Wei Ye"
+    ],
+    "summary": "Monte Carlo Tree Search (MCTS) has been widely used for automated reasoning data exploration, but current supervision extraction methods remain inefficient. Standard approaches retain only the single highest-reward trajectory, discarding the comparative signals present in the many explored paths. Here we introduce \\textbf{Contrastive Reasoning Path Synthesis (CRPS)}, a framework that transforms supervision extraction from a filtering process into a synthesis procedure. CRPS uses a structured reflective process to analyze the differences between high- and low-quality search trajectories, extracting explicit information about strategic pivots and local failure modes. These insights guide the synthesis of reasoning chains that incorporate success patterns while avoiding identified pitfalls. We show empirically that models fine-tuned on just 60K CRPS-synthesized examples match or exceed the performance of baselines trained on 590K examples derived from standard rejection sampling, a 20$\\times$ reduction in dataset size. Furthermore, CRPS improves generalization on out-of-domain benchmarks, demonstrating that learning from the contrast between success and failure produces more transferable reasoning capabilities than learning from success alone.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-13T12:05:34Z",
+    "updated": "2026-04-13T12:05:34Z",
+    "url": "http://arxiv.org/abs/2604.11365v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.11365v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理与数据合成研究，专注于提升通用逻辑推理能力，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "从对比中学习：从多样化搜索轨迹中合成推理路径",
+    "summary_zh": "提出对比推理路径合成（CRPS）框架，通过分析高低质量搜索轨迹的差异来合成包含成功模式并规避失败点的推理链，以提升大模型的推理泛化能力。",
+    "key_points": [
+      "提出对比推理路径合成（CRPS）框架，通过分析高低质量搜索轨迹的差异来合成包含成功模式并规避失败点的推理链，以提升大模型的推理泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.11278v1",
+    "title": "Representation-Aligned Multi-Scale Personalization for Federated Learning",
+    "authors": [
+      "Wenfei Liang",
+      "Wee Peng Tay"
+    ],
+    "summary": "In federated learning (FL), accommodating clients with diverse resource constraints remains a significant challenge. A widely adopted approach is to use a shared full-size model, from which each client extracts a submodel aligned with its computational budget. However, regardless of the specific scoring strategy, these methods rely on the same global backbone, limiting both structural diversity and representational adaptation across clients. This paper presents FRAMP, a unified framework for personalized and resource-adaptive federated learning. Instead of relying on a fixed global model, FRAMP generates client-specific models from compact client descriptors, enabling fine-grained adaptation to both data characteristics and computational budgets. Each client trains a tailored lightweight submodel and aligns its learned representation with others to maintain global semantic consistency. Extensive experiments on vision and graph benchmarks demonstrate that FRAMP enhances generalization and adaptivity across a wide range of client settings.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-13T10:38:21Z",
+    "updated": "2026-04-13T10:38:21Z",
+    "url": "http://arxiv.org/abs/2604.11278v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.11278v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯联邦学习（FL）架构研究，专注于视觉和图基准测试，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "面向联邦学习的表征对齐多尺度个性化方法",
+    "summary_zh": "提出 FRAMP 框架，通过紧凑客户端描述符生成特定客户端模型，并在保持全局语义一致性的同时实现资源自适应的个性化训练。",
+    "key_points": [
+      "提出 FRAMP 框架，通过紧凑客户端描述符生成特定客户端模型，并在保持全局语义一致性的同时实现资源自适应的个性化训练"
+    ]
+  }
+]

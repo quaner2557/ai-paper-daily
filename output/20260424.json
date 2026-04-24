@@ -1,0 +1,457 @@
+[
+  {
+    "arxiv_id": "2604.20490v1",
+    "title": "Break the Optimization Barrier of LLM-Enhanced Recommenders: A Theoretical Analysis and Practical Framework",
+    "authors": [
+      "Zhangchi Zhu",
+      "Wei Zhang"
+    ],
+    "summary": "Large language model (LLM)-enhanced recommendation models inject LLM representations into backbone recommenders to exploit rich item text without inference-time LLM cost. However, we find that existing LLM-enhanced methods significantly hinder the optimization of backbone models, resulting in high training losses that are difficult to reduce. To address it, we establish a comprehensive theoretical analysis of local optimization curvature and identify two key causes: 1) large norm disparity and 2) semantic-collaboration misaligned angular clustering of LLM representations. Guided by these insights, we propose Training-Friendly LLM-Enhanced Recommender (TF-LLMER), a lightweight framework with two key components. First, we highlight the necessity of item embedding normalization to eliminate norm-driven instability and achieve provable control over optimization conditioning. Second, we introduce Rec-PCA, a recommendation-aware dimensionality reduction method that injects collaborative structure into the representation transformation to resolve semantic-collaboration misaligned angular clustering. It jointly optimizes semantic information retention and alignment with an item-item co-occurrence graph constructed from interaction histories. The graph captures collaborative structure, and alignment is promoted by penalizing total variation over the graph. Both theory and extensive experiments demonstrate that TF-LLMER significantly outperforms state-of-the-art methods. Our code is available at https://github.com/woriazzc/TF-LLMER.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-22T12:22:47Z",
+    "updated": "2026-04-22T12:22:47Z",
+    "url": "http://arxiv.org/abs/2604.20490v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20490v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LLM 增强推荐系统中的优化障碍提出理论分析与实用框架，属于核心的 LLM for RecSys 研究，且来自中国公司，符合最高优先级标准。",
+    "translation": "突破 LLM 增强推荐系统的优化壁垒：理论分析与实用框架",
+    "summary_zh": "本文通过分析 LLM 表示导致的范数差异与语义 - 协作对齐错位问题，提出包含嵌入归一化与推荐感知降维（Rec-PCA）的轻量级框架，以解决骨干模型训练难收敛的问题。",
+    "key_points": [
+      "本文通过分析 LLM 表示导致的范数差异与语义 - 协作对齐错位问题，提出包含嵌入归一化与推荐感知降维（Rec-PCA）的轻量级框架，以解决骨干模型训练难收敛的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20749v1",
+    "title": "Where and What: Reasoning Dynamic and Implicit Preferences in Situated Conversational Recommendation",
+    "authors": [
+      "Dongding Lin",
+      "Jian Wang",
+      "Yongqi Li",
+      "Wenjie Li"
+    ],
+    "summary": "Situated conversational recommendation (SCR), which utilizes visual scenes grounded in specific environments and natural language dialogue to deliver contextually appropriate recommendations, has emerged as a promising research direction due to its close alignment with real-world scenarios. Compared to traditional recommendations, SCR requires a deeper understanding of dynamic and implicit user preferences, as the surrounding scene often influences users' underlying interests, while both may evolve across conversations. This complexity significantly impacts the timing and relevance of recommendations. To address this, we propose situated preference reasoning (SiPeR), a novel framework that integrates two core mechanisms: (1) Scene transition estimation, which estimates whether the current scene satisfies user needs, and guides the user toward a more suitable scene when necessary; and (2) Bayesian inverse inference, which leverages the likelihood of multimodal large language models (MLLMs) to predict user preferences about candidate items within the scene. Extensive experiments on two representative benchmarks demonstrate SiPeR's superiority in both recommendation accuracy and response generation quality. The code and data are available at https://github.com/DongdingLin/SiPeR.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-04-22T16:39:52Z",
+    "updated": "2026-04-22T16:39:52Z",
+    "url": "http://arxiv.org/abs/2604.20749v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20749v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对情境化对话推荐系统（SCR），提出利用多模态大模型进行动态和隐式偏好推理的新框架，属于 LLM 在推荐系统中的核心应用。",
+    "translation": "何地何物：情境化对话推荐中的动态与隐式偏好推理",
+    "summary_zh": "提出 SiPeR 框架，通过场景转移估计引导用户至合适场景，并利用多模态大模型的贝叶斯逆推理预测候选物品的用户偏好，以解决情境化对话推荐中的动态偏好建模问题。",
+    "key_points": [
+      "提出 SiPeR 框架，通过场景转移估计引导用户至合适场景，并利用多模态大模型的贝叶斯逆推理预测候选物品的用户偏好，以解决情境化对话推荐中的动态偏好建模问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20135v1",
+    "title": "AFMRL: Attribute-Enhanced Fine-Grained Multi-Modal Representation Learning in E-commerce",
+    "authors": [
+      "Biao Zhang",
+      "Lixin Chen",
+      "Bin Zhang",
+      "Zongwei Wang",
+      "Tong Liu",
+      "Bo Zheng"
+    ],
+    "summary": "Multimodal representation is crucial for E-commerce tasks such as identical product retrieval. Large representation models (e.g., VLM2Vec) demonstrate strong multimodal understanding capabilities, yet they struggle with fine-grained semantic comprehension, which is essential for distinguishing highly similar items. To address this, we propose Attribute-Enhanced Fine-Grained Multi-Modal Representation Learning (AFMRL), which defines product fine-grained understanding as an attribute generation task. It leverages the generative power of Multimodal Large Language Models (MLLMs) to extract key attributes from product images and text, and enhances representation learning through a two-stage training framework: 1) Attribute-Guided Contrastive Learning (AGCL), where the key attributes generated by the MLLM are used in the image-text contrastive learning training process to identify hard samples and filter out noisy false negatives. 2) Retrieval-aware Attribute Reinforcement (RAR), where the improved retrieval performance of the representation model post-attribute integration serves as a reward signal to enhance MLLM's attribute generation during multimodal fine-tuning. Extensive experiments on large-scale E-commerce datasets demonstrate that our method achieves state-of-the-art performance on multiple downstream retrieval tasks, validating the effectiveness of harnessing generative models to advance fine-grained representation learning.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-04-22T03:02:21Z",
+    "updated": "2026-04-22T03:02:21Z",
+    "url": "http://arxiv.org/abs/2604.20135v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20135v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商场景下的商品检索任务，提出利用 MLLM 提取细粒度属性以增强多模态表征学习的方法，属于核心的多模态搜索/推荐技术。",
+    "translation": "AFMRL：电商场景中属性增强的细粒度多模态表征学习",
+    "summary_zh": "该方法将商品细粒度理解定义为属性生成任务，利用多模态大模型提取关键属性，并通过属性引导的对比学习和检索感知的属性强化两阶段框架，优化多模态表征以区分高度相似的商品。",
+    "key_points": [
+      "该方法将商品细粒度理解定义为属性生成任务，利用多模态大模型提取关键属性，并通过属性引导的对比学习和检索感知的属性强化两阶段框架，优化多模态表征以区分高度相似的商品"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20311v1",
+    "title": "Seeing Further and Wider: Joint Spatio-Temporal Enlargement for Micro-Video Popularity Prediction",
+    "authors": [
+      "Dali Wang",
+      "Yunyao Zhang",
+      "Junqing Yu",
+      "Yi-Ping Phoebe Chen",
+      "Chen Xu",
+      "Zikai Song"
+    ],
+    "summary": "Micro-video popularity prediction (MVPP) aims to forecast the future popularity of videos on online media, which is essential for applications such as content recommendation and traffic allocation. In real-world scenarios, it is critical for MVPP approaches to understand both the temporal dynamics of a given video (temporal) and its historical relevance to other videos (spatial). However, existing approaches sufer from limitations in both dimensions: temporally, they rely on sparse short-range sampling that restricts content perception; spatially, they depend on flat retrieval memory with limited capacity and low efficiency, hindering scalable knowledge utilization. To overcome these limitations, we propose a unified framework that achieves joint spatio-temporal enlargement, enabling precise perception of extremely long video sequences while supporting a scalable memory bank that can infinitely expand to incorporate all relevant historical videos. Technically, we employ a Temporal Enlargement driven by a frame scoring module that extracts highlight cues from video frames through two complementary pathways: sparse sampling and dense perception. Their outputs are adaptively fused to enable robust long-sequence content understanding. For Spatial Enlargement, we construct a Topology-Aware Memory Bank that hierarchically clusters historically relevant content based on topological relationships. Instead of directly expanding memory capacity, we update the encoder features of the corresponding clusters when incorporating new videos, enabling unbounded historical association without unbounded storage growth. Extensive experiments on three widely used MVPP benchmarks demonstrate that our method consistently outperforms 11 strong baselines across mainstream metrics, achieving robust improvements in both prediction accuracy and ranking consistency.",
+    "categories": [
+      "cs.MM",
+      "cs.AI"
+    ],
+    "published": "2026-04-22T08:11:06Z",
+    "updated": "2026-04-22T08:11:06Z",
+    "url": "http://arxiv.org/abs/2604.20311v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20311v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对微视频推荐系统中的热门度预测问题，提出了时空扩展框架以解决长序列理解和历史关联存储难题，且来自中国公司，符合高优先级标准。",
+    "translation": "看得更远更广：用于微视频热门度预测的联合时空扩展方法",
+    "summary_zh": "提出一种联合时空扩展框架，通过帧评分模块融合稀疏与密集感知以理解超长视频序列，并利用拓扑感知记忆库实现无限历史关联的可扩展存储。",
+    "key_points": [
+      "提出一种联合时空扩展框架，通过帧评分模块融合稀疏与密集感知以理解超长视频序列，并利用拓扑感知记忆库实现无限历史关联的可扩展存储"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20065v1",
+    "title": "From Hidden Profiles to Governable Personalization: Recommender Systems in the Age of LLM Agents",
+    "authors": [
+      "Jiahao Liu",
+      "Mingzhe Han",
+      "Guanming Liu",
+      "Weihang Wang",
+      "Dongsheng Li",
+      "Hansu Gu",
+      "Peng Zhang",
+      "Tun Lu",
+      "Ning Gu"
+    ],
+    "summary": "Personalization has traditionally depended on platform-specific user models that are optimized for prediction but remain largely inaccessible to the people they describe. As LLM-based assistants increasingly mediate search, shopping, travel, and content access, this arrangement may be giving way to a new personalization stack in which user representation is no longer confined to isolated platforms. In this paper, we argue that the key issue is not simply that large language models can enhance recommendation quality, but that they reconfigure where and how user representations are produced, exposed, and acted upon. We propose a shift from hidden platform profiling toward governable personalization, where user representations may become more inspectable, revisable, portable, and consequential across services. Building on this view, we identify five research fronts for recommender systems: transparent yet privacy-preserving user modeling, intent translation and alignment, cross-domain representation and memory design, trustworthy commercialization in assistant-mediated environments, and operational mechanisms for ownership, access, and accountability. We position these not as isolated technical challenges, but as interconnected design problems created by the emergence of LLM agents as intermediaries between users and digital platforms. We argue that the future of recommender systems will depend not only on better inference, but on building personalization systems that users can meaningfully understand, shape, and govern.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-22T00:04:47Z",
+    "updated": "2026-04-22T00:04:47Z",
+    "url": "http://arxiv.org/abs/2604.20065v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20065v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "FudanUniversity FudanUniversity FudanUniversity",
+      "FudanUniversity MicrosoftResearchAsia Independent",
+      "FudanUniversity FudanUniversity FudanUniversity"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该文探讨 LLM Agent 时代推荐系统的范式转变，提出从隐藏画像向可治理个性化的架构演进，虽偏重概念框架而非具体算法，但直接定义了 RecSys 的未来方向；源自中国公司额外 +1 分。",
+    "translation": "从隐藏画像到可治理个性化：LLM Agent 时代的推荐系统",
+    "summary_zh": "本文主张随着 LLM 助手成为用户与平台间的中介，推荐系统应从封闭的平台侧用户画像转向可审查、可修正且跨服务便携的“可治理个性化”新架构。",
+    "key_points": [
+      "本文主张随着 LLM 助手成为用户与平台间的中介，推荐系统应从封闭的平台侧用户画像转向可审查、可修正且跨服务便携的“可治理个性化”新架构"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20777v1",
+    "title": "Efficient Multi-Cohort Inference for Long-Term Effects and Lifetime Value in A/B Testing with User Learning",
+    "authors": [
+      "Dario Simionato",
+      "Andrea Tonon",
+      "Mingxue Wang",
+      "Weiguo Wang",
+      "Tong Gui",
+      "Xiaoyue Li"
+    ],
+    "summary": "In streaming platforms churn is extremely costly, yet A/B tests are typically evaluated using outcomes observed within a limited experimental horizon. Even when both short- and predicted long-term engagement metrics are considered, they may fail to capture how a treatment affects users' retention. Consequently, an intervention may appear beneficial in the short term and neutral in the long term while still generating lower total value than the control due to users churn.\n  To address this limitation, we introduce a method that estimates long-term treatment effects (LTE) and residual lifetime value change ($ΔERLV$) in short multi-cohort A/B tests under user learning. To estimate time-varying treatment effects efficiently, we introduce an inverse-variance weighted estimator that combines multiple cohorts estimates, reducing variance relative to standard approaches in the literature. The estimated treatment trajectory is then modeled as a parametric decay to recover both the asymptotic treatment effect and the cumulative value generated over time.\n  Our framework enables simultaneous evaluation of steady-state impact and residual user value within a single experiment. Empirical results show improved precision in estimating LTE and $ΔERLV$ and identify scenarios in which relying on either short-term or long-term metrics alone would lead to incorrect product decisions.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-22T17:05:11Z",
+    "updated": "2026-04-22T17:05:11Z",
+    "url": "http://arxiv.org/abs/2604.20777v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20777v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "HuaweiIrelandResearchCentre partners.com HuaweiIrelandResearchCentre",
+      "Dublin,Ireland HuaweiIrelandResearchCentre Dublin,Ireland",
+      "HuaweiNanjingR&DCenter HuaweiNanjingR&DCenter HuaweiNanjingR&DCenter",
+      "ConferenceonResearchandDevelopmentinInformationRetrieval",
+      "(SIGIR2026).Thefinalauthenticatedversionwillbeavailableinthe"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文针对流媒体平台的用户流失和长期价值评估提出 A/B 测试新方法，直接服务于推荐系统的核心业务决策；虽非纯算法模型创新，但解决了推荐场景下关键的长期效果评估问题，且来自中国公司，故给予加分。",
+    "translation": "基于用户学习的多队列推断方法用于 A/B 测试中的长期效应与生命周期价值评估",
+    "summary_zh": "提出一种结合多队列估计的逆方差加权方法，通过参数化衰减建模时间变化的处理效应，从而在短期实验中高效估算长期处理效应和剩余生命周期价值变化。",
+    "key_points": [
+      "提出一种结合多队列估计的逆方差加权方法，通过参数化衰减建模时间变化的处理效应，从而在短期实验中高效估算长期处理效应和剩余生命周期价值变化"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20417v1",
+    "title": "Semantic Recall for Vector Search",
+    "authors": [
+      "Leonardo Kuffo",
+      "Ioanna Tsakalidou",
+      "Roberta De Viti",
+      "Albert Angel",
+      "Jiří Iša",
+      "Rastislav Lenhardt"
+    ],
+    "summary": "We introduce Semantic Recall, a novel metric to assess the quality of approximate nearest neighbor search algorithms by considering only semantically relevant objects that are theoretically retrievable via exact nearest neighbor search. Unlike traditional recall, semantic recall does not penalize algorithms for failing to retrieve objects that are semantically irrelevant to the query, even if those objects are among their nearest neighbors. We demonstrate that semantic recall is particularly useful for assessing retrieval quality on queries that have few relevant results among their nearest neighbors-a scenario we uncover to be common within embedding datasets. Additionally, we introduce Tolerant Recall, a proxy metric that approximates semantic recall when semantically relevant objects cannot be identified. We empirically show that our metrics are more effective indicators of retrieval quality, and that optimizing search algorithms for these metrics can lead to improved cost-quality tradeoffs.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-22T10:34:56Z",
+    "updated": "2026-04-22T10:34:56Z",
+    "url": "http://arxiv.org/abs/2604.20417v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20417v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种针对向量检索（召回阶段）的评估指标，属于搜索/推荐系统的核心基础设施优化，但并非直接的推荐算法创新或 LLM 应用。",
+    "translation": "语义召回：一种面向向量搜索的评估指标",
+    "summary_zh": "提出“语义召回”新指标，通过仅惩罚未检索到语义相关对象的情况来更准确地评估近似最近邻搜索算法的质量，并引入代理指标以解决语义标签缺失问题。",
+    "key_points": [
+      "提出“语义召回”新指标，通过仅惩罚未检索到语义相关对象的情况来更准确地评估近似最近邻搜索算法的质量，并引入代理指标以解决语义标签缺失问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20370v1",
+    "title": "Cold-Start Forecasting of New Product Life-Cycles via Conditional Diffusion Models",
+    "authors": [
+      "Ruihan Zhou",
+      "Zishi Zhang",
+      "Jinhui Han",
+      "Yijie Peng",
+      "Xiaowei Zhang"
+    ],
+    "summary": "Forecasting the life-cycle trajectory of a newly launched product is important for launch planning, resource allocation, and early risk assessment. This task is especially difficult in the pre-launch and early post-launch phases, when product-specific outcome history is limited or unavailable, creating a cold-start problem. In these phases, firms must make decisions before demand patterns become reliably observable, while early signals are often sparse, noisy, and unstable We propose the Conditional Diffusion Life-cycle Forecaster (CDLF), a conditional generative framework for forecasting new-product life-cycle trajectories under cold start. CDLF combines three sources of information: static descriptors, reference trajectories from similar products, and newly arriving observations when available. Here, static descriptors refer to structured pre-launch characteristics of the product, such as category, price tier, brand or organization identity, scale, and access conditions. This structure allows the model to condition forecasts on relevant product context and to update them adaptively over time without retraining, yielding flexible multi-modal predictive distributions under extreme data scarcity. The method satisfies consistency with a horizon-uniform distributional error bound for recursive generation. Across studies on Intel microprocessor stock keeping unit (SKU) life cycles and the platform-mediated adoption of open large language model repositories, CDLF delivers more accurate point forecasts and higher-quality probabilistic forecasts than classical diffusion models, Bayesian updating approaches, and other state-of-the-art machine-learning baselines.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-04-22T09:07:55Z",
+    "updated": "2026-04-22T09:07:55Z",
+    "url": "http://arxiv.org/abs/2604.20370v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20370v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "论文针对电商/平台场景下的新品冷启动生命周期预测问题，属于推荐系统上游的供需匹配与资源分配环节，但核心方法为通用条件扩散模型，非推荐核心架构创新。",
+    "translation": "基于条件扩散模型的新品生命周期冷启动预测",
+    "summary_zh": "提出一种条件生成框架，通过融合产品静态特征、相似品参考轨迹及实时观测数据，在极度数据稀缺下自适应生成新品生命周期的多模态概率分布预测。",
+    "key_points": [
+      "提出一种条件生成框架，通过融合产品静态特征、相似品参考轨迹及实时观测数据，在极度数据稀缺下自适应生成新品生命周期的多模态概率分布预测"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20401v1",
+    "title": "Onyx: Cost-Efficient Disk-Oblivious ANN Search",
+    "authors": [
+      "Deevashwer Rathee",
+      "Jean-Luc Watson",
+      "Zirui Neil Zhao",
+      "G. Edward Suh",
+      "Raluca Ada Popa"
+    ],
+    "summary": "Approximate nearest neighbor (ANN) search in AI systems increasingly handles sensitive data on third-party infrastructure. Trusted execution environments (TEEs) offer protection, but cost-efficient deployments must rely on external SSDs, which leaks user queries through disk access patterns to the host. Oblivious RAM (ORAM) can hide these access patterns but at a high cost; when paired with existing disk-based ANN search techniques, it makes poor use of SSD resources, yielding high latency and poor cost-efficiency. The core challenge for efficient oblivious ANN search over SSDs is balancing both bandwidth and access count. The state-of-the-art ORAM-ANN design minimizes access count at the ANN level and bandwidth at the ORAM level, each trading-off the other, leaving the combined system with both resources overutilized. We propose inverting this design, minimizing bandwidth consumption in the ANN layer and access count in the ORAM layer, since each component is better suited for its new role: ANN's inherent approximation allows for more bandwidth efficiency, while ORAM has no fundamental lower bounds on access count (as opposed to bandwidth). To this end, we propose a cost-efficient approach, Onyx, with two new co-designed components: Onyx-ANNS introduces a compact intermediate representation that proactively prunes the majority of bandwidth-intensive accesses without hurting recall, and Onyx-ORAM proposes a locality-aware shallow tree design that reduces access count while remaining compatible with bandwidth-efficient ORAM techniques. Compared to the state-of-the-art oblivious ANN search system, Onyx achieves $1.7-9.9\\times$ lower cost and $2.3-12.3\\times$ lower latency.",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "published": "2026-04-22T10:12:19Z",
+    "updated": "2026-04-22T10:12:19Z",
+    "url": "http://arxiv.org/abs/2604.20401v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20401v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于隐私保护下的近似最近邻（ANN）搜索系统优化，属于底层基础设施研究，虽 ANN 是召回环节的基础技术，但文章未直接解决推荐/搜索业务逻辑或模型创新问题，且非纯 LLM 研究故给予中等偏低分。",
+    "translation": "Onyx：一种成本高效的磁盘无感知近似最近邻搜索方法",
+    "summary_zh": "提出 Onyx 系统，通过协同设计紧凑的中间表示和局部感知的浅层树结构，分别优化 ANN 层的带宽消耗与 ORAM 层的访问次数，以解决可信执行环境下基于 SSD 的隐私保护搜索成本高、延迟大的问题。",
+    "key_points": [
+      "提出 Onyx 系统，通过协同设计紧凑的中间表示和局部感知的浅层树结构，分别优化 ANN 层的带宽消耗与 ORAM 层的访问次数，以解决可信执行环境下基于 SSD 的隐私保护搜索成本高、延迟大的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20763v1",
+    "title": "Coverage, Not Averages: Semantic Stratification for Trustworthy Retrieval Evaluation",
+    "authors": [
+      "Andrew Klearman",
+      "Radu Revutchi",
+      "Rohin Garg",
+      "Rishav Chakravarti",
+      "Samuel Marc Denton",
+      "Yuan Xue"
+    ],
+    "summary": "Retrieval quality is the primary bottleneck for accuracy and robustness in retrieval-augmented generation (RAG). Current evaluation relies on heuristically constructed query sets, which introduce a hidden intrinsic bias. We formalize retrieval evaluation as a statistical estimation problem, showing that metric reliability is fundamentally limited by the evaluation-set construction. We further introduce \\emph{semantic stratification}, which grounds evaluation in corpus structure by organizing documents into an interpretable global space of entity-based clusters and systematically generating queries for missing strata. This yields (1) formal semantic coverage guarantees across retrieval regimes and (2) interpretable visibility into retrieval failure modes.\n  Experiments across multiple benchmarks and retrieval methods validate our framework. The results expose systematic coverage gaps, identify structural signals that explain variance in retrieval performance, and show that stratified evaluation yields more stable and transparent assessments while supporting more trustworthy decision-making than aggregate metrics.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-04-22T16:49:30Z",
+    "updated": "2026-04-22T16:49:30Z",
+    "url": "http://arxiv.org/abs/2604.20763v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20763v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于 RAG 检索评估方法论，虽涉及检索但属于通用 NLP/LLM 基础设施研究，缺乏针对推荐系统或搜索产品的直接业务应用创新；基础分 3 分，因来自中国公司额外加 1 分。",
+    "translation": "覆盖度而非平均值：用于可信检索评估的语义分层方法",
+    "summary_zh": "提出一种基于实体聚类的语义分层评估框架，通过系统化生成缺失层级的查询来解决检索评估中的集合构建偏差问题，从而提供形式化的语义覆盖保证和可解释的失效模式分析。",
+    "key_points": [
+      "提出一种基于实体聚类的语义分层评估框架，通过系统化生成缺失层级的查询来解决检索评估中的集合构建偏差问题，从而提供形式化的语义覆盖保证和可解释的失效模式分析"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20267v1",
+    "title": "ATIR: Towards Audio-Text Interleaved Contextual Retrieval",
+    "authors": [
+      "Tong Zhao",
+      "Chenghao Zhang",
+      "Yutao Zhu",
+      "Zhicheng Dou"
+    ],
+    "summary": "Audio carries richer information than text, including emotion, speaker traits, and environmental context, while also enabling lower-latency processing compared to speech-to-text pipelines. However, recent multimodal information retrieval research has predominantly focused on images, largely overlooking audio, especially in the setting of interleaved audio-text contextual retrieval. In this work, we introduce the Audio-Text Interleaved contextual Retrieval (ATIR) task, where queries can alternate between audio and text modalities. We construct an ATIR benchmark by integrating several Automatic Speech Recognition (ASR), QA, and retrieval datasets, ultimately unifying four types of contextual retrieval tasks. This benchmark substantially addresses the limitations of existing audio retrieval datasets in semantic retrieval. To study this task, we evaluate several off-the-shelf retrievers and train our ATIR model based on a Multimodal Large Language Model (MLLM). We further introduce a novel token compression mechanism that is orthogonal to existing compression methods, thereby alleviating the issue of excessive audio tokens in MLLM-based ATIR models. Experimental results demonstrate that our ATIR model achieves substantial improvements over strong baselines.",
+    "categories": [
+      "cs.SD",
+      "cs.AI"
+    ],
+    "published": "2026-04-22T07:11:58Z",
+    "updated": "2026-04-22T07:11:58Z",
+    "url": "http://arxiv.org/abs/2604.20267v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20267v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要提出新的多模态检索任务（ATIR）及基准，属于通用多模态/NLP 研究，未明确针对推荐系统或搜索引擎的具体业务场景（如召回、排序、个性化），且核心为纯 LLM/MLLM 架构改进，故评分较低。",
+    "translation": "ATIR：迈向音频 - 文本交错上下文检索",
+    "summary_zh": "本文提出音频 - 文本交错上下文检索新任务，通过构建统一基准并利用多模态大语言模型结合新型令牌压缩机制，解决音频语义检索中令牌过长及模态交替处理的难题。",
+    "key_points": [
+      "本文提出音频 - 文本交错上下文检索新任务，通过构建统一基准并利用多模态大语言模型结合新型令牌压缩机制，解决音频语义检索中令牌过长及模态交替处理的难题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20199v1",
+    "title": "All Languages Matter: Understanding and Mitigating Language Bias in Multilingual RAG",
+    "authors": [
+      "Dan Wang",
+      "Guozhao Mo",
+      "Yafei Shi",
+      "Cheng Zhang",
+      "Bo Zheng",
+      "Boxi Cao",
+      "Xuanang Chen",
+      "Yaojie Lu",
+      "Hongyu Lin",
+      "Ben He",
+      "Xianpei Han",
+      "Le Sun"
+    ],
+    "summary": "Multilingual Retrieval-Augmented Generation (mRAG) leverages cross-lingual evidence to ground Large Language Models (LLMs) in global knowledge. However, we show that current mRAG systems suffer from a language bias during reranking, systematically favoring English and the query's native language. By introducing an estimated oracle evidence analysis, we quantify a substantial performance gap between existing rerankers and the achievable upper bound. Further analysis reveals a critical distributional mismatch: while optimal predictions require evidence scattered across multiple languages, current systems systematically suppress such ``answer-critical'' documents, thereby limiting downstream generation performance. To bridge this gap, we propose \\textit{\\textbf{L}anguage-\\textbf{A}gnostic \\textbf{U}tility-driven \\textbf{R}eranker \\textbf{A}lignment (LAURA)}, which aligns multilingual evidence ranking with downstream generative utility. Experiments across diverse languages and generation models show that LAURA effectively mitigates language bias and consistently improves mRAG performance.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-22T05:33:06Z",
+    "updated": "2026-04-22T05:33:06Z",
+    "url": "http://arxiv.org/abs/2604.20199v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20199v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于多语言 RAG 中的重排序偏差问题，虽涉及检索增强生成，但核心属于纯 NLP/LLM 研究，缺乏明确的推荐系统或搜索引擎产品应用场景。",
+    "translation": "所有语言皆重要：理解并缓解多语言 RAG 中的语言偏差",
+    "summary_zh": "针对多语言检索增强生成中重排序阶段存在的语言偏好偏差，提出一种基于下游生成效用对齐的语言无关重排序方法，以优化跨语言证据的筛选机制。",
+    "key_points": [
+      "针对多语言检索增强生成中重排序阶段存在的语言偏好偏差，提出一种基于下游生成效用对齐的语言无关重排序方法，以优化跨语言证据的筛选机制"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20511v1",
+    "title": "CHASM: Unveiling Covert Advertisements on Chinese Social Media",
+    "authors": [
+      "Jingyi Zheng",
+      "Tianyi Hu",
+      "Yule Liu",
+      "Zhen Sun",
+      "Zongmin Zhang",
+      "Zifan Peng",
+      "Wenhan Dong",
+      "Xinlei He"
+    ],
+    "summary": "Current benchmarks for evaluating large language models (LLMs) in social media moderation completely overlook a serious threat: covert advertisements, which disguise themselves as regular posts to deceive and mislead consumers into making purchases, leading to significant ethical and legal concerns. In this paper, we present the CHASM, a first-of-its-kind dataset designed to evaluate the capability of Multimodal Large Language Models (MLLMs) in detecting covert advertisements on social media. CHASM is a high-quality, anonymized, manually curated dataset consisting of 4,992 instances, based on real-world scenarios from the Chinese social media platform Rednote. The dataset was collected and annotated under strict privacy protection and quality control protocols. It includes many product experience sharing posts that closely resemble covert advertisements, making the dataset particularly challenging.The results show that under both zero-shot and in-context learning settings, none of the current MLLMs are sufficiently reliable for detecting covert advertisements.Our further experiments revealed that fine-tuning open-source MLLMs on our dataset yielded noticeable performance gains. However, significant challenges persist, such as detecting subtle cues in comments and differences in visual and textual structures.We provide in-depth error analysis and outline future research directions. We hope our study can serve as a call for the research community and platform moderators to develop more precise defenses against this emerging threat.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "cs.CV",
+      "cs.CY"
+    ],
+    "published": "2026-04-22T12:53:36Z",
+    "updated": "2026-04-22T12:53:36Z",
+    "url": "http://arxiv.org/abs/2604.20511v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20511v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文主要关注社交媒体内容审核（检测隐形广告）和构建评估数据集，属于安全/伦理范畴，并未涉及推荐系统或搜索引擎的核心算法（如召回、排序、个性化）。",
+    "translation": "CHASM：揭示中文社交媒体上的隐形广告",
+    "summary_zh": "本文提出了首个用于评估多模态大模型检测中文社交媒体隐形广告能力的高质量数据集 CHASM，并分析了当前模型在此任务上的局限性与微调潜力。",
+    "key_points": [
+      "本文提出了首个用于评估多模态大模型检测中文社交媒体隐形广告能力的高质量数据集 CHASM，并分析了当前模型在此任务上的局限性与微调潜力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20452v1",
+    "title": "HaS: Accelerating RAG through Homology-Aware Speculative Retrieval",
+    "authors": [
+      "Peng Peng",
+      "Weiwei Lin",
+      "Wentai Wu",
+      "Xinyang Wang",
+      "Yongheng Liu"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) expands the knowledge boundary of large language models (LLMs) at inference by retrieving external documents as context. However, retrieval becomes increasingly time-consuming as the knowledge databases grow in size. Existing acceleration strategies either compromise accuracy through approximate retrieval, or achieve marginal gains by reusing results of strictly identical queries. We propose HaS, a homology-aware speculative retrieval framework that performs low-latency speculative retrieval over restricted scopes to obtain candidate documents, followed by validating whether they contain the required knowledge. The validation, grounded in the homology relation between queries, is formulated as a homologous query re-identification task: once a previously observed query is identified as a homologous re-encounter of the incoming query, the draft is deemed acceptable, allowing the system to bypass slow full-database retrieval. Benefiting from the prevalence of homologous queries under real-world popularity patterns, HaS achieves substantial efficiency gains. Extensive experiments demonstrate that HaS reduces retrieval latency by 23.74% and 36.99% across datasets with only a 1-2% marginal accuracy drop. As a plug-and-play solution, HaS also significantly accelerates complex multi-hop queries in modern agentic RAG pipelines. Source code is available at: https://github.com/ErrEqualsNil/HaS.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-04-22T11:15:54Z",
+    "updated": "2026-04-22T11:15:54Z",
+    "url": "http://arxiv.org/abs/2604.20452v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20452v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 加速研究，旨在优化通用检索增强生成的延迟，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "HaS：通过同源感知推测检索加速 RAG",
+    "summary_zh": "提出一种同源感知推测检索框架，利用查询间的同源性关系进行低延迟候选文档获取与验证，从而绕过耗时的全库检索以加速 RAG 推理。",
+    "key_points": [
+      "提出一种同源感知推测检索框架，利用查询间的同源性关系进行低延迟候选文档获取与验证，从而绕过耗时的全库检索以加速 RAG 推理"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20296v1",
+    "title": "Online Survival Analysis: A Bandit Approach under Cox PH Model",
+    "authors": [
+      "Yang Xu",
+      "Wenbin Lu",
+      "Rui Song"
+    ],
+    "summary": "Survival analysis is a widely used statistical framework for modeling time-to-event data under censoring. Classical methods, such as the Cox proportional hazards (Cox PH) model, offer a semiparametric approach to estimating the effects of covariates on the hazard function. Despite its importance, survival analysis has been largely unexplored in online settings, particularly within the bandit framework, where decisions must be made sequentially to optimize treatments as new data arrive over time. In this work, we take an initial step toward integrating survival analysis into a purely online learning setting under the Cox PH model, addressing key challenges including staggered entry, delayed feedback, and right censoring. We adapt three canonical bandit algorithms to balance exploration and exploitation, with theoretical guarantees of sublinear regret bounds. Extensive simulations and semi-real experiments using SEER cancer data demonstrate that our approach enables rapid and effective learning of near-optimal treatment policies.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-04-22T07:52:06Z",
+    "updated": "2026-04-22T07:52:06Z",
+    "url": "http://arxiv.org/abs/2604.20296v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.20296v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯医疗领域的生存分析与强化学习（Bandit）研究，专注于癌症治疗策略，完全未涉及推荐系统或搜索引擎的应用场景。",
+    "translation": "在线生存分析：基于 Cox 比例风险模型的 Bandit 方法",
+    "summary_zh": "该论文提出了一种在 Cox 比例风险模型下结合 Bandit 算法的在线学习框架，旨在解决带有删失和延迟反馈的序贯治疗决策问题。",
+    "key_points": [
+      "该论文提出了一种在 Cox 比例风险模型下结合 Bandit 算法的在线学习框架，旨在解决带有删失和延迟反馈的序贯治疗决策问题"
+    ]
+  }
+]

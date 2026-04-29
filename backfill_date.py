@@ -68,7 +68,7 @@ class BackfillProcessor(AIPaperDaily):
             date_obj = datetime.strptime(target_date, "%Y%m%d")
             
             # 使用日期范围搜索
-            papers = self.fetch_arxiv_papers(
+            papers, _ = self.fetch_arxiv_papers(
                 target_count=self.max_papers_fetch,
                 target_date=date_obj
             )

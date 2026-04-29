@@ -213,23 +213,56 @@ class AIPaperDaily:
         # 使用北京时间（Asia/Shanghai）计算日期范围，确保与推送日期一致
         tz_shanghai = timezone(timedelta(hours=8))
         
+        # 构建搜索查询
+        all_papers = []
+        seen_ids = set()  # 本次运行内去重
+        
+        # 返回实际获取到论文的日期（用于输出文件名）
+        actual_date_str = None
+        
         if target_date:
             # 回刷模式：使用 arXiv API 的日期范围搜索，直接获取指定日期的论文
             # arXiv API 日期格式：YYYYMMDDHHMMSS
             date_str = target_date.strftime('%Y%m%d')
             date_range = f"[{date_str}000000 TO {date_str}235959]"
             logger.info(f"Backfill mode: Fetching papers for {date_str} using date range search")
+            all_papers = self._fetch_for_date_range(categories_query, target_count, date_range, processed_ids, seen_ids)
+            actual_date_str = date_str
         else:
             # 默认模式：获取两天前那一天的论文（例如今天是 4 月 8 日，获取 4 月 6 日的论文）
-            target_date = datetime.now(tz_shanghai) - timedelta(days=2)
-            date_str = target_date.strftime('%Y%m%d')
-            date_range = f"[{date_str}000000 TO {date_str}235959]"
-            logger.info(f"Fetching papers for {date_str} (2 days ago) using date range search")
+            # 如果目标日期没有论文，自动向前搜索（最多 5 天）
+            base_date = datetime.now(tz_shanghai) - timedelta(days=2)
+            max_days_back = 5
+            
+            for days_back in range(2, max_days_back + 1):
+                search_date = base_date - timedelta(days=days_back - 2)
+                date_str = search_date.strftime('%Y%m%d')
+                date_range = f"[{date_str}000000 TO {date_str}235959]"
+                logger.info(f"Fetching papers for {date_str} ({days_back} days ago) using date range search")
+                
+                batch_papers = self._fetch_for_date_range(categories_query, target_count, date_range, processed_ids, seen_ids)
+                
+                if len(batch_papers) > 0:
+                    logger.info(f"Found {len(batch_papers)} papers for {date_str}")
+                    all_papers.extend(batch_papers)
+                    actual_date_str = date_str
+                    break
+                else:
+                    logger.info(f"No papers found for {date_str}, trying next date...")
+            
+            if not all_papers:
+                logger.warning(f"No papers found after searching {max_days_back} days back")
+                actual_date_str = base_date.strftime('%Y%m%d')  # 兜底使用原始日期
         
-        all_papers = []
-        seen_ids = set()  # 本次运行内去重
+        # 限制返回数量（兜底保护）
+        result = all_papers[:target_count]
+        logger.info(f"Returning {len(result)} papers for preranking (unique: {len(seen_ids)}), actual_date={actual_date_str}")
         
-        # 获取论文（分批获取，达到目标数量后立即停止）
+        return result, actual_date_str
+    
+    def _fetch_for_date_range(self, categories_query: str, target_count: int, date_range: str, 
+                               processed_ids: set, seen_ids: set) -> List[Dict]:
+        """获取指定日期范围的论文"""
         batch_papers = []
         start = 0
         max_results = 500  # 每批 500 篇
@@ -270,13 +303,7 @@ class AIPaperDaily:
                 break
         
         logger.info(f"Fetched {len(batch_papers)} papers (after dedup: {len(seen_ids)})")
-        all_papers.extend(batch_papers)
-        
-        # 限制返回数量（兜底保护）
-        result = all_papers[:target_count]
-        logger.info(f"Returning {len(result)} papers for preranking (unique: {len(seen_ids)})")
-        
-        return result
+        return batch_papers
     
     def _is_industry_paper(self, paper: Dict) -> Tuple[bool, List[str]]:
         """
@@ -1586,12 +1613,18 @@ Provide your analysis strictly in the following JSON format.
         
         try:
             # 1. 从 arXiv 获取论文（去重后自动补充到 300 篇）
-            papers = self.fetch_arxiv_papers(target_count=self.max_papers_fetch)
+            # fetch_arxiv_papers 返回 (papers, actual_date_str)
+            # actual_date_str 是实际获取到论文的日期（可能因 fallback 而不同于今天）
+            papers, actual_date_str = self.fetch_arxiv_papers(target_count=self.max_papers_fetch)
             if not papers:
                 error_msg = "❌ 无法从 arXiv 获取论文，请检查网络连接或 arXiv API 是否正常"
                 logger.error(error_msg)
                 self.send_error_notification(error_msg, date_str)
                 return
+            
+            # 使用实际论文日期作为输出文件名
+            date_str = actual_date_str
+            logger.info(f"Using actual paper date for output: {date_str}")
             
             # 2. 使用大模型评分和总结
             scored_papers = self.score_and_summarize_papers(papers)

@@ -44,7 +44,7 @@ class BackfillProcessor(AIPaperDaily):
         return existing
     
     def run_for_date(self, target_date: str) -> bool:
-        """为指定日期运行完整流程（使用 arXiv 日期范围搜索）"""
+        """为指定日期运行完整流程（使用 arXiv 日期范围搜索，支持向前回退）"""
         if target_date in self.processed_dates:
             # 检查文件是否为空
             json_path = self.output_dir / f"{target_date}.json"
@@ -67,18 +67,35 @@ class BackfillProcessor(AIPaperDaily):
         try:
             date_obj = datetime.strptime(target_date, "%Y%m%d")
             
-            # 使用日期范围搜索
-            papers, _ = self.fetch_arxiv_papers(
-                target_count=self.max_papers_fetch,
-                target_date=date_obj
-            )
+            # 尝试目标日期 + 向前回退（最多 5 天）
+            papers = None
+            actual_date_str = target_date
+            
+            for days_back in range(0, 6):  # 0=目标日期, 1=前一天, ..., 5=前5天
+                search_date = date_obj - timedelta(days=days_back)
+                search_date_str = search_date.strftime("%Y%m%d")
+                
+                papers, _ = self.fetch_arxiv_papers(
+                    target_count=self.max_papers_fetch,
+                    target_date=search_date
+                )
+                
+                if papers:
+                    actual_date_str = search_date_str
+                    if days_back > 0:
+                        logger.info(f"📅 {target_date} 无论文，使用 {search_date_str} 的 {len(papers)} 篇论文")
+                    else:
+                        logger.info(f"📅 {target_date} 获取到 {len(papers)} 篇论文")
+                    break
+                else:
+                    logger.info(f"📅 {search_date_str} 无论文，向前搜索...")
             
             if not papers:
-                logger.warning(f"⚠️  {target_date} 未获取到论文")
+                logger.warning(f"⚠️  {target_date} 及前 5 天均未获取到论文")
                 self._save_empty_result(target_date)
                 return False
             
-            logger.info(f"📊 获取到 {len(papers)} 篇论文")
+            logger.info(f"📊 获取到 {len(papers)} 篇论文（实际日期: {actual_date_str}）")
             
             # 使用大模型评分和总结
             scored_papers = self.score_and_summarize_papers(papers)
@@ -88,28 +105,29 @@ class BackfillProcessor(AIPaperDaily):
             
             logger.info(f"✅ 评分完成，保留 {len(scored_papers)} 篇")
             
-            # 保存文件
-            json_path = self.output_dir / f"{target_date}.json"
+            # 使用实际获取到论文的日期命名输出文件
+            output_date = actual_date_str
+            json_path = self.output_dir / f"{output_date}.json"
             with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(scored_papers, f, ensure_ascii=False, indent=2)
             logger.info(f"💾 已保存 JSON: {json_path}")
             
-            md_content = self.generate_markdown(scored_papers, target_date)
-            md_path = self.output_dir / f"{target_date}.md"
+            md_content = self.generate_markdown(scored_papers, output_date)
+            md_path = self.output_dir / f"{output_date}.md"
             with open(md_path, 'w', encoding='utf-8') as f:
                 f.write(md_content)
             logger.info(f"💾 已保存 Markdown: {md_path}")
             
-            html_content = self.generate_html(scored_papers, target_date)
-            html_path = self.output_dir / f"{target_date}.html"
+            html_content = self.generate_html(scored_papers, output_date)
+            html_path = self.output_dir / f"{output_date}.html"
             with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(html_content)
             logger.info(f"💾 已保存 HTML: {html_path}")
             
-            self.processed_dates.add(target_date)
+            self.processed_dates.add(output_date)
             
             logger.info(f"{'='*60}")
-            logger.info(f"✨ {target_date} 处理完成！共 {len(scored_papers)} 篇论文")
+            logger.info(f"✨ {target_date} 处理完成！共 {len(scored_papers)} 篇论文 (实际日期: {output_date})")
             logger.info(f"{'='*60}")
             
             return True

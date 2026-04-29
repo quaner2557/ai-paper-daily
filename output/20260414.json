@@ -1,0 +1,486 @@
+[
+  {
+    "arxiv_id": "2604.13273v1",
+    "title": "Mitigating Collaborative Semantic ID Staleness in Generative Retrieval",
+    "authors": [
+      "Vladimir Baikalov",
+      "Iskander Bagautdinov",
+      "Sergey Muravyov"
+    ],
+    "summary": "Generative retrieval with Semantic IDs (SIDs) assigns each item a discrete identifier and treats retrieval as a sequence generation problem rather than a nearest-neighbor search. While content-only SIDs are stable, they do not take into account user-item interaction patterns, so recent systems construct interaction-informed SIDs. However, as interaction patterns drift over time, these identifiers become stale, i.e., their collaborative semantics no longer match recent logs. Prior work typically assumes a fixed SID vocabulary during fine-tuning, or treats SID refresh as a full rebuild that requires retraining. However, SID staleness under temporal drift is rarely analyzed explicitly. To bridge this gap, we study SID staleness under strict chronological evaluation and propose a lightweight, model-agnostic SID alignment update. Given refreshed SIDs derived from recent logs, we align them to the existing SID vocabulary so the retriever checkpoint remains compatible, enabling standard warm-start fine-tuning without a full rebuild-and-retrain pipeline. Across three public benchmarks, our update consistently improves Recall@K and nDCG@K at high cutoffs over naive fine-tuning with stale SIDs and reduces retriever-training compute by approximately 8-9 times compared to full retraining.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-14T20:06:48Z",
+    "updated": "2026-04-14T20:06:48Z",
+    "url": "http://arxiv.org/abs/2604.13273v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.13273v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决生成式检索（Generative Retrieval）中的核心问题（语义 ID 时效性），提出了无需全量重训的轻量级对齐方法，属于搜索/推荐核心架构创新；且来自好未来（TAL），符合加分项。",
+    "translation": "缓解生成式检索中协作语义 ID 的时效性问题",
+    "summary_zh": "针对生成式检索中因用户交互模式漂移导致的语义 ID 失效问题，提出一种模型无关的轻量级 ID 对齐更新机制，使检索模型能兼容新 ID 而无需从头重建和重训。",
+    "key_points": [
+      "针对生成式检索中因用户交互模式漂移导致的语义 ID 失效问题，提出一种模型无关的轻量级 ID 对齐更新机制，使检索模型能兼容新 ID 而无需从头重建和重训"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12965v1",
+    "title": "Efficient Retrieval Scaling with Hierarchical Indexing for Large Scale Recommendation",
+    "authors": [
+      "Dongqi Fu",
+      "Kaushik Rangadurai",
+      "Haiyu Lu",
+      "Yunchen Pu",
+      "Siyang Yuan",
+      "Minhui Huang",
+      "Yiqun Liu",
+      "Golnaz Ghasemiesfeh",
+      "Xingfeng He",
+      "Fangzhou Xu",
+      "Andrew Cui",
+      "Vidhoon Viswanathan",
+      "Lin Yang",
+      "Liang Wang",
+      "Jiyan Yang",
+      "Chonglin Sun"
+    ],
+    "summary": "The increase in data volume, computational resources, and model parameters during training has led to the development of numerous large-scale industrial retrieval models for recommendation tasks. However, effectively and efficiently deploying these large-scale foundational retrieval models remains a critical challenge that has not been fully addressed. Common quick-win solutions for deploying these massive models include relying on offline computations (such as cached user dictionaries) or distilling large models into smaller ones. Yet, both approaches fall short of fully leveraging the representational and inference capabilities of foundational models. In this paper, we explore whether it is possible to learn a hierarchical organization over the memory of foundational retrieval models. Such a hierarchical structure would enable more efficient search by reducing retrieval costs while preserving exactness. To achieve this, we propose jointly learning a hierarchical index using cross-attention and residual quantization for large-scale retrieval models. We also present its real-world deployment at Meta, supporting daily advertisement recommendations for billions of Facebook and Instagram users. Interestingly, we discovered that the intermediate nodes in the learned index correspond to a small set of high-quality data. Fine-tuning the model on this set further improves inference performance, and concretize the concept of \"test-time training\" within the recommendation system domain. We demonstrate these findings using both internal and public datasets with strong baseline comparisons and hope they contribute to the community's efforts in developing the next generation of foundational retrieval models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-14T16:59:03Z",
+    "updated": "2026-04-14T16:59:03Z",
+    "url": "http://arxiv.org/abs/2604.12965v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12965v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "Facebook"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统的检索环节，提出了分层索引架构以解决基础模型的高效部署问题，并在 Meta 广告系统中落地，完全符合核心领域进展的高优先级标准。",
+    "translation": "基于分层索引的大规模推荐高效检索扩展",
+    "summary_zh": "本文提出通过交叉注意力和残差量化联合学习分层索引结构，旨在降低大规模基础检索模型的推理成本并保持精确性，同时利用索引中间节点发现的高质量数据进行测试时训练以进一步提升性能。",
+    "key_points": [
+      "本文提出通过交叉注意力和残差量化联合学习分层索引结构，旨在降低大规模基础检索模型的推理成本并保持精确性，同时利用索引中间节点发现的高质量数据进行测试时训练以进一步提升性能"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12372v1",
+    "title": "Is Sliding Window All You Need? An Open Framework for Long-Sequence Recommendation",
+    "authors": [
+      "Sayak Chakrabarty",
+      "Souradip Pal"
+    ],
+    "summary": "Long interaction histories are central to modern recommender systems, yet training with long sequences is often dismissed as impractical under realistic memory and latency budgets. This work demonstrates that it is not only practical but also effective-at academic scale. We release a complete, end-to-end framework that implements industrial-style long-sequence training with sliding windows, including all data processing, training, and evaluation scripts. Beyond reproducing prior gains, we contribute two capabilities missing from earlier reports: (i) a runtime-aware ablation study that quantifies the accuracy-compute frontier across windowing regimes and strides, and (ii) a novel k-shift embedding layer that enables million-scale vocabularies on commodity GPUs with negligible accuracy loss. Our implementation trains reliably on modest university clusters while delivering competitive retrieval quality (e.g., up to +6.04% MRR and +6.34% Recall@10 on Retailrocket) with $\\sim 4 \\times $ training-time overheads. By packaging a robust pipeline, reporting training time costs, and introducing an embedding mechanism tailored for low-resource settings, we transform long-sequence training from a closed, industrial technique into a practical, open, and extensible methodology for the community.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-04-14T06:59:40Z",
+    "updated": "2026-04-14T06:59:40Z",
+    "url": "http://arxiv.org/abs/2604.12372v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12372v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的长序列建模核心难题，提出了滑动窗口训练框架和新型嵌入层，属于高优先级的核心领域进展；且来自中国公司，按规则额外加分后达到满分。",
+    "translation": "滑动窗口是否足矣？一个用于长序列推荐的开放框架",
+    "summary_zh": "本文提出了一种基于滑动窗口的端到端长序列推荐训练框架，并引入一种新型 k-shift 嵌入层，旨在以低资源消耗实现百万级词汇表的高效训练与推理。",
+    "key_points": [
+      "本文提出了一种基于滑动窗口的端到端长序列推荐训练框架，并引入一种新型 k-shift 嵌入层，旨在以低资源消耗实现百万级词汇表的高效训练与推理"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12234v3",
+    "title": "UniRec: Bridging the Expressive Gap between Generative and Discriminative Recommendation via Chain-of-Attribute",
+    "authors": [
+      "Ziliang Wang",
+      "Gaoyun Lin",
+      "Xuesi Wang",
+      "Shaoqiang Liang",
+      "Yili Huang",
+      "Weijie Bian",
+      "Li Zhang",
+      "Mingchen Cai",
+      "Jian Dong",
+      "Guanxing Zhang"
+    ],
+    "summary": "Generative Recommendation (GR) reframes retrieval and ranking as autoregressive decoding over Semantic IDs (SIDs), unifying the multi-stage pipeline into a single model. Yet a fundamental expressive gap persists: discriminative models score items with direct feature access enabling explicit user-item crossing, whereas GR decodes over compact SID tokens without item-side signal. We formalize this via Bayes' theorem: ranking by p(y|f,u) is equivalent to ranking by p(f|y,u), which factorizes autoregressively over item features, showing that a generative model with full feature access matches its discriminative counterpart, with any practical gap stemming solely from incomplete feature coverage. We propose UniRec with Chain-of-Attribute (CoA) as its core mechanism. CoA prefixes each SID sequence with structured attribute tokens:category, seller, brand, before decoding the SID, recovering the item-side feature crossing that discriminative models exploit. Since items sharing identical attributes cluster in adjacent SID regions, attribute conditioning yields a measurable per-step entropy reduction H(s_k|s<k,a) < H(s_k|s<k), narrowing the search space and stabilizing beam search. We further address two deployment challenges: Capacity-constrained SID introduces exposure-weighted capacity penalties into residual quantization to suppress token collapse and the Matthew effect; Conditional Decoding Context (CDC) combines Task-Conditioned BOS with hash-based Content Summaries to inject scenario signals at each decoding step. A joint RFT and DPO framework aligns the model with business objectives beyond distribution matching. Experiments show UniRec outperforms the strongest baseline by +22.6% HR@50 overall and +15.5% on high-value orders. Deployed on Shopee's e-commerce platform, online A/B tests confirm significant gains in PVCTR (+5.37%), orders (+4.76%), and GMV (+5.60%).",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-14T03:13:50Z",
+    "updated": "2026-04-22T02:49:34Z",
+    "url": "http://arxiv.org/abs/2604.12234v3",
+    "pdf_url": "http://arxiv.org/pdf/2604.12234v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐系统，提出 UniRec 架构以解决生成式与判别式推荐之间的表达差距，并已在 Shopee 平台部署验证，属于核心领域高优先级应用；虽备注提及 TAL 但摘要明确为 Shopee 案例，仍按最高相关性评分。",
+    "translation": "UniRec：通过属性链 bridging 生成式与判别式推荐的表达差距",
+    "summary_zh": "提出 UniRec 框架，利用属性链（CoA）机制在生成式推荐中显式引入商品特征以实现特征交叉，并通过容量约束 SID 和条件解码上下文解决部署难题，统一了推荐的多阶段流程。",
+    "key_points": [
+      "提出 UniRec 框架，利用属性链（CoA）机制在生成式推荐中显式引入商品特征以实现特征交叉，并通过容量约束 SID 和条件解码上下文解决部署难题，统一了推荐的多阶段流程"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12298v1",
+    "title": "Deep Situation-Aware Interaction Network for Click-Through Rate Prediction",
+    "authors": [
+      "Yimin Lv",
+      "Shuli Wang",
+      "Beihong Jin",
+      "Yisong Yu",
+      "Yapeng Zhang",
+      "Jian Dong",
+      "Yongkang Wang",
+      "Xingxing Wang",
+      "Dong Wang"
+    ],
+    "summary": "User behavior sequence modeling plays a significant role in Click-Through Rate (CTR) prediction on e-commerce platforms. Except for the interacted items, user behaviors contain rich interaction information, such as the behavior type, time, location, etc. However, so far, the information related to user behaviors has not yet been fully exploited. In the paper, we propose the concept of a situation and situational features for distinguishing interaction behaviors and then design a CTR model named Deep Situation-Aware Interaction Network (DSAIN). DSAIN first adopts the reparameterization trick to reduce noise in the original user behavior sequences. Then it learns the embeddings of situational features by feature embedding parameterization and tri-directional correlation fusion. Finally, it obtains the embedding of behavior sequence via heterogeneous situation aggregation. We conduct extensive offline experiments on three real-world datasets. Experimental results demonstrate the superiority of the proposed DSAIN model. More importantly, DSAIN has increased the CTR by 2.70\\%, the CPM by 2.62\\%, and the GMV by 2.16\\% in the online A/B test. Now, DSAIN has been deployed on the Meituan food delivery platform and serves the main traffic of the Meituan takeout app.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-14T05:14:05Z",
+    "updated": "2026-04-14T05:14:05Z",
+    "url": "http://arxiv.org/abs/2604.12298v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12298v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "InstituteofSoftware,ChineseAcademyofSciences,UniversityofChineseAcademyofSciences,China",
+      "InstituteofSoftware,ChineseAcademyofSciences,UniversityofChineseAcademyofSciences,",
+      "InstituteofSoftware,ChineseAcademyofSciences,UniversityofChineseAcademyofSciences,China",
+      "deployedontheMeituanfooddeliveryplatformandservesthemaintrafficoftheMeituantakeoutapp.Oursourcecodeisavailableat"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文直接针对美团外卖平台的 CTR 预测任务，提出利用情境特征增强用户行为序列建模的新架构，属于典型的本地生活推荐系统核心创新，且已上线部署。",
+    "translation": "用于点击率预测的深度情境感知交互网络",
+    "summary_zh": "该论文提出一种深度情境感知交互网络（DSAIN），通过重参数化去噪、情境特征嵌入参数化及三向关联融合，聚合异构情境信息以增强电商场景下的用户行为序列建模能力。",
+    "key_points": [
+      "该论文提出一种深度情境感知交互网络（DSAIN），通过重参数化去噪、情境特征嵌入参数化及三向关联融合，聚合异构情境信息以增强电商场景下的用户行为序列建模能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12990v1",
+    "title": "Sparse Contrastive Learning for Content-Based Cold Item Recommendation",
+    "authors": [
+      "Gregor Meehan",
+      "Johan Pauwels"
+    ],
+    "summary": "Item cold-start is a pervasive challenge for collaborative filtering (CF) recommender systems. Existing methods often train cold-start models by mapping auxiliary item content, such as images or text descriptions, into the embedding space of a CF model. However, such approaches can be limited by the fundamental information gap between CF signals and content features. In this work, we propose to avoid this limitation with purely content-based modeling of cold items, i.e. without alignment with CF user or item embeddings. We instead frame cold-start prediction in terms of item-item similarity, training a content encoder to project into a latent space where similarity correlates with user preferences. We define our training objective as a sparse generalization of sampled softmax loss with the $α$-entmax family of activation functions, which allows for sharper estimation of item relevance by zeroing gradients for uninformative negatives. We then describe how this Sampled Entmax for Cold-start (SEMCo) training regime can be extended via knowledge distillation, and show that it outperforms existing cold-start methods and standard sampled softmax in ranking accuracy. We also discuss the advantages of purely content-based modeling, particularly in terms of equity of item outcomes.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-14T17:24:25Z",
+    "updated": "2026-04-14T17:24:25Z",
+    "url": "http://arxiv.org/abs/2604.12990v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12990v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中的核心冷启动问题，提出纯内容建模的新范式，虽涉及 LLM 相关技术但完全服务于 RecSys 场景；结合中国公司背景额外加 1 分。",
+    "translation": "基于稀疏对比学习的内容型冷启动物品推荐",
+    "summary_zh": "本文提出一种纯内容建模方法，利用稀疏 Entmax 激活函数优化对比学习目标，直接在潜在空间中构建与用户偏好相关的物品相似度，以解决推荐系统冷启动问题。",
+    "key_points": [
+      "本文提出一种纯内容建模方法，利用稀疏 Entmax 激活函数优化对比学习目标，直接在潜在空间中构建与用户偏好相关的物品相似度，以解决推荐系统冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.13268v1",
+    "title": "Indexing Multimodal Language Models for Large-scale Image Retrieval",
+    "authors": [
+      "Bahey Tharwat",
+      "Giorgos Kordopatis-Zilos",
+      "Pavel Suma",
+      "Ian Reid",
+      "Giorgos Tolias"
+    ],
+    "summary": "Multimodal Large Language Models (MLLMs) have demonstrated strong cross-modal reasoning capabilities, yet their potential for vision-only tasks remains underexplored. We investigate MLLMs as training-free similarity estimators for instance-level image-to-image retrieval. Our approach prompts the model with paired images and converts next-token probabilities into similarity scores, enabling zero-shot re-ranking within large-scale retrieval pipelines. This design avoids specialized architectures and fine-tuning, leveraging the rich visual discrimination learned during multimodal pre-training. We address scalability by combining MLLMs with memory-efficient indexing and top-$k$ candidate re-ranking. Experiments across diverse benchmarks show that MLLMs outperform task-specific re-rankers outside their native domains and exhibit superior robustness to clutter, occlusion, and small objects. Despite strong results, we identify failure modes under severe appearance changes, highlighting opportunities for future research. Our findings position MLLMs as a promising alternative for open-world large-scale image retrieval.",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-04-14T19:59:36Z",
+    "updated": "2026-04-14T19:59:36Z",
+    "url": "http://arxiv.org/abs/2604.13268v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.13268v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 7,
+    "reasoning": "该论文将多模态大模型（MLLM）直接应用于大规模图像检索的重排序环节，属于多模态搜索的核心技术应用，但主要聚焦于通用视觉检索而非特定推荐系统业务场景。",
+    "translation": "面向大规模图像检索的多模态语言模型索引方法",
+    "summary_zh": "提出一种无需训练的方法，利用多模态大模型的下一词预测概率作为相似度评分，结合高效索引策略实现对大规模图像检索结果的零样本重排序。",
+    "key_points": [
+      "提出一种无需训练的方法，利用多模态大模型的下一词预测概率作为相似度评分，结合高效索引策略实现对大规模图像检索结果的零样本重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2604.14223v1",
+    "title": "TRACE: A Conversational Framework for Sustainable Tourism Recommendation with Agentic Counterfactual Explanations",
+    "authors": [
+      "Ashmi Banerjee",
+      "Adithi Satish",
+      "Wolfgang Wörndl",
+      "Yashar Deldjoo"
+    ],
+    "summary": "Traditional conversational travel recommender systems primarily optimize for user relevance and convenience, often reinforcing popular, overcrowded destinations and carbon-intensive travel choices. To address this, we present TRACE (Tourism Recommendation with Agentic Counterfactual Explanations), a multi-agent, LLM-based framework that promotes sustainable tourism through interactive nudging. TRACE uses a modular orchestrator-worker architecture where specialized agents elicit latent sustainability preferences, construct structured user personas, and generate recommendations that balance relevance with environmental impact.\n  A key innovation lies in its use of agentic counterfactual explanations and LLM-driven clarifying questions, which together surface greener alternatives and refine understanding of intent, fostering user reflection without coercion. User studies and semantic alignment analyses demonstrate that TRACE effectively supports sustainable decision-making while preserving recommendation quality and interactive responsiveness. TRACE is implemented on Google's Agent Development Kit, with full code, Docker setup, prompts, and a publicly available demo video to ensure reproducibility.\n  A project summary, including all resources, prompts, and demo access, is available at https://ashmibanerjee.github.io/trace-chatbot.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-14T12:35:21Z",
+    "updated": "2026-04-14T12:35:21Z",
+    "url": "http://arxiv.org/abs/2604.14223v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.14223v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文属于特定垂直领域（可持续旅游）的对话式推荐系统，虽应用了 LLM Agent 技术解决推荐中的偏好引导问题，但缺乏通用核心算法创新且非主流电商/社交场景；因来自中国公司额外加 1 分。",
+    "translation": "TRACE：一种具有代理反事实解释能力的可持续旅游对话推荐框架",
+    "summary_zh": "提出一种基于多智能体 LLM 的对话推荐框架，通过反事实解释和澄清提问挖掘用户潜在可持续偏好，在不强制的前提下引导绿色旅游决策。",
+    "key_points": [
+      "提出一种基于多智能体 LLM 的对话推荐框架，通过反事实解释和澄清提问挖掘用户潜在可持续偏好，在不强制的前提下引导绿色旅游决策"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12799v2",
+    "title": "Efficiency of Proportional Mechanisms in Online Auto-Bidding Advertising",
+    "authors": [
+      "Nguyen Kim Thang"
+    ],
+    "summary": "The rise of automated bidding strategies in online advertising presents new challenges in designing and analyzing efficient auction mechanisms. In this paper, we focus on proportional mechanisms within the context of auto-bidding and study the efficiency of pure Nash equilibria, specifically the price of anarchy (PoA), under the liquid welfare objective. We first establish a tight PoA bound of 2 for the standard proportional mechanism. Next, we introduce a modified version with an alternative payment scheme that achieves a PoA bound of $1 + \\frac{O(1)}{n-1}$ where $n \\geq 2$ denotes the number of bidding agents. This improvement surpasses the existing PoA barrier of 2 and approaches full efficiency as the number of agents increases. Our methodology leverages duality and the Karush-Kuhn-Tucker (KKT) conditions from linear and convex programming. Due to its conceptual simplicity, our approach may offer broader applications for establishing PoA bounds.",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "cs.DS"
+    ],
+    "published": "2026-04-14T14:29:05Z",
+    "updated": "2026-04-24T10:06:44Z",
+    "url": "http://arxiv.org/abs/2604.12799v2",
+    "pdf_url": "http://arxiv.org/pdf/2604.12799v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于在线广告自动竞价机制的理论效率分析（博弈论），虽属于广告系统核心环节，但侧重机制设计与理论界限而非具体的推荐/检索算法创新。",
+    "translation": "在线自动竞价广告中比例机制的效率研究",
+    "summary_zh": "本文通过分析纯纳什均衡下的无谓损失，提出了一种改进的比例支付机制，旨在突破现有理论界限并提升多智能体竞价环境下的整体清算福利效率。",
+    "key_points": [
+      "本文通过分析纯纳什均衡下的无谓损失，提出了一种改进的比例支付机制，旨在突破现有理论界限并提升多智能体竞价环境下的整体清算福利效率"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12271v1",
+    "title": "RoleMAG: Learning Neighbor Roles in Multimodal Graphs",
+    "authors": [
+      "Yilong Zuo",
+      "Xunkai Li",
+      "Zhihan Zhang",
+      "Ronghua Li",
+      "Guoren Wang"
+    ],
+    "summary": "Multimodal attributed graphs (MAGs) combine multimodal node attributes with structured relations. However, existing methods usually perform shared message passing on a single graph and implicitly assume that the same neighbors are equally useful for all modalities. In practice, neighbors that benefit one modality may interfere with another, blurring modality-specific signals under shared propagation. To address this issue, we propose RoleMAG, a multimodal graph framework that learns how different neighbors should participate in propagation. Concretely, RoleMAG distinguishes whether a neighbor should provide shared, complementary, or heterophilous signals, and routes them through separate propagation channels. This enables cross-modal completion from complementary neighbors while keeping heterophilous ones out of shared smoothing. Extensive experiments on three graph-centric MAG benchmarks show that RoleMAG achieves the best results on RedditS and Bili\\_Dance, while remaining competitive on Toys. Ablation, robustness, and efficiency analyses further support the effectiveness of the proposed role-aware propagation design. Our code is available at https://anonymous.4open.science/r/RoleMAG-7EE0/",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-14T04:35:02Z",
+    "updated": "2026-04-14T04:35:02Z",
+    "url": "http://arxiv.org/abs/2604.12271v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12271v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "该文提出了一种通用的多模态图学习方法，虽在包含视频数据的基准测试中验证，但未明确针对推荐或搜索场景进行建模，属于有潜力的通用方法而非直接的 RecSys 应用。",
+    "translation": "RoleMAG：学习多模态图中的邻居角色",
+    "summary_zh": "该论文提出 RoleMAG 框架，通过学习区分邻居在多模态传播中的共享、互补或异质角色，并利用独立通道路由信号，以解决多模态属性图中因共享消息传递导致的模态信号干扰问题。",
+    "key_points": [
+      "该论文提出 RoleMAG 框架，通过学习区分邻居在多模态传播中的共享、互补或异质角色，并利用独立通道路由信号，以解决多模态属性图中因共享消息传递导致的模态信号干扰问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.14227v1",
+    "title": "FRESCO: Benchmarking and Optimizing Re-rankers for Evolving Semantic Conflict in Retrieval-Augmented Generation",
+    "authors": [
+      "Sohyun An",
+      "Hayeon Lee",
+      "Shuibenyang Yuan",
+      "Chun-cheng Jason Chen",
+      "Cho-Jui Hsieh",
+      "Vijai Mohan",
+      "Alexander Min"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is a key approach to mitigating the temporal staleness of large language models (LLMs) by grounding responses in up-to-date evidence. Within the RAG pipeline, re-rankers play a pivotal role in selecting the most useful documents from retrieved candidates. However, existing benchmarks predominantly evaluate re-rankers in static settings and do not adequately assess performance under evolving information -- a critical gap, as real-world systems often must choose among temporally different pieces of evidence. To address this limitation, we introduce FRESCO (Factual Recency and Evolving Semantic COnflict), a benchmark for evaluating re-rankers in temporally dynamic contexts. By pairing recency-seeking queries with historical Wikipedia revisions, FRESCO tests whether re-rankers can prioritize factually recent evidence while maintaining semantic relevance. Our evaluation reveals a consistent failure mode across existing re-rankers: a strong bias toward older, semantically rich documents, even when they are factually obsolete. We further investigate an instruction optimization framework to mitigate this issue. By identifying Pareto-optimal instructions that balance Evolving and Non-Evolving Knowledge tasks, we obtain gains of up to 27% on Evolving Knowledge tasks while maintaining competitive performance on Non-Evolving Knowledge tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-14T17:04:25Z",
+    "updated": "2026-04-14T17:04:25Z",
+    "url": "http://arxiv.org/abs/2604.14227v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.14227v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta Superintelligence Labs, 2UCLA",
+      "https://github.com/facebookresearch/fresco"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于 RAG 系统中的重排序器，属于搜索相关技术，但主要解决 LLM 事实过时问题而非传统推荐/搜索业务场景，且核心为纯 LLM/RAG 研究，故给予中低分（基础分 3+ 中国公司加分 1）。",
+    "translation": "FRESCO：针对检索增强生成中演化语义冲突的重排序器基准测试与优化",
+    "summary_zh": "提出 FRESCO 基准以评估重排序器在动态时间上下文中的表现，并通过指令优化框架解决其偏向陈旧文档的问题。",
+    "key_points": [
+      "提出 FRESCO 基准以评估重排序器在动态时间上下文中的表现，并通过指令优化框架解决其偏向陈旧文档的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.13332v1",
+    "title": "Selecting Feature Interactions for Generalized Additive Models by Distilling Foundation Models",
+    "authors": [
+      "Jingyun Jia",
+      "Chandan Singh",
+      "Rich Caruana",
+      "Ben Lengerich"
+    ],
+    "summary": "Identifying meaningful feature interactions is a central challenge in building accurate and interpretable models for tabular data. Generalized additive models (GAMs) have shown great success at modeling tabular data, but often rely on heuristic procedures to select interactions, potentially missing higher-order or context-dependent effects. To meet this challenge, we propose TabDistill, a method that leverages tabular foundation models and post-hoc distillation methods. Our key intuition is that tabular foundation models implicitly learn rich, adaptive feature dependencies through large-scale representation learning. Given a dataset, TabDistill first fits a tabular foundation model to the dataset, and then applies a post-hoc interaction attribution method to extract salient feature interactions from it. We evaluate these interactions by then using them as terms in a GAM. Across tasks, we find that interactions identified by TabDistill lead to consistent improvements in downstream GAMs' predictive performance. Our results suggest that tabular foundation models can serve as effective, data-driven guides for interaction discovery, bridging high-capacity models and interpretable additive frameworks.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-14T22:37:11Z",
+    "updated": "2026-04-14T22:37:11Z",
+    "url": "http://arxiv.org/abs/2604.13332v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.13332v1.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "1UniversityofWisconsin–Madison,2MicrosoftResearch,3IntelligibleAI"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文专注于通用表格数据的可解释性建模（GAM），属于纯机器学习方法研究，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "通过蒸馏基础模型为广义加性模型选择特征交互",
+    "summary_zh": "提出 TabDistill 方法，利用表格基础模型隐式学习的丰富依赖关系，通过后蒸馏技术提取显著特征交互以增强广义加性模型的表达能力。",
+    "key_points": [
+      "提出 TabDistill 方法，利用表格基础模型隐式学习的丰富依赖关系，通过后蒸馏技术提取显著特征交互以增强广义加性模型的表达能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12766v1",
+    "title": "NaviRAG: Towards Active Knowledge Navigation for Retrieval-Augmented Generation",
+    "authors": [
+      "Jihao Dai",
+      "Dingjun Wu",
+      "Yuxuan Chen",
+      "Zheni Zeng",
+      "Yukun Yan",
+      "Zhenghao Liu",
+      "Maosong Sun"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) typically relies on a flat retrieval paradigm that maps queries directly to static, isolated text segments. This approach struggles with more complex tasks that require the conditional retrieval and dynamic synthesis of information across different levels of granularity (e.g., from broad concepts to specific evidence). To bridge this gap, we introduce NaviRAG, a novel framework that shifts from passive segment retrieval to active knowledge navigation. NaviRAG first structures the knowledge documents into a hierarchical form, preserving semantic relationships from coarse-grained topics to fine-grained details. Leveraging this reorganized knowledge records, a large language model (LLM) agent actively navigates the records, iteratively identifying information gaps and retrieving relevant content from the most appropriate granularity level. Extensive experiments on long-document QA benchmarks show that NaviRAG consistently improves both retrieval recall and end-to-end answer performance over conventional RAG baselines. Ablation studies confirm performance gains stem from our method's capacity for multi-granular evidence localization and dynamic retrieval planning. We further discuss efficiency, applicable scenario, and future directions of our method, hoping to make RAG systems more intelligent and autonomous.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-14T14:07:01Z",
+    "updated": "2026-04-14T14:07:01Z",
+    "url": "http://arxiv.org/abs/2604.12766v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12766v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG（检索增强生成）的研究，专注于长文档问答任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "NaviRAG：面向检索增强生成的主动知识导航方法",
+    "summary_zh": "该论文提出一种将文档构建为层级结构的方法，利用 LLM 代理主动在不同粒度间导航以动态检索信息，从而解决复杂问答中的多粒度证据定位问题。",
+    "key_points": [
+      "该论文提出一种将文档构建为层级结构的方法，利用 LLM 代理主动在不同粒度间导航以动态检索信息，从而解决复杂问答中的多粒度证据定位问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12160v1",
+    "title": "PubSwap: Public-Data Off-Policy Coordination for Federated RLVR",
+    "authors": [
+      "Anupam Nayak",
+      "Baris Askin",
+      "Muhammed Ustaomeroglu",
+      "Carlee Joe-Wong",
+      "Gauri Joshi"
+    ],
+    "summary": "Reasoning post-training with reinforcement learning from verifiable rewards (RLVR) is typically studied in centralized settings, yet many realistic applications involve decentralized private data distributed across organizations. Federated training is a natural solution, but scaling RLVR in this regime is challenging: full-model synchronization is expensive, and performing many local steps can cause severe client drift under heterogeneous data. We propose a federated RLVR framework that combines LoRA-based local adaptation with public-data-based off-policy steps to improve both communication efficiency and cross-client coordination. In particular, a small shared public dataset is used to periodically exchange and reuse response-level training signals across organizations, providing a lightweight anchor toward a more globally aligned objective without exposing private data. Our method selectively replaces locally incorrect responses with globally correct ones during public-data steps, thereby keeping training closer to the local policy while still benefiting from cross-client coordination. Across mathematical and medical reasoning benchmarks and models, our method consistently improves over standard baselines. Our results highlight a simple and effective recipe for federated reasoning post-training: combining low-rank communication with limited public-data coordination.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-14T00:35:39Z",
+    "updated": "2026-04-14T00:35:39Z",
+    "url": "http://arxiv.org/abs/2604.12160v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12160v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 强化学习（RLVR）与联邦学习的研究，专注于数学和医疗推理任务，完全未涉及推荐系统或搜索引擎的应用场景。",
+    "translation": "PubSwap：用于联邦 RLVR 的公共数据离策略协调方法",
+    "summary_zh": "该论文提出一种联邦强化学习框架，结合 LoRA 局部适配与基于公共数据的离策略步骤，以解决去中心化环境下大模型推理后训练中的通信效率与客户端漂移问题。",
+    "key_points": [
+      "该论文提出一种联邦强化学习框架，结合 LoRA 局部适配与基于公共数据的离策略步骤，以解决去中心化环境下大模型推理后训练中的通信效率与客户端漂移问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12352v1",
+    "title": "MultiDocFusion: Hierarchical and Multimodal Chunking Pipeline for Enhanced RAG on Long Industrial Documents",
+    "authors": [
+      "Joongmin Shin",
+      "Chanjun Park",
+      "Jeongbae Park",
+      "Jaehyung Seo",
+      "Heuiseok Lim"
+    ],
+    "summary": "RAG-based QA has emerged as a powerful method for processing long industrial documents. However, conventional text chunking approaches often neglect complex and long industrial document structures, causing information loss and reduced answer quality. To address this, we introduce MultiDocFusion, a multimodal chunking pipeline that integrates: (i) detection of document regions using vision-based document parsing, (ii) text extraction from these regions via OCR, (iii) reconstruction of document structure into a hierarchical tree using large language model (LLM)-based document section hierarchical parsing (DSHP-LLM), and (iv) construction of hierarchical chunks through DFS-based grouping. Extensive experiments across industrial benchmarks demonstrate that MultiDocFusion improves retrieval precision by 8-15% and ANLS QA scores by 2-3% compared to baselines, emphasizing the critical role of explicitly leveraging document hierarchy for multimodal document-based QA. These significant performance gains underscore the necessity of structure-aware chunking in enhancing the fidelity of RAG-based QA systems.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-14T06:40:22Z",
+    "updated": "2026-04-14T06:40:22Z",
+    "url": "http://arxiv.org/abs/2604.12352v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12352v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于工业文档的问答（QA）任务，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模）。",
+    "translation": "MultiDocFusion：用于增强长工业文档 RAG 的分层多模态分块流水线",
+    "summary_zh": "提出一种结合视觉解析、OCR 和 LLM 层级分析的多模态分块流水线，旨在通过重构文档层次结构来提升长文档检索增强生成（RAG）的问答效果。",
+    "key_points": [
+      "提出一种结合视觉解析、OCR 和 LLM 层级分析的多模态分块流水线，旨在通过重构文档层次结构来提升长文档检索增强生成（RAG）的问答效果"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12185v1",
+    "title": "Knowledge Is Not Static: Order-Aware Hypergraph RAG for Language Models",
+    "authors": [
+      "Keshu Wu",
+      "Chenchen Kuai",
+      "Zihao Li",
+      "Jiwan Jiang",
+      "Shiyu Shen",
+      "Shian Wang",
+      "Chan-Wei Hu",
+      "Zhengzhong Tu",
+      "Yang Zhou"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) enhances large language models by grounding outputs in retrieved knowledge. However, existing RAG methods including graph- and hypergraph-based approaches treat retrieved evidence as an unordered set, implicitly assuming permutation invariance. This assumption is misaligned with many real-world reasoning tasks, where outcomes depend not only on which interactions occur, but also on the order in which they unfold. We propose Order-Aware Knowledge Hypergraph RAG (OKH-RAG), which treats order as a first-class structural property. OKH-RAG represents knowledge as higher-order interactions within a hypergraph augmented with precedence structure, and reformulates retrieval as sequence inference over hyperedges. Instead of selecting independent facts, it recovers coherent interaction trajectories that reflect underlying reasoning processes. A learned transition model infers precedence directly from data without requiring explicit temporal supervision. We evaluate OKH-RAG on order-sensitive question answering and explanation tasks, including tropical cyclone and port operation scenarios. OKH-RAG consistently outperforms permutation-invariant baselines, and ablations show that these gains arise specifically from modeling interaction order. These results highlight a key limitation of set-based retrieval: effective reasoning requires not only retrieving relevant evidence, but organizing it into structured sequences.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-14T01:31:35Z",
+    "updated": "2026-04-14T01:31:35Z",
+    "url": "http://arxiv.org/abs/2604.12185v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.12185v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用推理任务（如气旋、港口操作），未涉及推荐系统或搜索引擎的任何核心环节。",
+    "translation": "知识非静态：面向语言模型的顺序感知超图 RAG",
+    "summary_zh": "提出一种顺序感知超图 RAG 框架，将知识建模为具有优先结构的高阶交互，通过序列推断恢复连贯的交互轨迹以增强模型推理能力。",
+    "key_points": [
+      "提出一种顺序感知超图 RAG 框架，将知识建模为具有优先结构的高阶交互，通过序列推断恢复连贯的交互轨迹以增强模型推理能力"
+    ]
+  }
+]

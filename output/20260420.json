@@ -1,0 +1,578 @@
+[
+  {
+    "arxiv_id": "2604.18200v1",
+    "title": "Multi-LLM Token Filtering and Routing for Sequential Recommendation",
+    "authors": [
+      "Wuhan Chen",
+      "Min Gao",
+      "Xin Xia",
+      "Zongwei Wang",
+      "Wentao Li",
+      "Shane Culpepper"
+    ],
+    "summary": "Large language models (LLMs) have recently shown promise in recommendation by providing rich semantic knowledge. While most existing approaches rely on external textual corpora to align LLMs with recommender systems, we revisit a more fundamental yet underexplored question: Can recommendation benefit from LLM token embeddings alone without textual input? Through a systematic empirical study, we show that directly injecting token embeddings from a single LLM into sequential recommenders leads to unstable or limited gains, due to semantic misalignment, insufficient task adaptation, and the restricted coverage of individual LLMs. To address these challenges, we propose MLTFR, a Multi-LLM Token Filtering and Routing framework for corpus-free sequential recommendation. MLTFR follows an interaction-guided LLM knowledge integration paradigm, where task-relevant token embeddings are selected via user-guided token filtering to suppress noisy and irrelevant vocabulary signals. To overcome the limitations of single-LLM representations, MLTFR integrates multiple LLM token spaces through a Mixture-of-Experts architecture, with a Fisher-weighted semantic consensus expert to balance heterogeneous experts and prevent domination during training. By jointly filtering informative tokens and aggregating complementary semantic knowledge across multiple LLMs, MLTFR enables stable and effective utilization of LLM token embeddings without textual inputs or backbone modification. Extensive experiments demonstrate that MLTFR consistently outperforms state-of-the-art sequential recommendation baselines and existing alignment methods. Our code is available at: https://github.com/ccwwhhh/MLTFR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-20T12:50:21Z",
+    "updated": "2026-04-20T12:50:21Z",
+    "url": "http://arxiv.org/abs/2604.18200v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18200v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐任务，提出了一种无需文本输入、仅利用多 LLM 令牌嵌入的新框架，完美契合'LLM for RecSys'的核心方向；且来自 TAL（好未来），符合额外加分条件。",
+    "translation": "面向序列推荐的多大语言模型令牌过滤与路由机制",
+    "summary_zh": "提出 MLTFR 框架，通过用户引导的令牌过滤和混合专家架构，在无文本输入情况下整合多个 LLM 的令牌嵌入以增强序列推荐效果。",
+    "key_points": [
+      "提出 MLTFR 框架，通过用户引导的令牌过滤和混合专家架构，在无文本输入情况下整合多个 LLM 的令牌嵌入以增强序列推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18146v2",
+    "title": "Modular Representation Compression: Adapting LLMs for Efficient and Effective Recommendations",
+    "authors": [
+      "Yunjia Xi",
+      "Menghui Zhu",
+      "Jianghao Lin",
+      "Bo Chen",
+      "Ruiming Tang",
+      "Yong Yu",
+      "Weinan Zhang"
+    ],
+    "summary": "Recently, large language models (LLMs) have advanced recommendation systems (RSs), and recent works have begun to explore how to integrate LLMs into industrial RSs. While most approaches deploy LLMs offline to generate and pre-cache augmented representations for RSs, high-dimensional representations from LLMs introduce substantial storage and computational costs. Thus, it is crucial to compress LLM representations effectively. However, we identify a counterintuitive phenomenon during representation compression: Mid-layer Representation Advantage (MRA), where representations from middle layers of LLMs outperform those from final layers in recommendation tasks. This degraded final layer renders existing compression methods, which typically compress on the final layer, suboptimal. We interpret this based on modularity theory that LLMs develop spontaneous internal functional modularity and force the final layer to specialize in the proxy training task. Thus, we propose \\underline{M}odul\\underline{a}r \\underline{R}epresentation \\underline{C}ompression (MARC) to explicitly control the modularity of LLMs. First, Modular Adjustment explicitly introduces compression and task adaptation modules, enabling the LLM to operate strictly as a representation-learning module. Next, to ground each module to its specific task, Modular Task Decoupling uses information constraints and different network structures to decouple tasks. Extensive experiments validate that MARC addresses MRA and produces efficient representations. Notably, MARC achieved a 2.82% eCPM lift in an online A/B test within a large-scale commercial search advertising scenario.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-20T12:08:58Z",
+    "updated": "2026-04-21T07:16:41Z",
+    "url": "http://arxiv.org/abs/2604.18146v2",
+    "pdf_url": "http://arxiv.org/pdf/2604.18146v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "ShanghaiJiaoTongUniversity HuaweiNoah’sArkLab AntaiCollegeofEconomicsand",
+      "University",
+      "HuaweiNoah’sArkLab HuaweiNoah’sArkLab ShanghaiJiaoTongUniversity",
+      "ShanghaiJiaoTongUniversity",
+      "49thInternationalACMSIGIRConferenceonResearchandDevelopmentin"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐/广告系统中的 LLM 表示压缩问题，提出了 MARC 架构并已在工业界搜索广告场景验证，完全符合核心领域进展标准（基础分 9+ 中国公司加分 1）。",
+    "translation": "模块化表示压缩：适配 LLM 以实现高效且有效的推荐",
+    "summary_zh": "针对 LLM 最终层在推荐任务中表现不佳的现象，提出模块化表示压缩（MARC）方法，通过引入模块化调整和任务解耦机制，显式控制 LLM 内部功能模块以生成高效且高质量的推荐表示。",
+    "key_points": [
+      "针对 LLM 最终层在推荐任务中表现不佳的现象，提出模块化表示压缩（MARC）方法，通过引入模块化调整和任务解耦机制，显式控制 LLM 内部功能模块以生成高效且高质量的推荐表示"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17878v2",
+    "title": "RankUp: Towards High-rank Representations for Large Scale Advertising Recommender Systems",
+    "authors": [
+      "Jin Chen",
+      "Shangyu Zhang",
+      "Bin Hu",
+      "Chao Zhou",
+      "Junwei Pan",
+      "Gengsheng Xue",
+      "Wentao Ning",
+      "Gengyu Weng",
+      "Wang Zheng",
+      "Shaohua Liu",
+      "Zeen Xu",
+      "Chengyuan Mai",
+      "Shijie Quan",
+      "Tingyu Jiang",
+      "Lifeng Wang",
+      "Shudong Huang",
+      "Chengguo Yin",
+      "Haijie Gu",
+      "Jie Jiang"
+    ],
+    "summary": "The scaling laws for recommender systems have been increasingly validated, where MetaFormer-based architectures consistently benefit from increased model depth, hidden dimensionality, and user behavior sequence length. However, whether representation capacity scales proportionally with parameter growth remains largely unexplored. Prior studies on RankMixer reveal that the effective rank of token representations exhibits a damped oscillatory trajectory across layers, failing to increase consistently with depth and even degrading in deeper layers. Motivated by this observation, we propose \\textbf{RankUp}, an architecture designed to mitigate representation collapse and enhance expressive capacity through randomized permutation splitting over sparse features, a multi-embedding paradigm, global token integration, crossed pretrained embedding tokens and task-specific token decoupling. RankUp has been fully deployed in large-scale production across Weixin Video Accounts, Official Accounts and Moments, yielding GMV improvements of 3.41\\%, 4.81\\% and 2.21\\%, respectively.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-20T06:40:27Z",
+    "updated": "2026-04-21T03:44:53Z",
+    "url": "http://arxiv.org/abs/2604.17878v2",
+    "pdf_url": "http://arxiv.org/pdf/2604.17878v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模广告推荐系统中的表示坍塌问题提出新架构 RankUp，并已在微信视频号等核心业务场景部署验证，属于高优先级的核心领域进展。",
+    "translation": "RankUp：面向大规模广告推荐系统的高秩表示研究",
+    "summary_zh": "针对推荐系统中深层网络表示秩衰减导致表达能力受限的问题，提出通过随机置换分裂、多嵌入范式及全局令牌整合等机制构建 RankUp 架构，以维持高秩表示并增强模型表达容量。",
+    "key_points": [
+      "针对推荐系统中深层网络表示秩衰减导致表达能力受限的问题，提出通过随机置换分裂、多嵌入范式及全局令牌整合等机制构建 RankUp 架构，以维持高秩表示并增强模型表达容量"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17681v1",
+    "title": "FedCRF: A Federated Cross-domain Recommendation Method with Semantic-driven Deep Knowledge Fusion",
+    "authors": [
+      "Lei Guo",
+      "Ting Yang",
+      "Hui Liu",
+      "Xu Yu",
+      "Xiaohui Han",
+      "Xinhua Wang"
+    ],
+    "summary": "As user behavior data becomes increasingly scattered across different platforms, achieving cross-domain knowledge fusion while preserving privacy has become a critical issue in recommender systems. Existing PPCDR methods usually rely on overlapping users or items as a bridge, making them inapplicable to non-overlapping scenarios. They also suffer from limitations in the collaborative modeling of global and local semantics. To this end, this paper proposes a Federated Cross-domain Recommendation method with deep knowledge Fusion (FedCRF). Using textual semantics as a cross-domain bridge, FedCRF achieves cross-domain knowledge transfer via federated semantic learning under the non-overlapping scenario. Specifically, FedCRF constructs global semantic clusters on the server side to extract shared semantic information, and designs a FGSAT module on the client side to dynamically adapt to local data distributions and alleviate cross-domain distribution shift. Meanwhile, it builds a semantic graph based on textual features to learn representations that integrate both structural and semantic information, and introduces contrastive learning constraints between global and local semantic representations to enhance semantic consistency and promote deep knowledge fusion. In this framework, only item semantic representations are shared, while user interaction data remains locally stored, effectively mitigating privacy leakage risks. Experimental results on multiple real-world datasets show that FedCRF significantly outperforms existing methods in terms of Recall@20 and NDCG@20, validating its effectiveness and superiority in non-overlapping cross-domain recommendation scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-20T00:37:40Z",
+    "updated": "2026-04-20T00:37:40Z",
+    "url": "http://arxiv.org/abs/2604.17681v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.17681v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的跨域推荐与隐私保护痛点，提出基于联邦学习和语义融合的新架构，且来自工业界（TAL, STO），完全符合高优先级标准。",
+    "translation": "FedCRF：一种基于语义驱动深度知识融合的联邦跨域推荐方法",
+    "summary_zh": "该文提出利用文本语义作为非重叠场景下的跨域桥梁，通过联邦语义学习构建全局簇与本地自适应模块，在保护用户数据隐私的同时实现深度的跨域知识融合。",
+    "key_points": [
+      "该文提出利用文本语义作为非重叠场景下的跨域桥梁，通过联邦语义学习构建全局簇与本地自适应模块，在保护用户数据隐私的同时实现深度的跨域知识融合"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18351v1",
+    "title": "Balanced Co-Clustering of Users and Items for Embedding Table Compression in Recommender Systems",
+    "authors": [
+      "Runhao Jiang",
+      "Renchi Yang",
+      "Donghao Wu"
+    ],
+    "summary": "Recommender systems have advanced markedly over the past decade by transforming each user/item into a dense embedding vector with deep learning models. At industrial scale, embedding tables constituted by such vectors of all users/items demand a vast amount of parameters and impose heavy compute and memory overhead during training and inference, hindering model deployment under resource constraints. Existing solutions towards embedding compression either suffer from severely compromised recommendation accuracy or incur considerable computational costs.\n  To mitigate these issues, this paper presents BACO, a fast and effective framework for compressing embedding tables. Unlike traditional ID hashing, BACO is built on the idea of exploiting collaborative signals in user-item interactions for user and item groupings, such that similar users/items share the same embeddings in the codebook. Specifically, we formulate a balanced co-clustering objective that maximizes intra-cluster connectivity while enforcing cluster-volume balance, and unify canonical graph clustering techniques into the framework through rigorous theoretical analyses. To produce effective groupings while averting codebook collapse, BACO instantiates this framework with a principled weighting scheme for users and items, an efficient label propagation solver, as well as secondary user clusters. Our extensive experiments comparing BACO against full models and 18 baselines over benchmark datasets demonstrate that BACO cuts embedding parameters by over 75% with a drop of at most 1.85% in recall, while surpassing the strongest baselines by being up to 346X faster.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-20T14:45:01Z",
+    "updated": "2026-04-20T14:45:01Z",
+    "url": "http://arxiv.org/abs/2604.18351v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18351v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的核心痛点（嵌入表压缩），提出了一种基于用户 - 物品协同聚类的具体架构，属于高优先级的核心领域进展。",
+    "translation": "推荐系统中用于嵌入表压缩的用户与物品平衡共聚类方法",
+    "summary_zh": "本文提出 BACO 框架，通过最大化簇内连接性并强制簇体积平衡的共聚类目标，让相似用户和物品共享嵌入码本，从而在大幅减少参数量的同时保持推荐精度。",
+    "key_points": [
+      "本文提出 BACO 框架，通过最大化簇内连接性并强制簇体积平衡的共聚类目标，让相似用户和物品共享嵌入码本，从而在大幅减少参数量的同时保持推荐精度"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17738v1",
+    "title": "Mira-Embeddings-V1: Domain-Adapted Semantic Reranking for Recruitment via LLM-Synthesized Data",
+    "authors": [
+      "Zhaohua Liang",
+      "Zhilin Wang",
+      "Renjie Cao",
+      "Yining Zhang"
+    ],
+    "summary": "Candidate sourcing for recruiters is best viewed as a two-stage retrieval and reranking pipeline with recall as the primary objective under a limited review budget. An upstream production retriever first returns a candidate shortlist for each job description (JD), and our goal is to rerank that shortlist so that qualified candidates appear as high as possible. We present mira-embeddings-v1, a semantic reranking system for the recruitment domain that reshapes the embedding space with LLM-synthesized training data and corrects boundary confusions with a lightweight reranking head. Starting from real JDs, we build a five-stage prompt pipeline to generate diverse positive and hard negative samples that sculpt the semantic space from multiple angles. We then apply a two-round LoRA adaptation: JD--JD contrastive training followed by JD--CV triplet alignment on a heterogeneous text dataset. Importantly, these gains require no large-scale manually labeled industrial training pairs: a modest set of real JDs is expanded into supervision through LLM synthesis. Finally, a BoundaryHead MLP reranks the Top-K results to distinguish between roles that share the same title but differ in scope. On a local pool of 300 real JDs with candidates from an upstream production retriever, mira-embeddings-v1 improves Recall@50 from 68.89% (baseline) to 77.55% while lifting Precision@10 from 35.77% to 39.62%. On a supportive global pool over 44,138 candidates judged by a Qwen3-32B rubric, it achieves Recall@200 of 0.7047 versus 0.5969 for the baseline. These results show that LLM-synthesized supervision with boundary-aware reranking yields robust gains without a heavy cross-encoder.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-20T02:51:12Z",
+    "updated": "2026-04-20T02:51:12Z",
+    "url": "http://arxiv.org/abs/2604.17738v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.17738v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对招聘搜索场景中的重排序（Reranking）核心环节，利用 LLM 合成数据解决训练数据稀缺问题并优化语义空间，属于典型的 LLM for Search 应用；虽非中国电商/社交/本地生活公司（JD 指 Job Description），但其解决的实际工程问题极具参考价值。",
+    "translation": "Mira-Embeddings-V1：基于 LLM 合成数据的领域自适应招聘语义重排序",
+    "summary_zh": "提出一种利用 LLM 生成多样化正负样本以重塑嵌入空间的语义重排序系统，并通过轻量级边界感知头解决职位标题相同但范围不同的混淆问题。",
+    "key_points": [
+      "提出一种利用 LLM 生成多样化正负样本以重塑嵌入空间的语义重排序系统，并通过轻量级边界感知头解决职位标题相同但范围不同的混淆问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18845v1",
+    "title": "Dual-View Training for Instruction-Following Information Retrieval",
+    "authors": [
+      "Qingcheng Zeng",
+      "Puxuan Yu",
+      "Aman Mehta",
+      "Fuheng Zhao",
+      "Rajhans Samdani"
+    ],
+    "summary": "Instruction-following information retrieval (IF-IR) studies retrieval systems that must not only find documents relevant to a query, but also obey explicit user constraints such as required attributes, exclusions, or output preferences. However, most retrievers are trained primarily for semantic relevance and often fail to distinguish documents that match the topic from those that satisfy the instruction. We propose a dual-view data synthesis strategy based on polarity reversal: given a query, a document that is relevant under the instruction, and a hard negative that matches the query but violates the instruction, we prompt an LLM to generate a complementary instruction under which the two documents swap relevance labels. By presenting the same document pair under complementary instructions that invert their relevance labels, the training signal forces the retriever to reconsider the same candidate set through the instruction, rather than relying on fixed topical cues. On a 305M-parameter encoder, our method improves performance on the FollowIR benchmark by 45%, surpassing general-purpose embedding models of comparable or larger scale. Through head-to-head comparisons at matched data budgets, we further show that data diversity and instruction supervision play complementary roles: the former preserves general retrieval quality, while the latter improves instruction sensitivity. These results highlight the value of targeted data synthesis for building retrieval systems that are both broadly capable and instruction-aware.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-20T21:10:29Z",
+    "updated": "2026-04-20T21:10:29Z",
+    "url": "http://arxiv.org/abs/2604.18845v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18845v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的指令遵循（Instruction-Following）检索问题，提出双视图训练策略以区分语义相关性与指令约束，属于核心搜索技术改进而非纯 LLM 研究。",
+    "translation": "指令遵循信息检索的双视图训练方法",
+    "summary_zh": "提出一种基于极性反转的双视图数据合成策略，通过构建互补指令下的正负样本对，强制检索模型学习依据用户显式指令而非仅靠主题语义进行文档排序。",
+    "key_points": [
+      "提出一种基于极性反转的双视图数据合成策略，通过构建互补指令下的正负样本对，强制检索模型学习依据用户显式指令而非仅靠主题语义进行文档排序"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18257v1",
+    "title": "DocQAC: Adaptive Trie-Guided Decoding for Effective In-Document Query Auto-Completion",
+    "authors": [
+      "Rahul Mehta",
+      "Kavin R",
+      "Indrajit Pal",
+      "Tushar Abhishek",
+      "Pawan Goyal",
+      "Manish Gupta"
+    ],
+    "summary": "Query auto-completion (QAC) has been widely studied in the context of web search, yet remains underexplored for in-document search, which we term DocQAC. DocQAC aims to enhance search productivity within long documents by helping users craft faster, more precise queries, even for complex or hard-to-spell terms. While global historical queries are available to both WebQAC and DocQAC, DocQAC uniquely accesses document-specific context, including the current document's content and its specific history of user query interactions.\n  To address this setting, we propose a novel adaptive trie-guided decoding framework that uses user query prefixes to softly steer language models toward high-quality completions. Our approach introduces an adaptive penalty mechanism with tunable hyperparameters, enabling a principled trade-off between model confidence and trie-based guidance. To efficiently incorporate document context, we explore retrieval-augmented generation (RAG) and lightweight contextual document signals such as titles, keyphrases, and summaries.\n  When applied to encoder-decoder models like T5 and BART, our trie-guided framework outperforms strong baselines and even surpasses much larger instruction-tuned models such as LLaMA-3 and Phi-3 on seen queries across both seen and unseen documents. This demonstrates its practicality for real-world DocQAC deployments, where efficiency and scalability are critical. We evaluate our method on a newly introduced DocQAC benchmark derived from ORCAS, enriched with query-document pairs. We make both the DocQAC dataset (https://bit.ly/3IGEkbH) and code (https://github.com/rahcode7/DocQAC) publicly available.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-20T13:30:45Z",
+    "updated": "2026-04-20T13:30:45Z",
+    "url": "http://arxiv.org/abs/2604.18257v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18257v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "MicrosoftCorporation IndianInstituteofTechnology Independent",
+      "IndianInstituteofTechnology Kharagpur,India",
+      "MicrosoftCorporation IndianInstituteofTechnology MicrosoftCorporation"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的查询自动补全（QAC）场景，提出了结合文档上下文的创新方法，属于核心搜索技术应用；虽涉及 LLM 解码策略，但紧密围绕搜索产品功能，非纯 LLM 研究。",
+    "translation": "DocQAC：用于高效文档内查询自动补全的自适应 Trie 引导解码",
+    "summary_zh": "提出一种自适应 Trie 引导解码框架，利用文档特定内容和用户交互历史，通过可调节的惩罚机制平衡模型置信度与词典约束，以优化长文档内的查询自动补全体验。",
+    "key_points": [
+      "提出一种自适应 Trie 引导解码框架，利用文档特定内容和用户交互历史，通过可调节的惩罚机制平衡模型置信度与词典约束，以优化长文档内的查询自动补全体验"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18800v1",
+    "title": "Optimal Exploration of New Products under Assortment Decisions",
+    "authors": [
+      "Jackie Baek",
+      "Atanas Dinev",
+      "Thodoris Lykouris"
+    ],
+    "summary": "We study online learning for new products on a platform that makes capacity-constrained assortment decisions on which products to offer. For a newly listed product, its quality is initially unknown, and quality information propagates through social learning: when a customer purchases a new product and leaves a review, its quality is revealed to both the platform and future customers. Since reviews require purchases, the platform must feature new products in the assortment (\"explore\") to generate reviews to learn about new products. Such exploration is costly because customer demand for new products is lower than for incumbent products. We characterize the optimal assortments for exploration to minimize regret, addressing two questions. (1) Should the platform offer a new product alone or alongside incumbent products? The former maximizes the purchase probability of the new product but yields lower short-term revenue. Despite the lower purchase probability, we show it is always optimal to pair the new product with the top incumbent products. (2) With multiple new products, should the platform explore them simultaneously or one at a time? We show that the optimal number of new products to explore simultaneously has a simple threshold structure: it increases with the \"potential\" of the new products and, surprisingly, does not depend on their individual purchase probabilities. We also show that two canonical bandit algorithms, UCB and Thompson Sampling, both fail in this setting for opposite reasons: UCB over-explores while Thompson Sampling under-explores. Our results provide structural insights on how platforms should learn about new products through assortment decisions.",
+    "categories": [
+      "cs.SI",
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-04-20T20:08:46Z",
+    "updated": "2026-04-20T20:08:46Z",
+    "url": "http://arxiv.org/abs/2604.18800v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18800v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文研究电商平台的新品组合决策与探索利用问题，属于推荐/搜索系统中的排序与冷启动范畴，但主要基于理论建模而非深度学习或 LLM 直接应用，故给予中等优先级评分并加上中国公司加分。",
+    "translation": "组合决策下的新品最优探索策略",
+    "summary_zh": "本文提出了一种在容量受限的电商平台上，通过优化新品与 incumbent 商品的组合搭配及并发探索数量，以平衡短期收益损失与长期质量信息获取的理论框架。",
+    "key_points": [
+      "本文提出了一种在容量受限的电商平台上，通过优化新品与 incumbent 商品的组合搭配及并发探索数量，以平衡短期收益损失与长期质量信息获取的理论框架"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17906v1",
+    "title": "Bayesian Active Learning with Gaussian Processes Guided by LLM Relevance Scoring for Dense Passage Retrieval",
+    "authors": [
+      "Junyoung Kim",
+      "Anton Korikov",
+      "Jiazhou Liang",
+      "Justin Cui",
+      "Yifan Simon Liu",
+      "Qianfeng Wen",
+      "Mark Zhao",
+      "Scott Sanner"
+    ],
+    "summary": "While Large Language Models (LLMs) exhibit exceptional zero-shot relevance modeling, their high computational cost necessitates framing passage retrieval as a budget-constrained global optimization problem. Existing approaches passively rely on first-stage dense retrievers, which leads to two limitations: (1) failing to retrieve relevant passages in semantically distinct clusters, and (2) failing to propagate relevance signals to the broader corpus. To address these limitations, we propose Bayesian Active Learning with Gaussian Processes guided by LLM relevance scoring (BAGEL), a novel framework that propagates sparse LLM relevance signals across the embedding space to guide global exploration. BAGEL models the multimodal relevance distribution across the entire embedding space with a query-specific Gaussian Process (GP) based on LLM relevance scores. Subsequently, it iteratively selects passages for scoring by strategically balancing the exploitation of high-confidence regions with the exploration of uncertain areas. Extensive experiments across four benchmark datasets and two LLM backbones demonstrate that BAGEL effectively explores and captures complex relevance distributions and outperforms LLM reranking methods under the same LLM budget on all four datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-20T07:32:56Z",
+    "updated": "2026-04-20T07:32:56Z",
+    "url": "http://arxiv.org/abs/2604.17906v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.17906v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文针对密集段落检索（DPR）中的预算优化问题，属于搜索核心环节，但主要贡献在于利用高斯过程优化 LLM 调用策略的通用方法，而非推荐/搜索架构本身的创新。",
+    "translation": "基于 LLM 相关性评分指导的高斯过程贝叶斯主动学习用于密集段落检索",
+    "summary_zh": "提出 BAGEL 框架，利用高斯过程在嵌入空间中传播稀疏的 LLM 相关性信号，通过平衡探索与开发策略，在有限预算下优化密集检索的全局相关性分布建模。",
+    "key_points": [
+      "提出 BAGEL 框架，利用高斯过程在嵌入空间中传播稀疏的 LLM 相关性信号，通过平衡探索与开发策略，在有限预算下优化密集检索的全局相关性分布建模"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18424v1",
+    "title": "Context-Aware Search and Retrieval Under Token Erasure",
+    "authors": [
+      "Sara Ghasvarianjahromi",
+      "Joshua Barr",
+      "Yauhen Yakimenka",
+      "Jörg Kliewer"
+    ],
+    "summary": "This paper introduces and analyzes a search and retrieval model for RAG-like systems under {token} erasures. We provide an information-theoretic analysis of remote document retrieval when query representations are only partially preserved. The query is represented using term-frequency-based features, and semantically adaptive redundancy is assigned according to feature importance. Retrieval is performed using TF-IDF-weighted similarity. We characterize the retrieval error probability by showing that the vector of similarity margins converges to a multivariate Gaussian distribution, yielding an explicit approximation and computable upper bounds. Numerical results support the analysis, while a separate data-driven evaluation using embedding-based retrieval on real-world data shows that the same importance-aware redundancy principles extend to modern retrieval pipelines. Overall, the results show that assigning higher redundancy to semantically important query features improves retrieval reliability.",
+    "categories": [
+      "cs.IR",
+      "cs.IT"
+    ],
+    "published": "2026-04-20T15:42:12Z",
+    "updated": "2026-04-20T15:42:12Z",
+    "url": "http://arxiv.org/abs/2604.18424v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18424v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究 RAG 系统在令牌擦除下的信息论鲁棒性，属于通用检索理论分析，缺乏针对推荐/搜索业务场景（如排序、个性化）的直接应用创新。",
+    "translation": "令牌擦除下的上下文感知搜索与检索",
+    "summary_zh": "提出一种基于特征重要性的语义自适应冗余机制，通过在查询表示中为关键特征分配更高冗余度，提升部分信息丢失场景下的检索可靠性。",
+    "key_points": [
+      "提出一种基于特征重要性的语义自适应冗余机制，通过在查询表示中为关键特征分配更高冗余度，提升部分信息丢失场景下的检索可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18508v1",
+    "title": "Document-as-Image Representations Fall Short for Scientific Retrieval",
+    "authors": [
+      "Ghazal Khalighinejad",
+      "Raghuveer Thirukovalluru",
+      "Alexander H. Oh",
+      "Bhuwan Dhingra"
+    ],
+    "summary": "Many recent document embedding models are trained on document-as-image representations, embedding rendered pages as images rather than the underlying source. Meanwhile, existing benchmarks for scientific document retrieval, such as ArXivQA and ViDoRe, treat documents as images of pages, implicitly favoring such representations. In this work, we argue that this paradigm is not well-suited for text-rich multimodal scientific documents, where critical evidence is distributed across structured sources, including text, tables, and figures. To study this setting, we introduce ArXivDoc, a new benchmark constructed from the underlying LaTeX sources of scientific papers. Unlike PDF or image-based representations, LaTeX provides direct access to structured elements (e.g., sections, tables, figures, equations), enabling controlled query construction grounded in specific evidence types. We systematically compare text-only, image-based, and multimodal representations across both single-vector and multi-vector retrieval models. Our results show that: (1) document-as-image representations are consistently suboptimal, especially as document length increases; (2) text-based representations are most effective, even for figure-based queries, by leveraging captions and surrounding context; and (3) interleaved text+image representations outperform document-as-image approaches without requiring specialized training.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-20T17:00:17Z",
+    "updated": "2026-04-20T17:00:17Z",
+    "url": "http://arxiv.org/abs/2604.18508v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18508v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于科学文档检索中的表征形式对比，虽属搜索领域但主要结论为文本优于图像，缺乏针对通用推荐/搜索系统的核心架构创新或 LLM 直接应用，且场景较为垂直特定。",
+    "translation": "文档即图像表征在科学检索中的局限性",
+    "summary_zh": "本文提出利用 LaTeX 源文件构建结构化基准 ArXivDoc，系统论证了在文本密集型科学文档检索中，基于文本或图文交错的代表方法优于将文档渲染为图像的表征范式。",
+    "key_points": [
+      "本文提出利用 LaTeX 源文件构建结构化基准 ArXivDoc，系统论证了在文本密集型科学文档检索中，基于文本或图文交错的代表方法优于将文档渲染为图像的表征范式"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18360v1",
+    "title": "Omni-Embed-Audio: Leveraging Multimodal LLMs for Robust Audio-Text Retrieval",
+    "authors": [
+      "HaeJun Yoo",
+      "Yongseop Shin",
+      "Insung Lee",
+      "Myoung-Wan Koo",
+      "Du-Seong Chang"
+    ],
+    "summary": "Audio-text retrieval systems based on Contrastive Language-Audio Pretraining (CLAP) achieve strong performance on traditional benchmarks; however, these benchmarks rely on caption-style queries that differ substantially from real-world search behavior, limiting their assessment of practical retrieval robustness. We present Omni-Embed-Audio (OEA), a retrieval-oriented encoder leveraging multimodal LLMs with native audio understanding. To systematically evaluate robustness beyond caption-style queries, we introduce User-Intent Queries (UIQs) - five formulations reflecting natural search behaviors: questions, commands, keyword tags, paraphrases, and exclusion-based negative queries. For negative queries, we develop a hard negative mining pipeline and propose discrimination metrics (HNSR, TFR) assessing models' ability to suppress acoustically similar distractors. Experiments on AudioCaps, Clotho, and MECAT show that OEA achieves comparable text-to-audio retrieval performance to state-of-the-art M2D-CLAP, while demonstrating clear advantages in two critical areas: (1) dominant text-to-text retrieval (+22% relative improvement), and (2) substantially superior hard negative discrimination (+4.3%p HNSR@10, +34.7% relative TFR@10), revealing that LLM backbones provide superior semantic understanding of complex queries.",
+    "categories": [
+      "cs.SD",
+      "cs.CL"
+    ],
+    "published": "2026-04-20T14:50:33Z",
+    "updated": "2026-04-20T14:50:33Z",
+    "url": "http://arxiv.org/abs/2604.18360v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18360v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯多模态检索（音频 - 文本）研究，虽涉及搜索技术但未明确针对推荐系统或电商/社交等具体 RecSys 业务场景，且核心贡献在于通用检索鲁棒性而非推荐算法创新。",
+    "translation": "Omni-Embed-Audio：利用多模态大模型实现鲁棒的音频 - 文本检索",
+    "summary_zh": "提出一种利用具备原生音频理解能力的多模态大模型构建检索编码器，并通过引入反映真实用户意图的查询类型及硬负样本挖掘机制，提升复杂查询下的音频检索鲁棒性与判别能力。",
+    "key_points": [
+      "提出一种利用具备原生音频理解能力的多模态大模型构建检索编码器，并通过引入反映真实用户意图的查询类型及硬负样本挖掘机制，提升复杂查询下的音频检索鲁棒性与判别能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18235v1",
+    "title": "Negative Advantage Is a Double-Edged Sword: Calibrating Advantage in GRPO for Deep Search",
+    "authors": [
+      "Jiayi Wu",
+      "Ruobing Xie",
+      "Zeqian Huang",
+      "Lei Jiang",
+      "Can Xu",
+      "Kangyang Luo",
+      "Ming Gao",
+      "Xiang Li"
+    ],
+    "summary": "Deep search agents can autonomously initiate multi-turn interactions with search engines, thereby exhibiting strong question-answering capabilities. Such performance critically relies on Group Relative Policy Optimization (GRPO) as its core training algorithm. However, GRPO still faces several challenges in deep search settings. First, there exists a substantial mismatch between the correctness of intermediate steps and the reward signal, causing numerous correct intermediate steps to be incorrectly penalized when the final answer is wrong. Second, training is highly unstable, often resulting in degradation of natural language ability or even catastrophic training collapse. Our analysis attributes these issues to coarse-grained advantage assignment and an imbalance between positive and negative advantages. To address these problems, we propose CalibAdv, an advantage calibration method specifically designed for deep search tasks. Specifically, CalibAdv leverages the correctness of intermediate steps to downscale excessive negative advantages at a fine-grained level. It then rebalances positive and negative advantages in the answer component. Extensive experiments across three models and seven benchmarks demonstrate that CalibAdv improves both model performance and training stability. Our code is available at https://github.com/wujwyi/CalibAdv.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-20T13:21:19Z",
+    "updated": "2026-04-20T13:21:19Z",
+    "url": "http://arxiv.org/abs/2604.18235v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18235v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 强化学习训练方法研究（GRPO 改进），虽应用于搜索代理，但未涉及推荐/搜索系统的核心架构（如召回、排序、用户建模），不符合高优先级标准。",
+    "translation": "负优势是把双刃剑：校准深度搜索中 GRPO 的优势值",
+    "summary_zh": "针对深度搜索代理训练中 GRPO 算法存在的中间步骤奖励不匹配及训练不稳定问题，提出一种利用中间步骤正确性进行细粒度负优势下采样的优势校准方法。",
+    "key_points": [
+      "针对深度搜索代理训练中 GRPO 算法存在的中间步骤奖励不匹配及训练不稳定问题，提出一种利用中间步骤正确性进行细粒度负优势下采样的优势校准方法"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18912v1",
+    "title": "Collaborative Contextual Bayesian Optimization",
+    "authors": [
+      "Chih-Yu Chang",
+      "Qiyuan Chen",
+      "Tianhan Gao",
+      "David Fenning",
+      "Chinedum Okwudire",
+      "Neil Dasgupta",
+      "Wei Lu",
+      "Raed Al Kontar"
+    ],
+    "summary": "Discovering optimal designs through sequential data collection is essential in many real-world applications. While Bayesian Optimization (BO) has achieved remarkable success in this setting, growing attention has recently turned to context-specific optimal design, formalized as Contextual Bayesian Optimization (CBO). Unlike BO, CBO is inherently more challenging as it must approximate an entire mapping from the context space to its corresponding optimal design, requiring simultaneous exploration across contexts and exploitation within each. In many modern applications, such tasks arise across multiple potentially heterogeneous but related clients, where collaboration can significantly improve learning efficiency. We propose CCBO, Collaborative Contextual Bayesian Optimization, a unified framework enabling multiple clients to jointly perform CBO with controllable contexts, supporting both online collaboration and offline initialization from peers' historical beliefs, with an optional privacy-preserving communication mechanism. We establish sublinear regret guarantees and demonstrate, through extensive simulations and a real-world hot rolling application, that CCBO achieves substantial improvements over existing approaches even under client heterogeneity. The code to reproduce the results can be found at https://github.com/cchihyu/Collaborative-Contextual-Bayesian-Optimization",
+    "categories": [
+      "cs.LG",
+      "stat.ME"
+    ],
+    "published": "2026-04-20T23:28:22Z",
+    "updated": "2026-04-20T23:28:22Z",
+    "url": "http://arxiv.org/abs/2604.18912v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18912v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文专注于通用贝叶斯优化与多客户端协作，虽提及工业应用但未涉及推荐/搜索核心场景，属于纯机器学习方法研究；尽管来自中国公司，但因缺乏 RecSys 直接关联性，基础分较低，加分后仍属低优先级。",
+    "translation": "协作式上下文贝叶斯优化",
+    "summary_zh": "提出一种协作式上下文贝叶斯优化框架，支持多个异构客户端在可控上下文中联合进行最优设计探索，兼具在线协作与离线初始化能力。",
+    "key_points": [
+      "提出一种协作式上下文贝叶斯优化框架，支持多个异构客户端在可控上下文中联合进行最优设计探索，兼具在线协作与离线初始化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18362v1",
+    "title": "ArbGraph: Conflict-Aware Evidence Arbitration for Reliable Long-Form Retrieval-Augmented Generation",
+    "authors": [
+      "Qingying Niu",
+      "Yuhao Wang",
+      "Ruiyang Ren",
+      "Bohui Fang",
+      "Wayne Xin Zhao"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) remains unreliable in long-form settings, where retrieved evidence is noisy or contradictory, making it difficult for RAG pipelines to maintain factual consistency. Existing approaches focus on retrieval expansion or verification during generation, leaving conflict resolution entangled with generation. To address this limitation, we propose ArbGraph, a framework for pre-generation evidence arbitration in long-form RAG that explicitly resolves factual conflicts. ArbGraph decomposes retrieved documents into atomic claims and organizes them into a conflict-aware evidence graph with explicit support and contradiction relations. On top of this graph, we introduce an intensity-driven iterative arbitration mechanism that propagates credibility signals through evidence interactions, enabling the system to suppress unreliable and inconsistent claims before final generation. In this way, ArbGraph separates evidence validation from text generation and provides a coherent evidence foundation for downstream long-form generation. We evaluate ArbGraph on two widely used long-form RAG benchmarks, LongFact and RAGChecker, using multiple large language model backbones. Experimental results show that ArbGraph consistently improves factual recall and information density while reducing hallucinations and sensitivity to retrieval noise. Additional analyses show that these gains are evident under conflicting or ambiguous evidence, highlighting the effectiveness of evidence-level conflict resolution for improving the reliability of long-form RAG. The implementation is publicly available at https://github.com/1212Judy/ArbGraph.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-04-20T14:51:43Z",
+    "updated": "2026-04-20T14:51:43Z",
+    "url": "http://arxiv.org/abs/2604.18362v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18362v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于解决长文本生成中的事实冲突问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有 +1 分加分，仍属低优先级。",
+    "translation": "ArbGraph：面向可靠长文本检索增强生成的冲突感知证据仲裁",
+    "summary_zh": "提出一种预生成阶段的证据仲裁框架，通过将检索文档分解为原子主张并构建冲突感知图，利用迭代机制传播可信度信号以解决事实冲突，从而分离证据验证与文本生成。",
+    "key_points": [
+      "提出一种预生成阶段的证据仲裁框架，通过将检索文档分解为原子主张并构建冲突感知图，利用迭代机制传播可信度信号以解决事实冲突，从而分离证据验证与文本生成"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17866v1",
+    "title": "Latent Abstraction for Retrieval-Augmented Generation",
+    "authors": [
+      "Ha Lan N. T",
+      "Minh-Anh Nguyen",
+      "Dung D. Le"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has become a standard approach for enhancing large language models (LLMs) with external knowledge, mitigating hallucinations, and improving factuality. However, existing systems rely on generating natural language queries at each hop and maintaining a strict architectural separation between retriever and generator, preventing them from leveraging the full representational capacity of the LLM. We propose \\textbf{LAnR} (Latent Abstraction for RAG), a unified framework in which a single LLM jointly performs encoding, retrieval, and generation entirely within its own latent space. Rather than generating textual queries, LAnR produces dense retrieval vectors from the hidden states of a designated \\texttt{[PRED]} token and uses them to match against encoded document representations from the same model. Furthermore, LAnR adaptively decides when sufficient evidence has been retrieved using a lightweight MLP control head over those same hidden states, eliminating both the separate retriever and explicit token-level stopping reasoning. This design is motivated by our empirical observation that answer token entropy reliably signals retrieval sufficiency. Extensive experiments on six QA benchmarks spanning single-hop and multi-hop settings demonstrate that LAnR outperforms existing RAG methods, while achieving improved inference efficiency through reduced number of retrieval calls and tighter model integration.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-20T06:26:13Z",
+    "updated": "2026-04-20T06:26:13Z",
+    "url": "http://arxiv.org/abs/2604.17866v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.17866v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于改进 RAG 架构以解决通用问答（QA）中的幻觉问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，其相关性依然很低。",
+    "translation": "检索增强生成的潜在抽象方法",
+    "summary_zh": "提出 LAnR 框架，利用单个 LLM 的隐藏状态直接生成稠密检索向量并自适应控制检索过程，实现了编码器、检索器和生成器在潜在空间内的统一，消除了对自然语言查询和独立检索器的依赖。",
+    "key_points": [
+      "提出 LAnR 框架，利用单个 LLM 的隐藏状态直接生成稠密检索向量并自适应控制检索过程，实现了编码器、检索器和生成器在潜在空间内的统一，消除了对自然语言查询和独立检索器的依赖"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18913v1",
+    "title": "LogosKG: Hardware-Optimized Scalable and Interpretable Knowledge Graph Retrieval",
+    "authors": [
+      "He Cheng",
+      "Yifu Wu",
+      "Saksham Khatwani",
+      "Maya Kruse",
+      "Dmitriy Dligach",
+      "Timothy A. Miller",
+      "Majid Afshar",
+      "Yanjun Gao"
+    ],
+    "summary": "Knowledge graphs (KGs) are increasingly integrated with large language models (LLMs) to provide structured, verifiable reasoning. A core operation in this integration is multi-hop retrieval, yet existing systems struggle to balance efficiency, scalability, and interpretability. We introduce LogosKG, a novel, hardware-aligned framework that enables scalable and interpretable k-hop retrieval on large KGs by building on symbolic KG formulations and executing traversal as hardware-efficient operations over decomposed subject, object, and relation representations. To scale to billion-edge graphs, LogosKG integrates degree-aware partitioning, cross-graph routing, and on-demand caching. Experiments show substantial efficiency gains over CPU and GPU baselines without loss of retrieval fidelity. With proven performance in KG retrieval, a downstream two-round KG-LLM interaction demonstrates how LogosKG enables large-scale, evidence-grounded analysis of how KG topology, such as hop distribution and connectivity, shapes the alignment between structured biomedical knowledge and LLM diagnostic reasoning, thereby opening the door for next-generation KG-LLM integration. The source code is publicly available at https://github.com/LARK-NLP-Lab/LogosKG, and an online demo is available at https://lark-nlp-lab-logoskg.hf.space/.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-20T23:32:13Z",
+    "updated": "2026-04-20T23:32:13Z",
+    "url": "http://arxiv.org/abs/2604.18913v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18913v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 与知识图谱结合的基础设施研究，主要应用于生物医疗诊断领域，未涉及推荐系统或搜索引擎的核心业务场景，即使有中国公司背景加分，相关性依然很低。",
+    "translation": "LogosKG：硬件优化的可扩展且可解释的知识图谱检索",
+    "summary_zh": "提出一种硬件对齐的框架，通过符号化分解和度感知分区技术，在大规模知识图谱上实现高效、可解释的多跳检索以增强 LLM 推理。",
+    "key_points": [
+      "提出一种硬件对齐的框架，通过符号化分解和度感知分区技术，在大规模知识图谱上实现高效、可解释的多跳检索以增强 LLM 推理"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18234v1",
+    "title": "Evaluating Multi-Hop Reasoning in RAG Systems: A Comparison of LLM-Based Retriever Evaluation Strategies",
+    "authors": [
+      "Lorenz Brehme",
+      "Thomas Ströhle",
+      "Ruth Breu"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) enhances large language models (LLMs) with external knowledge to answer questions more accurately.\n  However, research on evaluating RAG systems-particularly the retriever component-remains limited, as most existing work focuses on single-context retrieval rather than multi-hop queries, where individual contexts may appear irrelevant in isolation but are essential when combined. In this research, we use the HotPotQA, MuSiQue, and SQuAD datasets to simulate a RAG system and compare three LLM-as-judge evaluation strategies, including our proposed Context-Aware Retriever Evaluation (CARE). Our goal is to better understand how multi-hop reasoning can be most effectively evaluated in RAG systems.\n  Experiments with LLMs from OpenAI, Meta, and Google demonstrate that CARE consistently outperforms existing methods for evaluating multi-hop reasoning in RAG systems. The performance gains are most pronounced in models with larger parameter counts and longer context windows, while single-hop queries show minimal sensitivity to context-aware evaluation. Overall, the results highlight the critical role of context-aware evaluation in improving the reliability and accuracy of retrieval-augmented generation systems, particularly in complex query scenarios. To ensure reproducibility, we provide the complete data of our experiments at https://github.com/lorenzbrehme/CARE.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-20T13:20:57Z",
+    "updated": "2026-04-20T13:20:57Z",
+    "url": "http://arxiv.org/abs/2604.18234v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.18234v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google",
+      "Meta",
+      "OpenAI"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 评估研究，专注于问答任务中的多跳推理，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "评估 RAG 系统中的多跳推理：基于 LLM 的检索器评估策略比较",
+    "summary_zh": "该论文提出了一种上下文感知的检索器评估方法（CARE），旨在利用大语言模型作为裁判，更有效地评估检索增强生成系统在复杂多跳查询场景下的检索质量。",
+    "key_points": [
+      "该论文提出了一种上下文感知的检索器评估方法（CARE），旨在利用大语言模型作为裁判，更有效地评估检索增强生成系统在复杂多跳查询场景下的检索质量"
+    ]
+  }
+]

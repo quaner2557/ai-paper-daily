@@ -1,0 +1,436 @@
+[
+  {
+    "arxiv_id": "2604.07420v1",
+    "title": "Dual-Rerank: Fusing Causality and Utility for Industrial Generative Reranking",
+    "authors": [
+      "Chao Zhang",
+      "Shuai Lin",
+      "ChengLei Dai",
+      "Ye Qian",
+      "Fan Mingyang",
+      "Yi Zhang",
+      "Yi Wang",
+      "Jingwei Zhuo"
+    ],
+    "summary": "Kuaishou serves over 400 million daily active users, processing hundreds of millions of search queries daily against a repository of tens of billions of short videos. As the final decision layer, the reranking stage determines user experience by optimizing whole-page utility. While traditional score-and-sort methods fail to capture combinatorial dependencies, Generative Reranking offers a superior paradigm by directly modeling the permutation probability. However, deploying Generative Reranking in such a high-stakes environment faces a fundamental dual dilemma: 1) the structural trade-off where Autoregressive (AR) models offer superior Sequential modeling but suffer from prohibitive latency, versus Non-Autoregressive (NAR) models that enable efficiency but lack dependency capturing; 2) the optimization gap where Supervised Learning faces challenges in directly optimizing whole-page utility, while Reinforcement Learning (RL) struggles with instability in high-throughput data streams. To resolve this, we propose Dual-Rerank, a unified framework designed for industrial reranking that bridges the structural gap via Sequential Knowledge Distillation and addresses the optimization gap using List-wise Decoupled Reranking Optimization (LDRO) for stable online RL. Extensive A/B testing on production traffic demonstrates that Dual-Rerank achieves State-of-the-Art performance, significantly improving User satisfaction and Watch Time while drastically reducing inference latency compared to AR baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-08T14:54:10Z",
+    "updated": "2026-04-08T14:54:10Z",
+    "url": "http://arxiv.org/abs/2604.07420v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07420v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决快手工业级搜索/推荐系统中的重排序核心难题，创新性融合因果性与效用优化，且来自一线大厂实战，完全符合最高优先级标准。",
+    "translation": "Dual-Rerank：融合因果性与效用的工业级生成式重排序框架",
+    "summary_zh": "提出 Dual-Rerank 框架，通过序列知识蒸馏平衡自回归与非自回归模型的结构差异，并利用列表解耦重排序优化（LDRO）解决强化学习在高吞吐数据流中的不稳定性，以实现低延迟且高全局效用的生成式重排序。",
+    "key_points": [
+      "提出 Dual-Rerank 框架，通过序列知识蒸馏平衡自回归与非自回归模型的结构差异，并利用列表解耦重排序优化（LDRO）解决强化学习在高吞吐数据流中的不稳定性，以实现低延迟且高全局效用的生成式重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07090v1",
+    "title": "Leveraging Artist Catalogs for Cold-Start Music Recommendation",
+    "authors": [
+      "Yan-Martin Tamm",
+      "Gregor Meehan",
+      "Vojtěch Nekl",
+      "Vojtěch Vančura",
+      "Rodrigo Alves",
+      "Johan Pauwels",
+      "Anna Aljanaki"
+    ],
+    "summary": "The item cold-start problem poses a fundamental challenge for music recommendation: newly added tracks lack the interaction history that collaborative filtering (CF) requires. Existing approaches often address this problem by learning mappings from content features such as audio, text, and metadata to the CF latent space. However, previous works either omit artist information or treat it as just another input modality, missing the fundamental hierarchy of artists and items. Since most new tracks come from artists with previous history available, we frame cold-start track recommendation as 'semi-cold' by leveraging the rich collaborative signal that exists at the artist level. We show that artist-aware methods can more than double Recall and NDCG compared to content-only baselines, and propose ACARec, an attention-based architecture that generates CF embeddings for new tracks by attending over the artist's existing catalog. We show that our approach has notable advantages in predicting user preferences for new tracks, especially for new artist discovery and more accurate estimation of cold item popularity.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-08T13:43:00Z",
+    "updated": "2026-04-08T13:43:00Z",
+    "url": "http://arxiv.org/abs/2604.07090v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07090v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决音乐推荐系统中的物品冷启动核心问题，提出利用艺术家目录层级关系的创新架构，属于高优先级的核心领域进展；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "利用艺术家目录进行冷启动音乐推荐",
+    "summary_zh": "针对音乐推荐冷启动问题，提出将新曲目视为“半冷”状态，通过注意力机制聚合艺术家现有作品集的协同信号来生成新曲目嵌入，从而利用艺术家层级的丰富信息弥补单曲目交互缺失。",
+    "key_points": [
+      "针对音乐推荐冷启动问题，提出将新曲目视为“半冷”状态，通过注意力机制聚合艺术家现有作品集的协同信号来生成新曲目嵌入，从而利用艺术家层级的丰富信息弥补单曲目交互缺失"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06956v1",
+    "title": "NestPipe: Large-Scale Recommendation Training on 1,500+ Accelerators via Nested Pipelining",
+    "authors": [
+      "Zhida Jiang",
+      "Zhaolong Xing",
+      "Huichao Chai",
+      "Tianxing Sun",
+      "Qiang Peng",
+      "Baopeng Yuan",
+      "Jiaxing Wang",
+      "Hua Du",
+      "Zhixin Wu",
+      "Xuemiao Li",
+      "Yikui Cao",
+      "Xinyu Liu",
+      "Yongxiang Feng",
+      "Zhen Chen",
+      "Ke Zhang"
+    ],
+    "summary": "Modern recommendation models have increased to trillions of parameters. As cluster scales expand to O(1k), distributed training bottlenecks shift from computation and memory to data movement, especially lookup and communication latency associated with embeddings. Existing solutions either optimize only one bottleneck or improve throughput by sacrificing training consistency. This paper presents NestPipe, a large-scale decentralized embedding training framework that tackles both bottlenecks while preserving synchronous training semantics. NestPipe exploits two hierarchical sparse parallelism opportunities through nested pipelining. At the inter-batch level, Dual-Buffer Pipelining (DBP) constructs a staleness-free five-stage pipeline through dual-buffer synchronization, mitigating lookup bottlenecks without embedding staleness. At the intra-batch level, we identify the embedding freezing phenomenon, which inspires Frozen-Window Pipelining (FWP) to overlap All2All communication with dense computation via coordinated stream scheduling and key-centric sample clustering. Experiments on production GPU and NPU clusters with 1,536 workers demonstrate that NestPipe achieves up to 3.06x speedup and 94.07% scaling efficiency.",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published": "2026-04-08T11:19:17Z",
+    "updated": "2026-04-08T11:19:17Z",
+    "url": "http://arxiv.org/abs/2604.06956v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.06956v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决超大规模推荐系统训练中的核心工程瓶颈（嵌入查找与通信），提出了具体的分布式训练架构，属于高优先级的核心领域进展；且来自中国公司，按规则额外 +1 分（基础分 9+ 奖励 1=10）。",
+    "translation": "NestPipe：基于嵌套流水线在 1500+ 加速器上进行大规模推荐训练",
+    "summary_zh": "提出 NestPipe 框架，通过批间双缓冲流水线和批内冻结窗口流水线两种嵌套策略，协同优化稀疏嵌入查找与通信延迟，实现无状态不一致的大规模同步推荐模型训练。",
+    "key_points": [
+      "提出 NestPipe 框架，通过批间双缓冲流水线和批内冻结窗口流水线两种嵌套策略，协同优化稀疏嵌入查找与通信延迟，实现无状态不一致的大规模同步推荐模型训练"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06928v2",
+    "title": "Leveraging LLMs and Heterogeneous Knowledge Graphs for Persona-Driven Session-Based Recommendation",
+    "authors": [
+      "Muskan Gupta",
+      "Suraj Thapa",
+      "Jyotsana Khatri"
+    ],
+    "summary": "Session-based recommendation systems (SBRS) aim to capture user's short-term intent from interaction sequences. However, the common assumption of anonymous sessions limits personalization, particularly under sparse or cold-start conditions. Recent advances in LLM augmented recommendation have shown that LLMs can generate rich item representations, but modeling user personas with LLMs remains challenging due to anonymous sessions. In this work, we propose a persona driven SBRS framework that explicitly models latent user personas inferred from a heterogeneous knowledge graph (KG) and integrates them into a data-driven SBRS. Our framework adopts a two-stage architecture consisting of personalized information extraction and personalized information utilization. In the personalized information extraction stage, we construct a heterogeneous KG that integrates time-independent user-item interactions, item-item relations, item-feature associations, and external metadata from DBpedia. We then learn latent user personas in an unsupervised manner using a Heterogeneous Deep Graph Infomax (HDGI) objective over a KG initialized with LLM-derived item embeddings. In the personalized information utilization stage, the learned persona representations together with LLM-derived item embeddings are incorporated into a modified architecture of data-driven SBRS to generate a candidate set of relevant items, followed by reranking using the base sequential model to emphasize short-term session intent. Unlike prior approaches that rely solely on sequence modeling or text-based user representations, our method grounds user persona modeling in structured relational signals derived from a heterogeneous KG. Experiments on Amazon Books and Amazon Movies & TV demonstrate that our approach consistently improves over sequential models with user embeddings derived using session history.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-08T10:40:30Z",
+    "updated": "2026-04-14T06:29:12Z",
+    "url": "http://arxiv.org/abs/2604.06928v2",
+    "pdf_url": "http://arxiv.org/pdf/2604.06928v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对会话推荐系统（SBRS）中的用户画像建模难题，创新性地结合 LLM 生成的嵌入与异构图神经网络来推断潜在用户 persona，属于核心推荐算法的直接应用。",
+    "translation": "利用大语言模型与异构图知识图谱驱动基于会话的个性化推荐",
+    "summary_zh": "提出一种两阶段框架，通过构建融合 LLM 嵌入的异构图并利用 HDGI 无监督学习潜在用户画像，将其与序列意图结合以增强稀疏场景下的会话推荐效果。",
+    "key_points": [
+      "提出一种两阶段框架，通过构建融合 LLM 嵌入的异构图并利用 HDGI 无监督学习潜在用户画像，将其与序列意图结合以增强稀疏场景下的会话推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06718v3",
+    "title": "CASE: Cadence-Aware Set Encoding for Large-Scale Next Basket Repurchase Recommendation",
+    "authors": [
+      "Yanan Cao",
+      "Ashish Ranjan",
+      "Sinduja Subramaniam",
+      "Evren Korpeoglu",
+      "Kaushiki Nag",
+      "Kannan Achan"
+    ],
+    "summary": "Repurchase behavior is a primary signal in large-scale retail recommendation, particularly in categories with frequent replenishment: many items in a user's next basket were previously purchased, and their timing follows stable, item-specific cadences. Yet most next basket repurchase recommendation models represent history as a sequence of discrete basket events indexed by visit order, which cannot explicitly model elapsed calendar time or update item rankings as days pass between purchases. We present CASE (Cadence-Aware Set Encoding) for next basket repurchase recommendation, which decouples item-level cadence learning from cross-item interaction, enabling explicit calendar-time modeling while remaining production-scalable. CASE represents each item's purchase history as a calendar-time signal over a fixed horizon, applies shared multi-scale temporal convolutions to capture recurring rhythms, and uses induced set attention to model cross-item dependencies with sub-quadratic complexity, allowing efficient batch inference at scale. Across three public benchmarks and a proprietary dataset, CASE consistently improves precision, recall, and NDCG at multiple cutoffs compared to strong next basket recommendation baselines. In a production-scale evaluation with tens of millions of users and a large item catalog, CASE achieves up to 8.6% relative precision lift and 9.9% relative recall lift at top-5, showing that scalable cadence-aware modeling yields measurable gains in both benchmark and industrial settings.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-08T06:31:34Z",
+    "updated": "2026-04-24T22:27:45Z",
+    "url": "http://arxiv.org/abs/2604.06718v3",
+    "pdf_url": "http://arxiv.org/pdf/2604.06718v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景下的“下一篮回购推荐”核心问题，提出了显式建模日历时间和商品购买周期的创新架构 CASE，属于高优先级的核心领域进展；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "CASE：面向大规模下一篮回购推荐的周期感知集合编码方法",
+    "summary_zh": "提出一种将物品级购买周期学习与跨物品交互解耦的架构，通过多尺度时间卷积显式建模日历时间信号，并利用诱导集合注意力机制高效捕捉物品间依赖关系。",
+    "key_points": [
+      "提出一种将物品级购买周期学习与跨物品交互解耦的架构，通过多尺度时间卷积显式建模日历时间信号，并利用诱导集合注意力机制高效捕捉物品间依赖关系"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06771v1",
+    "title": "Multi-Faceted Self-Consistent Preference Alignment for Query Rewriting in Conversational Search",
+    "authors": [
+      "Zhiyu Cao",
+      "Peifeng Li",
+      "Qiaoming Zhu"
+    ],
+    "summary": "Conversational Query Rewriting (CQR) aims to rewrite ambiguous queries to achieve more efficient conversational search. Early studies have predominantly focused on the rewriting in isolation, ignoring the feedback from query rewrite, passage retrieval and response generation in the rewriting process. To address this issue, we propose Multi-Faceted Self-Consistent Preference Aligned CQR (MSPA-CQR). Specifically, we first construct self-consistent preference alignment data from three dimensions (rewriting, retrieval, and response) to generate more diverse rewritten queries. Then we propose prefix guided multi-faceted direct preference optimization to learn preference information from three different dimensions. The experimental results show that our MSPA-CQR is effective in both in- and out-of-distribution scenarios.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-08T07:38:45Z",
+    "updated": "2026-04-08T07:38:45Z",
+    "url": "http://arxiv.org/abs/2604.06771v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.06771v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话式搜索中的查询重写问题，利用 LLM 偏好对齐技术优化检索效果，属于 LLM 在搜索领域的直接应用；虽为纯算法研究无明确大厂业务背景，但核心任务高度相关，基础分 7 分加上中国公司额外 1 分。",
+    "translation": "面向对话式搜索查询重写的多 facet 自一致偏好对齐方法",
+    "summary_zh": "提出一种多 facet 自一致偏好对齐框架，通过构建重写、检索和响应三个维度的偏好数据，并利用前缀引导的直接偏好优化算法，解决对话式搜索中查询重写与下游任务脱节的问题。",
+    "key_points": [
+      "提出一种多 facet 自一致偏好对齐框架，通过构建重写、检索和响应三个维度的偏好数据，并利用前缀引导的直接偏好优化算法，解决对话式搜索中查询重写与下游任务脱节的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07220v1",
+    "title": "HIVE: Query, Hypothesize, Verify An LLM Framework for Multimodal Reasoning-Intensive Retrieval",
+    "authors": [
+      "Mahmoud Abdalla",
+      "Mahmoud SalahEldin Kasem",
+      "Mohamed Mahmoud",
+      "Mostafa Farouk Senussi",
+      "Abdelrahman Abdallah",
+      "Hyun-Soo Kang"
+    ],
+    "summary": "Multimodal retrieval models fail on reasoning-intensive queries where images (diagrams, charts, screenshots) must be deeply integrated with text to identify relevant documents -- the best multimodal model achieves only 27.6 nDCG@10 on MM-BRIGHT, underperforming even strong text-only retrievers (32.2). We introduce \\textbf{HIVE} (\\textbf{H}ypothesis-driven \\textbf{I}terative \\textbf{V}isual \\textbf{E}vidence Retrieval), a plug-and-play framework that injects explicit visual-text reasoning into a retriever via LLMs. HIVE operates in four stages: (1) initial retrieval over the corpus, (2) LLM-based compensatory query synthesis that explicitly articulates visual and logical gaps observed in top-$k$ candidates, (3) secondary retrieval with the refined query, and (4) LLM verification and reranking over the union of candidates. Evaluated on the multimodal-to-text track of MM-BRIGHT (2,803 real-world queries across 29 technical domains), HIVE achieves a new state-of-the-art aggregated nDCG@10 of \\textbf{41.7} -- a \\textbf{+9.5} point gain over the best text-only model (DiVeR: 32.2) and \\textbf{+14.1} over the best multimodal model (Nomic-Vision: 27.6), where our reasoning-enhanced base retriever contributes 33.2 and the HIVE framework adds a further \\textbf{+8.5} points -- with particularly strong results in visually demanding domains (Gaming: 68.2, Chemistry: 42.5, Sustainability: 49.4). Compatible with both standard and reasoning-enhanced retrievers, HIVE demonstrates that LLM-mediated visual hypothesis generation and verification can substantially close the multimodal reasoning gap in retrieval. https://github.com/mm-bright/multimodal-reasoning-retrieval",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-08T15:41:42Z",
+    "updated": "2026-04-08T15:41:42Z",
+    "url": "http://arxiv.org/abs/2604.07220v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07220v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种直接应用于多模态检索（搜索核心环节）的 LLM 框架，解决了图表等复杂场景下的推理检索问题，符合多模态搜索的高优先级定义。",
+    "translation": "HIVE：一种用于多模态推理密集型检索的查询、假设与验证 LLM 框架",
+    "summary_zh": "提出 HIVE 框架，通过 LLM 驱动的假设生成、查询合成及验证重排序机制，将显式的视觉 - 文本推理能力注入检索系统，以解决复杂多模态场景下的检索难题。",
+    "key_points": [
+      "提出 HIVE 框架，通过 LLM 驱动的假设生成、查询合成及验证重排序机制，将显式的视觉 - 文本推理能力注入检索系统，以解决复杂多模态场景下的检索难题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07079v1",
+    "title": "MARVEL: Multimodal Adaptive Reasoning-intensiVe Expand-rerank and retrievaL",
+    "authors": [
+      "Mahmoud SalahEldin Kasem",
+      "Mohamed Mahmoud",
+      "Mostafa Farouk Senussi",
+      "Mahmoud Abdalla",
+      "Abdelrahman Abdallah",
+      "Hyun-Soo Kang"
+    ],
+    "summary": "Multimodal retrieval over text corpora remains a fundamental challenge: the best vision-language encoder achieves only 27.6 nDCG@10 on MM-BRIGHT, a reasoning-intensive multimodal retrieval benchmark, underperforming strong text-only systems. We argue that effective multimodal retrieval requires three tightly integrated capabilities that existing approaches address only in isolation: expanding the query's latent intent, retrieving with a model trained for complex reasoning, and reranking via explicit step-by-step reasoning over candidates. We introduce \\textbf{MARVEL} (\\textbf{M}ultimodal \\textbf{A}daptive \\textbf{R}easoning-intensi\\textbf{V}e \\textbf{E}xpand-rerank and retrieva\\textbf{L}), a unified pipeline that combines LLM-driven query expansion, \\textbf{MARVEL-Retriever} -- a reasoning-enhanced dense retriever fine-tuned for complex multimodal queries -- and GPT-4o-based chain-of-thought reranking with optional multi-pass reciprocal rank fusion. Evaluated on MM-BRIGHT across 29 technical domains, MARVEL achieves \\textbf{37.9} nDCG@10, surpassing the best multimodal encoder by \\textbf{+10.3 points} and outperforming all single-stage baselines in 27 of 29 domains and matching or approaching the best baseline in the remaining two highly-specialized domains (Crypto, Quantum Computing), demonstrating that reasoning-intensive multimodal retrieval is best addressed through a unified expand-retrieve-rerank framework. https://github.com/mm-bright/multimodal-reasoning-retrieval",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-08T13:35:09Z",
+    "updated": "2026-04-08T13:35:09Z",
+    "url": "http://arxiv.org/abs/2604.07079v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07079v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种结合 LLM 查询扩展、推理增强检索和思维链重排序的多模态检索框架，直接解决了搜索系统中的核心检索与重排序问题，虽侧重多模态推理但应用场景明确为检索系统。",
+    "translation": "MARVEL：多模态自适应推理密集型扩展 - 重排序与检索框架",
+    "summary_zh": "本文提出 MARVEL 框架，通过整合 LLM 驱动的查询意图扩展、针对复杂推理微调的稠密检索器以及基于思维链的重排序模块，构建了一个统一的流水线以解决多模态检索中的深层推理挑战。",
+    "key_points": [
+      "本文提出 MARVEL 框架，通过整合 LLM 驱动的查询意图扩展、针对复杂推理微调的稠密检索器以及基于思维链的重排序模块，构建了一个统一的流水线以解决多模态检索中的深层推理挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07201v1",
+    "title": "BRIDGE: Multimodal-to-Text Retrieval via Reinforcement-Learned Query Alignment",
+    "authors": [
+      "Mohamed Darwish Mounis",
+      "Mohamed Mahmoud",
+      "Shaimaa Sedek",
+      "Mahmoud Abdalla",
+      "Mahmoud SalahEldin Kasem",
+      "Abdelrahman Abdallah",
+      "Hyun-Soo Kang"
+    ],
+    "summary": "Multimodal retrieval systems struggle to resolve image-text queries against text-only corpora: the best vision-language encoder achieves only 27.6 nDCG@10 on MM-BRIGHT, underperforming strong text-only retrievers. We argue the bottleneck is not the retriever but the query -- raw multimodal queries entangle visual descriptions, conversational noise, and retrieval intent in ways that systematically degrade embedding similarity. We present \\textbf{BRIDGE}, a two-component system that resolves this mismatch without multimodal encoders. \\textbf{FORGE} (\\textbf{F}ocused Retrieval Query Generato\\textbf{r}) is a query alignment model trained via reinforcement learning, which distills noisy multimodal queries into compact, retrieval-optimized search strings. \\textbf{LENS} (\\textbf{L}anguage-\\textbf{E}nhanced \\textbf{N}eural \\textbf{S}earch) is a reasoning-enhanced dense retriever fine-tuned on reasoning-intensive retrieval data to handle the intent-rich queries FORGE produces. Evaluated on MM-BRIGHT (2,803 queries, 29 domains), BRIDGE achieves \\textbf{29.7} nDCG@10, surpassing all multimodal encoder baselines including Nomic-Vision (27.6). When FORGE is applied as a plug-and-play aligner on top of Nomic-Vision, the combined system reaches \\textbf{33.3} nDCG@10 -- exceeding the best text-only retriever (32.2) -- demonstrating that \\textit{query alignment} is the key bottleneck in multimodal-to-text retrieval. https://github.com/mm-bright/multimodal-reasoning-retrieval",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2026-04-08T15:28:21Z",
+    "updated": "2026-04-08T15:28:21Z",
+    "url": "http://arxiv.org/abs/2604.07201v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07201v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接解决多模态搜索（图文查询检索文本库）中的核心查询对齐问题，提出了基于强化学习的查询生成方法，属于明确的多模态搜索技术应用。",
+    "translation": "BRIDGE：通过强化学习查询对齐实现多模态到文本的检索",
+    "summary_zh": "提出 BRIDGE 系统，利用强化学习将噪声多模态查询蒸馏为紧凑的检索优化字符串，并结合推理增强型稠密检索器，以解决多模态查询与纯文本语料库之间的语义失配问题。",
+    "key_points": [
+      "提出 BRIDGE 系统，利用强化学习将噪声多模态查询蒸馏为紧凑的检索优化字符串，并结合推理增强型稠密检索器，以解决多模态查询与纯文本语料库之间的语义失配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07572v1",
+    "title": "HiMARS: Hybrid multi-objective algorithms for recommender systems",
+    "authors": [
+      "Elaheh Lotfian",
+      "Alireza Kabgani"
+    ],
+    "summary": "In recommender systems, it is well-established that both accuracy and diversity are crucial for generating high-quality recommendation lists. However, achieving a balance between these two typically conflicting objectives remains a significant challenge. In this work, we address this challenge by proposing four novel hybrid multi-objective algorithms inspired by the Non-dominated Neighbor Immune Algorithm (NNIA), Archived Multi-Objective Simulated Annealing (AMOSA), and Non-dominated Sorting Genetic Algorithm-II (NSGA-II), aimed at simultaneously enhancing both accuracy and diversity through multi-objective optimization. Our approach follows a three-stage process: First, we generate an initial top-$k$ list using item-based collaborative filtering for a given user. Second, we solve a bi-objective optimization problem to identify Pareto-optimal top-$s$ recommendation lists, where $s \\ll k$, using the proposed hybrid algorithms. Finally, we select an optimal personalized top-$s$ list from the Pareto-optimal solutions. We evaluate the performance of the proposed algorithms on real-world datasets and compare them with existing methods using conventional metrics in recommender systems such as accuracy, diversity, and novelty. Additionally, we assess the quality of the Pareto frontiers using metrics including the spacing metric, mean ideal distance, diversification metric, and spread of non-dominated solutions. Results demonstrate that some of our proposed algorithms significantly improve both accuracy and diversity, offering a novel contribution to multi-objective optimization in recommender systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-08T20:23:00Z",
+    "updated": "2026-04-08T20:23:00Z",
+    "url": "http://arxiv.org/abs/2604.07572v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07572v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文直接针对推荐系统中的重排序（re-ranking）环节，利用多目标优化算法解决准确率与多样性的平衡问题，属于核心推荐技术但方法较为传统。",
+    "translation": "HiMARS：用于推荐系统的混合多目标算法",
+    "summary_zh": "提出一种三阶段重排序框架，通过混合多目标进化算法在初始候选集中搜索帕累托最优解，以同时提升推荐结果的准确率与多样性。",
+    "key_points": [
+      "提出一种三阶段重排序框架，通过混合多目标进化算法在初始候选集中搜索帕累托最优解，以同时提升推荐结果的准确率与多样性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07585v1",
+    "title": "Don't Measure Once: Measuring Visibility in AI Search (GEO)",
+    "authors": [
+      "Julius Schulte",
+      "Malte Bleeker",
+      "Philipp Kaufmann"
+    ],
+    "summary": "As large language model-based chat systems become increasingly widely used, generative engine optimization (GEO) has emerged as an important problem for information access and retrieval. In classical search engines, results are comparatively transparent and stable: a single query often provides a representative snapshot of where a page or brand appears relative to competitors. The inherent probabilistic nature of AI search changes this paradigm. Answers can vary across runs, prompts, and time, making one-off observations unreliable. Drawing on empirical studies, our findings underscore the need for repeated measurements to assess a brand's GEO performance and to characterize visibility as a distribution rather than a single-point outcome.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-08T20:38:05Z",
+    "updated": "2026-04-08T20:38:05Z",
+    "url": "http://arxiv.org/abs/2604.07585v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07585v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于生成式引擎优化（GEO）的评估方法论，属于纯 LLM 搜索现象分析，未提出具体的推荐或搜索核心算法创新。",
+    "translation": "不要只测量一次：衡量 AI 搜索中的可见性",
+    "summary_zh": "针对基于大模型的生成式搜索结果的概率性和不稳定性，提出应将品牌可见性视为分布而非单点结果，强调需通过重复测量来评估生成式引擎优化性能。",
+    "key_points": [
+      "针对基于大模型的生成式搜索结果的概率性和不稳定性，提出应将品牌可见性视为分布而非单点结果，强调需通过重复测量来评估生成式引擎优化性能"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07415v1",
+    "title": "SubSearch: Intermediate Rewards for Unsupervised Guided Reasoning in Complex Retrieval",
+    "authors": [
+      "Roxana Petcu",
+      "Evangelos Kanoulas",
+      "Maarten de Rijke"
+    ],
+    "summary": "Large language models (LLMs) are probabilistic in nature and perform more reliably when augmented with external information. As complex queries often require multi-step reasoning over the retrieved information, with no clear or predetermined reasoning path, they remain challenging. Recent approaches train models using reinforcement learning on the model's outcome, showing promise in improving how models handle complex information. We introduce SubSearch, a specialized framework that shifts from outcome-only supervision to intermediate reward signals that incentivize planning high-quality reasoning. Unlike previous work on process reward modeling, which focuses on training a separate reward model with annotated trajectories by either human annotators or large LLM judges, SubSearch directly optimizes the generator using intrinsic process rewards, which we define as internally-derived rewards, eliminating the need for external supervision, and moving towards autonomous information-intensive reasoning. Experiments on seven benchmarks show that rewarding intermediate reasoning steps with intrinsic rewards leads to more robust reasoning traces in both QA and multi-hop QA datasets over using only outcome rewards. SubSearch can help in building reasoning traces that allow agents to better integrate search engines for complex query answering, while offering a data-efficient alternative to supervised process modeling.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-08T13:09:47Z",
+    "updated": "2026-04-08T13:09:47Z",
+    "url": "http://arxiv.org/abs/2604.07415v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07415v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 推理与强化学习研究，专注于通用问答（QA）中的多步推理，未直接针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "SubSearch：复杂检索中用于无监督引导推理的中间奖励机制",
+    "summary_zh": "提出一种利用内在过程奖励直接优化生成器的框架，旨在无需外部标注的情况下提升大模型在复杂信息检索任务中的多步推理规划能力。",
+    "key_points": [
+      "提出一种利用内在过程奖励直接优化生成器的框架，旨在无需外部标注的情况下提升大模型在复杂信息检索任务中的多步推理规划能力"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06647v2",
+    "title": "Feedback Adaptation for Retrieval-Augmented Generation",
+    "authors": [
+      "Jihwan Bang",
+      "Seunghan Yang",
+      "Kyuhong Shim",
+      "Simyung Chang",
+      "Juntae Lee",
+      "Sungha Choi"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems are typically evaluated under static assumptions, despite being frequently corrected through user or expert feedback in deployment. Existing evaluation protocols focus on overall accuracy and fail to capture how systems adapt after feedback is introduced. We introduce feedback adaptation as a problem setting for RAG systems, which asks how effectively and how quickly corrective feedback propagates to future queries. To make this behavior measurable, we propose two evaluation axes: correction lag, which captures the delay between feedback provision and behavioral change, and post-feedback performance, which measures reliability on semantically related queries after feedback. Using these metrics, we show that training-based approaches exhibit a trade-off between delayed correction and reliable adaptation. We further propose PatchRAG, a minimal inference-time instantiation that incorporates feedback without retraining, demonstrating immediate correction and strong post-feedback generalization under the proposed evaluation. Our results highlight feedback adaptation as a previously overlooked dimension of RAG system behavior in interactive settings.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-04-08T03:47:48Z",
+    "updated": "2026-04-16T01:52:50Z",
+    "url": "http://arxiv.org/abs/2604.06647v2",
+    "pdf_url": "http://arxiv.org/pdf/2604.06647v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用反馈适应机制，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "检索增强生成的反馈适应机制研究",
+    "summary_zh": "该论文提出“反馈适应”问题设定，通过修正延迟和反馈后性能两个维度评估 RAG 系统对纠错反馈的响应能力，并推出无需重训练的 PatchRAG 方法以实现即时修正。",
+    "key_points": [
+      "该论文提出“反馈适应”问题设定，通过修正延迟和反馈后性能两个维度评估 RAG 系统对纠错反馈的响应能力，并推出无需重训练的 PatchRAG 方法以实现即时修正"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07595v2",
+    "title": "Reasoning Graphs: Self-Improving, Deterministic RAG through Evidence-Centric Feedback",
+    "authors": [
+      "Matthew Penaroza"
+    ],
+    "summary": "Language model agents reason from scratch on every query, discarding their chain of thought after each run. This produces lower accuracy and high variance, as the same query type can succeed or fail unpredictably. We introduce reasoning graphs, a graph structure that persists per-evidence chain of thought as structured edges connected to the evidence items they evaluate. Unlike prior memory mechanisms that retrieve distilled strategies by query similarity, reasoning graphs enable evidence-centric feedback: given a new candidate set, the system traverses all incoming evaluation edges for each evidence item across all prior runs, surfacing how that specific item has been judged before. We further introduce retrieval graphs, a complementary structure that feeds a pipeline planner to tighten the candidate funnel over successive runs. Together, both graphs form a self-improving feedback loop: accuracy improves systematically and verdict-level variance collapses. This requires no retraining; the base model remains frozen and all gains come from context engineering via graph traversal. We evaluate on MuSiQue and HotpotQA using a sequential cluster protocol, a high-reuse deployment simulation, and a determinism experiment. At 50%+ evidence profile coverage, our system reduces errors by 47% compared to vanilla RAG on the same questions (controlled dose-response, p < 0.0001). On 4-hop questions, accuracy improves by +11.0pp (p=0.0001). In high-reuse settings, the system achieves Pareto dominance: highest accuracy, 47% lower cost, and 46% lower latency. Evidence profiles improve verdict consistency by 7-8 percentage points (p=0.007, Wilcoxon); the full system drives all 11 hard probes to perfect consistency at both temperature 0 and 0.5 (p=0.004).",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-04-08T20:57:21Z",
+    "updated": "2026-04-13T18:38:49Z",
+    "url": "http://arxiv.org/abs/2604.07595v2",
+    "pdf_url": "http://arxiv.org/pdf/2604.07595v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG（检索增强生成）的研究，专注于通用问答任务中的推理一致性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "推理图：基于证据中心反馈的自改进确定性 RAG",
+    "summary_zh": "该论文提出了一种名为“推理图”的结构，通过持久化存储针对具体证据项的思维链评估边，实现基于证据的历史反馈遍历，从而在不重训练模型的情况下提升 RAG 系统的准确性和确定性。",
+    "key_points": [
+      "该论文提出了一种名为“推理图”的结构，通过持久化存储针对具体证据项的思维链评估边，实现基于证据的历史反馈遍历，从而在不重训练模型的情况下提升 RAG 系统的准确性和确定性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07590v1",
+    "title": "DCD: Domain-Oriented Design for Controlled Retrieval-Augmented Generation",
+    "authors": [
+      "Valeriy Kovalskiy",
+      "Nikita Belov",
+      "Nikita Miteyko",
+      "Igor Reshetnikov",
+      "Max Maximov"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is widely used to ground large language models in external knowledge sources. However, when applied to heterogeneous corpora and multi-step queries, Naive RAG pipelines often degrade in quality due to flat knowledge representations and the absence of explicit workflows. In this work, we introduce DCD (Domain-Collection-Document), a domain-oriented design to structure knowledge and control query processing in RAG systems without modifying the underlying language model. The proposed approach relies on a hierarchical decomposition of the information space and multi-stage routing based on structured model outputs, enabling progressive restriction of both retrieval and generation scopes. The architecture is complemented by smart chunking, hybrid retrieval, and integrated validation and generation guardrail mechanisms. We describe the DCD architecture and workflow and discuss evaluation results on synthetic evaluation dataset, highlighting their impact on robustness, factual accuracy, and answer relevance in applied RAG scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-08T20:47:51Z",
+    "updated": "2026-04-08T20:47:51Z",
+    "url": "http://arxiv.org/abs/2604.07590v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.07590v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 架构研究，旨在优化通用问答的准确性和鲁棒性，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类。",
+    "translation": "DCD：面向可控检索增强生成的领域导向设计",
+    "summary_zh": "提出一种分层知识分解与多阶段路由机制，通过结构化信息空间和控制查询处理流程，在不修改底层模型的前提下提升 RAG 系统的检索与生成可控性。",
+    "key_points": [
+      "提出一种分层知识分解与多阶段路由机制，通过结构化信息空间和控制查询处理流程，在不修改底层模型的前提下提升 RAG 系统的检索与生成可控性"
+    ]
+  }
+]

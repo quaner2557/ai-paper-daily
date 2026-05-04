@@ -1,1 +1,349 @@
-[]
+[
+  {
+    "arxiv_id": "2604.27747v1",
+    "title": "Position-Aware Drafting for Inference Acceleration in LLM-Based Generative List-Wise Recommendation",
+    "authors": [
+      "Jiaju Chen",
+      "Chongming Gao",
+      "Chenxiao Fan",
+      "Haoyan Liu",
+      "Qingpeng Cai",
+      "Peng Jiang",
+      "Xiangnan He"
+    ],
+    "summary": "Large language model (LLM)-based generative list-wise recommendation has advanced rapidly, but decoding remains sequential and thus latency-prone. To accelerate inference without changing the target distribution, speculative decoding (SD) uses a small draft model to propose several next tokens at once and a target LLM to verify and accept the longest prefix, skipping multiple steps per round. In generative recommendation, however, each item is represented by multiple semantic-ID tokens, often with separators, and current drafts typically treat these tokens uniformly. This overlooks two practical facts: (i) a token's semantics depend on its within-item slot, and (ii) uncertainty tends to increase with speculation depth. Without modeling these effects, SD's speedups can be limited. We introduce PAD-Rec, Position-Aware Drafting for generative Recommendation, a lightweight module that augments the draft model with two complementary signals. Item position embeddings explicitly encode the within-item slot of each token, strengthening structural awareness. Step position embeddings encode the draft step, allowing the model to adapt to depth-dependent uncertainty and improve proposal quality. To harmonize these signals with base features, we add simple gates: a learnable coefficient for item slots and a context-driven gate for draft steps. The module is trainable, easy to integrate with standard draft models, and adds negligible inference overhead. Extensive experiments on four real-world datasets show up to 3.1x wall-clock speedup and about 5% average wall-clock speedup gain over strong SD baselines, while largely preserving recommendation quality.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-30T11:37:08Z",
+    "updated": "2026-04-30T11:37:08Z",
+    "url": "http://arxiv.org/abs/2604.27747v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27747v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的生成式列表推荐系统中的推理延迟问题，提出了位置感知的推测解码方法，属于 LLM 在推荐系统中的核心应用。",
+    "translation": "面向基于 LLM 的生成式列表推荐推理加速的位置感知草稿机制",
+    "summary_zh": "提出一种轻量级位置感知草稿模块，通过引入项内槽位和草稿步数的位置嵌入及门控机制，优化生成式推荐中的推测解码过程以加速推理。",
+    "key_points": [
+      "提出一种轻量级位置感知草稿模块，通过引入项内槽位和草稿步数的位置嵌入及门控机制，优化生成式推荐中的推测解码过程以加速推理"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27599v1",
+    "title": "One Pass, Any Order: Position-Invariant Listwise Reranking for LLM-Based Recommendation",
+    "authors": [
+      "Ethan Bito",
+      "Yongli Ren",
+      "Estrid He"
+    ],
+    "summary": "Large language models (LLMs) are increasingly used for recommendation reranking, but their listwise predictions can depend on the order in which candidates are presented. This creates a mismatch between the set-based nature of recommendation and the sequence-based computation of decoder-only LLMs, where permuting an otherwise identical candidate set can change item scores and final rankings. Such order sensitivity makes LLM-based rerankers difficult to rely on, since rankings may reflect prompt serialization rather than user preference. We propose InvariRank, a permutation-invariant listwise reranking framework that addresses this dependence at the architectural level. InvariRank blocks cross-candidate attention with a structured attention mask and negates position-induced scoring changes through shared positional framing under Rotary Positional Embeddings (RoPE). Combined with a listwise learning-to-rank objective, the model scores all candidates in a single forward pass, avoiding permutation-based invariance training objectives that require multiple permutations of a candidate set. Experiments on recommendation benchmarks show that InvariRank maintains competitive ranking effectiveness while producing stable rankings across candidate permutations. The results suggest that architectural invariance is a practical route to reliable and efficient LLM-based recommendation reranking. The source code is at https://github.com/ejbito/InvariRank.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-30T08:49:44Z",
+    "updated": "2026-04-30T08:49:44Z",
+    "url": "http://arxiv.org/abs/2604.27599v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27599v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 在推荐系统重排序（Reranking）环节中的顺序敏感性问题提出架构级解决方案，属于核心的 LLM for RecSys 研究。",
+    "translation": "一次前传任意顺序：面向基于 LLM 推荐的位不变列表式重排序",
+    "summary_zh": "提出 InvariRank 框架，通过结构化注意力掩码和共享位置编码机制，在单次前向传播中消除解码器 LLM 对候选集输入顺序的依赖，实现稳定且高效的列表式重排序。",
+    "key_points": [
+      "提出 InvariRank 框架，通过结构化注意力掩码和共享位置编码机制，在单次前向传播中消除解码器 LLM 对候选集输入顺序的依赖，实现稳定且高效的列表式重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27410v1",
+    "title": "From Unstructured to Structured: LLM-Guided Attribute Graphs for Entity Search and Ranking",
+    "authors": [
+      "Yilun Zhu",
+      "Nikhita Vedula",
+      "Shervin Malmasi"
+    ],
+    "summary": "Entity search, i.e., finding the most similar entities to a query entity, faces unique challenges in e-commerce, where product similarity varies across categories and contexts. Traditional embedding-based approaches often struggle to capture nuanced context-specific attribute relevance. In this paper, we present a two-stage approach combining Large Language Model (LLM)-driven attribute graph construction with graph-aware LLM ranking. In the offline stage, we extract structured product attributes from unstructured text, and construct a reusable attribute graph with category-aware schemas. In the online stage, we rank retrieved candidates by reasoning over this structured representation rather than raw text, reducing per-product token usage by 57% while improving ranking precision. Experiments show that our approach outperforms multiple baselines under zero-shot scenarios, achieving a over 5% improvement in average precision without requiring training data, generalizes robustly across diverse product categories, and shows immense potential for real-world deployment.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-04-30T04:22:20Z",
+    "updated": "2026-04-30T04:22:20Z",
+    "url": "http://arxiv.org/abs/2604.27410v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27410v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商实体搜索与排序问题，提出利用 LLM 构建属性图并辅助排序的创新架构，属于核心领域的高优先级应用。",
+    "translation": "从非结构化到结构化：LLM 引导的属性图用于实体搜索与排序",
+    "summary_zh": "提出一种两阶段方法，利用 LLM 从非结构化文本中提取属性构建可复用图谱，并在在线排序阶段基于该结构化表示进行推理以提升电商搜索精度。",
+    "key_points": [
+      "提出一种两阶段方法，利用 LLM 从非结构化文本中提取属性构建可复用图谱，并在在线排序阶段基于该结构化表示进行推理以提升电商搜索精度"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27577v1",
+    "title": "Reproducing Adaptive Reranking for Reasoning-Intensive IR",
+    "authors": [
+      "Mandeep Rathee",
+      "V Venktesh",
+      "Sean MacAvaney",
+      "Avishek Anand"
+    ],
+    "summary": "The classical cascading pipeline of retrieve--rerank suffers from a bounded recall problem, stemming from limitations of the first-stage retriever. Most current approaches address the bounded recall problem by improving the first-stage retriever, but this incurs substantial training and inference costs, especially to handle queries that require substantial reasoning. To circumvent the computational costs of reasoning-based retrievers, we replicate the findings of GAR, Graph-based Adaptive Reranking, on the BRIGHT reasoning-intensive retrieval benchmark. GAR addresses the bounded recall problem by modifying the reranking process itself through iterative exploration of a corpus graph, but it was previously only tested on models designed for topical and question-answering-style queries. Hence, reproduce GAR in reasoning-intensive settings with reasoning and non-reasoning reranking models. We observe that the quality of the reranker's signal plays an important role in identifying additional relevant documents within the corpus graph. Overall, we find that GAR boosts the effectiveness of reasoning-intensive retrieval across a variety of models while contributing minimally to computational overheads. Ultimately, this work enables more practical deployment of retrieval systems that can address reasoning-intensive queries.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-30T08:30:09Z",
+    "updated": "2026-04-30T08:30:09Z",
+    "url": "http://arxiv.org/abs/2604.27577v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27577v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于搜索系统中的重排序（Reranking）环节，提出利用图自适应方法解决推理密集型查询的召回受限问题，属于核心搜索技术改进。",
+    "translation": "复现面向推理密集型信息检索的自适应重排序方法",
+    "summary_zh": "该研究将图自适应重排序（GAR）应用于推理密集型检索场景，通过迭代探索语料图来增强重排序过程，从而在不显著增加计算开销的前提下突破首阶段检索器的召回限制。",
+    "key_points": [
+      "该研究将图自适应重排序（GAR）应用于推理密集型检索场景，通过迭代探索语料图来增强重排序过程，从而在不显著增加计算开销的前提下突破首阶段检索器的召回限制"
+    ]
+  },
+  {
+    "arxiv_id": "2604.28142v1",
+    "title": "Efficient Multivector Retrieval with Token-Aware Clustering and Hierarchical Indexing",
+    "authors": [
+      "Silvio Martinico",
+      "Franco Maria Nardini",
+      "Cosimo Rulli",
+      "Rossano Venturini"
+    ],
+    "summary": "Multivector retrieval models achieve state-of-the-art effectiveness through fine-grained token-level representations, but their deployment incurs substantial computational and memory costs. Current solutions, based on the well-known k-means clustering algorithm, group similar vectors together to enable both effective compression and efficient retrieval. However, standard k-means scales poorly with the number of clusters and dataset size, and favours frequent tokens during training while underrepresenting rare, discriminative ones. In this work, we introduce TACHIOM, a multivector retrieval system that exploits token-level structure to significantly accelerate both clustering and retrieval. By accounting for tokens' distribution during centroid allocation, TACHIOM easily scales to millions of centroids, enabling highly accurate document scoring using only centroids, avoiding expensive token-level computation. TACHIOM combines a graph-based index over centroids with an optimized Product Quantization layout for efficient final scoring. Experiments on MS-MARCOv1 and LoTTE show that TACHIOM achieves up to $247\\times$ faster clustering than k-means and up to $9.8\\times$ retrieval speedup over state-of-the-art systems while maintaining comparable or superior effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-30T17:30:15Z",
+    "updated": "2026-04-30T17:30:15Z",
+    "url": "http://arxiv.org/abs/2604.28142v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.28142v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的多向量检索环节，提出了优化的聚类和索引方法以解决部署成本问题，属于核心搜索技术。",
+    "translation": "基于感知令牌聚类与分层索引的高效多向量检索",
+    "summary_zh": "提出 TACHIOM 系统，利用令牌级分布优化质心分配并结合图索引与乘积量化，旨在大幅加速多向量检索的聚类与推理过程。",
+    "key_points": [
+      "提出 TACHIOM 系统，利用令牌级分布优化质心分配并结合图索引与乘积量化，旨在大幅加速多向量检索的聚类与推理过程"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27878v1",
+    "title": "SimEval-IR: A Unified Toolkit and Benchmark Suite for Evaluating User Simulators and Search Sessions",
+    "authors": [
+      "Saber Zerhoudi"
+    ],
+    "summary": "User simulators are increasingly central to interactive information retrieval, yet the community lacks standardized evaluation tools. Simulators serve two objectives, behavioral realism (matching real user behavior) and tester reliability (producing valid system rankings), and these are often conflated despite being distinct and sometimes conflicting. We present SimEval-IR, an open-source toolkit and benchmark suite that makes this distinction measurable. SimEval-IR provides: (1) a canonical session schema unifying session search and conversational interactions, with validated dataset adapters and explicit loss accounting; (2) three executable benchmarks covering behavioral realism, tester reliability with RATE-style estimation, and an analysis linking the two; and (3) baseline results across four real datasets in two languages and four simulator families. Our key finding: the classifier-discriminator ''human-likeness'' check, the dominant realism test in the literature, has essentially no pooled predictive power for system-ranking validity ($r{=}{+}0.09$, $n{=}48$), while marginal click-depth distance and Fréchet distance over session embeddings give a much stronger signal ($|r|{=}0.43$ and $0.40$, $p{\\leq}0.005$). SimEval-IR is released with all configurations and scripts to reproduce the reported analysis.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-30T13:56:18Z",
+    "updated": "2026-04-30T13:56:18Z",
+    "url": "http://arxiv.org/abs/2604.27878v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27878v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索系统中的用户模拟器评估工具与基准，虽未提出新的排序算法，但为搜索系统的离线评估和迭代提供了直接的基础设施支持。",
+    "translation": "SimEval-IR：用于评估用户模拟器与搜索会话的统一工具包与基准套件",
+    "summary_zh": "提出 SimEval-IR 工具包，通过统一会话模式区分并量化评估用户模拟器的“行为真实性”与“测试可靠性”，揭示了传统人类相似度指标在预测系统排名有效性上的局限性。",
+    "key_points": [
+      "提出 SimEval-IR 工具包，通过统一会话模式区分并量化评估用户模拟器的“行为真实性”与“测试可靠性”，揭示了传统人类相似度指标在预测系统排名有效性上的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27421v1",
+    "title": "A Reproducibility Study of LLM-Based Query Reformulation",
+    "authors": [
+      "Amin Bigdeli",
+      "Radin Hamidi Rad",
+      "Hai Son Le",
+      "Mert Incesu",
+      "Negar Arabzadeh",
+      "Charles L. A. Clarke",
+      "Ebrahim Bagheri"
+    ],
+    "summary": "Large Language Models (LLMs) are now widely used for query reformulation and expansion in Information Retrieval, with many studies reporting substantial effectiveness gains. However, these results are typically obtained under heterogeneous experimental conditions, making it difficult to assess which findings are reproducible and which depend on specific implementation choices. In this work, we present a systematic reproducibility and comparative study of ten representative LLM-based query reformulation methods under a unified and strictly controlled experimental framework. We evaluate methods across two architectural LLM families at two parameter scales, three retrieval paradigms (lexical, learned sparse, and dense), and nine benchmark datasets spanning TREC Deep Learning and BEIR. Our results show that reformulation gains are strongly conditioned on the retrieval paradigm, that improvements observed under lexical retrieval do not consistently transfer to neural retrievers, and that larger LLMs do not uniformly yield better downstream performance. These findings clarify the stability and limits of reported gains in prior work. To enable transparent replication and ongoing comparison, we release all prompts, configurations, evaluation scripts, and run files through QueryGym, an open-source reformulation toolkit with a public leaderboard.\\footnote{https://leaderboard.querygym.com}",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-04-30T04:51:52Z",
+    "updated": "2026-04-30T04:51:52Z",
+    "url": "http://arxiv.org/abs/2604.27421v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27421v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于搜索系统中的查询改写（Query Reformulation）环节，属于核心搜索技术，但主要贡献是对现有 LLM 方法的可复现性评估而非提出新的推荐/搜索架构；因来自中国公司（TAL），依据规则额外 +1 分。",
+    "translation": "基于大语言模型的查询改写可复现性研究",
+    "summary_zh": "本文在统一实验框架下系统评估了十种基于大语言模型的查询改写方法，揭示了其效果对检索范式、模型规模及实现细节的强依赖性，并开源了复现工具包 QueryGym。",
+    "key_points": [
+      "本文在统一实验框架下系统评估了十种基于大语言模型的查询改写方法，揭示了其效果对检索范式、模型规模及实现细节的强依赖性，并开源了复现工具包 QueryGym"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27790v1",
+    "title": "How Generative AI Disrupts Search: An Empirical Study of Google Search, Gemini, and AI Overviews",
+    "authors": [
+      "Riley Grossman",
+      "Songjiang Liu",
+      "Michael K. Chen",
+      "Mike Smith",
+      "Cristian Borcea",
+      "Yi Chen"
+    ],
+    "summary": "Generative AI is being increasingly integrated into web search for the convenience it provides users. In this work, we aim to understand how generative AI disrupts web search by retrieving and presenting the information and sources differently from traditional search engines. We introduce a public benchmark dataset of 11,500 user queries to support our study and future research of generative search. We compare the search results returned by Google's search engine, the accompanying AI Overview (AIO), and Gemini Flash 2.5 for each query. We have made several key findings. First, we find that for 51.5\\% of representative, real-user queries, AIOs are generated, and are displayed above the organic search results. Controversial questions frequently result in an AIO. Second, we show that the retrieved sources are substantially different for each search engine (<0.2 average Jaccard similarity). Traditional Google search is significantly more likely to retrieve information from popular or institutional websites in government or education, while generative search engines are significantly more likely to retrieve Google-owned content. Third, we observe that websites that block Google's AI crawler are significantly less likely to be retrieved by AIOs, despite having access to the content. Finally, AIOs are less consistent when processing two runs of the same query, and are less robust to minor query edits. Our findings have important implications for understanding how generative search impacts website visibility, the effectiveness of generative engine optimization techniques, and the information users receive. We call for revenue frameworks to foster a sustainable and mutually beneficial ecosystem for publishers and generative search providers.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.CY",
+      "cs.HC"
+    ],
+    "published": "2026-04-30T12:32:21Z",
+    "updated": "2026-04-30T12:32:21Z",
+    "url": "http://arxiv.org/abs/2604.27790v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27790v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要是一项关于生成式 AI 对搜索引擎结果影响的实证研究和现象分析，而非提出新的搜索算法、排序模型或系统架构创新，属于弱相关的边缘研究。",
+    "translation": "生成式 AI 如何颠覆搜索：对 Google 搜索、Gemini 及 AI 概览的实证研究",
+    "summary_zh": "本文通过构建基准数据集，实证分析了生成式 AI 搜索结果与传统搜索引擎在来源构成、内容一致性及鲁棒性上的显著差异，揭示了其对网站可见性和信息生态的影响。",
+    "key_points": [
+      "本文通过构建基准数据集，实证分析了生成式 AI 搜索结果与传统搜索引擎在来源构成、内容一致性及鲁棒性上的显著差异，揭示了其对网站可见性和信息生态的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27600v1",
+    "title": "Purifying Multimodal Retrieval: Fragment-Level Evidence Selection for RAG",
+    "authors": [
+      "Xihang Wang",
+      "Zihan Wang",
+      "Chengkai Huang",
+      "Cao Liu",
+      "Ke Zeng",
+      "Quan Z. Sheng",
+      "Lina Yao"
+    ],
+    "summary": "Multimodal Retrieval-Augmented Generation (MRAG) is widely adopted for Multimodal Large Language Models (MLLMs) with external evidence to reduce hallucinations. Despite its success, most existing MRAG frameworks treat retrieved evidence as indivisible documents, implicitly assuming that all content within a document is equally informative. In practice, however, sometimes only a small fraction of a document is relevant to a given query, while the remaining content introduces substantial noise that may lead to performance degradation. We address this fundamental limitation by reframing MRAG as a fine-grained evidence selection problem. We propose Fragment-level Evidence Selection for RAG (FES-RAG), a framework that selects atomic multimodal fragments rather than entire documents as grounding evidence. FES-RAG decomposes retrieved multimodal documents into sentence-level textual fragments and region-level visual fragments, enabling precise identification of evidence that directly supports generation. To guide fragment selection, we introduce Fragment Information Gain (FIG), a principled metric that measures the marginal contribution of each fragment to the MLLM's generation confidence. Based on FIG, we distill fragment-level utility judgments from a high-capacity MLLM into a lightweight selector, achieving accurate evidence selection with low inference overhead. Experiments on the M2RAG benchmark show that FES-RAG consistently outperforms state-of-the-art document-level MRAG methods, achieving up to 27 percent relative improvement in CIDEr. By selecting fewer yet more informative fragments, our approach substantially reduces context length while improving factual accuracy and generation coherence.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-30T08:50:03Z",
+    "updated": "2026-04-30T08:50:03Z",
+    "url": "http://arxiv.org/abs/2604.27600v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27600v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "ZhejiangUniversity MeituanLongCatInteractionTeam UniversityofNewSouthWales,",
+      "Hangzhou,China Beijing,China MacquarieUniversity",
+      "MeituanLongCatInteractionTeam MeituanLongCatInteractionTeam MacquarieUniversity",
+      "UniversityofNewSouthWales,",
+      "ACMSIGIRConferenceonResearchandDevelopmentinInformationRetrieval"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，旨在优化多模态大模型的生成事实性，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使有中国公司背景加分，仍属低相关。",
+    "translation": "净化多模态检索：面向 RAG 的片段级证据选择",
+    "summary_zh": "提出一种片段级证据选择框架，通过将多模态文档分解为细粒度文本和视觉片段，并利用信息增益指标筛选高价值证据，以解决多模态检索增强生成中的噪声干扰问题。",
+    "key_points": [
+      "提出一种片段级证据选择框架，通过将多模态文档分解为细粒度文本和视觉片段，并利用信息增益指标筛选高价值证据，以解决多模态检索增强生成中的噪声干扰问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27306v1",
+    "title": "NuggetIndex: Governed Atomic Retrieval for Maintainable RAG",
+    "authors": [
+      "Saber Zerhoudi",
+      "Michael Granitzer",
+      "Jelena Mitrovic"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) systems are frequently evaluated via fact-based metrics, yet standard implementations retrieve passages or static propositions. This unit mismatch between evaluation and retrieval objects hinders maintenance when corpora evolve and fails to capture superseded facts or source disagreements. We propose NuggetIndex, a retrieval system that stores atomic information units as managed records, so called nuggets. Each record maintains links to evidence, a temporal validity interval, and a lifecycle state. By filtering invalid or deprecated nuggets prior to ranking, the system prevents the inclusion of outdated information. We evaluate the approach using a nuggetized MS MARCO subset, a temporal Wikipedia QA dataset, and a multi-hop QA task. Against passage and unmanaged proposition retrieval baselines, NuggetIndex improves nugget recall by 42%, increases temporal correctness by 9 percentage points without the recall collapse observed in time-filtered baselines, and reduces conflict rates by 55%. The compact nugget format reduces generator input length by 64% while enabling lightweight index structures suitable for browser-based and resource-constrained deployment. We release our implementation, datasets, and evaluation scripts",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-30T01:33:56Z",
+    "updated": "2026-04-30T01:33:56Z",
+    "url": "http://arxiv.org/abs/2604.27306v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27306v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 RAG/问答系统研究，聚焦于通用事实检索的原子化与时效性管理，未涉及推荐系统或搜索引擎的核心业务场景（如个性化、广告、电商召回排序等），即使有中国公司背景且加分后仍属低优先级。",
+    "translation": "NuggetIndex：面向可维护 RAG 的受控原子检索",
+    "summary_zh": "提出一种将信息存储为带时间戳和生命周期状态的原子记录（nuggets）的检索系统，通过在排序前过滤过时或冲突记录来解决知识库演化中的事实更新与矛盾问题。",
+    "key_points": [
+      "提出一种将信息存储为带时间戳和生命周期状态的原子记录（nuggets）的检索系统，通过在排序前过滤过时或冲突记录来解决知识库演化中的事实更新与矛盾问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27852v1",
+    "title": "NeocorRAG: Less Irrelevant Information, More Explicit Evidence, and More Effective Recall via Evidence Chains",
+    "authors": [
+      "Shiyao Peng",
+      "Qianhe Zheng",
+      "Zhuodi Hao",
+      "Zichen Tang",
+      "Rongjin Li",
+      "Qing Huang",
+      "Jiayu Huang",
+      "Jiacheng Liu",
+      "Yifan Zhu",
+      "Haihong E"
+    ],
+    "summary": "Although precise recall is a core objective in Retrieval-Augmented Generation (RAG), a critical oversight persists in the field: improvements in retrieval performance do not consistently translate to commensurate gains in downstream reasoning. To diagnose this gap, we propose the Recall Conversion Rate (RCR), a novel evaluation metric to quantify the contribution of retrieval to reasoning accuracy. Our quantitative analysis of mainstream RAG methods reveals that as Recall@5 improves, the RCR exhibits a near-linear decay. We identify the neglect of retrieval quality in these methods as the underlying cause. In contrast, approaches that focus solely on quality optimization often suffer from inferior recall performance. Both categories lack a comprehensive understanding of retrieval quality optimization, resulting in a trade-off dilemma. To address these challenges, we propose comprehensive retrieval quality optimization criteria and introduce the NeocorRAG framework. This framework achieves holistic retrieval quality optimization by systematically mining and utilizing Evidence Chains. Specifically, NeocorRAG first employs an innovative activated search algorithm to obtain a refined candidate space. Then it ensures precise evidence chain generation through constrained decoding. Finally, the retrieved set of evidence chains guides the retrieval optimization process. Evaluated on benchmarks including HotpotQA, 2WikiMultiHopQA, MuSiQue, and NQ, NeocorRAG achieves SOTA performance on both 3B and 70B parameter models, while consuming less than 20% of tokens used by comparable methods. This study presents an efficient, training-free paradigm for RAG enhancement that effectively optimizes retrieval quality while maintaining high recall. Our code is released at https://github.com/BUPT-Reasoning-Lab/NeocorRAG.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-30T13:37:01Z",
+    "updated": "2026-04-30T13:37:01Z",
+    "url": "http://arxiv.org/abs/2604.27852v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27852v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用问答（QA）基准上的推理与检索质量权衡，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "NeocorRAG：通过证据链减少无关信息并提升显式证据与有效召回",
+    "summary_zh": "该论文提出 NeocorRAG 框架，通过挖掘和利用“证据链”来协同优化检索的覆盖率与质量，旨在解决检索增强生成中检索性能提升无法转化为推理准确性增益的问题。",
+    "key_points": [
+      "该论文提出 NeocorRAG 框架，通过挖掘和利用“证据链”来协同优化检索的覆盖率与质量，旨在解决检索增强生成中检索性能提升无法转化为推理准确性增益的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.27733v1",
+    "title": "Mind the Gap: Structure-Aware Consistency in Preference Learning",
+    "authors": [
+      "Mehryar Mohri",
+      "Yutao Zhong"
+    ],
+    "summary": "Preference learning has become the foundation of aligning Large Language Models (LLMs) with human intent. Popular methods, such as Direct Preference Optimization (DPO), minimize surrogate losses as proxies for the intractable pairwise ranking loss. However, we demonstrate that for the equicontinuous hypothesis sets typical of neural networks, these standard surrogates are theoretically inconsistent, yielding vacuous generalization guarantees. To resolve this, we formulate LLM alignment within a margin-shifted ranking framework. We derive rigorous $H$-consistency bounds that depend on enforcing a separation margin $γ$. Crucially, we extend this to Structure-Aware $H$-consistency, introducing a novel objective (SA-DPO) that adapts the margin based on the semantic distance between responses to handle synonyms and hard pairs. Finally, we analyze the trade-off between consistency and model limitations via the Margin-Capacity Profile, proving that heavy-tailed surrogates (such as the Polynomial Hinge family) offer superior consistency guarantees for capacity-bounded models compared to the standard logistic loss used in DPO.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-04-30T11:24:04Z",
+    "updated": "2026-04-30T11:24:04Z",
+    "url": "http://arxiv.org/abs/2604.27733v1",
+    "pdf_url": "http://arxiv.org/pdf/2604.27733v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 对齐（Alignment）和偏好学习理论的研究，专注于解决 DPO 的理论不一致性问题，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "关注差距：偏好学习中的结构感知一致性",
+    "summary_zh": "该论文提出了一种结构感知的一致性框架（SA-DPO），通过引入基于语义距离的动态边际和重尾代理损失，从理论上解决了大语言模型偏好学习中标准代理损失的不一致性问题。",
+    "key_points": [
+      "该论文提出了一种结构感知的一致性框架（SA-DPO），通过引入基于语义距离的动态边际和重尾代理损失，从理论上解决了大语言模型偏好学习中标准代理损失的不一致性问题"
+    ]
+  }
+]

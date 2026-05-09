@@ -1,0 +1,284 @@
+[
+  {
+    "arxiv_id": "2605.05249v1",
+    "title": "TriAlignGR: Triangular Multitask Alignment with Multimodal Deep Interest Mining for Generative Recommendation",
+    "authors": [
+      "Yangchen Zeng",
+      "Hao Peng",
+      "Rongfeng Guo",
+      "Zhenyu Yu",
+      "Zhiyuan Hu",
+      "Jinze Wang"
+    ],
+    "summary": "We introduce TriAlignGR, a unified multitask-multimodal framework for generative recommendation that establishes two-stage multimodal semantic propagation: (i) encoding visual semantics directly into SIDs via multimodal embeddings, and (ii) enabling the model to decode these semantics through visual description tasks. Existing Semantic ID (SID) pipelines suffer from two fundamental but underexplored problems: \\textbf{SID Content Degradation (SCD)}, where cascaded encoding and residual quantization discard critical multimodal and interest-level semantics; and \\textbf{SID Semantic Opacity (SSO)}, where models autoregressively generate SID sequences without truly comprehending their underlying meaning, leading to hallucination and poor generalization. Prior work addresses at most text-SID alignment, leaving visual semantics and latent user interests entirely unexploited. TriAlignGR resolves both problems through three tightly integrated components: (1)~\\textbf{Cross-Modal Semantic Alignment (CMSA)} integrates visual content into SID construction through both VLM-generated textual descriptions and a multimodal embedding model that directly encodes image features alongside text, ensuring that SIDs inherently carry multimodal semantics; (2)~\\textbf{Multimodal Deep Interest Mining (MDIM)} leverages LLM Chain-of-Thought reasoning to extract latent user intents (\\eg ``productivity-focused lifestyle'' from noise-canceling headphones) beyond surface attributes, enriching SID semantics before discretization; and (3)~\\textbf{Triangular Multitask (TMT)} jointly trains on eight complementary generation tasks under a single autoregressive loss -- including two novel visual-semantic tasks (VisDesc$\\to$SID, VisDesc$\\to$Title) that map VLM-generated image descriptions to SIDs and titles, completing the SID-Text-Image triangle -- without requiring task-specific towers or complex loss weighting.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-05T11:42:14Z",
+    "updated": "2026-05-05T11:42:14Z",
+    "url": "http://arxiv.org/abs/2605.05249v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.05249v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心问题（SID 语义退化和不透明），提出了融合多模态和深度兴趣挖掘的统一框架，属于高优先级的 RecSys 核心架构创新；且来自中国企业，符合额外加分条件。",
+    "translation": "TriAlignGR：面向生成式推荐的三角多任务对齐与多模态深度兴趣挖掘",
+    "summary_zh": "提出一种统一的多任务多模态框架，通过跨模态语义对齐、基于思维链的深度兴趣挖掘及三角多任务联合训练，解决生成式推荐中语义 ID 的内容退化与语义不透明问题。",
+    "key_points": [
+      "提出一种统一的多任务多模态框架，通过跨模态语义对齐、基于思维链的深度兴趣挖掘及三角多任务联合训练，解决生成式推荐中语义 ID 的内容退化与语义不透明问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03397v1",
+    "title": "Revisiting General Map Search via Generative Point-of-Interest Retrieval",
+    "authors": [
+      "Dong Chen",
+      "Shuai Zheng",
+      "Haoyang Shao",
+      "Hongsheng Wu",
+      "Muhao Xu",
+      "Yeyu Yan",
+      "Ruifang Li",
+      "Zhenfeng Zhu"
+    ],
+    "summary": "Point-of-Interest (POI) retrieval aims to identify relevant candidates from massive-scale POI databases, serving as a cornerstone for diverse location-based services. However, in general map search scenarios, conventional POI retrieval methods are increasingly challenged by underspecified user queries due to their excessive reliance on surface-level semantic matching. Meanwhile, such queries are often highly context-dependent and personalized, yet existing retrieval paradigms struggle to effectively synergize heterogeneous contexts for complex search intent inference. To address these limitations, we revisit general map search from a generative perspective and propose GenPOI, an innovative Generative POI retrieval framework tailored for general search on maps. It seamlessly unifies heterogeneous search contexts and POIs into structured sequences, leveraging the powerful contextual modeling of Large Language Models (LLMs) for spatial-aware candidate generation. Consequently, this generative paradigm effectively solves more challenging queries through profound context dependency modeling and search intent reasoning. Specifically, accounting for the unique geospatial nature of map scenarios, GenPOI introduces a novel Geo-Semantic POI Tokenization to represent each POI as a compact token sequence encoding both semantic and geographic context, thus grounding the LLM's spatial understanding. Additionally, a proximity-aware constrained generation strategy is employed to restrict the decoding space of the LLM, ensuring the validity and geospatial relevance of the generated results. Extensive experiments on large-scale industrial datasets from Tencent Map, comprising POIs at the scale of over 10 million, demonstrate the superior performance of GenPOI.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-05T06:19:06Z",
+    "updated": "2026-05-05T06:19:06Z",
+    "url": "http://arxiv.org/abs/2605.03397v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.03397v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "本文针对本地生活（腾讯地图）场景下的 POI 检索问题，提出基于 LLM 的生成式检索框架 GenPOI，直接解决搜索中的语义匹配与上下文建模难题，属于高优先级的核心搜索技术。",
+    "translation": "重访通用地图搜索：基于生成式的兴趣点检索方法",
+    "summary_zh": "提出 GenPOI 框架，通过地理语义分词将 POI 转化为结构化序列，利用大语言模型的上下文建模能力进行空间感知的候选生成，以解决模糊查询下的意图推理问题。",
+    "key_points": [
+      "提出 GenPOI 框架，通过地理语义分词将 POI 转化为结构化序列，利用大语言模型的上下文建模能力进行空间感知的候选生成，以解决模糊查询下的意图推理问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.05250v1",
+    "title": "Decision-aware User Simulation Agent for Evaluating Conversational Recommender Systems",
+    "authors": [
+      "Yuan-Chi Li",
+      "Li-Chi Chen",
+      "Sung-Yi Wu",
+      "Yu-Che Tsai",
+      "Shou-De Lin"
+    ],
+    "summary": "Conversational recommender systems (CRS) increasingly rely on user simulators for automated evaluation of sales agents. A key requirement for such simulators is the ability to model human decision-making. However, most existing simulation frameworks do not explicitly model the internal decision process, and LLM-based simulators often exhibit unrealistically strong information-processing capabilities, rarely exhibit the hesitation or decision deferral commonly observed in real consumer behavior, resulting in overly high acceptance probabilities. To address this limitation, we propose Hesitator, a theory-grounded user simulation framework that explicitly models human decision-making under choice overload. The framework introduces a modular Decision Module that separates utility-based item selection from overload-aware commitment decisions. Experiments across multiple user simulation frameworks, domains, sales modes, and LLM backbones show that integrating our module consistently mitigates unrealistic behaviors under increasing overload conditions. Furthermore, Hesitator reproduces established behavioral patterns from psychological economics, demonstrating its ability to model human decision behavior.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-05T15:11:05Z",
+    "updated": "2026-05-05T15:11:05Z",
+    "url": "http://arxiv.org/abs/2605.05250v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.05250v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话推荐系统（CRS）的评估痛点，提出了一种模拟人类决策犹豫机制的用户仿真框架，属于明确的推荐系统应用研究。",
+    "translation": "用于评估对话推荐系统的决策感知用户仿真智能体",
+    "summary_zh": "提出一种基于理论的模块化用户仿真框架，通过分离效用选择与过载感知承诺决策，显式模拟人类在信息过载下的犹豫和延迟决策行为，以解决现有仿真器评估对话推荐系统时行为过于理想化的问题。",
+    "key_points": [
+      "提出一种基于理论的模块化用户仿真框架，通过分离效用选择与过载感知承诺决策，显式模拟人类在信息过载下的犹豫和延迟决策行为，以解决现有仿真器评估对话推荐系统时行为过于理想化的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.04005v1",
+    "title": "Domain-Adaptive Dense Retrieval for Brazilian Legal Search",
+    "authors": [
+      "Jayr Pereira",
+      "Roberto Lotufo",
+      "Luiz Bonifacio"
+    ],
+    "summary": "Brazilian legal retrieval is heterogeneous, covering case law, legislation, and question-based search. This makes training dense retrievers a trade-off between stronger domain specialization and broader robustness across retrieval types of search. In this paper, we explore this trade-off using three training setups based on Qwen3-Embedding-4B: a base model with no fine-tuning, a version trained only on legal data, and a mixed setup that combines legal data with SQuAD-pt supervised dataset. We evaluate these models on five legal datasets from the JUÁ leaderboard, along with Quati dataset as an extra Portuguese retrieval benchmark to test out-of-domain generalization. The legal-only model performs best on the most specialized legal tasks. The mixed setup keeps strong performance on legal data while offering a better overall balance, improving average NDCG@10 from 0.414 to 0.447, MRR@10 from 0.586 to 0.595, and MAP@10 from 0.270 to 0.308 across all six datasets. The biggest improvement appears on Quati, where the mixed model clearly outperforms the legal-only one. Overall, the results show that legal-only and mixed training lead to different strengths: the first is better for specialization, while the second is more robust across different types of search, especially question-based ones. Both adapted models are available on Hugging Face",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-05T17:25:11Z",
+    "updated": "2026-05-05T17:25:11Z",
+    "url": "http://arxiv.org/abs/2605.04005v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.04005v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文属于特定领域（巴西法律）的搜索检索研究，虽涉及稠密检索技术但缺乏通用推荐/搜索系统的核心架构创新，且非中国公司（IGG）成果（注：Qwen3 为阿里模型，但论文主题与 IGG 业务无关），故不适用额外加分，仅作为领域适配案例给予中等评分。",
+    "translation": "面向巴西法律搜索的域自适应稠密检索研究",
+    "summary_zh": "本文探讨了在法律搜索场景中，通过混合领域数据与通用问答数据训练稠密检索模型，以平衡领域专用性与跨任务鲁棒性的方法。",
+    "key_points": [
+      "本文探讨了在法律搜索场景中，通过混合领域数据与通用问答数据训练稠密检索模型，以平衡领域专用性与跨任务鲁棒性的方法"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03861v1",
+    "title": "Aspect-Aware Content-Based Recommendations for Mathematical Research Papers",
+    "authors": [
+      "Ankit Satpute",
+      "André Greiner-Petter",
+      "Noah Gießing",
+      "Olaf Teschke",
+      "Moritz Schubotz",
+      "Akiko Aizawa",
+      "Bela Gipp"
+    ],
+    "summary": "Content-based research paper recommendation (CbRPR) has seen advances in computer science and biomedicine, but remains unexplored for mathematics, where paper relatedness is more conceptual than explicit textual or citation-based similarity. Mathematics papers may be connected through shared proof techniques, logical implications, or natural generalizations, yet exhibit minimal textual or citation overlap, rendering existing CbRPR ineffective. To address this gap, we first conduct an expert-driven study characterizing mathematical recommendations, revealing that relevance is inherently \\textit{aspect}-driven. Grounded in this insight, we introduce GoldRiM (small, expert-annotated) and SilverRiM (large, automatically derived), the first datasets for \\textit{aspect}-aware CbRPR in mathematics. Recognizing that LLM embeddings of mathematical content alone yield suboptimal representation, we propose AchGNN, an \\textit{aspect}-conditioned heterogeneous GNN that jointly models textual semantics, citation structure, and author lineage. Across GoldRiM and SilverRiM, AchGNN consistently outperforms prior \\textit{aspect}-based CbRPR methods, achieving substantial gains across all evaluated \\textit{aspects}. We conduct ablation studies to analyze the contributions of individual \\textit{aspect} supervision, authorship lineage, and graph-structural signals to AchGNN's performance. To assess domain generality, we further evaluate AchGNN on the \\textit{Papers with Code} dataset of machine learning publications, demonstrating that our \\textit{aspect}-aware approach effectively transfers beyond mathematics. We deploy our system on the MaRDI platform to help mathematicians with recommendations and release datasets and code publicly for reproducibility.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-05T15:23:37Z",
+    "updated": "2026-05-05T15:23:37Z",
+    "url": "http://arxiv.org/abs/2605.03861v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.03861v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种针对特定领域（数学论文）的基于内容和方面的推荐方法，属于明确的 RecSys 应用，但场景较为垂直且非主流电商/社交推荐，故给中优先级分数。",
+    "translation": "面向数学研究论文的方面感知基于内容推荐",
+    "summary_zh": "针对数学论文概念相关性强但文本重叠少的问题，提出一种方面条件的异构图神经网络，联合建模文本语义、引用结构及作者谱系以实现细粒度的方面感知推荐。",
+    "key_points": [
+      "针对数学论文概念相关性强但文本重叠少的问题，提出一种方面条件的异构图神经网络，联合建模文本语义、引用结构及作者谱系以实现细粒度的方面感知推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2605.04018v1",
+    "title": "Rethinking Reasoning-Intensive Retrieval: Evaluating and Advancing Retrievers in Agentic Search Systems",
+    "authors": [
+      "Yilun Zhao",
+      "Jinbiao Wei",
+      "Tingyu Song",
+      "Siyue Zhang",
+      "Chen Zhao",
+      "Arman Cohan"
+    ],
+    "summary": "Reasoning-intensive retrieval aims to surface evidence that supports downstream reasoning rather than merely matching topical similarity. This capability is increasingly important for agentic search systems, where retrievers must provide complementary evidence across iterative search and synthesis. However, existing work remains limited on both evaluation and training: benchmarks such as BRIGHT provide narrow gold sets and evaluate retrievers in isolation, while synthetic training corpora often optimize single-passage relevance rather than evidence portfolio construction. We introduce BRIGHT-Pro, an expert-annotated benchmark that expands each query with multi-aspect gold evidence and evaluates retrievers under both static and agentic search protocols. We further construct RTriever-Synth, an aspect-decomposed synthetic corpus that generates complementary positives and positive-conditioned hard negatives, and use it to LoRA fine-tune RTriever-4B from Qwen3-Embedding-4B. Experiments across lexical, general-purpose, and reasoning-intensive retrievers show that aspect-aware and agentic evaluation expose behaviors hidden by standard metrics, while RTriever-4B substantially improves over its base model.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-05T17:42:50Z",
+    "updated": "2026-05-05T17:42:50Z",
+    "url": "http://arxiv.org/abs/2605.04018v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.04018v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于代理搜索系统中的检索器评估与训练，属于通用 NLP/LLM 检索研究，缺乏明确的推荐系统或电商/社交搜索业务场景应用。",
+    "translation": "重思考推理密集型检索：评估并推进代理搜索系统中的检索器",
+    "summary_zh": "提出面向代理搜索的多维度黄金证据基准 BRIGHT-Pro 及方面分解合成语料库，旨在通过方面感知训练提升检索器在迭代搜索中提供互补证据的能力。",
+    "key_points": [
+      "提出面向代理搜索的多维度黄金证据基准 BRIGHT-Pro 及方面分解合成语料库，旨在通过方面感知训练提升检索器在迭代搜索中提供互补证据的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03824v1",
+    "title": "Reproducing Complex Set-Compositional Information Retrieval",
+    "authors": [
+      "Vincent Degenhart",
+      "Dewi Timman",
+      "Arjen P. de Vries",
+      "Faegheh Hasibi",
+      "Mohanna Hoveyda"
+    ],
+    "summary": "Complex information needs may involve set-compositional queries using conjunction, disjunction, and exclusion, yet it remains unclear whether current retrieval paradigms genuinely satisfy such constraints or exploit `semantic shortcuts'. We conduct a reproducibility study to benchmark major retrieval families and reasoning-targeted methods on QUEST and QUEST+Variants, and introduce LIMIT+, a controlled benchmark where relevance depends on arbitrary attribute predicates and constraint satisfaction, and less on pretrained knowledge. Our findings show that (i) on QUEST, the best neural retrievers achieve an effectiveness that is more than double what can be achieved with BM25 (Recall@100 ${>}$0.41 vs.\\ 0.20), but reasoning-targeted methods like ReasonIR and Search-R1 do not outperform general-purpose retrievers uniformly; (ii) on LIMIT+, gains fail to transfer, where the strongest QUEST method collapses from Recall@100${\\approx}$0.42 to below 0.02, while classic lexical retrieval gains to ${\\sim}$0.96. Lastly, (iii) stratifying by compositional depth reveals a consistent degradation across all methods, where algebraic sparse and lexical methods show more stable performance while dense approaches collapse. We release code and LIMIT+ data generation scripts to support future reproducibility and controlled evaluation.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-05T14:51:40Z",
+    "updated": "2026-05-05T14:51:40Z",
+    "url": "http://arxiv.org/abs/2605.03824v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.03824v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注通用信息检索中的复杂组合查询复现与基准测试，虽涉及检索技术，但缺乏针对推荐系统或特定搜索产品场景的直接应用与创新。",
+    "translation": "复现复杂的集合组合式信息检索",
+    "summary_zh": "本文通过构建受控基准 LIMIT+，评估并揭示了现有神经检索模型在处理复杂组合查询时过度依赖预训练知识而非真正逻辑推理的局限性。",
+    "key_points": [
+      "本文通过构建受控基准 LIMIT+，评估并揭示了现有神经检索模型在处理复杂组合查询时过度依赖预训练知识而非真正逻辑推理的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03275v1",
+    "title": "Beyond Similarity Search: A Unified Data Layer for Production RAG Systems",
+    "authors": [
+      "Venkata Krishna Prasanth Budigi",
+      "Siri Chandana Sirigiri"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems have become the standard architecture for grounding large language models in organizational knowledge. Yet production deployments consistently expose a gap between clean prototype performance and real-world reliability. This paper identifies three root causes of that gap: data staleness, tenant data leakage, and query composition explosion. All three trace back to the conventional split-system data layer. We propose and evaluate a unified data layer built on PostgreSQL with native vector search (pgvector) and HNSW indexing. Controlled benchmarks on 50,000 documents show 92% latency reduction for date-filtered queries, 74% for tenant-scoped queries, zero synchronization inconsistency, and complete elimination of cross-tenant data leakage with 93% less synchronization code. We additionally discuss a recommended hybrid tier architecture",
+    "categories": [
+      "cs.IR",
+      "cs.DB"
+    ],
+    "published": "2026-05-05T02:04:10Z",
+    "updated": "2026-05-05T02:04:10Z",
+    "url": "http://arxiv.org/abs/2605.03275v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.03275v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于 RAG 系统的底层数据架构优化（解决延迟、隔离等问题），属于通用 LLM 工程基础设施研究，并未直接涉及推荐或搜索的核心算法（如召回、排序、用户建模），因此相关性较低。",
+    "translation": "超越相似性搜索：面向生产级 RAG 系统的统一数据层",
+    "summary_zh": "针对生产级 RAG 系统面临的数据时效性、租户隔离及查询组合爆炸问题，提出一种基于 PostgreSQL 原生向量搜索的统一数据层架构以替代传统的分离式数据层。",
+    "key_points": [
+      "针对生产级 RAG 系统面临的数据时效性、租户隔离及查询组合爆炸问题，提出一种基于 PostgreSQL 原生向量搜索的统一数据层架构以替代传统的分离式数据层"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03348v2",
+    "title": "Toward Structural Multimodal Representations: Specialization, Selection, and Sparsification via Mixture-of-Experts",
+    "authors": [
+      "Hahyeon Choi",
+      "Nojun Kwak"
+    ],
+    "summary": "We propose S3 (Specialization, Selection, Sparsification), a framework that rethinks multimodal learning through a structural perspective. Instead of encoding all signals into a fixed embedding, S3 decomposes multimodal inputs into semantic experts and selectively routes them for each task. Specialization forms concept-level experts in a shared latent space, Selection adapts routing for task-specific needs, and Sparsification prunes low-utility paths to yield compact, information-minimal representations. Across four MultiBench benchmarks, S3 improves accuracy and shows a consistent reverse U-shaped sparsity-performance trend, with peak performance at intermediate sparsity. These results suggest that structuring multimodal representations as selectable semantic components provides a practical and principled alternative to contrastive learning or InfoMax-driven approaches.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-05T04:09:25Z",
+    "updated": "2026-05-06T03:37:43Z",
+    "url": "http://arxiv.org/abs/2605.03348v2",
+    "pdf_url": "http://arxiv.org/pdf/2605.03348v2.pdf",
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该论文提出了一种通用的多模态表征学习框架（S3），虽涉及多模态处理，但属于基础机器学习方法研究，未明确针对推荐或搜索场景进行应用验证。",
+    "translation": "迈向结构化多模态表征：通过混合专家实现专业化、选择与稀疏化",
+    "summary_zh": "提出 S3 框架，将多模态输入分解为语义专家并进行选择性路由与稀疏化剪枝，以构建紧凑且信息最小化的结构化表征。",
+    "key_points": [
+      "提出 S3 框架，将多模态输入分解为语义专家并进行选择性路由与稀疏化剪枝，以构建紧凑且信息最小化的结构化表征"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03534v1",
+    "title": "SURE-RAG: Sufficiency and Uncertainty-Aware Evidence Verification for Selective Retrieval-Augmented Generation",
+    "authors": [
+      "Jingxi Qiu",
+      "Zeyu Han",
+      "Cheng Huang"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) grounds answers in retrieved passages, but retrieval is not verification: a passage can be topical and still fail to justify the answer. We frame this gap as evidence sufficiency verification for selective RAG answering: given a question, a candidate answer, and retrieved evidence, predict whether the evidence supports, refutes, or is insufficient, and abstain unless support is established. We present SURE-RAG, a transparent aggregation protocol built on the observation that evidence sufficiency is a set-level property: missing hops and unresolved conflicts cannot be detected by independent passage scoring. A shared pair-level claim-evidence verifier produces local relation distributions, which SURE-RAG aggregates into interpretable answer-level signals -- coverage, relation strength, disagreement, conflict, and retrieval uncertainty -- yielding a three-way decision and an auditable selective score. We evaluate on HotpotQA-RAG v3, a controlled multi-hop benchmark, under an artifact-aware protocol (shortcut baselines, counterfactual swaps, no-oracle checks, GPT-4o audits). Calibrated SURE-RAG reaches 0.9075 Macro-F1 (0.8951 +/- 0.0069), substantially above DeBERTa mean-pooling (0.6516) and a GPT-4o judge (0.7284), while matching a strong but opaque concat cross-encoder (0.8888 +/- 0.0109) with full auditability. Risk at 30% coverage drops from 0.2588 to 0.1642, a 37% reduction in unsafe answers. To deliberately probe the task boundary, we further contrast SURE-RAG with GPT-4o on HaluBench unsafe detection: the ranking reverses (0.3343 vs 0.7389 unsafe-F1), establishing that controlled sufficiency verification and natural hallucination detection are distinct problems.",
+    "categories": [
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-05-05T09:05:40Z",
+    "updated": "2026-05-05T09:05:40Z",
+    "url": "http://arxiv.org/abs/2605.03534v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.03534v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于问答任务中的证据验证和幻觉检测，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属于低优先级。",
+    "translation": "SURE-RAG：面向选择性检索增强生成的充分性与不确定性感知证据验证",
+    "summary_zh": "提出一种基于集合级证据充分性验证的透明聚合协议，通过评估证据对答案的支持、反驳或不足状态，实现可审计的选择性 RAG 决策机制。",
+    "key_points": [
+      "提出一种基于集合级证据充分性验证的透明聚合协议，通过评估证据对答案的支持、反驳或不足状态，实现可审计的选择性 RAG 决策机制"
+    ]
+  }
+]

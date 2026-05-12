@@ -1,0 +1,502 @@
+[
+  {
+    "arxiv_id": "2605.07613v1",
+    "title": "Intent-Driven Semantic ID Generation for Grounded Conversational News Recommendation",
+    "authors": [
+      "Hongyang Su",
+      "Beibei Kong",
+      "Lei Cheng",
+      "Chengxiang Zhuo",
+      "Zang Li",
+      "Chenyun Yu"
+    ],
+    "summary": "Conversational news recommendation requires grounding each suggestion in a rapidly evolving article corpus while addressing implicit user intents that lack explicit retrievable keywords. To characterize this scenario, we identify 6 intent types from production dialogues: five are implicit and pose fundamental challenges to standard RAG pipelines, forming a critical retrieve-first bottleneck. To address these issues, we introduce intent-driven Semantic ID (SID) generation under a Generate-then-Match paradigm. With two-stage training that consists of multi-task SID alignment and GPT-4 Chain-of-Thought distillation, an LLM maps diverse intents to hierarchical SID prefixes, which are then fuzzy-matched to the current news pool to guarantee fully grounded recommendations. Profile-Aware Dual-Signal Reasoning (PADR) further enables cold-start users to obtain valid recommendations using only profiles. On a mainstream Chinese news platform, our 7B model achieves 0% hallucination and 12.4% L1 match in the 152K open-generation SID space (4x random baseline). It matches GPT-4+Hybrid RAG on L1 while surpassing it on finer-grained metrics (L2 2x, Category +1.2pp) at ~100x lower cost. Cold-start users, where existing baselines score 0%, achieve 18.0% L1 (6x random), the highest among all user groups.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-05-08T11:43:06Z",
+    "updated": "2026-05-08T11:43:06Z",
+    "url": "http://arxiv.org/abs/2605.07613v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07613v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决对话式新闻推荐中的隐式意图识别与检索落地难题，提出了基于生成 - 匹配范式的语义 ID 生成方法，属于核心推荐系统创新；且来自中国公司，按规则额外加分后满分。",
+    "translation": "面向落地对话式新闻推荐的意图驱动语义 ID 生成",
+    "summary_zh": "提出一种意图驱动的语义 ID 生成方法，通过两阶段训练让大模型将多样用户意图映射为分层前缀，再与实时新闻库模糊匹配以消除幻觉并实现精准推荐，同时利用双信号推理解决冷启动问题。",
+    "key_points": [
+      "提出一种意图驱动的语义 ID 生成方法，通过两阶段训练让大模型将多样用户意图映射为分层前缀，再与实时新闻库模糊匹配以消除幻觉并实现精准推荐，同时利用双信号推理解决冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08499v1",
+    "title": "Multi-Level Graph Attention Network Contrastive Learning for Knowledge-Aware Recommendation",
+    "authors": [
+      "Zhifei Hu",
+      "Feng Xia"
+    ],
+    "summary": "In recent years, the use of edge information provided by knowledge graphs together with the advantages of higher-order connectivity in graph neural networks for recommendation systems has become an important research direction. However, existing approaches are often limited by sparse labels, insufficient graph structure learning, and noisy entities in the knowledge graph, which reduce recommendation accuracy. To address these limitations, we propose a multi-view graph contrastive learning framework. The proposed method enhances user representations through multi-view knowledge graph distillation, enabling more accurate modeling of user preferences over entities and relations. The network aggregates neighborhood entity information to construct informative item representations. Furthermore, we design a multi-level self-supervised contrastive learning module that performs comparisons across three perspectives: Inter-Level, Intra-Level, and Interaction-Level. This design improves the model's ability to generalize across intra-class samples while increasing discrimination between inter-class samples, thereby enabling more effective multi-dimensional feature modeling. We conduct extensive experiments on three public datasets using both baseline and ablation settings. Experimental results demonstrate that the proposed framework consistently outperforms existing state-of-the-art methods. Ablation studies further verify the effectiveness of each module in the proposed model.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T21:28:27Z",
+    "updated": "2026-05-08T21:28:27Z",
+    "url": "http://arxiv.org/abs/2605.08499v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08499v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对知识图谱推荐系统，提出多级图注意力与对比学习框架以解决稀疏标签和噪声问题，属于核心推荐算法创新；虽非纯 LLM 研究，但作为高价值深度学习推荐方法且来自工业界（TAL），符合高分标准。",
+    "translation": "面向知识感知推荐的多级图注意力网络对比学习",
+    "summary_zh": "提出一种多视图图对比学习框架，通过多级自监督对比模块（层间、层内、交互级）增强用户与物品表征，以解决知识图谱推荐中的标签稀疏、结构学习不足及实体噪声问题。",
+    "key_points": [
+      "提出一种多视图图对比学习框架，通过多级自监督对比模块（层间、层内、交互级）增强用户与物品表征，以解决知识图谱推荐中的标签稀疏、结构学习不足及实体噪声问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08326v1",
+    "title": "LLM Advertisement based on Neuron Auctions",
+    "authors": [
+      "Peiran Yun",
+      "Wenxin Xu",
+      "Jiayuan Liu",
+      "Yihang Zhang",
+      "Liang Zeng",
+      "Lingkai Kong",
+      "Tonghan Wang"
+    ],
+    "summary": "As Large Language Models (LLMs) transition into conversational agents, generative advertising emerges as a crucial monetization strategy. However, embedding advertisements within unstructured LLM outputs introduces a critical trilemma: balancing advertiser payoffs, platform revenue, and user experience. Existing methods, such as prompt injection or rigid position slots, disrupt semantic coherence and lack a parametric framework for independent control, rendering rigorous mechanism design intractable. To bridge this gap, we introduce Neuron Auctions, a novel paradigm that shifts the auction object from the surface text space to the LLM's internal representations. Leveraging mechanistic interpretability, we identify brand-specific feed-forward network (FFN) neurons and demonstrate that competing brands activate within approximately orthogonal subspaces. This near-perfect independence allows us to define continuous, disentangled intervention budgets (specifically, neuron counts and amplification factors) as auctionable commodities. Building on this computational carrier, we design a continuous menu-based auction mechanism that naturally guarantees strategy-proofness and optimizes revenue for the platform. By explicitly incorporating a user utility penalty into the platform's optimization objective, our framework dynamically prices out overly aggressive interventions. Extensive experiments demonstrate that Neuron Auctions effectively preserve natural discourse quality while achieving an optimal alignment between commercial incentives and user satisfaction.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T16:54:39Z",
+    "updated": "2026-05-08T16:54:39Z",
+    "url": "http://arxiv.org/abs/2605.08326v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08326v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告系统（Ads）这一推荐/搜索核心领域，提出了一种基于大模型内部神经元机制的新型拍卖架构，解决了生成式广告中的商业化与用户体验平衡问题。",
+    "translation": "基于神经元拍卖的大语言模型广告机制",
+    "summary_zh": "该研究提出“神经元拍卖”范式，将广告竞拍对象从文本空间转移至大模型内部的正交神经元子空间，通过可解释性技术实现商业干预与用户语义体验的解耦控制。",
+    "key_points": [
+      "该研究提出“神经元拍卖”范式，将广告竞拍对象从文本空间转移至大模型内部的正交神经元子空间，通过可解释性技术实现商业干预与用户语义体验的解耦控制"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08334v1",
+    "title": "SalesSim: Benchmarking and Aligning Multimodal Language Models as Retail User Simulators",
+    "authors": [
+      "Yada Pruksachatkun",
+      "Elaine Wan",
+      "Lyanna Chen",
+      "Kai-Wei Chang",
+      "Chien-Sheng Wu"
+    ],
+    "summary": "We present SalesSim, a framework and testbed for evaluating the ability of Multimodal Large Language Models (MLLMs) to simulate realistic, persona-driven customer behavior in multi-turn, multi-modal, tool-augmented online retail conversations. Unlike prior work that treat user simulation as surface-level dialogue generation, SalesSim models retail interaction and decision-making as a grounded, agentic process, where shoppers with diverse backgrounds, preferences, and dealbreakers interact with a sales agent, seek clarifications, and make informed purchasing decisions. For evaluation, we design a suite of metrics centered on decision alignment, measuring the consistency between the simulator's actions and its persona specifications, as well as conversational quality. We find several behavioral gaps after benchmarking 6 open and closed-source state-of-the-art models. First, while models produce fluent conversations, they display significantly lower lexical diversity and overdisclosure of criteria across personas compared to human conversations. Second, models tend to be persuaded by sales agent suggestions and drift from persona specifications. Even the strongest model achieves less than 79% average alignment with its underlying persona specifications. To make progress on these limitations, we propose UserGRPO, a multi-turn, multi-objective reinforcement learning recipe to optimize both conversational fluency and decision alignment under persona specifications. Our experiments demonstrate that UserGRPO boosts decision alignment of the baseline model by 13.8% while improving conversational quality. By introducing SalesSim, we provide a new testbed for the community to investigate and improve the adherence of user simulators in goal-oriented settings.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-05-08T17:59:23Z",
+    "updated": "2026-05-08T17:59:23Z",
+    "url": "http://arxiv.org/abs/2605.08334v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08334v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Salesforce"
+    ],
+    "affiliation_lines": [
+      "SalesforceResearch UniversityofCaliforniaLosAngeles",
+      "UniversityofCaliforniaLosAngeles UniversityofCaliforniaLosAngeles",
+      "SalesforceResearch",
+      "purchasing decisions. For evaluation, we design a suite of metrics centered on"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文虽涉及 LLM 和用户模拟，但其核心目标是构建零售场景下的用户行为模拟器以评估和优化推荐/搜索交互中的决策一致性，直接服务于电商推荐系统的用户建模与评估，非纯 LLM 研究。",
+    "translation": "SalesSim：基准测试与对齐多模态语言模型作为零售用户模拟器",
+    "summary_zh": "提出 SalesSim 框架，将零售用户交互建模为基于人设的代理决策过程，并通过多目标强化学习方法 UserGRPO 优化模拟器在对话流畅性与 persona 决策一致性上的表现。",
+    "key_points": [
+      "提出 SalesSim 框架，将零售用户交互建模为基于人设的代理决策过程，并通过多目标强化学习方法 UserGRPO 优化模拟器在对话流畅性与 persona 决策一致性上的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07677v1",
+    "title": "TRACE: Tourism Recommendation with Accountable Citation Evidence",
+    "authors": [
+      "Zixu Zhao",
+      "Sijin Wang",
+      "Yu Hou",
+      "Yuanyuan Xu",
+      "Yufan Sheng",
+      "Xike Xie",
+      "Wenjie Zhang",
+      "Won-Yong Shin",
+      "Xin Cao"
+    ],
+    "summary": "Tourism is a high-stakes setting for conversational recommender systems (CRS): a plausible-sounding suggestion can waste real money and trip time once a traveler acts on it. Existing CRS benchmarks primarily evaluate systems with a single Recall@k score over entity mentions, and tourism-specific resources add spatial or knowledge-graph context, yet none of them couple multi-turn recommendation with verbatim review-span evidence and rejection recovery. This leaves an evaluation gap for tourism recommendation that is simultaneously trustworthy, verifiable, and adaptive: recommend the right point of interest (POI) for multi-aspect preferences (such as cuisine, price, atmosphere, walking distance), justify each suggestion with verifiable evidence from prior visitors so the traveler can act without trial and error, and recover when the first recommendation is rejected mid-dialogue. We introduce TRACE, where each item is a multi-turn tourism recommendation dialogue with review-span citations and explicit rejection turns: 10,000 dialogues over 2,400 Yelp POIs and 34,208 reviews across eight U.S. cities, paired with 14 retrieval, planning, and LLM baselines, along with 25 metrics organized under Accuracy, Grounding, and Recovery. Across these baselines, TRACE reveals the Three-Competency Gap: LLM Zero-Shot leads in closed-set Recall@1 and rejection recovery but cites less densely than retrievers; non-LLM retrievers achieve surface-verbatim grounding but with low accuracy; Multi-Review Synthesis fails at recovery. The Grounding Score agrees with human citation precision (Spearman rho=+0.80, p<10^-20), and paired t-tests reproduce the per-baseline ranking (p<0.01 on the dominant contrasts). TRACE reframes accountable tourism recommendation as a joint target (right POI, verifiable evidence, adaptive repair) rather than a single-axis leaderboard.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-05-08T12:47:39Z",
+    "updated": "2026-05-08T12:47:39Z",
+    "url": "http://arxiv.org/abs/2605.07677v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07677v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于旅游领域的对话推荐系统（CRS），解决了多轮交互、证据引用和拒绝恢复等核心推荐问题，虽涉及 LLM 基线对比，但核心贡献在于推荐场景的建模与评估而非纯 LLM 研究；因来自中国公司额外 +1 分。",
+    "translation": "TRACE：具备可解释引用证据的旅游推荐系统",
+    "summary_zh": "本文提出 TRACE 框架，将旅游推荐重构为结合准确 POI 推荐、基于评论片段的可验证证据引用以及多轮对话中拒绝恢复的联合任务，旨在解决现有对话推荐系统在可信度与适应性上的评估缺口。",
+    "key_points": [
+      "本文提出 TRACE 框架，将旅游推荐重构为结合准确 POI 推荐、基于评论片段的可验证证据引用以及多轮对话中拒绝恢复的联合任务，旨在解决现有对话推荐系统在可信度与适应性上的评估缺口"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07770v1",
+    "title": "FAVOR: Efficient Filter-Agnostic Vector ANNS Based on Selectivity-Aware Exclusion Distances",
+    "authors": [
+      "Junjie Song",
+      "Yu Liu",
+      "Guoyu Hu",
+      "Zhongle Xie",
+      "Ming Yang",
+      "Beng Chin Ooi",
+      "Ke Zhou"
+    ],
+    "summary": "Modern retrieval systems increasingly require integrating approximate nearest neighbor search (ANNS) with complex attribute filtering to handle hybrid queries in applications such as recommendation systems and retrieval-augmented generation (RAG). While HNSW-based inline-filtering methods show promise, existing approaches struggle to deliver high throughput under low-selectivity scenarios while balancing search efficiency, filtering generality, and index connectivity. To address these challenges, we propose FAVOR, an efficient filter-agnostic vector ANNS that supports arbitrary filtering conditions while maintaining stable performance across varying selectivity levels. FAVOR introduces three novel features: (1) an integrated architecture that unifies selectivity estimation and filtered ANNS execution, providing a cohesive solution for hybrid vector-attribute queries; (2) a HNSW-based inline-filtering algorithm that introduces an exclusion distance mechanism to dynamically reshape the vector distance distribution, pushing non-target vectors away from the query while promoting valid candidates toward the query, thus improving search efficiency without compromising generality or graph connectivity; and (3) a selectivity-driven search selector that estimates query selectivity and dynamically routes queries between a pre-filtering brute-force algorithm for low-selectivity cases and an optimized HNSW-based search algorithm for other scenarios, ensuring consistent performance. Extensive experiments on real-world datasets demonstrate that FAVOR achieves a 1.3-5$\\times$ higher QPS at $Recall@10 = 95\\%$ compared to state-of-the-art methods for arbitrary filtering conditions, while maintaining competitive performance even against tailored solutions in some filtering conditions.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-08T14:11:49Z",
+    "updated": "2026-05-08T14:11:49Z",
+    "url": "http://arxiv.org/abs/2605.07770v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07770v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统和检索增强生成（RAG）中的混合查询场景，提出了一种高效的带过滤向量近似最近邻搜索（ANNS）方法，属于召回核心环节的技术创新。",
+    "translation": "FAVOR：基于选择性感知排除距离的高效无过滤器依赖向量近似最近邻搜索",
+    "summary_zh": "本文提出 FAVOR 架构，通过集成选择性估计与排除距离机制动态重塑向量分布，并结合选择性驱动的路由策略，在任意过滤条件下实现稳定高效的混合向量 - 属性搜索。",
+    "key_points": [
+      "本文提出 FAVOR 架构，通过集成选择性估计与排除距离机制动态重塑向量分布，并结合选择性驱动的路由策略，在任意过滤条件下实现稳定高效的混合向量 - 属性搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07733v1",
+    "title": "Intelligent Truck Matching in Full Truckload Shipments using Ping2Hex approach",
+    "authors": [
+      "Srinivas Kumar R",
+      "Jose Mathew",
+      "Ankit Singh Chauhan",
+      "Dinesh Rajkumar",
+      "Aravind Manoj",
+      "Mohit Goel"
+    ],
+    "summary": "Accurate truck-to-shipment matching using GPS data is foundational for full truckload supply chain visibility, enabling real-time tracking and accurate estimated time of arrival (ETA) predictions. However, missing or corrupted vehicle identifiers prevent traditional matching approaches, leaving shipments without visibility. This paper presents Intelligent Truck Matching (ITM) 2.0, a machine learning system that addresses this critical gap by formulating matching as a probabilistic ranking problem. Our approach leverages Uber H3 hexagonal spatial indexing to discretize GPS pings into route similarity features, combined with temporal information, then applies LightGBM gradient boosting with threshold-based post-processing. Through rigorous evaluation including offline model selection (SVM, XGBoost, LightGBM), comprehensive ablation studies, and production shadow testing, we demonstrate substantial gains over rule-based baselines. ITM 2.0 achieves 26 percentage point precision improvement in North America and 14 points in Europe, while doubling coverage. Deployed in production at Project44 handling full truckload shipments, the system demonstrates robustness to geocoding errors up to 1 km, multiple candidate trucks, and sparse pings.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T13:40:53Z",
+    "updated": "2026-05-08T13:40:53Z",
+    "url": "http://arxiv.org/abs/2605.07733v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07733v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文属于物流领域的特定匹配问题（卡车与货物），虽涉及排序思想，但并非通用的推荐系统或搜索引擎核心研究，且未利用 LLM 或多模态技术，属于边缘相关应用。",
+    "translation": "基于 Ping2Hex 方法的全卡车装载货物运输智能卡车匹配",
+    "summary_zh": "提出一种将卡车与货物匹配建模为概率排序问题的机器学习系统，利用 H3 六边形空间索引离散化 GPS 数据以构建路线相似性特征，并结合时序信息通过梯度提升树进行匹配预测。",
+    "key_points": [
+      "提出一种将卡车与货物匹配建模为概率排序问题的机器学习系统，利用 H3 六边形空间索引离散化 GPS 数据以构建路线相似性特征，并结合时序信息通过梯度提升树进行匹配预测"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08287v1",
+    "title": "Multi-Armed Bandits With Best-Action Queries",
+    "authors": [
+      "Francesco Bacchiocchi",
+      "Matteo Castiglioni",
+      "Alberto Marchesi",
+      "Francesco Emanuele Stradi"
+    ],
+    "summary": "We study \\emph{multi-armed bandits} (MABs) augmented with \\emph{best-action queries}, in which the learner may additionally query an oracle that reveals the best arm in the current round. This setting was recently characterized by Russo et al. [2024] in the \\emph{full-feedback} model, where the learner observes the rewards of all arms after each round. They show that, in both \\emph{stochastic} and \\emph{adversarial} environments, $k$ best-action queries reduce the optimal $\\widetilde{\\mathcal{O}}(\\sqrt{T})$ regret to $\\widetilde{\\mathcal{O}}(\\min\\{T/k,\\sqrt{T}\\})$. Whether this improvement extends to the more realistic \\emph{bandit-feedback} model -- where the learner observes only the reward of the played arm -- was left as an open problem. We fully resolve this question. When rewards are stochastic but correlated among arms, we show that the full-feedback result does not carry over: any algorithm must incur regret at least $Ω(\\sqrt{T-k})$. This lower bound directly extends to adversarial environments. On the positive side, we show that $\\widetilde{\\mathcal{O}}(\\min\\{T/k,\\sqrt{T-k}\\})$ regret is still achievable when rewards are stochastic and i.i.d., and establish a matching lower bound, up to logarithmic factors. Together, these results provide a complete characterization of the benefits of \\emph{best-action queries} in the \\emph{bandit-feedback} model.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T08:14:50Z",
+    "updated": "2026-05-08T08:14:50Z",
+    "url": "http://arxiv.org/abs/2605.08287v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08287v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯强化学习/多臂老虎机理论研究，未明确提及在推荐系统或搜索中的具体应用，且主要结论为负向（特定场景下查询无效），故给予低分；虽来自中国企业但相关性较弱，仅因背景加 1 分。",
+    "translation": "带有最优动作查询的多臂老虎机研究",
+    "summary_zh": "本文研究了在仅能观测已选动作奖励的Bandit反馈模型中，引入“最优动作查询”机制对后悔界的影响，证明了在相关奖励场景下该机制无法降低后悔界，而在独立同分布场景下可实现特定的后悔界改进。",
+    "key_points": [
+      "本文研究了在仅能观测已选动作奖励的Bandit反馈模型中，引入“最优动作查询”机制对后悔界的影响，证明了在相关奖励场景下该机制无法降低后悔界，而在独立同分布场景下可实现特定的后悔界改进"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08389v1",
+    "title": "Decoupling Endpoint and Semantic Transition Learning for Zero-Shot Composed Image Retrieval",
+    "authors": [
+      "Mingyu Liu",
+      "Sihan Huang",
+      "Yijia Fan",
+      "Yinlin Yan",
+      "Quan Zhang",
+      "Jian-Fang Hu",
+      "Jianhuang Lai"
+    ],
+    "summary": "Zero-shot composed image retrieval (ZS-CIR) retrieves a target image from a reference image and a text modification without human-annotated CIR triplets. Projection-based ZS-CIR methods are attractive because they do not rely on LLMs at inference and remain lightweight, but they often underperform LLM-based approaches on complex semantic modifications. This gap reflects a semantic transition bottleneck in projection-based ZS-CIR: endpoint-level matching can let the edit text act as a target-side attribute cue rather than grounding it as a source-conditioned semantic transition. We further show that adding semantic transition supervision to the same text adapter creates an endpoint--transition conflict between endpoint alignment and semantic transition alignment. To address this conflict, DeCIR decouples endpoint and transition learning. It constructs paired forward/reverse edit tuples from image-caption pairs, trains separate low-rank text adapter branches for endpoint alignment and semantic transition alignment, and merges them with Low-Rank Directional Merge (LRDM) into one deployable adapter. Extensive experiments on CIRR, CIRCO, FashionIQ, and GeneCIS demonstrate that DeCIR consistently improves projection-based ZS-CIR without increasing inference complexity.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T18:55:41Z",
+    "updated": "2026-05-08T18:55:41Z",
+    "url": "http://arxiv.org/abs/2605.08389v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08389v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于计算机视觉中的零样本组合图像检索（ZS-CIR），属于纯 CV 任务，未明确涉及推荐系统或搜索引擎的实际业务场景与应用。",
+    "translation": "解耦端点与语义过渡学习用于零样本组合图像检索",
+    "summary_zh": "提出 DeCIR 方法，通过解耦端点对齐与语义过渡学习并采用低秩方向合并策略，解决了投影式零样本组合图像检索中的语义过渡瓶颈与冲突问题。",
+    "key_points": [
+      "提出 DeCIR 方法，通过解耦端点对齐与语义过渡学习并采用低秩方向合并策略，解决了投影式零样本组合图像检索中的语义过渡瓶颈与冲突问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08360v1",
+    "title": "Embeddings for Preferences, Not Semantics",
+    "authors": [
+      "Carter Blair",
+      "Ariel D. Procaccia",
+      "Milind Tambe"
+    ],
+    "summary": "Modern AI is opening the door to collective decision-making in which participants express their views as free-form text rather than voting on a fixed set of candidates. A natural idea is to embed these opinions in a vector space so that the substantial literature on facility location problems and fair clustering can be brought to bear. But standard text embeddings measure semantic similarity, whereas distances in facility location problems and fair clustering require what we call \\textit{preferential similarity}: a participant's agreement with a piece of text should be inversely related to their distance from it. Off-the-shelf embeddings inherit a coarse preference signal through a correlation between semantic and preferential similarity, but fail to capture preferences when the correlation breaks. We formalize this as an invariance problem: text embedding models encode both a preference-relevant signal (stance and values) and semantic nuisance (style and wording), and the two are observationally correlated, so a geometry that relies on nuisance can appear preference-correct even when it is not. We show that synthetic training data designed to break this correlation provably shifts the optimal scorer away from nuisance-dominated cosine and significantly improves preference prediction across 11 online deliberation datasets.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-05-08T18:15:14Z",
+    "updated": "2026-05-08T18:15:14Z",
+    "url": "http://arxiv.org/abs/2605.08360v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08360v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦于集体决策和公平聚类中的偏好嵌入，属于 NLP 与社会计算交叉领域，并未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），且非中国公司研究（Gree 为日本公司，不适用加分）。",
+    "translation": "用于偏好而非语义的嵌入表示",
+    "summary_zh": "提出一种通过合成数据打破语义与偏好相关性的嵌入方法，旨在从自由文本中提取纯粹的偏好信号以服务于集体决策和公平聚类任务。",
+    "key_points": [
+      "提出一种通过合成数据打破语义与偏好相关性的嵌入方法，旨在从自由文本中提取纯粹的偏好信号以服务于集体决策和公平聚类任务"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07699v1",
+    "title": "DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain",
+    "authors": [
+      "Hsuvas Borkakoty",
+      "Sebastian Pohl",
+      "Cheng Wang",
+      "Bei Chen",
+      "Yufang Hou"
+    ],
+    "summary": "LLM-based agents are increasingly deployed for routine but consequential tasks in real-world domains, where their behavior is governed by inherently ambiguous domain policies that admit multiple valid interpretations. Despite the prevalence of such ambiguities in practice, existing agent benchmarks largely assume unambiguous, well-specified policies, leaving a critical evaluation gap. We introduce DRIP-R, a benchmark that systematically exploits real-world retail policy ambiguities to construct scenarios in which no single correct resolution exists. DRIP-R comprises a curated set of policy-ambiguous return scenarios paired with a realistic customer personas, a full-duplex conversational simulation with tool-calling capabilities and a multi-judge evaluation framework covering policy adherence, dialogue quality, behavioral alignment, and resolution quality. Our experiments show that frontier models fundamentally disagree on identical policy-ambiguous scenarios, confirming that ambiguity poses a genuine and systematic challenge to LLM decision-making.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T13:10:49Z",
+    "updated": "2026-05-08T13:10:49Z",
+    "url": "http://arxiv.org/abs/2605.07699v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07699v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "InterdisciplinaryTransformationUniversity InterdisciplinaryTransformationUniversity",
+      "Amazon Amazon InterdisciplinaryTransformationUniversity"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文主要研究 LLM Agent 在模糊策略下的决策与推理基准，属于纯 LLM 评估研究，未涉及推荐或搜索系统的核心环节（如召回、排序、用户建模），仅因零售场景背景及中国公司作者给予微量加分。",
+    "translation": "DRIP-R：零售领域真实世界策略模糊性下的决策与推理基准",
+    "summary_zh": "提出 DRIP-R 基准，通过构建包含策略模糊性的零售退货场景，评估 LLM Agent 在无单一正确解情况下的决策一致性与策略遵循能力。",
+    "key_points": [
+      "提出 DRIP-R 基准，通过构建包含策略模糊性的零售退货场景，评估 LLM Agent 在无单一正确解情况下的决策一致性与策略遵循能力"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07510v1",
+    "title": "InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search",
+    "authors": [
+      "Bohan Hou",
+      "Jiuning Gu",
+      "Jiayan Guo",
+      "Ronghao Dang",
+      "Sicong Leng",
+      "Xin Li",
+      "Xuemeng Song",
+      "Jianfei Yang"
+    ],
+    "summary": "Existing benchmarks for multimodal agentic search evaluate multimodal search and visual browsing, but visual evidence is either confined to the input or treated as an answer endpoint rather than part of an interleaved search trajectory. We introduce \\textbf{InterLV-Search}, a benchmark for Interleaved Language-Vision Agentic Search, in which textual and visual evidence is repeatedly used to condition later search. It contains 2,061 examples across three levels: active visual evidence seeking, controlled offline interleaved multimodal search, and open-web interleaved multimodal search. Beyond existing benchmarks, it also includes multimodal multi-branch samples that involve comparison between multiple entities during the evidence search. We construct Level 1 and Level 2 with automated pipelines and Level 3 with a machine-led, human-supervised open-web pipeline. We further provide InterLV-Agent for standardized tool use, trajectory logging, and evaluation. Experiments on proprietary and open-source multimodal agents show that current systems remain far from solving interleaved multimodal search, with the best model below 50% overall accuracy, highlighting challenges in visual evidence seeking, search control, and multimodal evidence integration. We release the benchmark data and evaluation code at https://github.com/hbhalpha/InterLV-Search-Bench",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-08T09:41:07Z",
+    "updated": "2026-05-08T09:41:07Z",
+    "url": "http://arxiv.org/abs/2605.07510v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07510v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "1Nanyang Technological University, 2Shandong University, 3Damo Academy, Alibaba Group,",
+      "4Southern University of Science and Technology"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文主要关注多模态 Agent 的基准测试与评估，属于纯 LLM/Agent 研究领域，未提出直接应用于推荐系统或搜索引擎核心环节（如召回、排序）的新方法。",
+    "translation": "InterLV-Search：交错式多模态代理搜索基准测试",
+    "summary_zh": "本文提出了 InterLV-Search 基准，旨在评估智能体在搜索过程中交替使用文本和视觉证据进行多步推理与决策的能力。",
+    "key_points": [
+      "本文提出了 InterLV-Search 基准，旨在评估智能体在搜索过程中交替使用文本和视觉证据进行多步推理与决策的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07655v1",
+    "title": "Towards Billion-scale Multi-modal Biometric Search",
+    "authors": [
+      "Arka Koner",
+      "Chetan S. Naik",
+      "Lokesh Kurre",
+      "Vivek Raghavan",
+      "Barada P. Sabut",
+      "Tanusree Deb Barma",
+      "Anoop M. Namboodiri",
+      "Anil K. Jain"
+    ],
+    "summary": "Searching a multi-biometric database of a billion records for a country-level identity system requires pushing the limits of all aspects of a biometric system, including acquisition, preprocessing, feature extraction, accuracy, matching speed, presentation attack detection, and handling of special cases (e.g., missing finger digits). This is the first paper that gives insights into such a large-scale multimodal biometric search system, called Bharat ABIS, based on open-source architectures. The end-to-end pipeline of Bharat ABIS processes fingerprint, face and iris modalities through modality-specific stages of preprocessing (segmentation), quality assessment, presentation attack detection, and learning an embedding (feature extraction), producing a concatenated template of 13.5KB per person. We present a detailed analysis of the modalities and how they are integrated to create an efficient and effective solution for 1:N search (de-duplication). Evaluations on a demographically stratified gallery of 220 million identities, randomly sampled from 1.55 billion records in India's Aadhaar database, yield an FNIR of 0.3% at an FPIR of 0.5%, for adult probes (over 18 years). We also compare the performance of Bharat ABIS against three state-of-the-art COTS systems on a 20M gallery. Our system achieves a throughput of 100 searches per second on a gallery of 40M on a single server (8xNvidia H100 GPUs, 2TB RAM).",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T12:28:20Z",
+    "updated": "2026-05-08T12:28:20Z",
+    "url": "http://arxiv.org/abs/2605.07655v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07655v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯生物识别（指纹/人脸/虹膜）领域的研究，专注于国家级身份系统的去重搜索，与推荐系统、广告或通用信息检索无直接关联。",
+    "translation": "面向十亿级多模态生物特征搜索的研究",
+    "summary_zh": "本文提出了一种基于开源架构的端到端多模态生物特征搜索系统，通过整合指纹、人脸和虹膜特征的预处理与嵌入学习，实现了大规模身份库的高效 1:N 去重搜索。",
+    "key_points": [
+      "本文提出了一种基于开源架构的端到端多模态生物特征搜索系统，通过整合指纹、人脸和虹膜特征的预处理与嵌入学习，实现了大规模身份库的高效 1:N 去重搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08299v1",
+    "title": "Do not copy and paste! Rewriting strategies for code retrieval",
+    "authors": [
+      "Andrea Gurioli",
+      "Federico Pennino",
+      "Maurizio Gabbrielli"
+    ],
+    "summary": "Embedding-based code retrieval often suffers when encoders overfit to surface syntax. Prior work mitigates this by using LLMs to rephrase queries and corpora into a normalized style, but leaves two questions open: how much representational shift helps, and when is the per-query LLM call justified? We study a hierarchy of three rewriting strategies: stylistic rephrasing, NL-enriched PseudoCode, and full Natural-Language transcription, under joint query-corpus (QC, online) and corpus-only (C, offline) augmentation, across six CoIR benchmarks, five encoders, and three rewriters spanning independent model families (Qwen, DeepSeek, Mistral). We are the first to evaluate NL-enriched PseudoCode and snippet-level Natural Language as direct retrieval representations, rather than as transient intermediates. Full NL rewriting with QC yields the largest gains (+0.51 absolute NDCG@10 on CT-Contest for MoSE-18), while corpus-only rewriting degrades retrieval in 56 of 90 configurations, about 62%. We introduce two diagnostics, Delta H, token entropy, and Delta s, embedding cosine, and show that Delta H predicts retrieval gain under QC across all three rewriter families: pooled Spearman rho = +0.436, p < 0.001 on DeepSeek+Codestral; rho = +0.593 on Codestral alone; rho = +0.356 on Qwen. This establishes Delta H as a cheap, rewriter-agnostic proxy for deciding when rewriting pays off before running retrieval. Our analysis reframes LLM rewriting as a cost-benefit decision: it is most effective as a remediation layer for lightweight encoders on code-dominant queries, with diminishing returns for strong encoders or NL-heavy queries.",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T11:31:26Z",
+    "updated": "2026-05-08T11:31:26Z",
+    "url": "http://arxiv.org/abs/2605.08299v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08299v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯代码检索（Code Retrieval）和 NLP 领域的研究，专注于解决代码语法过拟合问题，未涉及推荐系统、广告或通用搜索引擎的核心业务场景。",
+    "translation": "代码检索的重写策略研究",
+    "summary_zh": "本文研究了利用大语言模型对代码查询和语料进行不同层级重写（风格调整、伪代码、自然语言转录）的策略，以缓解嵌入编码器对表面语法的过拟合，并提出基于熵变的诊断指标来评估重写的成本效益。",
+    "key_points": [
+      "本文研究了利用大语言模型对代码查询和语料进行不同层级重写（风格调整、伪代码、自然语言转录）的策略，以缓解嵌入编码器对表面语法的过拟合，并提出基于熵变的诊断指标来评估重写的成本效益"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07847v1",
+    "title": "Measuring and Mitigating the Distributional Gap Between Real and Simulated User Behaviors",
+    "authors": [
+      "Shuhaib Mehri",
+      "Philippe Laban",
+      "Sumuk Shashidhar",
+      "Marwa Abdulhai",
+      "Sergey Levine",
+      "Michel Galley",
+      "Dilek Hakkani-Tür"
+    ],
+    "summary": "As user simulators are increasingly used for interactive training and evaluation of AI assistants, it is essential that they represent the diverse behaviors of real users. While existing works train user simulators to generate human-like responses, whether they capture the broad and heterogeneous distribution of real user behaviors remains an open question. In this work, we introduce a method to measure the distributional gap between real and simulated user behaviors, validated through a human study and ablations. Given a dataset of real and simulated conversations, our method extracts representations of user behavior from each conversation, quantizes them into discrete distributions via clustering, then computes divergence metrics. We provide the first systematic evaluation of 24 LLM-based user simulators on coding and writing tasks, and reveal a large distributional gap from real users that varies across model families, scales, and behavioral facets. Pairwise comparisons show that most simulators behave similarly, while a few stand apart. Combining behaviorally complementary simulators brings the resulting distribution closer to real users compared to either simulator on its own. Finally, a TF-IDF analysis of the clusters surfaces interpretable patterns of behaviors that simulators capture, miss, and hallucinate.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-05-08T15:09:25Z",
+    "updated": "2026-05-08T15:09:25Z",
+    "url": "http://arxiv.org/abs/2605.07847v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.07847v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "ShuhaibMehri♠ PhilippeLaban♢ SumukShashidhar♠ MarwaAbdulhai⋆",
+      "♠UniversityofIllinoisUrbana-Champaign ♢MicrosoftResearch",
+      "⋆UniversityofCalifornia,Berkeley"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究，专注于评估和缓解用户模拟器与真实用户行为之间的分布差距，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、个性化）。",
+    "translation": "测量并缓解真实与模拟用户行为间的分布差距",
+    "summary_zh": "提出一种通过聚类和散度度量来量化真实用户与 LLM 模拟器行为分布差距的方法，并发现组合行为互补的模拟器可缩小该差距。",
+    "key_points": [
+      "提出一种通过聚类和散度度量来量化真实用户与 LLM 模拟器行为分布差距的方法，并发现组合行为互补的模拟器可缩小该差距"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08333v1",
+    "title": "CDS4RAG: Cyclic Dual-Sequential Hyperparameter Optimization for RAG",
+    "authors": [
+      "Pengzhou Chen",
+      "Tao Chen"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is sensitive to the vast hyperparameters of the retriever and generator, yet optimizing them using given queries is a challenging task due to the complex interactions and expensive evaluation costs. Existing algorithms are ineffective and slow in convergence, since they often treat RAG as a monolithic black box or only optimize partial hyperparameters. In this paper, we propose CDS4RAG, a framework that optimizes the full RAG hyperparameters using given queries via a new cyclic dual-sequential formulation. CDS4RAG is special in the sense that it distinguishes the hyperparameters of the retriever and generator, cyclically optimizing them in turn. Such a paradigm allows us to design fine-grained within-cycle budget provision and expedite the optimization via cross-cycle seeding when optimizing the generator. CDS4RAG is also an algorithm-agnostic framework that can be paired with diverse general algorithms. Through experiments on four common benchmarks and two backbone LLMs, we reveal that CDS4RAG considerably boosts the vanilla algorithms in 21/24 cases while significantly outperforming state-of-the-art algorithms in all cases with up to 1.54x improvements of generation quality and better speedup.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "cs.PF",
+      "cs.SE"
+    ],
+    "published": "2026-05-08T17:58:11Z",
+    "updated": "2026-05-08T17:58:11Z",
+    "url": "http://arxiv.org/abs/2605.08333v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.08333v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 超参数优化的研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "CDS4RAG：用于检索增强生成的循环双序列超参数优化",
+    "summary_zh": "提出一种循环双序列框架，通过区分并交替优化检索器与生成器的超参数，解决 RAG 系统中因组件交互复杂导致的优化困难问题。",
+    "key_points": [
+      "提出一种循环双序列框架，通过区分并交替优化检索器与生成器的超参数，解决 RAG 系统中因组件交互复杂导致的优化困难问题"
+    ]
+  }
+]

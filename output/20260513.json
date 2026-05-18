@@ -1,0 +1,290 @@
+[
+  {
+    "arxiv_id": "2605.13433v1",
+    "title": "TurboGR: An Accelerated Training System for Large-Scale Generative Recommendation",
+    "authors": [
+      "Huichao Chai",
+      "Zhixin Wu",
+      "Xuemiao Li",
+      "Shiqing Fan",
+      "Hengfeng Wang",
+      "Maojun Peng",
+      "Lu Xu",
+      "Yaoyuan Wang",
+      "Yibo Jin",
+      "Wei Guo",
+      "Yongxiang Feng"
+    ],
+    "summary": "Generative recommendation (GR) has emerged as a promising paradigm that replaces fragmented, scenario-specific architectures with unified Transformer-based models, exhibiting scaling-law behavior where recommendation quality improves systematically with increased model capacity and training data. However, deploying GR at scale on Ascend NPUs faces fundamental system-level challenges. These challenges are further exacerbated on Ascend NPUs due to the absence of high-performance implementations for jagged operators and the architectural mismatch between irregular sparse primitives and NPU's dense-computation-optimized design. In this paper, we present \\model, an Ascend-affinity training system for generative recommendation that systematically addresses these bottlenecks through three core innovations: (i) Ascend-affinity jagged acceleration, including fusion operators that eliminate padding redundancy and dynamic load balancing that reduces inter-device imbalance from 47\\% to 2.4\\%; (ii) distributed communication optimization, comprising hierarchical sparse parallelism, semi-asynchronous training with proven convergence guarantees, and fine-grained pipeline orchestration that sustains 94\\% NPU utilization; and (iii) negative sampling optimization via asynchronous offloading, jaggedness-aware FP16 quantization, and intra-batch logit sharing that expand the effective negative space without additional embedding lookups. Evaluated on the KuaiRand-27K dataset, \\model supports training at up to 0.2B parameters and achieves 54.71\\% MFU with near-linear scalability (0.97).",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published": "2026-05-13T12:26:29Z",
+    "updated": "2026-05-13T12:26:29Z",
+    "url": "http://arxiv.org/abs/2605.13433v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.13433v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐（Generative Recommendation）的大规模训练系统瓶颈提出解决方案，属于核心推荐系统架构创新，且来自中国公司额外加 1 分。",
+    "translation": "TurboGR：面向大规模生成式推荐的加速训练系统",
+    "summary_zh": "本文提出 TurboGR 系统，通过昇腾亲和的锯齿状算子加速、分布式通信优化及负采样优化三大核心创新，解决生成式推荐在昇腾 NPU 上部署时的系统级瓶颈。",
+    "key_points": [
+      "本文提出 TurboGR 系统，通过昇腾亲和的锯齿状算子加速、分布式通信优化及负采样优化三大核心创新，解决生成式推荐在昇腾 NPU 上部署时的系统级瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13052v1",
+    "title": "RAG-Enhanced Large Language Models for Dynamic Content Expiration Prediction in Web Search",
+    "authors": [
+      "Tingyu Chen",
+      "Wenkai Zhang",
+      "Li Gao",
+      "Lixin Su",
+      "Ge Chen",
+      "Dawei Yin",
+      "Daiting Shi"
+    ],
+    "summary": "In commercial web search, aligning content freshness with user intent remains challenging due to the highly varied lifespans of information. Traditional industrial approaches rely on static time-window filtering, resulting in \"one-size-fits-all\" rankings where content may be chronologically recent but semantically expired. To address the limitation, we present a novel Large Language Models (LLMs)-based Query-Aware Dynamic Content Expiration Prediction Framework deployed in Baidu search, reformulating timeliness as a dynamic validity inference task. Our framework extracts fine-grained temporal contexts from documents and leverages LLMs to deduce a query-specific \"validity horizon\"-a semantic boundary defining when information becomes obsolete based on user intent. Integrated with robust hallucination mitigation strategies to ensure reliability, our approach has been evaluated through offline and online A/B testing on live production traffic. Results demonstrate significant improvements in search freshness and user experience metrics, validating the effectiveness of LLM-driven reasoning for solving semantic expiration at an industrial scale.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-05-13T06:20:28Z",
+    "updated": "2026-05-13T06:20:28Z",
+    "url": "http://arxiv.org/abs/2605.13052v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.13052v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对百度搜索场景中的内容时效性排序问题，利用 LLM 进行查询感知的动态过期预测，属于核心搜索业务创新；且来自百度工业界落地，符合额外加分条件。",
+    "translation": "RAG 增强的大语言模型用于 Web 搜索中的动态内容过期预测",
+    "summary_zh": "提出一种基于 LLM 的查询感知框架，通过提取细粒度时间上下文推导特定查询的“有效性 horizon",
+    "key_points": [
+      "提出一种基于 LLM 的查询感知框架，通过提取细粒度时间上下文推导特定查询的“有效性 horizon"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13497v1",
+    "title": "Task-Aware Automated User Profile Generation for Recommendation Simulation Using Large Language Models",
+    "authors": [
+      "Xinye Wanyan",
+      "Chenglong Ma",
+      "Danula Hettiachchi",
+      "Ziqi Xu",
+      "Jeffrey Chan"
+    ],
+    "summary": "Large Language Model (LLM)-based agent simulation has emerged as a promising approach to meet the increasing demand for real-time and rigorous evaluation in modern recommender systems. A typical LLM-driven simulation framework comprises three essential components: the profile module, memory module, and action module. However, existing studies have primarily concentrated on enhancing the memory and action modules, with limited attention to profile generation, which plays a pivotal role in ensuring realistic agent behaviours and aligning simulated interactions with real user dynamics. Moreover, the scarcity of datasets specifically designed for recommendation simulations has led to heavy reliance on manually crafted profiles, significantly limiting the scalability and generalisability of simulation frameworks across different datasets. To address these challenges, this work proposes an Automated Profile Generation Framework for Recommendation Simulation, APG4RecSim, that constructs realistic, coherent, and robust user profiles with minimal supervision. Extensive experiments on three benchmark datasets demonstrate that APG4RecSim achieves the best overall performance on discrimination, ranking, and rating tasks, improving ranking quality by up to 7% in nDCG@10 and reducing rating distribution divergence by 8% in JSD compared to existing profile-generation baselines. Beyond overall performance gains, our results show that profiles generated by APG4RecSim are resilient to popularity- and position-induced biases and maintain stable performance across datasets and different LLMs.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-13T13:20:39Z",
+    "updated": "2026-05-13T13:20:39Z",
+    "url": "http://arxiv.org/abs/2605.13497v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.13497v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文利用 LLM 生成用户画像以优化推荐系统的仿真评估，属于 LLM 在 RecSys 基础设施（仿真/评估）中的直接应用，虽非核心排序算法创新但场景明确；源自中国公司额外 +1 分。",
+    "translation": "基于大语言模型的任务感知自动化用户画像生成用于推荐仿真",
+    "summary_zh": "提出一种名为 APG4RecSim 的自动化框架，利用大语言模型在极少监督下构建逼真、连贯且鲁棒的用户画像，以解决推荐系统仿真中依赖人工画像及数据稀缺的问题。",
+    "key_points": [
+      "提出一种名为 APG4RecSim 的自动化框架，利用大语言模型在极少监督下构建逼真、连贯且鲁棒的用户画像，以解决推荐系统仿真中依赖人工画像及数据稀缺的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13053v1",
+    "title": "A Standardized Re-evaluation of Conversational Recommender Systems on the ReDial Dataset",
+    "authors": [
+      "Ivica Kostric",
+      "Krisztian Balog"
+    ],
+    "summary": "Recent years have seen a surge of research into conversational recommender systems (CRS). Among existing datasets, ReDial is the most widely used benchmark, cited in hundreds of studies. However, variations in how the dataset is preprocessed and used in experiments, particularly in the definition of ground-truth items, make it difficult to compare results across studies. These comparisons are further complicated by confounding factors such as the choice of the underlying large language model (LLM) and the use of external data sources. In this work, we revisit seven prominent CRS methods across three architectural families and evaluate them under standardized conditions. Our reproducibility study reveals a ``granularity gap,'' where fine-grained ranking (Recall@1) is highly sensitive to implementation details, while our replicability analysis shows that nearly 50% of reported accuracy stems from ``repetition shortcuts'' that are absent in novelty-focused evaluation. Furthermore, we find that performance gains are often driven more by the capacity of the LLM backbone than by specific architectural innovations. Finally, by applying user-centric utility metrics, we demonstrate that traditional recall frequently overstates a system's actual conversational effectiveness. This work establishes a transparent, controlled baseline and promotes evaluation practices that prioritize novelty and interaction efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-13T06:20:43Z",
+    "updated": "2026-05-13T06:20:43Z",
+    "url": "http://arxiv.org/abs/2605.13053v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.13053v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话推荐系统（CRS）的评估标准化问题，揭示了现有研究中的基准偏差和 LLM 能力干扰，对构建可靠的推荐系统评估体系具有重要指导意义。",
+    "translation": "ReDial 数据集上对话推荐系统的标准化重评估",
+    "summary_zh": "本文通过标准化实验条件重评估主流对话推荐方法，揭示了细粒度排序对实现细节的敏感性、重复捷径导致的虚假性能提升以及传统召回指标在衡量对话有效性上的局限性。",
+    "key_points": [
+      "本文通过标准化实验条件重评估主流对话推荐方法，揭示了细粒度排序对实现细节的敏感性、重复捷径导致的虚假性能提升以及传统召回指标在衡量对话有效性上的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13521v2",
+    "title": "Granite Embedding Multilingual R2 Models",
+    "authors": [
+      "Parul Awasthy",
+      "Aashka Trivedi",
+      "Yushu Yang",
+      "Ken Barker",
+      "Yulong Li",
+      "Bhavani Iyer",
+      "Martin Franz",
+      "Juergen Bross",
+      "Meet Doshi",
+      "Vignesh P",
+      "Vishwajeet Kumar",
+      "Todd Ward",
+      "Abraham Daniels",
+      "Madison Lee",
+      "Luis Lastras",
+      "Jaydeep Sen",
+      "Radu Florian"
+    ],
+    "summary": "We introduce the multilingual Granite Embedding R2 models, a family of encoder-based embedding models for enterprise-scale dense retrieval across 200+ languages. Extending our English-focused R2 release, these models add enhanced support for 52 languages and programming code, a 32,768-token context window (a 64x expansion over R1), and state-of-the-art overall performance across multilingual and cross-lingual text search, code retrieval, long-document search, and reasoning retrieval datasets. The release consists of two bi-encoder models based on the ModernBERT architecture with an expanded multilingual vocabulary: a 311M-parameter full-size, and a 97M-parameter compact model built via model pruning and vocabulary selection that achieves the highest retrieval score of any open multilingual embedding model under 100M parameters. The full-size also supports Matryoshka Representation Learning for flexible embedding dimensionality. Both models are trained on enterprise-appropriate data with governance oversight, and released under the Apache 2.0 license at https://huggingface.co/collections/ibm-granite, designed to support responsible use and enable unrestricted research and enterprise adoption.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-13T13:37:45Z",
+    "updated": "2026-05-14T19:25:22Z",
+    "url": "http://arxiv.org/abs/2605.13521v2",
+    "pdf_url": "http://arxiv.org/pdf/2605.13521v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "GraniteEmbeddingTeam,IBMResearch∗†",
+      "signedtosupportresponsibleuseandenableunrestrictedresearchandenterpriseadop-"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文主要介绍通用的多语言嵌入模型，虽提及检索能力但属于基础 NLP/LLM 研究，缺乏针对推荐系统或搜索产品的特定架构创新或直接应用。",
+    "translation": "Granite 多语言 R2 嵌入模型",
+    "summary_zh": "提出基于 ModernBERT 架构的多语言双编码器嵌入模型家族，通过扩展词汇表、支持长上下文及矩阵表示学习，旨在提升企业级密集检索在多语言和代码场景下的通用表现。",
+    "key_points": [
+      "提出基于 ModernBERT 架构的多语言双编码器嵌入模型家族，通过扩展词汇表、支持长上下文及矩阵表示学习，旨在提升企业级密集检索在多语言和代码场景下的通用表现"
+    ]
+  },
+  {
+    "arxiv_id": "2605.14192v1",
+    "title": "Why Retrieval-Augmented Generation Fails: A Graph Perspective",
+    "authors": [
+      "Kai Guo",
+      "Xinnan Dai",
+      "Zhibo Zhang",
+      "Nuohan Lin",
+      "Shenglai Zeng",
+      "Jie Ren",
+      "Haoyu Han",
+      "Jiliang Tang"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has become a powerful and widely used approach for improving large language models by grounding generation in retrieved evidence. However, RAG systems still produce incorrect answers in many cases. Why RAG fails despite having access to external information remains poorly understood. We present a model-internal study of retrieval-augmented generation that examines how retrieved evidence influences answer generation. Using circuit tracing, we construct attribution graphs that model the flow of information through transformer layers during decoding. These graphs represent interactions among retrieved context, intermediate model activations, and generated tokens, providing a graph, circuit-level view of how external evidence is integrated into the model's reasoning process across multiple question answering benchmarks, we observe consistent structural differences: correct predictions exhibit deeper reasoning paths, more distributed evidence flow, and a more structured pattern of local connectivity, while failed predictions show shallower, fragmented, and overly concentrated evidence flow. Building on these findings, we develop a graph-based error detection framework that uses attribution-graph topology features. Furthermore, we show that attribution graphs enable targeted interventions. By reinforcing question-constrained evidence grounding, we reshape internal routing so that answer generation remains guided by the question, leading to more effective integration of retrieved information and fewer errors.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-05-13T23:18:07Z",
+    "updated": "2026-05-13T23:18:07Z",
+    "url": "http://arxiv.org/abs/2605.14192v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.14192v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 内部机制分析与 QA 任务研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍因缺乏 RecSys 直接应用而属低优先级。",
+    "translation": "检索增强生成为何失败：图视角的分析",
+    "summary_zh": "本文通过构建归因图分析 RAG 模型内部信息流，揭示正确与错误预测在证据流动路径上的结构差异，并提出基于图拓扑的错误检测及干预方法以优化证据整合。",
+    "key_points": [
+      "本文通过构建归因图分析 RAG 模型内部信息流，揭示正确与错误预测在证据流动路径上的结构差异，并提出基于图拓扑的错误检测及干预方法以优化证据整合"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13277v1",
+    "title": "Utility-Oriented Visual Evidence Selection for Multimodal Retrieval-Augmented Generation",
+    "authors": [
+      "Weiqing Luo",
+      "Zongye Hu",
+      "Xiao Wang",
+      "Zhiyuan Yu",
+      "Haofeng Zhang",
+      "Ziyi Huang"
+    ],
+    "summary": "Visual evidence selection is a critical component of multimodal retrieval-augmented generation (RAG), yet existing methods typically rely on semantic relevance or surface-level similarity, which are often misaligned with the actual utility of visual evidence for downstream reasoning. We reformulate multimodal evidence selection from an information-theoretic perspective by defining evidence utility as the information gain induced on a model's output distribution. To overcome the intractability of answer-space optimization, we introduce a latent notion of evidence helpfulness and theoretically show that, under mild assumptions, ranking evidence by information gain on this latent variable is equivalent to answer-space utility. We further propose a training-free, surrogate-accelerated framework that efficiently estimates evidence utility using lightweight multimodal models. Experiments on MRAG-Bench and Visual-RAG across multiple model families demonstrate that our method consistently outperforms state-of-the-art RAG baselines while achieving substantial reductions in computational cost.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CV",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-05-13T09:54:31Z",
+    "updated": "2026-05-13T09:54:31Z",
+    "url": "http://arxiv.org/abs/2605.13277v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.13277v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯多模态 RAG 的证据选择方法，属于通用 NLP/CV 研究，未明确针对推荐系统或搜索引擎的具体业务场景（如召回、排序、个性化），因此相关性较低。",
+    "translation": "面向效用的多模态检索增强生成视觉证据选择",
+    "summary_zh": "该文从信息论角度重新定义视觉证据效用，提出一种无需训练的框架，通过潜在变量的信息增益来高效筛选对下游推理最有用的视觉证据。",
+    "key_points": [
+      "该文从信息论角度重新定义视觉证据效用，提出一种无需训练的框架，通过潜在变量的信息增益来高效筛选对下游推理最有用的视觉证据"
+    ]
+  },
+  {
+    "arxiv_id": "2605.14053v1",
+    "title": "Derivation Prompting: A Logic-Based Method for Improving Retrieval-Augmented Generation",
+    "authors": [
+      "Ignacio Sastre",
+      "Guillermo Moncecchi",
+      "Aiala Rosá"
+    ],
+    "summary": "The application of Large Language Models to Question Answering has shown great promise, but important challenges such as hallucinations and erroneous reasoning arise when using these models, particularly in knowledge-intensive, domain-specific tasks. To address these issues, we introduce Derivation Prompting, a novel prompting technique for the generation step of the Retrieval-Augmented Generation framework. Inspired by logic derivations, this method involves deriving conclusions from initial hypotheses through the systematic application of predefined rules. It constructs a derivation tree that is interpretable and adds control over the generation process. We applied this method in a specific case study, significantly reducing unacceptable answers compared to traditional RAG and long-context window methods.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-05-13T19:20:16Z",
+    "updated": "2026-05-13T19:20:16Z",
+    "url": "http://arxiv.org/abs/2605.14053v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.14053v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于改进问答任务中的检索增强生成（RAG）逻辑推理，未涉及推荐系统或搜索引擎的核心业务场景。",
+    "translation": "推导提示：一种基于逻辑的检索增强生成改进方法",
+    "summary_zh": "提出一种受逻辑推导启发的提示技术，通过构建可解释的推导树来规范 RAG 框架中的生成过程，以减少幻觉和错误推理。",
+    "key_points": [
+      "提出一种受逻辑推导启发的提示技术，通过构建可解释的推导树来规范 RAG 框架中的生成过程，以减少幻觉和错误推理"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13481v1",
+    "title": "PersonalAI 2.0: Enhancing knowledge graph traversal/retrieval with planning mechanism for Personalized LLM Agents",
+    "authors": [
+      "Mikhail Menschikov",
+      "Matvey Iskornev",
+      "Alexander Kharitonov",
+      "Alina Bogdanova",
+      "Mikhail Belkin",
+      "Ekaterina Lisitsyna",
+      "Artyom Sosedka",
+      "Victoria Dochkina",
+      "Ruslan Kostoev",
+      "Ilia Perepechkin",
+      "Evgeny Burnaev"
+    ],
+    "summary": "We introduce PersonalAI 2.0 (PAI-2), a novel framework, designed to enhance large language model (LLM) based systems through integration of external knowledge graphs (KG). The proposed approach addresses key limitations of existing Graph Retrieval-Augmented Generation (GraphRAG) methods by incorporating a dynamic, multistage query processing pipeline. The central point of PAI-2 design is its ability to perform adaptive, iterative information search, guided by extracted entities, matched graph vertices and generated clue-queries. Conducted evaluation over six benchmarks (Natural Questions, TriviaQA, HotpotQA, 2WikiMultihopQA, MuSiQue and DiaASQ) demonstrates improvement in factual correctness of generating answers compared to analogues methods (LightRAG, RAPTOR, and HippoRAG 2). PAI-2 achieves 4% average gain by LLM-as-a-Judge across four benchmarks, reflecting its effectiveness in reducing hallucination rates and increasing precision. We show that use of graph traversal algorithms (e.g. BeamSearch, WaterCircles) gain superior results compared to standard flatten retriever on average 6%, while enabled search plan enhancement mechanism gain 18% boost compared to disabled one by LLM-as-a-Judge across six datasets. In addition, ablation study reveals that PAI-2 achieves the SOTA result on MINE-1 benchmark, achieving 89% information-retention score, using LLMs from 7-14B tiers. Collectively, these findings underscore the potential of PAI-2 to serve as a foundational model for next-generation personalized AI applications, requiring scalable, context-aware knowledge representation and reasoning capabilities.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-05-13T13:06:30Z",
+    "updated": "2026-05-13T13:06:30Z",
+    "url": "http://arxiv.org/abs/2605.13481v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.13481v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和通用问答（QA）研究，专注于利用知识图谱减少幻觉，完全未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "PersonalAI 2.0：利用规划机制增强个性化 LLM 代理的知识图谱遍历与检索",
+    "summary_zh": "该论文提出一种结合动态多阶段查询处理 pipeline 的框架，通过实体提取和生成的线索查询引导自适应迭代搜索，以增强基于大语言模型的系统在知识图谱上的检索能力。",
+    "key_points": [
+      "该论文提出一种结合动态多阶段查询处理 pipeline 的框架，通过实体提取和生成的线索查询引导自适应迭代搜索，以增强基于大语言模型的系统在知识图谱上的检索能力"
+    ]
+  }
+]

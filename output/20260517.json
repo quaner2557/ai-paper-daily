@@ -1,0 +1,301 @@
+[
+  {
+    "arxiv_id": "2605.17648v1",
+    "title": "SAPO: Step-Aligned Policy Optimization for Reasoning-Based Generative Recommendation",
+    "authors": [
+      "Zaiyi Zheng",
+      "Guanghui Min",
+      "Yaochen Zhu",
+      "Liang Wu",
+      "Liangjie Hong",
+      "Chen Chen",
+      "Jundong Li"
+    ],
+    "summary": "Generative recommendation treats next-item prediction as autoregressive item-identifier generation. Specifically, items are encoded as semantic identifiers (SIDs), which are short coarse-to-fine token sequences whose early tokens capture broad semantics and later tokens refine them. Recent work augments this paradigm with reasoning traces and optimizes them via reinforcement learning with verifiable rewards, typically outcome-reward algorithm with exact-match feedback on the generated SID. However, in large-catalog recommendation, exact-match feedback on the generated SID only reports whether the final item is correct; when a generated SID mismatches, outcome-reward cannot identify which SID-token prediction caused the mismatch and may penalize matched SID-token positions together with the mismatched position. We identify that the natural unit of credit assignment in this setting is a single reasoning step (one thinking block paired with one SID token). We instantiate this idea in SAPO (Step-Aligned Policy Optimization): rather than broadcasting one advantage to the whole response, SAPO computes a separate group-relative advantage for each reasoning step and applies it only to the corresponding thinking block and SID token. Across three real-world recommendation datasets, SAPO stabilizes reinforcement-learning training and consistently improves over existing generative recommendation baselines, with the largest gains where sparse exact-match feedback makes reasoning-step credit assignment important. Our results suggest that reinforcement-learning objectives for structured generation should mirror the decoder's own decomposition of the output.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-05-17T20:53:08Z",
+    "updated": "2026-05-17T20:53:08Z",
+    "url": "http://arxiv.org/abs/2605.17648v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17648v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的强化学习优化问题，提出了步对齐策略优化方法以解决稀疏反馈下的信用分配难题，属于核心推荐算法创新；且来自 TAL（好未来），符合额外加分条件。",
+    "translation": "SAPO：面向推理型生成推荐的步对齐策略优化",
+    "summary_zh": "本文提出 SAPO 方法，通过将强化学习的优势计算粒度从整条回复细化到单个推理步骤（思考块与标识符 token 对），解决了生成式推荐中因精确匹配反馈稀疏导致的信用分配不准问题，从而稳定训练并提升推荐性能。",
+    "key_points": [
+      "本文提出 SAPO 方法，通过将强化学习的优势计算粒度从整条回复细化到单个推理步骤（思考块与标识符 token 对），解决了生成式推荐中因精确匹配反馈稀疏导致的信用分配不准问题，从而稳定训练并提升推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17357v1",
+    "title": "Dual-Diffusional Generative Fashion Recommendation",
+    "authors": [
+      "Mingzhe Yu",
+      "Lei Wu",
+      "Qianru Sun",
+      "Yunshan Ma"
+    ],
+    "summary": "Personalized generative recommender systems have emerged as a promising solution for fashion recommendation. However, existing methods primarily rely on implicit visual embeddings from historical interactions, which often contain preference-irrelevant information and result in insufficient user behavior modeling. Moreover, these models typically generate only item images, providing limited interpretability. To address these limitations, we propose DualFashion, a Dual-Diffusional Generative Fashion Recommendation Architecture that jointly models image and text modalities for personalized and explainable recommendation. DualFashion adopts a dual-diffusion Transformer with image and text branches, where structured attribute-level captions and visual outfit information are jointly used as conditioning signals to model user behavior. The proposed architecture produces both fashion item images and textual descriptions, ensuring visual compatibility while providing explicit semantic interpretability. Furthermore, we introduce a text-augmented fine-tuning strategy that enhances generation diversity and enables effective cross-modal knowledge transfer without incurring heavy computational costs. Extensive experiments on iFashion and Polyvore-U across Personalized Fill-in-the-Blank and Generative Outfit Recommendation tasks demonstrate that DualFashion achieves strong performance in behavior modeling, interpretability, and efficiency compared to state-of-the-art methods. Our code and model checkpoints are available at https://github.com/LinkMingzhe/DualFashion.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2026-05-17T09:52:18Z",
+    "updated": "2026-05-17T09:52:18Z",
+    "url": "http://arxiv.org/abs/2605.17357v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17357v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对时尚推荐系统，提出双扩散生成架构以解决用户行为建模和可解释性问题，属于核心领域创新；且来自中国公司，符合额外加分条件。",
+    "translation": "双扩散生成式时尚推荐系统",
+    "summary_zh": "提出一种双扩散 Transformer 架构，联合建模图像与文本模态，利用结构化属性描述和视觉搭配信息作为条件信号，生成兼具视觉兼容性与语义可解释性的个性化时尚推荐结果。",
+    "key_points": [
+      "提出一种双扩散 Transformer 架构，联合建模图像与文本模态，利用结构化属性描述和视觉搭配信息作为条件信号，生成兼具视觉兼容性与语义可解释性的个性化时尚推荐结果"
+    ]
+  },
+  {
+    "arxiv_id": "2605.18899v1",
+    "title": "Don't Let Bandit Feedback Pull Continual LLM-Recommender Updates Off Target",
+    "authors": [
+      "Taesan Kim",
+      "Hyeongjun Yun",
+      "Jaegul Choo",
+      "Chung Park"
+    ],
+    "summary": "Generative LLM-based recommenders (LLM-Rec) require continual post-deployment updates, yet deployment logs provide only policy-shaped contextual bandit feedback: outcomes are observed solely for items exposed by a prior serving policy, inducing exposure bias and yielding partial, asymmetric signals consisting of relatively reliable positive responses and ambiguous no-responses. We propose an Anchored Bandit Policy Optimization (ABPO) framework for continual LLM-Rec updates that combines group-relative policy optimization (GRPO) with explicit treatment of exposure bias and feedback ambiguity. Specifically, we insert the exposed recommendation as a logged anchor into each GRPO rollout group, so that group-relative normalization is calibrated against the action actually exposed by the prior policy rather than against newly sampled rollouts alone. Because both positive- and no-responses are observed only through prior-policy exposure, we apply self-normalized inverse propensity scoring to the fixed anchor for both feedback types to correct for policy mismatch. At the same time, we treat the two feedback types asymmetrically in reliability: positive responses provide relatively direct endorsement signals, whereas no-responses remain ambiguous because they may reflect either true disinterest or unobserved external factors. To avoid overly aggressive updates from ambiguous no-responses, we temper their penalties with self-certainty, using the model's output-token confidence as a verifier-free reliability signal. Across five domains from Amazon Reviews and MovieLens, our method yields consistent post-update gains in recommendation accuracy while mitigating prior-policy-induced exposure bias more effectively than prior baselines.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-17T11:10:44Z",
+    "updated": "2026-05-17T11:10:44Z",
+    "url": "http://arxiv.org/abs/2605.18899v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.18899v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统（LLM-Rec）在持续学习中的曝光偏差和反馈歧义问题，提出了具体的优化框架 ABPO，属于 LLM 在推荐领域的核心应用。",
+    "translation": "别让多臂老虎机反馈使持续更新的 LLM 推荐系统偏离目标",
+    "summary_zh": "本文提出锚定多臂老虎机策略优化（ABPO）框架，通过将历史曝光项作为锚点并结合自归一化逆倾向评分，解决 LLM 推荐系统在持续更新中因策略形状反馈导致的曝光偏差与信号歧义问题。",
+    "key_points": [
+      "本文提出锚定多臂老虎机策略优化（ABPO）框架，通过将历史曝光项作为锚点并结合自归一化逆倾向评分，解决 LLM 推荐系统在持续更新中因策略形状反馈导致的曝光偏差与信号歧义问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17366v1",
+    "title": "Text-Guided Visual Representation Learning for Robust Multimodal E-Commerce Recommendation",
+    "authors": [
+      "Yufei Guo",
+      "Jing Ma",
+      "Tianlu Zhang",
+      "Shijie Yang",
+      "Yanlong Zang",
+      "Weijie Ding",
+      "Pinghua Gong",
+      "Jungong Han"
+    ],
+    "summary": "Multimodal item embeddings are crucial for e-commerce item-to-item (I2I) retrieval, yet real-world product images often contain promotional overlays and background clutter that inject spurious visual cues and degrade retrieval robustness. This issue is particularly pronounced in MLRM-style pipelines, where a frozen vision encoder is connected to an LLM through a lightweight connector that must selectively aggregate visual tokens. We propose Text-Guided Q-Former (TGQ-Former), a text-guided visual representation learning framework that leverages structured metadata as semantic guidance for visual token extraction while preserving complementary visual evidence. Concretely, TGQ-Former employs a hybrid-query connector to disentangle metadata-anchored and exploratory visual streams, and introduces a lightweight reliability-aware dual-gated vector modulation module to adaptively calibrate their contributions under noisy inputs. Experiments on large-scale, real-world e-commerce datasets with full-pool retrieval show that TGQ-Former consistently outperforms strong connector baselines and end-to-end MLLMs. On average, it improves Hit Rate@100 (H@100) by 6.04%, demonstrating the effectiveness of text-guided visual encoding for robust multimodal retrieval.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-17T10:20:23Z",
+    "updated": "2026-05-17T10:20:23Z",
+    "url": "http://arxiv.org/abs/2605.17366v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17366v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "JD"
+    ],
+    "affiliation_lines": [
+      "TsinghuaUniversity TsinghuaUniversity TsinghuaUniversity",
+      "JD.COM TsinghuaUniversity"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商推荐系统中的多模态检索鲁棒性问题，提出利用文本元数据引导视觉表征学习以消除图像噪声干扰，属于核心领域的高优先级应用。",
+    "translation": "用于鲁棒多模态电商推荐的文本引导视觉表征学习",
+    "summary_zh": "提出一种文本引导的 Q-Former 框架，通过混合查询机制和双门控调制模块，利用结构化元数据指导视觉令牌提取，以解决电商图像中促销覆盖和背景 clutter 导致的检索鲁棒性下降问题。",
+    "key_points": [
+      "提出一种文本引导的 Q-Former 框架，通过混合查询机制和双门控调制模块，利用结构化元数据指导视觉令牌提取，以解决电商图像中促销覆盖和背景 clutter 导致的检索鲁棒性下降问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17267v1",
+    "title": "RAGR: Review-Augmented Generative Recommendation",
+    "authors": [
+      "Yingyi Zhang",
+      "Junyi Li",
+      "Yejing Wang",
+      "Wenlin Zhang",
+      "Xiaowei Qian",
+      "Sheng Zhang",
+      "Yue Feng",
+      "Yichao Wang",
+      "Yong Liu",
+      "Xiangyu Zhao",
+      "Xianneng Li"
+    ],
+    "summary": "Sequential recommendation (SR) is traditionally formulated as next-item prediction over a chronological sequence of interacted items. Although recent generative recommendation (GR) methods introduce new machinery, such as semantic IDs, autoregressive decoding, and unified token spaces, they largely inherit the same item-only modeling assumption. We argue that this design constitutes a structural bottleneck, because user decision-making is not purely behavioral: while item interactions reveal what users choose, review feedback often explain why they choose it by exposing latent evaluative factors.\n  Motivated by this observation, we propose Review-Augmented Generative Recommendation (RAGR), a novel GR framework that incorporates review feedback directly into the generative user sequence rather than treating reviews as auxiliary side information. Specifically, RAGR introduces a Review-Augmented User Sequence Modeling mechanism that interleaves item semantic IDs and review semantic IDs in chronological order to construct a mixed behavioral-semantic sequence, enabling review signals to participate directly in autoregressive next-token generation. To preserve the recommendation objective, we further introduce an Item-Centric Task Generation Alignment strategy based on direct preference optimization (DPO), which encourages the model to favor item tokens over review tokens at prediction positions. Experiments on three real-world datasets show that RAGR yields consistent and significant gains over strong GR backbones across all metrics. Our code and data are available at \\url{https://github.com/Zhang-Yingyi/TKDE_RAGR}.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-17T05:21:23Z",
+    "updated": "2026-05-17T05:21:23Z",
+    "url": "http://arxiv.org/abs/2605.17267v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17267v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐系统，提出将用户评论融入生成式推荐的新架构，解决了纯行为建模的瓶颈，属于核心领域进展。",
+    "translation": "RAGR：评论增强的生成式推荐",
+    "summary_zh": "提出一种将评论语义 ID 与物品语义 ID 交错构建混合序列的生成式推荐框架，并通过直接偏好优化对齐策略确保模型在预测时聚焦于物品推荐。",
+    "key_points": [
+      "提出一种将评论语义 ID 与物品语义 ID 交错构建混合序列的生成式推荐框架，并通过直接偏好优化对齐策略确保模型在预测时聚焦于物品推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17238v1",
+    "title": "Learning in Position-Aware Multinomial Logit Bandits: From Multiplicative to General Position Effects",
+    "authors": [
+      "Xi Chen",
+      "Shibo Dai",
+      "Jiameng Lyu",
+      "Yuan Zhou"
+    ],
+    "summary": "We study the dynamic joint assortment selection and positioning problem, where the attraction of each product depends on both its intrinsic appeal and its display position under a Multinomial Logit (MNL) choice framework. Our study ranges from the multiplicative position effects model, in which each product's attraction is scaled by a position-specific factor, to a general position effects model assigning independent attraction parameters to every product--position pair to capture heterogeneous synergies. For both models, we design round-based learning algorithms that update decisions after every single feedback, and establish the first regret-optimal characterization. Besides, our round-based algorithms provide the prompt operations needed by modern platforms. For the multiplicative model, we develop a cross-position pairwise maximum likelihood estimator with a clipping mechanism, and prove that our algorithm P2MLE-UCB attains a regret of $\\tilde{O}(\\sqrt{NT})$, matching the lower bound and closing the $\\sqrt{K}$ gap left by prior epoch-based analyses. For the general model, we establish a minimax lower bound and propose GP2-UCB with a matching upper bound. Moreover, we design an efficient subroutine for the per-round joint assortment and positioning optimization based on Dinkelbach's method and maximum-weight bipartite matching. Numerical experiments on synthetic data and the Expedia dataset show that our algorithms consistently outperform state-of-the-art benchmarks.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-05-17T03:28:22Z",
+    "updated": "2026-05-17T03:28:22Z",
+    "url": "http://arxiv.org/abs/2605.17238v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17238v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "MiniMax"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中的核心重排序（Re-ranking）问题，即商品组合选择与位置优化，属于电商搜索推荐的经典场景；虽基于传统 MNL 模型而非纯 LLM，但应用价值极高，且来自 MiniMax 额外加 1 分。",
+    "translation": "位置感知多项 Logit 老虎机中的学习：从乘法位置效应到通用位置效应",
+    "summary_zh": "提出针对动态商品组合选择与位置优化的在线学习算法，通过建模从乘法到通用的位置效应，实现了遗憾值最优的实时决策更新机制。",
+    "key_points": [
+      "提出针对动态商品组合选择与位置优化的在线学习算法，通过建模从乘法到通用的位置效应，实现了遗憾值最优的实时决策更新机制"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17415v1",
+    "title": "IVF-TQ: Streaming-Robust Approximate Nearest Neighbor Search via a Codebook-Free Residual Layer",
+    "authors": [
+      "Tarun Sharma"
+    ],
+    "summary": "We propose IVF-TQ, an IVF index with a codebook-free residual layer: a fixed random rotation followed by precomputed Lloyd-Max scalar quantization depending only on (b, d). Only the IVF coarse partition is trained. Building on TurboQuant (Zandieh et al., 2025), the design substantially reduces a key failure mode of trained-codebook ANN indexes (PQ, OPQ, ScaNN): staleness under streaming ingestion.Empirical (3 seeds): Per-batch PQ retraining does not recover the streaming gap at any tested bit budget (paired-t p > 0.28 everywhere). On streaming Deep-10M, IVF-TQ holds at 87.4% -> 86.6% (Delta = -0.80 +/- 0.10pp) while IVF-PQ degrades -3.23pp. A shuffled-i.i.d. control on SIFT-1M shows IVF-PQ losing -3.9pp without distribution shift. At higher PQ bit budgets (~1.5x IVF-TQ memory), absolute recall favors PQ as expected from rate-distortion (+6.1pp Deep-10M; +2.0pp SIFT-10M); the durable IVF-TQ benefit is operational (no codebook to retrain), robust across memory regimes.Prior art: IVF around a codebook-free residual quantizer is architecturally not new -- IVF-RaBitQ ships in Milvus, cuVS, LanceDB, Weaviate; Shi et al. (2026) is concurrent GPU work. TurboQuant itself tests only flat-rotation ANN.Contributions: (i) A multi-seed streaming-operational story for codebook-free IVF: 10M-scale evidence across PQ memory budgets. (ii) A uniform-over-sphere IP-error bound for the TQ residual quantizer with one fixed rotation (proof sketch in v1; rigorous in v2). (iii) Adaptive IVF-TQ: a partition-only refresh recovering 67% -> 97.8% under worst-case rotation shift with re-ranking (90.3% without).Code, data: https://github.com/tarun-ks/turboquant_search",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2026-05-17T12:22:49Z",
+    "updated": "2026-05-17T12:22:49Z",
+    "url": "http://arxiv.org/abs/2605.17415v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17415v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种针对流式数据场景的近似最近邻搜索（ANN）索引优化方法，直接解决了推荐系统和搜索引擎中召回阶段的核心工程痛点（索引陈旧性问题），属于明确的搜索基础设施创新。",
+    "translation": "IVF-TQ：通过无码本残差层实现流式鲁棒的近似最近邻搜索",
+    "summary_zh": "本文提出 IVF-TQ 索引架构，利用固定随机旋转和预计算标量量化取代传统可训练码本，旨在解决流式数据注入导致的索引性能衰退问题，无需重训练即可保持高召回率。",
+    "key_points": [
+      "本文提出 IVF-TQ 索引架构，利用固定随机旋转和预计算标量量化取代传统可训练码本，旨在解决流式数据注入导致的索引性能衰退问题，无需重训练即可保持高召回率"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17640v1",
+    "title": "MARQUIS: A Three-Stage Pipeline for Video Retrieval-Augmented Generation",
+    "authors": [
+      "Debashish Chakraborty",
+      "Dengjia Zhang",
+      "Jialiang Jin",
+      "Hanting Liu",
+      "Katherine Guerrerio",
+      "Hanxiang Qin",
+      "Tyler Skow",
+      "Alexander Martin",
+      "Reno Kriz",
+      "Benjamin Van Durme"
+    ],
+    "summary": "Retrieval-augmented generation from videos requires systems to retrieve relevant audiovisual evidence from large corpora and synthesize it into coherent, attributed text. Current approaches struggle at both ends: retrieval methods fail on complex, multi-faceted queries that cannot be captured by a single embedding, while generation methods lack the high-level reasoning needed to synthesize across multiple videos and face memory constraints over long, multi-video contexts. We present MARQUIS: a three-stage pipeline that addresses these limitations through (1) query expansion, fusion, and reranking, (2) calibrated structured evidence extraction, and (3) article generation from extracted evidence, optionally controlled by an RLM. On the MAGMaR2026 shared task, we improve retrieval performance from 0.195 to 0.759 (nDCG@10). For article generation, ITER-QA-BASE improves average human score from 3.09 to 3.83 over the CAG baseline, while MARQUIS-RLM achieves a human score of 3.30 and the strongest citation recall among non-QA systems.",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2026-05-17T20:19:04Z",
+    "updated": "2026-05-17T20:19:04Z",
+    "url": "http://arxiv.org/abs/2605.17640v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17640v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于视频检索增强生成（RAG）和文章合成，属于纯 NLP/多模态生成研究，未涉及推荐系统或搜索引擎的核心业务场景（如个性化排序、用户建模、广告匹配等）。",
+    "translation": "MARQUIS：一种用于视频检索增强生成的三阶段流水线",
+    "summary_zh": "提出了一种包含查询扩展融合重排序、结构化证据提取及受控文章生成的三阶段流水线，旨在解决复杂视频查询检索困难及长上下文多视频合成推理不足的问题。",
+    "key_points": [
+      "提出了一种包含查询扩展融合重排序、结构化证据提取及受控文章生成的三阶段流水线，旨在解决复杂视频查询检索困难及长上下文多视频合成推理不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17609v1",
+    "title": "Adaptive Generate-Rank-Verify: Inference-Time Search with Costly Verification",
+    "authors": [
+      "Shaddin Dughmi",
+      "Mahdi Haghifam",
+      "Yusuf Hakan Kalayci"
+    ],
+    "summary": "Many inference-time language-model pipelines combine a cheap reward signal with an expensive verifier, such as exact answer checking in mathematical reasoning or hidden-test execution in code generation.\n  We formalize this setting using a learning-theoretic lens as generative active search: a cost-sensitive first-positive search problem in which a policy adaptively samples candidates from an unknown distribution, observes cheap scores, and pays for verifier labels until it finds a positive example. For a fixed prompt, the generator and reward model induce two unknown objects: a distribution over reward scores and a score-conditioned success function. When these quantities are known, we characterize the distribution-aware optimal policy using a dynamic programming approach. In the realistic and practical setting where both the score distribution and success function are unknown, we propose ADAP, a shellwise adaptive generate-rank-verify algorithm that progressively increases the number of sampled responses and top-ranked verifications. Under the monotonicity assumption that higher reward scores are no less likely to pass verification, we show that ADAP achieves expected cost within a constant factor of the distribution-aware optimum. We complement this result with learning-theoretic lower bounds, based on a centered star number, showing that structural assumptions on the score--label relationship are necessary. Experiments on mathematical reasoning and competitive programming validate the predicted advantage over both fixed non-adaptive policies and difficulty-adaptive baselines.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-05-17T19:10:30Z",
+    "updated": "2026-05-17T19:10:30Z",
+    "url": "http://arxiv.org/abs/2605.17609v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17609v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理优化研究，专注于数学推理和代码生成中的验证策略，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "自适应生成 - 排序 - 验证：基于高成本验证的推理时搜索",
+    "summary_zh": "该论文提出了一种名为 ADAP 的自适应算法，通过在生成候选项时动态平衡廉价奖励信号与昂贵验证器的调用次数，以最低成本高效找到通过验证的正确输出。",
+    "key_points": [
+      "该论文提出了一种名为 ADAP 的自适应算法，通过在生成候选项时动态平衡廉价奖励信号与昂贵验证器的调用次数，以最低成本高效找到通过验证的正确输出"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17301v1",
+    "title": "ConflictRAG: Detecting and Resolving Knowledge Conflicts in Retrieval Augmented Generation",
+    "authors": [
+      "Chenyu Wang",
+      "Yingmin Liu",
+      "Yang Shu"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems implicitly assume mutual consistency among retrieved documents -- an assumption that frequently fails in practice. We present ConflictRAG, a conflict-aware RAG framework that detects, classifies, and resolves knowledge conflicts prior to answer generation. The framework introduces three contributions: (1) a two-stage conflict detection module combining a lightweight embedding-based MLP classifier with selective LLM refinement, reducing API costs by 62% while maintaining 90.8% detection accuracy; (2) an Entropy-TOPSIS framework for data-driven source credibility assessment, improving selection accuracy by 7.1% over manual heuristics; and (3) a Conflict-Aware RAG Score (CARS) for diagnostic evaluation of conflict-handling capabilities. Experiments on three benchmarks against six baselines demonstrate 88.7% conflict-detection F1 and consistent 5.3--6.1% correctness gains over the strongest conflict-aware baseline, with the pipeline transferring effectively across backbone LLMs.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-05-17T07:25:29Z",
+    "updated": "2026-05-17T07:25:29Z",
+    "url": "http://arxiv.org/abs/2605.17301v1",
+    "pdf_url": "http://arxiv.org/pdf/2605.17301v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于解决检索生成中的知识冲突问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "ConflictRAG：检测并解决检索增强生成中的知识冲突",
+    "summary_zh": "提出一种感知冲突的 RAG 框架，通过两阶段检测模块和基于熵的数据源可信度评估机制，在生成答案前自动识别、分类并解决检索文档间的知识矛盾。",
+    "key_points": [
+      "提出一种感知冲突的 RAG 框架，通过两阶段检测模块和基于熵的数据源可信度评估机制，在生成答案前自动识别、分类并解决检索文档间的知识矛盾"
+    ]
+  }
+]

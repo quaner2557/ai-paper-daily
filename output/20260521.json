@@ -1,1 +1,306 @@
-[]
+[
+  {
+    "arxiv_id": "2509.09682",
+    "title": "Faster and Memory-Efficient Training of Sequential Recommendation Models for Large Catalogs",
+    "authors": [
+      "Maxim Zhelnin",
+      "Dmitry Redko",
+      "Daniil Volkov",
+      "Anna Volodkevich",
+      "Petr Sokerin",
+      "Valeriy Shevchenko",
+      "Egor Shvetsov",
+      "Alexey Vasilev",
+      "Darya Denisova",
+      "Ruslan Izmailov",
+      "Alexey Zaytsev"
+    ],
+    "summary": "Sequential recommendations (SR) with transformer-based architectures are widely adopted in real-world applications, where SR models require frequent retraining to adapt to ever-changing user preferences. However, training transformer-based SR models often encounters a high computational cost associated with scoring extensive item catalogs, often exceeding thousands of items. This occurs mainly due to the use of cross-entropy loss, where peak memory scales proportionally to catalog size, batch size, and sequence length. Recognizing this, practitioners in the field of recommendation systems typically address memory consumption by integrating the cross-entropy (CE) loss with negative sampling, thereby reducing the explicit memory demands of the final layer. However, a small number of negative samples would degrade model performance, and as we demonstrate in our work, increasing the number of negative samples and the batch size further improves the model's performance, but rapidly starts to exceed industrial GPUs' size (~40Gb).\n  In this work, we introduce the CCE- method, which offers a GPU-efficient implementation of the CE loss with negative sampling. Our method accelerates training by up to two times while reducing memory consumption by more than 10 times. Leveraging the memory savings afforded by using CCE- for model training, it becomes feasible to enhance its accuracy on datasets with a large item catalog compared to those trained with original PyTorch-implemented loss functions. Finally, we perform an analysis of key memory-related hyperparameters and highlight the necessity of a delicate balance among these factors. We demonstrate that scaling both the number of negative samples and batch size leads to better results rather than maximizing only one of them. To facilitate further adoption of CCE-, we release a Triton kernel that efficiently implements the proposed method.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2509.09682",
+    "pdf_url": "https://arxiv.org/pdf/2509.09682.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统在大规模商品目录下的训练显存瓶颈提出优化方法，属于核心推荐系统架构创新，且来自中国公司额外加 1 分后满分。",
+    "translation": "面向大规模目录的序列推荐模型更快且更省显存的训练方法",
+    "summary_zh": "提出 CCE-方法，通过高效的 Triton 核实现带负采样的交叉熵损失，在大幅降低显存占用的同时支持更大的批量和负样本数，从而提升大规模目录下的序列推荐训练效率与效果。",
+    "key_points": [
+      "提出 CCE-方法，通过高效的 Triton 核实现带负采样的交叉熵损失，在大幅降低显存占用的同时支持更大的批量和负样本数，从而提升大规模目录下的序列推荐训练效率与效果"
+    ]
+  },
+  {
+    "arxiv_id": "2509.13648",
+    "title": "Sequential Data Augmentation for Generative Recommendation",
+    "authors": [
+      "Geon Lee",
+      "Bhuvesh Kumar",
+      "Clark Mingxuan Ju",
+      "Tong Zhao",
+      "Kijung Shin",
+      "Neil Shah",
+      "Liam Collins"
+    ],
+    "summary": "Generative recommendation plays a crucial role in personalized systems, predicting users' future interactions from their historical behavior sequences. A critical yet underexplored factor in training these models is data augmentation, the process of constructing training data from user interaction histories. By shaping the training distribution, data augmentation directly and often substantially affects model generalization and performance. Nevertheless, in much of the existing work, this process is simplified, applied inconsistently, or treated as a minor design choice, without a systematic and principled understanding of its effects.\n  Motivated by our empirical finding that different augmentation strategies can yield large performance disparities, we conduct an in-depth analysis of how they reshape training distributions and influence alignment with future targets and generalization to unseen inputs. To systematize this design space, we propose GenPAS, a generalized and principled framework that models augmentation as a stochastic sampling process over input-target pairs with three bias-controlled steps: sequence sampling, target sampling, and input sampling. This formulation unifies widely used strategies as special cases and enables flexible control of the resulting training distribution. Our extensive experiments on benchmark and industrial datasets demonstrate that GenPAS yields superior accuracy, data efficiency, and parameter efficiency compared to existing strategies, providing practical guidance for principled training data construction in generative recommendation. Our code is available at https://github.com/snap-research/GenPAS.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2509.13648",
+    "pdf_url": "https://arxiv.org/pdf/2509.13648.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的数据增强问题，提出了 GenPAS 框架以优化训练分布，属于核心推荐算法创新；且来自中国公司研究，符合加分条件。",
+    "translation": "面向生成式推荐的序列数据增强方法",
+    "summary_zh": "本文提出 GenPAS 框架，将数据增强建模为包含序列、目标和输入采样的随机过程，通过控制偏差来系统性地重塑训练分布以提升生成式推荐效果。",
+    "key_points": [
+      "本文提出 GenPAS 框架，将数据增强建模为包含序列、目标和输入采样的随机过程，通过控制偏差来系统性地重塑训练分布以提升生成式推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.10455",
+    "title": "Compute Only Once: UG-Separation for Efficient Large Recommendation Models",
+    "authors": [
+      "Hui Lu",
+      "Zheng Chai",
+      "Shipeng Bai",
+      "Hao Zhang",
+      "Zhifang Fan",
+      "Kunmin Bai",
+      "Ke Sun",
+      "Yingwen Wu",
+      "Bingzheng Wei",
+      "Xiang Sun",
+      "Ziyan Gong",
+      "Tianyi Liu",
+      "Hua Chen",
+      "Deping Xie",
+      "Zhongkai Chen",
+      "Zhiliang Guo",
+      "Qiwei Chen",
+      "Yuchao Zheng"
+    ],
+    "summary": "Driven by scaling laws, recommender systems increasingly rely on larger-scale models to capture complex feature interactions and user behaviors, but this trend also leads to prohibitive training and inference costs. While long-sequence models can reuse user-side computation through KV Caching, such reuse is difficult in TokenMixer-based dense feature interaction architectures, where user and group features are deeply entangled and mixed-up across layers. In this work, we present User-Group Separation (UG-Sep), an industrial large-scale framework that enables user-side computation reusable in TokenMixer-based dense interaction models for the first time. UG-Sep explicitly disentangles user-side and item-side information flows within token-mixing layers, ensuring that a subset of tokens preserves purely user-side representations across layers. This design allows the corresponding per-token computations to be reused across multiple samples, significantly reducing redundant inference cost. To compensate for the potential expressive capacity loss induced by masking, we further propose an Information Compensation strategy that adaptively reconstructs suppressed user-item interactions. Moreover, as UG-Sep substantially reduces user-side FLOPs and exposes memory-bound components, we incorporate W8A16 (8-bit weight, 16-bit activation) weight-only quantization to alleviate memory bandwidth bottlenecks and achieve additional acceleration. We conduct extensive offline evaluations and large-scale online A/B experiments at ByteDance to validate the effectiveness of UG-Sep. Results show that UG-Sep reduces inference latency by up to 20% without causing adverse changes to online user experience and commercial metrics on multiple influential business scenarios compared to TokenMixer at ByteDance, including Douyin Feed Recommendation, Hongguo Feed Recommendation, Chuanshanjia Ads, and Qianchuan Ads.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2602.10455",
+    "pdf_url": "https://arxiv.org/pdf/2602.10455.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对抖音等核心业务场景的推荐系统推理效率问题，提出了 UG-Separation 新架构以解决 TokenMixer 模型中的计算复用难题，属于工业界核心推荐技术的重大创新。",
+    "translation": "一次计算：面向高效大型推荐模型的用户 - 群组分离技术",
+    "summary_zh": "提出用户 - 群组分离（UG-Sep）框架，通过在 TokenMixer 层解耦用户与物品信息流实现用户侧计算复用，并结合信息补偿策略与量化技术显著降低推荐模型推理延迟。",
+    "key_points": [
+      "提出用户 - 群组分离（UG-Sep）框架，通过在 TokenMixer 层解耦用户与物品信息流实现用户侧计算复用，并结合信息补偿策略与量化技术显著降低推荐模型推理延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2605.20721",
+    "title": "Robust Recommendation from Noisy Implicit Feedback: A GMM-Weighted Bayes-label Transition Matrix Framework",
+    "authors": [
+      "Zongyu Li",
+      "Xuanyu Liu",
+      "Gongce Cao",
+      "Shirui Sun",
+      "Yaqi Fang",
+      "Yongshuai Yu"
+    ],
+    "summary": "Learning from implicit feedback in recommender systems is fundamentally challenged by pervasive label noise. While conventional denoising approaches often discard noisy instances to ensure robustness, this strategy inevitably suffers from low data utilization. Alternative methods that employ a Bayes-label transition matrix (BLTM) can leverage all available data, but their estimates tend to be biased in practical recommendation scenarios. To address these limitations, this paper proposes a Robust GMM-weighted Bayes-label Transition Matrix framework (RGBT). Our solution utilizes a Gaussian Mixture Model (GMM) to derive instance-specific reliability scores, which systematically calibrate the BLTM estimation to mitigate bias. Theoretical analysis confirms that our approach, by leveraging the BLTM framework with GMM calibration, simultaneously ensures full sample utilization, delivers consistent estimation, and critically, achieves a significant reduction in estimation variance. Extensive experiments on multiple real-world and synthetically flipped datasets demonstrate that RGBT not only utilizes noisy samples more effectively than mainstream reliable sample-based denoising methods, but also achieves significantly superior calibration capability of the transition matrix compared to state-of-the-art transition matrix-based denoising approaches.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2605.20721",
+    "pdf_url": "https://arxiv.org/pdf/2605.20721.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的隐式反馈噪声问题提出新框架，属于核心推荐算法创新；虽非大厂出品，但源自中国公司（TAL），按规定额外 +1 分。",
+    "translation": "基于 GMM 加权贝叶斯标签转移矩阵的鲁棒隐式反馈推荐",
+    "summary_zh": "提出一种利用高斯混合模型推导实例可靠性分数以校准贝叶斯标签转移矩阵的框架，旨在解决推荐系统中隐式反馈的标签噪声偏差问题，同时实现全样本利用与一致估计。",
+    "key_points": [
+      "提出一种利用高斯混合模型推导实例可靠性分数以校准贝叶斯标签转移矩阵的框架，旨在解决推荐系统中隐式反馈的标签噪声偏差问题，同时实现全样本利用与一致估计"
+    ]
+  },
+  {
+    "arxiv_id": "2605.20552",
+    "title": "Spectral bandits for smooth graph functions with applications in recommender systems",
+    "authors": [
+      "Tomáš Kocák",
+      "Michal Valko",
+      "Rémi Munos",
+      "Branislav Kveton",
+      "Shipra Agrawal"
+    ],
+    "summary": "Smooth functions on graphs have wide applications in manifold and semi-supervised learning. In this paper, we study a bandit problem where the payoffs of arms are smooth on a graph. This framework is suitable for solving online learning problems that involve graphs, such as content-based recommendation. In this problem, each recommended item is a node and its expected rating is similar to its neighbors. The goal is to recommend items that have high expected ratings. We aim for the algorithms where the cumulative regret would not scale poorly with the number of nodes. In particular, we introduce the notion of an effective dimension, which is small in real-world graphs, and propose two algorithms for solving our problem that scale linearly in this dimension. Our experiments on real-world content recommendation problem show that a good estimator of user preferences for thousands of items can be learned from just tens nodes evaluations.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-05-19",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2605.20552",
+    "pdf_url": "https://arxiv.org/pdf/2605.20552.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "SequeLteam SequeLteam SequeLteam,InriaFrance Technicolor MicrosoftResearch",
+      "InriaLille InriaLille MicrosoftResearch ResearchCenter Bangalore"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的内容推荐场景，提出基于图平滑函数的谱波段算法来解决在线学习与冷启动问题，属于核心推荐技术。",
+    "translation": "基于谱波段算法的平滑图函数及其在推荐系统中的应用",
+    "summary_zh": "该文提出一种利用图结构平滑性假设的谱波段算法，通过引入有效维度概念，在仅需少量用户反馈的情况下高效学习大规模物品集的偏好估计。",
+    "key_points": [
+      "该文提出一种利用图结构平滑性假设的谱波段算法，通过引入有效维度概念，在仅需少量用户反馈的情况下高效学习大规模物品集的偏好估计"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13053",
+    "title": "A Standardized Re-evaluation of Conversational Recommender Systems on the ReDial Dataset",
+    "authors": [
+      "Ivica Kostric",
+      "Krisztian Balog"
+    ],
+    "summary": "Recent years have seen a surge of research into conversational recommender systems (CRS). Among existing datasets, ReDial is the most widely used benchmark, cited in hundreds of studies. However, variations in how the dataset is preprocessed and used in experiments, particularly in the definition of ground-truth items, make it difficult to compare results across studies. These comparisons are further complicated by confounding factors such as the choice of the underlying large language model (LLM) and the use of external data sources. In this work, we revisit seven prominent CRS methods across three architectural families and evaluate them under standardized conditions. Our reproducibility study reveals a ``granularity gap,'' where fine-grained ranking (Recall@1) is highly sensitive to implementation details, while our replicability analysis shows that nearly 50% of reported accuracy stems from ``repetition shortcuts'' that are absent in novelty-focused evaluation. Furthermore, we find that performance gains are often driven more by the capacity of the LLM backbone than by specific architectural innovations. Finally, by applying user-centric utility metrics, we demonstrate that traditional recall frequently overstates a system's actual conversational effectiveness. This work establishes a transparent, controlled baseline and promotes evaluation practices that prioritize novelty and interaction efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2605.13053",
+    "pdf_url": "https://arxiv.org/pdf/2605.13053.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话推荐系统（CRS）的评估标准化问题，揭示了现有研究中的基准偏差和 LLM 能力混淆问题，对构建可靠的推荐系统具有重要指导意义。",
+    "translation": "ReDial 数据集上对话推荐系统的标准化重评估",
+    "summary_zh": "本文通过标准化实验条件重评估了主流对话推荐方法，揭示了细粒度排序对实现细节敏感、部分性能提升源于重复捷径而非架构创新，并指出传统召回率指标高估了实际对话效果。",
+    "key_points": [
+      "本文通过标准化实验条件重评估了主流对话推荐方法，揭示了细粒度排序对实现细节敏感、部分性能提升源于重复捷径而非架构创新，并指出传统召回率指标高估了实际对话效果"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17946",
+    "title": "SVFSearch: A Multimodal Knowledge-Intensive Benchmark for Short-Video Frame Search in the Gaming Vertical Domain",
+    "authors": [
+      "Lingtao Mao",
+      "Huangyu Dai",
+      "Xinyu Sun",
+      "Zihan Liang",
+      "Ben Chen",
+      "Chenyi Lei",
+      "Wenwu Ou"
+    ],
+    "summary": "Multimodal large language models are increasingly used as agent backbones that understand multimodal inputs, plan retrieval actions, invoke external tools, and reason over retrieved information. Yet existing benchmarks rarely evaluate this ability in short-video applications, where a paused frame is often visually ambiguous and answering requires vertical, long-tail, and fast-evolving domain knowledge. We introduce SVFSearch, the first open benchmark for short-video frame search in the Chinese gaming domain. SVFSearch contains 5,000 four-choice test examples and 4,198 auxiliary training examples, each centered on a paused game scene from a real short-video clip. To support fair and reproducible evaluation, SVFSearch provides a frozen offline retrieval environment with a game-domain text corpus, a topic-linked image gallery, and text, image, and multimodal retrieval interfaces, avoiding reliance on uncontrolled web search APIs. We evaluate representative paradigms ranging from direct QA and RAG workflow to Plan-Act-Replan agents and learned search models. Results reveal a large gap between model-only answering, practical agentic search, and oracle knowledge: the best open-source direct-QA model reaches 66.4%, the best practical agent achieves 79.1%, and oracle knowledge reaches 95.4%. Further analysis exposes bottlenecks in visual grounding, retrieval quality, evidence-grounded reasoning, and tool-use behavior, including over-search, answer-only shortcuts, and retrieval-induced misleading.",
+    "categories": [
+      "cs.AI",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2605.17946",
+    "pdf_url": "https://arxiv.org/pdf/2605.17946.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要是一个针对游戏短视频帧搜索的基准测试（Benchmark）和评估研究，侧重于评估多模态 LLM Agent 的检索与推理能力，而非提出直接应用于工业级推荐/搜索系统的核心新架构或算法。",
+    "translation": "SVFSearch：游戏垂直领域短视频帧搜索的多模态知识密集型基准",
+    "summary_zh": "本文提出了首个面向中文游戏领域的短视频帧搜索开放基准 SVFSearch，旨在评估多模态大模型在视觉模糊及长尾知识场景下的代理检索、工具调用及证据推理能力。",
+    "key_points": [
+      "本文提出了首个面向中文游戏领域的短视频帧搜索开放基准 SVFSearch，旨在评估多模态大模型在视觉模糊及长尾知识场景下的代理检索、工具调用及证据推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2605.20729",
+    "title": "MTR-Suite: A Framework for Evaluating and Synthesizing Conversational Retrieval Benchmarks",
+    "authors": [
+      "Junhao Ruan",
+      "Abudukeyumu Abudula",
+      "Bei Li",
+      "Yongjing Yin",
+      "Xinyu Liu",
+      "Kechen Jiao",
+      "Xin Chen",
+      "Jingang Wang",
+      "Xunliang Cai",
+      "Tong Xiao",
+      "Jingbo Zhu"
+    ],
+    "summary": "Accurate evaluation of conversational retrieval is pivotal for advancing Retrieval-Augmented Generation (RAG) systems. However, existing conversational retrieval benchmarks suffer from costly, sparse human annotation or rigid, unnatural automated heuristics. To address these challenges, we introduce MTR-Suite, a unified framework for auditing, synthesizing, and benchmarking retrieval. It features: (1) MTR-Eval, an LLM-based auditor quantifying alignment gaps in previous benchmarks; (2) MTR-Pipeline, a multi-agent system using greedy traversal clustering to generate high-fidelity dialogues at 1/400th human cost; and (3) MTR-Bench, a rigorous general-domain benchmark. MTR-Bench mimics production-style challenges (hard topic switching, verbosity), offering superior discriminative power. We make our code and data publicly available to facilitate future research at https://github.com/rangehow/mtr-suite.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2605.20729",
+    "pdf_url": "https://arxiv.org/pdf/2605.20729.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "1SchoolofComputerScienceandEngineering,NortheasternUniversity,Shenyang110819,China",
+      "2MeituanInc.,3NiuTransResearch,Shenyang,China",
+      "4TsinghuaUniversity,Beijing,China",
+      "availabletofacilitatefutureresearch.1"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文专注于对话式检索基准的评估与合成，属于通用 NLP/RAG 基础设施研究，缺乏针对推荐系统或搜索产品核心环节（如排序、个性化）的直接应用创新；虽因来自中国公司加 1 分，但本质仍为非 RecSys 专用的纯 NLP/LLM 研究。",
+    "translation": "MTR-Suite：用于评估和合成对话式检索基准的框架",
+    "summary_zh": "提出一个统一框架，利用 LLM 审计现有基准缺陷，并通过多智能体系统以低成本生成高保真对话数据，旨在解决对话式检索评估中人工标注昂贵及自动化启发式方法僵化的问题。",
+    "key_points": [
+      "提出一个统一框架，利用 LLM 审计现有基准缺陷，并通过多智能体系统以低成本生成高保真对话数据，旨在解决对话式检索评估中人工标注昂贵及自动化启发式方法僵化的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.16428",
+    "title": "The Impact of AI Search on the Online Content Ecosystem: Evidence from Google and Reddit",
+    "authors": [
+      "Peibo Zhang",
+      "Ruomeng Cui",
+      "Dennis J. Zhang"
+    ],
+    "summary": "Search engines traditionally complement online content platforms by directing users seeking information to external websites. The emergence of generative AI search tools that summarize answers directly on the results page may disrupt this relationship by making visits to source platforms optional. We study this question using Google AI Overviews and Reddit, one of the largest online discussion platforms. Our identification exploits Google's content moderation policy: Safe-for-Work (SFW) Reddit communities are indexed by Google organic search and surfaced in Google AI Overviews, while Not-Safe-for-Work (NSFW) communities, though indexed by organic search, are prohibited from being referenced in AI Overview summaries. Using a difference-in-differences design, we find that AI Overviews increase engagement in SFW communities: daily comments rise by 12.0 percent and the number of commenting users by 12.3 percent relative to NSFW communities. The effects are concentrated in experience-based discussions (opinions, advice, and personal experiences) rather than fact-based information. However, the subsequent introduction of Google AI Mode, which allows users to interact conversationally with the AI summary, largely eliminates these gains in experience-based content. These results suggest that the effects of AI search depend critically on interface design and types of content.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-21",
+    "url": "https://arxiv.org/abs/2605.16428",
+    "pdf_url": "https://arxiv.org/pdf/2605.16428.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于 AI 搜索对内容平台生态影响的经济学/社会学实证研究，而非推荐系统或搜索引擎的核心算法、架构或用户建模技术研究，属于纯应用侧影响分析。",
+    "translation": "AI 搜索对在线内容生态的影响：来自 Google 和 Reddit 的证据",
+    "summary_zh": "本文利用差分法研究发现，生成式 AI 搜索摘要通过改变用户访问源平台的行为，显著影响了经验型讨论内容的参与度，且该效应高度依赖于交互界面设计。",
+    "key_points": [
+      "本文利用差分法研究发现，生成式 AI 搜索摘要通过改变用户访问源平台的行为，显著影响了经验型讨论内容的参与度，且该效应高度依赖于交互界面设计"
+    ]
+  }
+]

@@ -1,0 +1,313 @@
+[
+  {
+    "arxiv_id": "2511.21394v1",
+    "title": "RIA: A Ranking-Infused Approach for Optimized listwise CTR Prediction",
+    "authors": [
+      "Guoxiao Zhang",
+      "Tan Qu",
+      "Ao Li",
+      "DongLin Ni",
+      "Qianlong Xie",
+      "Xingxing Wang"
+    ],
+    "summary": "Reranking improves recommendation quality by modeling item interactions. However, existing methods often decouple ranking and reranking, leading to weak listwise evaluation models that suffer from combinatorial sparsity and limited representational power under strict latency constraints. In this paper, we propose RIA (Ranking-Infused Architecture), a unified, end-to-end framework that seamlessly integrates pointwise and listwise evaluation. RIA introduces four key components: (1) the User and Candidate DualTransformer (UCDT) for fine-grained user-item-context modeling; (2) the Context-aware User History and Target (CUHT) module for position-sensitive preference learning; (3) the Listwise Multi-HSTU (LMH) module to capture hierarchical item dependencies; and (4) the Embedding Cache (EC) module to bridge efficiency and effectiveness during inference. By sharing representations across ranking and reranking, RIA enables rich contextual knowledge transfer while maintaining low latency. Extensive experiments show that RIA outperforms state-of-the-art models on both public and industrial datasets, achieving significant gains in AUC and LogLoss. Deployed in Meituan advertising system, RIA yields a +1.69% improvement in Click-Through Rate (CTR) and a +4.54% increase in Cost Per Mille (CPM) in online A/B tests.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-26T13:45:10Z",
+    "updated": "2025-11-26T13:45:10Z",
+    "url": "http://arxiv.org/abs/2511.21394v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21394v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "TanQu∗ Meituan BeijingUniversityofPostsand"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的重排序（Reranking）和列表级 CTR 预测问题，提出统一架构解决工业界实际痛点，且已在美团广告系统落地验证，完全符合核心领域 advances 标准。",
+    "translation": "RIA：一种用于优化列表级 CTR 预测的排序融合方法",
+    "summary_zh": "提出 RIA 统一框架，通过共享表示无缝整合点-wise 排序与列表式重排序，利用双 Transformer 和层级模块捕捉细粒度用户 - 物品交互及物品间依赖，在低延迟约束下实现高效的上下文知识迁移。",
+    "key_points": [
+      "提出 RIA 统一框架，通过共享表示无缝整合点-wise 排序与列表式重排序，利用双 Transformer 和层级模块捕捉细粒度用户 - 物品交互及物品间依赖，在低延迟约束下实现高效的上下文知识迁移"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21095v1",
+    "title": "Generative Early Stage Ranking",
+    "authors": [
+      "Juhee Hong",
+      "Meng Liu",
+      "Shengzhi Wang",
+      "Xiaoheng Mao",
+      "Huihui Cheng",
+      "Leon Gao",
+      "Christopher Leung",
+      "Jin Zhou",
+      "Chandra Mouli Sekar",
+      "Zhao Zhu",
+      "Ruochen Liu",
+      "Tuan Trieu",
+      "Dawei Sun",
+      "Jeet Kanjani",
+      "Rui Li",
+      "Jing Qian",
+      "Xuan Cao",
+      "Minjie Fan",
+      "Mingze Gao"
+    ],
+    "summary": "Large-scale recommendations commonly adopt a multi-stage cascading ranking system paradigm to balance effectiveness and efficiency. Early Stage Ranking (ESR) systems utilize the \"user-item decoupling\" approach, where independently learned user and item representations are only combined at the final layer. While efficient, this design is limited in effectiveness, as it struggles to capture fine-grained user-item affinities and cross-signals. To address these, we propose the Generative Early Stage Ranking (GESR) paradigm, introducing the Mixture of Attention (MoA) module which leverages diverse attention mechanisms to bridge the effectiveness gap: the Hard Matching Attention (HMA) module encodes explicit cross-signals by computing raw match counts between user and item features; the Target-Aware Self Attention module generates target-aware user representations conditioned on the item, enabling more personalized learning; and the Cross Attention modules facilitate early and more enriched interactions between user-item features. MoA's specialized attention encodings are further refined in the final layer through a Multi-Logit Parameterized Gating (MLPG) module, which integrates the newly learned embeddings via gating and produces secondary logits that are fused with the primary logit. To address the efficiency and latency challenges, we have introduced a comprehensive suite of optimization techniques. These span from custom kernels that maximize the capabilities of the latest hardware to efficient serving solutions powered by caching mechanisms. The proposed GESR paradigm has shown substantial improvements in topline metrics, engagement, and consumption tasks, as validated by both offline and online experiments. To the best of our knowledge, this marks the first successful deployment of full target-aware attention sequence modeling within an ESR stage at such a scale.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-26T06:29:18Z",
+    "updated": "2025-11-26T06:29:18Z",
+    "url": "http://arxiv.org/abs/2511.21095v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21095v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统早期排序（ESR）阶段提出生成式新架构，解决了用户 - 物品解耦导致的细粒度交互缺失问题，属于核心领域重大创新；且来自中国公司，按规定额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "生成式早期阶段排序：利用混合注意力机制桥接推荐系统效率与效果差距",
+    "summary_zh": "提出生成式早期排序（GESR）范式，通过混合注意力（MoA）模块在早期阶段实现用户与物品的细粒度交叉信号捕获及目标感知建模，并结合多 Logit 参数化门控机制融合嵌入，以解决传统解耦架构的效果瓶颈。",
+    "key_points": [
+      "提出生成式早期排序（GESR）范式，通过混合注意力（MoA）模块在早期阶段实现用户与物品的细粒度交叉信号捕获及目标感知建模，并结合多 Logit 参数化门控机制融合嵌入，以解决传统解耦架构的效果瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21032v1",
+    "title": "A Probabilistic Framework for Temporal Distribution Generalization in Industry-Scale Recommender Systems",
+    "authors": [
+      "Yuxuan Zhu",
+      "Cong Fu",
+      "Yabo Ni",
+      "Anxiang Zeng",
+      "Yuan Fang"
+    ],
+    "summary": "Temporal distribution shift (TDS) erodes the long-term accuracy of recommender systems, yet industrial practice still relies on periodic incremental training, which struggles to capture both stable and transient patterns. Existing approaches such as invariant learning and self-supervised learning offer partial solutions but often suffer from unstable temporal generalization, representation collapse, or inefficient data utilization. To address these limitations, we propose ELBO$_\\text{TDS}$, a probabilistic framework that integrates seamlessly into industry-scale incremental learning pipelines. First, we identify key shifting factors through statistical analysis of real-world production data and design a simple yet effective data augmentation strategy that resamples these time-varying factors to extend the training support. Second, to harness the benefits of this extended distribution while preventing representation collapse, we model the temporal recommendation scenario using a causal graph and derive a self-supervised variational objective, ELBO$_\\text{TDS}$, grounded in the causal structure. Extensive experiments supported by both theoretical and empirical analysis demonstrate that our method achieves superior temporal generalization, yielding a 2.33\\% uplift in GMV per user and has been successfully deployed in Shopee Product Search. Code is available at https://github.com/FuCongResearchSquad/ELBO4TDS.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-26T04:02:23Z",
+    "updated": "2025-11-26T04:02:23Z",
+    "url": "http://arxiv.org/abs/2511.21032v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21032v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统中的时间分布偏移问题，提出了基于因果图和变分推断的解决方案，并已在 Shopee 搜索场景落地，完全符合核心领域 advances 标准；加之来自中国公司，按规则额外加分后达到满分。",
+    "translation": "工业级推荐系统中时间分布泛化的概率框架",
+    "summary_zh": "本文提出 ELBO_TDS 概率框架，通过识别关键时间偏移因子进行数据增强，并结合因果图推导自监督变分目标，以解决推荐系统中的时间分布偏移和表示坍塌问题。",
+    "key_points": [
+      "本文提出 ELBO_TDS 概率框架，通过识别关键时间偏移因子进行数据增强，并结合因果图推导自监督变分目标，以解决推荐系统中的时间分布偏移和表示坍塌问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21963v1",
+    "title": "CTR Prediction on Alibaba's Taobao Advertising Dataset Using Traditional and Deep Learning Models",
+    "authors": [
+      "Hongyu Yang",
+      "Chunxi Wen",
+      "Jiyin Zhang",
+      "Nanfei Shen",
+      "Shijiao Zhang",
+      "Xiyan Han"
+    ],
+    "summary": "Click-through rates prediction is critical in modern advertising systems, where ranking relevance and user engagement directly impact platform efficiency and business value. In this project, we explore how to model CTR more effectively using a large-scale Taobao dataset released by Alibaba. We start with supervised learning models, including logistic regression and Light-GBM, that are trained on static features such as user demographics, ad attributes, and contextual metadata. These models provide fast, interpretable benchmarks, but have limited capabilities to capture patterns of behavior that drive clicks. To better model user intent, we combined behavioral data from hundreds of millions of interactions over a 22-day period. By extracting and encoding user action sequences, we construct representations of user interests over time. We use deep learning models to fuse behavioral embeddings with static features. Among them, multilayer perceptrons (MLPs) have achieved significant performance improvements. To capture temporal dynamics, we designed a Transformer-based architecture that uses a self-attention mechanism to learn contextual dependencies across behavioral sequences, modeling not only what the user interacts with, but also the timing and frequency of interactions. Transformer improves AUC by 2.81 % over the baseline (LR model), with the largest gains observed for users whose interests are diverse or change over time. In addition to modeling, we propose an A/B testing strategy for real-world evaluation. We also think about the broader implications: personalized ad targeting technology can be applied to public health scenarios to achieve precise delivery of health information or behavior guidance. Our research provides a roadmap for advancing click-through rate predictions and extending their value beyond e-commerce.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-26T22:51:02Z",
+    "updated": "2025-11-26T22:51:02Z",
+    "url": "http://arxiv.org/abs/2511.21963v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21963v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对阿里巴巴淘宝广告场景的 CTR 预估，利用 Transformer 建模用户行为序列，完全符合电商推荐/搜索核心业务，且来自阿里系数据，给予满分。",
+    "translation": "基于传统与深度学习模型在阿里巴巴淘宝广告数据集上的 CTR 预估",
+    "summary_zh": "提出一种融合静态特征与用户行为序列的深度学习方法，利用 Transformer 自注意力机制捕捉用户兴趣的时序动态变化以提升广告点击率预估效果。",
+    "key_points": [
+      "提出一种融合静态特征与用户行为序列的深度学习方法，利用 Transformer 自注意力机制捕捉用户兴趣的时序动态变化以提升广告点击率预估效果"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21389v1",
+    "title": "FITRep: Attention-Guided Item Representation via MLLMs",
+    "authors": [
+      "Guoxiao Zhang",
+      "Ao Li",
+      "Tan Qu",
+      "Qianlong Xie",
+      "Xingxing Wang"
+    ],
+    "summary": "Online platforms usually suffer from user experience degradation due to near-duplicate items with similar visuals and text. While Multimodal Large Language Models (MLLMs) enable multimodal embedding, existing methods treat representations as black boxes, ignoring structural relationships (e.g., primary vs. auxiliary elements), leading to local structural collapse problem. To address this, inspired by Feature Integration Theory (FIT), we propose FITRep, the first attention-guided, white-box item representation framework for fine-grained item deduplication. FITRep consists of: (1) Concept Hierarchical Information Extraction (CHIE), using MLLMs to extract hierarchical semantic concepts; (2) Structure-Preserving Dimensionality Reduction (SPDR), an adaptive UMAP-based method for efficient information compression; and (3) FAISS-Based Clustering (FBC), a FAISS-based clustering that assigns each item a unique cluster id using FAISS. Deployed on Meituan's advertising system, FITRep achieves +3.60% CTR and +4.25% CPM gains in online A/B tests, demonstrating both effectiveness and real-world impact.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-26T13:38:19Z",
+    "updated": "2025-11-26T13:38:19Z",
+    "url": "http://arxiv.org/abs/2511.21389v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21389v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对美团广告系统中的近重复商品去重问题，利用 MLLM 构建细粒度物品表征，属于典型的本地生活推荐/搜索核心应用，且来自业界一线大厂。",
+    "translation": "FITRep：基于多模态大语言模型的注意力引导物品表征方法",
+    "summary_zh": "提出 FITRep 框架，利用多模态大语言模型提取分层语义概念并结合结构保持降维，解决电商广告中因近重复物品导致的用户体验下降问题。",
+    "key_points": [
+      "提出 FITRep 框架，利用多模态大语言模型提取分层语义概念并结合结构保持降维，解决电商广告中因近重复物品导致的用户体验下降问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21121v2",
+    "title": "Beyond Patch Aggregation: 3-Pass Pyramid Indexing for Vision-Enhanced Document Retrieval",
+    "authors": [
+      "Anup Roy",
+      "Rishabh Gyanendra Upadhyay",
+      "Animesh Rameshbhai Panara",
+      "Robin Mills",
+      "Aidan Millar"
+    ],
+    "summary": "Document centric RAG pipelines usually begin with OCR, followed by brittle heuristics for chunking, table parsing, and layout reconstruction. These text first workflows are costly to maintain, sensitive to small layout shifts, and often lose the spatial cues that contain the answer. Vision first retrieval has emerged as a strong alternative. By operating directly on page images, systems like ColPali and ColQwen preserve structure and reduce pipeline complexity while achieving strong benchmark performance. However, these late interaction models tie retrieval to a specific vision backbone and require storing hundreds of patch embeddings per page, creating high memory overhead and complicating large scale deployment.\n  We introduce VisionRAG, a multimodal retrieval system that is OCR free and model agnostic. VisionRAG indexes documents directly as images, preserving layout, tables, and spatial cues, and builds semantic vectors without committing to a specific extraction. Our three pass pyramid indexing framework creates vectors using global page summaries, section headers, visual hotspots, and fact level cues. These summaries act as lightweight retrieval surrogates. At query time, VisionRAG retrieves the most relevant pages using the pyramid index, then forwards the raw page image encoded as base64 to a multimodal LLM for final question answering. During retrieval, reciprocal rank fusion integrates signals across the pyramid to produce robust ranking.\n  VisionRAG stores only 17 to 27 vectors per page, matching the efficiency of patch based methods while staying flexible across multimodal encoders. On financial document benchmarks, it achieves 0.8051 accuracy at 10 on FinanceBench and 0.9629 recall at 100 on TAT DQA. These results show that OCR free, summary guided multimodal retrieval is a practical and scalable alternative to traditional text extraction pipelines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-26T07:18:06Z",
+    "updated": "2026-01-06T10:33:36Z",
+    "url": "http://arxiv.org/abs/2511.21121v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.21121v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种面向文档检索（搜索核心场景）的多模态索引架构，直接解决了 RAG 中的召回与排序效率问题，虽涉及 LLM 但属于明确的搜索系统应用而非纯 LLM 研究；因来自中国公司额外加 1 分。",
+    "translation": "超越补丁聚合：用于视觉增强文档检索的三遍金字塔索引",
+    "summary_zh": "提出一种无需 OCR 的 VisionRAG 系统，利用三遍金字塔索引框架生成轻量级语义向量 surrogate，结合多模态大模型实现高效且保留布局信息的文档检索与问答。",
+    "key_points": [
+      "提出一种无需 OCR 的 VisionRAG 系统，利用三遍金字塔索引框架生成轻量级语义向量 surrogate，结合多模态大模型实现高效且保留布局信息的文档检索与问答"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21381v1",
+    "title": "BanglaASTE: A Novel Framework for Aspect-Sentiment-Opinion Extraction in Bangla E-commerce Reviews Using Ensemble Deep Learning",
+    "authors": [
+      "Ariful Islam",
+      "Md Rifat Hossen",
+      "Abir Ahmed",
+      "B M Taslimul Haque"
+    ],
+    "summary": "Aspect-Based Sentiment Analysis (ABSA) has emerged as a critical tool for extracting fine-grained sentiment insights from user-generated content, particularly in e-commerce and social media domains. However, research on Bangla ABSA remains significantly underexplored due to the absence of comprehensive datasets and specialized frameworks for triplet extraction in this language. This paper introduces BanglaASTE, a novel framework for Aspect Sentiment Triplet Extraction (ASTE) that simultaneously identifies aspect terms, opinion expressions, and sentiment polarities from Bangla product reviews. Our contributions include: (1) creation of the first annotated Bangla ASTE dataset containing 3,345 product reviews collected from major e-commerce platforms including Daraz, Facebook, and Rokomari; (2) development of a hybrid classification framework that employs graph-based aspect-opinion matching with semantic similarity techniques; and (3) implementation of an ensemble model combining BanglaBERT contextual embeddings with XGBoost boosting algorithms for enhanced triplet extraction performance. Experimental results demonstrate that our ensemble approach achieves superior performance with 89.9% accuracy and 89.1% F1-score, significantly outperforming baseline models across all evaluation metrics. The framework effectively addresses key challenges in Bangla text processing including informal expressions, spelling variations, and data sparsity. This research advances the state-of-the-art in low-resource language sentiment analysis and provides a scalable solution for Bangla e-commerce analytics applications.",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "published": "2025-11-26T13:27:54Z",
+    "updated": "2025-11-26T13:27:54Z",
+    "url": "http://arxiv.org/abs/2511.21381v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21381v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Facebook"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 5,
+    "reasoning": "该文属于特定语言（孟加拉语）的情感分析 NLP 研究，虽应用于电商评论分析，但缺乏推荐/搜索核心算法（如召回、排序）的创新，仅为通用 NLP 方法在垂直领域的直接应用。",
+    "translation": "BanglaASTE：基于集成深度学习的孟加拉语电商评论方面 - 情感 - 观点提取新框架",
+    "summary_zh": "提出一种结合图匹配与 BanglaBERT-XGBoost 集成的框架，用于从孟加拉语电商评论中联合抽取方面词、观点表达及情感极性三元组。",
+    "key_points": [
+      "提出一种结合图匹配与 BanglaBERT-XGBoost 集成的框架，用于从孟加拉语电商评论中联合抽取方面词、观点表达及情感极性三元组"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21331v1",
+    "title": "The More, the Merrier: Contrastive Fusion for Higher-Order Multimodal Alignment",
+    "authors": [
+      "Stefanos Koutoupis",
+      "Michaela Areti Zervou",
+      "Konstantinos Kontras",
+      "Maarten De Vos",
+      "Panagiotis Tsakalides",
+      "Grigorios Tsagatakis"
+    ],
+    "summary": "Learning joint representations across multiple modalities remains a central challenge in multimodal machine learning. Prevailing approaches predominantly operate in pairwise settings, aligning two modalities at a time. While some recent methods aim to capture higher-order interactions among multiple modalities, they often overlook or insufficiently preserve pairwise relationships, limiting their effectiveness on single-modality tasks. In this work, we introduce Contrastive Fusion (ConFu), a framework that jointly embeds both individual modalities and their fused combinations into a unified representation space, where modalities and their fused counterparts are aligned. ConFu extends traditional pairwise contrastive objectives with an additional fused-modality contrastive term, encouraging the joint embedding of modality pairs with a third modality. This formulation enables ConFu to capture higher-order dependencies, such as XOR-like relationships, that cannot be recovered through pairwise alignment alone, while still maintaining strong pairwise correspondence. We evaluate ConFu on synthetic and real-world multimodal benchmarks, assessing its ability to exploit cross-modal complementarity, capture higher-order dependencies, and scale with increasing multimodal complexity. Across these settings, ConFu demonstrates competitive performance on retrieval and classification tasks, while supporting unified one-to-one and two-to-one retrieval within a single contrastive framework.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-11-26T12:25:55Z",
+    "updated": "2025-11-26T12:25:55Z",
+    "url": "http://arxiv.org/abs/2511.21331v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21331v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文提出了一种通用的多模态对比学习框架，虽在检索任务上进行了评估，但缺乏针对推荐系统或搜索引擎的具体应用场景与定制化设计，属于通用多模态方法而非直接的 RecSys/Search 研究。",
+    "translation": "越多越好：用于高阶多模态对齐的对比融合",
+    "summary_zh": "该论文提出对比融合（ConFu）框架，通过将独立模态与其融合组合共同嵌入统一空间，利用扩展的对比目标同时捕捉高阶模态依赖与保持 pairwise 对应关系。",
+    "key_points": [
+      "该论文提出对比融合（ConFu）框架，通过将独立模态与其融合组合共同嵌入统一空间，利用扩展的对比目标同时捕捉高阶模态依赖与保持 pairwise 对应关系"
+    ]
+  },
+  {
+    "arxiv_id": "2512.20626v1",
+    "title": "MegaRAG: Multimodal Knowledge Graph-Based Retrieval Augmented Generation",
+    "authors": [
+      "Chi-Hsiang Hsiao",
+      "Yi-Cheng Wang",
+      "Tzung-Sheng Lin",
+      "Yi-Ren Yeh",
+      "Chu-Song Chen"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) enables large language models (LLMs) to dynamically access external information, which is powerful for answering questions over previously unseen documents. Nonetheless, they struggle with high-level conceptual understanding and holistic comprehension due to limited context windows, which constrain their ability to perform deep reasoning over long-form, domain-specific content such as full-length books. To solve this problem, knowledge graphs (KGs) have been leveraged to provide entity-centric structure and hierarchical summaries, offering more structured support for reasoning. However, existing KG-based RAG solutions remain restricted to text-only inputs and fail to leverage the complementary insights provided by other modalities such as vision. On the other hand, reasoning from visual documents requires textual, visual, and spatial cues into structured, hierarchical concepts. To address this issue, we introduce a multimodal knowledge graph-based RAG that enables cross-modal reasoning for better content understanding. Our method incorporates visual cues into the construction of knowledge graphs, the retrieval phase, and the answer generation process. Experimental results across both global and fine-grained question answering tasks show that our approach consistently outperforms existing RAG-based approaches on both textual and multimodal corpora.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-11-26T05:00:03Z",
+    "updated": "2025-11-26T05:00:03Z",
+    "url": "http://arxiv.org/abs/2512.20626v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.20626v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 与多模态 RAG 研究，专注于通用问答和长文档理解，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低优先级。",
+    "translation": "MegaRAG：基于多模态知识图谱的检索增强生成",
+    "summary_zh": "提出一种融合视觉线索构建多模态知识图谱的方法，旨在通过结构化层级概念增强大模型在跨模态长文档上的推理与问答能力。",
+    "key_points": [
+      "提出一种融合视觉线索构建多模态知识图谱的方法，旨在通过结构化层级概念增强大模型在跨模态长文档上的推理与问答能力"
+    ]
+  },
+  {
+    "arxiv_id": "2511.21802v1",
+    "title": "Tacit Bidder-Side Collusion: Artificial Intelligence in Dynamic Auctions",
+    "authors": [
+      "Sriram Tolety"
+    ],
+    "summary": "We study whether large language models acting as autonomous bidders can tacitly collude by coordinating when to accept platform posted payouts in repeated Dutch auctions, without any communication. We present a minimal repeated auction model that yields a simple incentive compatibility condition and a closed form threshold for sustainable collusion for subgame-perfect Nash equilibria. In controlled simulations with multiple language models, we observe systematic supra-competitive prices in small auction settings and a return to competitive behavior as the number of bidders in the market increases, consistent with the theoretical model. We also find LLMs use various mechanisms to facilitate tacit coordination, such as focal point acceptance timing versus patient strategies that track the theoretical incentives. The results provide, to our knowledge, the first evidence of bidder side tacit collusion by LLMs and show that market structure levers can be more effective than capability limits for mitigation.",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "econ.GN"
+    ],
+    "published": "2025-11-26T18:32:18Z",
+    "updated": "2025-11-26T18:32:18Z",
+    "url": "http://arxiv.org/abs/2511.21802v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.21802v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 在博弈论和拍卖机制中的行为研究，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），属于排除类别。",
+    "translation": "默契的投标者合谋：动态拍卖中的人工智能",
+    "summary_zh": "本文研究了大型语言模型作为自主投标者在重复荷兰式拍卖中，如何在无通信情况下通过协调接受时机实现默契合谋，并分析了市场结构对抑制该行为的影响。",
+    "key_points": [
+      "本文研究了大型语言模型作为自主投标者在重复荷兰式拍卖中，如何在无通信情况下通过协调接受时机实现默契合谋，并分析了市场结构对抑制该行为的影响"
+    ]
+  }
+]

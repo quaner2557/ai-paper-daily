@@ -1,0 +1,447 @@
+[
+  {
+    "arxiv_id": "2510.12959v1",
+    "title": "Post-hoc Popularity Bias Correction in GNN-based Collaborative Filtering",
+    "authors": [
+      "Md Aminul Islam",
+      "Elena Zheleva",
+      "Ren Wang"
+    ],
+    "summary": "User historical interaction data is the primary signal for learning user preferences in collaborative filtering (CF). However, the training data often exhibits a long-tailed distribution, where only a few items have the majority of interactions. CF models trained directly on such imbalanced data are prone to learning popularity bias, which reduces personalization and leads to suboptimal recommendation quality. Graph Neural Networks (GNNs), while effective for CF due to their message passing mechanism, can further propagate and amplify popularity bias through their aggregation process. Existing approaches typically address popularity bias by modifying training objectives but fail to directly counteract the bias propagated during GNN's neighborhood aggregation. Applying weights to interactions during aggregation can help alleviate this problem, yet it risks distorting model learning due to unstable node representations in the early stages of training. In this paper, we propose a Post-hoc Popularity Debiasing (PPD) method that corrects for popularity bias in GNN-based CF and operates directly on pre-trained embeddings without requiring retraining. By estimating interaction-level popularity and removing popularity components from node representations via a popularity direction vector, PPD reduces bias while preserving user preferences. Experimental results show that our method outperforms state-of-the-art approaches for popularity bias correction in GNN-based CF.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-14T20:10:08Z",
+    "updated": "2025-10-14T20:10:08Z",
+    "url": "http://arxiv.org/abs/2510.12959v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12959v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心问题（协同过滤中的流行度偏差），提出了一种基于 GNN 的事后去偏方法，属于高优先级的核心领域进展。",
+    "translation": "基于图神经网络的协同过滤中事后流行度偏差校正",
+    "summary_zh": "提出一种事后流行度去偏方法，通过估计交互级流行度并从节点表示中移除流行度分量，直接在预训练嵌入上校正 GNN 聚合过程中的偏差而无需重训。",
+    "key_points": [
+      "提出一种事后流行度去偏方法，通过估计交互级流行度并从节点表示中移除流行度分量，直接在预训练嵌入上校正 GNN 聚合过程中的偏差而无需重训"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12211v1",
+    "title": "Reinforced Preference Optimization for Recommendation",
+    "authors": [
+      "Junfei Tan",
+      "Yuxin Chen",
+      "An Zhang",
+      "Junguang Jiang",
+      "Bin Liu",
+      "Ziru Xu",
+      "Han Zhu",
+      "Jian Xu",
+      "Bo Zheng",
+      "Xiang Wang"
+    ],
+    "summary": "Recent breakthroughs in large language models (LLMs) have fundamentally shifted recommender systems from discriminative to generative paradigms, where user behavior modeling is achieved by generating target items conditioned on historical interactions. Yet current generative recommenders still suffer from two core limitations: the lack of high-quality negative modeling and the reliance on implicit rewards. Reinforcement learning with verifiable rewards (RLVR) offers a natural solution by enabling on-policy sampling of harder negatives and grounding optimization in explicit reward signals. However, applying RLVR to generative recommenders remains non-trivial. Its unique generation space often leads to invalid or repetitive items that undermine sampling efficiency, and ranking supervision is sparse since most items receive identical zero rewards. To address these challenges, we propose Reinforced Preference Optimization for Recommendation (ReRe), a reinforcement-based paradigm tailored to LLM-based recommenders, an important direction in generative recommendation. ReRe incorporates constrained beam search to improve sampling efficiency and diversify hard negatives, while augmenting rule-based accuracy rewards with auxiliary ranking rewards for finer-grained supervision. Extensive experiments on three real-world datasets demonstrate that ReRe consistently outperforms both traditional and LLM-based recommenders in ranking performance. Further analysis shows that ReRe not only enhances performance across both base and SFT-initialized models but also generalizes robustly across different backbone families and scales. Beyond empirical gains, we systematically investigate the design space of RLVR in recommendation across generation, sampling strategy, reward modeling, and optimization algorithm, offering insights for future research.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-14T07:04:33Z",
+    "updated": "2025-10-14T07:04:33Z",
+    "url": "http://arxiv.org/abs/2510.12211v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12211v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "1Taobao&TmallGroupofAlibaba,China 2NationalUniversityofSingapore"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的生成式推荐系统，提出了强化学习优化方法（ReRe）以解决负采样和奖励稀疏问题，属于核心的 LLM for RecSys 研究；且来自中国公司，符合加分条件。",
+    "translation": "面向推荐的强化偏好优化方法",
+    "summary_zh": "本文提出 ReRe 框架，通过约束束搜索优化硬负样本采样，并结合规则准确性奖励与辅助排序奖励，解决了生成式推荐中无效采样和奖励信号稀疏的核心难题。",
+    "key_points": [
+      "本文提出 ReRe 框架，通过约束束搜索优化硬负样本采样，并结合规则准确性奖励与辅助排序奖励，解决了生成式推荐中无效采样和奖励信号稀疏的核心难题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12325v1",
+    "title": "Causal Inspired Multi Modal Recommendation",
+    "authors": [
+      "Jie Yang",
+      "Chenyang Gu",
+      "Zixuan Liu"
+    ],
+    "summary": "Multimodal recommender systems enhance personalized recommendations in e-commerce and online advertising by integrating visual, textual, and user-item interaction data. However, existing methods often overlook two critical biases: (i) modal confounding, where latent factors (e.g., brand style or product category) simultaneously drive multiple modalities and influence user preference, leading to spurious feature-preference associations; (ii) interaction bias, where genuine user preferences are mixed with noise from exposure effects and accidental clicks. To address these challenges, we propose a Causal-inspired multimodal Recommendation framework. Specifically, we introduce a dual-channel cross-modal diffusion module to identify hidden modal confounders, utilize back-door adjustment with hierarchical matching and vector-quantized codebooks to block confounding paths, and apply front-door adjustment combined with causal topology reconstruction to build a deconfounded causal subgraph. Extensive experiments on three real-world e-commerce datasets demonstrate that our method significantly outperforms state-of-the-art baselines while maintaining strong interpretability.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-14T09:29:07Z",
+    "updated": "2025-10-14T09:29:07Z",
+    "url": "http://arxiv.org/abs/2510.12325v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12325v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的因果偏差问题提出新架构，属于核心领域 advances，且来自工业界（TAL），完全符合高优先级标准。",
+    "translation": "因果启发的多模态推荐框架",
+    "summary_zh": "提出一种因果启发框架，利用双通道跨模态扩散模块识别混杂因子，并结合后门与前门调整机制消除模态混淆和交互偏差，以构建去偏的因果子图进行推荐。",
+    "key_points": [
+      "提出一种因果启发框架，利用双通道跨模态扩散模块识别混杂因子，并结合后门与前门调整机制消除模态混淆和交互偏差，以构建去偏的因果子图进行推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12604v4",
+    "title": "COINS: SemantiC Ids Enhanced COLd Item RepresentatioN for Click-through Rate Prediction in E-commerce Search",
+    "authors": [
+      "Qihang Zhao",
+      "Zhongbo Sun",
+      "Xiaoyang Zheng",
+      "Xian Guo",
+      "Siyuan Wang",
+      "Zihan Liang",
+      "Mingcan Peng",
+      "Ben Chen",
+      "Chenyi Lei"
+    ],
+    "summary": "With the rise of modern search and recommendation platforms, insufficient collaborative information of cold-start items exacerbates the Matthew effect of existing platform items, challenging platform diversity and becoming a longstanding issue. Existing methods align items' side content with collaborative information to transfer collaborative signals from high-popularity items to cold-start items. However, these methods fail to account for the asymmetry between collaboration and content, nor the fine-grained differences among items. To address these issues, we propose COINS, an item representation enhancement approach based on fused alignment of semantic IDs. Specifically, we use RQ-OPQ encoding to quantize item content and collaborative information, followed by a two-step alignment: RQ encoding transfers shared collaborative signals across items, while OPQ encoding learns differentiated information of items. Comprehensive offline experiments on large-scale industrial datasets demonstrate superiority of COINS, and rigorous online A/B tests confirm statistically significant improvements: item CTR +1.66%, buyers +1.57%, and order volume +2.17%.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-14T14:58:50Z",
+    "updated": "2026-01-15T02:58:58Z",
+    "url": "http://arxiv.org/abs/2510.12604v4",
+    "pdf_url": "http://arxiv.org/pdf/2510.12604v4.pdf",
+    "prerank_score": 10,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索中的冷启动物品 CTR 预测问题，提出了基于语义 ID 融合对齐的新方法，属于核心推荐搜索领域的实际应用创新。",
+    "translation": "COINS：基于语义 ID 增强的电商搜索冷启动物品表示与点击率预测",
+    "summary_zh": "提出 COINS 方法，利用 RQ-OPQ 编码量化物品内容与协同信息，并通过两步对齐机制解决冷启动物品中协同信号与内容信息的不对称及细粒度差异问题。",
+    "key_points": [
+      "提出 COINS 方法，利用 RQ-OPQ 编码量化物品内容与协同信息，并通过两步对齐机制解决冷启动物品中协同信号与内容信息的不对称及细粒度差异问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12742v1",
+    "title": "CTRL-Rec: Controlling Recommender Systems With Natural Language",
+    "authors": [
+      "Micah Carroll",
+      "Adeline Foote",
+      "Kevin Feng",
+      "Marcus Williams",
+      "Anca Dragan",
+      "W. Bradley Knox",
+      "Smitha Milli"
+    ],
+    "summary": "When users are dissatisfied with recommendations from a recommender system, they often lack fine-grained controls for changing them. Large language models (LLMs) offer a solution by allowing users to guide their recommendations through natural language requests (e.g., \"I want to see respectful posts with a different perspective than mine\"). We propose a method, CTRL-Rec, that allows for natural language control of traditional recommender systems in real-time with computational efficiency. Specifically, at training time, we use an LLM to simulate whether users would approve of items based on their language requests, and we train embedding models that approximate such simulated judgments. We then integrate these user-request-based predictions into the standard weighting of signals that traditional recommender systems optimize. At deployment time, we require only a single LLM embedding computation per user request, allowing for real-time control of recommendations. In experiments with the MovieLens dataset, our method consistently allows for fine-grained control across a diversity of requests. In a study with 19 Letterboxd users, we find that CTRL-Rec was positively received by users and significantly enhanced users' sense of control and satisfaction with recommendations compared to traditional controls.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-10-14T17:20:04Z",
+    "updated": "2025-10-14T17:20:04Z",
+    "url": "http://arxiv.org/abs/2510.12742v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12742v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1MATS 2University of Washington 3UC Berkeley 4UT Austin 5FAIR at Meta"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中的用户细粒度控制问题，创新性地将 LLM 的自然语言理解能力应用于传统推荐架构的实时干预，属于 LLM for RecSys 的高优先级应用。",
+    "translation": "CTRL-Rec：利用自然语言控制推荐系统",
+    "summary_zh": "提出一种利用 LLM 模拟用户语言请求偏好并训练嵌入模型的方法，将自然语言指令实时融入传统推荐系统的信号加权中，实现高效细粒度的推荐控制。",
+    "key_points": [
+      "提出一种利用 LLM 模拟用户语言请求偏好并训练嵌入模型的方法，将自然语言指令实时融入传统推荐系统的信号加权中，实现高效细粒度的推荐控制"
+    ]
+  },
+  {
+    "arxiv_id": "2601.03608v1",
+    "title": "Shielded RecRL: Explanation Generation for Recommender Systems without Ranking Degradation",
+    "authors": [
+      "Ansh Tiwari",
+      "Ayush Chauhan"
+    ],
+    "summary": "We introduce Shielded RecRL, a reinforcement learning approach to generate personalized explanations for recommender systems without sacrificing the system's original ranking performance. Unlike prior RLHF-based recommender methods that directly optimize item rankings, our two-tower architecture keeps the recommender's ranking model intact while a language model learns to produce helpful explanations. We design a composite reward signal combining explanation length, content relevance, and coherence, and apply proximal policy optimization (PPO) with a KL-divergence constraint to fine-tune a large language model with only 0.4% of its parameters trainable via LoRA adapters. In experiments on an Amazon Books dataset (approximately 50K interactions in the fantasy and romance genres), Shielded RecRL improved the relative click-through rate (CTR) by 22.5% (1.225x over baseline) while keeping the recommender's item-ranking behavior virtually unchanged. An extensive ablation study confirms that our gradient shielding strategy and reward design effectively balance explanation quality and policy drift. Our results demonstrate that Shielded RecRL enhances user-facing aspects of recommendations through rich, personalized explanations without degrading core recommendation accuracy.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-14T16:37:48Z",
+    "updated": "2025-10-14T16:37:48Z",
+    "url": "http://arxiv.org/abs/2601.03608v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.03608v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的解释生成问题，提出了一种在不损害核心排序性能的前提下利用 RL 微调 LLM 的方法，属于 LLM 在 RecSys 中的直接应用。",
+    "translation": "Shielded RecRL：在不降低排序性能的条件下为推荐系统生成解释",
+    "summary_zh": "提出一种双塔架构的强化学习方法，通过梯度屏蔽策略微调大语言模型以生成个性化推荐解释，同时确保原有推荐排序模型的准确性不受影响。",
+    "key_points": [
+      "提出一种双塔架构的强化学习方法，通过梯度屏蔽策略微调大语言模型以生成个性化推荐解释，同时确保原有推荐排序模型的准确性不受影响"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12461v1",
+    "title": "Leveraging Language Semantics for Collaborative Filtering with TextGCN and TextGCN-MLP: Zero-Shot vs In-Domain Performance",
+    "authors": [
+      "Andrei Chernov",
+      "Haroon Wahab",
+      "Oleg Novitskij"
+    ],
+    "summary": "In recent years, various approaches have been proposed to leverage large language models (LLMs) for incorporating textual information about items into recommender systems. Existing methods primarily focus on either fine-tuning LLMs to generate recommendations or integrating LLM-based embeddings into downstream models. In this work, we follow the latter direction and propose \\textbf{TextGCN}, which applies parameter-free graph convolution layers directly over LLM-based item-title embeddings, instead of learning ID-based embeddings as in traditional methods. By combining language semantics with graph message passing, this architecture achieves state-of-the-art zero-shot performance, significantly outperforming prior approaches. Furthermore, we introduce \\textbf{TextGCN-MLP}, which extends TextGCN with a trainable multilayer perceptron trained using a contrastive loss, achieving state-of-the-art in-domain performance on recommendation benchmarks. However, the zero-shot performance of TextGCN-MLP remains lower than that of TextGCN, highlighting the trade-off between in-domain specialization and zero-shot generalization. We release our code on github at \\href{https://github.com/ChernovAndrey/TFCE}{github.com/ChernovAndrey/TFCE}.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-14T12:50:11Z",
+    "updated": "2025-10-14T12:50:11Z",
+    "url": "http://arxiv.org/abs/2510.12461v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12461v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤问题，提出利用 LLM 语义结合图卷积（TextGCN）的新架构，属于 LLM 在 RecSys 中的直接应用而非纯 LLM 研究。",
+    "translation": "利用语言语义进行协同过滤：TextGCN 与 TextGCN-MLP 的零样本与域内性能研究",
+    "summary_zh": "提出 TextGCN 架构，直接在 LLM 生成的物品标题嵌入上应用无参数图卷积层以融合语言语义与图消息传递，并扩展出结合对比损失训练 MLP 的 TextGCN-MLP 以优化域内推荐性能。",
+    "key_points": [
+      "提出 TextGCN 架构，直接在 LLM 生成的物品标题嵌入上应用无参数图卷积层以融合语言语义与图消息传递，并扩展出结合对比损失训练 MLP 的 TextGCN-MLP 以优化域内推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12327v1",
+    "title": "Simple Projection Variants Improve ColBERT Performance",
+    "authors": [
+      "Benjamin Clavié",
+      "Sean Lee",
+      "Rikiya Takehi",
+      "Aamir Shakir",
+      "Makoto P. Kato"
+    ],
+    "summary": "Multi-vector dense retrieval methods like ColBERT systematically use a single-layer linear projection to reduce the dimensionality of individual vectors. In this study, we explore the implications of the MaxSim operator on the gradient flows of the training of multi-vector models and show that such a simple linear projection has inherent, if non-critical, limitations in this setting. We then discuss the theoretical improvements that could result from replacing this single-layer projection with well-studied alternative feedforward linear networks (FFN), such as deeper, non-linear FFN blocks, GLU blocks, and skip-connections, could alleviate these limitations. Through the design and systematic evaluation of alternate projection blocks, we show that better-designed final projections positively impact the downstream performance of ColBERT models. We highlight that many projection variants outperform the original linear projections, with the best-performing variants increasing average performance on a range of retrieval benchmarks across domains by over 2 NDCG@10 points. We then conduct further exploration on the individual parameters of these projections block in order to understand what drives this empirical performance, highlighting the particular importance of upscaled intermediate projections and residual connections. As part of these ablation studies, we show that numerous suboptimal projection variants still outperform the traditional single-layer projection across multiple benchmarks, confirming our hypothesis. Finally, we observe that this effect is consistent across random seeds, further confirming that replacing the linear layer of ColBERT models is a robust, drop-in upgrade.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-10-14T09:34:05Z",
+    "updated": "2025-10-14T09:34:05Z",
+    "url": "http://arxiv.org/abs/2510.12327v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12327v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对检索系统（ColBERT）的核心架构进行改进，属于搜索/推荐中的召回与匹配环节，具有明确的业务应用价值。",
+    "translation": "简单投影变体提升 ColBERT 性能",
+    "summary_zh": "本文提出用非线性前馈网络块替代 ColBERT 模型中的单层线性投影，以优化多向量检索中的梯度流并提升下游检索效果。",
+    "key_points": [
+      "本文提出用非线性前馈网络块替代 ColBERT 模型中的单层线性投影，以优化多向量检索中的梯度流并提升下游检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12054v1",
+    "title": "MIARec: Mutual-influence-aware Heterogeneous Network Embedding for Scientific Paper Recommendation",
+    "authors": [
+      "Wenjin Xie",
+      "Tao Jia"
+    ],
+    "summary": "With the rapid expansion of scientific literature, scholars increasingly demand precise and high-quality paper recommendations. Among various recommendation methodologies, graph-based approaches have garnered attention by effectively exploiting the structural characteristics inherent in scholarly networks. However, these methods often overlook the asymmetric academic influence that is prevalent in scholarly networks when learning graph representations. To address this limitation, this study proposes the Mutual-Influence-Aware Recommendation (MIARec) model, which employs a gravity-based approach to measure the mutual academic influence between scholars and incorporates this influence into the feature aggregation process during message propagation in graph representation learning. Additionally, the model utilizes a multi-channel aggregation method to capture both individual embeddings of distinct single relational sub-networks and their interdependent embeddings, thereby enabling a more comprehensive understanding of the heterogeneous scholarly network. Extensive experiments conducted on real-world datasets demonstrate that the MIARec model outperforms baseline models across three primary evaluation metrics, indicating its effectiveness in scientific paper recommendation tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-14T01:47:25Z",
+    "updated": "2025-10-14T01:47:25Z",
+    "url": "http://arxiv.org/abs/2510.12054v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12054v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对学术论文推荐场景，提出了一种基于相互影响力感知的异构图嵌入方法，属于核心推荐技术在垂直领域的应用。",
+    "translation": "MIARec：用于科学论文推荐的相互影响力感知异构网络嵌入",
+    "summary_zh": "提出 MIARec 模型，通过基于重力的方法量化学者间的相互学术影响力，并利用多通道聚合机制融合异构子网特征以增强论文推荐表示学习。",
+    "key_points": [
+      "提出 MIARec 模型，通过基于重力的方法量化学者间的相互学术影响力，并利用多通道聚合机制融合异构子网特征以增强论文推荐表示学习"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12523v1",
+    "title": "Multi-Armed Bandits with Minimum Aggregated Revenue Constraints",
+    "authors": [
+      "Ahmed Ben Yahmed",
+      "Hafedh El Ferchichi",
+      "Marc Abeille",
+      "Vianney Perchet"
+    ],
+    "summary": "We examine a multi-armed bandit problem with contextual information, where the objective is to ensure that each arm receives a minimum aggregated reward across contexts while simultaneously maximizing the total cumulative reward. This framework captures a broad class of real-world applications where fair revenue allocation is critical and contextual variation is inherent. The cross-context aggregation of minimum reward constraints, while enabling better performance and easier feasibility, introduces significant technical challenges -- particularly the absence of closed-form optimal allocations typically available in standard MAB settings. We design and analyze algorithms that either optimistically prioritize performance or pessimistically enforce constraint satisfaction. For each algorithm, we derive problem-dependent upper bounds on both regret and constraint violations. Furthermore, we establish a lower bound demonstrating that the dependence on the time horizon in our results is optimal in general and revealing fundamental limitations of the free exploration principle leveraged in prior work.",
+    "categories": [
+      "cs.LG",
+      "math.OC"
+    ],
+    "published": "2025-10-14T13:47:34Z",
+    "updated": "2025-10-14T13:47:34Z",
+    "url": "http://arxiv.org/abs/2510.12523v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12523v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该文研究带约束的上下文多臂老虎机，直接解决推荐/广告系统中的公平性（最小收入保障）与收益最大化平衡问题，属于核心排序/重排序策略；虽为通用算法但场景明确，且来自工业界（TAL），故给予高分。",
+    "translation": "具有最小聚合收入约束的多臂老虎机研究",
+    "summary_zh": "提出一种带上下文的新型多臂老虎机框架，通过在跨上下文层面施加最小聚合奖励约束，在保证各臂公平收入分配的同时最大化累计总收益，并设计了兼顾性能优化与约束满足的算法。",
+    "key_points": [
+      "提出一种带上下文的新型多臂老虎机框架，通过在跨上下文层面施加最小聚合奖励约束，在保证各臂公平收入分配的同时最大化累计总收益，并设计了兼顾性能优化与约束满足的算法"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12474v1",
+    "title": "SMEC: Rethinking Matryoshka Representation Learning for Retrieval Embedding Compression",
+    "authors": [
+      "Biao Zhang",
+      "Lixin Chen",
+      "Tong Liu",
+      "Bo Zheng"
+    ],
+    "summary": "Large language models (LLMs) generate high-dimensional embeddings that capture rich semantic and syntactic information. However, high-dimensional embeddings exacerbate computational complexity and storage requirements, thereby hindering practical deployment. To address these challenges, we propose a novel training framework named Sequential Matryoshka Embedding Compression (SMEC). This framework introduces the Sequential Matryoshka Representation Learning(SMRL) method to mitigate gradient variance during training, the Adaptive Dimension Selection (ADS) module to reduce information degradation during dimension pruning, and the Selectable Cross-batch Memory (S-XBM) module to enhance unsupervised learning between high- and low-dimensional embeddings. Experiments on image, text, and multimodal datasets demonstrate that SMEC achieves significant dimensionality reduction while maintaining performance. For instance, on the BEIR dataset, our approach improves the performance of compressed LLM2Vec embeddings (256 dimensions) by 1.1 points and 2.7 points compared to the Matryoshka-Adaptor and Search-Adaptor models, respectively.",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-10-14T13:04:22Z",
+    "updated": "2025-10-14T13:04:22Z",
+    "url": "http://arxiv.org/abs/2510.12474v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12474v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种针对检索嵌入压缩的通用表示学习方法，虽可应用于搜索召回阶段以降低存储和计算成本，但核心贡献在于通用表征学习而非特定的推荐/搜索系统架构创新；因来自中国公司额外加 1 分。",
+    "translation": "SMEC：重思考套娃表示学习以实现检索嵌入压缩",
+    "summary_zh": "提出 SMEC 框架，通过序列套娃表示学习和自适应维度选择模块，在大幅降低 LLM 生成的高维嵌入维度的同时，有效缓解梯度方差并减少信息退化，以优化检索系统的存储与计算效率。",
+    "key_points": [
+      "提出 SMEC 框架，通过序列套娃表示学习和自适应维度选择模块，在大幅降低 LLM 生成的高维嵌入维度的同时，有效缓解梯度方差并减少信息退化，以优化检索系统的存储与计算效率"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12801v1",
+    "title": "DeepMMSearch-R1: Empowering Multimodal LLMs in Multimodal Web Search",
+    "authors": [
+      "Kartik Narayan",
+      "Yang Xu",
+      "Tian Cao",
+      "Kavya Nerella",
+      "Vishal M. Patel",
+      "Navid Shiee",
+      "Peter Grasch",
+      "Chao Jia",
+      "Yinfei Yang",
+      "Zhe Gan"
+    ],
+    "summary": "Multimodal Large Language Models (MLLMs) in real-world applications require access to external knowledge sources and must remain responsive to the dynamic and ever-changing real-world information in order to address information-seeking and knowledge-intensive user queries. Existing approaches, such as retrieval augmented generation (RAG) methods, search agents, and search equipped MLLMs, often suffer from rigid pipelines, excessive search calls, and poorly constructed search queries, which result in inefficiencies and suboptimal outcomes. To address these limitations, we present DeepMMSearch-R1, the first multimodal LLM capable of performing on-demand, multi-turn web searches and dynamically crafting queries for both image and text search tools. Specifically, DeepMMSearch-R1 can initiate web searches based on relevant crops of the input image making the image search more effective, and can iteratively adapt text search queries based on retrieved information, thereby enabling self-reflection and self-correction. Our approach relies on a two-stage training pipeline: a cold start supervised finetuning phase followed by an online reinforcement learning optimization. For training, we introduce DeepMMSearchVQA, a novel multimodal VQA dataset created through an automated pipeline intermixed with real-world information from web search tools. This dataset contains diverse, multi-hop queries that integrate textual and visual information, teaching the model when to search, what to search for, which search tool to use and how to reason over the retrieved information. We conduct extensive experiments across a range of knowledge-intensive benchmarks to demonstrate the superiority of our approach. Finally, we analyze the results and provide insights that are valuable for advancing multimodal web-search.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-10-14T17:59:58Z",
+    "updated": "2025-10-14T17:59:58Z",
+    "url": "http://arxiv.org/abs/2510.12801v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12801v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Apple"
+    ],
+    "affiliation_lines": [
+      "1JohnsHopkinsUniversity,2Apple"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯 LLM 与多模态搜索代理（Agent）的研究，侧重于通用 Web 搜索中的推理与查询生成，缺乏针对推荐系统或电商/社交搜索产品的直接应用与核心架构创新。",
+    "translation": "DeepMMSearch-R1：赋能多模态大模型进行多模态 Web 搜索",
+    "summary_zh": "提出一种基于两阶段训练的多模态大模型，能够根据图像区域动态发起多轮 Web 搜索并自适应修正文本查询，以解决复杂知识密集型问答中的信息获取问题。",
+    "key_points": [
+      "提出一种基于两阶段训练的多模态大模型，能够根据图像区域动态发起多轮 Web 搜索并自适应修正文本查询，以解决复杂知识密集型问答中的信息获取问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12049v3",
+    "title": "Generative AI and Firm Productivity: Field Experiments in Online Retail",
+    "authors": [
+      "Lu Fang",
+      "Zhe Yuan",
+      "Kaifu Zhang",
+      "Dante Donati",
+      "Miklos Sarvary"
+    ],
+    "summary": "We quantify the impact of Generative Artificial Intelligence (GenAI) on firm productivity through a series of large-scale randomized field experiments involving millions of users and products at a leading cross-border online retail platform. Over six months in 2023-2024, GenAI-based enhancements were integrated into seven consumer-facing business workflows. We find that GenAI adoption significantly increases sales, with treatment effects ranging from $0\\%$ to $16.3\\%$, depending on GenAI's marginal contribution relative to existing firm practices. Because inputs and prices were held constant across experimental arms, these gains map directly into total factor productivity improvements. Across the four GenAI applications with positive sales effects, the implied annual incremental value is approximately $\\$ 5$ per consumer-an economically meaningful impact given the retailer's scale and the early stage of GenAI adoption. The primary mechanism operates through higher conversion rates, consistent with GenAI reducing frictions and improving consumer experience. Importantly, these effects are not associated with worse post-purchase outcomes, as product return rates and customer ratings do not deteriorate. Finally, we document substantial demand-side heterogeneity, with larger gains for less experienced consumers. Our findings provide novel, large-scale causal evidence on the productivity effects of GenAI in online retail, highlighting both its immediate value and broader potential.",
+    "categories": [
+      "econ.GN",
+      "cs.AI"
+    ],
+    "published": "2025-10-14T01:17:09Z",
+    "updated": "2026-02-10T16:24:46Z",
+    "url": "http://arxiv.org/abs/2510.12049v3",
+    "pdf_url": "http://arxiv.org/pdf/2510.12049v3.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注生成式 AI 对电商企业生产力和销售额的宏观经济学影响（现场实验），而非推荐或搜索算法本身的核心技术创新；虽涉及电商场景，但缺乏对检索、匹配或排序模型的具体改进，属于弱相关的应用研究。",
+    "translation": "生成式人工智能与企业生产力：在线零售领域的现场实验",
+    "summary_zh": "本文通过在大型跨境电商平台进行大规模随机现场实验，量化了将生成式 AI 集成到消费者-facing 工作流程中对提升销售转化率和总要素生产率的因果效应。",
+    "key_points": [
+      "本文通过在大型跨境电商平台进行大规模随机现场实验，量化了将生成式 AI 集成到消费者-facing 工作流程中对提升销售转化率和总要素生产率的因果效应"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12447v1",
+    "title": "Bayesian Optimization for Dynamic Pricing and Learning",
+    "authors": [
+      "Anush Anand",
+      "Pranav Agrawal",
+      "Tejas Bodas"
+    ],
+    "summary": "Dynamic pricing is the practice of adjusting the selling price of a product to maximize a firm's revenue by responding to market demand. The literature typically distinguishes between two settings: infinite inventory, where the firm has unlimited stock and time to sell, and finite inventory, where both inventory and selling horizon are limited. In both cases, the central challenge lies in the fact that the demand function -- how sales respond to price -- is unknown and must be learned from data. Traditional approaches often assume a specific parametric form for the demand function, enabling the use of reinforcement learning (RL) to identify near-optimal pricing strategies. However, such assumptions may not hold in real-world scenarios, limiting the applicability of these methods. In this work, we propose a Gaussian Process (GP) based nonparametric approach to dynamic pricing that avoids restrictive modeling assumptions. We treat the demand function as a black-box function of the price and develop pricing algorithms based on Bayesian Optimization (BO) -- a sample-efficient method for optimizing unknown functions. We present BO-based algorithms tailored for both infinite and finite inventory settings and provide regret guarantees for both regimes, thereby quantifying the learning efficiency of our methods. Through extensive experiments, we demonstrate that our BO-based methods outperform several state-of-the-art RL algorithms in terms of revenue, while requiring fewer assumptions and offering greater robustness. This highlights Bayesian Optimization as a powerful and practical tool for dynamic pricing in complex, uncertain environments.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-14T12:28:06Z",
+    "updated": "2025-10-14T12:28:06Z",
+    "url": "http://arxiv.org/abs/2510.12447v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12447v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦动态定价而非推荐/搜索核心链路（召回、排序等），虽属电商相关但非 RecSys 直接研究；因来自中国公司额外加 1 分，否则为 3 分。",
+    "translation": "基于贝叶斯优化的动态定价与学习研究",
+    "summary_zh": "提出一种基于高斯过程和贝叶斯优化的非参数化动态定价方法，将需求函数视为黑盒以在无需强假设下优化收益。",
+    "key_points": [
+      "提出一种基于高斯过程和贝叶斯优化的非参数化动态定价方法，将需求函数视为黑盒以在无需强假设下优化收益"
+    ]
+  },
+  {
+    "arxiv_id": "2510.12323v1",
+    "title": "RAG-Anything: All-in-One RAG Framework",
+    "authors": [
+      "Zirui Guo",
+      "Xubin Ren",
+      "Lingrui Xu",
+      "Jiahao Zhang",
+      "Chao Huang"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has emerged as a fundamental paradigm for expanding Large Language Models beyond their static training limitations. However, a critical misalignment exists between current RAG capabilities and real-world information environments. Modern knowledge repositories are inherently multimodal, containing rich combinations of textual content, visual elements, structured tables, and mathematical expressions. Yet existing RAG frameworks are limited to textual content, creating fundamental gaps when processing multimodal documents. We present RAG-Anything, a unified framework that enables comprehensive knowledge retrieval across all modalities. Our approach reconceptualizes multimodal content as interconnected knowledge entities rather than isolated data types. The framework introduces dual-graph construction to capture both cross-modal relationships and textual semantics within a unified representation. We develop cross-modal hybrid retrieval that combines structural knowledge navigation with semantic matching. This enables effective reasoning over heterogeneous content where relevant evidence spans multiple modalities. RAG-Anything demonstrates superior performance on challenging multimodal benchmarks, achieving significant improvements over state-of-the-art methods. Performance gains become particularly pronounced on long documents where traditional approaches fail. Our framework establishes a new paradigm for multimodal knowledge access, eliminating the architectural fragmentation that constrains current systems. Our framework is open-sourced at: https://github.com/HKUDS/RAG-Anything.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-10-14T09:25:35Z",
+    "updated": "2025-10-14T09:25:35Z",
+    "url": "http://arxiv.org/abs/2510.12323v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.12323v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM/RAG 框架研究，旨在解决多模态文档的通用问答问题，未明确针对推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），仅因多模态检索技术有潜在参考价值且来自中国企业而给予微弱加分。",
+    "translation": "RAG-Anything：一体化检索增强生成框架",
+    "summary_zh": "提出一种统一的多模态 RAG 框架，通过双图构建和跨模态混合检索机制，将文本、图像、表格等异构内容转化为互联知识实体以实现综合推理。",
+    "key_points": [
+      "提出一种统一的多模态 RAG 框架，通过双图构建和跨模态混合检索机制，将文本、图像、表格等异构内容转化为互联知识实体以实现综合推理"
+    ]
+  }
+]

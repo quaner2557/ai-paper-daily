@@ -1,0 +1,225 @@
+[
+  {
+    "arxiv_id": "2603.06243v1",
+    "title": "MLLMRec-R1: Incentivizing Reasoning Capability in Large Language Models for Multimodal Sequential Recommendation",
+    "authors": [
+      "Yu Wang",
+      "Yonghui Yang",
+      "Le Wu",
+      "Jiancan Wu",
+      "Hefei Xu",
+      "Hui Lin"
+    ],
+    "summary": "Group relative policy optimization (GRPO) has become a standard post-training paradigm for improving reasoning and preference alignment in large language models (LLMs), and has recently shown strong effectiveness in LLM-based recommender systems. However, extending GRPO-based reasoning pipelines to multimodal sequential recommendation (MSR) with multimodal large language models (MLLMs) faces fundamental obstacles. First, MSR requires jointly encoding visual content for both historical interactions and multiple candidate items, causing visual tokens to dominate the input and making the cost of group-based rollout scale with history length and candidate set size, which renders GRPO-based training prohibitively expensive. Second, existing Chain-of-Thought (CoT) supervision suffers from reward inflation in recommendation scenarios, where higher training rewards do not reliably translate into improved ranking performance and may induce shortcut learning. To address these challenges, we propose MLLMRec-R1, an efficient and stable GRPO-based reasoning framework for multimodal sequential recommendation. MLLMRec-R1 textualizes visual signals offline to eliminate expensive visual tokens while preserving multimodal semantics, and constructs high-quality multimodal CoT supervision through refinement and confidence-aware assessment. Furthermore, a mixed-grained data augmentation strategy selectively injects reliable CoT samples while retaining standard training data, mitigating reward inflation and improving generalization stability. Extensive experiments on three benchmark datasets demonstrate that MLLMRec-R1 consistently outperforms state-of-the-art methods, establishing a practical and effective GRPO-based reasoning pipeline for multimodal sequential recommendation. The code is available at https://github.com/wangyu0627/MLLMRec-R1.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-06T13:05:06Z",
+    "updated": "2026-03-06T13:05:06Z",
+    "url": "http://arxiv.org/abs/2603.06243v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06243v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态序列推荐（MSR）场景，提出了基于 GRPO 的推理框架以解决视觉 token 开销和奖励膨胀问题，属于 LLM 在推荐系统中的核心应用，且来自中国公司额外加 1 分后满分。",
+    "translation": "MLLMRec-R1：激励大语言模型在多模态序列推荐中的推理能力",
+    "summary_zh": "提出一种高效的 GRPO 基推理框架，通过离线文本化视觉信号和构建高质量多模态思维链监督，解决了多模态序列推荐中训练成本过高及奖励膨胀的难题。",
+    "key_points": [
+      "提出一种高效的 GRPO 基推理框架，通过离线文本化视觉信号和构建高质量多模态思维链监督，解决了多模态序列推荐中训练成本过高及奖励膨胀的难题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.05780v1",
+    "title": "Balancing Domestic and Global Perspectives: Evaluating Dual-Calibration and LLM-Generated Nudges for Diverse News Recommendation",
+    "authors": [
+      "Ruixuan Sun",
+      "Matthew Zent",
+      "Minzhu Zhao",
+      "Thanmayee Boyapati",
+      "Xinyi Li",
+      "Joseph A. Konstan"
+    ],
+    "summary": "In this study, we applied the ``personalized diversity nudge framework'' with the goal of expanding user reading coverage in terms of news locality (i.e., domestic and world news). We designed a novel topic-locality dual calibration algorithmic nudge and a large language model-based news personalization presentation nudge, then launched a 5-week real-user study with 120 U.S. news readers on the news recommendation experiment platform POPROX. With user interaction logs and survey responses, we found that algorithmic nudges can successfully increase exposure and consumption diversity, while the impact of LLM-based presentation nudges varied. User-level topic interest is a strong predictor of user clicks, while highlighting the relevance of news articles to prior read articles outperforms generic topic-based and no personalization. We also demonstrate that longitudinal exposure to calibrated news may shift readers' reading habits to value a balanced news digest from both domestic and world articles. Our results provide direction for future work on nudging for diverse consumption in news recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2026-03-06T00:21:43Z",
+    "updated": "2026-03-06T00:21:43Z",
+    "url": "http://arxiv.org/abs/2603.05780v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.05780v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对新闻推荐系统中的多样性问题，提出了双重校准算法和 LLM 生成的助推策略，并通过真实用户实验验证，属于明确的 RecSys 应用研究。",
+    "translation": "平衡国内与全球视角：评估新闻推荐中的双重校准与 LLM 生成助推策略",
+    "summary_zh": "提出一种结合主题 - 地域双重校准算法与 LLM 生成个性化呈现的助推框架，旨在通过干预推荐内容暴露和展示方式，提升用户在新闻消费中的地域多样性并优化阅读习惯。",
+    "key_points": [
+      "提出一种结合主题 - 地域双重校准算法与 LLM 生成个性化呈现的助推框架，旨在通过干预推荐内容暴露和展示方式，提升用户在新闻消费中的地域多样性并优化阅读习惯"
+    ]
+  },
+  {
+    "arxiv_id": "2603.05919v1",
+    "title": "Design Experiments to Compare Multi-armed Bandit Algorithms",
+    "authors": [
+      "Huiling Meng",
+      "Ningyuan Chen",
+      "Xuefeng Gao"
+    ],
+    "summary": "Online platforms routinely compare multi-armed bandit algorithms, such as UCB and Thompson Sampling, to select the best-performing policy. Unlike standard A/B tests for static treatments, each run of a bandit algorithm over $T$ users produces only one dependent trajectory, because the algorithm's decisions depend on all past interactions. Reliable inference therefore demands many independent restarts of the algorithm, making experimentation costly and delaying deployment decisions. We propose Artificial Replay (AR) as a new experimental design for this problem. AR first runs one policy and records its trajectory. When the second policy is executed, it reuses a recorded reward whenever it selects an action the first policy already took, and queries the real environment only otherwise. We develop a new analytical framework for this design and prove three key properties of the resulting estimator: it is unbiased; it requires only $T + o(T)$ user interactions instead of $2T$ for a run of the treatment and control policies, nearly halving the experimental cost when both policies have sub-linear regret; and its variance grows sub-linearly in $T$, whereas the estimator from a naïve design has a linearly-growing variance. Numerical experiments with UCB, Thompson Sampling, and $ε$-greedy policies confirm these theoretical gains.",
+    "categories": [
+      "cs.LG",
+      "math.ST",
+      "stat.ML"
+    ],
+    "published": "2026-03-06T05:17:47Z",
+    "updated": "2026-03-06T05:17:47Z",
+    "url": "http://arxiv.org/abs/2603.05919v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.05919v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种用于比较在线平台多臂老虎机算法的新型实验设计，直接解决了推荐系统和广告策略评估中的核心问题；虽非纯 LLM 研究，但针对 RecSys 关键的策略选择与评估环节，且来自中国公司，故给予高分。",
+    "translation": "设计实验以比较多臂老虎机算法",
+    "summary_zh": "提出人工回放（Artificial Replay）实验设计，通过复用历史轨迹数据来高效比较不同的多臂老虎机策略，显著降低实验成本并保证估计量的无偏性与低方差。",
+    "key_points": [
+      "提出人工回放（Artificial Replay）实验设计，通过复用历史轨迹数据来高效比较不同的多臂老虎机策略，显著降低实验成本并保证估计量的无偏性与低方差"
+    ]
+  },
+  {
+    "arxiv_id": "2603.06405v1",
+    "title": "Tag-specific Regret Minimization Problem in Outdoor Advertising",
+    "authors": [
+      "Dildar Ali",
+      "Abishek Salaria",
+      "Ansh Jasrotia",
+      "Suman Banerjee"
+    ],
+    "summary": "Recently, out-of-home advertising has become a popular marketing technique, due to its higher return on investment. E-commerce houses approach the influence provider to achieve effective advertising through their tags (advertising content), influence demand, and budgets. The influence provider's goal will be to make proper tag allocations, meet the required influence demand within the budget constraint, and minimize total regret. We formalize this as a combinatorial optimization problem and refer to it as \\textsc{Tag-specific Regret Minimization in Outdoor Advertising (TRMOA)}. We show that TRMOA is NP-hard and inapproximable within a constant factor. The regret model we consider is non-monotone and non-submodular, and the simple greedy approach is ineffective. We introduce a fairness-aware greedy round-robin approach that reduces regret with balanced allocation across advertisers. To improve, we also introduce randomized greedy and local search algorithms. We have experimented with all the methodologies using real-world trajectory and billboard datasets to show the effectiveness and efficiency of the solution methodologies.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-03-06T15:47:34Z",
+    "updated": "2026-03-06T15:47:34Z",
+    "url": "http://arxiv.org/abs/2603.06405v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06405v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦户外广告（Ads）的资源分配与后悔最小化，属于推荐/广告系统的核心业务场景，但主要侧重组合优化算法而非深度学习或 LLM 应用；因来自中国公司额外加 1 分。",
+    "translation": "户外广告中标签特定的后悔最小化问题",
+    "summary_zh": "本文将户外广告标签分配形式化为非单调非次模的组合优化问题，并提出公平感知的轮询贪心及随机局部搜索算法以在预算约束下最小化总后悔值。",
+    "key_points": [
+      "本文将户外广告标签分配形式化为非单调非次模的组合优化问题，并提出公平感知的轮询贪心及随机局部搜索算法以在预算约束下最小化总后悔值"
+    ]
+  },
+  {
+    "arxiv_id": "2603.06159v1",
+    "title": "Efficient Vector Search in the Wild: One Model for Multi-K Queries",
+    "authors": [
+      "Yifan Peng",
+      "Jiafei Fan",
+      "Xingda Wei",
+      "Sijie Shen",
+      "Rong Chen",
+      "Jianning Wang",
+      "Xiaojian Luo",
+      "Wenyuan Yu",
+      "Jingren Zhou",
+      "Haibo Chen"
+    ],
+    "summary": "Learned top-K search is a promising approach for serving vector queries with both high accuracy and performance. However, current models trained for a specific K value fail to generalize to real-world multi-K queries: they suffer from accuracy degradation (for larger Ks) and performance loss (for smaller Ks). Training the model to generalize on different Ks requires orders of magnitude more preprocessing time and is not suitable for serving vector queries in the wild. We present OMEGA, a K-generalizable learned top-K search method that simultaneously achieves high accuracy, high performance, and low preprocessing cost for multi-K vector queries. The key idea is that a base model properly trained on K=1 with our trajectory-based features can be used to accurately predict larger Ks with a dynamic refinement procedure and smaller Ks with minimal performance loss. To make our refinements efficient, we further leverage the statistical properties of top-K searches to reduce excessive model invocations. Extensive evaluations on multiple public and production datasets show that, under the same preprocessing budgets, OMEGA achieves 6-33% lower average latency compared to state-of-the-art learned search methods, while all systems achieve the same recall target. With only 16-30% of the preprocessing time, OMEGA attains 1.01-1.28x of the optimal average latency of these baselines.",
+    "categories": [
+      "cs.DB",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-03-06T11:09:32Z",
+    "updated": "2026-03-06T11:09:32Z",
+    "url": "http://arxiv.org/abs/2603.06159v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06159v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种通用的向量检索优化方法，虽可应用于推荐/搜索的召回环节，但属于底层基础设施研究，未针对 RecSys 特定场景（如用户建模、多模态语义）进行创新。",
+    "translation": "野外高效向量搜索：一种模型支持多 K 值查询",
+    "summary_zh": "提出 OMEGA 方法，通过基于轨迹的特征训练单一基础模型，结合动态细化过程，实现对不同 K 值向量查询的泛化支持，从而在保证准确率的同时降低预处理成本和查询延迟。",
+    "key_points": [
+      "提出 OMEGA 方法，通过基于轨迹的特征训练单一基础模型，结合动态细化过程，实现对不同 K 值向量查询的泛化支持，从而在保证准确率的同时降低预处理成本和查询延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2603.05781v1",
+    "title": "Visual Words Meet BM25: Sparse Auto-Encoder Visual Word Scoring for Image Retrieval",
+    "authors": [
+      "Donghoon Han",
+      "Eunhwan Park",
+      "Seunghyeon Seo"
+    ],
+    "summary": "Dense image retrieval is accurate but offers limited interpretability and attribution, and it can be compute-intensive at scale. We present \\textbf{BM25-V}, which applies Okapi BM25 scoring to sparse visual-word activations from a Sparse Auto-Encoder (SAE) on Vision Transformer patch features. Across a large gallery, visual-word document frequencies are highly imbalanced and follow a Zipfian-like distribution, making BM25's inverse document frequency (IDF) weighting well suited for suppressing ubiquitous, low-information words and emphasizing rare, discriminative ones. BM25-V retrieves high-recall candidates via sparse inverted-index operations and serves as an efficient first-stage retriever for dense reranking. Across seven benchmarks, BM25-V achieves Recall@200 $\\geq$ 0.993, enabling a two-stage pipeline that reranks only $K{=}200$ candidates per query and recovers near-dense accuracy within $0.2$\\% on average. An SAE trained once on ImageNet-1K transfers zero-shot to seven fine-grained benchmarks without fine-tuning, and BM25-V retrieval decisions are attributable to specific visual words with quantified IDF contributions.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-06T00:21:57Z",
+    "updated": "2026-03-06T00:21:57Z",
+    "url": "http://arxiv.org/abs/2603.05781v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.05781v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种基于稀疏自编码器和 BM25 的图像检索方法，属于多模态搜索的核心召回技术，但主要聚焦于通用图像检索基准，未明确针对电商或社交等具体推荐系统业务场景。",
+    "translation": "视觉词遇 BM25：用于图像检索的稀疏自编码器视觉词评分",
+    "summary_zh": "提出 BM25-V 方法，通过对 Vision Transformer 补丁特征进行稀疏自编码生成视觉词，并应用 BM25 算法进行加权评分，以实现高效、可解释且支持零样本迁移的两阶段图像检索。",
+    "key_points": [
+      "提出 BM25-V 方法，通过对 Vision Transformer 补丁特征进行稀疏自编码生成视觉词，并应用 BM25 算法进行加权评分，以实现高效、可解释且支持零样本迁移的两阶段图像检索"
+    ]
+  },
+  {
+    "arxiv_id": "2603.06065v1",
+    "title": "ChatShopBuddy: Towards Reliable Conversational Shopping Agents via Reinforcement Learning",
+    "authors": [
+      "Yiruo Cheng",
+      "Kelong Mao",
+      "Tianhao Li",
+      "Jiejun Tan",
+      "Ji-Rong Wen",
+      "Zhicheng Dou"
+    ],
+    "summary": "Conversational shopping agents represent a critical consumer-facing application of Large Language Model (LLM)-powered agents, yet how to effectively apply post-training Reinforcement Learning (RL) to optimize such agents remains underexplored. This work investigates RL-based optimization for shopping agents in real-world scenarios, where agents must simultaneously satisfy multiple interdependent objectives spanning objective metrics (product correctness), subjective qualities (persuasiveness), outcome rewards (final response quality), and process rewards (tool efficiency). We present a complete methodology to address this challenge. Specifically, we first construct SmartShopBench, a benchmark that captures diverse shopping intents with a hierarchical evaluation that decomposes complex quality requirements into measurable levels. Building on this evaluation framework, we design Hierarchical Reward Modeling (HRM) to structure mixed reward types through conditional gating that reflects their logical dependencies. To enable efficient training, we further propose Dynamic Contrastive Policy Optimization (DCPO), which balances response quality with operational efficiency through dynamic trajectory selection based on reward and reasoning length. Extensive experiments demonstrate that our RL-trained agent, namely ChatShopBuddy, consistently outperforms larger models relying on generic reasoning, achieving superior stability rather than merely higher peaks. Our work provides valuable guidance for applying RL to real-world conversational agents.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-06T09:18:51Z",
+    "updated": "2026-03-06T09:18:51Z",
+    "url": "http://arxiv.org/abs/2603.06065v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06065v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究纯 RL 算法优化对话 Agent 的通用方法，虽以购物为场景但未涉及推荐系统核心的召回、排序或用户建模架构，属于弱相关的边缘应用。",
+    "translation": "ChatShopBuddy：通过强化学习构建可靠的对话式购物代理",
+    "summary_zh": "提出一种基于分层奖励建模和动态对比策略优化的强化学习框架，旨在平衡对话代理在商品准确性、说服力及工具效率等多目标间的表现。",
+    "key_points": [
+      "提出一种基于分层奖励建模和动态对比策略优化的强化学习框架，旨在平衡对话代理在商品准确性、说服力及工具效率等多目标间的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2603.06025v1",
+    "title": "Sensitivity-Aware Retrieval-Augmented Intent Clarification",
+    "authors": [
+      "Maik Larooij"
+    ],
+    "summary": "In conversational search systems, a key component is to determine and clarify the intent behind complex queries. We view intent clarification in light of the exploratory search paradigm, where users, through an iterative, evolving process of selection, exploration and retrieval, transform a visceral or conscious need into a formalized one. Augmenting the clarification component with a retrieval step (retrieval-augmented intent clarification) can seriously enhance clarification performance, especially in domains where Large Language Models (LLMs) lack parametric knowledge. However, in more sensitive domains, such as healthcare, government (e.g. FOIA search) or legal contexts, the retrieval database may contain sensitive information that needs protection. In this paper, we explore the research challenge of developing a retrieval-augmented conversational agent that can act as a mediator and gatekeeper for the sensitive collection. To do that, we also need to know what we are protecting and against what. We propose to tackle this research challenge in three steps: 1) define an attack model, 2) design sensitivity-aware defenses on the retrieval level and 3) develop evaluation methods to measure the trade-off between the level of protection and the system's utility.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-03-06T08:21:02Z",
+    "updated": "2026-03-06T08:21:02Z",
+    "url": "http://arxiv.org/abs/2603.06025v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06025v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于对话搜索中的隐私保护与防御机制，属于搜索系统的安全边缘领域，缺乏对召回、排序等核心推荐算法的直接创新。",
+    "translation": "敏感感知的检索增强意图澄清",
+    "summary_zh": "提出一种在敏感领域（如医疗、法律）的对话搜索框架，通过在检索层设计敏感度感知防御机制，平衡用户意图澄清效果与敏感数据保护之间的权衡。",
+    "key_points": [
+      "提出一种在敏感领域（如医疗、法律）的对话搜索框架，通过在检索层设计敏感度感知防御机制，平衡用户意图澄清效果与敏感数据保护之间的权衡"
+    ]
+  }
+]

@@ -1,0 +1,494 @@
+[
+  {
+    "arxiv_id": "2510.02215v2",
+    "title": "C2AL: Cohort-Contrastive Auxiliary Learning for Large-scale Recommendation Systems",
+    "authors": [
+      "Mertcan Cokbas",
+      "Ziteng Liu",
+      "Zeyi Tao",
+      "Elder Veliz",
+      "Qin Huang",
+      "Ellie Wen",
+      "Huayu Li",
+      "Qiang Jin",
+      "Murat Duman",
+      "Benjamin Au",
+      "Guy Lebanon",
+      "Sagar Chordia",
+      "Chengkai Zhang"
+    ],
+    "summary": "Training large-scale recommendation models under a single global objective implicitly assumes homogeneity across user populations. However, real-world data are composites of heterogeneous cohorts with distinct conditional distributions. As models increase in scale and complexity and as more data is used for training, they become dominated by central distribution patterns, neglecting head and tail regions. This imbalance limits the model's learning ability and can result in inactive attention weights or dead neurons. In this paper, we reveal how the attention mechanism can play a key role in factorization machines for shared embedding selection, and propose to address this challenge by analyzing the substructures in the dataset and exposing those with strong distributional contrast through auxiliary learning. Unlike previous research, which heuristically applies weighted labels or multi-task heads to mitigate such biases, we leverage partially conflicting auxiliary labels to regularize the shared representation. This approach customizes the learning process of attention layers to preserve mutual information with minority cohorts while improving global performance. We evaluated C2AL on massive production datasets with billions of data points each for six SOTA models. Experiments show that the factorization machine is able to capture fine-grained user-ad interactions using the proposed method, achieving up to a 0.16% reduction in normalized entropy overall and delivering gains exceeding 0.30% on targeted minority cohorts.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-02T17:00:17Z",
+    "updated": "2025-10-03T15:45:09Z",
+    "url": "http://arxiv.org/abs/2510.02215v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.02215v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统中的用户群体异质性和长尾分布问题提出新架构（C2AL），属于核心推荐算法创新，且来自中国公司，符合最高优先级标准。",
+    "translation": "C2AL：面向大规模推荐系统的队列对比辅助学习",
+    "summary_zh": "本文提出一种队列对比辅助学习方法，通过分析数据子结构并利用部分冲突的辅助标签正则化共享表示，使注意力机制能兼顾少数群体特征与全局性能，解决大规模推荐模型中的分布不均问题。",
+    "key_points": [
+      "本文提出一种队列对比辅助学习方法，通过分析数据子结构并利用部分冲突的辅助标签正则化共享表示，使注意力机制能兼顾少数群体特征与全局性能，解决大规模推荐模型中的分布不均问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01698v3",
+    "title": "TalkPlay-Tools: Conversational Music Recommendation with LLM Tool Calling",
+    "authors": [
+      "Seungheon Doh",
+      "Keunwoo Choi",
+      "Juhan Nam"
+    ],
+    "summary": "While the recent developments in large language models (LLMs) have successfully enabled generative recommenders with natural language interactions, their recommendation behavior is limited, leaving other simpler yet crucial components such as metadata or attribute filtering underutilized in the system. We propose an LLM-based music recommendation system with tool calling to serve as a unified retrieval-reranking pipeline. Our system positions an LLM as an end-to-end recommendation system that interprets user intent, plans tool invocations, and orchestrates specialized components: boolean filters (SQL), sparse retrieval (BM25), dense retrieval (embedding similarity), and generative retrieval (semantic IDs). Through tool planning, the system predicts which types of tools to use, their execution order, and the arguments needed to find music matching user preferences, supporting diverse modalities while seamlessly integrating multiple database filtering methods. We demonstrate that this unified tool-calling framework achieves competitive performance across diverse recommendation scenarios by selectively employing appropriate retrieval methods based on user queries, envisioning a new paradigm for conversational music recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.MM",
+      "cs.SD",
+      "eess.AS"
+    ],
+    "published": "2025-10-02T06:08:54Z",
+    "updated": "2025-10-08T05:49:57Z",
+    "url": "http://arxiv.org/abs/2510.01698v3",
+    "pdf_url": "http://arxiv.org/pdf/2510.01698v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对音乐推荐系统，提出利用 LLM 工具调用统一检索与重排序流程，属于 LLM 在 RecSys 中的核心应用；且来自中国公司，按规定额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "TalkPlay-Tools：基于 LLM 工具调用的对话式音乐推荐系统",
+    "summary_zh": "提出一种基于 LLM 工具调用的端到端音乐推荐框架，通过意图理解动态规划布尔过滤、稀疏/稠密检索及生成式检索等多种工具的调用顺序与参数，以统一架构解决多模态用户偏好匹配问题。",
+    "key_points": [
+      "提出一种基于 LLM 工具调用的端到端音乐推荐框架，通过意图理解动态规划布尔过滤、稀疏/稠密检索及生成式检索等多种工具的调用顺序与参数，以统一架构解决多模态用户偏好匹配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01606v1",
+    "title": "Bridging Collaborative Filtering and Large Language Models with Dynamic Alignment, Multimodal Fusion and Evidence-grounded Explanations",
+    "authors": [
+      "Bo Ma",
+      "LuYao Liu",
+      "Simon Lau",
+      "Chandler Yuan",
+      "and XueY Cui",
+      "Rosie Zhang"
+    ],
+    "summary": "Recent research has explored using Large Language Models for recommendation tasks by transforming user interaction histories and item metadata into text prompts, then having the LLM produce rankings or recommendations. A promising approach involves connecting collaborative filtering knowledge to LLM representations through compact adapter networks, which avoids expensive fine-tuning while preserving the strengths of both components. Yet several challenges persist in practice: collaborative filtering models often use static snapshots that miss rapidly changing user preferences; many real-world items contain rich visual and audio content beyond textual descriptions; and current systems struggle to provide trustworthy explanations backed by concrete evidence. Our work introduces \\model{}, a framework that tackles these limitations through three key innovations. We develop an online adaptation mechanism that continuously incorporates new user interactions through lightweight modules, avoiding the need to retrain large models. We create a unified representation that seamlessly combines collaborative signals with visual and audio features, handling cases where some modalities may be unavailable. Finally, we design an explanation system that grounds recommendations in specific collaborative patterns and item attributes, producing natural language rationales users can verify. Our approach maintains the efficiency of frozen base models while adding minimal computational overhead, making it practical for real-world deployment.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-10-02T02:43:24Z",
+    "updated": "2025-10-02T02:43:24Z",
+    "url": "http://arxiv.org/abs/2510.01606v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01606v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出融合协同过滤与多模态数据的 LLM 框架，解决动态偏好和可解释性难题，且来自中国公司，符合最高优先级标准。",
+    "translation": "通过动态对齐、多模态融合及证据支撑的解释桥接协同过滤与大语言模型",
+    "summary_zh": "提出一种新框架，通过轻量级在线适配机制整合动态用户行为与多模态特征，将协同过滤信号与大语言模型对齐，并生成基于具体证据的可验证自然语言解释。",
+    "key_points": [
+      "提出一种新框架，通过轻量级在线适配机制整合动态用户行为与多模态特征，将协同过滤信号与大语言模型对齐，并生成基于具体证据的可验证自然语言解释"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01622v1",
+    "title": "LLM4Rec: Large Language Models for Multimodal Generative Recommendation with Causal Debiasing",
+    "authors": [
+      "Bo Ma",
+      "Hang Li",
+      "ZeHua Hu",
+      "XiaoFan Gui",
+      "LuYao Liu",
+      "Simon Lau"
+    ],
+    "summary": "Contemporary generative recommendation systems face significant challenges in handling multimodal data, eliminating algorithmic biases, and providing transparent decision-making processes. This paper introduces an enhanced generative recommendation framework that addresses these limitations through five key innovations: multimodal fusion architecture, retrieval-augmented generation mechanisms, causal inference-based debiasing, explainable recommendation generation, and real-time adaptive learning capabilities. Our framework leverages advanced large language models as the backbone while incorporating specialized modules for cross-modal understanding, contextual knowledge integration, bias mitigation, explanation synthesis, and continuous model adaptation. Extensive experiments on three benchmark datasets (MovieLens-25M, Amazon-Electronics, Yelp-2023) demonstrate consistent improvements in recommendation accuracy, fairness, and diversity compared to existing approaches. The proposed framework achieves up to 2.3% improvement in NDCG@10 and 1.4% enhancement in diversity metrics while maintaining computational efficiency through optimized inference strategies.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-10-02T02:53:05Z",
+    "updated": "2025-10-02T02:53:05Z",
+    "url": "http://arxiv.org/abs/2510.01622v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01622v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态生成式推荐系统，提出了结合因果去偏的 LLM 应用框架，完全符合核心领域进阶和 LLM for RecSys 的高优先级标准。",
+    "translation": "LLM4Rec：基于因果去偏的多模态生成式推荐大语言模型",
+    "summary_zh": "提出一种以大型语言模型为骨干的生成式推荐框架，通过多模态融合、检索增强生成及因果推断去偏机制，解决多模态数据处理与算法偏见问题并实现可解释性推荐。",
+    "key_points": [
+      "提出一种以大型语言模型为骨干的生成式推荐框架，通过多模态融合、检索增强生成及因果推断去偏机制，解决多模态数据处理与算法偏见问题并实现可解释性推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01609v1",
+    "title": "AgentRec: Next-Generation LLM-Powered Multi-Agent Collaborative Recommendation with Adaptive Intelligence",
+    "authors": [
+      "Bo Ma",
+      "Hang Li",
+      "ZeHua Hu",
+      "XiaoFan Gui",
+      "LuYao Liu",
+      "Simon Lau"
+    ],
+    "summary": "Interactive conversational recommender systems have gained significant attention for their ability to capture user preferences through natural language interactions. However, existing approaches face substantial challenges in handling dynamic user preferences, maintaining conversation coherence, and balancing multiple ranking objectives simultaneously. This paper introduces AgentRec, a next-generation LLM-powered multi-agent collaborative recommendation framework that addresses these limitations through hierarchical agent networks with adaptive intelligence. Our approach employs specialized LLM-powered agents for conversation understanding, preference modeling, context awareness, and dynamic ranking, coordinated through an adaptive weighting mechanism that learns from interaction patterns. We propose a three-tier learning strategy combining rapid response for simple queries, intelligent reasoning for complex preferences, and deep collaboration for challenging scenarios. Extensive experiments on three real-world datasets demonstrate that AgentRec achieves consistent improvements over state-of-the-art baselines, with 2.8\\% enhancement in conversation success rate, 1.9\\% improvement in recommendation accuracy (NDCG@10), and 3.2\\% better conversation efficiency while maintaining comparable computational costs through intelligent agent coordination.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-10-02T02:47:11Z",
+    "updated": "2025-10-02T02:47:11Z",
+    "url": "http://arxiv.org/abs/2510.01609v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01609v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统场景，提出了一种基于 LLM 多智能体协作的交互式推荐框架，解决了动态偏好和对话连贯性等核心 RecSys 问题，并非纯 LLM 研究。",
+    "translation": "AgentRec：下一代基于 LLM 的多智能体协作自适应智能推荐系统",
+    "summary_zh": "提出一种分层多智能体协作框架，利用专用 LLM 智能体分别处理对话理解、偏好建模和动态排序，并通过自适应加权机制协调各智能体以优化交互式推荐效果。",
+    "key_points": [
+      "提出一种分层多智能体协作框架，利用专用 LLM 智能体分别处理对话理解、偏好建模和动态排序，并通过自适应加权机制协调各智能体以优化交互式推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02219v2",
+    "title": "Contrastive Retrieval Heads Improve Attention-Based Re-Ranking",
+    "authors": [
+      "Linh Tran",
+      "Yulong Li",
+      "Radu Florian",
+      "Wei Sun"
+    ],
+    "summary": "The strong zero-shot and long-context capabilities of recent Large Language Models (LLMs) have paved the way for highly effective re-ranking systems. Attention-based re-rankers leverage attention weights from transformer heads to produce relevance scores, but not all heads are created equally: many contribute noise and redundancy, thus limiting performance. To address this, we introduce CoRe heads, a small set of retrieval heads identified via a contrastive scoring metric that explicitly rewards high attention heads that correlate with relevant documents, while downplaying nodes with higher attention that correlate with irrelevant documents. This relative ranking criterion isolates the most discriminative heads for re-ranking and yields a state-of-the-art list-wise re-ranker. Extensive experiments with three LLMs show that aggregated signals from CoRe heads, constituting less than 1% of all heads, substantially improve re-ranking accuracy over strong baselines. We further find that CoRe heads are concentrated in middle layers, and pruning the computation of final 50% of model layers preserves accuracy while significantly reducing inference time and memory usage.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-02T17:03:09Z",
+    "updated": "2026-03-03T00:44:40Z",
+    "url": "http://arxiv.org/abs/2510.02219v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.02219v2.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "1RensselaerPolytechnicInstitute 2IBMResearch"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心重排序（Re-ranking）环节，提出利用对比学习筛选 LLM 注意力头以提升相关性打分效率与精度，属于 LLM 在搜索场景的直接高价值应用。",
+    "translation": "对比检索头提升基于注意力的重排序效果",
+    "summary_zh": "提出一种对比评分机制，从 LLM 中筛选出少量能区分相关与无关文档的关键“检索头”，通过聚合这些头的信号构建高效且高精度的列表级重排序器，并支持大幅剪枝以加速推理。",
+    "key_points": [
+      "提出一种对比评分机制，从 LLM 中筛选出少量能区分相关与无关文档的关键“检索头”，通过聚合这些头的信号构建高效且高精度的列表级重排序器，并支持大幅剪枝以加速推理"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01574v1",
+    "title": "Synthetic Prefixes to Mitigate Bias in Real-Time Neural Query Autocomplete",
+    "authors": [
+      "Adithya Rajan",
+      "Xiaoyu Liu",
+      "Prateek Verma",
+      "Vibhu Arora"
+    ],
+    "summary": "We introduce a data-centric approach for mitigating presentation bias in real-time neural query autocomplete systems through the use of synthetic prefixes. These prefixes are generated from complete user queries collected during regular search sessions where autocomplete was not active. This allows us to enrich the training data for learning to rank models with more diverse and less biased examples. This method addresses the inherent bias in engagement signals collected from live query autocomplete interactions, where model suggestions influence user behavior. Our neural ranker is optimized for real-time deployment under strict latency constraints and incorporates a rich set of features, including query popularity, seasonality, fuzzy match scores, and contextual signals such as department affinity, device type, and vertical alignment with previous user queries. To support efficient training, we introduce a task-specific simplification of the listwise loss, reducing computational complexity from $O(n^2)$ to $O(n)$ by leveraging the query autocomplete structure of having only one ground-truth selection per prefix. Deployed in a large-scale e-commerce setting, our system demonstrates statistically significant improvements in user engagement, as measured by mean reciprocal rank and related metrics. Our findings show that synthetic prefixes not only improve generalization but also provide a scalable path toward bias mitigation in other low-latency ranking tasks, including related searches and query recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-10-02T01:44:44Z",
+    "updated": "2025-10-02T01:44:44Z",
+    "url": "http://arxiv.org/abs/2510.01574v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01574v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索中的查询自动补全（Query Autocomplete）场景，提出利用合成前缀解决展示偏差的具体工程方案，属于核心搜索技术应用。",
+    "translation": "利用合成前缀缓解实时神经查询自动补全中的偏差",
+    "summary_zh": "提出一种数据中心方法，通过利用非自动补全会话生成的合成前缀来丰富训练数据，从而缓解实时搜索查询自动补全系统中的展示偏差并优化排序模型。",
+    "key_points": [
+      "提出一种数据中心方法，通过利用非自动补全会话生成的合成前缀来丰富训练数据，从而缓解实时搜索查询自动补全系统中的展示偏差并优化排序模型"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01871v1",
+    "title": "Ranking Items from Discrete Ratings: The Cost of Unknown User Thresholds",
+    "authors": [
+      "Oscar Villemaud",
+      "Suryanarayana Sankagiri",
+      "Matthias Grossglauser"
+    ],
+    "summary": "Ranking items is a central task in many information retrieval and recommender systems. User input for the ranking task often comes in the form of ratings on a coarse discrete scale. We ask whether it is possible to recover a fine-grained item ranking from such coarse-grained ratings. We model items as having scores and users as having thresholds; a user rates an item positively if the item's score exceeds the user's threshold. Although all users agree on the total item order, estimating that order is challenging when both the scores and the thresholds are latent. Under our model, any ranking method naturally partitions the $n$ items into bins; the bins are ordered, but the items inside each bin are still unordered. Users arrive sequentially, and every new user can be queried to refine the current ranking. We prove that achieving a near-perfect ranking, measured by Spearman distance, requires $Θ(n^2)$ users (and therefore $Ω(n^2)$ queries). This is significantly worse than the $O(n\\log n)$ queries needed to rank from comparisons; the gap reflects the additional queries needed to identify the users who have the appropriate thresholds. Our bound also quantifies the impact of a mismatch between score and threshold distributions via a quadratic divergence factor. To show the tightness of our results, we provide a ranking algorithm whose query complexity matches our bound up to a logarithmic factor. Our work reveals a tension in online ranking: diversity in thresholds is necessary to merge coarse ratings from many users into a fine-grained ranking, but this diversity has a cost if the thresholds are a priori unknown.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-02T10:23:52Z",
+    "updated": "2025-10-02T10:23:52Z",
+    "url": "http://arxiv.org/abs/2510.01871v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01871v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究推荐系统中的核心排序问题，特别是从离散评分中恢复细粒度排序的理论界限与算法，属于明确的 RecSys 核心技术创新；虽为理论分析，但紧扣排序痛点，且来自中国企业额外加 1 分。",
+    "translation": "基于离散评分的物品排序：未知用户阈值的代价",
+    "summary_zh": "该论文建立了用户阈值与物品分数的潜在变量模型，揭示了从粗粒度离散评分中恢复细粒度全局排序所需的查询复杂度理论下界，并提出了一种匹配该界限的在线排序算法。",
+    "key_points": [
+      "该论文建立了用户阈值与物品分数的潜在变量模型，揭示了从粗粒度离散评分中恢复细粒度全局排序所需的查询复杂度理论下界，并提出了一种匹配该界限的在线排序算法"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02539v1",
+    "title": "Hierarchical Semantic Retrieval with Cobweb",
+    "authors": [
+      "Anant Gupta",
+      "Karthik Singaravadivelan",
+      "Zekun Wang"
+    ],
+    "summary": "Neural document retrieval often treats a corpus as a flat cloud of vectors scored at a single granularity, leaving corpus structure underused and explanations opaque. We use Cobweb--a hierarchy-aware framework--to organize sentence embeddings into a prototype tree and rank documents via coarse-to-fine traversal. Internal nodes act as concept prototypes, providing multi-granular relevance signals and a transparent rationale through retrieval paths. We instantiate two inference approaches: a generalized best-first search and a lightweight path-sum ranker. We evaluate our approaches on MS MARCO and QQP with encoder (e.g., BERT/T5) and decoder (GPT-2) representations. Our results show that our retrieval approaches match the dot product search on strong encoder embeddings while remaining robust when kNN degrades: with GPT-2 vectors, dot product performance collapses whereas our approaches still retrieve relevant results. Overall, our experiments suggest that Cobweb provides competitive effectiveness, improved robustness to embedding quality, scalability, and interpretable retrieval via hierarchical prototypes.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-10-02T20:14:52Z",
+    "updated": "2025-10-02T20:14:52Z",
+    "url": "http://arxiv.org/abs/2510.02539v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.02539v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种基于层级原型树的文档检索框架，直接优化搜索系统的召回与可解释性，虽未明确提及电商场景，但核心解决搜索检索问题且具备鲁棒性优势；结合来自 QQ 的背景额外加分，属于中高优先级的搜索核心技术。",
+    "translation": "基于 Cobweb 的层级语义检索方法",
+    "summary_zh": "提出一种利用 Cobweb 将句子嵌入组织为原型树的层级感知框架，通过粗到细的遍历路径进行文档排序，以提供多粒度相关性信号和可解释的检索理由。",
+    "key_points": [
+      "提出一种利用 Cobweb 将句子嵌入组织为原型树的层级感知框架，通过粗到细的遍历路径进行文档排序，以提供多粒度相关性信号和可解释的检索理由"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02512v1",
+    "title": "Revisiting Query Variants: The Advantage of Retrieval Over Generation of Query Variants for Effective QPP",
+    "authors": [
+      "Fangzheng Tian",
+      "Debasis Ganguly",
+      "Craig Macdonald"
+    ],
+    "summary": "Leveraging query variants (QVs), i.e., queries with potentially similar information needs to the target query, has been shown to improve the effectiveness of query performance prediction (QPP) approaches. Existing QV-based QPP methods generate QVs facilitated by either query expansion or non-contextual embeddings, which may introduce topical drifts and hallucinations. In this paper, we propose a method that retrieves QVs from a training set (e.g., MS MARCO) for a given target query of QPP. To achieve a high recall in retrieving queries with the most similar information needs as the target query from a training set, we extend the directly retrieved QVs (1-hop QVs) by a second retrieval using their denoted relevant documents (which yields 2-hop QVs). Our experiments, conducted on TREC DL'19 and DL'20, show that the QPP methods with QVs retrieved by our method outperform the best-performing existing generated-QV-based QPP approaches by as much as around 20\\%, on neural ranking models like MonoT5.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-02T19:36:58Z",
+    "updated": "2025-10-02T19:36:58Z",
+    "url": "http://arxiv.org/abs/2510.02512v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.02512v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于搜索系统中的查询性能预测（QPP）子任务，提出通过检索而非生成来获取查询变体，属于明确的搜索核心技术优化，但非主流排序或召回架构创新。",
+    "translation": "重访查询变体：检索优于生成以提升查询性能预测效果",
+    "summary_zh": "提出一种从训练集中检索查询变体（包括基于相关文档的二跳检索）的方法，以替代传统的生成式方法，从而避免主题漂移和幻觉，提升搜索系统中查询性能预测的准确性。",
+    "key_points": [
+      "提出一种从训练集中检索查询变体（包括基于相关文档的二跳检索）的方法，以替代传统的生成式方法，从而避免主题漂移和幻觉，提升搜索系统中查询性能预测的准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02241v1",
+    "title": "Study on LLMs for Promptagator-Style Dense Retriever Training",
+    "authors": [
+      "Daniel Gwon",
+      "Nour Jedidi",
+      "Jimmy Lin"
+    ],
+    "summary": "Promptagator demonstrated that Large Language Models (LLMs) with few-shot prompts can be used as task-specific query generators for fine-tuning domain-specialized dense retrieval models. However, the original Promptagator approach relied on proprietary and large-scale LLMs which users may not have access to or may be prohibited from using with sensitive data. In this work, we study the impact of open-source LLMs at accessible scales ($\\leq$14B parameters) as an alternative. Our results demonstrate that open-source LLMs as small as 3B parameters can serve as effective Promptagator-style query generators. We hope our work will inform practitioners with reliable alternatives for synthetic data generation and give insights to maximize fine-tuning results for domain-specific applications.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-10-02T17:29:51Z",
+    "updated": "2025-10-02T17:29:51Z",
+    "url": "http://arxiv.org/abs/2510.02241v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.02241v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文研究利用开源小模型 LLM 生成查询数据以训练稠密检索器，属于搜索核心环节（检索）的数据增强方法，但侧重于 LLM 能力评估而非检索架构本身的创新。",
+    "translation": "基于 Promptagator 风格的稠密检索器训练中大型语言模型的研究",
+    "summary_zh": "本文提出使用参数量较小的开源大语言模型替代专有大规模模型，作为 Promptagator 风格的查询生成器，以合成数据微调领域专用的稠密检索模型。",
+    "key_points": [
+      "本文提出使用参数量较小的开源大语言模型替代专有大规模模型，作为 Promptagator 风格的查询生成器，以合成数据微调领域专用的稠密检索模型"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01693v1",
+    "title": "PASTA: A Unified Framework for Offline Assortment Learning",
+    "authors": [
+      "Juncheng Dong",
+      "Weibin Mo",
+      "Zhengling Qi",
+      "Cong Shi",
+      "Ethan X. Fang",
+      "Vahid Tarokh"
+    ],
+    "summary": "We study a broad class of assortment optimization problems in an offline and data-driven setting. In such problems, a firm lacks prior knowledge of the underlying choice model, and aims to determine an optimal assortment based on historical customer choice data. The combinatorial nature of assortment optimization often results in insufficient data coverage, posing a significant challenge in designing provably effective solutions. To address this, we introduce a novel Pessimistic Assortment Optimization (PASTA) framework that leverages the principle of pessimism to achieve optimal expected revenue under general choice models. Notably, PASTA requires only that the offline data distribution contains an optimal assortment, rather than providing the full coverage of all feasible assortments. Theoretically, we establish the first finite-sample regret bounds for offline assortment optimization across several widely used choice models, including the multinomial logit and nested logit models. Additionally, we derive a minimax regret lower bound, proving that PASTA is minimax optimal in terms of sample and model complexity. Numerical experiments further demonstrate that our method outperforms existing baseline approaches.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-02T05:47:56Z",
+    "updated": "2025-10-02T05:47:56Z",
+    "url": "http://arxiv.org/abs/2510.01693v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01693v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "MiniMax"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于离线组合优化与选择模型理论，虽与推荐排序有间接联系，但属于通用运筹学/统计学习研究，缺乏针对 RecSys/Search 具体场景（如深度序列建模、多模态检索）的直接应用或创新。",
+    "translation": "PASTA：一种用于离线品类学习的统一框架",
+    "summary_zh": "提出基于悲观原则的 PASTA 框架，旨在仅利用历史选择数据且无需全覆盖的情况下，解决未知选择模型下的最优品类组合优化问题。",
+    "key_points": [
+      "提出基于悲观原则的 PASTA 框架，旨在仅利用历史选择数据且无需全覆盖的情况下，解决未知选择模型下的最优品类组合优化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14769v1",
+    "title": "Cluster-based Adaptive Retrieval: Dynamic Context Selection for RAG Applications",
+    "authors": [
+      "Yifan Xu",
+      "Vipul Gupta",
+      "Rohit Aggarwal",
+      "Varsha Mahadevan",
+      "Bhaskar Krishnamachari"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances large language models (LLMs) by pulling in external material, document, code, manuals, from vast and ever-growing corpora, to effectively answer user queries. The effectiveness of RAG depends significantly on aligning the number of retrieved documents with query characteristics: narrowly focused queries typically require fewer, highly relevant documents, whereas broader or ambiguous queries benefit from retrieving more extensive supporting information. However, the common static top-k retrieval approach fails to adapt to this variability, resulting in either insufficient context from too few documents or redundant information from too many. Motivated by these challenges, we introduce Cluster-based Adaptive Retrieval (CAR), an algorithm that dynamically determines the optimal number of documents by analyzing the clustering patterns of ordered query-document similarity distances. CAR detects the transition point within similarity distances, where tightly clustered, highly relevant documents shift toward less pertinent candidates, establishing an adaptive cut-off that scales with query complexity. On Coinbase's CDP corpus and the public MultiHop-RAG benchmark, CAR consistently picks the optimal retrieval depth and achieves the highest TES score, outperforming every fixed top-k baseline. In downstream RAG evaluations, CAR cuts LLM token usage by 60%, trims end-to-end latency by 22%, and reduces hallucinations by 10% while fully preserving answer relevance. Since integrating CAR into Coinbase's virtual assistant, we've seen user engagement jump by 200%.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-10-02T05:11:12Z",
+    "updated": "2025-10-02T05:11:12Z",
+    "url": "http://arxiv.org/abs/2511.14769v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14769v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 优化研究，专注于通用问答场景下的检索数量动态调整，未涉及推荐系统或搜索引擎的核心业务逻辑（如用户建模、物品排序、广告匹配等）。",
+    "translation": "基于聚类的自适应检索：RAG 应用的动态上下文选择",
+    "summary_zh": "提出一种基于聚类分析的自适应检索算法，通过识别查询 - 文档相似度距离的分布转折点，动态确定最优检索文档数量以适配不同复杂度的查询。",
+    "key_points": [
+      "提出一种基于聚类分析的自适应检索算法，通过识别查询 - 文档相似度距离的分布转折点，动态确定最优检索文档数量以适配不同复杂度的查询"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02296v1",
+    "title": "Continual Personalization for Diffusion Models",
+    "authors": [
+      "Yu-Chien Liao",
+      "Jr-Jen Chen",
+      "Chi-Pin Huang",
+      "Ci-Siang Lin",
+      "Meng-Lin Wu",
+      "Yu-Chiang Frank Wang"
+    ],
+    "summary": "Updating diffusion models in an incremental setting would be practical in real-world applications yet computationally challenging. We present a novel learning strategy of Concept Neuron Selection (CNS), a simple yet effective approach to perform personalization in a continual learning scheme. CNS uniquely identifies neurons in diffusion models that are closely related to the target concepts. In order to mitigate catastrophic forgetting problems while preserving zero-shot text-to-image generation ability, CNS finetunes concept neurons in an incremental manner and jointly preserves knowledge learned of previous concepts. Evaluation of real-world datasets demonstrates that CNS achieves state-of-the-art performance with minimal parameter adjustments, outperforming previous methods in both single and multi-concept personalization works. CNS also achieves fusion-free operation, reducing memory storage and processing time for continual personalization.",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published": "2025-10-02T17:58:56Z",
+    "updated": "2025-10-02T17:58:56Z",
+    "url": "http://arxiv.org/abs/2510.02296v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.02296v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯计算机视觉（CV）和扩散模型研究，专注于文本生成图像的个性化，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使有中国公司背景加分，仍属低优先级。",
+    "translation": "扩散模型的持续个性化方法研究",
+    "summary_zh": "提出概念神经元选择（CNS）策略，通过增量微调扩散模型中特定神经元，在实现多概念个性化的同时避免灾难性遗忘并保留零样本生成能力。",
+    "key_points": [
+      "提出概念神经元选择（CNS）策略，通过增量微调扩散模型中特定神经元，在实现多概念个性化的同时避免灾难性遗忘并保留零样本生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01600v2",
+    "title": "A Comparison of Independent and Joint Fine-tuning Strategies for Retrieval-Augmented Generation",
+    "authors": [
+      "Neal Gregory Lawton",
+      "Alfy Samuel",
+      "Anoop Kumar",
+      "Daben Liu"
+    ],
+    "summary": "A Comparison of Independent and Joint Fine-tuning Strategies for Retrieval-Augmented Generation Download PDF Neal Gregory Lawton, Alfy Samuel, Anoop Kumar, Daben Liu Published: 20 Aug 2025, Retrieval augmented generation (RAG) is a popular framework for question answering that is powered by two large language models (LLMs): an embedding model that retrieves context documents from a database that are relevant to a given question, and a generator model that uses the retrieved context to generate an answer to the question. Both the embedding and generator models can be fine-tuned to increase performance of a RAG pipeline on a new task, but multiple fine-tuning strategies exist with different costs and benefits. In this paper, we evaluate and compare several RAG fine-tuning strategies, including independent, joint, and two-phase fine-tuning. In our experiments, we observe that all of these strategies achieve about equal improvement in EM and F1 generation quality metrics, although they have significantly different computational costs. We conclude the optimal fine-tuning strategy to use depends on whether the training dataset includes context labels and whether a grid search over the learning rates for the embedding and generator models is required.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-10-02T02:30:28Z",
+    "updated": "2025-10-17T20:14:41Z",
+    "url": "http://arxiv.org/abs/2510.01600v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.01600v2.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 RAG/LLM 的微调策略对比，主要应用于问答任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、个性化），属于低相关性的纯 LLM 研究。",
+    "translation": "检索增强生成中独立与联合微调策略的比较",
+    "summary_zh": "本文对比了检索增强生成（RAG）框架中嵌入模型与生成模型的独立、联合及两阶段微调策略，分析了不同策略在计算成本与数据标签依赖性上的权衡。",
+    "key_points": [
+      "本文对比了检索增强生成（RAG）框架中嵌入模型与生成模型的独立、联合及两阶段微调策略，分析了不同策略在计算成本与数据标签依赖性上的权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01800v2",
+    "title": "REBot: From RAG to CatRAG with Semantic Enrichment and Graph Routing",
+    "authors": [
+      "Thanh Ma",
+      "Tri-Tam La",
+      "Lam-Thu Le Huu",
+      "Minh-Nghi Nguyen",
+      "Khanh-Van Pham Luu"
+    ],
+    "summary": "Academic regulation advising is essential for helping students interpret and comply with institutional policies, yet building effective systems requires domain specific regulatory resources. To address this challenge, we propose REBot, an LLM enhanced advisory chatbot powered by CatRAG, a hybrid retrieval reasoning framework that integrates retrieval augmented generation with graph based reasoning. CatRAG unifies dense retrieval and graph reasoning, supported by a hierarchical, category labeled knowledge graph enriched with semantic features for domain alignment. A lightweight intent classifier routes queries to the appropriate retrieval modules, ensuring both factual accuracy and contextual depth. We construct a regulation specific dataset and evaluate REBot on classification and question answering tasks, achieving state of the art performance with an F1 score of 98.89%. Finally, we implement a web application that demonstrates the practical value of REBot in real world academic advising scenarios.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-10-02T08:40:55Z",
+    "updated": "2025-11-29T04:40:57Z",
+    "url": "http://arxiv.org/abs/2510.01800v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.01800v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 应用研究（RAG+ 知识图谱用于学术咨询聊天机器人），完全未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模等）。",
+    "translation": "REBot：从 RAG 到 CatRAG，利用语义增强与图路由",
+    "summary_zh": "提出一种结合检索增强生成与图推理的混合框架 CatRAG，通过轻量级意图分类器路由查询至分层知识图谱模块，以解决特定领域的法规咨询问题。",
+    "key_points": [
+      "提出一种结合检索增强生成与图推理的混合框架 CatRAG，通过轻量级意图分类器路由查询至分层知识图谱模块，以解决特定领域的法规咨询问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.02549v1",
+    "title": "Knowledge-Graph Based RAG System Evaluation Framework",
+    "authors": [
+      "Sicheng Dong",
+      "Vahid Zolfaghari",
+      "Nenad Petrovic",
+      "Alois Knoll"
+    ],
+    "summary": "Large language models (LLMs) has become a significant research focus and is utilized in various fields, such as text generation and dialog systems. One of the most essential applications of LLM is Retrieval Augmented Generation (RAG), which greatly enhances generated content's reliability and relevance. However, evaluating RAG systems remains a challenging task. Traditional evaluation metrics struggle to effectively capture the key features of modern LLM-generated content that often exhibits high fluency and naturalness. Inspired by the RAGAS tool, a well-known RAG evaluation framework, we extended this framework into a KG-based evaluation paradigm, enabling multi-hop reasoning and semantic community clustering to derive more comprehensive scoring metrics. By incorporating these comprehensive evaluation criteria, we gain a deeper understanding of RAG systems and a more nuanced perspective on their performance. To validate the effectiveness of our approach, we compare its performance with RAGAS scores and construct a human-annotated subset to assess the correlation between human judgments and automated metrics. In addition, we conduct targeted experiments to demonstrate that our KG-based evaluation method is more sensitive to subtle semantic differences in generated outputs. Finally, we discuss the key challenges in evaluating RAG systems and highlight potential directions for future research.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-10-02T20:36:21Z",
+    "updated": "2025-10-02T20:36:21Z",
+    "url": "http://arxiv.org/abs/2510.02549v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.02549v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于 RAG 系统的评估框架，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "基于知识图谱的 RAG 系统评估框架",
+    "summary_zh": "该论文提出一种基于知识图谱的 RAG 评估范式，利用多跳推理和语义社区聚类来生成更全面的评分指标，以解决传统指标难以捕捉 LLM 生成内容细微语义差异的问题。",
+    "key_points": [
+      "该论文提出一种基于知识图谱的 RAG 评估范式，利用多跳推理和语义社区聚类来生成更全面的评分指标，以解决传统指标难以捕捉 LLM 生成内容细微语义差异的问题"
+    ]
+  }
+]

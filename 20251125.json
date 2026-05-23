@@ -1,0 +1,646 @@
+[
+  {
+    "arxiv_id": "2512.07846v2",
+    "title": "MixLM: High-Throughput and Effective LLM Ranking via Text-Embedding Mix-Interaction",
+    "authors": [
+      "Guoyao Li",
+      "Ran He",
+      "Shusen Jing",
+      "Kayhan Behdin",
+      "Yubo Wang",
+      "Sundara Raman Ramachandran",
+      "Chanh Nguyen",
+      "Jian Sheng",
+      "Xiaojing Ma",
+      "Chuanrui Zhu",
+      "Sriram Vasudevan",
+      "Muchen Wu",
+      "Sayan Ghosh",
+      "Lin Su",
+      "Qingquan Song",
+      "Xiaoqing Wang",
+      "Zhipeng Wang",
+      "Qing Lan",
+      "Yanning Chen",
+      "Jingwei Wu",
+      "Luke Simon",
+      "Wenjing Zhang",
+      "Qi Guo",
+      "Fedor Borisyuk"
+    ],
+    "summary": "Large language models (LLMs) excel at capturing semantic nuances and therefore show impressive relevance ranking performance in modern recommendation and search systems. However, they suffer from high computational overhead under industrial latency and throughput requirements. In particular, cross-encoder ranking systems often create long context prefill-heavy workloads, as the model has to be presented with the user, query and item information. To this end, we propose MixLM, a novel LLM-based ranking framework, which significantly improves the system throughput via reducing the input context length, while preserving the semantic strength of cross-encoder rankers. In contrast to a standard ranking system where the context is presented to the model as pure text, we propose to use mix-interaction, a mixture of text and embedding tokens to represent the input. Specifically, MixLM encodes all items in the catalog into a few embedding tokens and stores in a nearline cache. The encoded item descriptions are used during online inference, effectively reducing the item length from a few thousand text tokens to a few embedding tokens. We share insights from deploying our MixLM framework to a real-world search application at LinkedIn, including a detailed discussion of our training pipelines, as well as a thorough analysis of our online serving infrastructure optimization. With the same latency budget and on-par relevance metrics, MixLM increased throughput by 10.0x comparing with strong baselines, 75.9x over full-text LLM rerankers. The efficiency gains delivered by MixLM enabled full-traffic deployment of LLM-powered search, which resulted in a significant 0.47\\% increase in Daily Active Users (DAU) in online A/B tests.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-11-25T21:23:04Z",
+    "updated": "2026-01-31T18:54:46Z",
+    "url": "http://arxiv.org/abs/2512.07846v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.07846v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索/推荐系统中的 LLM 排序环节，提出了 MixLM 架构以解决工业界延迟和吞吐量瓶颈，并在 LinkedIn 真实场景中部署验证，完全符合核心领域 advances 标准；虽非中国公司（为 LinkedIn），但因其极高的应用价值和架构创新，仍给满分。",
+    "translation": "MixLM：通过文本 - 嵌入混合交互实现高吞吐高效的 LLM 排序",
+    "summary_zh": "提出 MixLM 框架，通过将目录项预编码为少量嵌入 token 并与文本 token 混合输入，大幅缩短 LLM 排序器的上下文长度，从而在保持语义优势的同时显著提升工业级搜索系统的吞吐量。",
+    "key_points": [
+      "提出 MixLM 框架，通过将目录项预编码为少量嵌入 token 并与文本 token 混合输入，大幅缩短 LLM 排序器的上下文长度，从而在保持语义优势的同时显著提升工业级搜索系统的吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20235v2",
+    "title": "HHFT: Hierarchical Heterogeneous Feature Transformer for Recommendation Systems",
+    "authors": [
+      "Liren Yu",
+      "Wenming Zhang",
+      "Silu Zhou",
+      "Tao Zhang",
+      "Zhixuan Zhang",
+      "Dan Ou"
+    ],
+    "summary": "We propose HHFT (Hierarchical Heterogeneous Feature Transformer), a Transformer-based architecture tailored for industrial CTR prediction. HHFT addresses the limitations of DNN through three key designs: (1) Semantic Feature Partitioning: Grouping heterogeneous features (e.g. user profile, item information, behaviour sequennce) into semantically coherent blocks to preserve domain-specific information; (2) Heterogeneous Transformer Encoder: Adopting block-specific QKV projections and FFNs to avoid semantic confusion between distinct feature types; (3) Hiformer Layer: Capturing high-order interactions across features. Our findings reveal that Transformers significantly outperform DNN baselines, achieving a +0.4% improvement in CTR AUC at scale. We have successfully deployed the model on Taobao's production platform, observing a significant uplift in key business metrics, including a +0.6% increase in Gross Merchandise Value (GMV).",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-25T12:07:56Z",
+    "updated": "2025-12-14T03:16:07Z",
+    "url": "http://arxiv.org/abs/2511.20235v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.20235v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐系统的 CTR 预测提出新架构，且已在淘宝生产环境部署并提升 GMV，完全符合核心领域 advances 及中国电商加分项。",
+    "translation": "HHFT：用于推荐系统的分层异构特征 Transformer",
+    "summary_zh": "提出一种专为工业级 CTR 预测设计的分层异构特征 Transformer 架构，通过语义特征分块和异构编码器解决传统 DNN 的语义混淆问题并捕捉高阶特征交互。",
+    "key_points": [
+      "提出一种专为工业级 CTR 预测设计的分层异构特征 Transformer 架构，通过语义特征分块和异构编码器解决传统 DNN 的语义混淆问题并捕捉高阶特征交互"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20177v1",
+    "title": "Enhancing Sequential Recommendation with World Knowledge from Large Language Models",
+    "authors": [
+      "Tianjie Dai",
+      "Xu Chen",
+      "Yunmeng Shu",
+      "Jinsong Lan",
+      "Xiaoyong Zhu",
+      "Jiangchao Yao",
+      "Bo Zheng"
+    ],
+    "summary": "Sequential Recommendation System~(SRS) has become pivotal in modern society, which predicts subsequent actions based on the user's historical behavior. However, traditional collaborative filtering-based sequential recommendation models often lead to suboptimal performance due to the limited information of their collaborative signals. With the rapid development of LLMs, an increasing number of works have incorporated LLMs' world knowledge into sequential recommendation. Although they achieve considerable gains, these approaches typically assume the correctness of LLM-generated results and remain susceptible to noise induced by LLM hallucinations. To overcome these limitations, we propose GRASP (Generation Augmented Retrieval with Holistic Attention for Sequential Prediction), a flexible framework that integrates generation augmented retrieval for descriptive synthesis and similarity retrieval, and holistic attention enhancement which employs multi-level attention to effectively employ LLM's world knowledge even with hallucinations and better capture users' dynamic interests. The retrieved similar users/items serve as auxiliary contextual information for the later holistic attention enhancement module, effectively mitigating the noisy guidance of supervision-based methods. Comprehensive evaluations on two public benchmarks and one industrial dataset reveal that GRASP consistently achieves state-of-the-art performance when integrated with diverse backbones. The code is available at: https://anonymous.4open.science/r/GRASP-SRS.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-25T10:59:38Z",
+    "updated": "2025-11-25T10:59:38Z",
+    "url": "http://arxiv.org/abs/2511.20177v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.20177v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统，提出利用 LLM 世界知识并结合检索增强生成（RAG）机制来解决幻觉噪声问题，属于 LLM 在推荐系统中的核心应用创新。",
+    "translation": "利用大语言模型的世界知识增强序列推荐",
+    "summary_zh": "提出 GRASP 框架，通过生成增强检索和多级注意力机制，有效整合 LLM 世界知识并抑制其幻觉噪声，以捕捉用户动态兴趣。",
+    "key_points": [
+      "提出 GRASP 框架，通过生成增强检索和多级注意力机制，有效整合 LLM 世界知识并抑制其幻觉噪声，以捕捉用户动态兴趣"
+    ]
+  },
+  {
+    "arxiv_id": "2601.02366v1",
+    "title": "TextBridgeGNN: Pre-training Graph Neural Network for Cross-Domain Recommendation via Text-Guided Transfer",
+    "authors": [
+      "Yiwen Chen",
+      "Yiqing Wu",
+      "Huishi Luo",
+      "Fuzhen Zhuang",
+      "Deqing Wang"
+    ],
+    "summary": "Graph-based recommendation has achieved great success in recent years. The classical graph recommendation model utilizes ID embedding to store essential collaborative information. However, this ID-based paradigm faces challenges in transferring to a new domain, making it hard to build a pre-trained graph recommendation model. This phenomenon primarily stems from two inherent challenges: (1) the non-transferability of ID embeddings due to isolated domain-specific ID spaces, and (2) structural incompatibility between heterogeneous interaction graphs across domains.\n  To address these issues, we propose TextBridgeGNN, a pre-training and fine-tuning framework that can effectively transfer knowledge from a pre-trained GNN to downstream tasks. We believe the key lies in how to build the relationship between domains. Specifically, TextBridgeGNN uses text as a semantic bridge to connect domains through multi-level graph propagation. During the pre-training stage, textual information is utilized to break the data islands formed by multiple domains, and hierarchical GNNs are designed to learn both domain-specific and domain-global knowledge with text features, ensuring the retention of collaborative signals and the enhancement of semantics. During the fine-tuning stage, a similarity transfer mechanism is proposed. This mechanism initializes ID embeddings in the target domain by transferring from semantically related nodes, successfully transferring the ID embeddings and graph pattern.\n  Experiments demonstrate that TextBridgeGNN outperforms existing methods in cross-domain, multi-domain, and training-free settings, highlighting its ability to integrate Pre-trained Language Model (PLM)-driven semantics with graph-based collaborative filtering without costly language model fine-tuning or real-time inference overhead.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-25T08:36:01Z",
+    "updated": "2025-11-25T08:36:01Z",
+    "url": "http://arxiv.org/abs/2601.02366v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.02366v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文提出利用文本作为语义桥梁解决跨域推荐中 ID 不可迁移的核心难题，属于直接针对推荐系统架构的创新研究，且来自中国公司，给予满分。",
+    "translation": "TextBridgeGNN：通过文本引导迁移实现跨域推荐的图神经网络预训练",
+    "summary_zh": "提出 TextBridgeGNN 框架，利用文本语义作为桥梁连接异构域，通过多级图传播和相似性转移机制，实现了图协同过滤知识在跨域场景下的有效预训练与迁移。",
+    "key_points": [
+      "提出 TextBridgeGNN 框架，利用文本语义作为桥梁连接异构域，通过多级图传播和相似性转移机制，实现了图协同过滤知识在跨域场景下的有效预训练与迁移"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20564v2",
+    "title": "E2E-GRec: An End-to-End Joint Training Framework for Graph Neural Networks and Recommender Systems",
+    "authors": [
+      "Rui Xue",
+      "Shichao Zhu",
+      "Liang Qin",
+      "Tianfu Wu"
+    ],
+    "summary": "Graph Neural Networks (GNNs) have emerged as powerful tools for modeling graph-structured data and have been widely used in recommender systems, such as for capturing complex user-item and item-item relations. However, most industrial deployments adopt a two-stage pipeline: GNNs are first pre-trained offline to generate node embeddings, which are then used as static features for downstream recommender systems. This decoupled paradigm leads to two key limitations: (1) high computational overhead, since large-scale GNN inference must be repeatedly executed to refresh embeddings; and (2) lack of joint optimization, as the gradient from the recommender system cannot directly influence the GNN learning process, causing the GNN to be suboptimally informative for the recommendation task. In this paper, we propose E2E-GRec, a novel end-to-end training framework that unifies GNN training with the recommender system. Our framework is characterized by three key components: (i) efficient subgraph sampling from a large-scale cross-domain heterogeneous graph to ensure training scalability and efficiency; (ii) a Graph Feature Auto-Encoder (GFAE) serving as an auxiliary self-supervised task to guide the GNN to learn structurally meaningful embeddings; and (iii) a two-level feature fusion mechanism combined with Gradnorm-based dynamic loss balancing, which stabilizes graph-aware multi-task end-to-end training. Extensive offline evaluations, online A/B tests (e.g., a +0.133% relative improvement in stay duration, a 0.3171% reduction in the average number of videos a user skips) on large-scale production data, together with theoretical analysis, demonstrate that E2E-GRec consistently surpasses traditional approaches, yielding significant gains across multiple recommendation metrics.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-25T17:59:22Z",
+    "updated": "2026-02-22T08:15:20Z",
+    "url": "http://arxiv.org/abs/2511.20564v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.20564v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "TikTok"
+    ],
+    "affiliation_lines": [
+      "NorthCarolinaStateUniversity SanJose,US",
+      "TikTokInc. NorthCarolinaStateUniversity"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的核心痛点（GNN 预训练与下游任务解耦），提出了一种端到端的联合训练框架，属于核心领域架构创新。",
+    "translation": "E2E-GRec：图神经网络与推荐系统的端到端联合训练框架",
+    "summary_zh": "本文提出 E2E-GRec 框架，通过子图采样、图特征自编码器辅助任务及动态损失平衡机制，实现了大规模异构图上 GNN 训练与推荐系统的端到端联合优化，解决了传统两阶段范式计算开销大且缺乏联合优化的问题。",
+    "key_points": [
+      "本文提出 E2E-GRec 框架，通过子图采样、图特征自编码器辅助任务及动态损失平衡机制，实现了大规模异构图上 GNN 训练与推荐系统的端到端联合优化，解决了传统两阶段范式计算开销大且缺乏联合优化的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20122v1",
+    "title": "Towards A Tri-View Diffusion Framework for Recommendation",
+    "authors": [
+      "Ximing Chen",
+      "Pui Ieng Lei",
+      "Yijun Sheng",
+      "Yanyan Liu",
+      "Zhiguo Gong"
+    ],
+    "summary": "Diffusion models (DMs) have recently gained significant interest for their exceptional potential in recommendation tasks. This stems primarily from their prominent capability in distilling, modeling, and generating comprehensive user preferences. However, previous work fails to examine DMs in recommendation tasks through a rigorous lens. In this paper, we first experimentally investigate the completeness of recommender models from a thermodynamic view. We reveal that existing DM-based recommender models operate by maximizing the energy, while classic recommender models operate by reducing the entropy. Based on this finding, we propose a minimalistic diffusion framework that incorporates both factors via the maximization of Helmholtz free energy. Meanwhile, to foster the optimization, our reverse process is armed with a well-designed denoiser to maintain the inherent anisotropy, which measures the user-item cross-correlation in the context of bipartite graphs. Finally, we adopt an Acceptance-Rejection Gumbel Sampling Process (AR-GSP) to prioritize the far-outnumbered unobserved interactions for model robustness. AR-GSP integrates an acceptance-rejection sampling to ensure high-quality hard negative samples for general recommendation tasks, and a timestep-dependent Gumbel Softmax to handle an adaptive sampling strategy for diffusion models. Theoretical analyses and extensive experiments demonstrate that our proposed framework has distinct superiority over baselines in terms of accuracy and efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-25T09:43:00Z",
+    "updated": "2025-11-25T09:43:00Z",
+    "url": "http://arxiv.org/abs/2511.20122v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.20122v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文提出了一种基于热力学视角的三视图扩散框架，直接解决推荐系统中的用户偏好建模和采样问题，属于核心推荐算法创新；虽涉及扩散模型，但非纯 LLM 研究，且来自 TAL 公司，符合加分条件。",
+    "translation": "迈向推荐的三视图扩散框架",
+    "summary_zh": "本文提出一种最小化扩散框架，通过最大化亥姆霍兹自由能统一能量最大化与熵减机制，并设计保持各向异性的去噪器及接受 - 拒绝 Gumbel 采样过程以优化未观测交互的鲁棒性。",
+    "key_points": [
+      "本文提出一种最小化扩散框架，通过最大化亥姆霍兹自由能统一能量最大化与熵减机制，并设计保持各向异性的去噪器及接受 - 拒绝 Gumbel 采样过程以优化未观测交互的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19931v1",
+    "title": "LLM-EDT: Large Language Model Enhanced Cross-domain Sequential Recommendation with Dual-phase Training",
+    "authors": [
+      "Ziwei Liu",
+      "Qidong Liu",
+      "Wanyu Wang",
+      "Yejing Wang",
+      "Tong Xu",
+      "Wei Huang",
+      "Chong Chen",
+      "Peng Chuan",
+      "Xiangyu Zhao"
+    ],
+    "summary": "Cross-domain Sequential Recommendation (CDSR) has been proposed to enrich user-item interactions by incorporating information from various domains. Despite current progress, the imbalance issue and transition issue hinder further development of CDSR. The former one presents a phenomenon that the interactions in one domain dominate the entire behavior, leading to difficulty in capturing the domain-specific features in the other domain. The latter points to the difficulty in capturing users' cross-domain preferences within the mixed interaction sequence, resulting in poor next-item prediction performance for specific domains. With world knowledge and powerful reasoning ability, Large Language Models (LLMs) partially alleviate the above issues by performing as a generator and an encoder. However, current LLMs-enhanced CDSR methods are still under exploration, which fail to recognize the irrelevant noise and rough profiling problems. Thus, to make peace with the aforementioned challenges, we proposed an LLMs Enhanced Cross-domain Sequential Recommendation with Dual-phase Training ({LLM-EDT}). To address the imbalance issue while introducing less irrelevant noise, we first propose the transferable item augmenter to adaptively generate possible cross-domain behaviors for users. Then, to alleviate the transition issue, we introduce a dual-phase training strategy to empower the domain-specific thread with a domain-shared background. As for the rough profiling problem, we devise a domain-aware profiling module to summarize the user's preference in each domain and adaptively aggregate them to generate comprehensive user profiles. The experiments on three public datasets validate the effectiveness of our proposed LLM-EDT. To ease reproducibility, we have released the detailed code online at {https://anonymous.4open.science/r/LLM-EDT-583F}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-25T05:18:04Z",
+    "updated": "2025-11-25T05:18:04Z",
+    "url": "http://arxiv.org/abs/2511.19931v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19931v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "CityUniversityofHongKong Xi’anJiaotongUniversity& CityUniversityofHongKong",
+      "HongKong,China CityUniversityofHongKong HongKong,China",
+      "CityUniversityofHongKong HuaweiTechnologies UniversityofScienceandTechnology",
+      "IndependentResearcher TsinghuaUniversity CityUniversityofHongKong"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨域序列推荐中的不平衡和迁移难题，提出利用 LLM 作为生成器和编码器进行双阶段训练的具体架构，属于 LLM 在推荐系统中的核心应用。",
+    "translation": "LLM-EDT：基于双阶段训练的大语言模型增强跨域序列推荐",
+    "summary_zh": "该文提出一种利用大语言模型增强跨域序列推荐的方法，通过可迁移物品增广器解决数据不平衡问题，并采用双阶段训练策略与领域感知画像模块来优化跨域偏好捕捉及用户画像构建。",
+    "key_points": [
+      "该文提出一种利用大语言模型增强跨域序列推荐的方法，通过可迁移物品增广器解决数据不平衡问题，并采用双阶段训练策略与领域感知画像模块来优化跨域偏好捕捉及用户画像构建"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20867v1",
+    "title": "E-GEO: A Testbed for Generative Engine Optimization in E-Commerce",
+    "authors": [
+      "Puneet S. Bagga",
+      "Vivek F. Farias",
+      "Tamar Korkotashvili",
+      "Tianyi Peng",
+      "Yuhang Wu"
+    ],
+    "summary": "With the rise of large language models (LLMs), generative engines are becoming powerful alternatives to traditional search, reshaping retrieval tasks. In e-commerce, for instance, conversational shopping agents now guide consumers to relevant products. This shift has created the need for generative engine optimization (GEO)--improving content visibility and relevance for generative engines. Yet despite its growing importance, current GEO practices are ad hoc, and their impacts remain poorly understood, especially in e-commerce. We address this gap by introducing E-GEO, the first benchmark built specifically for e-commerce GEO. E-GEO contains over 7,000 realistic, multi-sentence consumer product queries paired with relevant listings, capturing rich intent, constraints, preferences, and shopping contexts that existing datasets largely miss. Using this benchmark, we conduct the first large-scale empirical study of e-commerce GEO, evaluating 15 common rewriting heuristics and comparing their empirical performance. To move beyond heuristics, we further formulate GEO as a tractable optimization problem and develop a lightweight iterative prompt-optimization algorithm that can significantly outperform these baselines. Surprisingly, the optimized prompts reveal a stable, domain-agnostic pattern--suggesting the existence of a \"universally effective\" GEO strategy. Our data and code are publicly available at https://github.com/psbagga17/E-GEO.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-25T21:28:40Z",
+    "updated": "2025-11-25T21:28:40Z",
+    "url": "http://arxiv.org/abs/2511.20867v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.20867v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对电商搜索场景提出了生成式引擎优化（GEO）的基准和方法，直接应用于提升商品在生成式搜索中的可见性，属于 LLM 在搜索领域的直接应用；虽非核心排序算法创新，但紧扣电商搜索痛点，且来自中国公司，故给予高分。",
+    "translation": "E-GEO：面向电子商务的生成式引擎优化测试床",
+    "summary_zh": "本文构建了首个电商生成式引擎优化（GEO）基准数据集，并提出了一种轻量级迭代提示优化算法，旨在解决大模型驱动下商品内容在生成式搜索结果中的可见性与相关性优化问题。",
+    "key_points": [
+      "本文构建了首个电商生成式引擎优化（GEO）基准数据集，并提出了一种轻量级迭代提示优化算法，旨在解决大模型驱动下商品内容在生成式搜索结果中的可见性与相关性优化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.10963v1",
+    "title": "Emotion-Driven Personalized Recommendation for AI-Generated Content Using Multi-Modal Sentiment and Intent Analysis",
+    "authors": [
+      "Zheqi Hu",
+      "Xuanjing Chen",
+      "Jinlin Hu"
+    ],
+    "summary": "With the rapid growth of AI-generated content (AIGC) across domains such as music, video, and literature, the demand for emotionally aware recommendation systems has become increasingly important. Traditional recommender systems primarily rely on user behavioral data such as clicks, views, or ratings, while neglecting users' real-time emotional and intentional states during content interaction. To address this limitation, this study proposes a Multi-Modal Emotion and Intent Recognition Model (MMEI) based on a BERT-based Cross-Modal Transformer with Attention-Based Fusion, integrated into a cloud-native personalized AIGC recommendation framework. The proposed system jointly processes visual (facial expression), auditory (speech tone), and textual (comments or utterances) modalities through pretrained encoders ViT, Wav2Vec2, and BERT, followed by an attention-based fusion module to learn emotion-intent representations. These embeddings are then used to drive personalized content recommendations through a contextual matching layer. Experiments conducted on benchmark emotion datasets (AIGC-INT, MELD, and CMU-MOSEI) and an AIGC interaction dataset demonstrate that the proposed MMEI model achieves a 4.3% improvement in F1-score and a 12.3% reduction in cross-entropy loss compared to the best fusion-based transformer baseline. Furthermore, user-level online evaluations reveal that emotion-driven recommendations increase engagement time by 15.2% and enhance satisfaction scores by 11.8%, confirming the model's effectiveness in aligning AI-generated content with users' affective and intentional states. This work highlights the potential of cross-modal emotional intelligence for next-generation AIGC ecosystems, enabling adaptive, empathetic, and context-aware recommendation experiences.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.HC",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "published": "2025-11-25T17:52:22Z",
+    "updated": "2025-11-25T17:52:22Z",
+    "url": "http://arxiv.org/abs/2512.10963v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.10963v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种结合多模态情感与意图分析的推荐框架，专门用于 AIGC 内容的个性化推荐，属于明确的多模态推荐系统应用。",
+    "translation": "基于多模态情感与意图分析的 AI 生成内容情感驱动个性化推荐",
+    "summary_zh": "提出一种多模态情感与意图识别模型，通过融合视觉、听觉和文本特征捕捉用户实时状态，以此驱动 AIGC 内容的上下文匹配与个性化推荐。",
+    "key_points": [
+      "提出一种多模态情感与意图识别模型，通过融合视觉、听觉和文本特征捕捉用户实时状态，以此驱动 AIGC 内容的上下文匹配与个性化推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19987v1",
+    "title": "$\\text{R}^2\\text{R}$: A Route-to-Rerank Post-Training Framework for Multi-Domain Decoder-Only Rerankers",
+    "authors": [
+      "Xinyu Wang",
+      "Hanwei Wu",
+      "Qingchen Hu",
+      "Zhenghan Tai",
+      "Jingrui Tian",
+      "Lei Ding",
+      "Jijun Chi",
+      "Hailin He",
+      "Tung Sum Thomas Kwok",
+      "Yufei Cui",
+      "Sicheng Lyu",
+      "Muzhi Li",
+      "Mingze Li",
+      "Xinyue Yu",
+      "Ling Zhou",
+      "Peng Lu"
+    ],
+    "summary": "Decoder-only rerankers are central to Retrieval-Augmented Generation (RAG). However, generalist models miss domain-specific nuances in high-stakes fields like finance and law, and naive fine-tuning causes surface-form overfitting and catastrophic forgetting. To address this challenge, we introduce R2R, a domain-aware framework that combines dynamic expert routing with a two-stage training strategy, Entity Abstraction for Generalization (EAG). EAG introduces a counter-shortcut mechanism by masking the most predictive surface cues, forcing the reranker to learn domain-invariant relevance patterns rather than memorizing dataset-specific entities. To efficiently activate domain experts, R2R employs a lightweight Latent Semantic Router that probes internal representations from the frozen backbone decoder to select the optimal LoRA expert per query. Extensive experiments across different reranker backbones and diverse domains (legal, medical, and financial) demonstrate that R2R consistently surpasses generalist and single-domain fine-tuned baselines. Our results confirm that R2R is a model-agnostic and modular approach to domain specialization with strong cross-domain robustness.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-11-25T06:54:51Z",
+    "updated": "2025-11-25T06:54:51Z",
+    "url": "http://arxiv.org/abs/2511.19987v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19987v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于重排序（Reranking）这一推荐/搜索核心环节，提出了针对多领域场景的 Decoder-only 重排序框架，虽应用于 RAG 但技术直接对应搜索重排序任务。",
+    "translation": "R2R：一种面向多领域 Decoder-only 重排序器的路由至重排序后训练框架",
+    "summary_zh": "提出结合动态专家路由与实体抽象泛化机制的两阶段训练框架，旨在解决通用重排序模型在特定领域过拟合及灾难性遗忘问题，实现领域不变的相关性模式学习。",
+    "key_points": [
+      "提出结合动态专家路由与实体抽象泛化机制的两阶段训练框架，旨在解决通用重排序模型在特定领域过拟合及灾难性遗忘问题，实现领域不变的相关性模式学习"
+    ]
+  },
+  {
+    "arxiv_id": "2512.03060v1",
+    "title": "A Large Scale Heterogeneous Treatment Effect Estimation Framework and Its Applications of Users' Journey at Snap",
+    "authors": [
+      "Jing Pan",
+      "Li Shi",
+      "Paul Lo"
+    ],
+    "summary": "Heterogeneous Treatment Effect (HTE) and Conditional Average Treatment Effect (CATE) models relax the assumption that treatment effects are the same for every user. We present a large scale industrial framework for estimating HTE using experimental data from hundreds of millions of Snapchat users. By combining results across many experiments, the framework uncovers latent user characteristics that were previously unmeasurable and produces stable treatment effect estimates at scale.\n  We describe the core components that enabled this system, including experiment selection, base learner design, and incremental training. We also highlight two applications: user influenceability to ads and user sensitivity to ads. An online A/B test using influenceability scores for targeting showed an improvement on key business metrics that is more than six times larger than what is typically considered significant.",
+    "categories": [
+      "cs.LG",
+      "stat.AP",
+      "stat.ME"
+    ],
+    "published": "2025-11-25T22:01:58Z",
+    "updated": "2025-11-25T22:01:58Z",
+    "url": "http://arxiv.org/abs/2512.03060v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.03060v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于广告系统中的异质处理效应（HTE）估计，直接应用于用户广告敏感度和影响力建模，属于推荐/广告核心排序与定向技术；虽非纯 LLM 研究且来自 Snap 而非中国公司（不适用额外加分），但其工业级框架对 Ads RecSys 具有高实用价值。",
+    "translation": "大规模异质处理效应估计框架及其在 Snap 用户旅程中的应用",
+    "summary_zh": "提出一种利用海量实验数据估计异质处理效应的大规模工业框架，通过挖掘潜在用户特征来精准量化用户对广告的敏感度与可影响性，以优化广告定向策略。",
+    "key_points": [
+      "提出一种利用海量实验数据估计异质处理效应的大规模工业框架，通过挖掘潜在用户特征来精准量化用户对广告的敏感度与可影响性，以优化广告定向策略"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20893v2",
+    "title": "Probabilistic Hash Embeddings for Online Learning of Categorical Features",
+    "authors": [
+      "Aodong Li",
+      "Abishek Sankararaman",
+      "Balakrishnan Narayanaswamy"
+    ],
+    "summary": "We study streaming data with categorical features where the vocabulary of categorical feature values is changing and can even grow unboundedly over time. Feature hashing is commonly used as a pre-processing step to map these categorical values into a feature space of fixed size before learning their embeddings. While these methods have been developed and evaluated for offline or batch settings, in this paper we consider online settings. We show that deterministic embeddings are sensitive to the arrival order of categories and suffer from forgetting in online learning, leading to performance deterioration. To mitigate this issue, we propose a probabilistic hash embedding (PHE) model that treats hash embeddings as stochastic and applies Bayesian online learning to learn incrementally from data. Based on the structure of PHE, we derive a scalable inference algorithm to learn model parameters and infer/update the posteriors of hash embeddings and other latent variables. Our algorithm (i) can handle an evolving vocabulary of categorical items, (ii) is adaptive to new items without forgetting old items, (iii) is implementable with a bounded set of parameters that does not grow with the number of distinct observed values on the stream, and (iv) is invariant to the item arrival order. Experiments in classification, sequence modeling, and recommendation systems in online learning setups demonstrate the superior performance of PHE while maintaining high memory efficiency (consumes as low as 2~4 memory of a one-hot embedding table). Supplementary materials are at https://github.com/aodongli/probabilistic-hash-embeddings",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2025-11-25T22:18:45Z",
+    "updated": "2025-11-30T06:51:16Z",
+    "url": "http://arxiv.org/abs/2511.20893v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.20893v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出概率哈希嵌入（PHE）解决在线学习中类别特征动态增长和遗忘问题，并在推荐系统场景中验证，属于核心推荐技术；虽非纯 LLM 研究，但明确应用于 RecSys 在线学习，结合中国公司背景额外加分。",
+    "translation": "用于类别特征在线学习的概率哈希嵌入方法",
+    "summary_zh": "提出一种概率哈希嵌入模型，通过贝叶斯在线学习将哈希嵌入视为随机变量，以自适应处理流数据中无限增长的类别词汇并避免顺序敏感性和遗忘问题。",
+    "key_points": [
+      "提出一种概率哈希嵌入模型，通过贝叶斯在线学习将哈希嵌入视为随机变量，以自适应处理流数据中无限增长的类别词汇并避免顺序敏感性和遗忘问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19979v1",
+    "title": "The 2nd Workshop on Human-Centered Recommender Systems",
+    "authors": [
+      "Kaike Zhang",
+      "Jiakai Tang",
+      "Du Su",
+      "Shuchang Liu",
+      "Julian McAuley",
+      "Lina Yao",
+      "Qi Cao",
+      "Yue Feng",
+      "Fei Sun"
+    ],
+    "summary": "Recommender systems shape how people discover information, form opinions, and connect with society. Yet, as their influence grows, traditional metrics, e.g., accuracy, clicks, and engagement, no longer capture what truly matters to humans. The workshop on Human-Centered Recommender Systems (HCRS) calls for a paradigm shift from optimizing engagement toward designing systems that truly understand, involve, and benefit people. It brings together researchers in recommender systems, human-computer interaction, AI safety, and social computing to explore how human values, e.g., trust, safety, fairness, transparency, and well-being, can be integrated into recommendation processes. Centered around three thematic axes-Human Understanding, Human Involvement, and Human Impact-HCRS features keynotes, panels, and papers covering topics from LLM-based interactive recommenders to societal welfare optimization. By fostering interdisciplinary collaboration, HCRS aims to shape the next decade of responsible and human-aligned recommendation research.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-25T06:49:14Z",
+    "updated": "2025-11-25T06:49:14Z",
+    "url": "http://arxiv.org/abs/2511.19979v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19979v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "The 2nd Workshop on Human-Centered Recommender Systems",
+      "UniversityofChineseAcademyof RenminUniversityofChina InstituteofComputingTechnology,",
+      "Kuaishou UniversityofCalifornia,SanDiego CSIROData61",
+      "InstituteofComputingTechnology, UniversityofBirmingham UniversityofChineseAcademyof",
+      "Cao,YueFeng,andFeiSun.2025.The2ndWorkshoponHuman-Centered",
+      "on Human-Centered Recommender Systems (HCRS) calls for a",
+      "togetherresearchersinrecommendersystems,human-computer exponentialgrowthofonlineinformation,profoundlyshapinghow",
+      "beintegratedintorecommendationprocesses.Centeredaround alsointroduceschallenges,includingfilteringbubbles,privacy,and"
+    ],
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于研讨会（Workshop）的综述性摘要，虽涵盖推荐系统的人本转向及 LLM 应用，但缺乏具体的核心算法创新或单一技术突破；根据规则来自 TAL 公司额外 +1 分。",
+    "translation": "第二届以人为中心的推荐系统研讨会",
+    "summary_zh": "本文介绍了一个旨在推动推荐系统从优化参与度向理解人类价值观（如信任、公平、福祉）转变的研讨会，探讨了结合人机交互与 LLM 的负责任推荐研究新范式。",
+    "key_points": [
+      "本文介绍了一个旨在推动推荐系统从优化参与度向理解人类价值观（如信任、公平、福祉）转变的研讨会，探讨了结合人机交互与 LLM 的负责任推荐研究新范式"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19893v1",
+    "title": "Frailty-Aware Transformer for Recurrent Survival Modeling of Driver Retention in Ride-Hailing Platforms",
+    "authors": [
+      "Shuoyan Xu",
+      "Yu Zhang",
+      "Eric J. Miller"
+    ],
+    "summary": "Ride-hailing platforms are characterized by high-frequency, behavior-driven environments. Although survival analysis has been applied to recurrent events in other domains, its use in modeling ride-hailing driver behavior remains largely unexplored. This study formulates idle behavior as a recurrent survival process using large-scale platform data and proposes a Transformer-based framework that captures long-term temporal dependencies with causal masking and incorporates driver-specific embeddings to model latent heterogeneity. Results on Toronto ride-hailing data demonstrate that the proposed Frailty-Aware Cox Transformer (FACT) achieves the highest time-dependent C-indices and lowest Brier Scores, outperforming classical and deep learning survival models. This approach enables more accurate risk estimation, supports platform retention strategies, and provides policy-relevant insights.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-25T04:04:04Z",
+    "updated": "2025-11-25T04:04:04Z",
+    "url": "http://arxiv.org/abs/2511.19893v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19893v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文虽涉及平台用户（司机）留存建模，但核心属于生存分析（Survival Analysis）在特定运营场景的应用，而非推荐系统或搜索引擎核心的召回、排序及个性化算法研究。",
+    "translation": "网约车平台司机留存递归生存建模的脆弱性感知 Transformer",
+    "summary_zh": "提出一种结合因果掩码与司机特定嵌入的脆弱性感知 Cox Transformer 框架，将司机空闲行为建模为递归生存过程以捕捉长期时间依赖和潜在异质性。",
+    "key_points": [
+      "提出一种结合因果掩码与司机特定嵌入的脆弱性感知 Cox Transformer 框架，将司机空闲行为建模为递归生存过程以捕捉长期时间依赖和潜在异质性"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19830v1",
+    "title": "Beyond Relational: Semantic-Aware Multi-Modal Analytics with LLM-Native Query Optimization",
+    "authors": [
+      "Junhao Zhu",
+      "Lu Chen",
+      "Xiangyu Ke",
+      "Ziquan Fang",
+      "Tianyi Li",
+      "Yunjun Gao",
+      "Christian S. Jensen"
+    ],
+    "summary": "Multi-modal analytical processing has the potential to transform applications in e-commerce, healthcare, entertainment, and beyond. However, real-world adoption remains elusive due to the limited ability of traditional relational query operators to capture query semantics. The emergence of foundation models, particularly the large language models (LLMs), opens up new opportunities to develop flexible, semantic-aware data analytics systems that transcend the relational paradigm.\n  We present Nirvana, a multi-modal data analytics framework that incorporates programmable semantic operators while leveraging both logical and physical query optimization strategies, tailored for LLM-driven semantic query processing. Nirvana addresses two key challenges. First, it features an agentic logical optimizer that uses natural language-specified transformation rules and random-walk-based search to explore vast spaces of semantically equivalent query plans -- far beyond the capabilities of conventional optimizers. Second, it introduces a cost-aware physical optimizer that selects the most effective LLM backend for each operator using a novel improvement-score metric. To further enhance efficiency, Nirvana incorporates computation reuse and evaluation pushdown techniques guided by model capability hypotheses. Experimental evaluations on three real-world benchmarks demonstrate that Nirvana is able to reduce end-to-end runtime by 10%--85% and reduces system processing costs by 76% on average, outperforming state-of-the-art systems at both efficiency and scalability.",
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ],
+    "published": "2025-11-25T01:41:49Z",
+    "updated": "2025-11-25T01:41:49Z",
+    "url": "http://arxiv.org/abs/2511.19830v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19830v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究基于 LLM 的多模态数据分析系统优化，虽提及电商场景但核心是通用查询引擎而非推荐/搜索算法，属于弱相关；因来自中国公司额外加 1 分。",
+    "translation": "超越关系型：基于 LLM 原生查询优化的语义感知多模态分析",
+    "summary_zh": "提出 Nirvana 框架，通过代理逻辑优化器和成本感知物理优化器，利用大语言模型实现灵活的多模态数据语义查询与执行计划优化。",
+    "key_points": [
+      "提出 Nirvana 框架，通过代理逻辑优化器和成本感知物理优化器，利用大语言模型实现灵活的多模态数据语义查询与执行计划优化"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20049v2",
+    "title": "Updatable Balanced Index for Fast On-device Search with Auto-selection Model",
+    "authors": [
+      "Yushuai Ji",
+      "Sheng Wang",
+      "Zhiyu Chen",
+      "Yuan Sun",
+      "Zhiyong Peng"
+    ],
+    "summary": "Diverse types of edge data, such as 2D geo-locations and 3D point clouds, are collected by sensors like lidar and GPS receivers on edge devices. On-device searches, such as k-nearest neighbor (kNN) search and radius search, are commonly used to enable fast analytics and learning technologies, such as k-means dataset simplification using kNN. To maintain high search efficiency, a representative approach is to utilize a balanced multi-way KD-tree (BMKD-tree). However, the index has shown limited gains, mainly due to substantial construction overhead, inflexibility to real-time insertion, and inconsistent query performance. In this paper, we propose UnIS to address the above limitations. We first accelerate the construction process of the BMKD-tree by utilizing the dataset distribution to predict the splitting hyperplanes. To make the continuously generated data searchable, we propose a selective sub-tree rebuilding scheme to accelerate rebalancing during insertion by reducing the number of data points involved. We then propose an auto-selection model to improve query performance by automatically selecting the optimal search strategy among multiple strategies for an arbitrary query task. Experimental results show that UnIS achieves average speedups of 17.96x in index construction, 1.60x in insertion, 7.15x in kNN search, and 1.09x in radius search compared to the BMKD-tree. We further verify its effectiveness in accelerating dataset simplification on edge devices, achieving a speedup of 217x over Lloyd's algorithm.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-11-25T08:17:29Z",
+    "updated": "2025-12-14T02:24:32Z",
+    "url": "http://arxiv.org/abs/2511.20049v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.20049v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于边缘设备上的通用空间数据索引（如点云、GPS）加速，属于系统优化领域，未涉及推荐或搜索系统的核心业务逻辑（如召回、排序、用户建模），且非纯 LLM 研究但相关性极低；虽来自 TAL 加 1 分，但基础分仅 2 分。",
+    "translation": "用于设备上快速搜索的可更新平衡索引与自动选择模型",
+    "summary_zh": "提出一种利用数据分布预测分割面及选择性子树重建策略的可更新平衡索引，并通过自动选择模型动态优化查询策略以提升边缘设备上的搜索效率。",
+    "key_points": [
+      "提出一种利用数据分布预测分割面及选择性子树重建策略的可更新平衡索引，并通过自动选择模型动态优化查询策略以提升边缘设备上的搜索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19999v1",
+    "title": "Popularity Bias Alignment Estimates",
+    "authors": [
+      "Anton Lyubinin"
+    ],
+    "summary": "We are extending Popularity Bias Memorization theorem from arXiv:archive/2404.12008 in several directions. We extend it to arbitrary degree distributions and also prove both upper and lower estimates for the alignment with top-k singular hyperspace.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "published": "2025-11-25T07:07:36Z",
+    "updated": "2025-11-25T07:07:36Z",
+    "url": "http://arxiv.org/abs/2511.19999v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19999v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯理论数学研究（流行度偏差对齐估计），未提及任何推荐系统或搜索引擎的具体应用场景，即使有中国公司背景且加分后仍属弱相关。",
+    "translation": "流行度偏差对齐估计",
+    "summary_zh": "本文扩展了流行度偏差记忆定理，证明了任意度分布下与 top-k 奇异超空间对齐的上下界估计。",
+    "key_points": [
+      "本文扩展了流行度偏差记忆定理，证明了任意度分布下与 top-k 奇异超空间对齐的上下界估计"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20056v2",
+    "title": "Online-PVLM: Advancing Personalized VLMs with Online Concept Learning",
+    "authors": [
+      "Huiyu Bai",
+      "Runze Wang",
+      "Zhuoyun Du",
+      "Yiyang Zhao",
+      "Fengji Zhang",
+      "Haoyu Chen",
+      "Xiaoyong Zhu",
+      "Bo Zheng",
+      "Xuejiao Zhao"
+    ],
+    "summary": "Personalized Visual Language Models (VLMs) are gaining increasing attention for their formidable ability in user-specific concepts aligned interactions (e.g., identifying a user's bike). Existing methods typically require the learning of separate embeddings for each new concept, which fails to support real-time adaptation during testing. This limitation becomes particularly pronounced in large-scale scenarios, where efficient retrieval of concept embeddings is not achievable. To alleviate this gap, we propose Online-PVLM, a framework for online concept learning by leveraging hyperbolic representations. Our approach makes a train-free paradigm for concept embeddings generation at test time, making the use of personalized VLMs both scalable and efficient. In addition, we develop OP-Eval, a comprehensive and large-scale benchmark comprising 1,292 concepts and over 30K high-quality instances with diverse question types, designed to rigorously assess online concept learning in realistic scenarios. Extensive experiments demonstrate the state-of-the-art performance of our proposed framework. Our source code and dataset will be made available.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-11-25T08:25:30Z",
+    "updated": "2025-12-18T06:22:14Z",
+    "url": "http://arxiv.org/abs/2511.20056v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.20056v2.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "1NanyangTechnologicalUniversity 2AlibabaGroup 3ZhejiangUniversity",
+      "4CityUniversityofHongKong 5UniversityofOulu",
+      "sonalized VLMs both scalable and efficient."
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯多模态大模型（VLM）研究，专注于用户特定概念的在线学习与识别，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、信息流），仅属弱相关。",
+    "translation": "Online-PVLM：利用在线概念学习推进个性化视觉语言模型",
+    "summary_zh": "提出一种基于双曲表示的免训练框架，旨在测试时实时生成概念嵌入，以解决个性化视觉语言模型在大规模场景下的实时适应与扩展性难题。",
+    "key_points": [
+      "提出一种基于双曲表示的免训练框架，旨在测试时实时生成概念嵌入，以解决个性化视觉语言模型在大规模场景下的实时适应与扩展性难题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20419v1",
+    "title": "The Case for Intent-Based Query Rewriting",
+    "authors": [
+      "Gianna Lisa Nicolai",
+      "Patrick Hansert",
+      "Sebastian Michel"
+    ],
+    "summary": "With this work, we describe the concept of intent-based query rewriting and present a first viable solution. The aim is to allow rewrites to alter the structure and syntactic outcome of an original query while keeping the obtainable insights intact. This drastically differs from traditional query rewriting, which typically aims to decrease query evaluation time by using strict equivalence rules and optimization heuristics on the query plan. Rewriting queries to queries that only provide a similar insight but otherwise can be entirely different can remedy inaccessible original data tables due to access control, privacy, or expensive data access regarding monetary cost or remote access. In this paper, we put forward INQURE, a system designed for INtent-based QUery REwriting. It uses access to a large language model (LLM) for the query understanding and human-like derivation of alternate queries. Around the LLM, INQURE employs upfront table filtering and subsequent candidate rewrite pruning and ranking. We report on the results of an evaluation using a benchmark set of over 900 database table schemas and discuss the pros and cons of alternate approaches regarding runtime and quality of the rewrites of a user study.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-11-25T15:44:09Z",
+    "updated": "2025-11-25T15:44:09Z",
+    "url": "http://arxiv.org/abs/2511.20419v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.20419v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯数据库查询优化研究，旨在解决数据访问控制和隐私问题，与推荐系统或搜索引擎的核心业务（召回、排序、用户建模）无直接关联。",
+    "translation": "基于意图的查询重写案例研究",
+    "summary_zh": "提出一种利用大语言模型理解用户意图并生成语义等价但结构不同的替代查询的方法，以绕过数据访问限制或降低成本。",
+    "key_points": [
+      "提出一种利用大语言模型理解用户意图并生成语义等价但结构不同的替代查询的方法，以绕过数据访问限制或降低成本"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19969v1",
+    "title": "M$^3$Prune: Hierarchical Communication Graph Pruning for Efficient Multi-Modal Multi-Agent Retrieval-Augmented Generation",
+    "authors": [
+      "Weizi Shao",
+      "Taolin Zhang",
+      "Zijie Zhou",
+      "Chen Chen",
+      "Chengyu Wang",
+      "Xiaofeng He"
+    ],
+    "summary": "Recent advancements in multi-modal retrieval-augmented generation (mRAG), which enhance multi-modal large language models (MLLMs) with external knowledge, have demonstrated that the collective intelligence of multiple agents can significantly outperform a single model through effective communication. Despite impressive performance, existing multi-agent systems inherently incur substantial token overhead and increased computational costs, posing challenges for large-scale deployment. To address these issues, we propose a novel Multi-Modal Multi-agent hierarchical communication graph PRUNING framework, termed M$^3$Prune. Our framework eliminates redundant edges across different modalities, achieving an optimal balance between task performance and token overhead. Specifically, M$^3$Prune first applies intra-modal graph sparsification to textual and visual modalities, identifying the edges most critical for solving the task. Subsequently, we construct a dynamic communication topology using these key edges for inter-modal graph sparsification. Finally, we progressively prune redundant edges to obtain a more efficient and hierarchical topology. Extensive experiments on both general and domain-specific mRAG benchmarks demonstrate that our method consistently outperforms both single-agent and robust multi-agent mRAG systems while significantly reducing token consumption.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-11-25T06:29:13Z",
+    "updated": "2025-11-25T06:29:13Z",
+    "url": "http://arxiv.org/abs/2511.19969v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19969v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel",
+      "Alibaba"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "1 EastChinaNormalUniversity,Shanghai,China2 HefeiUniversityofTechnology,Hefei,China",
+      "3 ChinaUniversityofPetroleum,Beijing,China",
+      "4 GuangdonguniversityofFinance&Economics,Guangdong,China5 AlibabaGroup,Hangzhou,China"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 多智能体协作与 RAG 优化的研究，旨在降低 Token 消耗，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "M³Prune：面向高效多模态多智能体检索增强生成的分层通信图剪枝",
+    "summary_zh": "提出一种分层通信图剪枝框架，通过跨模态冗余边消除与动态拓扑构建，优化多智能体检索增强生成系统的 Token 效率。",
+    "key_points": [
+      "提出一种分层通信图剪枝框架，通过跨模态冗余边消除与动态拓扑构建，优化多智能体检索增强生成系统的 Token 效率"
+    ]
+  }
+]

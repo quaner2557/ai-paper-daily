@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Paper Daily - 论文日历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .calendar-section {
+            margin-bottom: 40px;
+        }
+
+        .calendar-section h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .calendar-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-controls button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .calendar-controls button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .calendar-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .month-year {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .calendar-day:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .calendar-day.has-papers {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0e8f8 100%);
+            border-color: #667eea;
+        }
+
+        .calendar-day.has-papers:hover {
+            background: linear-gradient(135deg, #d0e8f0 0%, #e0d0f0 100%);
+        }
+
+        .calendar-day.empty {
+            cursor: default;
+            background: transparent;
+        }
+
+        .calendar-day.empty:hover {
+            transform: none;
+            background: transparent;
+        }
+
+        .calendar-day.today {
+            border-color: #667eea;
+            border-width: 3px;
+        }
+
+        .day-number {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .paper-count {
+            font-size: 0.75em;
+            color: #667eea;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .quick-link {
+            display: block;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s;
+            border-left: 4px solid #667eea;
+        }
+
+        .quick-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quick-link strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .quick-link span {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .calendar-day {
+                border-radius: 5px;
+            }
+
+            .day-number {
+                font-size: 0.9em;
+            }
+
+            .paper-count {
+                font-size: 0.65em;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 AI Paper Daily</h1>
+            <p>论文日历导航 | 2025年4月 - 2026年3月</p>
+        </div>
+
+        <div class="content">
+            <div class="calendar-section">
+                <h2>📅 选择日期查看论文</h2>
+                
+                <div class="calendar-controls">
+                    <button id="prevMonth" onclick="changeMonth(-1)">← 上月</button>
+                    <span class="month-year" id="monthYear"></span>
+                    <button id="nextMonth" onclick="changeMonth(1)">下月 →</button>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+
+            <div class="quick-links">
+                <a href="stats.html" class="quick-link">
+                    <strong>📊 数据总览</strong>
+                    <span>可视化图表统计</span>
+                </a>
+                <a href="OVERVIEW.md" class="quick-link">
+                    <strong>📄 详细报告</strong>
+                    <span>Markdown 格式报告</span>
+                </a>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalDays">351</div>
+                    <div class="stat-label">总天数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalPapers">3,830</div>
+                    <div class="stat-label">总论文数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="avgPapers">10.9</div>
+                    <div class="stat-label">日均论文</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>数据来源：arXiv API | 最后更新：<span id="lastUpdate"></span></p>
+            <p><a href="OVERVIEW.md">查看详细统计报告</a></p>
+        </div>
+    </div>
+
+                                            <script>
+        const monthNames = ["1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
+        const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
+        
+        let paperData = {};
+        let allMonths = [];
+        let currentYear, currentMonth;
+
+        // 动态加载数据
+        async function loadData() {
+            try {
+                // 从 paper_data.json 动态加载（避免硬编码）
+                const response = await fetch('paper_data.json?' + Date.now()); // 添加时间戳避免缓存
+                if (!response.ok) {
+                    throw new Error('Failed to load paper_data.json');
+                }
+                paperData = await response.json();
+                allMonths = Object.keys(paperData).sort();
+                
+                // 自动获取最新月份
+                const latestMonth = allMonths[allMonths.length - 1];
+                currentYear = parseInt(latestMonth.substring(0, 4));
+                currentMonth = parseInt(latestMonth.substring(4, 6)) - 1;
+                
+                // 更新统计数据
+                updateStats();
+                
+                // 渲染日历
+                renderCalendar();
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                document.getElementById('monthYear').textContent = '数据加载失败';
+            }
+        }
+
+        function updateStats() {
+            let totalPapers = 0;
+            let totalDays = 0;
+            
+            for (const month in paperData) {
+                const days = paperData[month];
+                for (const day in days) {
+                    totalPapers += days[day];
+                    totalDays++;
+                }
+            }
+            
+            const avg = totalDays > 0 ? (totalPapers / totalDays).toFixed(1) : 0;
+            
+            document.getElementById('totalDays').textContent = totalDays;
+            document.getElementById('totalPapers').textContent = totalPapers.toLocaleString();
+            document.getElementById('avgPapers').textContent = avg;
+            
+            // 更新最后更新时间
+            const now = new Date();
+            const timeStr = now.getFullYear() + '-' + 
+                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                           String(now.getDate()).padStart(2, '0') + ' ' + 
+                           String(now.getHours()).padStart(2, '0') + ':' + 
+                           String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('lastUpdate').textContent = timeStr;
+        }
+
+        function getDaysInMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+
+        function getFirstDayOfMonth(year, month) {
+            return new Date(year, month, 1).getDay();
+        }
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            const monthYear = document.getElementById('monthYear');
+            const prevBtn = document.getElementById('prevMonth');
+            const nextBtn = document.getElementById('nextMonth');
+            
+            grid.innerHTML = '';
+            
+            // 更新月份显示
+            monthYear.textContent = `${currentYear}年${monthNames[currentMonth]}`;
+            
+            // 更新按钮状态
+            const currentMonthKey = `${currentYear}${String(currentMonth + 1).padStart(2, '0')}`;
+            const firstMonth = allMonths[0];
+            const lastMonth = allMonths[allMonths.length - 1];
+            prevBtn.disabled = currentMonthKey <= firstMonth;
+            nextBtn.disabled = currentMonthKey >= lastMonth;
+            
+            // 添加星期标题
+            dayNames.forEach(name => {
+                const header = document.createElement('div');
+                header.className = 'calendar-day-header';
+                header.textContent = name;
+                grid.appendChild(header);
+            });
+            
+            // 添加空白占位
+            const daysInMonth = getDaysInMonth(currentYear, currentMonth);
+            const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
+            const monthKey = `${currentYear}${String(currentMonth + 1).padStart(2, '0')}`;
+            
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                grid.appendChild(emptyDay);
+            }
+            
+            // 添加日期
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayEl = document.createElement('div');
+                const dayKey = String(day).padStart(2, '0');
+                const paperCount = paperData[monthKey]?.[dayKey] || 0;
+                const dateStr = `${monthKey}${dayKey}`;
+                
+                dayEl.className = 'calendar-day';
+                
+                if (paperCount > 0) {
+                    // 更柔和的颜色方案
+                    if (paperCount >= 15) {
+                        // 深蓝色：高产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%)';
+                    } else if (paperCount >= 10) {
+                        // 青绿色：中等产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #6B9080 0%, #88B3A3 100%)';
+                    } else if (paperCount >= 5) {
+                        // 淡蓝色：正常产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #7FA1C3 0%, #9AB5D1 100%)';
+                    } else {
+                        // 浅灰色：少量产出日
+                        dayEl.style.background = 'linear-gradient(135deg, #A8B8C8 0%, #B8C8D8 100%)';
+                    }
+                    dayEl.style.color = 'white';
+                    dayEl.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+                    dayEl.innerHTML = `<span style="font-size: 1.2em; font-weight: bold;">${day}</span><span style="font-size: 0.7em; opacity: 0.95;">${paperCount}篇</span>`;
+                    dayEl.onclick = () => window.open(`${dateStr}.html`, '_blank');
+                    dayEl.style.cursor = 'pointer';
+                } else {
+                    dayEl.style.background = '#f8f9fa';
+                    dayEl.style.color = '#999';
+                    dayEl.innerHTML = `<span style="font-size: 1.1em;">${day}</span>`;
+                }
+                
+                // 标记今天
+                const isToday = currentYear === today.getFullYear() && 
+                               currentMonth === today.getMonth() && 
+                               day === today.getDate();
+                if (isToday) {
+                    dayEl.style.border = '3px solid #f5576c';
+                }
+                
+                grid.appendChild(dayEl);
+            }
+        }
+
+        function changeMonth(delta) {
+            currentMonth += delta;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        }
+
+        // 页面加载时初始化
+        loadData();
+    </script>
+</body>
+</html>

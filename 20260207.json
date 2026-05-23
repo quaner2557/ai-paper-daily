@@ -1,0 +1,458 @@
+[
+  {
+    "arxiv_id": "2602.07526v1",
+    "title": "MSN: A Memory-based Sparse Activation Scaling Framework for Large-scale Industrial Recommendation",
+    "authors": [
+      "Shikang Wu",
+      "Hui Lu",
+      "Jinqiu Jin",
+      "Zheng Chai",
+      "Shiyong Hong",
+      "Junjie Zhang",
+      "Shanlei Mu",
+      "Kaiyuan Ma",
+      "Tianyi Liu",
+      "Yuchao Zheng",
+      "Zhe Wang",
+      "Jingjian Lin"
+    ],
+    "summary": "Scaling deep learning recommendation models is an effective way to improve model expressiveness. Existing approaches often incur substantial computational overhead, making them difficult to deploy in large-scale industrial systems under strict latency constraints. Recent sparse activation scaling methods, such as Sparse Mixture-of-Experts, reduce computation by activating only a subset of parameters, but still suffer from high memory access costs and limited personalization capacity due to the large size and small number of experts. To address these challenges, we propose MSN, a memory-based sparse activation scaling framework for recommendation models. MSN dynamically retrieves personalized representations from a large parameterized memory and integrates them into downstream feature interaction modules via a memory gating mechanism, enabling fine-grained personalization with low computational overhead. To enable further expansion of the memory capacity while keeping both computational and memory access costs under control, MSN adopts a Product-Key Memory (PKM) mechanism, which factorizes the memory retrieval complexity from linear time to sub-linear complexity. In addition, normalization and over-parameterization techniques are introduced to maintain balanced memory utilization and prevent memory retrieval collapse. We further design customized Sparse-Gather operator and adopt the AirTopK operator to improve training and inference efficiency in industrial settings. Extensive experiments demonstrate that MSN consistently improves recommendation performance while maintaining high efficiency. Moreover, MSN has been successfully deployed in the Douyin Search Ranking System, achieving significant gains over deployed state-of-the-art models in both offline evaluation metrics and large-scale online A/B test.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-07T12:43:51Z",
+    "updated": "2026-02-07T12:43:51Z",
+    "url": "http://arxiv.org/abs/2602.07526v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07526v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文提出了一种专为大规模工业推荐系统设计的内存稀疏激活框架，并已在抖音搜索排序系统中成功部署，完美契合电商/社交 + 推荐搜索的核心场景。",
+    "translation": "MSN：一种面向大规模工业推荐的基于内存的稀疏激活扩展框架",
+    "summary_zh": "提出 MSN 框架，通过参数化内存和乘积键记忆机制动态检索个性化表示，在降低计算与内存访问成本的同时实现细粒度个性化，解决了大模型在工业推荐系统中的部署难题。",
+    "key_points": [
+      "提出 MSN 框架，通过参数化内存和乘积键记忆机制动态检索个性化表示，在降低计算与内存访问成本的同时实现细粒度个性化，解决了大模型在工业推荐系统中的部署难题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07520v2",
+    "title": "MDL: A Unified Multi-Distribution Learner in Large-scale Industrial Recommendation through Tokenization",
+    "authors": [
+      "Shanlei Mu",
+      "Yuchen Jiang",
+      "Shikang Wu",
+      "Shiyong Hong",
+      "Tianmu Sha",
+      "Junjie Zhang",
+      "Jie Zhu",
+      "Zhe Chen",
+      "Zhe Wang",
+      "Jingjian Lin"
+    ],
+    "summary": "Industrial recommender systems increasingly adopt multi-scenario learning (MSL) and multi-task learning (MTL) to handle diverse user interactions and contexts, but existing approaches suffer from two critical drawbacks: (1) underutilization of large-scale model parameters due to limited interaction with complex feature modules, and (2) difficulty in jointly modeling scenario and task information in a unified framework. To address these challenges, we propose a unified \\textbf{M}ulti-\\textbf{D}istribution \\textbf{L}earning (MDL) framework, inspired by the \"prompting\" paradigm in large language models (LLMs). MDL treats scenario and task information as specialized tokens rather than auxiliary inputs or gating signals. Specifically, we introduce a unified information tokenization module that transforms features, scenarios, and tasks into a unified tokenized format. To facilitate deep interaction, we design three synergistic mechanisms: (1) feature token self-attention for rich feature interactions, (2) domain-feature attention for scenario/task-adaptive feature activation, and (3) domain-fused aggregation for joint distribution prediction. By stacking these interactions, MDL enables scenario and task information to \"prompt\" and activate the model's vast parameter space in a bottom-up, layer-wise manner. Extensive experiments on real-world industrial datasets demonstrate that MDL significantly outperforms state-of-the-art MSL and MTL baselines. Online A/B testing on Douyin Search platform over one month yields +0.0626\\% improvement in LT30 and -0.3267\\% reduction in change query rate. MDL has been fully deployed in production, serving hundreds of millions of users daily.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-07T12:34:27Z",
+    "updated": "2026-02-10T06:55:40Z",
+    "url": "http://arxiv.org/abs/2602.07520v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.07520v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对抖音搜索场景的多场景/多任务推荐问题，提出基于 Tokenization 的统一架构并已成功上线，完全符合核心领域 advances 且来自目标公司，给予满分。",
+    "translation": "MDL：通过 Tokenization 实现大规模工业推荐中的统一多分布学习",
+    "summary_zh": "该论文提出 MDL 框架，受 LLM Prompting 启发，将推荐系统中的场景和任务信息转化为统一 Token，通过自注意力与域融合机制实现底层参数的高效交互与联合分布预测。",
+    "key_points": [
+      "该论文提出 MDL 框架，受 LLM Prompting 启发，将推荐系统中的场景和任务信息转化为统一 Token，通过自注意力与域融合机制实现底层参数的高效交互与联合分布预测"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07309v1",
+    "title": "Semantic Search At LinkedIn",
+    "authors": [
+      "Fedor Borisyuk",
+      "Sriram Vasudevan",
+      "Muchen Wu",
+      "Guoyao Li",
+      "Benjamin Le",
+      "Shaobo Zhang",
+      "Qianqi Kay Shen",
+      "Yuchin Juan",
+      "Kayhan Behdin",
+      "Liming Dong",
+      "Kaixu Yang",
+      "Shusen Jing",
+      "Ravi Pothamsetty",
+      "Rajat Arora",
+      "Sophie Yanying Sheng",
+      "Vitaly Abdrashitov",
+      "Yang Zhao",
+      "Lin Su",
+      "Xiaoqing Wang",
+      "Chujie Zheng",
+      "Sarang Metkar",
+      "Rupesh Gupta",
+      "Igor Lapchuk",
+      "David N. Racca",
+      "Madhumitha Mohan",
+      "Yanbo Li",
+      "Haojun Li",
+      "Saloni Gandhi",
+      "Xueying Lu",
+      "Chetan Bhole",
+      "Ali Hooshmand",
+      "Xin Yang",
+      "Raghavan Muthuregunathan",
+      "Jiajun Zhang",
+      "Mathew Teoh",
+      "Adam Coler",
+      "Abhinav Gupta",
+      "Xiaojing Ma",
+      "Sundara Raman Ramachandran",
+      "Morteza Ramezani",
+      "Yubo Wang",
+      "Lijuan Zhang",
+      "Richard Li",
+      "Jian Sheng",
+      "Chanh Nguyen",
+      "Yen-Chi Chen",
+      "Chuanrui Zhu",
+      "Claire Zhang",
+      "Jiahao Xu",
+      "Deepti Kulkarni",
+      "Qing Lan",
+      "Arvind Subramaniam",
+      "Ata Fatahibaarzi",
+      "Steven Shimizu",
+      "Yanning Chen",
+      "Zhipeng Wang",
+      "Ran He",
+      "Zhengze Zhou",
+      "Qingquan Song",
+      "Yun Dai",
+      "Caleb Johnson",
+      "Ping Liu",
+      "Shaghayegh Gharghabi",
+      "Gokulraj Mohanasundaram",
+      "Juan Bottaro",
+      "Santhosh Sachindran",
+      "Qi Guo",
+      "Yunxiang Ren",
+      "Chengming Jiang",
+      "Di Mo",
+      "Luke Simon",
+      "Jianqiang Shen",
+      "Jingwei Wu",
+      "Wenjing Zhang"
+    ],
+    "summary": "Semantic search with large language models (LLMs) enables retrieval by meaning rather than keyword overlap, but scaling it requires major inference efficiency advances. We present LinkedIn's LLM-based semantic search framework for AI Job Search and AI People Search, combining an LLM relevance judge, embedding-based retrieval, and a compact Small Language Model trained via multi-teacher distillation to jointly optimize relevance and engagement. A prefill-oriented inference architecture co-designed with model pruning, context compression, and text-embedding hybrid interactions boosts ranking throughput by over 75x under a fixed latency constraint while preserving near-teacher-level NDCG, enabling one of the first production LLM-based ranking systems with efficiency comparable to traditional approaches and delivering significant gains in quality and user engagement.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-07T01:59:03Z",
+    "updated": "2026-02-07T01:59:03Z",
+    "url": "http://arxiv.org/abs/2602.07309v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07309v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接介绍了 LinkedIn 在生产环境中落地的基于 LLM 的语义搜索和排序系统，解决了召回、排序及推理效率等核心搜索问题，完全符合高优先级标准。",
+    "translation": "LinkedIn 的语义搜索系统",
+    "summary_zh": "提出一种结合 LLM 相关性判断、嵌入检索及多教师蒸馏小模型的混合架构，并通过预填充优化推理实现高效生产级排序。",
+    "key_points": [
+      "提出一种结合 LLM 相关性判断、嵌入检索及多教师蒸馏小模型的混合架构，并通过预填充优化推理实现高效生产级排序"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07695v2",
+    "title": "EventCast: Hybrid Demand Forecasting in E-Commerce with LLM-Based Event Knowledge",
+    "authors": [
+      "Congcong Hu",
+      "Yuang Shi",
+      "Fan Huang",
+      "Yang Xiang",
+      "Zhou Ye",
+      "Ming Jin",
+      "Shiyu Wang"
+    ],
+    "summary": "Demand forecasting is a cornerstone of e-commerce operations, directly impacting inventory planning and fulfillment scheduling. However, existing forecasting systems often fail during high-impact periods such as flash sales, holiday campaigns, and sudden policy interventions, where demand patterns shift abruptly and unpredictably. In this paper, we introduce EventCast, a modular forecasting framework that integrates future event knowledge into time-series prediction. Unlike prior approaches that ignore future interventions or directly use large language models (LLMs) for numerical forecasting, EventCast leverages LLMs solely for event-driven reasoning. Unstructured business data, which covers campaigns, holiday schedules, and seller incentives, from existing operational databases, is processed by an LLM that converts it into interpretable textual summaries leveraging world knowledge for cultural nuances and novel event combinations. These summaries are fused with historical demand features within a dual-tower architecture, enabling accurate, explainable, and scalable forecasts. Deployed on real-world e-commerce scenarios spanning 4 countries of 160 regions over 10 months, EventCast achieves up to 86.9% and 97.7% improvement on MAE and MSE compared to the variant without event knowledge, and reduces MAE by up to 57.0% and MSE by 83.3% versus the best industrial baseline during event-driven periods. EventCast has deployed into real-world industrial pipelines since March 2025, offering a practical solution for improving operational decision-making in dynamic e-commerce environments.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2026-02-07T20:36:37Z",
+    "updated": "2026-02-11T14:52:27Z",
+    "url": "http://arxiv.org/abs/2602.07695v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.07695v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "1ByteDanceChina 2NationalUniversityofSingapore 3GriffithUniversity",
+      "chitecture,enablingaccurate,explainable,andscalableforecasts."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该文针对电商核心场景（需求预测）提出创新架构，直接利用 LLM 处理事件知识以解决传统时序模型在促销等突发场景下的失效问题，属于高优先级的电商推荐/搜索相关应用；虽为纯 LLM 研究外的垂直应用，但结合中国公司背景额外加分。",
+    "translation": "EventCast：基于 LLM 事件知识的电商混合需求预测",
+    "summary_zh": "提出一种模块化预测框架 EventCast，利用大语言模型将非结构化业务事件数据转化为可解释的文本摘要，并通过双塔架构将其与历史需求特征融合，以提升电商动态环境下的需求预测准确性。",
+    "key_points": [
+      "提出一种模块化预测框架 EventCast，利用大语言模型将非结构化业务事件数据转化为可解释的文本摘要，并通过双塔架构将其与历史需求特征融合，以提升电商动态环境下的需求预测准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07442v1",
+    "title": "Echoes in the Loop: Diagnosing Risks in LLM-Powered Recommender Systems under Feedback Loops",
+    "authors": [
+      "Donguk Park",
+      "Dongwon Lee",
+      "Yeon-Chang Lee"
+    ],
+    "summary": "Large language models (LLMs) are increasingly embedded into recommender systems, where they operate across multiple functional roles such as data augmentation, profiling, and decision making. While prior work emphasizes recommendation performance, the systemic risks of LLMs, such as bias and hallucination, and their propagation through feedback loops remain largely unexplored. In this paper, we propose a role-aware, phase-wise diagnostic framework that traces how these risks emerge, manifest in ranking outcomes, and accumulate over repeated recommendation cycles. We formalize a controlled feedback-loop pipeline that simulates long-term interaction dynamics and enables empirical measurement of risks at the LLM-generated content, ranking, and ecosystem levels. Experiments on widely used benchmarks demonstrate that LLM-based components can amplify popularity bias, introduce spurious signals through hallucination, and lead to polarized and self-reinforcing exposure patterns over time. We plan to release our framework as an open-source toolkit to facilitate systematic risk analysis across diverse LLM-powered recommender systems.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-02-07T08:45:08Z",
+    "updated": "2026-02-07T08:45:08Z",
+    "url": "http://arxiv.org/abs/2602.07442v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07442v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 驱动的推荐系统中的反馈循环风险进行诊断与分析，属于 LLM for RecSys 的核心安全与稳定性研究，非纯 LLM 理论探讨。",
+    "translation": "循环中的回声：诊断 LLM 驱动推荐系统在反馈循环下的风险",
+    "summary_zh": "提出一种角色感知、分阶段的诊断框架，用于追踪 LLM 在推荐系统反馈循环中产生的偏见与幻觉风险及其在排序结果中的累积效应。",
+    "key_points": [
+      "提出一种角色感知、分阶段的诊断框架，用于追踪 LLM 在推荐系统反馈循环中产生的偏见与幻觉风险及其在排序结果中的累积效应"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07298v2",
+    "title": "Principled Synthetic Data Enables the First Scaling Laws for LLMs in Recommendation",
+    "authors": [
+      "Benyu Zhang",
+      "Qiang Zhang",
+      "Jianpeng Cheng",
+      "Hong-You Chen",
+      "Qifei Wang",
+      "Wei Sun",
+      "Shen Li",
+      "Jia Li",
+      "Jiahao Wu",
+      "Xiangjun Fan",
+      "Hong Yan"
+    ],
+    "summary": "Large Language Models (LLMs) represent a promising frontier for recommender systems, yet their development has been impeded by the absence of predictable scaling laws, which are crucial for guiding research and optimizing resource allocation. We hypothesize that this may be attributed to the inherent noise, bias, and incompleteness of raw user interaction data in prior continual pre-training (CPT) efforts. This paper introduces a novel, layered framework for generating high-quality synthetic data that circumvents such issues by creating a curated, pedagogical curriculum for the LLM. We provide powerful, direct evidence for the utility of our curriculum by showing that standard sequential models trained on our principled synthetic data significantly outperform ($+130\\%$ on recall@100 for SasRec) models trained on real data in downstream ranking tasks, demonstrating its superiority for learning generalizable user preference patterns. Building on this, we empirically demonstrate, for the first time, robust power-law scaling for an LLM that is continually pre-trained on our high-quality, recommendation-specific data. Our experiments reveal consistent and predictable perplexity reduction across multiple synthetic data modalities. These findings establish a foundational methodology for reliable scaling LLM capabilities in the recommendation domain, thereby shifting the research focus from mitigating data deficiencies to leveraging high-quality, structured information.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-07T01:15:15Z",
+    "updated": "2026-02-12T21:47:09Z",
+    "url": "http://arxiv.org/abs/2602.07298v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.07298v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中 LLM 应用的扩展律缺失问题，提出了一种生成原则性合成数据的新框架以优化 LLM 训练，属于 LLM for RecSys 的核心创新。",
+    "translation": "原则性合成数据实现了推荐系统大语言模型的首个扩展律",
+    "summary_zh": "本文提出一种分层框架，通过生成高质量、课程化的原则性合成数据来替代噪声真实的用户交互数据，从而解决推荐领域 LLM 缺乏可预测扩展律的问题并提升通用偏好模式的学习能力。",
+    "key_points": [
+      "本文提出一种分层框架，通过生成高质量、课程化的原则性合成数据来替代噪声真实的用户交互数据，从而解决推荐领域 LLM 缺乏可预测扩展律的问题并提升通用偏好模式的学习能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07333v1",
+    "title": "High Fidelity Textual User Representation over Heterogeneous Sources via Reinforcement Learning",
+    "authors": [
+      "Rajat Arora",
+      "Ye Tao",
+      "Jianqiang Shen",
+      "Ping Liu",
+      "Muchen Wu",
+      "Qianqi Shen",
+      "Benjamin Le",
+      "Fedor Borisyuk",
+      "Jingwei Wu",
+      "Wenjing Zhang"
+    ],
+    "summary": "Effective personalization on large-scale job platforms requires modeling members based on heterogeneous textual sources, including profiles, professional data, and search activity logs. As recommender systems increasingly adopt Large Language Models (LLMs), creating unified, interpretable, and concise representations from heterogeneous sources becomes critical, especially for latency-sensitive online environments. In this work, we propose a novel Reinforcement Learning (RL) framework to synthesize a unified textual representation for each member. Our approach leverages implicit user engagement signals (e.g., clicks, applies) as the primary reward to distill salient information. Additionally, the framework is complemented by rule-based rewards that enforce formatting and length constraints. Extensive offline experiments across multiple LinkedIn products, one of the world's largest job platforms, demonstrate significant improvements in key downstream business metrics. This work provides a practical, labeling-free, and scalable solution for constructing interpretable user representations that are directly compatible with LLM-based systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-02-07T03:27:55Z",
+    "updated": "2026-02-07T03:27:55Z",
+    "url": "http://arxiv.org/abs/2602.07333v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07333v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的用户建模问题，提出利用强化学习从异构文本源构建高保真用户表示以优化个性化推荐，属于核心领域进展。",
+    "translation": "基于强化学习的异构源高保真文本用户表示研究",
+    "summary_zh": "提出一种强化学习框架，利用隐式交互信号作为奖励，将用户的异构文本数据（如档案、搜索日志）蒸馏为统一、简洁且可解释的文本表示，以服务于基于大模型的推荐系统。",
+    "key_points": [
+      "提出一种强化学习框架，利用隐式交互信号作为奖励，将用户的异构文本数据（如档案、搜索日志）蒸馏为统一、简洁且可解释的文本表示，以服务于基于大模型的推荐系统"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07307v1",
+    "title": "LIT-GRAPH: Evaluating Deep vs. Shallow Graph Embeddings for High-Quality Text Recommendation in Domain-Specific Knowledge Graphs",
+    "authors": [
+      "Nirmal Gelal",
+      "Chloe Snow",
+      "Kathleen M. Jagodnik",
+      "Ambyr Rios",
+      "Hande Küçük McGinty"
+    ],
+    "summary": "This study presents LIT-GRAPH (Literature Graph for Recommendation and Pedagogical Heuristics), a novel knowledge graph-based recommendation system designed to scaffold high school English teachers in selecting diverse, pedagogically aligned instructional literature. The system is built upon an ontology for English literature, addressing the challenge of curriculum stagnation, where we compare four graph embedding paradigms: DeepWalk, Biased Random Walk (BRW), Hybrid (concatenated DeepWalk and BRW vectors), and the deep model Relational Graph Convolutional Network (R-GCN). Results reveal a critical divergence: while shallow models excelled in structural link prediction, R-GCN dominated semantic ranking. By leveraging relation-specific message passing, the deep model prioritizes pedagogical relevance over raw connectivity, resulting in superior, high-quality, domain-specific recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-07T01:42:54Z",
+    "updated": "2026-02-07T01:42:54Z",
+    "url": "http://arxiv.org/abs/2602.07307v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07307v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一个特定领域（教育）的推荐系统并对比了图嵌入方法，属于有明确应用场景的通用 ML 方法，但缺乏电商/社交等核心互联网场景的普适性架构创新。",
+    "translation": "LIT-GRAPH：评估深度与浅层图嵌入在领域知识图谱高质量文本推荐中的表现",
+    "summary_zh": "本文提出 LIT-GRAPH 系统，通过对比浅层随机游走与深度关系图卷积网络（R-GCN），利用关系特异性消息传递机制优先捕捉教学语义相关性而非单纯结构连接，以优化领域特定的文献推荐质量。",
+    "key_points": [
+      "本文提出 LIT-GRAPH 系统，通过对比浅层随机游走与深度关系图卷积网络（R-GCN），利用关系特异性消息传递机制优先捕捉教学语义相关性而非单纯结构连接，以优化领域特定的文献推荐质量"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07625v1",
+    "title": "AD-MIR: Bridging the Gap from Perception to Persuasion in Advertising Video Understanding via Structured Reasoning",
+    "authors": [
+      "Binxiao Xu",
+      "Junyu Feng",
+      "Xiaopeng Lin",
+      "Haodong Li",
+      "Zhiyuan Feng",
+      "Bohan Zeng",
+      "Shaolin Lu",
+      "Ming Lu",
+      "Qi She",
+      "Wentao Zhang"
+    ],
+    "summary": "Multimodal understanding of advertising videos is essential for interpreting the intricate relationship between visual storytelling and abstract persuasion strategies. However, despite excelling at general search, existing agents often struggle to bridge the cognitive gap between pixel-level perception and high-level marketing logic. To address this challenge, we introduce AD-MIR, a framework designed to decode advertising intent via a two-stage architecture. First, in the Structure-Aware Memory Construction phase, the system converts raw video into a structured database by integrating semantic retrieval with exact keyword matching. This approach prioritizes fine-grained brand details (e.g., logos, on-screen text) while dynamically filtering out irrelevant background noise to isolate key protagonists. Second, the Structured Reasoning Agent mimics a marketing expert through an iterative inquiry loop, decomposing the narrative to deduce implicit persuasion tactics. Crucially, it employs an evidence-based self-correction mechanism that rigorously validates these insights against specific video frames, automatically backtracking when visual support is lacking. Evaluation on the AdsQA benchmark demonstrates that AD-MIR achieves state-of-the-art performance, surpassing the strongest general-purpose agent, DVD, by 1.8% in strict and 9.5% in relaxed accuracy. These results underscore that effective advertising understanding demands explicitly grounding abstract marketing strategies in pixel-level evidence. The code is available at https://github.com/Little-Fridge/AD-MIR.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-02-07T17:14:06Z",
+    "updated": "2026-02-07T17:14:06Z",
+    "url": "http://arxiv.org/abs/2602.07625v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07625v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究广告视频的理解与推理（纯多模态 LLM 应用），虽涉及广告领域，但未直接解决推荐系统或搜索引擎中的召回、排序等核心问题，属于边缘相关。",
+    "translation": "AD-MIR：通过结构化推理弥合广告视频理解中从感知到说服的鸿沟",
+    "summary_zh": "提出一种两阶段框架，先将广告视频转化为包含细粒度品牌信息的结构化记忆，再利用智能体通过迭代查询和证据自校正机制推导隐含的说服策略。",
+    "key_points": [
+      "提出一种两阶段框架，先将广告视频转化为包含细粒度品牌信息的结构化记忆，再利用智能体通过迭代查询和证据自校正机制推导隐含的说服策略"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07624v1",
+    "title": "M2A: Multimodal Memory Agent with Dual-Layer Hybrid Memory for Long-Term Personalized Interactions",
+    "authors": [
+      "Junyu Feng",
+      "Binxiao Xu",
+      "Jiayi Chen",
+      "Mengyu Dai",
+      "Cenyang Wu",
+      "Haodong Li",
+      "Bohan Zeng",
+      "Yunliu Xie",
+      "Hao Liang",
+      "Ming Lu",
+      "Wentao Zhang"
+    ],
+    "summary": "This work addresses the challenge of personalized question answering in long-term human-machine interactions: when conversational history spans weeks or months and exceeds the context window, existing personalization mechanisms struggle to continuously absorb and leverage users' incremental concepts, aliases, and preferences. Current personalized multimodal models are predominantly static-concepts are fixed at initialization and cannot evolve during interactions. We propose M2A, an agentic dual-layer hybrid memory system that maintains personalized multimodal information through online updates. The system employs two collaborative agents: ChatAgent manages user interactions and autonomously decides when to query or update memory, while MemoryManager breaks down memory requests from ChatAgent into detailed operations on the dual-layer memory bank, which couples a RawMessageStore (immutable conversation log) with a SemanticMemoryStore (high-level observations), providing memories at different granularities. In addition, we develop a reusable data synthesis pipeline that injects concept-grounded sessions from Yo'LLaVA and MC-LLaVA into LoCoMo long conversations while preserving temporal coherence. Experiments show that M2A significantly outperforms baselines, demonstrating that transforming personalization from one-shot configuration to a co-evolving memory mechanism provides a viable path for high-quality individualized responses in long-term multimodal interactions. The code is available at https://github.com/Little-Fridge/M2A.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-02-07T17:13:56Z",
+    "updated": "2026-02-07T17:13:56Z",
+    "url": "http://arxiv.org/abs/2602.07624v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07624v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM Agent 与长短期记忆机制研究，聚焦于开放式问答交互而非推荐/搜索核心链路（召回、排序等），虽涉及用户建模但缺乏 RecSys 直接应用场景，仅因来自中国公司额外加 1 分。",
+    "translation": "M2A：面向长期个性化交互的双层混合记忆多模态智能体",
+    "summary_zh": "提出一种双层混合记忆智能体架构，通过聊天代理与记忆管理代理协作，动态更新原始消息库与语义记忆库以演化式地维持长期多模态交互中的用户偏好。",
+    "key_points": [
+      "提出一种双层混合记忆智能体架构，通过聊天代理与记忆管理代理协作，动态更新原始消息库与语义记忆库以演化式地维持长期多模态交互中的用户偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07297v1",
+    "title": "Progressive Searching for Retrieval in RAG",
+    "authors": [
+      "Taehee Jeong",
+      "Xingzhe Zhao",
+      "Peizu Li",
+      "Markus Valvur",
+      "Weihua Zhao"
+    ],
+    "summary": "Retrieval Augmented Generation (RAG) is a promising technique for mitigating two key limitations of large language models (LLMs): outdated information and hallucinations. RAG system stores documents as embedding vectors in a database. Given a query, search is executed to find the most related documents. Then, the topmost matching documents are inserted into LLMs' prompt to generate a response. Efficient and accurate searching is critical for RAG to get relevant information. We propose a cost-effective searching algorithm for retrieval process. Our progressive searching algorithm incrementally refines the candidate set through a hierarchy of searches, starting from low-dimensional embeddings and progressing into a higher, target-dimensionality. This multi-stage approach reduces retrieval time while preserving the desired accuracy. Our findings demonstrate that progressive search in RAG systems achieves a balance between dimensionality, speed, and accuracy, enabling scalable and high-performance retrieval even for large databases.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-07T01:12:53Z",
+    "updated": "2026-02-07T01:12:53Z",
+    "url": "http://arxiv.org/abs/2602.07297v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07297v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文专注于优化 RAG 系统中的底层向量检索效率，属于通用搜索/数据库技术，缺乏针对推荐系统或用户个性化建模的直接应用，且非电商/社交场景核心创新；虽来自中国公司加 1 分，但本质仍为边缘相关的基础设施优化。",
+    "translation": "RAG 检索中的渐进式搜索方法",
+    "summary_zh": "提出一种渐进式搜索算法，通过从低维到高维嵌入的分层检索策略，在保持精度的同时显著降低 RAG 系统的检索耗时。",
+    "key_points": [
+      "提出一种渐进式搜索算法，通过从低维到高维嵌入的分层检索策略，在保持精度的同时显著降低 RAG 系统的检索耗时"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07525v1",
+    "title": "IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive Mining of In-Depth Memory",
+    "authors": [
+      "Xingliang Hou",
+      "Yuyan Liu",
+      "Qi Sun",
+      "haoxiu wang",
+      "Hao Hu",
+      "Shaoyi Du",
+      "Zhiqiang Tian"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) equips large language models (LLMs) with reliable knowledge memory. To strengthen cross-text associations, recent research integrates graphs and hypergraphs into RAG to capture pairwise and multi-entity relations as structured links. However, their misaligned memory organization necessitates costly, disjointed retrieval. To address these limitations, we propose IGMiRAG, a framework inspired by human intuition-guided reasoning. It constructs a hierarchical heterogeneous hypergraph to align multi-granular knowledge, incorporating deductive pathways to simulate realistic memory structures. During querying, IGMiRAG distills intuitive strategies via a question parser to control mining depth and memory window, and activates instantaneous memories as anchors using dual-focus retrieval. Mirroring human intuition, the framework guides retrieval resource allocation dynamically. Furthermore, we design a bidirectional diffusion algorithm that navigates deductive paths to mine in-depth memories, emulating human reasoning processes. Extensive evaluations indicate IGMiRAG outperforms the state-of-the-art baseline by 4.8% EM and 5.0% F1 overall, with token costs adapting to task complexity (average 6.3k+, minimum 3.0k+). This work presents a cost-effective RAG paradigm that improves both efficiency and effectiveness.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-07T12:42:31Z",
+    "updated": "2026-02-07T12:42:31Z",
+    "url": "http://arxiv.org/abs/2602.07525v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07525v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG（检索增强生成）研究，专注于通用问答和推理能力，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有 +1 分加分，仍属低优先级。",
+    "translation": "IGMiRAG：基于直觉引导与深度记忆自适应挖掘的检索增强生成",
+    "summary_zh": "提出一种模拟人类直觉推理的 RAG 框架，通过构建分层异构超图对齐多粒度知识，并利用双向扩散算法动态导航演绎路径以挖掘深度记忆。",
+    "key_points": [
+      "提出一种模拟人类直觉推理的 RAG 框架，通过构建分层异构超图对齐多粒度知识，并利用双向扩散算法动态导航演绎路径以挖掘深度记忆"
+    ]
+  }
+]

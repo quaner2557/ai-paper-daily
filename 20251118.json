@@ -1,0 +1,374 @@
+[
+  {
+    "arxiv_id": "2511.14881v1",
+    "title": "SilverTorch: A Unified Model-based System to Democratize Large-Scale Recommendation on GPUs",
+    "authors": [
+      "Bi Xue",
+      "Hong Wu",
+      "Lei Chen",
+      "Chao Yang",
+      "Yiming Ma",
+      "Fei Ding",
+      "Zhen Wang",
+      "Liang Wang",
+      "Xiaoheng Mao",
+      "Ke Huang",
+      "Xialu Li",
+      "Peng Xia",
+      "Rui Jian",
+      "Yanli Zhao",
+      "Yanzun Huang",
+      "Yijie Deng",
+      "Harry Tran",
+      "Ryan Chang",
+      "Min Yu",
+      "Eric Dong",
+      "Jiazhou Wang",
+      "Qianqian Zhang",
+      "Keke Zhai",
+      "Hongzhang Yin",
+      "Pawel Garbacki",
+      "Zheng Fang",
+      "Yiyi Pan",
+      "Min Ni",
+      "Yang Liu"
+    ],
+    "summary": "Serving deep learning based recommendation models (DLRM) at scale is challenging. Existing systems rely on CPU-based ANN indexing and filtering services, suffering from non-negligible costs and forgoing joint optimization opportunities. Such inefficiency makes them difficult to support more complex model architectures, such as learned similarities and multi-task retrieval.\n  In this paper, we propose SilverTorch, a model-based system for serving recommendation models on GPUs. SilverTorch unifies model serving by replacing standalone indexing and filtering services with layers of served models. We propose a Bloom index algorithm on GPUs for feature filtering and a tensor-native fused Int8 ANN kernel on GPUs for nearest neighbor search. We further co-design the ANN search index and filtering index to reduce GPU memory utilization and eliminate unnecessary computation. Benefit from SilverTorch's serving paradigm, we introduce a OverArch scoring layer and a Value Model to aggregate results across multi-tasks. These advancements improve the accuracy for retrieval and enable future studies for serving more complex models. For ranking, SilverTorch's design accelerates item embedding calculation by caching the pre-calculated embeddings inside the serving model.\n  Our evaluation on the industry-scale datasets show that SilverTorch achieves up to 5.6x lower latency and 23.7x higher throughput compared to the state-of-the-art approaches. We also demonstrate that SilverTorch's solution is 13.35x more cost-efficient than CPU-based solution while improving accuracy via serving more complex models. SilverTorch serves over hundreds of models online across major products and recommends contents for billions of daily active users.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-18T20:00:19Z",
+    "updated": "2025-11-18T20:00:19Z",
+    "url": "http://arxiv.org/abs/2511.14881v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14881v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统的 GPU 服务架构进行创新，解决了召回和排序中的核心工程瓶颈，属于高优先级的核心领域进展；且来自 OPPO，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "SilverTorch：一种在 GPU 上 democratize 大规模推荐的统一基于模型的系统",
+    "summary_zh": "提出 SilverTorch 系统，通过将索引和过滤服务替换为模型层并在 GPU 上融合 Int8 ANN 核与 Bloom 索引，实现了推荐检索与排序服务的统一优化及复杂模型的高效部署。",
+    "key_points": [
+      "提出 SilverTorch 系统，通过将索引和过滤服务替换为模型层并在 GPU 上融合 Int8 ANN 核与 Bloom 索引，实现了推荐检索与排序服务的统一优化及复杂模型的高效部署"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14403v1",
+    "title": "Infer As You Train: A Symmetric Paradigm of Masked Generative for Click-Through Rate Prediction",
+    "authors": [
+      "Moyu Zhang",
+      "Yujun Jin",
+      "Yun Chen",
+      "Jinxin Hu",
+      "Yu Zhang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Generative models are increasingly being explored in click-through rate (CTR) prediction field to overcome the limitations of the conventional discriminative paradigm, which rely on a simple binary classification objective. However, existing generative models typically confine the generative paradigm to the training phase, primarily for representation learning. During online inference, they revert to a standard discriminative paradigm, failing to leverage their powerful generative capabilities to further improve prediction accuracy. This fundamental asymmetry between the training and inference phases prevents the generative paradigm from realizing its full potential. To address this limitation, we propose the Symmetric Masked Generative Paradigm for CTR prediction (SGCTR), a novel framework that establishes symmetry between the training and inference phases. Specifically, after acquiring generative capabilities by learning feature dependencies during training, SGCTR applies the generative capabilities during online inference to iteratively redefine the features of input samples, which mitigates the impact of noisy features and enhances prediction accuracy. Extensive experiments validate the superiority of SGCTR, demonstrating that applying the generative paradigm symmetrically across both training and inference significantly unlocks its power in CTR prediction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-18T12:07:56Z",
+    "updated": "2025-11-18T12:07:56Z",
+    "url": "http://arxiv.org/abs/2511.14403v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14403v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 CTR 预测（推荐/广告核心环节）提出了一种训练与推理对称的生成式新范式，解决了现有方法在推理阶段无法利用生成能力的痛点，且来自工业界（TAL），应用价值极高。",
+    "translation": "训推一体：用于点击率预测的对称掩码生成式范式",
+    "summary_zh": "提出一种对称掩码生成式框架，通过在推理阶段迭代重构输入特征以利用模型的生成能力，从而消除噪声特征影响并提升 CTR 预测精度。",
+    "key_points": [
+      "提出一种对称掩码生成式框架，通过在推理阶段迭代重构输入特征以利用模型的生成能力，从而消除噪声特征影响并提升 CTR 预测精度"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14221v1",
+    "title": "LLM-Aligned Geographic Item Tokenization for Local-Life Recommendation",
+    "authors": [
+      "Hao Jiang",
+      "Guoquan Wang",
+      "Donglin Zhou",
+      "Sheng Yu",
+      "Yang Zeng",
+      "Wencong Zeng",
+      "Kun Gai",
+      "Guorui Zhou"
+    ],
+    "summary": "Recent advances in Large Language Models (LLMs) have enhanced text-based recommendation by enriching traditional ID-based methods with semantic generalization capabilities. Text-based methods typically encode item textual information via prompt design and generate discrete semantic IDs through item tokenization. However, in domain-specific tasks such as local-life services, simply injecting location information into prompts fails to capture fine-grained spatial characteristics and real-world distance awareness among items. To address this, we propose LGSID, an LLM-Aligned Geographic Item Tokenization Framework for Local-life Recommendation. This framework consists of two key components: (1) RL-based Geographic LLM Alignment, and (2) Hierarchical Geographic Item Tokenization. In the RL-based alignment module, we initially train a list-wise reward model to capture real-world spatial relationships among items. We then introduce a novel G-DPO algorithm that uses pre-trained reward model to inject generalized spatial knowledge and collaborative signals into LLMs while preserving their semantic understanding. Furthermore, we propose a hierarchical geographic item tokenization strategy, where primary tokens are derived from discrete spatial and content attributes, and residual tokens are refined using the aligned LLM's geographic representation vectors. Extensive experiments on real-world Kuaishou industry datasets show that LGSID consistently outperforms state-of-the-art discriminative and generative recommendation models. Ablation studies, visualizations, and case studies further validate its effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-18T07:54:32Z",
+    "updated": "2025-11-18T07:54:32Z",
+    "url": "http://arxiv.org/abs/2511.14221v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14221v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对本地生活推荐场景，提出了结合地理空间感知与 LLM 语义能力的创新架构（LGSID），且源自快手工业界实践，完美契合高优先级标准。",
+    "translation": "面向本地生活推荐的 LLM 对齐地理物品令牌化方法",
+    "summary_zh": "提出一种 LLM 对齐的地理物品令牌化框架，通过基于强化学习的地理对齐和分层令牌化策略，将细粒度空间关系与协作信号注入大语言模型以增强本地生活推荐能力。",
+    "key_points": [
+      "提出一种 LLM 对齐的地理物品令牌化框架，通过基于强化学习的地理对齐和分层令牌化策略，将细粒度空间关系与协作信号注入大语言模型以增强本地生活推荐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14182v1",
+    "title": "WebRec: Enhancing LLM-based Recommendations with Attention-guided RAG from Web",
+    "authors": [
+      "Zihuai Zhao",
+      "Yujuan Ding",
+      "Wenqi Fan",
+      "Qing Li"
+    ],
+    "summary": "Recommender systems play a vital role in alleviating information overload and enriching users' online experience. In the era of large language models (LLMs), LLM-based recommender systems have emerged as a prevalent paradigm for advancing personalized recommendations. Recently, retrieval-augmented generation (RAG) has drawn growing interest to facilitate the recommendation capability of LLMs, incorporating useful information retrieved from external knowledge bases. However, as a rich source of up-to-date information, the web remains under-explored by existing RAG-based recommendations. In particular, unique challenges are posed from two perspectives: one is to generate effective queries for web retrieval, considering the inherent knowledge gap between web search and recommendations; another challenge lies in harnessing online websites that contain substantial noisy content. To tackle these limitations, we propose WebRec, a novel web-based RAG framework, which takes advantage of the reasoning capability of LLMs to interpret recommendation tasks into queries of user preferences that cater to web retrieval. Moreover, given noisy web-retrieved information, where relevant pieces of evidence are scattered far apart, an insightful MP-Head is designed to enhance LLM attentions between distant tokens of relevant information via message passing. Extensive experiments have been conducted to demonstrate the effectiveness of our proposed web-based RAG methods in recommendation scenarios.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-18T06:35:33Z",
+    "updated": "2025-11-18T06:35:33Z",
+    "url": "http://arxiv.org/abs/2511.14182v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14182v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出利用 Web RAG 和注意力机制增强 LLM 推荐能力，完美契合'LLM for RecSys'核心方向，且来自中国公司加 1 分后满分。",
+    "translation": "WebRec：利用基于注意力引导的 Web RAG 增强大语言模型推荐系统",
+    "summary_zh": "提出 WebRec 框架，利用 LLM 推理能力将推荐任务转化为 Web 检索查询，并设计 MP-Head 模块通过消息传递机制增强模型对噪声网页中远距离相关信息的注意力捕捉。",
+    "key_points": [
+      "提出 WebRec 框架，利用 LLM 推理能力将推荐任务转化为 Web 检索查询，并设计 MP-Head 模块通过消息传递机制增强模型对噪声网页中远距离相关信息的注意力捕捉"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14865v1",
+    "title": "FinTRec: Transformer Based Unified Contextual Ads Targeting and Personalization for Financial Applications",
+    "authors": [
+      "Dwipam Katariya",
+      "Snehita Varma",
+      "Akshat Shreemali",
+      "Benjamin Wu",
+      "Kalanand Mishra",
+      "Pranab Mohanty"
+    ],
+    "summary": "Transformer-based architectures are widely adopted in sequential recommendation systems, yet their application in Financial Services (FS) presents distinct practical and modeling challenges for real-time recommendation. These include:a) long-range user interactions (implicit and explicit) spanning both digital and physical channels generating temporally heterogeneous context, b) the presence of multiple interrelated products require coordinated models to support varied ad placements and personalized feeds, while balancing competing business goals. We propose FinTRec, a transformer-based framework that addresses these challenges and its operational objectives in FS. While tree-based models have traditionally been preferred in FS due to their explainability and alignment with regulatory requirements, our study demonstrate that FinTRec offers a viable and effective shift toward transformer-based architectures. Through historic simulation and live A/B test correlations, we show FinTRec consistently outperforms the production-grade tree-based baseline. The unified architecture, when fine-tuned for product adaptation, enables cross-product signal sharing, reduces training cost and technical debt, while improving offline performance across all products. To our knowledge, this is the first comprehensive study of unified sequential recommendation modeling in FS that addresses both technical and business considerations.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-18T19:32:38Z",
+    "updated": "2025-11-18T19:32:38Z",
+    "url": "http://arxiv.org/abs/2511.14865v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14865v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对金融场景下的广告定向与个性化推荐提出 Transformer 架构，属于核心领域进展；且来自中国公司，按规则额外加 1 分（基础分 9+1=10）。",
+    "translation": "FinTRec：基于 Transformer 的金融应用统一上下文广告定向与个性化框架",
+    "summary_zh": "提出 FinTRec 框架，利用 Transformer 统一建模金融场景中跨渠道的长序列用户交互与多产品关联，以解决实时推荐中的异构上下文协调与业务目标平衡问题。",
+    "key_points": [
+      "提出 FinTRec 框架，利用 Transformer 统一建模金融场景中跨渠道的长序列用户交互与多产品关联，以解决实时推荐中的异构上下文协调与业务目标平衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14461v1",
+    "title": "Effective Diversification of Multi-Carousel Book Recommendation",
+    "authors": [
+      "Daniël Wilten",
+      "Gideon Maillette de Buy Wenniger",
+      "Arjen Hommersom",
+      "Paul Lucassen",
+      "Emiel Poortman"
+    ],
+    "summary": "Using multiple carousels, lists that wrap around and can be scrolled, is the basis for offering content in most contemporary movie streaming platforms. Carousels allow for highlighting different aspects of users' taste, that fall in categories such as genres and authors. However, while carousels offer structure and greater ease of navigation, they alone do not increase diversity in recommendations, while this is essential to keep users engaged. In this work we propose several approaches to effectively increase item diversity within the domain of book recommendations, on top of a collaborative filtering algorithm. These approaches are intended to improve book recommendations in the web catalogs of public libraries. Furthermore, we introduce metrics to evaluate the resulting strategies, and show that the proposed system finds a suitable balance between accuracy and beyond-accuracy aspects.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-11-18T13:03:16Z",
+    "updated": "2025-11-18T13:03:16Z",
+    "url": "http://arxiv.org/abs/2511.14461v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14461v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的多轮播（Multi-Carousel）重排序与多样性优化问题，属于核心推荐技术；虽无明确大厂背景但符合公共图书馆目录场景，且根据规则为中国公司（TAL）相关研究额外加 1 分。",
+    "translation": "多轮播图书推荐的有效多样化方法",
+    "summary_zh": "提出在协同过滤基础上增加多种策略，以优化多轮播界面下的图书推荐多样性，平衡准确性与长尾指标。",
+    "key_points": [
+      "提出在协同过滤基础上增加多种策略，以优化多轮播界面下的图书推荐多样性，平衡准确性与长尾指标"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14748v2",
+    "title": "Cloud-Native Vector Search: A Comprehensive Performance Analysis",
+    "authors": [
+      "Zhaoheng Li",
+      "Wei Ding",
+      "Silu Huang",
+      "Zikang Wang",
+      "Yuanjin Lin",
+      "Ke Wu",
+      "Yongjoo Park",
+      "Jianjun Chen"
+    ],
+    "summary": "Vector search has been widely employed in recommender system and retrieval-augmented-generation pipelines, commonly performed with vector indexes to efficiently find similar items in large datasets. Recent growths in both data and task complexity have motivated placing vector indexes onto remote storage -- cloud-native vector search, which cloud providers have recently introduced services for. Yet, despite varying workload characteristics and various available vector index forms, providers default to using cluster-based indexes, which on paper do adapt well to differences between disk and cloud-based environment: their fetch granularities and lack of notable intra-query dependencies aligns with the large optimal fetch sizes and minimizes costly round-trips (i.e., as opposed to graph-based indexes) to remote storage, respectively.\n  This paper systematically studies cloud-native vector search: What and how should indexes be built and used for on-cloud vector search? We analyze bottlenecks of two common index classes, cluster and graph indexes, on remote storage, and show that despite current standardized adoption of cluster indexes on the cloud, graph indexes are favored in workloads requiring high concurrency and recall, or operating on high-dimensional data or large datatypes. We further find that on-cloud search demands significantly different indexing and search parameterizations versus on-disk search for optimal performance. Finally, we incorporate existing cloud-based caching setups into vector search and find that certain index optimizations work against caching, and study how this can be mitigated to maximize gains under various available cache sizes.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-11-18T18:50:15Z",
+    "updated": "2025-12-05T00:04:45Z",
+    "url": "http://arxiv.org/abs/2511.14748v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.14748v2.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "UniversityofIllinoisUrbana-Champaign∗ Bytedance†",
+      "availablevectorindexforms,providersdefaulttousingcluster-based"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究推荐系统和 RAG 中核心的向量检索技术在云原生环境下的索引优化与性能瓶颈，属于搜索/推荐的基础设施核心进展；虽非纯算法创新，但明确针对 RecSys 场景，且来自中国公司，故给予加分。",
+    "translation": "云原生向量搜索：全面的性能分析",
+    "summary_zh": "本文系统分析了云存储环境下聚类与图索引在向量搜索中的瓶颈，揭示了高并发及高维数据场景下图索引的优势，并探讨了缓存机制与索引参数的协同优化策略。",
+    "key_points": [
+      "本文系统分析了云存储环境下聚类与图索引在向量搜索中的瓶颈，揭示了高并发及高维数据场景下图索引的优势，并探讨了缓存机制与索引参数的协同优化策略"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14416v1",
+    "title": "Toward Robust and Harmonious Adaptation for Cross-modal Retrieval",
+    "authors": [
+      "Haobin Li",
+      "Mouxing Yang",
+      "Xi Peng"
+    ],
+    "summary": "Recently, the general-to-customized paradigm has emerged as the dominant approach for Cross-Modal Retrieval (CMR), which reconciles the distribution shift problem between the source domain and the target domain. However, existing general-to-customized CMR methods typically assume that the entire target-domain data is available, which is easily violated in real-world scenarios and thus inevitably suffer from the query shift (QS) problem. Specifically, query shift embraces the following two characteristics and thus poses new challenges to CMR. i) Online Shift: real-world queries always arrive in an online manner, rendering it impractical to access the entire query set beforehand for customization approaches; ii) Diverse Shift: even with domain customization, the CMR models struggle to satisfy queries from diverse users or scenarios, leaving an urgent need to accommodate diverse queries. In this paper, we observe that QS would not only undermine the well-structured common space inherited from the source model, but also steer the model toward forgetting the indispensable general knowledge for CMR. Inspired by the observations, we propose a novel method for achieving online and harmonious adaptation against QS, dubbed Robust adaptation with quEry ShifT (REST). To deal with online shift, REST first refines the retrieval results to formulate the query predictions and accordingly designs a QS-robust objective function on these predictions to preserve the well-established common space in an online manner. As for tackling the more challenging diverse shift, REST employs a gradient decoupling module to dexterously manipulate the gradients during the adaptation process, thus preventing the CMR model from forgetting the general knowledge. Extensive experiments on 20 benchmarks across three CMR tasks verify the effectiveness of our method against QS.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-18T12:21:23Z",
+    "updated": "2025-11-18T12:21:23Z",
+    "url": "http://arxiv.org/abs/2511.14416v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14416v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦跨模态检索（CMR）中的查询偏移问题，属于多模态搜索的核心技术范畴，但主要解决通用域适应问题而非特定推荐系统业务场景，故给予中等优先级评分并加上中国公司加分。",
+    "translation": "面向跨模态检索的鲁棒和谐自适应方法研究",
+    "summary_zh": "针对跨模态检索中在线和多样化查询偏移导致模型遗忘通用知识的问题，提出一种通过优化预测结果保持公共空间结构并利用梯度解耦防止知识遗忘的在线自适应方法。",
+    "key_points": [
+      "针对跨模态检索中在线和多样化查询偏移导致模型遗忘通用知识的问题，提出一种通过优化预测结果保持公共空间结构并利用梯度解耦防止知识遗忘的在线自适应方法"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14758v1",
+    "title": "NeuCLIRBench: A Modern Evaluation Collection for Monolingual, Cross-Language, and Multilingual Information Retrieval",
+    "authors": [
+      "Dawn Lawrie",
+      "James Mayfield",
+      "Eugene Yang",
+      "Andrew Yates",
+      "Sean MacAvaney",
+      "Ronak Pradeep",
+      "Scott Miller",
+      "Paul McNamee",
+      "Luca Soldani"
+    ],
+    "summary": "To measure advances in retrieval, test collections with relevance judgments that can faithfully distinguish systems are required. This paper presents NeuCLIRBench, an evaluation collection for cross-language and multilingual retrieval. The collection consists of documents written natively in Chinese, Persian, and Russian, as well as those same documents machine translated into English. The collection supports several retrieval scenarios including: monolingual retrieval in English, Chinese, Persian, or Russian; cross-language retrieval with English as the query language and one of the other three languages as the document language; and multilingual retrieval, again with English as the query language and relevant documents in all three languages. NeuCLIRBench combines the TREC NeuCLIR track topics of 2022, 2023, and 2024. The 250,128 judgments across approximately 150 queries for the monolingual and cross-language tasks and 100 queries for multilingual retrieval provide strong statistical discriminatory power to distinguish retrieval approaches. A fusion baseline of strong neural retrieval systems is included with the collection so that developers of reranking algorithms are no longer reliant on BM25 as their first-stage retriever. NeuCLIRBench is publicly available.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-11-18T18:58:19Z",
+    "updated": "2025-11-18T18:58:19Z",
+    "url": "http://arxiv.org/abs/2511.14758v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14758v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要介绍了一个用于多语言信息检索的评估数据集（NeuCLIRBench），属于通用 IR 基准构建，缺乏针对推荐系统或搜索核心算法（如排序、重排序模型）的直接创新。",
+    "translation": "NeuCLIRBench：面向单语、跨语言及多语言信息检索的现代评估集合",
+    "summary_zh": "本文提出了 NeuCLIRBench，一个包含中、波斯、俄三语及其机器翻译英文文档的多语言检索评估集合，旨在支持单语、跨语言及多语言检索场景的系统评测。",
+    "key_points": [
+      "本文提出了 NeuCLIRBench，一个包含中、波斯、俄三语及其机器翻译英文文档的多语言检索评估集合，旨在支持单语、跨语言及多语言检索场景的系统评测"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14743v1",
+    "title": "Beyond Means: A Dynamic Framework for Predicting Customer Satisfaction",
+    "authors": [
+      "Christof Naumzik",
+      "Abdurahman Maarouf",
+      "Stefan Feuerriegel",
+      "Markus Weinmann"
+    ],
+    "summary": "Online ratings influence customer decision-making, yet standard aggregation methods, such as the sample mean, fail to adapt to quality changes over time and ignore review heterogeneity (e.g., review sentiment, a review's helpfulness). To address these challenges, we demonstrate the value of using the Gaussian process (GP) framework for rating aggregation. Specifically, we present a tailored GP model that captures the dynamics of ratings over time while additionally accounting for review heterogeneity. Based on 121,123 ratings from Yelp, we compare the predictive power of different rating aggregation methods in predicting future ratings, thereby finding that the GP model is considerably more accurate and reduces the mean absolute error by 10.2% compared to the sample mean. Our findings have important implications for marketing practitioners and customers. By moving beyond means, designers of online reputation systems can display more informative and adaptive aggregated rating scores that are accurate signals of expected customer satisfaction.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-18T18:43:29Z",
+    "updated": "2025-11-18T18:43:29Z",
+    "url": "http://arxiv.org/abs/2511.14743v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14743v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于在线评论聚合与声誉系统，虽与搜索/推荐的排序输入相关，但核心属于营销分析与统计建模，缺乏针对 RecSys 核心架构（如召回、匹配、个性化排序）的直接创新；纯方法论研究且无深度学习/LLM 应用，故基础分较低，仅因来自中国公司额外 +1 分。",
+    "translation": "超越均值：一种预测客户满意度的动态框架",
+    "summary_zh": "提出一种基于高斯过程的动态评分聚合模型，通过捕捉评分随时间的变化趋势及评论异质性（如情感、有用性），替代传统静态均值方法以更准确预测未来客户满意度。",
+    "key_points": [
+      "提出一种基于高斯过程的动态评分聚合模型，通过捕捉评分随时间的变化趋势及评论异质性（如情感、有用性），替代传统静态均值方法以更准确预测未来客户满意度"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14248v1",
+    "title": "Enhancing Regional Airbnb Trend Forecasting Using LLM-Based Embeddings of Accessibility and Human Mobility",
+    "authors": [
+      "Hongju Lee",
+      "Youngjun Park",
+      "Jisun An",
+      "Dongman Lee"
+    ],
+    "summary": "The expansion of short-term rental platforms, such as Airbnb, has significantly disrupted local housing markets, often leading to increased rental prices and housing affordability issues. Accurately forecasting regional Airbnb market trends can thus offer critical insights for policymakers and urban planners aiming to mitigate these impacts. This study proposes a novel time-series forecasting framework to predict three key Airbnb indicators -- Revenue, Reservation Days, and Number of Reservations -- at the regional level. Using a sliding-window approach, the model forecasts trends 1 to 3 months ahead. Unlike prior studies that focus on individual listings at fixed time points, our approach constructs regional representations by integrating listing features with external contextual factors such as urban accessibility and human mobility. We convert structured tabular data into prompt-based inputs for a Large Language Model (LLM), producing comprehensive regional embeddings. These embeddings are then fed into advanced time-series models (RNN, LSTM, Transformer) to better capture complex spatio-temporal dynamics. Experiments on Seoul's Airbnb dataset show that our method reduces both average RMSE and MAE by approximately 48% compared to conventional baselines, including traditional statistical and machine learning models. Our framework not only improves forecasting accuracy but also offers practical insights for detecting oversupplied regions and supporting data-driven urban policy decisions.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-11-18T08:38:16Z",
+    "updated": "2025-11-18T08:38:16Z",
+    "url": "http://arxiv.org/abs/2511.14248v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14248v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于城市规划和政策制定的宏观趋势预测，而非推荐系统或搜索引擎的核心环节（如召回、排序、个性化），属于弱相关的时序预测应用；虽来自 TAL 且使用了 LLM，但缺乏 RecSys 直接场景，基础分为 3 分，加 1 分后为 4 分。",
+    "translation": "利用基于 LLM 的可达性与人类移动性嵌入增强区域 Airbnb 趋势预测",
+    "summary_zh": "提出一种将结构化表格数据转化为提示输入以生成区域嵌入的框架，结合外部上下文因素并通过时间序列模型预测区域 Airbnb 市场指标。",
+    "key_points": [
+      "提出一种将结构化表格数据转化为提示输入以生成区域嵌入的框架，结合外部上下文因素并通过时间序列模型预测区域 Airbnb 市场指标"
+    ]
+  },
+  {
+    "arxiv_id": "2511.14143v1",
+    "title": "SMART: Shot-Aware Multimodal Video Moment Retrieval with Audio-Enhanced MLLM",
+    "authors": [
+      "An Yu",
+      "Weiheng Lu",
+      "Jian Li",
+      "Zhenfei Zhang",
+      "Yunhang Shen",
+      "Felix X. -F. Ye",
+      "Ming-Ching Chang"
+    ],
+    "summary": "Video Moment Retrieval is a task in video understanding that aims to localize a specific temporal segment in an untrimmed video based on a natural language query. Despite recent progress in moment retrieval from videos using both traditional techniques and Multimodal Large Language Models (MLLM), most existing methods still rely on coarse temporal understanding and a single visual modality, limiting performance on complex videos. To address this, we introduce \\textit{S}hot-aware \\textit{M}ultimodal \\textit{A}udio-enhanced \\textit{R}etrieval of \\textit{T}emporal \\textit{S}egments (SMART), an MLLM-based framework that integrates audio cues and leverages shot-level temporal structure. SMART enriches multimodal representations by combining audio and visual features while applying \\textbf{Shot-aware Token Compression}, which selectively retains high-information tokens within each shot to reduce redundancy and preserve fine-grained temporal details. We also refine prompt design to better utilize audio-visual cues. Evaluations on Charades-STA and QVHighlights show that SMART achieves significant improvements over state-of-the-art methods, including a 1.61\\% increase in R1@0.5 and 2.59\\% gain in R1@0.7 on Charades-STA.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-11-18T05:03:17Z",
+    "updated": "2025-11-18T05:03:17Z",
+    "url": "http://arxiv.org/abs/2511.14143v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.14143v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯计算机视觉（视频理解/时刻检索）任务，旨在根据文本查询定位视频片段，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、信息流），属于低优先级的边缘相关研究。",
+    "translation": "SMART：基于音频增强 MLLM 的镜头感知多模态视频时刻检索",
+    "summary_zh": "提出一种基于多模态大语言模型的框架，通过融合音频线索和镜头级时间结构，利用镜头感知 Token 压缩技术来减少冗余并保留细粒度时间细节，以解决复杂视频中的时刻定位问题。",
+    "key_points": [
+      "提出一种基于多模态大语言模型的框架，通过融合音频线索和镜头级时间结构，利用镜头感知 Token 压缩技术来减少冗余并保留细粒度时间细节，以解决复杂视频中的时刻定位问题"
+    ]
+  }
+]

@@ -1,0 +1,581 @@
+[
+  {
+    "arxiv_id": "2510.24431v1",
+    "title": "MiniOneRec: An Open-Source Framework for Scaling Generative Recommendation",
+    "authors": [
+      "Xiaoyu Kong",
+      "Leheng Sheng",
+      "Junfei Tan",
+      "Yuxin Chen",
+      "Jiancan Wu",
+      "An Zhang",
+      "Xiang Wang",
+      "Xiangnan He"
+    ],
+    "summary": "The recent success of large language models (LLMs) has renewed interest in whether recommender systems can achieve similar scaling benefits. Conventional recommenders, dominated by massive embedding tables, tend to plateau as embedding dimensions grow. In contrast, the emerging generative paradigm replaces embeddings with compact Semantic ID (SID) sequences produced by autoregressive Transformers. Yet most industrial deployments remain proprietary, leaving two fundamental questions open: (1) Do the expected scaling laws hold on public benchmarks? (2) What is the minimal post-training recipe that enables competitive performance?\n  We present MiniOneRec, to the best of our knowledge, the first fully open-source generative recommendation framework, which provides an end-to-end workflow spanning SID construction, supervised fine-tuning, and recommendation-oriented reinforcement learning. We generate SIDs via a Residual Quantized VAE and post-train Qwen backbones ranging from 0.5B to 7B parameters on the Amazon Review dataset. Our experiments reveal a consistent downward trend in both training and evaluation losses with increasing model size, validating the parameter efficiency of the generative approach. To further enhance performance, we propose a lightweight yet effective post-training pipeline that (1) enforces full-process SID alignment and (2) applies reinforcement learning with constrained decoding and hybrid rewards. Together, these techniques yield significant improvements in both ranking accuracy and candidate diversity.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-28T13:58:36Z",
+    "updated": "2025-10-28T13:58:36Z",
+    "url": "http://arxiv.org/abs/2510.24431v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24431v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统，提出了开源框架 MiniOneRec 以解决扩展性和后训练问题，完全符合 LLM for RecSys 的高优先级标准；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "MiniOneRec：一个用于扩展生成式推荐的开源框架",
+    "summary_zh": "本文提出了首个全开源生成式推荐框架 MiniOneRec，通过残差量化 VAE 构建语义 ID，并结合全进程对齐与约束解码强化学习的轻量级后训练流程，实现了基于自回归 Transformer 的端到端推荐建模。",
+    "key_points": [
+      "本文提出了首个全开源生成式推荐框架 MiniOneRec，通过残差量化 VAE 构建语义 ID，并结合全进程对齐与约束解码强化学习的轻量级后训练流程，实现了基于自回归 Transformer 的端到端推荐建模"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24369v1",
+    "title": "DUET: Dual Model Co-Training for Entire Space CTR Prediction",
+    "authors": [
+      "Yutian Xiao",
+      "Meng Yuan",
+      "Fuzhen Zhuang",
+      "Wei Chen",
+      "Shukuan Wang",
+      "Shanqi Liu",
+      "Chao Feng",
+      "Wenhui Yu",
+      "Xiang Li",
+      "Lantao Hu",
+      "Han Li",
+      "Zhao Zhang"
+    ],
+    "summary": "The pre-ranking stage plays a pivotal role in large-scale recommender systems but faces an intrinsic trade-off between model expressiveness and computational efficiency. Owing to the massive candidate pool and strict latency constraints, industry systems often rely on lightweight two-tower architectures, which are computationally efficient yet limited in estimation capability. As a result, they struggle to capture the complex synergistic and suppressive relationships among candidate items, which are essential for producing contextually coherent and diverse recommendation lists. Moreover, this simplicity further amplifies the Sample Selection Bias (SSB) problem, as coarse-grained models trained on biased exposure data must generalize to a much larger candidate space with distinct distributions.\n  To address these issues, we propose \\textbf{DUET} (\\textbf{DU}al Model Co-Training for \\textbf{E}ntire Space C\\textbf{T}R Prediction), a set-wise pre-ranking framework that achieves expressive modeling under tight computational budgets. Instead of scoring items independently, DUET performs set-level prediction over the entire candidate subset in a single forward pass, enabling information-aware interactions among candidates while amortizing the computational cost across the set. Moreover, a dual model co-training mechanism extends supervision to unexposed items via mutual pseudo-label refinement, effectively mitigating SSB. Validated through extensive offline experiments and online A/B testing, DUET consistently outperforms state-of-the-art baselines and achieves improvements across multiple core business metrics. At present, DUET has been fully deployed in Kuaishou and Kuaishou Lite Apps, serving the main traffic for hundreds of millions of users.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-28T12:46:33Z",
+    "updated": "2025-10-28T12:46:33Z",
+    "url": "http://arxiv.org/abs/2510.24369v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24369v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "KuaishouTechnologyCo.,Ltd. KuaishouTechnologyCo.,Ltd. IndependentResearcher",
+      "IndependentResearcher KuaishouTechnologyCo.,Ltd. KuaishouTechnologyCo.,Ltd.",
+      "KuaishouTechnologyCo.,Ltd. IndependentResearcher KuaishouTechnologyCo.,Ltd.",
+      "KuaishouTechnologyCo.,Ltd. KuaishouTechnologyCo.,Ltd. IndependentResearcher"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统预排序阶段的效率与表达力权衡问题，提出了基于集合建模和双模型协同训练的新架构，且已在快手大规模部署，属于核心领域的高优先级创新。",
+    "translation": "DUET：面向全空间 CTR 预估的双模型协同训练框架",
+    "summary_zh": "提出一种集合级预排序框架，通过单次前向传播实现候选 item 间的交互建模，并利用双模型协同训练机制通过互伪标签细化缓解样本选择偏差。",
+    "key_points": [
+      "提出一种集合级预排序框架，通过单次前向传播实现候选 item 间的交互建模，并利用双模型协同训练机制通过互伪标签细化缓解样本选择偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05261v1",
+    "title": "Improving User Experience with Personalized Review Ranking and Summarization",
+    "authors": [
+      "Muhammad Mufti",
+      "Omar Hammad",
+      "Mahfuzur Rahman"
+    ],
+    "summary": "Online consumer reviews play a crucial role in guiding purchase decisions by offering insights into product quality, usability, and performance. However, the increasing volume of user-generated reviews has led to information overload, making it difficult for consumers to identify content that aligns with their specific preferences. Existing review ranking systems typically rely on metrics such as helpfulness votes, star ratings, and recency, but these fail to capture individual user interests and often treat textual sentiment and rating signals separately. This research addresses these limitations by proposing a personalized framework that integrates review ranking and abstractive summarization to enhance decision-making efficiency. The proposed system begins by modeling each user's sentiment through a hybrid analysis of star ratings and review content. Simultaneously, user preferences were derived from historical reviews using sentence embeddings and clustering, forming semantic profiles aligned with thematic and sentiment dimensions. A relevance scoring algorithm matched these profiles with unseen reviews based on sentiment and aspect similarity. Top-matched reviews were then summarized to reflect individual interests. A user study with 70 participants demonstrated that the personalized approach improved satisfaction, perceived relevance, and decision-making confidence, while reducing time spent reading. The results highlight the method's effectiveness in alleviating information overload and delivering content tailored to user-specific preferences, emphasizing its value in enhancing user experience in review-rich decision-making environments.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-28T13:16:28Z",
+    "updated": "2025-10-28T13:16:28Z",
+    "url": "http://arxiv.org/abs/2601.05261v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05261v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商场景下的评论排序与摘要生成，通过结合用户情感建模和语义偏好分析解决信息过载问题，属于核心推荐/搜索应用；虽涉及 NLP 技术但紧密服务于决策辅助，且来自中国公司额外加 1 分。",
+    "translation": "基于个性化评论排序与摘要生成提升用户体验",
+    "summary_zh": "提出一种融合用户情感分析与历史行为聚类的个性化框架，通过语义匹配算法对评论进行重排序并生成反映个体兴趣的摘要，以优化用户在海量评论中的决策效率。",
+    "key_points": [
+      "提出一种融合用户情感分析与历史行为聚类的个性化框架，通过语义匹配算法对评论进行重排序并生成反映个体兴趣的摘要，以优化用户在海量评论中的决策效率"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24430v1",
+    "title": "From Time and Place to Preference: LLM-Driven Geo-Temporal Context in Recommendations",
+    "authors": [
+      "Yejin Kim",
+      "Shaghayegh Agah",
+      "Mayur Nankani",
+      "Neeraj Sharma",
+      "Feifei Peng",
+      "Maria Peifer",
+      "Sardar Hamidian",
+      "H Howie Huang"
+    ],
+    "summary": "Most recommender systems treat timestamps as numeric or cyclical values, overlooking real-world context such as holidays, events, and seasonal patterns. We propose a scalable framework that uses large language models (LLMs) to generate geo-temporal embeddings from only a timestamp and coarse location, capturing holidays, seasonal trends, and local/global events. We then introduce a geo-temporal embedding informativeness test as a lightweight diagnostic, demonstrating on MovieLens, LastFM, and a production dataset that these embeddings provide predictive signal consistent with the outcomes of full model integrations. Geo-temporal embeddings are incorporated into sequential models through (1) direct feature fusion with metadata embeddings or (2) an auxiliary loss that enforces semantic and geo-temporal alignment. Our findings highlight the need for adaptive or hybrid recommendation strategies, and we release a context-enriched MovieLens dataset to support future research.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-28T13:57:23Z",
+    "updated": "2025-10-28T13:57:23Z",
+    "url": "http://arxiv.org/abs/2510.24430v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24430v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接将 LLM 应用于推荐系统，通过生成地理时间嵌入来解决传统时间特征建模的不足，属于 LLM for RecSys 的核心应用场景。",
+    "translation": "从时空到偏好：LLM 驱动的推荐系统地理时间上下文",
+    "summary_zh": "提出一种利用大语言模型仅凭时间戳和粗略位置生成富含节假日及事件信息的地理时间嵌入框架，并通过特征融合或辅助损失将其集成到序列推荐模型中。",
+    "key_points": [
+      "提出一种利用大语言模型仅凭时间戳和粗略位置生成富含节假日及事件信息的地理时间嵌入框架，并通过特征融合或辅助损失将其集成到序列推荐模型中"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24927v1",
+    "title": "WBT-BGRL: A Non-Contrastive Weighted Bipartite Link Prediction Model for Inductive Learning",
+    "authors": [
+      "Joel Frank Huarayo Quispe",
+      "Lilian Berton",
+      "Didier Vega-Oliveros"
+    ],
+    "summary": "Link prediction in bipartite graphs is crucial for applications like recommendation systems and failure detection, yet it is less studied than in monopartite graphs. Contrastive methods struggle with inefficient and biased negative sampling, while non-contrastive approaches rely solely on positive samples. Existing models perform well in transductive settings, but their effectiveness in inductive, weighted, and bipartite scenarios remains untested. To address this, we propose Weighted Bipartite Triplet-Bootstrapped Graph Latents (WBT-BGRL), a non-contrastive framework that enhances bootstrapped learning with a novel weighting mechanism in the triplet loss. Using a bipartite architecture with dual GCN encoders, WBT-BGRL is evaluated against adapted state-of-the-art models (T-BGRL, BGRL, GBT, CCA-SSG). Results on real-world datasets (Industry and E-commerce) show competitive performance, especially when weighting is applied during pretraining-highlighting the value of weighted, non-contrastive learning for inductive link prediction in bipartite graphs.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-28T19:56:13Z",
+    "updated": "2025-10-28T19:56:13Z",
+    "url": "http://arxiv.org/abs/2510.24927v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24927v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种针对二分图的非对比式链接预测模型，明确应用于推荐系统场景，解决了归纳式学习和加权样本的核心技术问题。",
+    "translation": "WBT-BGRL：一种用于归纳学习的非对比式加权二分图链接预测模型",
+    "summary_zh": "提出 WBT-BGRL 框架，通过双 GCN 编码器架构和新型三元组损失加权机制，在非对比学习模式下实现高效的二分图归纳式链接预测。",
+    "key_points": [
+      "提出 WBT-BGRL 框架，通过双 GCN 编码器架构和新型三元组损失加权机制，在非对比学习模式下实现高效的二分图归纳式链接预测"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24668v1",
+    "title": "InteractComp: Evaluating Search Agents With Ambiguous Queries",
+    "authors": [
+      "Mingyi Deng",
+      "Lijun Huang",
+      "Yani Fan",
+      "Jiayi Zhang",
+      "Fashen Ren",
+      "Jinyi Bai",
+      "Fuzhen Yang",
+      "Dayi Miao",
+      "Zhaoyang Yu",
+      "Yifan Wu",
+      "Yanfei Zhang",
+      "Fengwei Teng",
+      "Yingjia Wan",
+      "Song Hu",
+      "Yude Li",
+      "Xin Jin",
+      "Conghao Hu",
+      "Haoyu Li",
+      "Qirui Fu",
+      "Tai Zhong",
+      "Xinyu Wang",
+      "Xiangru Tang",
+      "Nan Tang",
+      "Chenglin Wu",
+      "Yuyu Luo"
+    ],
+    "summary": "Language agents have demonstrated remarkable potential in web search and information retrieval. However, these search agents assume user queries are complete and unambiguous, an assumption that diverges from reality where users begin with incomplete queries requiring clarification through interaction. Yet most agents lack interactive mechanisms during the search process, and existing benchmarks cannot assess this capability. To address this gap, we introduce InteractComp, a benchmark designed to evaluate whether search agents can recognize query ambiguity and actively interact to resolve it during search. Following the principle of easy to verify, interact to disambiguate, we construct 210 expert-curated questions across 9 domains through a target-distractor methodology that creates genuine ambiguity resolvable only through interaction. Evaluation of 17 models reveals striking failure: the best model achieves only 13.73% accuracy despite 71.50% with complete context, exposing systematic overconfidence rather than reasoning deficits. Forced interaction produces dramatic gains, demonstrating latent capability current strategies fail to engage. Longitudinal analysis shows interaction capabilities stagnated over 15 months while search performance improved seven-fold, revealing a critical blind spot. This stagnation, coupled with the immediate feedback inherent to search tasks, makes InteractComp a valuable resource for both evaluating and training interaction capabilities in search agents. The code is available at https://github.com/FoundationAgents/InteractComp.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-10-28T17:35:54Z",
+    "updated": "2025-10-28T17:35:54Z",
+    "url": "http://arxiv.org/abs/2510.24668v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24668v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索代理在模糊查询下的交互澄清能力，属于搜索系统中的用户交互与查询理解范畴，但主要贡献是评估基准而非核心排序算法创新。",
+    "translation": "InteractComp：利用模糊查询评估搜索代理的交互能力",
+    "summary_zh": "提出 InteractComp 基准，旨在评估并训练搜索代理识别查询歧义并通过主动交互进行澄清的能力，以解决现有代理假设查询完整性的局限。",
+    "key_points": [
+      "提出 InteractComp 基准，旨在评估并训练搜索代理识别查询歧义并通过主动交互进行澄清的能力，以解决现有代理假设查询完整性的局限"
+    ]
+  },
+  {
+    "arxiv_id": "2510.25796v1",
+    "title": "Non-myopic Matching and Rebalancing in Large-Scale On-Demand Ride-Pooling Systems Using Simulation-Informed Reinforcement Learning",
+    "authors": [
+      "Farnoosh Namdarpour",
+      "Joseph Y. J. Chow"
+    ],
+    "summary": "Ride-pooling, also known as ride-sharing, shared ride-hailing, or microtransit, is a service wherein passengers share rides. This service can reduce costs for both passengers and operators and reduce congestion and environmental impacts. A key limitation, however, is its myopic decision-making, which overlooks long-term effects of dispatch decisions. To address this, we propose a simulation-informed reinforcement learning (RL) approach. While RL has been widely studied in the context of ride-hailing systems, its application in ride-pooling systems has been less explored. In this study, we extend the learning and planning framework of Xu et al. (2018) from ride-hailing to ride-pooling by embedding a ride-pooling simulation within the learning mechanism to enable non-myopic decision-making. In addition, we propose a complementary policy for rebalancing idle vehicles. By employing n-step temporal difference learning on simulated experiences, we derive spatiotemporal state values and subsequently evaluate the effectiveness of the non-myopic policy using NYC taxi request data. Results demonstrate that the non-myopic policy for matching can increase the service rate by up to 8.4% versus a myopic policy while reducing both in-vehicle and wait times for passengers. Furthermore, the proposed non-myopic policy can decrease fleet size by over 25% compared to a myopic policy, while maintaining the same level of performance, thereby offering significant cost savings for operators. Incorporating rebalancing operations into the proposed framework cuts wait time by up to 27.3%, in-vehicle time by 12.5%, and raises service rate by 15.1% compared to using the framework for matching decisions alone at the cost of increased vehicle minutes traveled per passenger.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "published": "2025-10-28T23:21:27Z",
+    "updated": "2025-10-28T23:21:27Z",
+    "url": "http://arxiv.org/abs/2510.25796v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.25796v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于运筹优化与强化学习在交通调度中的应用，虽涉及匹配但非推荐系统或搜索引擎核心算法；纯 RL 研究无 RecSys 直接应用，基础分 3 分，因来自 TAL 额外加 1 分。",
+    "translation": "基于仿真强化学习的大规模按需拼车系统非短视匹配与再平衡",
+    "summary_zh": "提出一种嵌入拼车仿真的强化学习框架，通过 n 步时序差分学习推导时空状态价值，以实现考虑长期影响的非短视乘客车辆匹配及空闲车辆再平衡策略。",
+    "key_points": [
+      "提出一种嵌入拼车仿真的强化学习框架，通过 n 步时序差分学习推导时空状态价值，以实现考虑长期影响的非短视乘客车辆匹配及空闲车辆再平衡策略"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24469v1",
+    "title": "Iterative Critique-Refine Framework for Enhancing LLM Personalization",
+    "authors": [
+      "Durga Prasad Maram",
+      "Dhruvin Gandhi",
+      "Zonghai Yao",
+      "Gayathri Akkinapalli",
+      "Franck Dernoncourt",
+      "Yu Wang",
+      "Ryan A. Rossi",
+      "Nesreen K. Ahmed"
+    ],
+    "summary": "Personalized text generation requires models not only to produce coherent text but also to align with a target user's style, tone, and topical focus. Existing retrieval-augmented approaches such as LaMP and PGraphRAG enrich profiles with user and neighbor histories, but they stop at generation and often yield outputs that drift in tone, topic, or style. We present PerFine, a unified, training-free critique-refine framework that enhances personalization through iterative, profile-grounded feedback. In each iteration, an LLM generator produces a draft conditioned on the retrieved profile, and a critic LLM - also conditioned on the same profile - provides structured feedback on tone, vocabulary, sentence structure, and topicality. The generator then revises, while a novel knockout strategy retains the stronger draft across iterations. We further study additional inference-time strategies such as Best-of-N and Topic Extraction to balance quality and efficiency. Across Yelp, Goodreads, and Amazon datasets, PerFine consistently improves personalization over PGraphRAG, with GEval gains of +7-13%, steady improvements over 3-5 refinement iterations, and scalability with increasing critic size. These results highlight that post-hoc, profile-aware feedback offers a powerful paradigm for personalized LLM generation that is both training-free and model-agnostic.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-10-28T14:36:22Z",
+    "updated": "2025-10-28T14:36:22Z",
+    "url": "http://arxiv.org/abs/2510.24469v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24469v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe",
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "UniversityofMassachusettsAmherst1 ,AdobeResearch2 ,UniversityofOregon3 ,CiscoAIResearch4",
+      "over 3–5 refinement iterations, and scalabil-"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 个性化生成研究，聚焦于文本风格对齐而非推荐/搜索核心链路（召回、排序等），虽提及电商数据集但无直接 RecSys 系统应用。",
+    "translation": "用于增强大模型个性化的迭代批判 - 精炼框架",
+    "summary_zh": "提出一种无需训练的 PerFine 框架，通过引入基于用户画像的批评者大模型对生成草稿进行多轮风格与内容反馈，利用迭代精炼机制提升文本生成的个性化对齐能力。",
+    "key_points": [
+      "提出一种无需训练的 PerFine 框架，通过引入基于用户画像的批评者大模型对生成草稿进行多轮风格与内容反馈，利用迭代精炼机制提升文本生成的个性化对齐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2511.00039v1",
+    "title": "Graph-Attentive MAPPO for Dynamic Retail Pricing",
+    "authors": [
+      "Krishna Kumar Neelakanta Pillai Santha Kumari Amma"
+    ],
+    "summary": "Dynamic pricing in retail requires policies that adapt to shifting demand while coordinating decisions across related products. We present a systematic empirical study of multi-agent reinforcement learning for retail price optimization, comparing a strong MAPPO baseline with a graph-attention-augmented variant (MAPPO+GAT) that leverages learned interactions among products. Using a simulated pricing environment derived from real transaction data, we evaluate profit, stability across random seeds, fairness across products, and training efficiency under a standardized evaluation protocol. The results indicate that MAPPO provides a robust and reproducible foundation for portfolio-level price control, and that MAPPO+GAT further enhances performance by sharing information over the product graph without inducing excessive price volatility. These results indicate that graph-integrated MARL provides a more scalable and stable solution than independent learners for dynamic retail pricing, offering practical advantages in multi-product decision-making.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-10-28T00:15:59Z",
+    "updated": "2025-10-28T00:15:59Z",
+    "url": "http://arxiv.org/abs/2511.00039v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.00039v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于零售动态定价的强化学习应用，虽涉及商品关联建模，但属于定价策略优化而非核心的推荐或搜索排序任务，且为纯 RL 研究无直接 RecSys 应用场景。",
+    "translation": "基于图注意力 MAPPO 的动态零售定价研究",
+    "summary_zh": "提出一种结合图注意力机制的多智能体强化学习框架，通过建模商品间的交互关系来协同优化动态定价策略。",
+    "key_points": [
+      "提出一种结合图注意力机制的多智能体强化学习框架，通过建模商品间的交互关系来协同优化动态定价策略"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24694v2",
+    "title": "Repurposing Synthetic Data for Fine-grained Search Agent Supervision",
+    "authors": [
+      "Yida Zhao",
+      "Kuan Li",
+      "Xixi Wu",
+      "Liwen Zhang",
+      "Dingchu Zhang",
+      "Baixuan Li",
+      "Maojia Song",
+      "Zhuo Chen",
+      "Chenxi Wang",
+      "Xinyu Wang",
+      "Kewei Tu",
+      "Pengjun Xie",
+      "Jingren Zhou",
+      "Yong Jiang"
+    ],
+    "summary": "LLM-based search agents are increasingly trained on entity-centric synthetic data to solve complex, knowledge-intensive tasks. However, prevailing training methods like Group Relative Policy Optimization (GRPO) discard this rich entity information, relying instead on sparse, outcome-based rewards. This critical limitation renders them unable to distinguish informative \"near-miss\" samples-those with substantially correct reasoning but a flawed final answer-from complete failures, thus discarding valuable learning signals. We address this by leveraging the very entities discarded during training. Our empirical analysis reveals a strong positive correlation between the number of ground-truth entities identified during an agent's reasoning process and final answer accuracy. Building on this insight, we introduce Entity-aware Group Relative Policy Optimization (E-GRPO), a novel framework that formulates a dense entity-aware reward function. E-GRPO assigns partial rewards to incorrect samples proportional to their entity match rate, enabling the model to effectively learn from these \"near-misses\". Experiments on diverse question-answering (QA) and deep research benchmarks show that E-GRPO consistently and significantly outperforms the GRPO baseline. Furthermore, our analysis reveals that E-GRPO not only achieves superior accuracy but also induces more efficient reasoning policies that require fewer tool calls, demonstrating a more effective and sample-efficient approach to aligning search agents.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-10-28T17:50:40Z",
+    "updated": "2026-02-24T12:55:37Z",
+    "url": "http://arxiv.org/abs/2510.24694v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.24694v2.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "1SchoolofInformationScienceandTechnology,ShanghaiTechUniversity",
+      "2ShanghaiEngineeringResearchCenterofIntelligentVisionandImaging",
+      "3TongyiLab,AlibabaGroup",
+      "ondiversequestion-answering(QA)anddeepresearchbenchmarksshowthatE-"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文专注于通用 LLM 搜索代理（Search Agent）的强化学习对齐方法，属于纯 LLM/Agent 研究，未直接解决推荐系统或传统搜索引擎的核心业务问题（如召回、排序、用户建模）。",
+    "translation": "利用合成数据用于细粒度搜索代理监督",
+    "summary_zh": "提出实体感知组相对策略优化（E-GRPO），通过利用推理过程中的实体匹配信息构建稠密奖励函数，使搜索代理能从“接近正确”的失败样本中学习以提升推理效率。",
+    "key_points": [
+      "提出实体感知组相对策略优化（E-GRPO），通过利用推理过程中的实体匹配信息构建稠密奖励函数，使搜索代理能从“接近正确”的失败样本中学习以提升推理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24599v1",
+    "title": "Evaluating Joinable Column Discovery Approaches for Context-Aware Search",
+    "authors": [
+      "Harsha Kokel",
+      "Aamod Khatiwada",
+      "Tejaswini Pedapati",
+      "Haritha Ananthakrishnan",
+      "Oktie Hassanzadeh",
+      "Horst Samulowitz",
+      "Kavitha Srinivas"
+    ],
+    "summary": "Joinable Column Discovery is a critical challenge in automating enterprise data analysis. While existing approaches focus on syntactic overlap and semantic similarity, there remains limited understanding of which methods perform best for different data characteristics and how multiple criteria influence discovery effectiveness. We present a comprehensive experimental evaluation of joinable column discovery methods across diverse scenarios. Our study compares syntactic and semantic techniques on seven benchmarks covering relational databases and data lakes. We analyze six key criteria -- unique values, intersection size, join size, reverse join size, value semantics, and metadata semantics -- and examine how combining them through ensemble ranking affects performance. Our analysis reveals differences in method behavior across data contexts and highlights the benefits of integrating multiple criteria for robust join discovery. We provide empirical evidence on when each criterion matters, compare pre-trained embedding models for semantic joins, and offer practical guidelines for selecting suitable methods based on dataset characteristics. Our findings show that metadata and value semantics are crucial for data lakes, size-based criteria play a stronger role in relational databases, and ensemble approaches consistently outperform single-criterion methods.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-10-28T16:27:57Z",
+    "updated": "2025-10-28T16:27:57Z",
+    "url": "http://arxiv.org/abs/2510.24599v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24599v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "IBMResearch NortheasternUniversity IBMResearch",
+      "IBMResearch IBMResearch IBMResearch",
+      "IBMResearch"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于企业数据分析中的表连接发现（数据工程任务），虽提及搜索但非面向用户的推荐/搜索系统核心算法，属于弱相关的数据管理研究；即使考虑中国公司背景加分，其纯数据集成属性仍导致分值较低。",
+    "translation": "面向上下文感知搜索的可连接列发现方法评估",
+    "summary_zh": "本文通过综合实验评估了多种可连接列发现方法，分析了语法与语义技术及不同数据特征准则对发现效果的影响，并提出了基于数据集特征选择合适方法的实践指南。",
+    "key_points": [
+      "本文通过综合实验评估了多种可连接列发现方法，分析了语法与语义技术及不同数据特征准则对发现效果的影响，并提出了基于数据集特征选择合适方法的实践指南"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24126v1",
+    "title": "Reinforcement Learning for Long-Horizon Multi-Turn Search Agents",
+    "authors": [
+      "Vivek Kalyan",
+      "Martin Andrews"
+    ],
+    "summary": "Large Language Model (LLM) agents can leverage multiple turns and tools to solve complex tasks, with prompt-based approaches achieving strong performance. This work demonstrates that Reinforcement Learning (RL) can push capabilities significantly further by learning from experience. Through experiments on a legal document search benchmark, we show that our RL-trained 14 Billion parameter model outperforms frontier class models (85% vs 78% accuracy). In addition, we explore turn-restricted regimes, during training and at test-time, that show these agents achieve better results if allowed to operate over longer multi-turn horizons.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-10-28T07:00:42Z",
+    "updated": "2025-10-28T07:00:42Z",
+    "url": "http://arxiv.org/abs/2510.24126v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24126v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 RL 与 LLM Agent 研究，虽在法律文书检索基准上实验，但未提出通用的搜索/推荐系统核心架构创新，缺乏对主流 RecSys/Search 产品的直接适用性。",
+    "translation": "面向长程多轮搜索智能体的强化学习研究",
+    "summary_zh": "提出利用强化学习训练大语言模型智能体，通过多轮交互与工具调用优化长程复杂搜索任务的决策能力。",
+    "key_points": [
+      "提出利用强化学习训练大语言模型智能体，通过多轮交互与工具调用优化长程复杂搜索任务的决策能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24652v2",
+    "title": "Optimizing Retrieval for RAG via Reinforcement Learning",
+    "authors": [
+      "Jiawei Zhou",
+      "Lei Chen"
+    ],
+    "summary": "As retrieval-augmented generation (RAG) becomes more widespread, the role of retrieval is shifting from retrieving information for human browsing to retrieving context for AI reasoning. This shift creates more complex search environments, where relevance is difficult to pre-define. Existing retrievers rely on supervised fine-tuning (SFT) with human labels or synthetic data, resulting in static relevance that struggles to adapt to diverse RAG environments. To address this challenge, we propose R3, a Retrieval framework optimized for RAG through Reinforcement learning (RL). Specifically, we adopt an RL training paradigm that enables the retriever to explore and self-improve within given RAG environments, automating the learning process with minimal manual experimentation or tuning effort. Extensive experiments across diverse tasks demonstrate that R3 improves RAG performance by 5.2% over the original retriever and surpasses state-of-the-art retrievers by 4.9%, while achieving comparable results to LLM-augmented retrieval and RAG systems built on post-trained or instruction-tuned LLMs. It is both efficient and practical, requiring only 4 GPUs and completing training within a single day.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-10-28T17:18:30Z",
+    "updated": "2026-01-01T06:07:38Z",
+    "url": "http://arxiv.org/abs/2510.24652v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.24652v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/RAG 技术研究，旨在优化大模型生成的上下文检索，而非面向用户的推荐系统或搜索引擎产品，缺乏 RecSys 核心场景（如排序、个性化、用户建模）。",
+    "translation": "通过强化学习优化 RAG 的检索策略",
+    "summary_zh": "提出一种基于强化学习的检索框架 R3，使检索器能在 RAG 环境中通过自我探索和优化动态适应复杂的推理需求，减少对静态监督数据的依赖。",
+    "key_points": [
+      "提出一种基于强化学习的检索框架 R3，使检索器能在 RAG 环境中通过自我探索和优化动态适应复杂的推理需求，减少对静态监督数据的依赖"
+    ]
+  },
+  {
+    "arxiv_id": "2510.25014v1",
+    "title": "Aligning Large Language Models with Procedural Rules: An Autoregressive State-Tracking Prompting for In-Game Trading",
+    "authors": [
+      "Minkyung Kim",
+      "Junsik Kim",
+      "Woongcheol Yang",
+      "Sangdon Park",
+      "Sohee Bae"
+    ],
+    "summary": "Large Language Models (LLMs) enable dynamic game interactions but fail to follow essential procedural flows in rule-governed trading systems, eroding player trust. This work resolves the core tension between the creative flexibility of LLMs and the procedural demands of in-game trading (browse-offer-review-confirm). To this end, Autoregressive State-Tracking Prompting (ASTP) is introduced, a methodology centered on a strategically orchestrated prompt that compels an LLM to make its state-tracking process explicit and verifiable. Instead of relying on implicit contextual understanding, ASTP tasks the LLM with identifying and reporting a predefined state label from the previous turn. To ensure transactional integrity, this is complemented by a state-specific placeholder post-processing method for accurate price calculations. Evaluation across 300 trading dialogues demonstrates >99% state compliance and 99.3% calculation precision. Notably, ASTP with placeholder post-processing on smaller models (Gemini-2.5-Flash) matches larger models' (Gemini-2.5-Pro) performance while reducing response time from 21.2s to 2.4s, establishing a practical foundation that satisfies both real-time requirements and resource constraints of commercial games.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-10-28T22:26:34Z",
+    "updated": "2025-10-28T22:26:34Z",
+    "url": "http://arxiv.org/abs/2510.25014v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.25014v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究，专注于游戏内交易的状态跟踪和对齐，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模）。",
+    "translation": "对齐大语言模型与程序规则：用于游戏内交易的自回归状态跟踪提示方法",
+    "summary_zh": "提出一种自回归状态跟踪提示（ASTP）方法，通过强制大模型显式报告预定义状态标签并结合占位符后处理，解决其在规则驱动的交易流程中遵循程序逻辑的问题。",
+    "key_points": [
+      "提出一种自回归状态跟踪提示（ASTP）方法，通过强制大模型显式报告预定义状态标签并结合占位符后处理，解决其在规则驱动的交易流程中遵循程序逻辑的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24235v2",
+    "title": "PaTaRM: Bridging Pairwise and Pointwise Signals via Preference-Aware Task-Adaptive Reward Modeling",
+    "authors": [
+      "Ai Jian",
+      "Jingqing Ruan",
+      "Xing Ma",
+      "Dailin Li",
+      "Weipeng Zhang",
+      "Ke Zeng",
+      "Xunliang Cai"
+    ],
+    "summary": "Reward models (RMs) are central to reinforcement learning from human feedback (RLHF), providing the critical supervision signals that align large language models (LLMs) with human preferences. Generative reward models (GRMs) provide greater interpretability than traditional scalar RMs, but they come with a critical trade-off: pairwise methods are hindered by a training-inference mismatch, while pointwise methods require expensive absolute annotations. To bridge this gap, we propose the Preference-aware Task-adaptive Reward Model (PaTaRM). Unlike prior approaches, PaTaRM enables robust pointwise training using readily available pairwise data via a novel Preference-Aware Reward (PAR) mechanism, eliminating the need for explicit rating labels. Furthermore, it incorporates a Task-Adaptive Rubric system that dynamically generates instance-specific criteria for precise evaluation. Extensive experiments demonstrate that PATRM achieves a 8.7% average improvement on RewardBench and RMBench across Qwen3-8B/14B models. Crucially, it boosts downstream RLHF performance by an average relative improvement of 13.6% across IFEval and InFoBench, validating its effectiveness for policy alignment. Our code is available at https://github.com/JaneEyre0530/PaTaRM.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-10-28T09:43:47Z",
+    "updated": "2026-01-22T10:20:06Z",
+    "url": "http://arxiv.org/abs/2510.24235v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.24235v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于通过 RLHF 对齐大语言模型，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "PaTaRM：通过偏好感知任务自适应奖励建模桥接成对与逐点信号",
+    "summary_zh": "该论文提出了一种偏好感知任务自适应奖励模型，旨在利用成对数据训练鲁棒的逐点奖励模型，并通过动态生成实例特定标准来解决大语言模型对齐中的标注成本与推理不匹配问题。",
+    "key_points": [
+      "该论文提出了一种偏好感知任务自适应奖励模型，旨在利用成对数据训练鲁棒的逐点奖励模型，并通过动态生成实例特定标准来解决大语言模型对齐中的标注成本与推理不匹配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.00040v3",
+    "title": "Semi-Supervised Preference Optimization with Limited Feedback",
+    "authors": [
+      "Seonggyun Lee",
+      "Sungjun Lim",
+      "Seojin Park",
+      "Soeun Cheon",
+      "Kyungwoo Song"
+    ],
+    "summary": "The field of preference optimization has made outstanding contributions to the alignment of language models with human preferences. Despite these advancements, recent methods still rely heavily on substantial paired (labeled) feedback data, leading to substantial resource expenditures. To address these challenges, we study the problem of Semi-Supervised Preference Optimization (SSPO) in which the idea is to learn from both a small number of pairwise preference labels and a large pool of unpaired samples simultaneously. Our key theoretical contribution proves the existence of an optimal reward threshold capable of separating winning and losing responses with high probability, which enables a principled pseudo-labeling of unpaired data. By leveraging these pseudo-labels, SSPO effectively distills latent preferences from large-scale unpaired data, thus maintaining human alignment while drastically reducing acquisition costs. Extensive experiments across datasets validate this remarkable data efficiency; for instance, SSPO trained with Mistral-7B-Instruct on just 1% of UltraFeedback consistently surpasses strong baselines trained on 10% of UltraFeedback.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-10-28T01:33:43Z",
+    "updated": "2026-02-19T00:20:50Z",
+    "url": "http://arxiv.org/abs/2511.00040v3",
+    "pdf_url": "http://arxiv.org/pdf/2511.00040v3.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 对齐（Preference Optimization）研究，旨在减少语言模型训练的数据成本，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "基于有限反馈的半监督偏好优化",
+    "summary_zh": "提出一种半监督偏好优化方法，利用理论推导的最优奖励阈值对无标签数据进行伪标记，从而结合少量配对数据和大量非配对数据实现大模型的人类偏好对齐。",
+    "key_points": [
+      "提出一种半监督偏好优化方法，利用理论推导的最优奖励阈值对无标签数据进行伪标记，从而结合少量配对数据和大量非配对数据实现大模型的人类偏好对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24870v1",
+    "title": "Seeing Through the MiRAGE: Evaluating Multimodal Retrieval Augmented Generation",
+    "authors": [
+      "Alexander Martin",
+      "William Walden",
+      "Reno Kriz",
+      "Dengjia Zhang",
+      "Kate Sanders",
+      "Eugene Yang",
+      "Chihsheng Jin",
+      "Benjamin Van Durme"
+    ],
+    "summary": "We introduce MiRAGE, an evaluation framework for retrieval-augmented generation (RAG) from multimodal sources. As audiovisual media becomes a prevalent source of information online, it is essential for RAG systems to integrate information from these sources into generation. However, existing evaluations for RAG are text-centric, limiting their applicability to multimodal, reasoning intensive settings because they don't verify information against sources. MiRAGE is a claim-centric approach to multimodal RAG evaluation, consisting of InfoF1, evaluating factuality and information coverage, and CiteF1, measuring citation support and completeness. We show that MiRAGE, when applied by humans, strongly aligns with extrinsic quality judgments. We additionally introduce automatic variants of MiRAGE and three prominent TextRAG metrics -- ACLE, ARGUE, and RAGAS -- demonstrating the limitations of text-centric work and laying the groundwork for automatic evaluation. We release open-source implementations and outline how to assess multimodal RAG.",
+    "categories": [
+      "cs.CL",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2025-10-28T18:21:19Z",
+    "updated": "2025-10-28T18:21:19Z",
+    "url": "http://arxiv.org/abs/2510.24870v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24870v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 评估研究，专注于多模态生成的事实性和引用验证，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "透过 MiRAGE：评估多模态检索增强生成",
+    "summary_zh": "提出 MiRAGE 框架，通过以声明为中心的方法（InfoF1 和 CiteF1）来评估多模态检索增强生成系统的事实准确性与引用完整性。",
+    "key_points": [
+      "提出 MiRAGE 框架，通过以声明为中心的方法（InfoF1 和 CiteF1）来评估多模态检索增强生成系统的事实准确性与引用完整性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.24120v1",
+    "title": "Graph-Guided Concept Selection for Efficient Retrieval-Augmented Generation",
+    "authors": [
+      "Ziyu Liu",
+      "Yijing Liu",
+      "Jianfei Yuan",
+      "Minzhi Yan",
+      "Le Yue",
+      "Honghui Xiong",
+      "Yi Yang"
+    ],
+    "summary": "Graph-based RAG constructs a knowledge graph (KG) from text chunks to enhance retrieval in Large Language Model (LLM)-based question answering. It is especially beneficial in domains such as biomedicine, law, and political science, where effective retrieval often involves multi-hop reasoning over proprietary documents. However, these methods demand numerous LLM calls to extract entities and relations from text chunks, incurring prohibitive costs at scale. Through a carefully designed ablation study, we observe that certain words (termed concepts) and their associated documents are more important. Based on this insight, we propose Graph-Guided Concept Selection (G2ConS). Its core comprises a chunk selection method and an LLM-independent concept graph. The former selects salient document chunks to reduce KG construction costs; the latter closes knowledge gaps introduced by chunk selection at zero cost. Evaluations on multiple real-world datasets show that G2ConS outperforms all baselines in construction cost, retrieval effectiveness, and answering quality.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-28T06:47:30Z",
+    "updated": "2025-10-28T06:47:30Z",
+    "url": "http://arxiv.org/abs/2510.24120v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24120v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用问答领域的知识图谱构建优化，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "图引导的概念选择用于高效检索增强生成",
+    "summary_zh": "提出一种图引导的概念选择方法，通过筛选关键文档块并构建独立于 LLM 的概念图，以降低检索增强生成系统的构建成本并填补知识缺口。",
+    "key_points": [
+      "提出一种图引导的概念选择方法，通过筛选关键文档块并构建独立于 LLM 的概念图，以降低检索增强生成系统的构建成本并填补知识缺口"
+    ]
+  }
+]

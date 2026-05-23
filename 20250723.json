@@ -1,0 +1,427 @@
+[
+  {
+    "arxiv_id": "2508.04711v2",
+    "title": "Scaling Generative Recommendations with Context Parallelism on Hierarchical Sequential Transducers",
+    "authors": [
+      "Yue Dong",
+      "Han Li",
+      "Shen Li",
+      "Nikhil Patel",
+      "Xing Liu",
+      "Xiaodong Wang",
+      "Chuanhao Zhuge"
+    ],
+    "summary": "Large-scale recommendation systems are pivotal to process an immense volume of daily user interactions, requiring the effective modeling of high cardinality and heterogeneous features to ensure accurate predictions. In prior work, we introduced Hierarchical Sequential Transducers (HSTU), an attention-based architecture for modeling high cardinality, non-stationary streaming recommendation data, providing good scaling law in the generative recommender framework (GR). Recent studies and experiments demonstrate that attending to longer user history sequences yields significant metric improvements. However, scaling sequence length is activation-heavy, necessitating parallelism solutions to effectively shard activation memory. In transformer-based LLMs, context parallelism (CP) is a commonly used technique that distributes computation along the sequence-length dimension across multiple GPUs, effectively reducing memory usage from attention activations. In contrast, production ranking models typically utilize jagged input tensors to represent user interaction features, introducing unique CP implementation challenges. In this work, we introduce context parallelism with jagged tensor support for HSTU attention, establishing foundational capabilities for scaling up sequence dimensions. Our approach enables a 5.3x increase in supported user interaction sequence length, while achieving a 1.55x scaling factor when combined with Distributed Data Parallelism (DDP).",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-07-23T07:28:05Z",
+    "updated": "2025-08-16T00:20:02Z",
+    "url": "http://arxiv.org/abs/2508.04711v2",
+    "pdf_url": "http://arxiv.org/pdf/2508.04711v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统中的序列建模瓶颈，提出了支持不规则张量的上下文并行方案以扩展用户行为序列长度，属于核心推荐架构创新；虽涉及 LLM 技术但完全服务于推荐场景，且来自中国公司，符合最高优先级标准。",
+    "translation": "基于层次化序列变换器的上下文并行扩展生成式推荐系统",
+    "summary_zh": "本文提出了一种支持不规则张量的上下文并行方法，用于扩展层次化序列变换器（HSTU）的用户交互序列长度，解决了大规模生成式推荐系统中长序列建模的显存瓶颈问题。",
+    "key_points": [
+      "本文提出了一种支持不规则张量的上下文并行方法，用于扩展层次化序列变换器（HSTU）的用户交互序列长度，解决了大规模生成式推荐系统中长序列建模的显存瓶颈问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17976v1",
+    "title": "Failure Prediction in Conversational Recommendation Systems",
+    "authors": [
+      "Maria Vlachou"
+    ],
+    "summary": "In a Conversational Image Recommendation task, users can provide natural language feedback on a recommended image item, which leads to an improved recommendation in the next turn. While typical instantiations of this task assume that the user's target item will (eventually) be returned, this might often not be true, for example, the item the user seeks is not within the item catalogue. Failing to return a user's desired item can lead to user frustration, as the user needs to interact with the system for an increased number of turns. To mitigate this issue, in this paper, we introduce the task of Supervised Conversational Performance Prediction, inspired by Query Performance Prediction (QPP) for predicting effectiveness in response to a search engine query. In this regard, we propose predictors for conversational performance that detect conversation failures using multi-turn semantic information contained in the embedded representations of retrieved image items. Specifically, our AutoEncoder-based predictor learns a compressed representation of top-retrieved items of the train turns and uses the classification labels to predict the evaluation turn. Our evaluation scenario addressed two recommendation scenarios, by differentiating between system failure, where the system is unable to find the target, and catalogue failure, where the target does not exist in the item catalogue. In our experiments using the Shoes and FashionIQ Dresses datasets, we measure the accuracy of predictors for both system and catalogue failures. Our results demonstrate the promise of our proposed predictors for predicting system failures (existing evaluation scenario), while we detect a considerable decrease in predictive performance in the case of catalogue failure prediction (when inducing a missing item scenario) compared to system failures.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-23T22:51:08Z",
+    "updated": "2025-07-23T22:51:08Z",
+    "url": "http://arxiv.org/abs/2507.17976v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17976v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话式推荐系统中的失败预测问题，提出了基于多轮语义信息的预测方法，属于核心推荐技术；虽涉及 NLP 但紧密服务于推荐场景，且来自 TAL 公司，符合加分条件。",
+    "translation": "对话式推荐系统中的失败预测研究",
+    "summary_zh": "本文提出一种监督式对话性能预测任务，利用检索图像的嵌入表示学习多轮语义特征，以区分并预测因系统能力不足或商品库缺失导致的推荐失败。",
+    "key_points": [
+      "本文提出一种监督式对话性能预测任务，利用检索图像的嵌入表示学习多轮语义特征，以区分并预测因系统能力不足或商品库缺失导致的推荐失败"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17788v1",
+    "title": "Adaptive Repetition for Mitigating Position Bias in LLM-Based Ranking",
+    "authors": [
+      "Ali Vardasbi",
+      "Gustavo Penha",
+      "Claudia Hauff",
+      "Hugues Bouchard"
+    ],
+    "summary": "When using LLMs to rank items based on given criteria, or evaluate answers, the order of candidate items can influence the model's final decision. This sensitivity to item positioning in a LLM's prompt is known as position bias. Prior research shows that this bias exists even in large models, though its severity varies across models and tasks. In addition to position bias, LLMs also exhibit varying degrees of low repetition consistency, where repeating the LLM call with the same candidate ordering can lead to different rankings. To address both inconsistencies, a common approach is to prompt the model multiple times with different candidate orderings and aggregate the results via majority voting. However, this repetition strategy, significantly increases computational costs. Extending prior findings, we observe that both the direction -- favoring either the earlier or later candidate in the prompt -- and magnitude of position bias across instances vary substantially, even within a single dataset. This observation highlights the need for a per-instance mitigation strategy. To this end, we introduce a dynamic early-stopping method that adaptively determines the number of repetitions required for each instance. Evaluating our approach across three LLMs of varying sizes and on two tasks, namely re-ranking and alignment, we demonstrate that transitioning to a dynamic repetition strategy reduces the number of LLM calls by an average of 81%, while preserving the accuracy. Furthermore, we propose a confidence-based adaptation to our early-stopping method, reducing LLM calls by an average of 87% compared to static repetition, with only a slight accuracy trade-off relative to our original early-stopping method.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-23T09:54:44Z",
+    "updated": "2025-07-23T09:54:44Z",
+    "url": "http://arxiv.org/abs/2507.17788v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17788v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 在重排序（Re-ranking）任务中的位置偏差问题提出动态自适应解决方案，属于 LLM for RecSys/Search 的核心应用；虽涉及纯 LLM 特性研究，但场景明确为推荐排序优化，且来自中国公司，故给予高分。",
+    "translation": "基于自适应重复机制缓解 LLM 排序中的位置偏差",
+    "summary_zh": "提出一种动态早停策略，根据实例级位置偏差的方向和幅度自适应调整 LLM 调用次数，以在保持排序准确性的同时显著降低计算成本。",
+    "key_points": [
+      "提出一种动态早停策略，根据实例级位置偏差的方向和幅度自适应调整 LLM 调用次数，以在保持排序准确性的同时显著降低计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17290v1",
+    "title": "Exploring the Potential of LLMs for Serendipity Evaluation in Recommender Systems",
+    "authors": [
+      "Li Kang",
+      "Yuhan Zhao",
+      "Li Chen"
+    ],
+    "summary": "Serendipity plays a pivotal role in enhancing user satisfaction within recommender systems, yet its evaluation poses significant challenges due to its inherently subjective nature and conceptual ambiguity. Current algorithmic approaches predominantly rely on proxy metrics for indirect assessment, often failing to align with real user perceptions, thus creating a gap. With large language models (LLMs) increasingly revolutionizing evaluation methodologies across various human annotation tasks, we are inspired to explore a core research proposition: Can LLMs effectively simulate human users for serendipity evaluation? To address this question, we conduct a meta-evaluation on two datasets derived from real user studies in the e-commerce and movie domains, focusing on three key aspects: the accuracy of LLMs compared to conventional proxy metrics, the influence of auxiliary data on LLM comprehension, and the efficacy of recently popular multi-LLM techniques. Our findings indicate that even the simplest zero-shot LLMs achieve parity with, or surpass, the performance of conventional metrics. Furthermore, multi-LLM techniques and the incorporation of auxiliary data further enhance alignment with human perspectives. Based on our findings, the optimal evaluation by LLMs yields a Pearson correlation coefficient of 21.5\\% when compared to the results of the user study. This research implies that LLMs may serve as potentially accurate and cost-effective evaluators, introducing a new paradigm for serendipity evaluation in recommender systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-23T07:51:56Z",
+    "updated": "2025-07-23T07:51:56Z",
+    "url": "http://arxiv.org/abs/2507.17290v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17290v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的核心难题（惊喜度评估）提出利用 LLM 模拟人类用户的新范式，属于 LLM 在 RecSys 中的直接高价值应用；且来自 TAL 公司，按规定额外加 1 分。",
+    "translation": "探索大语言模型在推荐系统惊喜度评估中的潜力",
+    "summary_zh": "本文提出利用大语言模型模拟人类用户以解决推荐系统惊喜度评估的主观性难题，通过元评估验证了其在对齐人类感知方面优于传统代理指标的有效性。",
+    "key_points": [
+      "本文提出利用大语言模型模拟人类用户以解决推荐系统惊喜度评估的主观性难题，通过元评估验证了其在对齐人类感知方面优于传统代理指标的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17249v2",
+    "title": "R4ec: A Reasoning, Reflection, and Refinement Framework for Recommendation Systems",
+    "authors": [
+      "Hao Gu",
+      "Rui Zhong",
+      "Yu Xia",
+      "Wei Yang",
+      "Chi Lu",
+      "Peng Jiang",
+      "Kun Gai"
+    ],
+    "summary": "Harnessing Large Language Models (LLMs) for recommendation systems has emerged as a prominent avenue, drawing substantial research interest. However, existing approaches primarily involve basic prompt techniques for knowledge acquisition, which resemble System-1 thinking. This makes these methods highly sensitive to errors in the reasoning path, where even a small mistake can lead to an incorrect inference. To this end, in this paper, we propose $R^{4}$ec, a reasoning, reflection and refinement framework that evolves the recommendation system into a weak System-2 model. Specifically, we introduce two models: an actor model that engages in reasoning, and a reflection model that judges these responses and provides valuable feedback. Then the actor model will refine its response based on the feedback, ultimately leading to improved responses. We employ an iterative reflection and refinement process, enabling LLMs to facilitate slow and deliberate System-2-like thinking. Ultimately, the final refined knowledge will be incorporated into a recommendation backbone for prediction. We conduct extensive experiments on Amazon-Book and MovieLens-1M datasets to demonstrate the superiority of $R^{4}$ec. We also deploy $R^{4}$ec on a large scale online advertising platform, showing 2.2\\% increase of revenue. Furthermore, we investigate the scaling properties of the actor model and reflection model.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-23T06:36:49Z",
+    "updated": "2025-08-11T02:53:22Z",
+    "url": "http://arxiv.org/abs/2507.17249v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.17249v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "InstituteofAutomation, KuaishouTechnology UniversityofChineseAcademy",
+      "researchinterest.However,existingapproachesprimarilyinvolve"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出利用 LLM 构建推理、反思与精炼框架（System-2 思维）以解决传统提示方法易错的问题，并已在在线广告平台验证。",
+    "translation": "R4ec：面向推荐系统的推理、反思与精炼框架",
+    "summary_zh": "提出一种包含演员模型与反思模型的迭代框架，通过模拟 System-2 慢思考机制对 LLM 生成的推荐知识进行多轮反思与修正，最终将优化后的知识融入推荐骨干网络。",
+    "key_points": [
+      "提出一种包含演员模型与反思模型的迭代框架，通过模拟 System-2 慢思考机制对 LLM 生成的推荐知识进行多轮反思与修正，最终将优化后的知识融入推荐骨干网络"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17112v1",
+    "title": "Enhancing Transferability and Consistency in Cross-Domain Recommendations via Supervised Disentanglement",
+    "authors": [
+      "Yuhan Wang",
+      "Qing Xie",
+      "Zhifeng Bao",
+      "Mengzi Tang",
+      "Lin Li",
+      "Yongjian Liu"
+    ],
+    "summary": "Cross-domain recommendation (CDR) aims to alleviate the data sparsity by transferring knowledge across domains. Disentangled representation learning provides an effective solution to model complex user preferences by separating intra-domain features (domain-shared and domain-specific features), thereby enhancing robustness and interpretability. However, disentanglement-based CDR methods employing generative modeling or GNNs with contrastive objectives face two key challenges: (i) pre-separation strategies decouple features before extracting collaborative signals, disrupting intra-domain interactions and introducing noise; (ii) unsupervised disentanglement objectives lack explicit task-specific guidance, resulting in limited consistency and suboptimal alignment. To address these challenges, we propose DGCDR, a GNN-enhanced encoder-decoder framework. To handle challenge (i), DGCDR first applies GNN to extract high-order collaborative signals, providing enriched representations as a robust foundation for disentanglement. The encoder then dynamically disentangles features into domain-shared and -specific spaces, preserving collaborative information during the separation process. To handle challenge (ii), the decoder introduces an anchor-based supervision that leverages hierarchical feature relationships to enhance intra-domain consistency and cross-domain alignment. Extensive experiments on real-world datasets demonstrate that DGCDR achieves state-of-the-art performance, with improvements of up to 11.59% across key metrics. Qualitative analyses further validate its superior disentanglement quality and transferability. Our source code and datasets are available on GitHub for further comparison.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-23T01:29:45Z",
+    "updated": "2025-07-23T01:29:45Z",
+    "url": "http://arxiv.org/abs/2507.17112v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17112v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨域推荐（CDR）中的核心问题，提出了一种结合 GNN 和监督解耦的新架构，属于推荐系统核心领域的高优先级研究。",
+    "translation": "通过监督解耦增强跨域推荐的可迁移性与一致性",
+    "summary_zh": "提出 DGCDR 框架，先利用 GNN 提取高阶协同信号，再通过编码器动态解耦域共享与特定特征，并引入基于锚点的监督机制以优化跨域对齐和域内一致性。",
+    "key_points": [
+      "提出 DGCDR 框架，先利用 GNN 提取高阶协同信号，再通过编码器动态解耦域共享与特定特征，并引入基于锚点的监督机制以优化跨域对齐和域内一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17842v2",
+    "title": "Shop-R1: Rewarding LLMs to Simulate Human Behavior in Online Shopping via Reinforcement Learning",
+    "authors": [
+      "Yimeng Zhang",
+      "Tian Wang",
+      "Jiri Gesi",
+      "Ziyi Wang",
+      "Yuxuan Lu",
+      "Jiacheng Lin",
+      "Sinong Zhan",
+      "Vianne Gao",
+      "Ruochen Jiao",
+      "Junze Liu",
+      "Kun Qian",
+      "Yuxin Tang",
+      "Ran Xue",
+      "Houyu Zhang",
+      "Qingjun Cui",
+      "Yufan Guo",
+      "Dakuo Wang"
+    ],
+    "summary": "Large Language Models (LLMs) have recently demonstrated strong potential in generating 'believable human-like' behavior in web environments. Prior work has explored augmenting training data with LLM-synthesized rationales and applying supervised fine-tuning (SFT) to enhance reasoning ability, which in turn can improve downstream action prediction. However, the performance of such approaches remains inherently bounded by the reasoning capabilities of the model used to generate the rationales. In this paper, we introduce Shop-R1, a novel reinforcement learning (RL) framework aimed at enhancing the reasoning ability of LLMs for simulation of real human behavior in online shopping environments. Specifically, Shop-R1 decomposes the human behavior simulation task into two stages: rationale generation and action prediction, each guided by distinct reward signals. For rationale generation, we leverage internal model signals (e.g., logit distributions) to guide the reasoning process in a self-supervised manner. For action prediction, we propose a hierarchical reward structure with difficulty-aware scaling to prevent reward hacking and enable fine-grained reward assignment. This design evaluates both high-level action types and the correctness of fine-grained sub-action details (attributes and values), rewarding outputs proportionally to their difficulty. Experimental results show that our method achieves a relative improvement of over 65% compared to the baseline. The project page is available at https://damon-demon.github.io/shop-r1.html.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-07-23T18:10:43Z",
+    "updated": "2026-02-23T18:12:05Z",
+    "url": "http://arxiv.org/abs/2507.17842v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.17842v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "1MichiganStateUniversity 2Amazon 3NortheasternUniversity",
+      "4UniversityofIllinoisUrbana-Champaign 5NorthwesternUniversity"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文利用强化学习提升 LLM 模拟电商用户行为的能力，直接服务于推荐系统中的用户建模与仿真场景，虽侧重 LLM 训练方法但具有明确的 RecSys 应用指向；叠加中国公司背景额外 +1 分。",
+    "translation": "Shop-R1：通过强化学习奖励大语言模型模拟在线购物中的人类行为",
+    "summary_zh": "提出 Shop-R1 框架，将人类行为模拟分解为理由生成与动作预测两阶段，分别利用内部模型信号和分层难度感知奖励机制来增强 LLM 在电商环境下的推理与决策能力。",
+    "key_points": [
+      "提出 Shop-R1 框架，将人类行为模拟分解为理由生成与动作预测两阶段，分别利用内部模型信号和分层难度感知奖励机制来增强 LLM 在电商环境下的推理与决策能力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17356v2",
+    "title": "\"Beyond the past\": Leveraging Audio and Human Memory for Sequential Music Recommendation",
+    "authors": [
+      "Viet-Anh Tran",
+      "Bruno Sguerra",
+      "Gabriel Meseguer-Brocal",
+      "Lea Briand",
+      "Manuel Moussallam"
+    ],
+    "summary": "On music streaming services, listening sessions are often composed of a balance of familiar and new tracks. Recently, sequential recommender systems have adopted cognitive-informed approaches, such as Adaptive Control of Thought-Rational (ACT-R), to successfully improve the prediction of the most relevant tracks for the next user session. However, one limitation of using a model inspired by human memory (or the past), is that it struggles to recommend new tracks that users have not previously listened to. To bridge this gap, here we propose a model that leverages audio information to predict in advance the ACT-R-like activation of new tracks and incorporates them into the recommendation scoring process. We demonstrate the empirical effectiveness of the proposed model using proprietary data, which we publicly release along with the model's source code to foster future research in this field.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-23T09:37:23Z",
+    "updated": "2025-08-04T14:20:55Z",
+    "url": "http://arxiv.org/abs/2507.17356v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.17356v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文针对音乐推荐系统中的序列推荐和新歌冷启动问题，提出结合音频特征与人类记忆模型（ACT-R）的创新方法，属于明确的多模态序列推荐应用。",
+    "translation": "超越过去：利用音频与人类记忆进行序列音乐推荐",
+    "summary_zh": "该研究提出一种新模型，通过利用音频信息预测新歌的类 ACT-R 激活值，将其融入评分过程，以解决基于人类记忆的序列推荐模型难以推荐未听过的歌曲的问题。",
+    "key_points": [
+      "该研究提出一种新模型，通过利用音频信息预测新歌的类 ACT-R 激活值，将其融入评分过程，以解决基于人类记忆的序列推荐模型难以推荐未听过的歌曲的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17402v2",
+    "title": "HLFormer: Enhancing Partially Relevant Video Retrieval with Hyperbolic Learning",
+    "authors": [
+      "Jun Li",
+      "Jinpeng Wang",
+      "Chaolei Tan",
+      "Niu Lian",
+      "Long Chen",
+      "Yaowei Wang",
+      "Min Zhang",
+      "Shu-Tao Xia",
+      "Bin Chen"
+    ],
+    "summary": "Partially Relevant Video Retrieval (PRVR) addresses the critical challenge of matching untrimmed videos with text queries describing only partial content. Existing methods suffer from geometric distortion in Euclidean space that sometimes misrepresents the intrinsic hierarchical structure of videos and overlooks certain hierarchical semantics, ultimately leading to suboptimal temporal modeling. To address this issue, we propose the first hyperbolic modeling framework for PRVR, namely HLFormer, which leverages hyperbolic space learning to compensate for the suboptimal hierarchical modeling capabilities of Euclidean space. Specifically, HLFormer integrates the Lorentz Attention Block and Euclidean Attention Block to encode video embeddings in hybrid spaces, using the Mean-Guided Adaptive Interaction Module to dynamically fuse features. Additionally, we introduce a Partial Order Preservation Loss to enforce \"text < video\" hierarchy through Lorentzian cone constraints. This approach further enhances cross-modal matching by reinforcing partial relevance between video content and text queries. Extensive experiments show that HLFormer outperforms state-of-the-art methods. Code is released at https://github.com/lijun2005/ICCV25-HLFormer.",
+    "categories": [
+      "cs.CV",
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-07-23T10:59:46Z",
+    "updated": "2025-07-27T08:26:55Z",
+    "url": "http://arxiv.org/abs/2507.17402v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.17402v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文针对视频检索（搜索核心场景）中的部分相关匹配问题，提出双曲空间建模方法，属于多模态搜索的直接应用；虽非纯 LLM 研究，但解决了具体搜索痛点，结合中国公司背景加分后定为 8 分。",
+    "translation": "HLFormer：利用双曲学习增强部分相关视频检索",
+    "summary_zh": "提出首个用于部分相关视频检索的双曲建模框架 HLFormer，通过混合空间注意力机制和偏序保持损失，利用双曲几何特性捕捉视频与文本查询间的层级语义结构以优化跨模态匹配。",
+    "key_points": [
+      "提出首个用于部分相关视频检索的双曲建模框架 HLFormer，通过混合空间注意力机制和偏序保持损失，利用双曲几何特性捕捉视频与文本查询间的层级语义结构以优化跨模态匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17528v1",
+    "title": "Generalized Low-Rank Matrix Contextual Bandits with Graph Information",
+    "authors": [
+      "Yao Wang",
+      "Jiannan Li",
+      "Yue Kang",
+      "Shanxing Gao",
+      "Zhenxin Xiao"
+    ],
+    "summary": "The matrix contextual bandit (CB), as an extension of the well-known multi-armed bandit, is a powerful framework that has been widely applied in sequential decision-making scenarios involving low-rank structure. In many real-world scenarios, such as online advertising and recommender systems, additional graph information often exists beyond the low-rank structure, that is, the similar relationships among users/items can be naturally captured through the connectivity among nodes in the corresponding graphs. However, existing matrix CB methods fail to explore such graph information, and thereby making them difficult to generate effective decision-making policies. To fill in this void, we propose in this paper a novel matrix CB algorithmic framework that builds upon the classical upper confidence bound (UCB) framework. This new framework can effectively integrate both the low-rank structure and graph information in a unified manner. Specifically, it involves first solving a joint nuclear norm and matrix Laplacian regularization problem, followed by the implementation of a graph-based generalized linear version of the UCB algorithm. Rigorous theoretical analysis demonstrates that our procedure outperforms several popular alternatives in terms of cumulative regret bound, owing to the effective utilization of graph information. A series of synthetic and real-world data experiments are conducted to further illustrate the merits of our procedure.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-23T14:07:47Z",
+    "updated": "2025-07-23T14:07:47Z",
+    "url": "http://arxiv.org/abs/2507.17528v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17528v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文针对在线广告和推荐系统中的序列决策问题，提出了一种结合低秩结构与图信息的矩阵上下文多臂老虎机新框架，具有明确的 RecSys 应用场景。",
+    "translation": "融合图信息的广义低秩矩阵上下文多臂老虎机",
+    "summary_zh": "本文提出一种基于 UCB 的新算法框架，通过联合核范数与矩阵拉普拉斯正则化，统一整合低秩结构与用户/物品图关系信息以优化推荐决策策略。",
+    "key_points": [
+      "本文提出一种基于 UCB 的新算法框架，通过联合核范数与矩阵拉普拉斯正则化，统一整合低秩结构与用户/物品图关系信息以优化推荐决策策略"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17187v1",
+    "title": "Optimal Calibrated Signaling in Digital Auctions",
+    "authors": [
+      "Zhicheng Du",
+      "Wei Tang",
+      "Zihe Wang",
+      "Shuo Zhang"
+    ],
+    "summary": "In digital advertising, online platforms allocate ad impressions through real-time auctions, where advertisers typically rely on autobidding agents to optimize bids on their behalf. Unlike traditional auctions for physical goods, the value of an ad impression is uncertain and depends on the unknown click-through rate (CTR). While platforms can estimate CTRs more accurately using proprietary machine learning algorithms, these estimates/algorithms remain opaque to advertisers. This information asymmetry naturally raises the following questions: how can platforms disclose information in a way that is both credible and revenue-optimal? We address these questions through calibrated signaling, where each prior-free bidder receives a private signal that truthfully reflects the conditional expected CTR of the ad impression. Such signals are trustworthy and allow bidders to form unbiased value estimates, even without access to the platform's internal algorithms.\n  We study the design of platform-optimal calibrated signaling in the context of second-price auction. Our first main result fully characterizes the structure of the optimal calibrated signaling, which can also be computed efficiently. We show that this signaling can extract the full surplus -- or even exceed it -- depending on a specific market condition. Our second main result is an FPTAS for computing an approximately optimal calibrated signaling that satisfies an IR condition. Our main technical contributions are: a reformulation of the platform's problem as a two-stage optimization problem that involves optimal transport subject to calibration feasibility constraints on the bidders' marginal bid distributions; and a novel correlation plan that constructs the optimal distribution over second-highest bids.",
+    "categories": [
+      "cs.GT",
+      "cs.IR",
+      "econ.TH"
+    ],
+    "published": "2025-07-23T04:22:22Z",
+    "updated": "2025-07-23T04:22:22Z",
+    "url": "http://arxiv.org/abs/2507.17187v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17187v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对数字广告拍卖中的信息不对称问题，提出校准信号机制以优化平台收益和广告主出价，属于搜索/广告核心机制研究；虽含博弈论推导而非纯深度学习，但业务场景高度相关，且来自 TAL 加 1 分。",
+    "translation": "数字拍卖中的最优校准信号机制研究",
+    "summary_zh": "本文提出一种面向第二价格拍卖的校准信号机制，通过向广告主提供反映期望点击率的私有信号来解决信息不对称，从而实现平台收益最大化并保证信号的可信度。",
+    "key_points": [
+      "本文提出一种面向第二价格拍卖的校准信号机制，通过向广告主提供反映期望点击率的私有信号来解决信息不对称，从而实现平台收益最大化并保证信号的可信度"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17365v2",
+    "title": "DynaSearcher: Dynamic Knowledge Graph Augmented Search Agent via Multi-Reward Reinforcement Learning",
+    "authors": [
+      "Chuzhan Hao",
+      "Wenfeng Feng",
+      "Yuewei Zhang",
+      "Hao Wang"
+    ],
+    "summary": "Multi-step agentic retrieval systems based on large language models (LLMs) have demonstrated remarkable performance in complex information search tasks. However, these systems still face significant challenges in practical applications, particularly in generating factually inconsistent intermediate queries and inefficient search trajectories, which can lead to reasoning deviations or redundant computations. To address these issues, we propose DynaSearcher, an innovative search agent enhanced by dynamic knowledge graphs and multi-reward reinforcement learning (RL). Specifically, our system leverages knowledge graphs as external structured knowledge to guide the search process by explicitly modeling entity relationships, thereby ensuring factual consistency in intermediate queries and mitigating biases from irrelevant information. Furthermore, we employ a multi-reward RL framework for fine-grained control over training objectives such as retrieval accuracy, efficiency, and response quality. This framework promotes the generation of high-quality intermediate queries and comprehensive final answers, while discouraging unnecessary exploration and minimizing information omissions or redundancy. Experimental results demonstrate that our approach achieves state-of-the-art answer accuracy on six multi-hop question answering datasets, matching frontier LLMs while using only small-scale models and limited computational resources. Furthermore, our approach demonstrates strong generalization and robustness across diverse retrieval environments and larger-scale models, highlighting its broad applicability.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-23T09:58:31Z",
+    "updated": "2025-10-15T06:36:54Z",
+    "url": "http://arxiv.org/abs/2507.17365v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.17365v2.pdf",
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM Agent 和多跳问答（QA）研究，虽涉及检索但聚焦于通用事实性问答而非推荐系统或电商/内容搜索产品，且主要贡献在 RL 训练框架而非搜推核心架构。",
+    "translation": "DynaSearcher：基于多奖励强化学习的动态知识图谱增强搜索智能体",
+    "summary_zh": "提出一种结合动态知识图谱与多奖励强化学习的搜索智能体，利用结构化知识引导查询生成以确保事实一致性，并通过细粒度奖励机制优化检索轨迹的效率与准确性。",
+    "key_points": [
+      "提出一种结合动态知识图谱与多奖励强化学习的搜索智能体，利用结构化知识引导查询生成以确保事实一致性，并通过细粒度奖励机制优化检索轨迹的效率与准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17977v1",
+    "title": "Improving the Computational Efficiency and Explainability of GeoAggregator",
+    "authors": [
+      "Rui Deng",
+      "Ziqi Li",
+      "Mingshu Wang"
+    ],
+    "summary": "Accurate modeling and explaining geospatial tabular data (GTD) are critical for understanding geospatial phenomena and their underlying processes. Recent work has proposed a novel transformer-based deep learning model named GeoAggregator (GA) for this purpose, and has demonstrated that it outperforms other statistical and machine learning approaches. In this short paper, we further improve GA by 1) developing an optimized pipeline that accelerates the dataloading process and streamlines the forward pass of GA to achieve better computational efficiency; and 2) incorporating a model ensembling strategy and a post-hoc model explanation function based on the GeoShapley framework to enhance model explainability. We validate the functionality and efficiency of the proposed strategies by applying the improved GA model to synthetic datasets. Experimental results show that our implementation improves the prediction accuracy and inference speed of GA compared to the original implementation. Moreover, explanation experiments indicate that GA can effectively captures the inherent spatial effects in the designed synthetic dataset. The complete pipeline has been made publicly available for community use (https://github.com/ruid7181/GA-sklearn).",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-23T22:51:09Z",
+    "updated": "2025-07-23T22:51:09Z",
+    "url": "http://arxiv.org/abs/2507.17977v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17977v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于地理空间表格数据（GTD）建模，属于纯地学/通用 ML 研究，未涉及推荐系统或搜索引擎的核心环节；虽来自 TAL 公司加 1 分，但因缺乏 RecSys 应用场景且非纯 LLM 研究不适用排除项，故仍为低分。",
+    "translation": "提升 GeoAggregator 的计算效率与可解释性",
+    "summary_zh": "本文提出通过优化数据加载流水线加速 GeoAggregator 模型推理，并引入集成策略与基于 GeoShapley 的事后解释框架以增强地理空间数据建模的可解释性。",
+    "key_points": [
+      "本文提出通过优化数据加载流水线加速 GeoAggregator 模型推理，并引入集成策略与基于 GeoShapley 的事后解释框架以增强地理空间数据建模的可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.17399v1",
+    "title": "Millions of $\\text{GeAR}$-s: Extending GraphRAG to Millions of Documents",
+    "authors": [
+      "Zhili Shen",
+      "Chenxin Diao",
+      "Pascual Merita",
+      "Pavlos Vougiouklis",
+      "Jeff Z. Pan"
+    ],
+    "summary": "Recent studies have explored graph-based approaches to retrieval-augmented generation, leveraging structured or semi-structured information -- such as entities and their relations extracted from documents -- to enhance retrieval. However, these methods are typically designed to address specific tasks, such as multi-hop question answering and query-focused summarisation, and therefore, there is limited evidence of their general applicability across broader datasets. In this paper, we aim to adapt a state-of-the-art graph-based RAG solution: $\\text{GeAR}$ and explore its performance and limitations on the SIGIR 2025 LiveRAG Challenge.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-07-23T10:54:24Z",
+    "updated": "2025-07-23T10:54:24Z",
+    "url": "http://arxiv.org/abs/2507.17399v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.17399v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "HuaweiTechnologiesCo.,Ltd. UniversityofEdinburgh"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究论文，专注于通用问答和摘要任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "百万级 GeAR：将 GraphRAG 扩展至百万文档规模",
+    "summary_zh": "该论文旨在将基于图的检索增强生成（GraphRAG）方法 GeAR 从特定任务扩展到百万级文档的大规模通用数据集，以评估其在开放域下的适用性与局限性。",
+    "key_points": [
+      "该论文旨在将基于图的检索增强生成（GraphRAG）方法 GeAR 从特定任务扩展到百万级文档的大规模通用数据集，以评估其在开放域下的适用性与局限性"
+    ]
+  }
+]

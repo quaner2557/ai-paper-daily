@@ -40,8 +40,10 @@ logger = logging.getLogger(__name__)
 class AIPaperDaily:
     """AI 论文每日追踪器"""
     
-    # arXiv API 基础 URL (使用 HTTPS)
+    # arXiv API 基础 URL (标准 API，已弃用，保留兜底)
     ARXIV_API_BASE = "https://export.arxiv.org/api/query"
+    # arXiv OAI-PMH 接口（不限流，用于批量拉取）
+    ARXIV_OAI_BASE = "http://arxiv.org/oai2"
     
     def __init__(self):
         # 加载配置
@@ -128,63 +130,220 @@ class AIPaperDaily:
         except Exception as e:
             logger.error(f"Error saving prerank cache: {e}")
     
-    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int, date_range: Optional[str] = None, max_retries: int = 5) -> List[Dict]:
-        """批量获取 arXiv 论文（内部方法，带重试和指数退避）"""
-        import urllib.parse
+    def _parse_oai_record(self, record) -> Optional[Dict]:
+        """解析 OAI-PMH 单条记录为论文字典"""
+        try:
+            OAI_NS = '{http://www.openarchives.org/OAI/2.0/}'
+            ARXIV_NS = '{http://arxiv.org/OAI/arXiv/}'
+            
+            header = record.find(f'{OAI_NS}header')
+            if header is None:
+                return None
+            
+            # 检查状态，跳过已删除的
+            status = header.get('status')
+            if status == 'deleted':
+                return None
+            
+            metadata = record.find(f'{OAI_NS}metadata')
+            if metadata is None:
+                return None
+            
+            # 提取 arXiv metadata
+            arxiv_meta = metadata.find(f'{ARXIV_NS}arXiv')
+            if arxiv_meta is None:
+                return None
+            
+            # arxiv_id
+            id_elem = arxiv_meta.find(f'{ARXIV_NS}id')
+            if id_elem is None or not id_elem.text:
+                return None
+            arxiv_id = id_elem.text.strip()
+            
+            # title
+            title_elem = arxiv_meta.find(f'{ARXIV_NS}title')
+            title = title_elem.text.strip() if title_elem is not None and title_elem.text else ''
+            
+            # authors
+            authors = []
+            authors_elem = arxiv_meta.find(f'{ARXIV_NS}authors')
+            if authors_elem is not None:
+                for author_elem in authors_elem.findall(f'{ARXIV_NS}author'):
+                    keyname = author_elem.find(f'{ARXIV_NS}keyname')
+                    forenames = author_elem.find(f'{ARXIV_NS}forenames')
+                    name_parts = []
+                    if forenames is not None and forenames.text:
+                        name_parts.append(forenames.text.strip())
+                    if keyname is not None and keyname.text:
+                        name_parts.append(keyname.text.strip())
+                    if name_parts:
+                        authors.append(' '.join(name_parts))
+            
+            # abstract
+            abstract_elem = arxiv_meta.find(f'{ARXIV_NS}abstract')
+            summary = abstract_elem.text.strip() if abstract_elem is not None and abstract_elem.text else ''
+            
+            # categories
+            categories = []
+            for cat_elem in arxiv_meta.findall(f'{ARXIV_NS}categories'):
+                if cat_elem.text:
+                    for cat in cat_elem.text.strip().split():
+                        categories.append(cat)
+            
+            # dates
+            created_elem = arxiv_meta.find(f'{ARXIV_NS}created')
+            updated_elem = arxiv_meta.find(f'{ARXIV_NS}updated')
+            published = (created_elem.text if created_elem is not None and created_elem.text 
+                        else '')
+            updated = (updated_elem.text if updated_elem is not None and updated_elem.text 
+                      else published)
+            
+            return {
+                'arxiv_id': arxiv_id,
+                'title': title,
+                'authors': authors,
+                'summary': summary,
+                'categories': categories,
+                'published': published,
+                'updated': updated,
+                'url': f"https://arxiv.org/abs/{arxiv_id}",
+                'pdf_url': f"https://arxiv.org/pdf/{arxiv_id}.pdf",
+            }
+        except Exception as e:
+            logger.warning(f"Error parsing OAI record: {e}")
+            return None
+    
+    def _fetch_arxiv_oai(self, from_date: Optional[str] = None, until_date: Optional[str] = None,
+                          target_count: int = 500, max_records: int = 10000, max_retries: int = 5) -> List[Dict]:
+        """
+        通过 arXiv OAI-PMH 接口批量获取论文（不限流）
+        
+        OAI-PMH 是 arXiv 专为批量抓取设计的接口，没有速率限制。
+        不支持分类过滤，需要本地按分类筛选。
+        
+        Args:
+            from_date: 起始日期 YYYY-MM-DD
+            until_date: 结束日期 YYYY-MM-DD
+            target_count: 目标论文数量（按目标分类过滤后）
+            max_records: 最大拉取记录数（防止无限翻页）
+            max_retries: 最大重试次数
+            
+        Returns:
+            论文列表
+        """
+        import xml.etree.ElementTree as ET
         
         papers = []
+        total_fetched = 0
         
-        query = f"({categories_query})"
+        params = {'verb': 'ListRecords', 'metadataPrefix': 'arXiv'}
+        if from_date:
+            params['from'] = from_date
+        if until_date:
+            params['until'] = until_date
+        
+        while total_fetched < max_records:
+            for attempt in range(max_retries):
+                try:
+                    logger.info(f"OAI-PMH fetch: total_fetched={total_fetched}, new_papers={len(papers)} (attempt {attempt+1}/{max_retries})")
+                    response = requests.get(self.ARXIV_OAI_BASE, params=params, timeout=120)
+                    
+                    if response.status_code != 200:
+                        logger.warning(f"OAI-PMH error: {response.status_code}, retrying...")
+                        time.sleep(10 * (attempt + 1))
+                        continue
+                    
+                    root = ET.fromstring(response.content)
+                    
+                    # 检查错误
+                    error = root.find('{http://www.openarchives.org/OAI/2.0/}error')
+                    if error is not None:
+                        error_text = (error.text or '').strip()
+                        logger.warning(f"OAI-PMH error response: {error_text}")
+                        # "empty list" 是永久错误（该日期范围无论文），不需要重试
+                        if 'empty list' in error_text.lower():
+                            logger.info("OAI-PMH: empty list (no papers for this date range), skipping")
+                            return papers
+                        time.sleep(10)
+                        continue
+                    
+                    # records 在 ListRecords 元素内部
+                    list_records = root.find('{http://www.openarchives.org/OAI/2.0/}ListRecords')
+                    if list_records is None:
+                        logger.warning("OAI-PMH: no ListRecords element in response")
+                        break
+                    
+                    records = list_records.findall('{http://www.openarchives.org/OAI/2.0/}record')
+                    resumption = list_records.find('{http://www.openarchives.org/OAI/2.0/}resumptionToken')
+                    
+                    for record in records:
+                        paper = self._parse_oai_record(record)
+                        if paper:
+                            papers.append(paper)
+                    
+                    total_fetched += len(records)
+                    logger.info(f"OAI-PMH batch: {len(records)} records, total_fetched={total_fetched}, total_papers={len(papers)}")
+                    
+                    # 检查是否已收集足够论文
+                    if len(papers) >= target_count and total_fetched > 0:
+                        logger.info(f"Reached target count ({target_count}), stopping")
+                        return papers[:target_count]
+                    
+                    # 检查是否还有更多数据
+                    if resumption is None or not resumption.text or not resumption.text.strip():
+                        logger.info("OAI-PMH: no more data (no resumption token)")
+                        return papers
+                    
+                    # 使用 resumptionToken 继续
+                    params = {'verb': 'ListRecords', 'resumptionToken': resumption.text.strip()}
+                    time.sleep(2)  # 礼貌间隔
+                    break  # 成功，退出重试循环
+                    
+                except ET.ParseError as e:
+                    logger.warning(f"OAI-PMH XML parse error (attempt {attempt+1}/{max_retries}): {e}")
+                    if attempt < max_retries - 1:
+                        time.sleep(10 * (attempt + 1))
+                    else:
+                        logger.error("OAI-PMH: all attempts failed due to parse errors")
+                        return papers
+                except Exception as e:
+                    logger.warning(f"OAI-PMH request failed (attempt {attempt+1}/{max_retries}): {e}")
+                    if attempt < max_retries - 1:
+                        time.sleep(10 * (attempt + 1))
+                    else:
+                        logger.error(f"OAI-PMH: all {max_retries} attempts failed")
+                        return papers
+            
+            if total_fetched >= max_records:
+                logger.info(f"Reached max_records limit ({max_records})")
+                break
+        
+        return papers
+    
+    def _fetch_arxiv_batch(self, categories_query: str, start: int, max_results: int, date_range: Optional[str] = None, max_retries: int = 5) -> List[Dict]:
+        """批量获取 arXiv 论文（OAI-PMH 接口，不限流）
+        
+        注意：OAI-PMH 不支持 offset/分页，此方法现在按日期范围全量拉取后本地切片。
+        start 和 max_results 参数用于兼容旧调用方式，但实际行为已改为 OAI-PMH。
+        """
+        # 从 date_range 提取日期
+        # date_range 格式: [YYYYMMDDHHMMSS TO YYYYMMDDHHMMSS]
+        from_date = None
+        until_date = None
         if date_range:
-            query += f" AND submittedDate:{date_range}"
+            match = re.search(r'\[(\d{8})\d{6} TO (\d{8})\d{6}\]', date_range)
+            if match:
+                from_str, until_str = match.groups()
+                from_date = f"{from_str[:4]}-{from_str[4:6]}-{from_str[6:8]}"
+                until_date = f"{until_str[:4]}-{until_str[4:6]}-{until_str[6:8]}"
         
-        # URL 编码查询参数，避免特殊字符（如空格、方括号）导致的问题
-        encoded_query = urllib.parse.quote(query, safe='')
-        url = f"{self.ARXIV_API_BASE}?search_query={encoded_query}&start={start}&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+        logger.info(f"Fetching via OAI-PMH: from={from_date}, until={until_date}, target={max_results}")
         
-        for attempt in range(max_retries):
-            try:
-                logger.info(f"Fetching arXiv papers: start={start}, max_results={max_results}" + (f", date_range={date_range}" if date_range else "") + f" (attempt {attempt+1}/{max_retries})")
-                response = requests.get(url, timeout=60)
-                
-                if response.status_code == 429:
-                    # arXiv 速率限制，使用指数退避
-                    wait_time = 30 * (2 ** attempt)  # 30s, 60s, 120s, 240s, 480s
-                    logger.warning(f"arXiv API rate limited (429), waiting {wait_time}s before retry...")
-                    time.sleep(wait_time)
-                    continue
-                elif response.status_code != 200:
-                    logger.warning(f"arXiv API error: {response.status_code}, retrying...")
-                    time.sleep(10)
-                    continue
-                
-                # 解析成功响应
-                feed = feedparser.parse(response.content)
-                
-                for entry in feed.entries:
-                    paper = {
-                        'arxiv_id': entry.id.split('/abs/')[-1] if '/abs/' in entry.id else entry.id,
-                        'title': entry.title,
-                        'authors': [author.name for author in entry.authors] if hasattr(entry, 'authors') else [],
-                        'summary': entry.summary,
-                        'categories': [tag.term for tag in entry.tags] if hasattr(entry, 'tags') else [],
-                        'published': entry.published,
-                        'updated': entry.updated if hasattr(entry, 'updated') else entry.published,
-                        'url': entry.id,
-                        'pdf_url': entry.id.replace('/abs/', '/pdf/') + '.pdf',
-                    }
-                    papers.append(paper)
-                
-                time.sleep(3)  # arXiv API 限制
-                break  # 成功后退出重试循环
-                
-            except Exception as e:
-                logger.warning(f"Request failed (attempt {attempt+1}/{max_retries}): {e}")
-                if attempt < max_retries - 1:
-                    wait_time = 10 * (2 ** attempt)  # 指数退避
-                    time.sleep(wait_time)
-                else:
-                    logger.error(f"All {max_retries} attempts failed")
+        papers = self._fetch_arxiv_oai(from_date=from_date, until_date=until_date, target_count=max_results)
+        
+        # 按 start 偏移切片（兼容旧的分页逻辑）
+        if start > 0:
+            papers = papers[start:start + max_results]
         
         return papers
     
@@ -262,48 +421,57 @@ class AIPaperDaily:
     
     def _fetch_for_date_range(self, categories_query: str, target_count: int, date_range: str, 
                                processed_ids: set, seen_ids: set) -> List[Dict]:
-        """获取指定日期范围的论文"""
-        batch_papers = []
-        start = 0
-        max_results = 500  # 每批 500 篇
-        max_batches = 20  # 最多 20 批（10000 篇），足够覆盖单日的论文量
+        """获取指定日期范围的论文（使用 OAI-PMH 接口，不限流）
         
-        while start < (max_batches * max_results):
-            # 动态调整每批获取数量：如果已接近目标，只获取剩余需要的数量
-            remaining_needed = target_count - len(batch_papers)
-            if remaining_needed <= 0:
-                logger.info(f"Reached target count ({target_count}), stopping fetch")
-                break
+        OAI-PMH 不支持分类过滤，所以全量拉取后本地按分类筛选。
+        一次调用即可获取该日期范围的全部论文。
+        """
+        import re
+        
+        # 从 date_range 提取日期
+        # date_range 格式: [YYYYMMDDHHMMSS TO YYYYMMDDHHMMSS]
+        from_date = None
+        until_date = None
+        match = re.search(r'\[(\d{8})\d{6} TO (\d{8})\d{6}\]', date_range)
+        if match:
+            from_str, until_str = match.groups()
+            from_date = f"{from_str[:4]}-{from_str[4:6]}-{from_str[6:8]}"
+            until_date = f"{until_str[:4]}-{until_str[4:6]}-{until_str[6:8]}"
+        
+        # 提取目标分类列表（从 categories_query 中解析）
+        # categories_query 格式: "cat:cs.IR OR cat:cs.LG OR ..."
+        target_cats = set()
+        for part in categories_query.split(' OR '):
+            cat = part.strip().replace('cat:', '')
+            target_cats.add(cat)
+        
+        logger.info(f"OAI-PMH fetch: from={from_date}, until={until_date}, target_cats={target_cats}, target_count={target_count}")
+        
+        # 通过 OAI-PMH 拉取全部论文（不限流）
+        all_papers = self._fetch_arxiv_oai(from_date=from_date, until_date=until_date, 
+                                            target_count=target_count * 5,  # 多拉一些用于分类过滤
+                                            max_records=15000)
+        
+        logger.info(f"OAI-PMH returned {len(all_papers)} total papers, filtering by categories: {target_cats}")
+        
+        # 本地按分类过滤
+        filtered_papers = []
+        for paper in all_papers:
+            arxiv_id = paper['arxiv_id']
+            if arxiv_id in processed_ids or arxiv_id in seen_ids:
+                continue
             
-            # 每批最多获取 remaining_needed + 50（预留去重缓冲）
-            current_batch_size = min(max_results, remaining_needed + 50)
-            
-            papers = self._fetch_arxiv_batch(categories_query, start, current_batch_size, date_range)
-            if not papers:
-                break
-            
-            # 去重
-            new_count = 0
-            for paper in papers:
-                arxiv_id = paper['arxiv_id']
-                if arxiv_id in processed_ids or arxiv_id in seen_ids:
-                    continue
-                
-                batch_papers.append(paper)
+            # 检查是否有目标分类
+            paper_cats = set(paper.get('categories', []))
+            if paper_cats & target_cats:  # 有交集
+                filtered_papers.append(paper)
                 seen_ids.add(arxiv_id)
-                new_count += 1
             
-            logger.info(f"Batch {start//max_results + 1}: fetched {len(papers)}, {new_count} new (total unique: {len(batch_papers)})")
-            
-            start += current_batch_size
-            
-            # 如果这批获取的数量少于请求数量，说明 arXiv 已经没有更多论文了
-            if len(papers) < current_batch_size:
-                logger.info("Reached end of arXiv results")
+            if len(filtered_papers) >= target_count:
                 break
         
-        logger.info(f"Fetched {len(batch_papers)} papers (after dedup: {len(seen_ids)})")
-        return batch_papers
+        logger.info(f"Filtered to {len(filtered_papers)} papers matching target categories (total seen: {len(seen_ids)})")
+        return filtered_papers
     
     def _is_industry_paper(self, paper: Dict) -> Tuple[bool, List[str]]:
         """

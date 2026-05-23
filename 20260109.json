@@ -1,0 +1,205 @@
+[
+  {
+    "arxiv_id": "2601.05513v1",
+    "title": "LEAPS: An LLM-Empowered Adaptive Plugin for Taobao AI Search",
+    "authors": [
+      "Lei Wang",
+      "Jinhang Wu",
+      "Zhibin Wang",
+      "Biye Li",
+      "Haiping Hou"
+    ],
+    "summary": "The rapid advancement of large language models has reshaped user search cognition, driving a paradigm shift from discrete keyword-based search to high-dimensional conversational interaction. However, existing e-commerce search architectures face a critical capability deficit in adapting to this change. Users are often caught in a dilemma: precise natural language descriptions frequently trigger zero-result scenarios, while the forced simplification of queries leads to decision overload from noisy, generic results. To tackle this challenge, we propose LEAPS (LLM-Empowered Adaptive Plugin for Taobao AI Search), which seamlessly upgrades traditional search systems via a \"Broaden-and-Refine\" paradigm. Specifically, it attaches plugins to both ends of the search pipeline: (1) Upstream, a Query Expander acts as an intent translator. It employs a novel three-stage training strategy--inverse data augmentation, posterior-knowledge supervised fine-tuning, and diversity-aware reinforcement learning--to generate adaptive and complementary query combinations that maximize the candidate product set. (2) Downstream, a Relevance Verifier serves as a semantic gatekeeper. By synthesizing multi-source data (e.g., OCR text, reviews) and leveraging chain-of-thought reasoning, it precisely filters noise to resolve selection overload. Extensive offline experiments and online A/B testing demonstrate that LEAPS significantly enhances conversational search experiences. Crucially, its non-invasive architecture preserves established retrieval performance optimized for short-text queries, while simultaneously allowing for low-cost integration into diverse back-ends. Fully deployed on Taobao AI Search since August 2025, LEAPS currently serves hundreds of millions of users monthly.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-09T03:41:27Z",
+    "updated": "2026-01-09T03:41:27Z",
+    "url": "http://arxiv.org/abs/2601.05513v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05513v1.pdf",
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对淘宝电商搜索场景，提出了基于 LLM 的自适应插件架构以解决自然语言搜索中的零结果和噪声问题，属于核心领域的高优先级应用；结合来源加分项，给予满分。",
+    "translation": "LEAPS：赋能淘宝 AI 搜索的大语言模型自适应插件",
+    "summary_zh": "提出一种“扩展 - 精炼”范式的非侵入式插件架构，通过上游查询扩展器转化用户意图以扩大候选集，并结合下游相关性验证器利用多源数据和思维链过滤噪声，从而在保留传统检索性能的同时实现电商对话式搜索的体验升级。",
+    "key_points": [
+      "提出一种“扩展 - 精炼”范式的非侵入式插件架构，通过上游查询扩展器转化用户意图以扩大候选集，并结合下游相关性验证器利用多源数据和思维链过滤噪声，从而在保留传统检索性能的同时实现电商对话式搜索的体验升级"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05588v4",
+    "title": "Autoregressive Ranking: Bridging the Gap Between Dual and Cross Encoders",
+    "authors": [
+      "Benjamin Rozonoyer",
+      "Chong You",
+      "Michael Boratko",
+      "Himanshu Jain",
+      "Nilesh Gupta",
+      "Srinadh Bhojanapalli",
+      "Andrew McCallum",
+      "Felix Yu"
+    ],
+    "summary": "The success of Large Language Models (LLMs) has motivated a shift toward generative approaches to retrieval and ranking, aiming to supersede classical Dual Encoders (DEs) and Cross Encoders (CEs). A prominent paradigm is pointwise Autoregressive Ranking (ARR), where an LLM generates document identifiers (docIDs) token-by-token to enable ranking via beam search. ARR offers the promise of superior expressivity compared to DEs while avoiding the prohibitive computational cost of CEs. However, a formal theoretical foundation for this expressive power has been missing. Moreover, the standard next-token prediction loss is rank-agnostic and inappropriate for finetuning an LLM for ranking tasks.\n  In this paper, we first prove that the expressive capacity of ARR is strictly superior to DEs. While a DE requires an embedding dimension that grows linearly with corpus size to achieve arbitrary rankings, ARR can solve it with a constant hidden dimension. We then propose SToICaL (Simple Token-Item Calibrated Loss), a generalized rank-aware training loss for LLM finetuning. By using item-level reweighting and prefix-tree marginalization, we distribute probability mass over valid docID tokens based on their ground-truth relevance. Experiments on WordNet and ESCI datasets verify that our loss suppresses invalid docID generations and significantly improves ranking metrics beyond top-1 retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-01-09T07:16:28Z",
+    "updated": "2026-02-11T02:45:05Z",
+    "url": "http://arxiv.org/abs/2601.05588v4",
+    "pdf_url": "http://arxiv.org/pdf/2601.05588v4.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Google",
+      "DeepMind"
+    ],
+    "affiliation_lines": [
+      "𝜋UniversityofMassachusettsAmherst,𝜆GoogleDeepMind,𝜃TheUniversityofTexasatAustin"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐/搜索中的排序（Ranking）核心环节，提出了基于 LLM 的自回归排序新范式及专用损失函数，完美契合'LLM for RecSys/Search'的高优先级标准。",
+    "translation": "自回归排序：弥合双编码器与交叉编码器之间的差距",
+    "summary_zh": "本文证明了自回归排序在表达能力上严格优于双编码器，并提出了一种名为 SToICaL 的通用秩感知训练损失，通过项级重加权和前缀树边缘化优化 LLM 生成文档 ID 的过程以直接服务于排序任务。",
+    "key_points": [
+      "本文证明了自回归排序在表达能力上严格优于双编码器，并提出了一种名为 SToICaL 的通用秩感知训练损失，通过项级重加权和前缀树边缘化优化 LLM 生成文档 ID 的过程以直接服务于排序任务"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11610v2",
+    "title": "Multifaceted Scenario-Aware Hypergraph Learning for Next POI Recommendation",
+    "authors": [
+      "Yuxi Lin",
+      "Yongkang Li",
+      "Jie Xing",
+      "Zipei Fan"
+    ],
+    "summary": "Among the diverse services provided by Location-Based Social Networks (LBSNs), Next Point-of-Interest (POI) recommendation plays a crucial role in inferring user preferences from historical check-in trajectories. However, existing sequential and graph-based methods frequently neglect significant mobility variations across distinct contextual scenarios (e.g., tourists versus locals). This oversight results in suboptimal performance due to two fundamental limitations: the inability to capture scenario-specific features and the failure to resolve inherent inter-scenario conflicts. To overcome these limitations, we propose the Multifaceted Scenario-Aware Hypergraph Learning method (MSAHG), a framework that adopts a scenario-splitting paradigm for next POI recommendation.\n  Our main contributions are:\n  (1) Construction of scenario-specific, multi-view disentangled sub-hypergraphs to capture distinct mobility patterns;\n  (2) A parameter-splitting mechanism to adaptively resolve conflicting optimization directions across scenarios while preserving generalization capability.\n  Extensive experiments on three real-world datasets demonstrate that MSAHG consistently outperforms five state-of-the-art methods across diverse scenarios, confirming its effectiveness in multi-scenario POI recommendation.",
+    "categories": [
+      "cs.SI",
+      "cs.AI"
+    ],
+    "published": "2026-01-09T06:29:55Z",
+    "updated": "2026-03-08T08:37:57Z",
+    "url": "http://arxiv.org/abs/2601.11610v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.11610v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的核心任务（下一站 POI 推荐），提出了基于超图学习的多场景感知新架构，解决了用户行为建模中的具体痛点；虽非纯 LLM 研究，但属于深度学习在 RecSys 的核心创新，且来自中国公司，故给予高分。",
+    "translation": "面向下一站兴趣点推荐的多 facet 场景感知超图学习",
+    "summary_zh": "提出一种多 facet 场景感知超图学习框架，通过构建解耦的子超图捕捉不同场景下的移动模式，并利用参数分裂机制自适应解决场景间的优化冲突。",
+    "key_points": [
+      "提出一种多 facet 场景感知超图学习框架，通过构建解耦的子超图捕捉不同场景下的移动模式，并利用参数分裂机制自适应解决场景间的优化冲突"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05590v1",
+    "title": "A Causal Information-Flow Framework for Unbiased Learning-to-Rank",
+    "authors": [
+      "Haoming Gong",
+      "Qingyao Ai",
+      "Zhihao Tao",
+      "Yongfeng Zhang"
+    ],
+    "summary": "In web search and recommendation systems, user clicks are widely used to train ranking models. However, click data is heavily biased, i.e., users tend to click higher-ranked items (position bias), choose only what was shown to them (selection bias), and trust top results more (trust bias). Without explicitly modeling these biases, the true relevance of ranked items cannot be correctly learned from clicks. Existing Unbiased Learning-to-Rank (ULTR) methods mainly correct position bias and rely on propensity estimation, but they cannot measure remaining bias, provide risk guarantees, or jointly handle multiple bias sources. To overcome these challenges, this paper introduces a novel causal learning-based ranking framework that extends ULTR by combining Structural Causal Models (SCMs) with information-theoretic tools. SCMs specify how clicks are generated and help identify the true relevance signal from click data, while conditional mutual information, measures how much bias leaks into the\n  learned relevance estimates. We use this leakage measure to define a rigorous notion of disentanglement and include it as a regularizer during model training to reduce bias. In addition, we incorporate a causal inference estimator, i.e., doubly robust estimator, to ensure more reliable risk estimation. Experiments on standard Learning-to-Rank benchmarks show that our method consistently reduces measured bias leakage and improves ranking performance, especially in realistic scenarios where multiple biases-such as position and trust bias-interact strongly.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-01-09T07:19:35Z",
+    "updated": "2026-01-09T07:19:35Z",
+    "url": "http://arxiv.org/abs/2601.05590v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05590v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索和推荐系统中的点击偏差问题，提出了一种结合结构因果模型与信息论的去偏排序框架，属于核心排序技术的重要进展。",
+    "translation": "一种用于无偏学习排序的因果信息流框架",
+    "summary_zh": "本文提出一种融合结构因果模型与条件互信息正则化的因果学习排序框架，旨在从存在位置、选择及信任等多重偏差的点击数据中解耦并还原真实的物品相关性信号。",
+    "key_points": [
+      "本文提出一种融合结构因果模型与条件互信息正则化的因果学习排序框架，旨在从存在位置、选择及信任等多重偏差的点击数据中解耦并还原真实的物品相关性信号"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05654v2",
+    "title": "A Framework for Personalized Persuasiveness Prediction via Context-Aware User Profiling",
+    "authors": [
+      "Sejun Park",
+      "Yoonah Park",
+      "Jongwon Lim",
+      "Yohan Jo"
+    ],
+    "summary": "Estimating the persuasiveness of messages is critical in various applications, from recommender systems to safety assessment of LLMs. While it is imperative to consider the target persuadee's characteristics, such as their values, experiences, and reasoning styles, there is currently no established systematic framework to optimize leveraging a persuadee's past activities (e.g., conversations) to the benefit of a persuasiveness prediction model. To address this problem, we propose a context-aware user profiling framework with two trainable components: a query generator that generates optimal queries to retrieve persuasion-relevant records from a user's history, and a profiler that summarizes these records into a profile to effectively inform the persuasiveness prediction model. Our evaluation on the ChangeMyView Reddit dataset shows consistent improvements over existing methods across multiple predictor models, with gains of up to +13.77%p in F1 score. Further analysis shows that effective user profiles are context-dependent and predictor-specific, rather than relying on static attributes or surface-level similarity. Together, these results highlight the importance of task-oriented, context-dependent user profiling for personalized persuasiveness prediction.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-01-09T09:22:31Z",
+    "updated": "2026-01-17T12:11:40Z",
+    "url": "http://arxiv.org/abs/2601.05654v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.05654v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种基于上下文感知的用户画像框架以优化说服力预测，虽提及推荐系统作为应用场景之一，但核心聚焦于通用说服力建模而非具体的推荐/搜索架构创新，且主要依赖 LLM 进行文本分析，属于有潜力的通用方法。",
+    "translation": "一种通过上下文感知用户画像实现个性化说服力预测的框架",
+    "summary_zh": "本文提出了一种包含查询生成器和画像器的双组件框架，通过从用户历史中检索相关记录并动态生成上下文相关的用户画像，以提升个性化说服力预测模型的准确性。",
+    "key_points": [
+      "本文提出了一种包含查询生成器和画像器的双组件框架，通过从用户历史中检索相关记录并动态生成上下文相关的用户画像，以提升个性化说服力预测模型的准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.06001v1",
+    "title": "The Importance of Parameters in Ranking Functions",
+    "authors": [
+      "Christoph Standke",
+      "Nikolaos Tziavelis",
+      "Wolfgang Gatterbauer",
+      "Benny Kimelfeld"
+    ],
+    "summary": "How important is the weight of a given column in determining the ranking of tuples in a table? To address such an explanation question about a ranking function, we investigate the computation of SHAP scores for column weights, adopting a recent framework by Grohe et al.[ICDT'24]. The exact definition of this score depends on three key components: (1) the ranking function in use, (2) an effect function that quantifies the impact of using alternative weights on the ranking, and (3) an underlying weight distribution. We analyze the computational complexity of different instantiations of this framework for a range of fundamental ranking and effect functions, focusing on probabilistically independent finite distributions for individual columns.\n  For the ranking functions, we examine lexicographic orders and score-based orders defined by the summation, minimum, and maximum functions. For the effect functions, we consider global, top-k, and local perspectives: global measures quantify the divergence between the perturbed and original rankings, top-k measures inspect the change in the set of top-k answers, and local measures capture the impact on an individual tuple of interest. Although all cases admit an additive fully polynomial-time randomized approximation scheme (FPRAS), we establish the complexity of exact computation, identifying which cases are solvable in polynomial time and which are #P-hard. We further show that all complexity results, lower bounds and upper bounds, extend to a related task of computing the Shapley value of whole columns (regardless of their weight).",
+    "categories": [
+      "cs.DB",
+      "cs.DS"
+    ],
+    "published": "2026-01-09T18:38:40Z",
+    "updated": "2026-01-09T18:38:40Z",
+    "url": "http://arxiv.org/abs/2601.06001v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.06001v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于数据库元组排序函数的可解释性理论分析，虽涉及“排序”概念，但属于数据库理论领域，缺乏针对推荐系统或搜索引擎业务场景（如用户行为建模、召回匹配）的直接应用。",
+    "translation": "排序函数中参数的重要性研究",
+    "summary_zh": "本文提出一种基于 SHAP 值的理论框架，用于量化不同权重对数据库元组排序结果的影响，并分析了其在多种排序与效应函数下的计算复杂度。",
+    "key_points": [
+      "本文提出一种基于 SHAP 值的理论框架，用于量化不同权重对数据库元组排序结果的影响，并分析了其在多种排序与效应函数下的计算复杂度"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05549v1",
+    "title": "Efficient Temporal-aware Matryoshka Adaptation for Temporal Information Retrieval",
+    "authors": [
+      "Tuan-Luc Huynh",
+      "Weiqing Wang",
+      "Trung Le",
+      "Thuy-Trang Vu",
+      "Dragan Gašević",
+      "Yuan-Fang Li",
+      "Thanh-Toan Do"
+    ],
+    "summary": "Retrievers are a key bottleneck in Temporal Retrieval-Augmented Generation (RAG) systems: failing to retrieve temporally relevant context can degrade downstream generation, regardless of LLM reasoning. We propose Temporal-aware Matryoshka Representation Learning (TMRL), an efficient method that equips retrievers with temporal-aware Matryoshka embeddings. TMRL leverages the nested structure of Matryoshka embeddings to introduce a temporal subspace, enhancing temporal encoding while preserving general semantic representations. Experiments show that TMRL efficiently adapts diverse text embedding models, achieving competitive temporal retrieval and temporal RAG performance compared to prior Matryoshka-based non-temporal methods and prior temporal methods, while enabling flexible accuracy-efficiency trade-offs.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-09T06:01:01Z",
+    "updated": "2026-01-09T06:01:01Z",
+    "url": "http://arxiv.org/abs/2601.05549v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05549v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于提升 RAG 系统中的时间感知检索能力，属于通用 NLP/LLM 基础设施研究，未直接针对推荐系统或搜索引擎的核心业务场景（如排序、个性化、广告），因此相关性较低。",
+    "translation": "面向时间信息检索的高效时间感知套娃适配方法",
+    "summary_zh": "提出一种时间感知套娃表示学习方法，通过在嵌套嵌入结构中引入时间子空间，使检索器在保留通用语义的同时增强时间编码能力。",
+    "key_points": [
+      "提出一种时间感知套娃表示学习方法，通过在嵌套嵌入结构中引入时间子空间，使检索器在保留通用语义的同时增强时间编码能力"
+    ]
+  }
+]

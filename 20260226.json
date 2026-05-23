@@ -1,0 +1,721 @@
+[
+  {
+    "arxiv_id": "2602.23530v3",
+    "title": "Unified Learning-to-Rank for Multi-Channel Retrieval in Large-Scale E-Commerce Search",
+    "authors": [
+      "Aditya Gaydhani",
+      "Guangyue Xu",
+      "Dhanush Kamath",
+      "Ankit Singh",
+      "Alex Li"
+    ],
+    "summary": "Large-scale e-commerce search must surface a broad set of items from a vast catalog, ranging from bestselling products to new, trending, or seasonal items. Modern systems therefore rely on multiple specialized retrieval channels to surface products, each designed to satisfy a specific objective. A key challenge is how to effectively merge documents from these heterogeneous channels into a single ranked list under strict latency constraints while optimizing for business KPIs such as user conversion. Rank-based fusion methods such as Reciprocal Rank Fusion (RRF) and Weighted Interleaving rely on fixed global channel weights and treat channels independently, failing to account for query-specific channel utility and cross-channel interactions. We observe that multi-channel fusion can be reformulated as a query-dependent learning-to-rank problem over heterogeneous candidate sources. In this paper, we propose a unified ranking model that learns to merge and rank documents from multiple retrieval channels. We formulate the problem as a channel-aware learning-to-rank task that jointly optimizes clicks, add-to-carts, and purchases while incorporating channel-specific objectives. We further incorporate recent user behavioral signals to capture short-term intent shifts that are critical for improving conversion in multi-channel ranking. Our online A/B experiments show that the proposed approach outperforms rank-based fusion methods, leading to a +2.85\\% improvement in user conversion. The model satisfies production latency requirements, achieving a p95 latency of under 50\\,ms, and is deployed on Target.com.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-26T22:26:59Z",
+    "updated": "2026-03-06T05:08:33Z",
+    "url": "http://arxiv.org/abs/2602.23530v3",
+    "pdf_url": "http://arxiv.org/pdf/2602.23530v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决大规模电商搜索中的多路召回融合与排序核心问题，提出了统一的 Learning-to-Rank 架构，完全符合高优先级标准；且来自中国企业（TAL），按规定额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "面向大规模电商搜索多路召回的统一学习排序方法",
+    "summary_zh": "提出一种感知渠道的统一学习排序模型，将多路召回融合重构为查询依赖的排序任务，通过联合优化多目标及融入用户短期行为信号，实现异构渠道内容的动态合并与精准排序。",
+    "key_points": [
+      "提出一种感知渠道的统一学习排序模型，将多路召回融合重构为查询依赖的排序任务，通过联合优化多目标及融入用户短期行为信号，实现异构渠道内容的动态合并与精准排序"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23234v3",
+    "title": "Scaling Search Relevance: Augmenting App Store Ranking with LLM-Generated Judgments",
+    "authors": [
+      "Evangelia Christakopoulou",
+      "Vivekkumar Patel",
+      "Hemanth Velaga",
+      "Sandip Gaikwad",
+      "Sean Suchter",
+      "Venkat Sundaranatha"
+    ],
+    "summary": "Large-scale commercial search systems optimize for relevance to drive successful sessions that help users find what they are looking for. To maximize relevance, we leverage two complementary objectives: behavioral relevance (results users tend to click or download) and textual relevance (a result's semantic fit to the query). A persistent challenge is the scarcity of expert-provided textual relevance labels relative to abundant behavioral relevance labels. We first address this by systematically evaluating LLM configurations, finding that a specialized, fine-tuned model significantly outperforms a much larger pre-trained one in providing highly relevant labels. Using this optimal model as a force multiplier, we generate millions of textual relevance labels to overcome the data scarcity. We show that augmenting our production ranker with these textual relevance labels leads to a significant outward shift of the Pareto frontier: offline NDCG improves for behavioral relevance while simultaneously increasing for textual relevance. These offline gains were validated by a worldwide A/B test on the App Store ranker, which demonstrated a statistically significant +0.24% increase in conversion rate, with the most substantial performance gains occurring in tail queries, where the new textual relevance labels provide a robust signal in the absence of reliable behavioral relevance labels.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T17:11:26Z",
+    "updated": "2026-03-06T22:21:47Z",
+    "url": "http://arxiv.org/abs/2602.23234v3",
+    "pdf_url": "http://arxiv.org/pdf/2602.23234v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对应用商店搜索排序问题，利用 LLM 生成文本相关性标签以解决数据稀缺并提升排序效果，属于典型的 LLM for Search 高优先级应用；叠加中国公司背景额外 +1 分（基础分 9+1=10）。",
+    "translation": "扩展搜索相关性：利用 LLM 生成的判断增强应用商店排序",
+    "summary_zh": "提出利用微调后的专用 LLM 大规模生成文本相关性标签，将其作为补充信号融入生产环境排序器，以解决专家标注稀缺问题并同时优化行为与文本双重相关性目标。",
+    "key_points": [
+      "提出利用微调后的专用 LLM 大规模生成文本相关性标签，将其作为补充信号融入生产环境排序器，以解决专家标注稀缺问题并同时优化行为与文本双重相关性目标"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22913v1",
+    "title": "SIGMA: A Semantic-Grounded Instruction-Driven Generative Multi-Task Recommender at AliExpress",
+    "authors": [
+      "Yang Yu",
+      "Lei Kou",
+      "Huaikuan Yi",
+      "Bin Chen",
+      "Yayu Cao",
+      "Lei Shen",
+      "Chao Zhang",
+      "Bing Wang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "With the rapid evolution of Large Language Models, generative recommendation is gradually reshaping the paradigm of recommender systems. However, most existing methods are still confined to the interaction-driven next-item prediction paradigm, failing to rapidly adapt to evolving trends or address diverse recommendation tasks along with business-specific requirements in real-world scenarios. To this end, we present SIGMA, a Semantic-Grounded Instruction-Driven Generative Multi-Task Recommender at AliExpress. Specifically, we first ground item entities in general semantics via a unified latent space capturing both semantic and collaborative relations. Building upon this, we develop a hybrid item tokenization method for precise modeling and efficient generation. Moreover, we construct a large-scale multi-task SFT dataset to empower SIGMA to fulfill various recommendation demands via instruction-following. Finally, we design a three-step item generation procedure integrated with an adaptive probabilistic fusion mechanism to calibrate the output distributions based on task-specific requirements for recommendation accuracy and diversity. Extensive offline experiments and online A/B tests demonstrate the effectiveness of SIGMA.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T12:00:46Z",
+    "updated": "2026-02-26T12:00:46Z",
+    "url": "http://arxiv.org/abs/2602.22913v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22913v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "DrivenGenerativeMulti-TaskRecommenderatAliExpress.Specifi- ResearchandDevelopmentinInformationRetrieval(SIGIR’26).ACM,New"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐场景（AliExpress），提出了基于指令跟随的生成式多任务推荐架构，完美契合核心领域进展与 LLM for RecSys 的高优先级标准。",
+    "translation": "SIGMA：速卖通语义 grounding 指令驱动生成式多任务推荐系统",
+    "summary_zh": "提出一种语义 grounding 的指令驱动生成式推荐框架，通过统一潜在空间对齐语义与协同关系，并利用多任务 SFT 数据集和自适应概率融合机制，实现单一模型响应多样化业务推荐需求。",
+    "key_points": [
+      "提出一种语义 grounding 的指令驱动生成式推荐框架，通过统一潜在空间对齐语义与协同关系，并利用多任务 SFT 数据集和自适应概率融合机制，实现单一模型响应多样化业务推荐需求"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22732v2",
+    "title": "Generative Recommendation for Large-Scale Advertising",
+    "authors": [
+      "Ben Xue",
+      "Dan Liu",
+      "Lixiang Wang",
+      "Mingjie Sun",
+      "Peng Wang",
+      "Pengfei Zhang",
+      "Shaoyun Shi",
+      "Tianyu Xu",
+      "Yunhao Sha",
+      "Zhiqiang Liu",
+      "Bo Kong",
+      "Bo Wang",
+      "Hang Yang",
+      "Jieting Xue",
+      "Junhao Wang",
+      "Shengyu Wang",
+      "Shuping Hui",
+      "Wencai Ye",
+      "Xiao Lin",
+      "Yongzhi Li",
+      "Yuhang Chen",
+      "Zhihui Yin",
+      "Quan Chen",
+      "Shiyang Wen",
+      "Wenjin Wu",
+      "Han Li",
+      "Guorui Zhou",
+      "Changcheng Li",
+      "Peng Jiang"
+    ],
+    "summary": "Generative recommendation has recently attracted widespread attention in industry due to its potential for scaling and stronger model capacity. However, deploying real-time generative recommendation in large-scale advertising requires designs beyond large-language-model (LLM)-style training and serving recipes. We present a production-oriented generative recommender co-designed across architecture, learning, and serving, named GR4AD (Generative Recommendation for ADdvertising). As for tokenization, GR4AD proposes UA-SID (Unified Advertisement Semantic ID) to capture complicated business information. Furthermore, GR4AD introduces LazyAR, a lazy autoregressive decoder that relaxes layer-wise dependencies for short, multi-candidate generation, preserving effectiveness while reducing inference cost, which facilitates scaling under fixed serving budgets. To align optimization with business value, GR4AD employs VSL (Value-Aware Supervised Learning) and proposes RSPO (Ranking-Guided Softmax Preference Optimization), a ranking-aware, list-wise reinforcement learning algorithm that optimizes value-based rewards under list-level metrics for continual online updates. For online inference, we further propose dynamic beam serving, which adapts beam width across generation levels and online load to control compute. Large-scale online A/B tests show up to 4.2% ad revenue improvement over an existing DLRM-based stack, with consistent gains from both model scaling and inference-time scaling. GR4AD has been fully deployed in Kuaishou advertising system with over 400 million users and achieves high-throughput real-time serving.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T08:15:26Z",
+    "updated": "2026-03-04T09:28:17Z",
+    "url": "http://arxiv.org/abs/2602.22732v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.22732v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对快手广告系统的生成式推荐，提出了 UA-SID、LazyAR 及 RSPO 等核心架构与算法创新，完美契合电商/社交 + 推荐搜索 +LLM 的高优先级标准，且来自工业界落地实践。",
+    "translation": "面向大规模广告的生成式推荐系统",
+    "summary_zh": "本文提出 GR4AD 系统，通过统一广告语义 ID 编码、惰性自回归解码器及排序引导的偏好优化算法，解决了大规模广告场景中生成式推荐的实时服务与业务价值对齐难题。",
+    "key_points": [
+      "本文提出 GR4AD 系统，通过统一广告语义 ID 编码、惰性自回归解码器及排序引导的偏好优化算法，解决了大规模广告场景中生成式推荐的实时服务与业务价值对齐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22647v1",
+    "title": "Vectorizing the Trie: Efficient Constrained Decoding for LLM-based Generative Retrieval on Accelerators",
+    "authors": [
+      "Zhengyang Su",
+      "Isay Katsman",
+      "Yueqi Wang",
+      "Ruining He",
+      "Lukasz Heldt",
+      "Raghunandan Keshavan",
+      "Shao-Chuan Wang",
+      "Xinyang Yi",
+      "Mingyan Gao",
+      "Onkar Dalal",
+      "Lichan Hong",
+      "Ed Chi",
+      "Ningren Han"
+    ],
+    "summary": "Generative retrieval has emerged as a powerful paradigm for LLM-based recommendation. However, industrial recommender systems often benefit from restricting the output space to a constrained subset of items based on business logic (e.g. enforcing content freshness or product category), which standard autoregressive decoding cannot natively support. Moreover, existing constrained decoding methods that make use of prefix trees (Tries) incur severe latency penalties on hardware accelerators (TPUs/GPUs). In this work, we introduce STATIC (Sparse Transition Matrix-Accelerated Trie Index for Constrained Decoding), an efficient and scalable constrained decoding technique designed specifically for high-throughput LLM-based generative retrieval on TPUs/GPUs. By flattening the prefix tree into a static Compressed Sparse Row (CSR) matrix, we transform irregular tree traversals into fully vectorized sparse matrix operations, unlocking massive efficiency gains on hardware accelerators. We deploy STATIC on a large-scale industrial video recommendation platform serving billions of users. STATIC produces significant product metric impact with minimal latency overhead (0.033 ms per step and 0.25% of inference time), achieving a 948x speedup over a CPU trie implementation and a 47-1033x speedup over a hardware-accelerated binary-search baseline. Furthermore, the runtime overhead of STATIC remains extremely low across a wide range of practical configurations. To the best of our knowledge, STATIC enables the first production-scale deployment of strictly constrained generative retrieval. In addition, evaluation on academic benchmarks demonstrates that STATIC can considerably improve cold-start performance for generative retrieval. Our code is available at https://github.com/youtube/static-constraint-decoding.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T06:00:56Z",
+    "updated": "2026-02-26T06:00:56Z",
+    "url": "http://arxiv.org/abs/2602.22647v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22647v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Google",
+      "DeepMind"
+    ],
+    "affiliation_lines": [
+      "YouTube YaleUniversity YouTube GoogleDeepMind",
+      "oftenbenefitfromrestrictingtheoutputspacetoaconstrainedsub- availableathttps://github.com/youtube/static-constraint-decoding.",
+      "ConstrainedDecoding),anefficientandscalableconstraineddecod-"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的生成式检索系统，解决了工业级推荐场景中约束解码的效率瓶颈，并已在大规模视频推荐平台落地。",
+    "translation": "Trie 向量化：加速器上基于 LLM 的生成式检索高效约束解码",
+    "summary_zh": "提出 STATIC 方法，通过将前缀树展平为静态压缩稀疏行矩阵，将不规则树遍历转化为完全向量化的稀疏矩阵运算，从而实现硬件加速器上的高效约束解码。",
+    "key_points": [
+      "提出 STATIC 方法，通过将前缀树展平为静态压缩稀疏行矩阵，将不规则树遍历转化为完全向量化的稀疏矩阵运算，从而实现硬件加速器上的高效约束解码"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22632v2",
+    "title": "Fine-grained Semantics Integration for Large Language Model-based Recommendation",
+    "authors": [
+      "Jiawei Feng",
+      "Xiaoyu Kong",
+      "Leheng Sheng",
+      "Bin Wu",
+      "Chao Yi",
+      "Feifang Yang",
+      "Xiang-Rong Sheng",
+      "Han Zhu",
+      "Xiang Wang",
+      "Jiancan Wu",
+      "Xiangnan He"
+    ],
+    "summary": "Recent advances in Large Language Models (LLMs) have shifted in recommendation systems from the discriminative paradigm to the LLM-based generative paradigm, where the recommender autoregressively generates sequences of semantic identifiers (SIDs) for target items conditioned on historical interaction. While prevalent LLM-based recommenders have demonstrated performance gains by aligning pretrained LLMs between the language space and the SID space, modeling the SID space still faces two fundamental challenges: (1) Semantically Meaningless Initialization: SID tokens are randomly initialized, severing the semantic linkage between the SID space and the pretrained language space at start point, and (2) Coarse-grained Alignment: existing SFT-based alignment tasks primarily focus on item-level optimization, while overlooking the semantics of individual tokens within SID sequences. To address these challenges, we propose TS-Rec, which can integrate Token-level Semantics into LLM-based Recommenders. Specifically, TS-Rec comprises two key components: (1) Semantic-Aware embedding Initialization (SA-Init), which initializes SID token embeddings by applying mean pooling to the pretrained embeddings of keywords extracted by a teacher model; and (2) Token-level Semantic Alignment (TS-Align), which aligns individual tokens within the SID sequence with the shared semantics of the corresponding item clusters. Extensive experiments on two real-world benchmarks demonstrate that TS-Rec consistently outperforms traditional and generative baselines across all standard metrics. The results demonstrate that integrating fine-grained semantic information significantly enhances the performance of LLM-based generative recommenders.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-26T05:17:24Z",
+    "updated": "2026-02-28T11:32:44Z",
+    "url": "http://arxiv.org/abs/2602.22632v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.22632v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出了细粒度语义集成方法以解决 SID 空间建模的核心挑战，属于高优先级的 LLM for RecSys 研究；且来自中国公司，符合额外加分条件。",
+    "translation": "面向大语言模型推荐的细粒度语义集成方法",
+    "summary_zh": "提出 TS-Rec 框架，通过语义感知的嵌入初始化和令牌级语义对齐机制，将细粒度语义信息融入基于 LLM 的生成式推荐系统中，以优化语义标识符空间的建模能力。",
+    "key_points": [
+      "提出 TS-Rec 框架，通过语义感知的嵌入初始化和令牌级语义对齐机制，将细粒度语义信息融入基于 LLM 的生成式推荐系统中，以优化语义标识符空间的建模能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22591v1",
+    "title": "Where Relevance Emerges: A Layer-Wise Study of Internal Attention for Zero-Shot Re-Ranking",
+    "authors": [
+      "Haodong Chen",
+      "Shengyao Zhuang",
+      "Zheng Yao",
+      "Guido Zuccon",
+      "Teerapong Leelanupab"
+    ],
+    "summary": "Zero-shot document re-ranking with Large Language Models (LLMs) has evolved from Pointwise methods to Listwise and Setwise approaches that optimize computational efficiency. Despite their success, these methods predominantly rely on generative scoring or output logits, which face bottlenecks in inference latency and result consistency. In-Context Re-ranking (ICR) has recently been proposed as an $O(1)$ alternative method. ICR extracts internal attention signals directly, avoiding the overhead of text generation. However, existing ICR methods simply aggregate signals across all layers; layer-wise contributions and their consistency across architectures have been left unexplored. Furthermore, no unified study has compared internal attention with traditional generative and likelihood-based mechanisms across diverse ranking frameworks under consistent conditions.\n  In this paper, we conduct an orthogonal evaluation of generation, likelihood, and internal attention mechanisms across multiple ranking frameworks. We further identify a universal \"bell-curve\" distribution of relevance signals across transformer layers, which motivates the proposed Selective-ICR strategy that reduces inference latency by 30%-50% without compromising effectiveness. Finally, evaluation on the reasoning-intensive BRIGHT benchmark shows that precisely capturing high-quality in-context attention signals fundamentally reduces the need for model scaling and reinforcement learning: a zero-shot 8B model matches the performance of 14B reinforcement-learned re-rankers, while even a 0.6B model outperforms state-of-the-art generation-based approaches. These findings redefine the efficiency-effectiveness frontier for LLM-based re-ranking and highlight the latent potential of internal signals for complex reasoning ranking tasks. Our code and results are publicly available at https://github.com/ielab/Selective-ICR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-26T03:51:31Z",
+    "updated": "2026-02-26T03:51:31Z",
+    "url": "http://arxiv.org/abs/2602.22591v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22591v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心环节“重排序（Re-ranking）”，提出利用 LLM 内部注意力信号进行零样本优化的新方法，完全符合高优先级标准；且来自中国公司，按规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "相关性涌现之处：零样本重排序中内部注意力的分层研究",
+    "summary_zh": "本文提出选择性上下文内重排序（Selective-ICR）策略，通过挖掘 Transformer 层间注意力信号的“钟形”分布规律，直接利用内部状态而非生成文本来实现高效、低延迟的零文档重排序。",
+    "key_points": [
+      "本文提出选择性上下文内重排序（Selective-ICR）策略，通过挖掘 Transformer 层间注意力信号的“钟形”分布规律，直接利用内部状态而非生成文本来实现高效、低延迟的零文档重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22650v1",
+    "title": "AHBid: An Adaptable Hierarchical Bidding Framework for Cross-Channel Advertising",
+    "authors": [
+      "Xinxin Yang",
+      "Yangyang Tang",
+      "Yikun Zhou",
+      "Yaolei Liu",
+      "Yun Li",
+      "Bo Yang"
+    ],
+    "summary": "In online advertising, the inherent complexity and dynamic nature of advertising environments necessitate the use of auto-bidding services to assist advertisers in bid optimization. This complexity is further compounded in multi-channel scenarios, where effective allocation of budgets and constraints across channels with distinct behavioral patterns becomes critical for optimizing return on investment. Current approaches predominantly rely on either optimization-based strategies or reinforcement learning techniques. However, optimization-based methods lack flexibility in adapting to dynamic market conditions, while reinforcement learning approaches often struggle to capture essential historical dependencies and observational patterns within the constraints of Markov Decision Process frameworks. To address these limitations, we propose AHBid, an Adaptable Hierarchical Bidding framework that integrates generative planning with real-time control. The framework employs a high-level generative planner based on diffusion models to dynamically allocate budgets and constraints by effectively capturing historical context and temporal patterns. We introduce a constraint enforcement mechanism to ensure compliance with specified constraints, along with a trajectory refinement mechanism that enhances adaptability to environmental changes through the utilization of historical data. The system further incorporates a control-based bidding algorithm that synergistically combines historical knowledge with real-time information, significantly improving both adaptability and operational efficacy. Extensive experiments conducted on large-scale offline datasets and through online A/B tests demonstrate the effectiveness of AHBid, yielding a 13.57% increase in overall return compared to existing baselines.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-02-26T06:07:28Z",
+    "updated": "2026-02-26T06:07:28Z",
+    "url": "http://arxiv.org/abs/2602.22650v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22650v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告系统中的跨渠道自动出价（Auto-bidding）核心问题，提出了结合扩散模型生成规划与实时控制的层级框架，属于高优先级的 Ads/RecSys 核心业务创新。",
+    "translation": "AHBid：一种面向跨渠道广告的可适应层级出价框架",
+    "summary_zh": "提出一种融合基于扩散模型的高层生成规划器与底层控制算法的层级出价框架，通过动态预算分配和轨迹修正机制解决多通道广告环境下的复杂约束与自适应优化难题。",
+    "key_points": [
+      "提出一种融合基于扩散模型的高层生成规划器与底层控制算法的层级出价框架，通过动态预算分配和轨迹修正机制解决多通道广告环境下的复杂约束与自适应优化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23132v1",
+    "title": "From Agnostic to Specific: Latent Preference Diffusion for Multi-Behavior Sequential Recommendation",
+    "authors": [
+      "Ruochen Yang",
+      "Xiaodong Li",
+      "Jiawei Sheng",
+      "Jiangxia Cao",
+      "Xinkui Lin",
+      "Shen Wang",
+      "Shuang Yang",
+      "Zhaojie Liu",
+      "Tingwen Liu"
+    ],
+    "summary": "Multi-behavior sequential recommendation (MBSR) aims to learn the dynamic and heterogeneous interactions of users' multi-behavior sequences, so as to capture user preferences under target behavior for the next interacted item prediction. Unlike previous methods that adopt unidirectional modeling by mapping auxiliary behaviors to target behavior, recent concerns are shifting from behavior-fixed to behavior-specific recommendation. However, these methods still ignore the user's latent preference that underlying decision-making, leading to suboptimal solutions. Meanwhile, due to the asymmetric deterministic between items and behaviors, discriminative paradigm based on preference scoring is unsuitable to capture the uncertainty from low-entropy behaviors to high-entropy items, failing to provide efficient and diverse recommendation. To address these challenges, we propose \\textbf{FatsMB}, a framework based diffusion model that guides preference generation \\textit{\\textbf{F}rom Behavior-\\textbf{A}gnostic \\textbf{T}o Behavior-\\textbf{S}pecific} in latent spaces, enabling diverse and accurate \\textit{\\textbf{M}ulti-\\textbf{B}ehavior Sequential Recommendation}. Specifically, we design a Multi-Behavior AutoEncoder (MBAE) to construct a unified user latent preference space, facilitating interaction and collaboration across Behaviors, within Behavior-aware RoPE (BaRoPE) employed for multiple information fusion. Subsequently, we conduct target behavior-specific preference transfer in the latent space, enriching with informative priors. A Multi-Condition Guided Layer Normalization (MCGLN) is introduced for the denoising. Extensive experiments on real-world datasets demonstrate the effectiveness of our model.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T15:48:09Z",
+    "updated": "2026-02-26T15:48:09Z",
+    "url": "http://arxiv.org/abs/2602.23132v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.23132v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "InstituteofInformationEngineering, InstituteofInformationEngineering, InstituteofInformationEngineering,",
+      "KuaishouTechnology InstituteofInformationEngineering, KuaishouTechnology",
+      "KuaishouTechnology KuaishouTechnology InstituteofInformationEngineering,"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多行为序列推荐（RecSys 核心场景），提出基于扩散模型的潜在偏好生成框架，解决了用户隐式偏好建模和行为特异性推荐的实际问题。",
+    "translation": "从无关到特定：用于多行为序列推荐的潜在偏好扩散",
+    "summary_zh": "提出 FatsMB 框架，利用扩散模型在潜在空间中引导用户偏好从行为无关向行为特定生成，通过多行为自编码器和条件归一化层解决多行为序列推荐中的偏好不确定性和异构交互问题。",
+    "key_points": [
+      "提出 FatsMB 框架，利用扩散模型在潜在空间中引导用户偏好从行为无关向行为特定生成，通过多行为自编码器和条件归一化层解决多行为序列推荐中的偏好不确定性和异构交互问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23105v1",
+    "title": "MaRI: Accelerating Ranking Model Inference via Structural Re-parameterization in Large Scale Recommendation System",
+    "authors": [
+      "Yusheng Huang",
+      "Pengbo Xu",
+      "Shen Wang",
+      "Changxin Lao",
+      "Jiangxia Cao",
+      "Shuang Wen",
+      "Shuang Yang",
+      "Zhaojie Liu",
+      "Han Li",
+      "Kun Gai"
+    ],
+    "summary": "Ranking models, i.e., coarse-ranking and fine-ranking models, serve as core components in large-scale recommendation systems, responsible for scoring massive item candidates based on user preferences. To meet the stringent latency requirements of online serving, structural lightweighting or knowledge distillation techniques are commonly employed for ranking model acceleration. However, these approaches typically lead to a non-negligible drop in accuracy. Notably, the angle of lossless acceleration by optimizing feature fusion matrix multiplication, particularly through structural reparameterization, remains underexplored. In this paper, we propose MaRI, a novel Matrix Re-parameterized Inference framework, which serves as a complementary approach to existing techniques while accelerating ranking model inference without any accuracy loss. MaRI is motivated by the observation that user-side computation is redundant in feature fusion matrix multiplication, and we therefore adopt the philosophy of structural reparameterization to alleviate such redundancy.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-26T15:19:43Z",
+    "updated": "2026-02-26T15:19:43Z",
+    "url": "http://arxiv.org/abs/2602.23105v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.23105v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模推荐系统中的核心排序环节，提出了一种通过结构重参数化实现无损加速推理的新框架，具有极高的工业应用价值。",
+    "translation": "MaRI：通过结构重参数化加速大规模推荐系统中的排序模型推理",
+    "summary_zh": "本文提出 MaRI 框架，利用结构重参数化技术消除推荐系统排序模型中特征融合矩阵乘法的用户侧计算冗余，实现在不损失精度的前提下加速在线推理。",
+    "key_points": [
+      "本文提出 MaRI 框架，利用结构重参数化技术消除推荐系统排序模型中特征融合矩阵乘法的用户侧计算冗余，实现在不损失精度的前提下加速在线推理"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23471v1",
+    "title": "Cross-Representation Knowledge Transfer for Improved Sequential Recommendations",
+    "authors": [
+      "Artur Gimranov",
+      "Viacheslav Yusupov",
+      "Elfat Sabitov",
+      "Tatyana Matveeva",
+      "Anton Lysenko",
+      "Ruslan Israfilov",
+      "Evgeny Frolov"
+    ],
+    "summary": "Transformer architectures, capable of capturing sequential dependencies in the history of user interactions, have become the dominant approach in sequential recommender systems. Despite their success, such models consider sequence elements in isolation, implicitly accounting for the complex relationships between them. Graph neural networks, in contrast, explicitly model these relationships through higher order interactions but are often unable to adequately capture their evolution over time, limiting their use for predicting the next interaction. To fill this gap, we present a new framework that combines transformers and graph neural networks and aligns different representations for solving next-item prediction task. Our solution simultaneously encodes structural dependencies in the interaction graph and tracks their dynamic change. Experimental results on a number of open datasets demonstrate that the proposed framework consistently outperforms both pure sequential and graph approaches in terms of recommendation quality, as well as recent methods that combine both types of signals.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T20:03:23Z",
+    "updated": "2026-02-26T20:03:23Z",
+    "url": "http://arxiv.org/abs/2602.23471v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.23471v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出结合 Transformer 与 GNN 的新架构以解决用户行为建模中的结构与动态依赖，且来自中国公司额外加 1 分。",
+    "translation": "用于改进序列推荐的跨表示知识迁移",
+    "summary_zh": "提出一种融合 Transformer 时序建模能力与图神经网络高阶结构交互的新框架，通过对齐不同表示来同时捕捉用户交互图中的结构依赖及其动态演化，以优化下一项预测任务。",
+    "key_points": [
+      "提出一种融合 Transformer 时序建模能力与图神经网络高阶结构交互的新框架，通过对齐不同表示来同时捕捉用户交互图中的结构依赖及其动态演化，以优化下一项预测任务"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23400v1",
+    "title": "U-CAN: Utility-Aware Contrastive Attenuation for Efficient Unlearning in Generative Recommendation",
+    "authors": [
+      "Zezheng Wu",
+      "Rui Wang",
+      "Xinghe Cheng",
+      "Yang Shao",
+      "Qing Yang",
+      "Jiapu Wang",
+      "Jingwei Zhang"
+    ],
+    "summary": "Generative Recommendation (GenRec) typically leverages Large Language Models (LLMs) to redefine personalization as an instruction-driven sequence generation task. However, fine-tuning on user logs inadvertently encodes sensitive attributes into model parameters, raising critical privacy concerns. Existing Machine Unlearning (MU) techniques struggle to navigate this tension due to the Polysemy Dilemma, where neurons superimpose sensitive data with general reasoning patterns, leading to catastrophic utility loss under traditional gradient or pruning methods. To address this, we propose Utility-aware Contrastive AttenuatioN (U-CAN), a precision unlearning framework that operates on low-rank adapters. U-CAN quantifies risk by contrasting activations and focuses on neurons with asymmetric responses that are highly sensitive to the forgetting set but suppressed on the retention set. To safeguard performance, we introduce a utility-aware calibration mechanism that combines weight magnitudes with retention-set activation norms, assigning higher utility scores to dimensions that contribute strongly to retention performance. Unlike binary pruning, which often fragments network structure, U-CAN develop adaptive soft attenuation with a differentiable decay function to selectively down-scale high-risk parameters on LoRA adapters, suppressing sensitive retrieval pathways and preserving the topological connectivity of reasoning circuits. Experiments on two public datasets across seven metrics demonstrate that U-CAN achieves strong privacy forgetting, utility retention, and computational efficiency.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-26T07:36:11Z",
+    "updated": "2026-02-26T07:36:11Z",
+    "url": "http://arxiv.org/abs/2602.23400v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.23400v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式推荐系统（GenRec）中的机器遗忘问题，提出了具体的架构改进方法以平衡隐私与效用，属于 LLM 在推荐系统中的直接应用。",
+    "translation": "U-CAN：用于生成式推荐高效遗忘的效用感知对比衰减方法",
+    "summary_zh": "提出一种基于低秩适配器的效用感知对比衰减框架，通过识别并选择性衰减对敏感数据响应强烈但对保留数据抑制的神经元，实现在保护用户隐私的同时维持推荐系统的核心推理能力。",
+    "key_points": [
+      "提出一种基于低秩适配器的效用感知对比衰减框架，通过识别并选择性衰减对敏感数据响应强烈但对保留数据抑制的神经元，实现在保护用户隐私的同时维持推荐系统的核心推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22521v1",
+    "title": "TFPS: A Temporal Filtration-enhanced Positive Sample Set Construction Method for Implicit Collaborative Filtering",
+    "authors": [
+      "Jiayi Wu",
+      "Zhengyu Wu",
+      "Xunkai Li",
+      "Rong-Hua Li",
+      "Guoren Wang"
+    ],
+    "summary": "The negative sampling strategy can effectively train collaborative filtering (CF) recommendation models based on implicit feedback by constructing positive and negative samples. However, existing methods primarily optimize the negative sampling process while neglecting the exploration of positive samples. Some denoising recommendation methods can be applied to denoise positive samples within negative sampling strategies, but they ignore temporal information. Existing work integrates sequential information during model aggregation but neglects time interval information, hindering accurate capture of users' current preferences. To address this problem, from a data perspective, we propose a novel temporal filtration-enhanced approach to construct a high-quality positive sample set. First, we design a time decay model based on interaction time intervals, transforming the original graph into a weighted user-item bipartite graph. Then, based on predefined filtering operations, the weighted user-item bipartite graph is layered. Finally, we design a layer-enhancement strategy to construct a high-quality positive sample set for the layered subgraphs. We provide theoretical insights into why TFPS can improve Recall@k and NDCG@k, and extensive experiments on three real-world datasets demonstrate the effectiveness of the proposed method. Additionally, TFPS can be integrated with various implicit CF recommenders or negative sampling methods to enhance its performance.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T01:32:45Z",
+    "updated": "2026-02-26T01:32:45Z",
+    "url": "http://arxiv.org/abs/2602.22521v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22521v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的隐式协同过滤问题，提出了一种利用时间衰减和分层过滤来构建高质量正样本集的新方法，属于核心推荐技术优化。",
+    "translation": "TFPS：一种用于隐式协同过滤的时间过滤增强正样本集构建方法",
+    "summary_zh": "该研究提出一种基于时间间隔衰减模型和分层增强策略的数据处理方法，旨在从时间维度过滤噪声并构建高质量正样本集，以更精准地捕捉用户当前偏好。",
+    "key_points": [
+      "该研究提出一种基于时间间隔衰减模型和分层增强策略的数据处理方法，旨在从时间维度过滤噪声并构建高质量正样本集，以更精准地捕捉用户当前偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23342v1",
+    "title": "AlayaLaser: Efficient Index Layout and Search Strategy for Large-scale High-dimensional Vector Similarity Search",
+    "authors": [
+      "Weijian Chen",
+      "Haotian Liu",
+      "Yangshen Deng",
+      "Long Xiang",
+      "Liang Huang",
+      "Gezi Li",
+      "Bo Tang"
+    ],
+    "summary": "On-disk graph-based approximate nearest neighbor search (ANNS) is essential for large-scale, high-dimensional vector retrieval, yet its performance is widely recognized to be limited by the prohibitive I/O costs. Interestingly, we observed that the performance of on-disk graph-based index systems is compute-bound, not I/O-bound, with the rising of the vector data dimensionality (e.g., hundreds or thousands). This insight uncovers a significant optimization opportunity: existing on-disk graph-based index systems universally target I/O reduction and largely overlook computational overhead, which leaves a substantial performance improvement space.\n  In this work, we propose AlayaLaser, an efficient on-disk graph-based index system for large-scale high-dimensional vector similarity search. In particular, we first conduct performance analysis on existing on-disk graph-based index systems via the adapted roofline model, then we devise a novel on-disk data layout in AlayaLaser to effectively alleviate the compute-bound, which is revealed by the above roofline model analysis, by exploiting SIMD instructions on modern CPUs. We next design a suite of optimization techniques (e.g., degree-based node cache, cluster-based entry point selection, and early dispatch strategy) to further improve the performance of AlayaLaser. We last conduct extensive experimental studies on a wide range of large-scale high-dimensional vector datasets to verify the superiority of AlayaLaser. Specifically, AlayaLaser not only surpasses existing on-disk graph-based index systems but also matches or even exceeds the performance of in-memory index systems.",
+    "categories": [
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2026-02-26T18:48:29Z",
+    "updated": "2026-02-26T18:48:29Z",
+    "url": "http://arxiv.org/abs/2602.23342v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.23342v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于大规模向量检索（ANNS）的底层索引优化，是推荐系统和搜索引擎召回阶段的核心基础设施技术，虽非直接的业务算法创新，但具有明确的工程应用价值。",
+    "translation": "AlayaLaser：面向大规模高维向量相似性搜索的高效索引布局与搜索策略",
+    "summary_zh": "本文提出 AlayaLaser，一种基于磁盘的图索引系统，通过屋顶线模型分析发现高维场景下计算而非 I/O 是瓶颈，并利用 SIMD 指令优化数据布局以解决计算受限问题。",
+    "key_points": [
+      "本文提出 AlayaLaser，一种基于磁盘的图索引系统，通过屋顶线模型分析发现高维场景下计算而非 I/O 是瓶颈，并利用 SIMD 指令优化数据布局以解决计算受限问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22805v1",
+    "title": "Optimizing SSD-Resident Graph Indexing for High-Throughput Vector Search",
+    "authors": [
+      "Weichen Zhao",
+      "Yuncheng Lu",
+      "Yao Tian",
+      "Hao Zhang",
+      "Jiehui Li",
+      "Minghao Zhao",
+      "Yakun Li",
+      "Weining Qian"
+    ],
+    "summary": "Graph-based approximate nearest neighbor search (ANNS) methods (e.g., HNSW) have become the de facto state of the art for their high precision and low latency. To scale beyond main memory, recent out-of-memory ANNS systems leverage SSDs to store large vector indexes. However, they still suffer from severe CPU underutilization and read amplification (i.e., storage stalls) caused by limited access locality during graph traversal. We present VeloANN, which mitigates storage stalls through a locality-aware data layout and a coroutine-based asynchronous runtime. VeloANN utilizes hierarchical compression and affinity-based data placement scheme to co-locate related vectors within the same page, effectively reducing fragmentation and over-fetching. We further design a record-level buffer pool, where each record groups the neighbors of a vector; by persistently retaining hot records in memory, it eliminates excessive page swapping under constrained memory budgets. To minimize CPU scheduling overheads during disk I/O interruptions, VeloANN employs a coroutine-based asynchronous runtime for lightweight task scheduling. On top of this, it incorporates asynchronous prefetching and a beam-aware search strategy to prioritize cached data, ultimately improving overall search efficiency. Extensive experiments show that VeloANN outperforms state-of-the-art disk-based ANN systems by up to 5.8x in throughput and 3.25x in latency reduction, while achieving 0.92x the throughput of in-memory systems using only 10% of their memory footprint.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-02-26T09:42:20Z",
+    "updated": "2026-02-26T09:42:20Z",
+    "url": "http://arxiv.org/abs/2602.22805v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22805v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "EastChinaNormalUniversity Bytedance Bytedance",
+      "Bytedance Bytedance EastChinaNormalUniversity",
+      "Bytedance EastChinaNormalUniversity"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文针对向量搜索（召回核心环节）的 SSD 索引优化，直接解决大规模推荐/搜索系统中的工程瓶颈，虽属系统层创新但应用场景明确；因来自中国公司额外加 1 分。",
+    "translation": "面向高吞吐向量搜索的 SSD 驻留图索引优化",
+    "summary_zh": "提出 VeloANN 系统，通过局部性感知的数据布局、基于协程的异步运行时及记录级缓冲池机制，解决基于图的近似最近邻搜索在 SSD 上的 CPU 利用率低和读放大问题。",
+    "key_points": [
+      "提出 VeloANN 系统，通过局部性感知的数据布局、基于协程的异步运行时及记录级缓冲池机制，解决基于图的近似最近邻搜索在 SSD 上的 CPU 利用率低和读放大问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22584v1",
+    "title": "Towards Faithful Industrial RAG: A Reinforced Co-adaptation Framework for Advertising QA",
+    "authors": [
+      "Wenwei Li",
+      "Ming Xu",
+      "Tianle Xia",
+      "Lingxiang Hu",
+      "Yiding Sun",
+      "Linfang Shang",
+      "Liqun Liu",
+      "Peng Shu",
+      "Huan Yu",
+      "Jie Jiang"
+    ],
+    "summary": "Industrial advertising question answering (QA) is a high-stakes task in which hallucinated content, particularly fabricated URLs, can lead to financial loss, compliance violations, and legal risk. Although Retrieval-Augmented Generation (RAG) is widely adopted, deploying it in production remains challenging because industrial knowledge is inherently relational, frequently updated, and insufficiently aligned with generation objectives. We propose a reinforced co-adaptation framework that jointly optimizes retrieval and generation through two components: (1) Graph-aware Retrieval (GraphRAG), which models entity-relation structure over a high-citation knowledge subgraph for multi-hop, domain-specific evidence selection; and (2) evidence-constrained reinforcement learning via Group Relative Policy Optimization (GRPO) with multi-dimensional rewards covering faithfulness, style compliance, safety, and URL validity. Experiments on an internal advertising QA dataset show consistent gains across expert-judged dimensions including accuracy, completeness, and safety, while reducing the hallucination rate by 72\\%. A two-week online A/B test demonstrates a 28.6\\% increase in like rate, a 46.2\\% decrease in dislike rate, and a 92.7\\% reduction in URL hallucination. The system has been running in production for over half a year and has served millions of QA interactions.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-02-26T03:35:09Z",
+    "updated": "2026-02-26T03:35:09Z",
+    "url": "http://arxiv.org/abs/2602.22584v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22584v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文针对广告场景的问答系统（Ads Search/QA），利用 RAG 和强化学习解决幻觉问题，属于搜索/广告领域的直接应用，但侧重于生成式 QA 而非传统推荐排序。",
+    "translation": "迈向可信的工业级 RAG：一种用于广告问答的强化协同适应框架",
+    "summary_zh": "提出一种强化协同适应框架，通过图感知检索建模实体关系，并结合多维奖励的证据约束强化学习， jointly 优化检索与生成以消除广告问答中的幻觉。",
+    "key_points": [
+      "提出一种强化协同适应框架，通过图感知检索建模实体关系，并结合多维奖励的证据约束强化学习， jointly 优化检索与生成以消除广告问答中的幻觉"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22547v1",
+    "title": "Towards Dynamic Dense Retrieval with Routing Strategy",
+    "authors": [
+      "Zhan Su",
+      "Fengran Mo",
+      "Jinghan Zhang",
+      "Yuchen Hui",
+      "Jia Ao Sun",
+      "Bingbing Wen",
+      "Jian-Yun Nie"
+    ],
+    "summary": "The \\textit{de facto} paradigm for applying dense retrieval (DR) to new tasks involves fine-tuning a pre-trained model for a specific task. However, this paradigm has two significant limitations: (1) It is difficult adapt the DR to a new domain if the training dataset is limited.\n  (2) Old DR models are simply replaced by newer models that are trained from scratch when the former are no longer up to date. Especially for scenarios where the model needs to be updated frequently, this paradigm is prohibitively expensive. To address these challenges, we propose a novel dense retrieval approach, termed \\textit{dynamic dense retrieval} (DDR). DDR uses \\textit{prefix tuning} as a \\textit{module} specialized for a specific domain. These modules can then be compositional combined with a dynamic routing strategy, enabling highly flexible domain adaptation in the retrieval part. Extensive evaluation on six zero-shot downstream tasks demonstrates that this approach can surpass DR while utilizing only 2\\% of the training parameters, paving the way to achieve more flexible dense retrieval in IR. We see it as a promising future direction for applying dense retrieval to various tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-26T02:38:40Z",
+    "updated": "2026-02-26T02:38:40Z",
+    "url": "http://arxiv.org/abs/2602.22547v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22547v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种基于路由策略的动态稠密检索方法，明确针对信息检索（IR）中的领域适应问题，属于搜索核心技术的改进，但尚未展示在具体推荐系统业务场景中的应用。",
+    "translation": "迈向具有路由策略的动态稠密检索",
+    "summary_zh": "提出动态稠密检索框架，利用前缀微调作为领域专用模块，结合动态路由策略实现无需全量重训的灵活领域适应与模型组合。",
+    "key_points": [
+      "提出动态稠密检索框架，利用前缀微调作为领域专用模块，结合动态路由策略实现无需全量重训的灵活领域适应与模型组合"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22645v1",
+    "title": "MUG: Meta-path-aware Universal Heterogeneous Graph Pre-Training",
+    "authors": [
+      "Lianze Shan",
+      "Jitao Zhao",
+      "Dongxiao He",
+      "Yongqi Huang",
+      "Zhiyong Feng",
+      "Weixiong Zhang"
+    ],
+    "summary": "Universal graph pre-training has emerged as a key paradigm in graph representation learning, offering a promising way to train encoders to learn transferable representations from unlabeled graphs and to effectively generalize across a wide range of downstream tasks. However, recent explorations in universal graph pre-training primarily focus on homogeneous graphs and it remains unexplored for heterogeneous graphs, which exhibit greater structural and semantic complexity. This heterogeneity makes it highly challenging to train a universal encoder for diverse heterogeneous graphs: (i) the diverse types with dataset-specific semantics hinder the construction of a unified representation space; (ii) the number and semantics of meta-paths vary across datasets, making encoding and aggregation patterns learned from one dataset difficult to apply to others. To address these challenges, we propose a novel Meta-path-aware Universal heterogeneous Graph pre-training (MUG) approach. Specifically, for challenge (i), MUG introduces a input unification module that integrates information from multiple node and relation types within each heterogeneous graph into a unified representation.This representation is then projected into a shared space by a dimension-aware encoder, enabling alignment across graphs with diverse schemas.Furthermore, for challenge (ii), MUG trains a shared encoder to capture consistent structural patterns across diverse meta-path views rather than relying on dataset-specific aggregation strategies, while a global objective encourages discriminability and reduces dataset-specific biases. Extensive experiments demonstrate the effectiveness of MUG on some real datasets.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-26T05:52:28Z",
+    "updated": "2026-02-26T05:52:28Z",
+    "url": "http://arxiv.org/abs/2602.22645v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22645v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种针对异构图预训练的通用方法，虽未明确限定于推荐系统场景，但异构图学习是召回和排序阶段的核心技术，具有明确的 RecSys 应用潜力。",
+    "translation": "MUG：元路径感知的通用异构图预训练",
+    "summary_zh": "本文提出 MUG 方法，通过输入统一模块和维度感知编码器解决异构图谱式差异，利用共享编码器捕捉跨数据集的元路径结构模式以实现通用图表示学习。",
+    "key_points": [
+      "本文提出 MUG 方法，通过输入统一模块和维度感知编码器解决异构图谱式差异，利用共享编码器捕捉跨数据集的元路径结构模式以实现通用图表示学习"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22752v1",
+    "title": "Towards Simulating Social Media Users with LLMs: Evaluating the Operational Validity of Conditioned Comment Prediction",
+    "authors": [
+      "Nils Schwager",
+      "Simon Münker",
+      "Alistair Plum",
+      "Achim Rettinger"
+    ],
+    "summary": "The transition of Large Language Models (LLMs) from exploratory tools to active \"silicon subjects\" in social science lacks extensive validation of operational validity. This study introduces Conditioned Comment Prediction (CCP), a task in which a model predicts how a user would comment on a given stimulus by comparing generated outputs with authentic digital traces. This framework enables a rigorous evaluation of current LLM capabilities with respect to the simulation of social media user behavior. We evaluated open-weight 8B models (Llama3.1, Qwen3, Ministral) in English, German, and Luxembourgish language scenarios. By systematically comparing prompting strategies (explicit vs. implicit) and the impact of Supervised Fine-Tuning (SFT), we identify a critical form vs. content decoupling in low-resource settings: while SFT aligns the surface structure of the text output (length and syntax), it degrades semantic grounding. Furthermore, we demonstrate that explicit conditioning (generated biographies) becomes redundant under fine-tuning, as models successfully perform latent inference directly from behavioral histories. Our findings challenge current \"naive prompting\" paradigms and offer operational guidelines prioritizing authentic behavioral traces over descriptive personas for high-fidelity simulation.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-02-26T08:40:21Z",
+    "updated": "2026-02-26T08:40:21Z",
+    "url": "http://arxiv.org/abs/2602.22752v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22752v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于利用 LLM 模拟社交媒体用户以进行社会科学研究，属于纯 LLM 行为模拟与验证，未直接解决推荐或搜索系统中的召回、排序等核心工程问题，虽涉及用户行为但应用场景偏离 RecSys 产品。",
+    "translation": "迈向利用大语言模型模拟社交媒体用户：评估条件化评论预测的操作效度",
+    "summary_zh": "提出条件化评论预测任务框架，通过对比生成内容与真实数字足迹，评估大语言模型在模拟用户行为时的操作效度及提示策略影响。",
+    "key_points": [
+      "提出条件化评论预测任务框架，通过对比生成内容与真实数字足迹，评估大语言模型在模拟用户行为时的操作效度及提示策略影响"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22660v1",
+    "title": "LEDA: Latent Semantic Distribution Alignment for Multi-domain Graph Pre-training",
+    "authors": [
+      "Lianze Shan",
+      "Jitao Zhao",
+      "Dongxiao He",
+      "Siqi Liu",
+      "Jiaxu Cui",
+      "Weixiong Zhang"
+    ],
+    "summary": "Recent advances in generic large models, such as GPT and DeepSeek, have motivated the introduction of universality to graph pre-training, aiming to learn rich and generalizable knowledge across diverse domains using graph representations to improve performance in various downstream applications. However, most existing methods face challenges in learning effective knowledge from generic graphs, primarily due to simplistic data alignment and limited training guidance. The issue of simplistic data alignment arises from the use of a straightforward unification for highly diverse graph data, which fails to align semantics and misleads pre-training models. The problem with limited training guidance lies in the arbitrary application of in-domain pre-training paradigms to cross-domain scenarios. While it is effective in enhancing discriminative representation in one data space, it struggles to capture effective knowledge from many graphs. To address these challenges, we propose a novel Latent sEmantic Distribution Alignment (LEDA) model for universal graph pre-training. Specifically, we first introduce a dimension projection unit to adaptively align diverse domain features into a shared semantic space with minimal information loss. Furthermore, we design a variational semantic inference module to obtain the shared latent distribution. The distribution is then adopted to guide the domain projection, aligning it with shared semantics across domains and ensuring cross-domain semantic learning. LEDA exhibits strong performance across a broad range of graphs and downstream tasks. Remarkably, in few-shot cross-domain settings, it significantly outperforms in-domain baselines and advanced universal pre-training models.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-26T06:18:14Z",
+    "updated": "2026-02-26T06:18:14Z",
+    "url": "http://arxiv.org/abs/2602.22660v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22660v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于通用图预训练方法，虽提及下游应用但未明确针对推荐/搜索场景，属于通用 ML 方法而非核心 RecSys 技术。",
+    "translation": "LEDA：面向多领域图预训练的潜在语义分布对齐",
+    "summary_zh": "提出一种通过维度投影和变分语义推断模块，将多领域图数据对齐到共享潜在语义分布的通用预训练框架，以解决跨域语义不一致问题。",
+    "key_points": [
+      "提出一种通过维度投影和变分语义推断模块，将多领域图数据对齐到共享潜在语义分布的通用预训练框架，以解决跨域语义不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.11054v1",
+    "title": "A Survey on Quantitative Modeling of Trust in Online Social Networks",
+    "authors": [
+      "Wenting Song",
+      "K. Suzanne Barber"
+    ],
+    "summary": "Online social networks facilitate user engagement and information sharing but are also rife with misinformation and deception. Research on trust modeling in online social networks focuses on developing computational models or algorithms to measure trust relationships, assess the reliability of shared content, and detect spam or malicious activities. However, most existing review papers either briefly mention the concept of trust or focus on a single category of trust models. In this paper, we offer a comprehensive categorization and review of state-of-the-art trust models developed for online social networks. First, we explore theories and models related to trust in psychology and identify several factors that influence the formation and evolution of online trust. Next, state-of-the-art trust models are categorized based on their algorithmic foundations. For each category, the modeling mechanisms are investigated, and their unique contributions to quantitative trust modeling are highlighted. Subsequently, we provide an implementation-centric trust modeling handbook, which summarizes available datasets, trust-related features, promising modeling techniques, and feasible application scenarios. Finally, the findings of the literature review are summarized, and unresolved challenges are discussed.",
+    "categories": [
+      "cs.SI",
+      "cs.AI",
+      "cs.CR",
+      "cs.CY",
+      "cs.GT"
+    ],
+    "published": "2026-02-26T00:16:59Z",
+    "updated": "2026-02-26T00:16:59Z",
+    "url": "http://arxiv.org/abs/2603.11054v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.11054v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文是关于在线社交网络中信任建模的综述，虽涉及用户行为分析，但属于通用社交网络研究，未直接针对推荐系统或搜索引擎的核心环节（如召回、排序），且非 LLM 直接应用。",
+    "translation": "在线社交网络中信任量化建模综述",
+    "summary_zh": "本文对在线社交网络中的信任量化模型进行了全面分类与回顾，整合了心理学理论基础与算法机制，并提供了包含数据集、特征及建模技术的实施指南。",
+    "key_points": [
+      "本文对在线社交网络中的信任量化模型进行了全面分类与回顾，整合了心理学理论基础与算法机制，并提供了包含数据集、特征及建模技术的实施指南"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00176v1",
+    "title": "Bridging Policy and Real-World Dynamics: LLM-Augmented Rebalancing for Shared Micromobility Systems",
+    "authors": [
+      "Heng Tan",
+      "Hua Yan",
+      "Yu Yang"
+    ],
+    "summary": "Shared micromobility services such as e-scooters and bikes have become an integral part of urban transportation, yet their efficiency critically depends on effective vehicle rebalancing. Existing methods either optimize for average demand patterns or employ robust optimization and reinforcement learning to handle predefined uncertainties. However, these approaches overlook emergent events (e.g., demand surges, vehicle outages, regulatory interventions) or sacrifice performance in normal conditions. We introduce AMPLIFY, an LLM-augmented policy adaptation framework for shared micromobility rebalancing. The framework combines a baseline rebalancing module with an LLM-based adaptation module that adjusts strategies in real time under emergent scenarios. The adaptation module ingests system context, demand predictions, and baseline strategies, and refines adjustments through self-reflection. Evaluations on real-world e-scooter data from Chicago show that our approach improves demand satisfaction and system revenue compared to baseline policies, highlighting the potential of LLM-driven adaptation as a flexible solution for managing uncertainty in micromobility systems.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-02-26T19:13:17Z",
+    "updated": "2026-02-26T19:13:17Z",
+    "url": "http://arxiv.org/abs/2603.00176v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00176v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯 LLM 在交通运筹（共享单车调度）中的应用，完全未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模等），符合排除标准。",
+    "translation": "连接策略与现实动态：基于大语言模型增强的共享微出行系统再平衡",
+    "summary_zh": "提出一种结合基线模块与大语言模型自适应模块的框架，利用大模型的自反思能力实时调整共享微出行车辆在突发场景下的调度策略。",
+    "key_points": [
+      "提出一种结合基线模块与大语言模型自适应模块的框架，利用大模型的自反思能力实时调整共享微出行车辆在突发场景下的调度策略"
+    ]
+  }
+]

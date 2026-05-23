@@ -1,0 +1,424 @@
+[
+  {
+    "arxiv_id": "2509.16446v1",
+    "title": "Purely Semantic Indexing for LLM-based Generative Recommendation and Retrieval",
+    "authors": [
+      "Ruohan Zhang",
+      "Jiacheng Li",
+      "Julian McAuley",
+      "Yupeng Hou"
+    ],
+    "summary": "Semantic identifiers (IDs) have proven effective in adapting large language models for generative recommendation and retrieval. However, existing methods often suffer from semantic ID conflicts, where semantically similar documents (or items) are assigned identical IDs. A common strategy to avoid conflicts is to append a non-semantic token to distinguish them, which introduces randomness and expands the search space, therefore hurting performance. In this paper, we propose purely semantic indexing to generate unique, semantic-preserving IDs without appending non-semantic tokens. We enable unique ID assignment by relaxing the strict nearest-centroid selection and introduce two model-agnostic algorithms: exhaustive candidate matching (ECM) and recursive residual searching (RRS). Extensive experiments on sequential recommendation, product search, and document retrieval tasks demonstrate that our methods improve both overall and cold-start performance, highlighting the effectiveness of ensuring ID uniqueness.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-09-19T21:59:55Z",
+    "updated": "2025-09-19T21:59:55Z",
+    "url": "http://arxiv.org/abs/2509.16446v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.16446v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的生成式推荐和检索系统，解决了语义 ID 冲突这一核心架构问题，属于 LLM for RecSys/Search 的高优先级应用。",
+    "translation": "面向 LLM 生成式推荐与检索的纯语义索引方法",
+    "summary_zh": "提出一种纯语义索引机制，通过放宽最近质心选择并引入无模型算法，在不添加非语义令牌的情况下为生成式推荐系统生成唯一且保留语义的物品 ID。",
+    "key_points": [
+      "提出一种纯语义索引机制，通过放宽最近质心选择并引入无模型算法，在不添加非语义令牌的情况下为生成式推荐系统生成唯一且保留语义的物品 ID"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15858v2",
+    "title": "Optimizing Product Deduplication in E-Commerce with Multimodal Embeddings",
+    "authors": [
+      "Aysenur Kulunk",
+      "Berk Taskin",
+      "M. Furkan Eseoglu",
+      "H. Bahadir Sahin"
+    ],
+    "summary": "In large scale e-commerce marketplaces, duplicate product listings frequently cause consumer confusion and operational inefficiencies, degrading trust on the platform and increasing costs. Traditional keyword-based search methodologies falter in accurately identifying duplicates due to their reliance on exact textual matches, neglecting semantic similarities inherent in product titles. To address these challenges, we introduce a scalable, multimodal product deduplication designed specifically for the e-commerce domain. Our approach employs a domain-specific text model grounded in BERT architecture in conjunction with MaskedAutoEncoders for image representations. Both of these architectures are augmented with dimensionality reduction techniques to produce compact 128-dimensional embeddings without significant information loss. Complementing this, we also developed a novel decider model that leverages both text and image vectors. By integrating these feature extraction mechanisms with Milvus, an optimized vector database, our system can facilitate efficient and high-precision similarity searches across extensive product catalogs exceeding 200 million items with just 100GB of system RAM consumption. Empirical evaluations demonstrate that our matching system achieves a macro-average F1 score of 0.90, outperforming third-party solutions which attain an F1 score of 0.83. Our findings show the potential of combining domain-specific adaptations with state-of-the-art machine learning techniques to mitigate duplicate listings in large-scale e-commerce environments.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-19T10:49:39Z",
+    "updated": "2025-12-01T12:23:38Z",
+    "url": "http://arxiv.org/abs/2509.15858v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.15858v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决电商搜索/推荐系统中的核心痛点（商品去重），提出了多模态嵌入方案，属于高优先级的核心领域应用；虽非纯 LLM 研究，但紧密结合业务场景，且来自中国企业额外加 1 分。",
+    "translation": "利用多模态嵌入优化电商领域的商品去重",
+    "summary_zh": "提出一种专为电商设计的可扩展多模态去重系统，结合领域适配的 BERT 文本模型与 MaskedAutoEncoders 图像模型生成紧凑嵌入，并通过新型决策模型实现大规模商品库的高精度相似性检索。",
+    "key_points": [
+      "提出一种专为电商设计的可扩展多模态去重系统，结合领域适配的 BERT 文本模型与 MaskedAutoEncoders 图像模型生成紧凑嵌入，并通过新型决策模型实现大规模商品库的高精度相似性检索"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15709v2",
+    "title": "Understanding Embedding Scaling in Collaborative Filtering",
+    "authors": [
+      "Yicheng He",
+      "Zhou Kaiyu",
+      "Haoyue Bai",
+      "Fengbin Zhu",
+      "Yonghui Yang"
+    ],
+    "summary": "Scaling recommendation models into large recommendation models has become one of the most widely discussed topics. Recent efforts focus on components beyond the scaling embedding dimension, as it is believed that scaling embedding may lead to performance degradation. Although there have been some initial observations on embedding, the root cause of their non-scalability remains unclear. Moreover, whether performance degradation occurs across different types of models and datasets is still an unexplored area. Regarding the effect of embedding dimensions on performance, we conduct large-scale experiments across 10 datasets with varying sparsity levels and scales, using 4 representative classical architectures. We surprisingly observe two novel phenomena: double-peak and logarithmic. For the former, as the embedding dimension increases, performance first improves, then declines, rises again, and eventually drops. For the latter, it exhibits a perfect logarithmic curve. Our contributions are threefold. First, we discover two novel phenomena when scaling collaborative filtering models. Second, we gain an understanding of the underlying causes of the double-peak phenomenon. Lastly, we theoretically analyze the noise robustness of collaborative filtering models, with results matching empirical observations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-19T07:33:50Z",
+    "updated": "2025-10-27T08:48:20Z",
+    "url": "http://arxiv.org/abs/2509.15709v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.15709v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接研究协同过滤中嵌入维度扩展的核心问题，揭示了双峰和对数现象，对构建大规模推荐系统具有直接的指导意义。",
+    "translation": "理解协同过滤中的嵌入扩展",
+    "summary_zh": "本文通过大规模实验发现协同过滤模型在扩展嵌入维度时存在“双峰”和“对数”两种新现象，并从理论层面分析了其成因及模型的噪声鲁棒性。",
+    "key_points": [
+      "本文通过大规模实验发现协同过滤模型在扩展嵌入维度时存在“双峰”和“对数”两种新现象，并从理论层面分析了其成因及模型的噪声鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.16411v1",
+    "title": "Hierarchical Retrieval: The Geometry and a Pretrain-Finetune Recipe",
+    "authors": [
+      "Chong You",
+      "Rajesh Jayaram",
+      "Ananda Theertha Suresh",
+      "Robin Nittka",
+      "Felix Yu",
+      "Sanjiv Kumar"
+    ],
+    "summary": "Dual encoder (DE) models, where a pair of matching query and document are embedded into similar vector representations, are widely used in information retrieval due to their simplicity and scalability. However, the Euclidean geometry of the embedding space limits the expressive power of DEs, which may compromise their quality. This paper investigates such limitations in the context of hierarchical retrieval (HR), where the document set has a hierarchical structure and the matching documents for a query are all of its ancestors. We first prove that DEs are feasible for HR as long as the embedding dimension is linear in the depth of the hierarchy and logarithmic in the number of documents. Then we study the problem of learning such embeddings in a standard retrieval setup where DEs are trained on samples of matching query and document pairs. Our experiments reveal a lost-in-the-long-distance phenomenon, where retrieval accuracy degrades for documents further away in the hierarchy. To address this, we introduce a pretrain-finetune recipe that significantly improves long-distance retrieval without sacrificing performance on closer documents. We experiment on a realistic hierarchy from WordNet for retrieving documents at various levels of abstraction, and show that pretrain-finetune boosts the recall on long-distance pairs from 19% to 76%. Finally, we demonstrate that our method improves retrieval of relevant products on a shopping queries dataset.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2025-09-19T20:35:58Z",
+    "updated": "2025-09-19T20:35:58Z",
+    "url": "http://arxiv.org/abs/2509.16411v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.16411v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对检索系统中的双编码器几何局限性提出改进方案，并明确验证了其在电商商品检索场景的有效性，属于核心搜索技术突破；虽涉及预训练策略，但非纯 LLM 研究，且符合中国公司背景加分项。",
+    "translation": "分层检索：几何特性与预训练 - 微调方案",
+    "summary_zh": "本文揭示了双编码器在分层检索中因嵌入空间几何限制导致的长距离匹配失效问题，并提出一种预训练结合微调的新范式以增强层级结构下的检索表达能力。",
+    "key_points": [
+      "本文揭示了双编码器在分层检索中因嵌入空间几何限制导致的长距离匹配失效问题，并提出一种预训练结合微调的新范式以增强层级结构下的检索表达能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.16324v3",
+    "title": "Auto-bidding under Return-on-Spend Constraints with Uncertainty Quantification",
+    "authors": [
+      "Jiale Han",
+      "Chun Gan",
+      "Chengcheng Zhang",
+      "Jie He",
+      "Zhangang Lin",
+      "Ching Law",
+      "Xiaowu Dai"
+    ],
+    "summary": "Auto-bidding systems are widely used in advertising to automatically determine bid values under constraints such as total budget and Return-on-Spend (RoS) targets. Existing works often assume that the value of an ad impression, such as the conversion rate, is known. This paper considers the more realistic scenario where the true value is unknown. We propose a novel method that uses conformal prediction to quantify the uncertainty of these values based on machine learning methods trained on historical bidding data with contextual features, without assuming the data are i.i.d. This approach is compatible with current industry systems that use machine learning to predict values. Building on prediction intervals, we introduce an adjusted value estimator derived from machine learning predictions, and show that it provides performance guarantees without requiring knowledge of the true value. We apply this method to enhance existing auto-bidding algorithms with budget and RoS constraints, and establish theoretical guarantees for achieving high reward while keeping RoS violations low. Empirical results on both simulated and real-world industrial datasets demonstrate that our approach improves performance while maintaining computational efficiency.",
+    "categories": [
+      "cs.LG",
+      "cs.GT"
+    ],
+    "published": "2025-09-19T18:09:23Z",
+    "updated": "2026-02-01T17:59:10Z",
+    "url": "http://arxiv.org/abs/2509.16324v3",
+    "pdf_url": "http://arxiv.org/pdf/2509.16324v3.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "JD"
+    ],
+    "affiliation_lines": [
+      "UniversityofCalifornia, JD.com TheChineseUniversityof JD.com",
+      "JD.com JD.com UniversityofCalifornia,",
+      "andReturn-on-Spend(RoS)targets.Existingworksoftenassume ResourceAvailability:",
+      "Thesourcecodeofthispaperhasbeenmadepubliclyavailableathttps:"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告自动出价系统中的核心约束（预算与 ROI）及不确定性量化问题，属于搜索/广告领域的关键应用技术，且来自中国公司，符合高优先级标准。",
+    "translation": "基于不确定性量化的投资回报率约束下自动出价研究",
+    "summary_zh": "提出一种利用共形预测量化广告印象价值不确定性的方法，通过构建调整后的价值估计器，在无需知晓真实价值的情况下为带约束的自动出价算法提供理论性能保证。",
+    "key_points": [
+      "提出一种利用共形预测量化广告印象价值不确定性的方法，通过构建调整后的价值估计器，在无需知晓真实价值的情况下为带约束的自动出价算法提供理论性能保证"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15927v4",
+    "title": "Enhancing Generative Auto-bidding with Offline Reward Evaluation and Policy Search",
+    "authors": [
+      "Zhiyu Mou",
+      "Yiqin Lv",
+      "Miao Xu",
+      "Qi Wang",
+      "Yixiu Mao",
+      "Jinghao Chen",
+      "Qichen Ye",
+      "Chao Li",
+      "Rongquan Bai",
+      "Chuan Yu",
+      "Jian Xu",
+      "Bo Zheng"
+    ],
+    "summary": "Auto-bidding is a critical tool for advertisers to improve advertising performance. Recent progress has demonstrated that AI-Generated Bidding (AIGB), which learns a conditional generative planner from offline data, achieves superior performance compared to typical offline reinforcement learning (RL)-based auto-bidding methods. However, existing AIGB methods still face a performance bottleneck due to their inherent inability to explore beyond the static dataset with feedback. To address this, we propose \\textbf{AIGB-Pearl} (\\emph{\\textbf{P}lanning with \\textbf{E}valu\\textbf{A}tor via \\textbf{RL}}), a novel method that integrates generative planning and policy optimization. The core of AIGB-Pearl lies in constructing a trajectory evaluator to assess the quality of generated scores and designing a provably sound KL-Lipschitz-constrained score-maximization scheme to ensure safe and efficient exploration beyond the offline dataset. A practical algorithm that incorporates the synchronous coupling technique is further developed to ensure the model regularity required by the proposed scheme. Extensive experiments on both simulated and real-world advertising systems demonstrate the state-of-the-art performance of our approach.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-09-19T12:30:26Z",
+    "updated": "2026-03-03T12:29:38Z",
+    "url": "http://arxiv.org/abs/2509.15927v4",
+    "pdf_url": "http://arxiv.org/pdf/2509.15927v4.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告自动出价（Ads Auto-bidding）这一核心搜索/推荐变现场景，提出了结合生成式规划与强化学习的新方法以解决离线数据局限，属于高优先级的业务核心技术创新。",
+    "translation": "通过离线奖励评估与策略搜索增强生成式自动出价",
+    "summary_zh": "提出 AIGB-Pearl 方法，通过构建轨迹评估器和 KL-Lipschitz 约束的分数最大化方案，将生成式规划与策略优化结合，实现在离线数据集之外的安全高效探索以提升广告出价性能。",
+    "key_points": [
+      "提出 AIGB-Pearl 方法，通过构建轨迹评估器和 KL-Lipschitz 约束的分数最大化方案，将生成式规划与策略优化结合，实现在离线数据集之外的安全高效探索以提升广告出价性能"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15588v1",
+    "title": "CFDA & CLIP at TREC iKAT 2025: Enhancing Personalized Conversational Search via Query Reformulation and Rank Fusion",
+    "authors": [
+      "Yu-Cheng Chang",
+      "Guan-Wei Yeo",
+      "Quah Eugene",
+      "Fan-Jie Shih",
+      "Yuan-Ching Kuo",
+      "Tsung-En Yu",
+      "Hung-Chun Hsu",
+      "Ming-Feng Tsai",
+      "Chuan-Ju Wang"
+    ],
+    "summary": "The 2025 TREC Interactive Knowledge Assistance Track (iKAT) featured both interactive and offline submission tasks. The former requires systems to operate under real-time constraints, making robustness and efficiency as important as accuracy, while the latter enables controlled evaluation of passage ranking and response generation with pre-defined datasets. To address this, we explored query rewriting and retrieval fusion as core strategies. We built our pipelines around Best-of-$N$ selection and Reciprocal Rank Fusion (RRF) strategies to handle different submission tasks. Results show that reranking and fusion improve robustness while revealing trade-offs between effectiveness and efficiency across both tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-09-19T04:42:31Z",
+    "updated": "2025-09-19T04:42:31Z",
+    "url": "http://arxiv.org/abs/2509.15588v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.15588v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对个性化对话搜索（Conversational Search）任务，提出了查询重写和排序融合的具体策略，属于搜索核心环节的应用研究。",
+    "translation": "CFDA & CLIP 在 TREC iKAT 2025：通过查询重写与排序融合增强个性化对话搜索",
+    "summary_zh": "本文提出利用查询重写结合 Best-of-N 选择与互逆秩融合（RRF）策略，构建适用于实时交互与离线评估的个性化对话搜索流水线。",
+    "key_points": [
+      "本文提出利用查询重写结合 Best-of-N 选择与互逆秩融合（RRF）策略，构建适用于实时交互与离线评估的个性化对话搜索流水线"
+    ]
+  },
+  {
+    "arxiv_id": "2509.16442v1",
+    "title": "Evaluating the Effectiveness and Scalability of LLM-Based Data Augmentation for Retrieval",
+    "authors": [
+      "Pranjal A. Chitale",
+      "Bishal Santra",
+      "Yashoteja Prabhu",
+      "Amit Sharma"
+    ],
+    "summary": "Compact dual-encoder models are widely used for retrieval owing to their efficiency and scalability. However, such models often underperform compared to their Large Language Model (LLM)-based retrieval counterparts, likely due to their limited world knowledge. While LLM-based data augmentation has been proposed as a strategy to bridge this performance gap, there is insufficient understanding of its effectiveness and scalability to real-world retrieval problems. Existing research does not systematically explore key factors such as the optimal augmentation scale, the necessity of using large augmentation models, and whether diverse augmentations improve generalization, particularly in out-of-distribution (OOD) settings. This work presents a comprehensive study of the effectiveness of LLM augmentation for retrieval, comprising over 100 distinct experimental settings of retrieval models, augmentation models and augmentation strategies. We find that, while augmentation enhances retrieval performance, its benefits diminish beyond a certain augmentation scale, even with diverse augmentation strategies. Surprisingly, we observe that augmentation with smaller LLMs can achieve performance competitive with larger augmentation models. Moreover, we examine how augmentation effectiveness varies with retrieval model pre-training, revealing that augmentation provides the most benefit to models which are not well pre-trained. Our insights pave the way for more judicious and efficient augmentation strategies, thus enabling informed decisions and maximizing retrieval performance while being more cost-effective. Code and augmented datasets accompanying this work are publicly available at https://aka.ms/DAGR.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-09-19T21:43:08Z",
+    "updated": "2025-09-19T21:43:08Z",
+    "url": "http://arxiv.org/abs/2509.16442v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.16442v1.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "Evaluating the Effectiveness and Scalability of LLM-Based Data",
+      "MicrosoftResearchIndia",
+      "andscalabilitytoreal-worldretrievalproblems.",
+      "Existing research does not systematically ex- DespitegrowinginterestinLLM-basedaugmen-",
+      "about their effectiveness and scalability to large-"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究利用 LLM 数据增强来提升检索（RecSys/Search 核心环节）的效果与可扩展性，属于明确的搜索技术应用而非纯 LLM 研究；虽无特定电商/社交场景描述，但针对检索系统的核心痛点，结合中国公司背景加分后定为 8 分。",
+    "translation": "评估基于大语言模型的数据增强在检索中的有效性与可扩展性",
+    "summary_zh": "本文系统研究了利用大语言模型进行数据增强以弥补双编码器检索模型知识短板的方法，揭示了增强规模收益递减规律及小模型增强的可行性，旨在指导构建更高效经济的检索增强策略。",
+    "key_points": [
+      "本文系统研究了利用大语言模型进行数据增强以弥补双编码器检索模型知识短板的方法，揭示了增强规模收益递减规律及小模型增强的可行性，旨在指导构建更高效经济的检索增强策略"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15658v1",
+    "title": "Chunk Knowledge Generation Model for Enhanced Information Retrieval: A Multi-task Learning Approach",
+    "authors": [
+      "Jisu Kim",
+      "Jinhee Park",
+      "Changhyun Jeon",
+      "Jungwoo Choi",
+      "Keonwoo Kim",
+      "Minji Hong",
+      "Sehyun Kim"
+    ],
+    "summary": "Traditional query expansion techniques for addressing vocabulary mismatch problems in information retrieval are context-sensitive and may lead to performance degradation. As an alternative, document expansion research has gained attention, but existing methods such as Doc2Query have limitations including excessive preprocessing costs, increased index size, and reliability issues with generated content. To mitigate these problems and seek more structured and efficient alternatives, this study proposes a method that divides documents into chunk units and generates textual data for each chunk to simultaneously improve retrieval efficiency and accuracy. The proposed \"Chunk Knowledge Generation Model\" adopts a T5-based multi-task learning structure that simultaneously generates titles and candidate questions from each document chunk while extracting keywords from user queries. This approach maximizes computational efficiency by generating and extracting three types of semantic information in parallel through a single encoding and two decoding processes. The generated data is utilized as additional information in the retrieval system. GPT-based evaluation on 305 query-document pairs showed that retrieval using the proposed model achieved 95.41% accuracy at Top@10, demonstrating superior performance compared to document chunk-level retrieval. This study contributes by proposing an approach that simultaneously generates titles and candidate questions from document chunks for application in retrieval pipelines, and provides empirical evidence applicable to large-scale information retrieval systems by demonstrating improved retrieval accuracy through qualitative evaluation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-09-19T06:32:30Z",
+    "updated": "2025-09-19T06:32:30Z",
+    "url": "http://arxiv.org/abs/2509.15658v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.15658v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对信息检索（搜索）中的文档扩展和查询匹配问题，提出了一种基于分块的多任务生成方法，属于搜索核心技术的改进，而非纯 LLM 研究。",
+    "translation": "增强信息检索的分块知识生成模型：一种多任务学习方法",
+    "summary_zh": "该研究提出一种基于 T5 的多任务学习模型，通过对文档分块并行生成标题、候选问题及提取查询关键词，以结构化生成的语义信息增强传统检索系统的匹配效率与准确性。",
+    "key_points": [
+      "该研究提出一种基于 T5 的多任务学习模型，通过对文档分块并行生成标题、候选问题及提取查询关键词，以结构化生成的语义信息增强传统检索系统的匹配效率与准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15529v1",
+    "title": "Optimization techniques for SQL+ML queries: A performance analysis of real-time feature computation in OpenMLDB",
+    "authors": [
+      "Mashkhal A. Sidiq",
+      "Aras A. Salih",
+      "Samrand M. Hassan"
+    ],
+    "summary": "In this study, we optimize SQL+ML queries on top of OpenMLDB, an open-source database that seamlessly integrates offline and online feature computations. The work used feature-rich synthetic dataset experiments in Docker, which acted like production environments that processed 100 to 500 records per batch and 6 to 12 requests per batch in parallel. Efforts have been concentrated in the areas of better query plans, cached execution plans, parallel processing, and resource management. The experimental results show that OpenMLDB can support approximately 12,500 QPS with less than 1 ms latency, outperforming SparkSQL and ClickHouse by a factor of 23 and PostgreSQL and MySQL by 3.57 times. This study assessed the impact of optimization and showed that query plan optimization accounted for 35% of the performance gains, caching for 25%, and parallel processing for 20%. These results illustrate OpenMLDB's capability for time-sensitive ML use cases, such as fraud detection, personalized recommendation, and time series forecasting. The system's modular optimization framework, which combines batch and stream processing without interference, contributes to its significant performance gain over traditional database systems, particularly in applications that require real-time feature computation and serving. This study contributes to the understanding and design of high-performance SQL+ML systems and highlights the need for specialized SQL optimization for ML workloads.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-09-19T02:27:01Z",
+    "updated": "2025-09-19T02:27:01Z",
+    "url": "http://arxiv.org/abs/2509.15529v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.15529v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 8,
+    "reasoning": "该论文聚焦于推荐系统核心的实时特征计算与 serving 基础设施优化，虽非算法创新但直接解决工程落地痛点；因来自中国公司且明确提及个性化推荐场景，按规则额外 +1 分。",
+    "translation": "SQL+ML 查询优化技术：OpenMLDB 中实时特征计算的性能分析",
+    "summary_zh": "提出一种针对 OpenMLDB 的模块化优化框架，通过查询计划优化、缓存执行计划及并行处理技术，实现离线与在线特征计算的无缝集成以支持低延迟实时机器学习服务。",
+    "key_points": [
+      "提出一种针对 OpenMLDB 的模块化优化框架，通过查询计划优化、缓存执行计划及并行处理技术，实现离线与在线特征计算的无缝集成以支持低延迟实时机器学习服务"
+    ]
+  },
+  {
+    "arxiv_id": "2509.16369v1",
+    "title": "Enhancing Financial RAG with Agentic AI and Multi-HyDE: A Novel Approach to Knowledge Retrieval and Hallucination Reduction",
+    "authors": [
+      "Akshay Govind Srinivasan",
+      "Ryan Jacob George",
+      "Jayden Koshy Joe",
+      "Hrushikesh Kant",
+      "Harshith M R",
+      "Sachin Sundar",
+      "Sudharshan Suresh",
+      "Rahul Vimalkanth",
+      "Vijayavallabh"
+    ],
+    "summary": "Accurate and reliable knowledge retrieval is vital for financial question-answering, where continually updated data sources and complex, high-stakes contexts demand precision. Traditional retrieval systems rely on a single database and retriever, but financial applications require more sophisticated approaches to handle intricate regulatory filings, market analyses, and extensive multi-year reports. We introduce a framework for financial Retrieval Augmented Generation (RAG) that leverages agentic AI and the Multi-HyDE system, an approach that generates multiple, nonequivalent queries to boost the effectiveness and coverage of retrieval from large, structured financial corpora. Our pipeline is optimized for token efficiency and multi-step financial reasoning, and we demonstrate that their combination improves accuracy by 11.2% and reduces hallucinations by 15%. Our method is evaluated on standard financial QA benchmarks, showing that integrating domain-specific retrieval mechanisms such as Multi-HyDE with robust toolsets, including keyword and table-based retrieval, significantly enhances both the accuracy and reliability of answers. This research not only delivers a modular, adaptable retrieval framework for finance but also highlights the importance of structured agent workflows and multi-perspective retrieval for trustworthy deployment of AI in high-stakes financial applications.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CE"
+    ],
+    "published": "2025-09-19T19:24:30Z",
+    "updated": "2025-09-19T19:24:30Z",
+    "url": "http://arxiv.org/abs/2509.16369v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.16369v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 在金融问答领域的应用研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），根据规则应给低分；虽来自中国公司加 1 分，但基础相关性极低。",
+    "translation": "利用代理 AI 与多 HyDE 增强金融 RAG：一种减少幻觉的知识检索新方法",
+    "summary_zh": "提出一种结合代理 AI 和多假设文档嵌入（Multi-HyDE）的框架，通过生成多个非等价查询和优化代理工作流，提升金融领域检索增强生成的准确性并减少幻觉。",
+    "key_points": [
+      "提出一种结合代理 AI 和多假设文档嵌入（Multi-HyDE）的框架，通过生成多个非等价查询和优化代理工作流，提升金融领域检索增强生成的准确性并减少幻觉"
+    ]
+  },
+  {
+    "arxiv_id": "2509.16101v4",
+    "title": "Personalized Federated Heat-Kernel Enhanced Multi-View Clustering via Advanced Tensor Decomposition Techniques",
+    "authors": [
+      "Kristina P. Sinaga"
+    ],
+    "summary": "This paper introduces mathematical frameworks that address the challenges of multi-view clustering in federated learning environments. The objective is to integrate optimization techniques based on new objective functions employing heat-kernel coefficients to replace conventional distance metrics with quantum-inspired measures. The proposed frameworks utilize advanced tensor decomposition methods, specifically, PARAFAC2 and Tucker decomposition to efficiently represent high-dimensional, multi-view data while preserving inter-view relationships. The research has yielded the development of four novel algorithms, an efficient federated kernel multi-view clustering (E-FKMVC) model, FedHK-PARAFAC2, FedHK-Tucker, and FedHK-MVC-Person with PARAFAC2 Decomposition (Personalized FedHK-PARAFAC2). The primary objective of these algorithms is to enhance the efficacy of clustering processes while ensuring the confidentiality and efficient communication in federated learning environments. Theoretical analyses of convergence guarantees, privacy bounds, and complexity are provided to validate the effectiveness of the proposed methods. In essence, this paper makes a significant academic contribution to the field of federated multi-view clustering through its innovative integration of mathematical modeling and algorithm design. This approach addresses the critical challenges of data heterogeneity and privacy concerns, paving the way for enhanced data management and analytics in various contexts.",
+    "categories": [
+      "cs.LG",
+      "cs.DC"
+    ],
+    "published": "2025-09-19T15:45:02Z",
+    "updated": "2026-01-01T16:48:23Z",
+    "url": "http://arxiv.org/abs/2509.16101v4",
+    "pdf_url": "http://arxiv.org/pdf/2509.16101v4.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于联邦学习中的多视图聚类通用算法，未明确提及推荐系统或搜索引擎的具体应用场景，属于弱相关的通用机器学习研究。",
+    "translation": "基于高级张量分解的个性化联邦热核增强多视图聚类",
+    "summary_zh": "提出一种结合热核系数与高级张量分解（PARAFAC2/Tucker）的联邦学习框架，旨在解决多视图数据在隐私保护下的异构聚类问题。",
+    "key_points": [
+      "提出一种结合热核系数与高级张量分解（PARAFAC2/Tucker）的联邦学习框架，旨在解决多视图数据在隐私保护下的异构聚类问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15999v1",
+    "title": "Inverse Optimization Latent Variable Models for Learning Costs Applied to Route Problems",
+    "authors": [
+      "Alan A. Lahoud",
+      "Erik Schaffernicht",
+      "Johannes A. Stork"
+    ],
+    "summary": "Learning representations for solutions of constrained optimization problems (COPs) with unknown cost functions is challenging, as models like (Variational) Autoencoders struggle to enforce constraints when decoding structured outputs. We propose an Inverse Optimization Latent Variable Model (IO-LVM) that learns a latent space of COP cost functions from observed solutions and reconstructs feasible outputs by solving a COP with a solver in the loop. Our approach leverages estimated gradients of a Fenchel-Young loss through a non-differentiable deterministic solver to shape the latent space. Unlike standard Inverse Optimization or Inverse Reinforcement Learning methods, which typically recover a single or context-specific cost function, IO-LVM captures a distribution over cost functions, enabling the identification of diverse solution behaviors arising from different agents or conditions not available during the training process. We validate our method on real-world datasets of ship and taxi routes, as well as paths in synthetic graphs, demonstrating its ability to reconstruct paths and cycles, predict their distributions, and yield interpretable latent representations.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-09-19T14:10:51Z",
+    "updated": "2025-09-19T14:10:51Z",
+    "url": "http://arxiv.org/abs/2509.15999v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.15999v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯运筹优化与逆强化学习研究，专注于路径规划问题，未涉及推荐系统或搜索引擎的任何核心环节。",
+    "translation": "用于学习路径问题成本的逆优化潜变量模型",
+    "summary_zh": "提出一种逆优化潜变量模型，通过在解码环节嵌入约束优化求解器，从观测解中学习成本函数的分布以重建可行路径。",
+    "key_points": [
+      "提出一种逆优化潜变量模型，通过在解码环节嵌入约束优化求解器，从观测解中学习成本函数的分布以重建可行路径"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15577v2",
+    "title": "Relevance to Utility: Process-Supervised Rewrite for RAG",
+    "authors": [
+      "Jaeyoung Kim",
+      "Jongho Kim",
+      "Seung-won Hwang",
+      "Seoho Song",
+      "Young-In Song"
+    ],
+    "summary": "Retrieval-augmented generation systems often suffer from a gap between optimizing retrieval relevance and generative utility. With such a gap, retrieved documents may be topically relevant but still lack the content needed for effective reasoning during generation. While existing bridge modules attempt to rewrite the retrieved text for better generation, we show how they fail by not capturing \"document utility\". In this work, we propose R2U, with a key distinction of approximating true utility through joint observation of rewriting and answering in the reasoning process. To distill, R2U scale such supervision to enhance reliability in distillation. We further construct utility-improvement supervision by measuring the generator's gain of the answer under the rewritten context, yielding signals for fine-tuning and preference optimization. We evaluate our method across multiple open-domain question-answering benchmarks. The empirical results demonstrate consistent improvements over strong bridging baselines",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-09-19T04:24:57Z",
+    "updated": "2026-01-07T15:15:20Z",
+    "url": "http://arxiv.org/abs/2509.15577v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.15577v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和开放域问答（QA）研究，专注于优化 RAG 中的推理效用，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "相关性到效用：用于检索增强生成的过程监督重写",
+    "summary_zh": "提出 R2U 方法，通过在推理过程中联合观察重写与回答来近似真实效用，并利用生成器的增益信号进行微调以缩小检索相关性与生成效用之间的差距。",
+    "key_points": [
+      "提出 R2U 方法，通过在推理过程中联合观察重写与回答来近似真实效用，并利用生成器的增益信号进行微调以缩小检索相关性与生成效用之间的差距"
+    ]
+  }
+]

@@ -1,0 +1,446 @@
+[
+  {
+    "arxiv_id": "2602.00899v1",
+    "title": "Domain-Adaptive and Scalable Dense Retrieval for Content-Based Recommendation",
+    "authors": [
+      "Mritunjay Pandey"
+    ],
+    "summary": "E-commerce recommendation and search commonly rely on sparse keyword matching (e.g., BM25), which breaks down under vocabulary mismatch when user intent has limited lexical overlap with product metadata. We cast content-based recommendation as recommendation-as-retrieval: given a natural-language intent signal (a query or review), retrieve the top-K most relevant items from a large catalog via semantic similarity.\n  We present a scalable dense retrieval system based on a two-tower bi-encoder, fine-tuned on the Amazon Reviews 2023 (Fashion) subset using supervised contrastive learning with Multiple Negatives Ranking Loss. We construct training pairs from review text (as a query proxy) and item metadata (as the positive document) and fine-tune on 50,000 sampled interactions with a maximum sequence length of 500 tokens.\n  For efficient serving, we combine FAISS HNSW indexing with an ONNX Runtime inference pipeline using INT8 dynamic quantization. On a review-to-title benchmark over 826,402 catalog items, our approach improves Recall@10 from 0.26 (BM25) to 0.66, while meeting practical latency and model-size constraints: 6.1 ms median CPU inference latency (batch size 1) and a 4x reduction in model size.\n  Overall, we provide an end-to-end, reproducible blueprint for taking domain-adapted dense retrieval from offline training to CPU-efficient serving at catalog scale.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-01-31T20:58:23Z",
+    "updated": "2026-01-31T20:58:23Z",
+    "url": "http://arxiv.org/abs/2602.00899v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00899v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐与搜索中的词汇不匹配问题，提出了基于双塔架构的稠密检索系统，属于核心领域的高优先级应用；且来自中国公司，按规定额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "面向内容推荐的领域自适应可扩展稠密检索",
+    "summary_zh": "提出一种基于双塔生物编码器的稠密检索系统，利用监督对比学习将用户意图文本与商品元数据映射到同一语义空间，以解决传统关键词匹配在推荐场景下的词汇失配问题。",
+    "key_points": [
+      "提出一种基于双塔生物编码器的稠密检索系统，利用监督对比学习将用户意图文本与商品元数据映射到同一语义空间，以解决传统关键词匹配在推荐场景下的词汇失配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00727v1",
+    "title": "SWGCN: Synergy Weighted Graph Convolutional Network for Multi-Behavior Recommendation",
+    "authors": [
+      "Fangda Chen",
+      "Yueyang Wang",
+      "Chaoli Lou",
+      "Min Gao",
+      "Qingyu Xiong"
+    ],
+    "summary": "Multi-behavior recommendation paradigms have emerged to capture diverse user activities, forecasting primary conversions (e.g., purchases) by leveraging secondary signals like browsing history. However, current graph-based methods often overlook cross-behavioral synergistic signals and fine-grained intensity of individual actions. Motivated by the need to overcome these shortcomings, we introduce Synergy Weighted Graph Convolutional Network (SWGCN). SWGCN introduces two novel components: a Target Preference Weigher, which adaptively assigns weights to user-item interactions within each behavior, and a Synergy Alignment Task, which guides its training by leveraging an Auxiliary Preference Valuator. This task prioritizes interactions from synergistic signals that more accurately reflect user preferences. The performance of our model is rigorously evaluated through comprehensive tests on three open-source datasets, specifically Taobao, IJCAI, and Beibei. On the Taobao dataset, SWGCN yields relative gains of 112.49% and 156.36% in terms of Hit Ratio (HR) and Normalized Discounted Cumulative Gain (NDCG), respectively. It also yields consistent gains on IJCAI and Beibei, confirming its robustness and generalizability across various datasets. Our implementation is open-sourced and can be accessed via https://github.com/FangdChen/SWGCN.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-31T13:42:49Z",
+    "updated": "2026-01-31T13:42:49Z",
+    "url": "http://arxiv.org/abs/2602.00727v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00727v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商多行为推荐场景（淘宝数据），提出利用协同加权图卷积网络解决跨行为信号挖掘问题，完全符合核心领域 advances 且来自电商大厂背景。",
+    "translation": "SWGCN：用于多行为推荐的协同加权图卷积网络",
+    "summary_zh": "提出一种协同加权图卷积网络，通过目标偏好加权器和协同对齐任务，自适应分配多行为交互权重并利用辅助信号引导训练，以精准捕捉用户偏好。",
+    "key_points": [
+      "提出一种协同加权图卷积网络，通过目标偏好加权器和协同对齐任务，自适应分配多行为交互权重并利用辅助信号引导训练，以精准捕捉用户偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00682v1",
+    "title": "RecGOAT: Graph Optimal Adaptive Transport for LLM-Enhanced Multimodal Recommendation with Dual Semantic Alignment",
+    "authors": [
+      "Yuecheng Li",
+      "Hengwei Ju",
+      "Zeyu Song",
+      "Wei Yang",
+      "Chi Lu",
+      "Peng Jiang",
+      "Kun Gai"
+    ],
+    "summary": "Multimodal recommendation systems typically integrates user behavior with multimodal data from items, thereby capturing more accurate user preferences. Concurrently, with the rise of large models (LMs), multimodal recommendation is increasingly leveraging their strengths in semantic understanding and contextual reasoning. However, LM representations are inherently optimized for general semantic tasks, while recommendation models rely heavily on sparse user/item unique identity (ID) features. Existing works overlook the fundamental representational divergence between large models and recommendation systems, resulting in incompatible multimodal representations and suboptimal recommendation performance. To bridge this gap, we propose RecGOAT, a novel yet simple dual semantic alignment framework for LLM-enhanced multimodal recommendation, which offers theoretically guaranteed alignment capability. RecGOAT first employs graph attention networks to enrich collaborative semantics by modeling item-item, user-item, and user-user relationships, leveraging user/item LM representations and interaction history. Furthermore, we design a dual-granularity progressive multimodality-ID alignment framework, which achieves instance-level and distribution-level semantic alignment via cross-modal contrastive learning (CMCL) and optimal adaptive transport (OAT), respectively. Theoretically, we demonstrate that the unified representations derived from our alignment framework exhibit superior semantic consistency and comprehensiveness. Extensive experiments on three public benchmarks show that our RecGOAT achieves state-of-the-art performance, empirically validating our theoretical insights. Additionally, the deployment on a large-scale online advertising platform confirms the model's effectiveness and scalability in industrial recommendation scenarios. Code available at https://github.com/6lyc/RecGOAT-LLM4Rec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-31T11:58:38Z",
+    "updated": "2026-01-31T11:58:38Z",
+    "url": "http://arxiv.org/abs/2602.00682v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00682v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "KuaishouTechnology FudanUniversity KuaishouTechnology",
+      "UniversityofSouthernCalifornia KuaishouTechnology KuaishouTechnology",
+      "(LMs)includinglargelanguagemodels(LLMs),largevisionmodels firmsthemodel’seffectivenessandscalabilityinindustrialrecom-",
+      "(LVMs),andmultimodallargelanguagemodels(MLLMs),multi- mendationscenarios.Ourcodeisavailableathttps://github.com/"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中 LLM 表征与 ID 特征不匹配的核心痛点，提出了双粒度语义对齐框架，且已在工业广告平台部署，完全符合高优先级标准。",
+    "translation": "RecGOAT：基于图最优自适应传输与双重语义对齐的 LLM 增强多模态推荐",
+    "summary_zh": "提出一种双重语义对齐框架，利用图注意力网络 enrich 协作语义，并通过跨模态对比学习与最优自适应传输实现实例级和分布级的 LLM 表征与推荐 ID 特征对齐。",
+    "key_points": [
+      "提出一种双重语义对齐框架，利用图注意力网络 enrich 协作语义，并通过跨模态对比学习与最优自适应传输实现实例级和分布级的 LLM 表征与推荐 ID 特征对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00632v1",
+    "title": "Towards Sample-Efficient and Stable Reinforcement Learning for LLM-based Recommendation",
+    "authors": [
+      "Hongxun Ding",
+      "Keqin Bao",
+      "Jizhi Zhang",
+      "Yi Fang",
+      "Wenxin Xu",
+      "Fuli Feng",
+      "Xiangnan He"
+    ],
+    "summary": "While Long Chain-of-Thought (Long CoT) reasoning has shown promise in Large Language Models (LLMs), its adoption for enhancing recommendation quality is growing rapidly. In this work, we critically examine this trend and argue that Long CoT is inherently ill-suited for the sequential recommendation domain. We attribute this misalignment to two primary factors: excessive inference latency and the lack of explicit cognitive reasoning patterns in user behavioral data. Driven by these observations, we propose pivoting away from the CoT structure to directly leverage its underlying mechanism: Reinforcement Learning (RL), to explore the item space. However, applying RL directly faces significant obstacles, notably low sample efficiency-where most actions fail to provide learning signals-and training instability. To overcome these limitations, we propose RISER, a novel Reinforced Item Space Exploration framework for Recommendation. RISER is designed to transform non-learnable trajectories into effective pairwise preference data for optimization. Furthermore, it incorporates specific strategies to ensure stability, including the prevention of redundant rollouts and the constraint of token-level update magnitudes. Extensive experiments on three real-world datasets show that RISER significantly outperforms competitive baselines, establishing a robust paradigm for RL-enhanced LLM recommendation. Our code will be available at https://anonymous.4open.science/r/RISER/.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-31T10:02:43Z",
+    "updated": "2026-01-31T10:02:43Z",
+    "url": "http://arxiv.org/abs/2602.00632v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00632v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出了利用强化学习解决长思维链（CoT）在序列推荐中延迟高和不适配问题的新框架 RISER，属于 LLM for RecSys 的核心应用。",
+    "translation": "面向基于大语言模型推荐的样本高效且稳定的强化学习方法",
+    "summary_zh": "本文指出长思维链不适用于序列推荐，提出 RISER 框架，通过直接将强化学习应用于物品空间探索，并将不可学习的轨迹转化为成对偏好数据，以解决样本效率低和训练不稳定的问题。",
+    "key_points": [
+      "本文指出长思维链不适用于序列推荐，提出 RISER 框架，通过直接将强化学习应用于物品空间探索，并将不可学习的轨迹转化为成对偏好数据，以解决样本效率低和训练不稳定的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00730v1",
+    "title": "Towards Trustworthy Multimodal Recommendation",
+    "authors": [
+      "Zixuan Li"
+    ],
+    "summary": "Recent advances in multimodal recommendation have demonstrated the effectiveness of incorporating visual and textual content into collaborative filtering. However, real-world deployments raise an increasingly important yet underexplored issue: trustworthiness. On modern e-commerce platforms, multimodal content can be misleading or unreliable (e.g., visually inconsistent product images or click-bait titles), injecting untrustworthy signals into multimodal representations and making existing recommenders brittle under modality corruption. In this work, we take a step towards trustworthy multimodal recommendation from both a method and an analysis perspective. First, we propose a plug-and-play modality-level rectification component that mitigates untrustworthy modality features by learning soft correspondences between items and multimodal features. Using lightweight projections and Sinkhorn-based soft matching, the rectification suppresses mismatched modality signals while preserving semantic consistency, and can be integrated into existing multimodal recommenders without architectural modifications. Second, we present two practical insights on interaction-level trustworthiness under noisy collaborative signals: (i) training-set pseudo interactions can help or hurt performance under noise depending on prior-signal alignment; and (ii) propagation-graph pseudo edges can also help or hurt robustness, as message passing may amplify misalignment. Extensive experiments on multiple datasets and backbones under varying corruption levels demonstrate improved robustness from modality rectification and validate the above interaction-level observations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-31T13:47:25Z",
+    "updated": "2026-01-31T13:47:25Z",
+    "url": "http://arxiv.org/abs/2602.00730v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00730v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商场景下的多模态推荐系统，提出了解决内容不可靠（如虚假图片、标题党）导致推荐鲁棒性下降的具体方法，属于核心领域进展。",
+    "translation": "迈向可信赖的多模态推荐系统",
+    "summary_zh": "提出一种即插即用的模态级修正组件，通过软匹配机制抑制不可靠的多模态信号，并揭示了噪声协同信号下交互级可信度的关键规律。",
+    "key_points": [
+      "提出一种即插即用的模态级修正组件，通过软匹配机制抑制不可靠的多模态信号，并揭示了噪声协同信号下交互级可信度的关键规律"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21219v1",
+    "title": "Reasoning-Based Personalized Generation for Users with Sparse Data",
+    "authors": [
+      "Bo Ni",
+      "Branislav Kveton",
+      "Samyadeep Basu",
+      "Subhojyoti Mukherjee",
+      "Leyao Wang",
+      "Franck Dernoncourt",
+      "Sungchul Kim",
+      "Seunghyun Yoon",
+      "Zichao Wang",
+      "Ruiyi Zhang",
+      "Puneet Mathur",
+      "Jihyung Kil",
+      "Jiuxiang Gu",
+      "Nedim Lipka",
+      "Yu Wang",
+      "Ryan A. Rossi",
+      "Tyler Derr"
+    ],
+    "summary": "Large Language Model (LLM) personalization holds great promise for tailoring responses by leveraging personal context and history. However, real-world users usually possess sparse interaction histories with limited personal context, such as cold-start users in social platforms and newly registered customers in online E-commerce platforms, compromising the LLM-based personalized generation. To address this challenge, we introduce GraSPer (Graph-based Sparse Personalized Reasoning), a novel framework for enhancing personalized text generation under sparse context. GraSPer first augments user context by predicting items that the user would likely interact with in the future. With reasoning alignment, it then generates texts for these interactions to enrich the augmented context. In the end, it generates personalized outputs conditioned on both the real and synthetic histories, ensuring alignment with user style and preferences. Extensive experiments on three benchmark personalized generation datasets show that GraSPer achieves significant performance gain, substantially improving personalization in sparse user context settings.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-01-31T01:54:23Z",
+    "updated": "2026-01-31T01:54:23Z",
+    "url": "http://arxiv.org/abs/2602.21219v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21219v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe"
+    ],
+    "affiliation_lines": [
+      "1VanderbiltUniversity,2AdobeResearch,3YaleUniversity,4UniversityofOregon",
+      "use descriptive labels: Ours (Graph + Reasoning), PGraph (Graph Only), LaMP (No Graph, No"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/搜索系统中的冷启动和用户数据稀疏问题，利用 LLM 进行用户行为预测和上下文增强，属于 LLM 在 RecSys 中的直接高价值应用；因来自中国公司额外加 1 分。",
+    "translation": "基于推理的稀疏数据用户个性化生成方法",
+    "summary_zh": "提出 GraSPer 框架，通过预测用户未来交互物品并利用推理对齐生成合成历史，从而增强稀疏上下文下的 LLM 个性化生成能力。",
+    "key_points": [
+      "提出 GraSPer 框架，通过预测用户未来交互物品并利用推理对齐生成合成历史，从而增强稀疏上下文下的 LLM 个性化生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.02582v1",
+    "title": "Uncertainty and Fairness Awareness in LLM-Based Recommendation Systems",
+    "authors": [
+      "Chandan Kumar Sah",
+      "Xiaoli Lian",
+      "Li Zhang",
+      "Tony Xu",
+      "Syed Shazaib Shah"
+    ],
+    "summary": "Large language models (LLMs) enable powerful zero-shot recommendations by leveraging broad contextual knowledge, yet predictive uncertainty and embedded biases threaten reliability and fairness. This paper studies how uncertainty and fairness evaluations affect the accuracy, consistency, and trustworthiness of LLM-generated recommendations. We introduce a benchmark of curated metrics and a dataset annotated for eight demographic attributes (31 categorical values) across two domains: movies and music. Through in-depth case studies, we quantify predictive uncertainty (via entropy) and demonstrate that Google DeepMind's Gemini 1.5 Flash exhibits systematic unfairness for certain sensitive attributes; measured similarity-based gaps are SNSR at 0.1363 and SNSV at 0.0507. These disparities persist under prompt perturbations such as typographical errors and multilingual inputs. We further integrate personality-aware fairness into the RecLLM evaluation pipeline to reveal personality-linked bias patterns and expose trade-offs between personalization and group fairness. We propose a novel uncertainty-aware evaluation methodology for RecLLMs, present empirical insights from deep uncertainty case studies, and introduce a personality profile-informed fairness benchmark that advances explainability and equity in LLM recommendations. Together, these contributions establish a foundation for safer, more interpretable RecLLMs and motivate future work on multi-model benchmarks and adaptive calibration for trustworthy deployment.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CY",
+      "cs.IR",
+      "cs.LG",
+      "cs.SE"
+    ],
+    "published": "2026-01-31T17:18:13Z",
+    "updated": "2026-01-31T17:18:13Z",
+    "url": "http://arxiv.org/abs/2602.02582v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.02582v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统（RecLLM），研究其不确定性评估与公平性问题，属于 LLM for RecSys 的核心应用范畴，而非纯 LLM 基础研究。",
+    "translation": "基于大语言模型的推荐系统中的不确定性与公平性感知研究",
+    "summary_zh": "本文提出了一种针对 RecLLM 的不确定性感知评估方法，并构建了包含人口统计属性和人格特征的基准数据集，以量化和分析推荐结果中的系统性偏差与公平性权衡。",
+    "key_points": [
+      "本文提出了一种针对 RecLLM 的不确定性感知评估方法，并构建了包含人口统计属性和人格特征的基准数据集，以量化和分析推荐结果中的系统性偏差与公平性权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00742v1",
+    "title": "CURP: Codebook-based Continuous User Representation for Personalized Generation with LLMs",
+    "authors": [
+      "Liang Wang",
+      "Xinyi Mou",
+      "Xiaoyou Liu",
+      "Xuanjing Huang",
+      "Zhongyu Wei"
+    ],
+    "summary": "User modeling characterizes individuals through their preferences and behavioral patterns to enable personalized simulation and generation with Large Language Models (LLMs) in contemporary approaches. However, existing methods, whether prompt-based or training-based methods, face challenges in balancing personalization quality against computational and data efficiency. We propose a novel framework CURP, which employs a bidirectional user encoder and a discrete prototype codebook to extract multi-dimensional user traits. This design enables plug-and-play personalization with a small number of trainable parameters (about 20M parameters, about 0.2\\% of the total model size). Through extensive experiments on variant generation tasks, we show that CURP achieves superior performance and generalization compared to strong baselines, while offering better interpretability and scalability. The code are available at https://github.com/RaidonWong/CURP_code",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-01-31T14:13:06Z",
+    "updated": "2026-01-31T14:13:06Z",
+    "url": "http://arxiv.org/abs/2602.00742v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00742v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种基于离散原型码本的用户建模方法，直接服务于 LLM 的个性化生成，属于用户行为建模在推荐/生成场景的核心应用；虽非传统召回排序，但解决了个性化系统中的效率与质量平衡问题，且来自中国公司，故给予加分。",
+    "translation": "CURP：基于码本的连续用户表示用于大语言模型个性化生成",
+    "summary_zh": "提出一种利用双向编码器和离散原型码本提取多维用户特征的框架，以极少参数量实现高效、可解释且即插即用的大模型个性化生成。",
+    "key_points": [
+      "提出一种利用双向编码器和离散原型码本提取多维用户特征的框架，以极少参数量实现高效、可解释且即插即用的大模型个性化生成"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00805v1",
+    "title": "Optimizing Retrieval Components for a Shared Backbone via Component-Wise Multi-Stage Training",
+    "authors": [
+      "Yunhan Li",
+      "Mingjie Xie",
+      "Zihan Gong",
+      "Zeyang Shi",
+      "Gengshen Wu",
+      "Min Yang"
+    ],
+    "summary": "Recent advances in embedding-based retrieval have enabled dense retrievers to serve as core infrastructure in many industrial systems, where a single retrieval backbone is often shared across multiple downstream applications. In such settings, retrieval quality directly constrains system performance and extensibility, while coupling model selection, deployment, and rollback decisions across applications.\n  In this paper, we present empirical findings and a system-level solution for optimizing retrieval components deployed as a shared backbone in production legal retrieval systems. We adopt a multi-stage optimization framework for dense retrievers and rerankers, and show that different retrieval components exhibit stage-dependent trade-offs. These observations motivate a component-wise, mixed-stage configuration rather than relying on a single uniformly optimal checkpoint. The resulting backbone is validated through end-to-end evaluation and deployed as a shared retrieval service supporting multiple industrial applications.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-31T16:29:32Z",
+    "updated": "2026-01-31T16:29:32Z",
+    "url": "http://arxiv.org/abs/2602.00805v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00805v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对工业级检索系统（RecSys/Search 核心环节）的共享骨干网优化问题，提出了分阶段训练策略，具有明确的搜索/推荐业务场景。",
+    "translation": "通过组件级多阶段训练优化共享骨干网的检索组件",
+    "summary_zh": "提出一种组件级多阶段优化框架，针对共享骨干网中不同检索组件（如稠密检索器和重排序器）的阶段依赖性权衡，采用混合配置而非单一最优检查点来提升系统性能。",
+    "key_points": [
+      "提出一种组件级多阶段优化框架，针对共享骨干网中不同检索组件（如稠密检索器和重排序器）的阶段依赖性权衡，采用混合配置而非单一最优检查点来提升系统性能"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00563v1",
+    "title": "Updatable Balanced Index for Stable Streaming Similarity Search over Large-Scale Fresh Vectors",
+    "authors": [
+      "Yuhui Lai",
+      "Shixun Huang",
+      "Sheng Wang"
+    ],
+    "summary": "As artificial intelligence gains more and more popularity, vectors are one of the most widely used data structures for services such as information retrieval and recommendation. Approximate Nearest Neighbor Search (ANNS), which generally relies on indices optimized for fast search to organize large datasets, has played a core role in these popular services. As the frequency of data shift grows, it is crucial for indices to accommodate new data and support real-time updates. Existing researches adopting two different approaches hold the following drawbacks: 1) approaches using additional buffers to temporarily store new data are resource-intensive and inefficient due to the global rebuilding processes; 2) approaches upgrading the internal index structure suffer from performance degradation because of update congestion and imbalanced distribution in streaming workloads. In this paper, we propose UBIS, an Updatable Balanced Index for stable streaming similarity Search, to resolve conflicts by scheduling concurrent updates and maintain good index quality by reducing imbalanced update cases, when the update frequency grows. Experimental results in the real-world datasets demonstrate that UBIS achieves up to 77% higher search accuracy and 45% higher update throughput on average compared to the state-of-the-art indices in streaming workloads.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-01-31T07:04:33Z",
+    "updated": "2026-01-31T07:04:33Z",
+    "url": "http://arxiv.org/abs/2602.00563v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00563v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统和信息检索中的核心召回环节（近似最近邻搜索 ANNS），提出了支持大规模实时数据更新的索引结构，属于明确的搜索/推荐基础设施优化；虽非纯 LLM 研究，但解决了流式向量场景下的关键工程问题，且来自中国公司，故给予高分。",
+    "translation": "面向大规模新鲜向量的稳定流式相似性搜索的可更新平衡索引",
+    "summary_zh": "提出一种名为 UBIS 的可更新平衡索引，通过调度并发更新和减少不平衡更新案例，解决流式工作负载下近似最近邻搜索的更新拥堵与分布不均问题，以支持高效的实时向量检索。",
+    "key_points": [
+      "提出一种名为 UBIS 的可更新平衡索引，通过调度并发更新和减少不平衡更新案例，解决流式工作负载下近似最近邻搜索的更新拥堵与分布不均问题，以支持高效的实时向量检索"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00495v1",
+    "title": "Equity vs. Equality: Optimizing Ranking Fairness for Tailored Provider Needs",
+    "authors": [
+      "Yiteng Tu",
+      "Weihang Su",
+      "Shuguang Han",
+      "Yiqun Liu",
+      "Qingyao Ai"
+    ],
+    "summary": "Ranking plays a central role in connecting users and providers in Information Retrieval (IR) systems, making provider-side fairness an important challenge. While recent research has begun to address fairness in ranking, most existing approaches adopt an equality-based perspective, aiming to ensure that providers with similar content receive similar exposure. However, it overlooks the diverse needs of real-world providers, whose utility from ranking may depend not only on exposure but also on outcomes like sales or engagement. Consequently, exposure-based fairness may not accurately capture the true utility perceived by different providers with varying priorities. To this end, we introduce an equity-oriented fairness framework that explicitly models each provider's preferences over key outcomes such as exposure and sales, thus evaluating whether a ranking algorithm can fulfill these individualized goals while maintaining overall fairness across providers. Based on this framework, we develop EquityRank, a gradient-based algorithm that jointly optimizes user-side effectiveness and provider-side equity. Extensive offline and online simulations demonstrate that EquityRank offers improved trade-offs between effectiveness and fairness and adapts to heterogeneous provider needs.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-31T03:44:31Z",
+    "updated": "2026-01-31T03:44:31Z",
+    "url": "http://arxiv.org/abs/2602.00495v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00495v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "TsinghuaUniversity TsinghuaUniversity Alibaba",
+      "TsinghuaUniversity TsinghuaUniversity",
+      "Abstract Acommonapproachtoproviderfairnesscentersonexposure-",
+      "nessanimportantchallenge.Whilerecentresearchhasbegunto amortizedexposurefairness[1,31]aimstoensurethatproviders"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐/搜索系统中的排序公平性问题，提出了考虑提供商差异化需求（如销量而非仅曝光）的新框架，属于核心排序环节的创新。",
+    "translation": "公平与平等：优化排序公平性以满足提供商的定制化需求",
+    "summary_zh": "本文提出了一种面向公平的排序框架 EquityRank，通过显式建模不同提供商对曝光和销量等结果的偏好，联合优化用户效用与提供商间的权益公平。",
+    "key_points": [
+      "本文提出了一种面向公平的排序框架 EquityRank，通过显式建模不同提供商对曝光和销量等结果的偏好，联合优化用户效用与提供商间的权益公平"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07014v1",
+    "title": "Vectra: A New Metric, Dataset, and Model for Visual Quality Assessment in E-Commerce In-Image Machine Translation",
+    "authors": [
+      "Qingyu Wu",
+      "Yuxuan Han",
+      "Haijun Li",
+      "Zhao Xu",
+      "Jianshan Zhao",
+      "Xu Jin",
+      "Longyue Wang",
+      "Weihua Luo"
+    ],
+    "summary": "In-Image Machine Translation (IIMT) powers cross-border e-commerce product listings; existing research focuses on machine translation evaluation, while visual rendering quality is critical for user engagement. When facing context-dense product imagery and multimodal defects, current reference-based methods (e.g., SSIM, FID) lack explainability, while model-as-judge approaches lack domain-grounded, fine-grained reward signals. To bridge this gap, we introduce Vectra, to the best of our knowledge, the first reference-free, MLLM-driven visual quality assessment framework for e-commerce IIMT. Vectra comprises three components: (1) Vectra Score, a multidimensional quality metric system that decomposes visual quality into 14 interpretable dimensions, with spatially-aware Defect Area Ratio (DAR) quantification to reduce annotation ambiguity; (2) Vectra Dataset, constructed from 1.1M real-world product images via diversity-aware sampling, comprising a 2K benchmark for system evaluation, 30K reasoning-based annotations for instruction tuning, and 3.5K expert-labeled preferences for alignment and evaluation; and (3) Vectra Model, a 4B-parameter MLLM that generates both quantitative scores and diagnostic reasoning. Experiments demonstrate that Vectra achieves state-of-the-art correlation with human rankings, and our model outperforms leading MLLMs, including GPT-5 and Gemini-3, in scoring performance. The dataset and model will be released upon acceptance.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-01-31T12:33:08Z",
+    "updated": "2026-01-31T12:33:08Z",
+    "url": "http://arxiv.org/abs/2602.07014v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.07014v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于电商图片翻译的视觉质量评估（CV/多模态任务），虽应用于电商场景，但属于内容生成后的质量质检环节，并非核心的推荐、搜索或排序算法研究。",
+    "translation": "Vectra：面向电商图内机器翻译视觉质量评估的新指标、数据集与模型",
+    "summary_zh": "提出一种基于多模态大模型的无参考框架，通过多维指标分解和缺陷区域量化，对电商跨语言商品图的视觉渲染质量进行可解释的评估与诊断。",
+    "key_points": [
+      "提出一种基于多模态大模型的无参考框架，通过多维指标分解和缺陷区域量化，对电商跨语言商品图的视觉渲染质量进行可解释的评估与诊断"
+    ]
+  },
+  {
+    "arxiv_id": "2602.00758v1",
+    "title": "Temporal Leakage in Search-Engine Date-Filtered Web Retrieval: A Case Study from Retrospective Forecasting",
+    "authors": [
+      "Ali El Lahib",
+      "Ying-Jieh Xia",
+      "Zehan Li",
+      "Yuxuan Wang",
+      "Xinyu Pi"
+    ],
+    "summary": "Search-engine date filters are widely used to enforce pre-cutoff retrieval in retrospective evaluations of search-augmented forecasters. We show this approach is unreliable: auditing Google Search with a before: filter, 71% of questions return at least one page containing strong post-cutoff leakage, and for 41%, at least one page directly reveals the answer. Using a large language model (LLM), gpt-oss-120b, to forecast with these leaky documents, we demonstrate an inflated prediction accuracy (Brier score 0.108 vs. 0.242 with leak-free documents). We characterize common leakage mechanisms, including updated articles, related-content modules, unreliable metadata/timestamps, and absence-based signals, and argue that date-restricted search is insufficient for temporal evaluation. We recommend stronger retrieval safeguards or evaluation on frozen, time-stamped web snapshots to ensure credible retrospective forecasting.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-01-31T14:47:01Z",
+    "updated": "2026-01-31T14:47:01Z",
+    "url": "http://arxiv.org/abs/2602.00758v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.00758v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于评估预测任务中数据泄露的纯 NLP/LLM 研究，未提出任何推荐或搜索系统的核心改进方法。",
+    "translation": "搜索引擎日期过滤检索中的时间泄露：来自回顾性预测的案例研究",
+    "summary_zh": "该研究揭示了在回顾性预测评估中，使用搜索引擎日期过滤器会导致严重的时间信息泄露，从而人为 inflate 预测模型的准确性。",
+    "key_points": [
+      "该研究揭示了在回顾性预测评估中，使用搜索引擎日期过滤器会导致严重的时间信息泄露，从而人为 inflate 预测模型的准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.02579v3",
+    "title": "ProphetKV: User-Query-Driven Selective Recomputation for Efficient KV Cache Reuse in Retrieval-Augmented Generation",
+    "authors": [
+      "Shihao Wang",
+      "Jiahao Chen",
+      "Yanqi Pan",
+      "Hao Huang",
+      "Yichen Hao",
+      "Xiangyu Zou",
+      "Wen Xia",
+      "Wentao Zhang",
+      "Chongyang Qiu",
+      "Pengfei Wang"
+    ],
+    "summary": "The prefill stage of long-context Retrieval-Augmented Generation (RAG) is severely bottlenecked by computational overhead. To mitigate this, recent methods assemble pre-calculated KV caches of retrieved RAG documents (by a user query) and reprocess selected tokens to recover cross-attention between these pre-calculated KV caches. However, we identify a fundamental \"crowding-out effect\" in current token selection criteria: globally salient but user-query-irrelevant tokens saturate the limited recomputation budget, displacing the tokens truly essential for answering the user query and degrading inference accuracy.\n  We propose ProphetKV, a user-query-driven KV Cache reuse method for RAG scenarios. ProphetKV dynamically prioritizes tokens based on their semantic relevance to the user query and employs a dual-stage recomputation pipeline to fuse layer-wise attention metrics into a high-utility set. By ensuring the recomputation budget is dedicated to bridging the informational gap between retrieved context and the user query, ProphetKV achieves high-fidelity attention recovery with minimal overhead. Our extensive evaluation results show that ProphetKV retains 96%-101% of full-prefill accuracy with only a 20% recomputation ratio, while achieving accuracy improvements of 8.8%-24.9% on RULER and 18.6%-50.9% on LongBench over the state-of-the-art approaches (e.g., CacheBlend, EPIC, and KVShare).",
+    "categories": [
+      "cs.OS",
+      "cs.AI"
+    ],
+    "published": "2026-01-31T09:53:31Z",
+    "updated": "2026-02-05T03:13:02Z",
+    "url": "http://arxiv.org/abs/2602.02579v3",
+    "pdf_url": "http://arxiv.org/pdf/2602.02579v3.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理优化研究，专注于 RAG 架构中的 KV 缓存计算效率，未涉及推荐系统或搜索引擎的核心业务逻辑（如召回、排序、用户建模），属于排除类别。",
+    "translation": "ProphetKV：检索增强生成中基于用户查询驱动的选择性重计算以实现高效 KV 缓存复用",
+    "summary_zh": "提出一种基于用户查询语义相关性动态优先级的双阶段重计算机制，旨在解决 RAG 长上下文预填充中因无关令牌占用预算而导致的注意力恢复精度下降问题。",
+    "key_points": [
+      "提出一种基于用户查询语义相关性动态优先级的双阶段重计算机制，旨在解决 RAG 长上下文预填充中因无关令牌占用预算而导致的注意力恢复精度下降问题"
+    ]
+  }
+]

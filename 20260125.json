@@ -1,0 +1,205 @@
+[
+  {
+    "arxiv_id": "2601.17836v1",
+    "title": "Unleashing the Potential of Sparse Attention on Long-term Behaviors for CTR Prediction",
+    "authors": [
+      "Weijiang Lai",
+      "Beihong Jin",
+      "Di Zhang",
+      "Siru Chen",
+      "Jiongyan Zhang",
+      "Yuhang Gou",
+      "Jian Dong",
+      "Xingxing Wang"
+    ],
+    "summary": "In recent years, the success of large language models (LLMs) has driven the exploration of scaling laws in recommender systems. However, models that demonstrate scaling laws are actually challenging to deploy in industrial settings for modeling long sequences of user behaviors, due to the high computational complexity of the standard self-attention mechanism. Despite various sparse self-attention mechanisms proposed in other fields, they are not fully suited for recommendation scenarios. This is because user behaviors exhibit personalization and temporal characteristics: different users have distinct behavior patterns, and these patterns change over time, with data from these users differing significantly from data in other fields in terms of distribution. To address these challenges, we propose SparseCTR, an efficient and effective model specifically designed for long-term behaviors of users. To be precise, we first segment behavior sequences into chunks in a personalized manner to avoid separating continuous behaviors and enable parallel processing of sequences. Based on these chunks, we propose a three-branch sparse self-attention mechanism to jointly identify users' global interests, interest transitions, and short-term interests. Furthermore, we design a composite relative temporal encoding via learnable, head-specific bias coefficients, better capturing sequential and periodic relationships among user behaviors. Extensive experimental results show that SparseCTR not only improves efficiency but also outperforms state-of-the-art methods. More importantly, it exhibits an obvious scaling law phenomenon, maintaining performance improvements across three orders of magnitude in FLOPs. In online A/B testing, SparseCTR increased CTR by 1.72\\% and CPM by 1.41\\%. Our source code is available at https://github.com/laiweijiang/SparseCTR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-25T13:39:26Z",
+    "updated": "2026-01-25T13:39:26Z",
+    "url": "http://arxiv.org/abs/2601.17836v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.17836v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan",
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "InstituteofSoftware,Chinese InstituteofSoftware,Chinese Meituan",
+      "UniversityofChineseAcademyof UniversityofChineseAcademyof zhangdi77@meituan.com",
+      "Inrecentyears,thesuccessoflargelanguagemodels(LLMs)has CTRby1.72%andCPMby1.41%.Oursourcecodeisavailableat"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心任务（CTR 预测）中的长序列用户行为建模难题，提出了专用的稀疏注意力机制 SparseCTR，属于高优先级的核心领域创新；且来自中国公司 TAL，按规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "释放稀疏注意力在长期行为 CTR 预测中的潜力",
+    "summary_zh": "提出 SparseCTR 模型，通过个性化序列分块、三分支稀疏自注意力机制及复合相对时间编码，高效捕捉用户全局兴趣、兴趣转移及短期偏好以解决长序列建模难题。",
+    "key_points": [
+      "提出 SparseCTR 模型，通过个性化序列分块、三分支稀疏自注意力机制及复合相对时间编码，高效捕捉用户全局兴趣、兴趣转移及短期偏好以解决长序列建模难题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18009v1",
+    "title": "Post-Training Denoising of User Profiles with LLMs in Collaborative Filtering Recommendation",
+    "authors": [
+      "Ervin Dervishaj",
+      "Maria Maistro",
+      "Tuukka Ruotsalo",
+      "Christina Lioma"
+    ],
+    "summary": "Implicit feedback -- the main data source for training Recommender Systems (RSs) -- is inherently noisy and has been shown to negatively affect recommendation effectiveness. Denoising has been proposed as a method for removing noisy implicit feedback and improving recommendations. Prior work has focused on in-training denoising, however this requires additional data, changes to the model architecture and training procedure or fine-tuning, all of which can be costly and data hungry. In this work, we focus on post-training denoising. Different from in-training denoising, post-training denoising does not involve changing the architecture of the model nor its training procedure, and does not require additional data. Specifically, we present a method for post-training denoising user profiles using Large Language Models (LLMs) for Collaborative Filtering (CF) recommendations. Our approach prompts LLMs with (i) a user profile (user interactions), (ii) a candidate item, and (iii) its rank as given by the CF recommender, and asks the LLM to remove items from the user profile to improve the rank of the candidate item. Experiments with a state-of-the-art CF recommender and 4 open and closed source LLMs in 3 datasets show that our denoising yields improvements up to 13% in effectiveness over the original user profiles. Our code is available at https://github.com/edervishaj/denoising-user-profiles-LLM.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-25T22:01:16Z",
+    "updated": "2026-01-25T22:01:16Z",
+    "url": "http://arxiv.org/abs/2601.18009v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18009v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤场景，提出利用 LLM 进行用户画像去噪的后训练方法，解决了隐式反馈噪声这一核心痛点，属于 LLM 在 RecSys 中的直接高价值应用。",
+    "translation": "基于大语言模型的协同过滤推荐用户画像后训练去噪",
+    "summary_zh": "提出一种无需修改模型架构或重新训练的后训练去噪方法，利用大语言模型根据候选物品排名动态移除用户交互历史中的噪声项以优化协同过滤推荐效果。",
+    "key_points": [
+      "提出一种无需修改模型架构或重新训练的后训练去噪方法，利用大语言模型根据候选物品排名动态移除用户交互历史中的噪声项以优化协同过滤推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2601.17787v1",
+    "title": "Token-Weighted Multi-Target Learning for Generative Recommenders with Curriculum Learning",
+    "authors": [
+      "Wei-Ning Chiu",
+      "Chuan-Ju Wang",
+      "Pu-Jen Cheng"
+    ],
+    "summary": "Generative recommender systems have recently attracted attention by formulating next-item prediction as an autoregressive sequence generation task. However, most existing methods optimize standard next-token likelihood and implicitly treat all tokens as equally informative, which is misaligned with semantic-ID-based generation. Accordingly, we propose two complementary information-gain-based token-weighting strategies tailored to generative recommendation with semantic IDs. Front-Greater Weighting captures conditional semantic information gain by prioritizing early tokens that most effectively reduce candidate-item uncertainty given their prefixes and encode coarse semantics. Frequency Weighting models marginal information gain under long-tailed item and token distributions, upweighting rare tokens to counteract popularity bias. Beyond individual strategies, we introduce a multi-target learning framework with curriculum learning that jointly optimizes the two token-weighted objectives alongside standard likelihood, enabling stable optimization and adaptive emphasis across training stages. Extensive experiments on benchmark datasets show that our method consistently outperforms strong baselines and existing token-weighting approaches, with improved robustness, strong generalization across different semantic-ID constructions, and substantial gains on both head and tail items. Code is available at https://github.com/CHIUWEINING/Token-Weighted-Multi-Target-Learning-for-Generative-Recommenders-with-Curriculum-Learning.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-25T11:01:14Z",
+    "updated": "2026-01-25T11:01:14Z",
+    "url": "http://arxiv.org/abs/2601.17787v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.17787v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心优化问题（Token 权重与课程学习），提出了具体的改进架构，属于 RecSys 核心领域的高优先级创新。",
+    "translation": "基于课程学习的生成式推荐器 Token 加权多目标学习",
+    "summary_zh": "提出一种针对语义 ID 生成式推荐的 Token 加权策略，通过前端优先和频率加权捕捉信息增益，并结合课程学习的多目标框架优化训练稳定性与长尾表现。",
+    "key_points": [
+      "提出一种针对语义 ID 生成式推荐的 Token 加权策略，通过前端优先和频率加权捕捉信息增益，并结合课程学习的多目标框架优化训练稳定性与长尾表现"
+    ]
+  },
+  {
+    "arxiv_id": "2601.17692v1",
+    "title": "LegalMALR:Multi-Agent Query Understanding and LLM-Based Reranking for Chinese Statute Retrieval",
+    "authors": [
+      "Yunhan Li",
+      "Mingjie Xie",
+      "Gaoli Kang",
+      "Zihan Gong",
+      "Gengshen Wu",
+      "Min Yang"
+    ],
+    "summary": "Statute retrieval is essential for legal assistance and judicial decision support, yet real-world legal queries are often implicit, multi-issue, and expressed in colloquial or underspecified forms. These characteristics make it difficult for conventional retrieval-augmented generation pipelines to recover the statutory elements required for accurate retrieval. Dense retrievers focus primarily on the literal surface form of the query, whereas lightweight rerankers lack the legal-reasoning capacity needed to assess statutory applicability. We present LegalMALR, a retrieval framework that integrates a Multi-Agent Query Understanding System (MAS) with a zero-shot large-language-model-based reranking module (LLM Reranker). MAS generates diverse, legally grounded reformulations and conducts iterative dense retrieval to broaden candidate coverage. To stabilise the stochastic behaviour of LLM-generated rewrites, we optimise a unified MAS policy using Generalized Reinforcement Policy Optimization(GRPO). The accumulated candidate set is subsequently evaluated by the LLM Reranker, which performs natural-language legal reasoning to produce the final ranking. We further construct CSAID, a dataset of 118 difficult Chinese legal queries annotated with multiple statutory labels, and evaluate LegalMALR on both CSAID and the public STARD benchmark. Experiments show that LegalMALR substantially outperforms strong Retrieval-augmented generation(RAG) baselines in both in-distribution and out-of-distribution settings, demonstrating the effectiveness of combining multi-perspective query interpretation, reinforcement-based policy optimisation, and large-model reranking for statute retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-01-25T04:44:56Z",
+    "updated": "2026-01-25T04:44:56Z",
+    "url": "http://arxiv.org/abs/2601.17692v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.17692v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于垂直领域（法律）的专用搜索系统，虽包含重排序技术但缺乏通用推荐/搜索产品的直接迁移性；且核心依赖纯 LLM 多智能体与强化学习，根据规则纯 LLM 研究应给低分，仅因涉及搜索任务及中国公司背景给予少量加分。",
+    "translation": "LegalMALR：面向中国法条检索的多智能体查询理解与基于大语言模型的重排序",
+    "summary_zh": "提出一种结合多智能体查询重写系统与零样本大语言模型推理重排序的法律检索框架，利用强化学习优化查询改写策略以解决法律查询隐含性及多义性问题。",
+    "key_points": [
+      "提出一种结合多智能体查询重写系统与零样本大语言模型推理重排序的法律检索框架，利用强化学习优化查询改写策略以解决法律查询隐含性及多义性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.17824v1",
+    "title": "OwlerLite: Scope- and Freshness-Aware Web Retrieval for LLM Assistants",
+    "authors": [
+      "Saber Zerhoudi",
+      "Michael Dinzinger",
+      "Michael Granitzer",
+      "Jelena Mitrovic"
+    ],
+    "summary": "Browser-based language models often use retrieval-augmented generation (RAG) but typically rely on fixed, outdated indices that give users no control over which sources are consulted. This can lead to answers that mix trusted and untrusted content or draw on stale information. We present OwlerLite, a browser-based RAG system that makes user-defined scopes and data freshness central to retrieval. Users define reusable scopes-sets of web pages or sources-and select them when querying. A freshness-aware crawler monitors live pages, uses a semantic change detector to identify meaningful updates, and selectively re-indexes changed content. OwlerLite integrates text relevance, scope choice, and recency into a unified retrieval model. Implemented as a browser extension, it represents a step toward more controllable and trustworthy web assistants.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-01-25T13:11:14Z",
+    "updated": "2026-01-25T13:11:14Z",
+    "url": "http://arxiv.org/abs/2601.17824v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.17824v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于通用 Web 检索的时效性与范围控制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低优先级。",
+    "translation": "OwlerLite：面向 LLM 助手的范围感知与 freshness 感知 Web 检索",
+    "summary_zh": "提出一种浏览器端 RAG 系统，通过用户自定义源范围和语义变化检测机制，将文本相关性、范围选择与数据新鲜度整合为统一的检索模型，以解决生成内容来源不可控及信息过时问题。",
+    "key_points": [
+      "提出一种浏览器端 RAG 系统，通过用户自定义源范围和语义变化检测机制，将文本相关性、范围选择与数据新鲜度整合为统一的检索模型，以解决生成内容来源不可控及信息过时问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.15856v1",
+    "title": "Rethinking Soft Compression in Retrieval-Augmented Generation: A Query-Conditioned Selector Perspective",
+    "authors": [
+      "Yunhao Liu",
+      "Zian Jia",
+      "Xinyu Gao",
+      "Kanjun Xu",
+      "Yun Xiong"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) effectively grounds Large Language Models (LLMs) with external knowledge and is widely applied to Web-related tasks. However, its scalability is hindered by excessive context length and redundant retrievals. Recent research on soft context compression aims to address this by encoding long documents into compact embeddings, yet they often underperform non-compressed RAG due to their reliance on auto-encoder-like full-compression that forces the encoder to compress all document information regardless of relevance to the input query.\n  In this work, we conduct an analysis on this paradigm and reveal two fundamental limitations: (I) Infeasibility, full-compression conflicts with the LLM's downstream generation behavior; and (II) Non-necessity: full-compression is unnecessary and dilutes task-relevant information density. Motivated by these insights, we introduce SeleCom, a selector-based soft compression framework for RAG that redefines the encoder's role as query-conditioned information selector. The selector is decoder-only and is trained with a massive, diverse and difficulty-graded synthetic QA dataset with curriculum learning.\n  Extensive experiments show that SeleCom significantly outperforms existing soft compression approaches and achieves competitive or superior performance to non-compression baselines, while reducing computation and latency by 33.8%~84.6%.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-01-25T09:06:24Z",
+    "updated": "2026-01-25T09:06:24Z",
+    "url": "http://arxiv.org/abs/2602.15856v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.15856v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于解决生成式任务中的上下文压缩问题，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），因此相关性低。",
+    "translation": "重思检索增强生成中的软压缩：一种查询条件选择器视角",
+    "summary_zh": "本文提出 SeleCom 框架，将 RAG 中的编码器角色重新定义为基于查询的信息选择器，通过课程学习训练解码器模型以筛选高密度相关信息，从而替代传统的全量压缩方法。",
+    "key_points": [
+      "本文提出 SeleCom 框架，将 RAG 中的编码器角色重新定义为基于查询的信息选择器，通过课程学习训练解码器模型以筛选高密度相关信息，从而替代传统的全量压缩方法"
+    ]
+  },
+  {
+    "arxiv_id": "2601.17755v1",
+    "title": "ProGraph-R1: Progress-aware Reinforcement Learning for Graph Retrieval Augmented Generation",
+    "authors": [
+      "Jinyoung Park",
+      "Sanghyeok Lee",
+      "Omar Zia Khan",
+      "Hyunwoo J. Kim",
+      "Joo-Kyung Kim"
+    ],
+    "summary": "Graph Retrieval-Augmented Generation (GraphRAG) has been successfully applied in various knowledge-intensive question answering tasks by organizing external knowledge into structured graphs of entities and relations. It enables large language models (LLMs) to perform complex reasoning beyond text-chunk retrieval. Recent works have employed reinforcement learning (RL) to train agentic GraphRAG frameworks that perform iterative interactions between LLMs and knowledge graphs. However, existing RL-based frameworks such as Graph-R1 suffer from two key limitations: (1) they primarily depend on semantic similarity for retrieval, often overlooking the underlying graph structure, and (2) they rely on sparse, outcome-level rewards, failing to capture the quality of intermediate retrieval steps and their dependencies. To address these limitations, we propose ProGraph-R1, a progress-aware agentic framework for graph-based retrieval and multi-step reasoning. ProGraph-R1 introduces a structure-aware hypergraph retrieval mechanism that jointly considers semantic relevance and graph connectivity, encouraging coherent traversal along multi-hop reasoning paths. We also design a progress-based step-wise policy optimization, which provides dense learning signals by modulating advantages according to intermediate reasoning progress within a graph, rather than relying solely on final outcomes. Experiments on multi-hop question answering benchmarks demonstrate that ProGraph-R1 consistently improves reasoning accuracy and generation quality over existing GraphRAG methods.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-01-25T08:58:44Z",
+    "updated": "2026-01-25T08:58:44Z",
+    "url": "http://arxiv.org/abs/2601.17755v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.17755v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和知识图谱问答（QA）的研究，专注于多跳推理任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "ProGraph-R1：面向图检索增强生成的进度感知强化学习",
+    "summary_zh": "该论文提出一种结合结构感知超图检索与进度感知步级策略优化的代理框架，旨在通过密集奖励信号提升大模型在知识图谱上的多步推理能力。",
+    "key_points": [
+      "该论文提出一种结合结构感知超图检索与进度感知步级策略优化的代理框架，旨在通过密集奖励信号提升大模型在知识图谱上的多步推理能力"
+    ]
+  }
+]

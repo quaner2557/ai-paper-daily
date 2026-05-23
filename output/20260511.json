@@ -1,0 +1,313 @@
+[
+  {
+    "arxiv_id": "2511.14881",
+    "title": "SilverTorch: A Unified Model-based System to Democratize Large-Scale Recommendation on GPUs",
+    "authors": [
+      "Bi Xue",
+      "Hong Wu",
+      "Lei Chen",
+      "Chao Yang",
+      "Yiming Ma",
+      "Fei Ding",
+      "Zhen Wang",
+      "Liang Wang",
+      "Xiaoheng Mao",
+      "Ke Huang",
+      "Xialu Li",
+      "Peng Xia",
+      "Rui Jian",
+      "Yanli Zhao",
+      "Yanzun Huang",
+      "Yijie Deng",
+      "Harry Tran",
+      "Ryan Chang",
+      "Min Yu",
+      "Eric Dong",
+      "Jiazhou Wang",
+      "Qianqian Zhang",
+      "Keke Zhai",
+      "Hongzhang Yin",
+      "Pawel Garbacki",
+      "Jiaqi Zhai",
+      "Zheng Fang",
+      "Yiyi Pan",
+      "Min Ni",
+      "Kevin Greer",
+      "Rui Zhang",
+      "Yang Liu"
+    ],
+    "summary": "Serving deep learning based recommendation models (DLRM) at scale is challenging. Existing approaches rely on dedicated ANN indexing and filtering services on CPUs, suffering from non-negligible costs and missing co-design opportunities. Such inefficiency makes them difficult to support complex model architectures, such as learned similarities and multi-task retrieval.\n  In this paper, we present SilverTorch, a model-based serving system that brings all components into one unified model. It unifies model serving by replacing standalone indexing and filtering services with model layers. We propose a model-based GPU Bloom index for feature filtering and a fused Int8 ANN kernel for nearest neighbor search. Through co-design of the ANN search and feature filtering, we reduce GPU memory usage and eliminate computation. Benefiting from this design, we scale up retrieval by introducing an OverArch scoring layer and a multi-task retrieval with a Value Model to aggregate scores. These advancements improve the retrieval accuracy and enable future studies for serving more complex models.\n  Our evaluation on industry-scale datasets show that SilverTorch achieves up to 23.7\\times higher throughput compared to the state-of-the-art approaches. We also demonstrate that SilverTorch solution is 13.35\\times more cost-efficient than CPU-based solution while improving accuracy via serving more complex models. SilverTorch is deployed at scale, serving hundreds of models online and supporting recommendation for diverse applications.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2511.14881",
+    "pdf_url": "https://arxiv.org/pdf/2511.14881.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统的检索与排序架构创新，提出了基于 GPU 的统一模型化服务系统 SilverTorch，解决了工业界推荐落地的核心痛点；且来自 OPPO，符合额外加分条件。",
+    "translation": "SilverTorch：一种在 GPU 上 democratize 大规模推荐的统一基于模型的系统",
+    "summary_zh": "提出 SilverTorch 系统，通过将索引和过滤服务重构为模型层，利用 GPU Bloom 索引和融合 Int8 ANN 核实现检索与特征过滤的协同设计，从而统一并高效支持复杂的大规模推荐模型架构。",
+    "key_points": [
+      "提出 SilverTorch 系统，通过将索引和过滤服务重构为模型层，利用 GPU Bloom 索引和融合 Int8 ANN 核实现检索与特征过滤的协同设计，从而统一并高效支持复杂的大规模推荐模型架构"
+    ]
+  },
+  {
+    "arxiv_id": "2602.03324",
+    "title": "SCASRec: A Self-Correcting and Auto-Stopping Model for Generative Route List Recommendation",
+    "authors": [
+      "Chao Chen",
+      "Longfei Xu",
+      "Daohan Su",
+      "Tengfei Liu",
+      "Hanyu Guo",
+      "Yihai Duan",
+      "Kaikui Liu",
+      "Xiangxiang Chu"
+    ],
+    "summary": "Route recommendation systems commonly adopt a multi-stage pipeline involving fine-ranking and re-ranking to produce high-quality ordered recommendations. However, this paradigm faces three critical limitations. First, there is a misalignment between offline training objectives and online metrics. Offline gains do not necessarily translate to online improvements. Actual performance must be validated through A/B testing, which may potentially compromise the user experience. Second, redundancy elimination relies on rigid, handcrafted rules that lack adaptability to the high variance in user intent and the unstructured complexity of real-world scenarios. Third, the strict separation between fine-ranking and re-ranking stages leads to sub-optimal performance. Since each module is optimized in isolation, the fine-ranking stage remains oblivious to the list-level objectives (e.g., diversity) targeted by the re-ranker, thereby preventing the system from achieving a jointly optimized global optimum. To overcome these intertwined challenges, we propose SCASRec (Self-Correcting and Auto-Stopping Recommendation), a unified generative framework that integrates ranking and redundancy elimination into a single end-to-end process. SCASRec introduces a stepwise corrective reward (SCR) to guide list-wise refinement by focusing on hard samples, and employs a learnable End-of-Recommendation (EOR) token to terminate generation adaptively when no further improvement is expected. Experiments on two large-scale, open-sourced route recommendation datasets demonstrate that SCASRec establishes an SOTA in offline and online settings. SCASRec has been fully deployed in a real-world navigation app, demonstrating its effectiveness.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2602.03324",
+    "pdf_url": "https://arxiv.org/pdf/2602.03324.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "cc201598@alibaba-inc.com BeijingInstituteofTechnology SouthernUniversityofScienceand"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的排序与重排序痛点，提出端到端生成式框架解决离线目标不一致及冗余消除问题，且已在真实导航 App 部署，属于核心领域高价值创新；叠加中国公司背景额外加分。",
+    "translation": "SCASRec：一种用于生成式路线列表推荐的自修正与自动停止模型",
+    "summary_zh": "提出 SCASRec 统一生成式框架，通过逐步校正奖励机制和可学习的结束推荐令牌，将精细排序与冗余消除整合为端到端过程，以自适应优化列表级推荐质量。",
+    "key_points": [
+      "提出 SCASRec 统一生成式框架，通过逐步校正奖励机制和可学习的结束推荐令牌，将精细排序与冗余消除整合为端到端过程，以自适应优化列表级推荐质量"
+    ]
+  },
+  {
+    "arxiv_id": "2605.06981",
+    "title": "Bridging Textual Profiles and Latent User Embeddings for Personalization",
+    "authors": [
+      "Zhaoxuan Tan",
+      "Xiang Zhai",
+      "Yan Zhu",
+      "Meng Jiang",
+      "Mohamed Hammad"
+    ],
+    "summary": "Personalized systems rely on user representations to connect behavioral history with downstream recommendation applications. Existing methods typically employ either supervised latent user embeddings, which are effective for retrieval but difficult to interpret, or textual user profiles, which are interpretable but challenging to optimize for downstream utility due to lack of direct supervision. To bridge this gap, we present BLUE, a reinforcement learning framework that unifies these two forms of user representation by aligning language-based user profiles with embedding-based recommendation objectives. Given a user interaction history, BLUE leverages a profiler Large Language Model (LLM) to generate textual profiles, while an embedding model provides reward signals. This encourages the resulting textual representations to move closer to positive items and farther from negative ones in the embedding space. We further introduce a text-space supervision signal based on next-item prediction, ensuring the learned profiles remain both semantically meaningful and highly effective for downstream retrieval. Experiments on Amazon Reviews 2023 and Google Local Reviews in zero-shot sequential recommendation settings demonstrate that BLUE consistently outperforms strong baselines under both frozen and trainable embedding conditions. Notably, BLUE achieves clear gains in cross-domain transfer, highlighting the strong generalization ability of the learned user profiles. Furthermore, these generated profiles provide superior personalized context for question answering compared to raw user histories or alternative profile optimization methods. Overall, these results show that BLUE provides an effective way to unify interpretable textual profiling with discriminative latent embeddings for personalization.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-05-07",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2605.06981",
+    "pdf_url": "https://arxiv.org/pdf/2605.06981.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google",
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "1UniversityofNotreDame,2Google"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的用户建模问题，提出利用强化学习对齐 LLM 生成的文本画像与潜在嵌入，属于 LLM for RecSys 的核心应用；且来自中国公司，按规则额外 +1 分（基础 9 分 +1 分）。",
+    "translation": "桥接文本画像与潜在用户嵌入以实现个性化推荐",
+    "summary_zh": "提出 BLUE 框架，利用强化学习将 LLM 生成的可解释文本用户画像与基于嵌入的推荐目标对齐，通过下一项预测和嵌入空间奖励信号，统一了语义意义与下游检索效用。",
+    "key_points": [
+      "提出 BLUE 框架，利用强化学习将 LLM 生成的可解释文本用户画像与基于嵌入的推荐目标对齐，通过下一项预测和嵌入空间奖励信号，统一了语义意义与下游检索效用"
+    ]
+  },
+  {
+    "arxiv_id": "2601.03728",
+    "title": "CSMCIR: CoT-Enhanced Symmetric Alignment with Memory Bank for Composed Image Retrieval",
+    "authors": [
+      "Zhipeng Qian",
+      "Zihan Liang",
+      "Yufei Ma",
+      "Ben Chen",
+      "Huangyu Dai",
+      "Yiwei Ma",
+      "Jiayi Ji",
+      "Chenyi Lei",
+      "Han Li",
+      "Xiaoshuai Sun"
+    ],
+    "summary": "Composed Image Retrieval (CIR) enables users to search for target images using both a reference image and manipulation text, offering substantial advantages over single-modality retrieval systems. However, existing CIR methods suffer from representation space fragmentation: queries and targets comprise heterogeneous modalities and are processed by distinct encoders, forcing models to bridge misaligned representation spaces only through post-hoc alignment, which fundamentally limits retrieval performance. This architectural asymmetry manifests as three distinct, well-separated clusters in the feature space, directly demonstrating how heterogeneous modalities create fundamentally misaligned representation spaces from initialization. In this work, we propose CSMCIR, a unified representation framework that achieves efficient query-target alignment through three synergistic components. First, we introduce a Multi-level Chain-of-Thought (MCoT) prompting strategy that guides Multimodal Large Language Models to generate discriminative, semantically compatible captions for target images, establishing modal symmetry. Building upon this, we design a symmetric dual-tower architecture where both query and target sides utilize the identical shared-parameter Q-Former for cross-modal encoding, ensuring consistent feature representations and further reducing the alignment gap. Finally, this architectural symmetry enables an entropy-based, temporally dynamic Memory Bank strategy that provides high-quality negative samples while maintaining consistency with the evolving model state. Extensive experiments on four benchmark datasets demonstrate that our CSMCIR achieves state-of-the-art performance with superior training efficiency. Comprehensive ablation studies further validate the effectiveness of each proposed component.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2601.03728",
+    "pdf_url": "https://arxiv.org/pdf/2601.03728.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文针对组合图像检索（CIR）这一搜索核心场景，提出了基于 MLLM 和对称架构的解决方案，属于多模态搜索的直接应用；虽涉及 LLM 但非纯 LLM 研究，结合中国公司背景额外加 1 分。",
+    "translation": "CSMCIR：基于思维链增强与记忆库的组合图像检索对称对齐方法",
+    "summary_zh": "提出一种统一表征框架，利用多级思维链提示生成语义兼容描述，并通过共享参数的对称双塔架构与动态记忆库策略，解决组合图像检索中异构模态表征空间不对齐的问题。",
+    "key_points": [
+      "提出一种统一表征框架，利用多级思维链提示生成语义兼容描述，并通过共享参数的对称双塔架构与动态记忆库策略，解决组合图像检索中异构模态表征空间不对齐的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.05674",
+    "title": "EGA: Adapting Frozen Encoders for Vector Search with Bounded Out-of-Distribution Degradation",
+    "authors": [
+      "Dongfang Zhao"
+    ],
+    "summary": "Vector search systems built on frozen vision encoders face queries from unseen classes at deployment, yet existing adapter training collapses under this shift: high-capacity adapters with global contrastive losses silently reassign unseen-class samples to wrong seen-class clusters, dropping worst-case Label Precision by over 40 points below the frozen baseline in our tests. We propose Euclidean Geodesic Alignment (EGA), a residual adapter that couples three principles: zero initialization, local triplet loss, and hypersphere projection. These collectively induce a self-limiting dynamic: triplets that already satisfy a small margin stop producing gradients, so the adapter automatically stops updating where the local geometry is already correct. Our experiments show that at convergence $96.5\\%$ of triplets are gradient-free, leaving unseen-class regions largely untouched while still enabling full-capacity refinement of seen classes. Across five diverse out-of-distribution (OOD) benchmarks, EGA achieves the highest worst-case Label Precision on the four primary splits and a consistent improvement on the fifth. The design also transfers to stronger backbones in addition to CLIP, and we provide an analytical justification linking gradient sparsity to bounded OOD perturbation.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2605.05674",
+    "pdf_url": "https://arxiv.org/pdf/2605.05674.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦向量搜索中的 OOD 问题，属于搜索核心检索环节，但主要基于视觉编码器适配，未明确结合推荐系统业务场景或 LLM 应用，故为中优先级。",
+    "translation": "EGA：通过有界分布外退化适配冻结编码器用于向量搜索",
+    "summary_zh": "提出欧几里得测地对齐（EGA）残差适配器，利用零初始化、局部三元组损失和超球面投影机制，在微调可见类的同时自动保持未见类区域的几何结构不变，从而解决向量搜索中的分布外退化问题。",
+    "key_points": [
+      "提出欧几里得测地对齐（EGA）残差适配器，利用零初始化、局部三元组损失和超球面投影机制，在微调可见类的同时自动保持未见类区域的几何结构不变，从而解决向量搜索中的分布外退化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.04615",
+    "title": "Beyond Retrieval: A Multitask Benchmark and Model for Code Search",
+    "authors": [
+      "Siqiao Xue",
+      "Zihan Liao",
+      "Jin Qin",
+      "Ziyin Zhang",
+      "Yixiang Mu",
+      "Fan Zhou",
+      "Hang Yu"
+    ],
+    "summary": "Code search has usually been evaluated as first-stage retrieval, even though production systems rely on broader pipelines with reranking and developer-style queries. Existing benchmarks also suffer from data contamination, label noise, and degenerate binary relevance. In this paper, we introduce \\textsc{CoREB}, a contamination-limited, multitask \\underline{co}de \\underline{r}etrieval and r\\underline{e}ranking \\underline{b}enchmark, together with a fine-tuned code reranker, that goes beyond retrieval to cover the full code search pipeline. \\textsc{CoREB} is built from counterfactually rewritten LiveCodeBench problems in five programming languages and delivered as timed releases with graded relevance judgments. We benchmark eleven embedding models and five rerankers across three tasks: text-to-code, code-to-text, and code-to-code. Our experiments reveal that: \\circone code-specialised embeddings dominate code-to-code retrieval (${\\sim}2{\\times}$ over general encoders), yet no single model wins all three tasks; \\circtwo short keyword queries, the format closest to real developer search, collapse every model to near-zero nDCG@10; \\circthree off-the-shelf rerankers are task-asymmetric, with a 12-point swing on code-to-code and no baseline net-positive across all tasks; \\circfour our fine-tuned \\textsc{CoREB-Reranker} is the first to achieve consistent gains across all three tasks. The data and model are released.",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2605.04615",
+    "pdf_url": "https://arxiv.org/pdf/2605.04615.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于代码搜索（Code Search）这一特定垂直领域的检索与重排序，虽涉及核心搜索技术，但缺乏通用电商/社交推荐场景的直接适用性，且非 LLM 在通用 RecSys 中的创新应用。",
+    "translation": "超越检索：代码搜索的多任务基准与模型",
+    "summary_zh": "本文提出了一个涵盖检索与重排序全流程的代码搜索多任务基准 CoREB，并开发了一种针对该基准微调的重排序模型以解决现有评估中的数据污染和任务不对称问题。",
+    "key_points": [
+      "本文提出了一个涵盖检索与重排序全流程的代码搜索多任务基准 CoREB，并开发了一种针对该基准微调的重排序模型以解决现有评估中的数据污染和任务不对称问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.03675",
+    "title": "OASES: Outcome-Aligned Search-Evaluation Co-Training for Agentic Search",
+    "authors": [
+      "Erhan Zhang",
+      "Yiqun Chen",
+      "Zechun Niu",
+      "Wei Yang",
+      "Xiaochi Wei",
+      "Yan Gao",
+      "Yi Wu",
+      "Yao Hu",
+      "Jiaxin Mao"
+    ],
+    "summary": "Agentic search enables language models to solve knowledge-intensive tasks by adaptively acquiring external evidence over multiple steps. Reinforcement learning with verifiable rewards (RLVR) has emerged as a widely adopted training paradigm for search agents, yet outcome-only rewards are sparse and provide limited credit assignment for intermediate search actions. Existing process-reward methods therefore seek to densify supervision through proxy signals, external evaluators, or likelihood-based information gain. However, proxy rewards can deviate from the final outcome objective, while fixed evaluators can become stale as the search policy evolves, leading to unreliable process supervision. To address these challenges, we propose OASES, an Outcome-Aligned Search-Evaluation Supervision framework for agentic search. OASES derives outcome-aligned process rewards by evaluating how well each intermediate search state supports answering the original question. It further co-trains the search policy and the state evaluator on policy, allowing the evaluator to adapt to evolving search behavior and provide more reliable process rewards. Experiments on five multi-hop QA benchmarks show that OASES consistently outperforms strong RL baselines, with further analyses confirming the benefits of outcome-aligned process rewards and search-evaluation co-training.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2604.03675",
+    "pdf_url": "https://arxiv.org/pdf/2604.03675.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 强化学习与智能体（Agent）研究，专注于通用问答任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），即使有 +1 分加分，仍属低优先级。",
+    "translation": "OASES：面向智能体搜索的结果对齐搜索 - 评估协同训练框架",
+    "summary_zh": "提出一种结果对齐的搜索 - 评估协同训练框架，通过动态评估中间搜索状态对最终问题的贡献来生成过程奖励，以解决智能体搜索中奖励稀疏和评估器滞后的问题。",
+    "key_points": [
+      "提出一种结果对齐的搜索 - 评估协同训练框架，通过动态评估中间搜索状态对最终问题的贡献来生成过程奖励，以解决智能体搜索中奖励稀疏和评估器滞后的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07042",
+    "title": "The Context Gathering Decision Process: A POMDP Framework for Agentic Search",
+    "authors": [
+      "Chinmaya Kausik",
+      "Adith Swaminathan",
+      "Nathan Kallus"
+    ],
+    "summary": "Large Language Model (LLM) agents are deployed in complex environments -- such as massive codebases, enterprise databases, and conversational histories -- where the relevant state far exceeds their context windows. To navigate these spaces, an agent must iteratively explore the environment to find relevant information. However, without explicit infrastructure, an agent's working memory can degrade into lossy representations of the search state, resulting in redundant work (e.g. repetitive looping) and premature stopping. In this work, we formalize this challenge as the Context Gathering Decision Process (CGDP), a specialized Partially Observable Markov Decision Process, where an agent's objective is to adaptively refine its belief state to isolate the necessary information for a task. We model an LLM's behavior as approximate Thompson Sampling within this CGDP, and introduce a predicate-based method that decomposes an LLM's implicit search into explicit and modular operations. We then derive two plug-and-play interventions for iterative LLM agents: a persistent, predicate-based belief state that bounds context while preserving multi-hop reasoning, and a programmatic exhaustion gate that halts unproductive search without premature stopping. Across four methods and three question-answering domains, we empirically validate that replacing an LLM's implicit state with our CGDP-motivated belief state improves multi-hop reasoning by up to $11.4\\%$; while the modular programmatic exhaustion detection saves up to $39\\%$ of tokens without any degradation in agent performance. Ultimately, we argue that framing the LLM agent loop as a CGDP can guide the design of modular, non-interfering improvements to agentic search harnesses.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-07",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2605.07042",
+    "pdf_url": "https://arxiv.org/pdf/2605.07042.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "affiliation_lines": [
+      "UniversityofMichigan Netflix Netflix",
+      "where the relevant state far exceeds their reliable working context. Deep-research agents search"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM Agent 研究，聚焦于通用问答和代码库探索中的上下文收集问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），根据规则应给低分；虽来自中国公司加 1 分，但仍属弱相关。",
+    "translation": "上下文收集决策过程：一种用于代理搜索的 POMDP 框架",
+    "summary_zh": "本文提出上下文收集决策过程（CGDP）框架，将 LLM 代理在复杂环境中的信息探索建模为部分可观测马尔可夫决策过程，通过基于谓词的显式信念状态和程序化耗尽门控机制，优化代理的多跳推理能力并减少无效搜索。",
+    "key_points": [
+      "本文提出上下文收集决策过程（CGDP）框架，将 LLM 代理在复杂环境中的信息探索建模为部分可观测马尔可夫决策过程，通过基于谓词的显式信念状态和程序化耗尽门控机制，优化代理的多跳推理能力并减少无效搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2602.10024",
+    "title": "Overview of the TREC 2025 RAGTIME Track",
+    "authors": [
+      "Dawn Lawrie",
+      "Sean MacAvaney",
+      "James Mayfield",
+      "Luca Soldaini",
+      "Eugene Yang",
+      "Andrew Yates"
+    ],
+    "summary": "The principal goal of the RAG TREC Instrument for Multilingual Evaluation (RAGTIME) track at TREC is to study report generation from multilingual source documents. The track has created a document collection containing Arabic, Chinese, English, and Russian news stories. RAGTIME includes three task types: Multilingual Report Generation, English Report Generation, and Multilingual Information Retrieval (MLIR). A total of 125 runs were submitted by 13 participating teams (and as baselines by the track coordinators) for three tasks. This overview describes these three tasks and presents the available results.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-05-08",
+    "updated": "2026-05-11",
+    "url": "https://arxiv.org/abs/2602.10024",
+    "pdf_url": "https://arxiv.org/pdf/2602.10024.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯 NLP/信息检索评测赛道概述，聚焦多语言报告生成，未涉及推荐系统或搜索产品的核心架构与应用，即使有中国公司参与且含 IR 任务，仍属低相关。",
+    "translation": "TREC 2025 RAGTIME 赛道综述",
+    "summary_zh": "本文介绍了 TREC RAGTIME 赛道的三项任务（多语言/英语报告生成及多语言信息检索），旨在评估基于多语言新闻文档的报告生成能力。",
+    "key_points": [
+      "本文介绍了 TREC RAGTIME 赛道的三项任务（多语言/英语报告生成及多语言信息检索），旨在评估基于多语言新闻文档的报告生成能力"
+    ]
+  }
+]

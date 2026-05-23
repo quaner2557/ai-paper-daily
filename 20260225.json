@@ -1,0 +1,456 @@
+[
+  {
+    "arxiv_id": "2602.21756v1",
+    "title": "Offline Reasoning for Efficient Recommendation: LLM-Empowered Persona-Profiled Item Indexing",
+    "authors": [
+      "Deogyong Kim",
+      "Junseong Lee",
+      "Jeongeun Lee",
+      "Changhoe Kim",
+      "Junguel Lee",
+      "Jungseok Lee",
+      "Dongha Lee"
+    ],
+    "summary": "Recent advances in large language models (LLMs) offer new opportunities for recommender systems by capturing the nuanced semantics of user interests and item characteristics through rich semantic understanding and contextual reasoning. In particular, LLMs have been employed as rerankers that reorder candidate items based on inferred user-item relevance. However, these approaches often require expensive online inference-time reasoning, leading to high latency that hampers real-world deployment. In this work, we introduce Persona4Rec, a recommendation framework that performs offline reasoning to construct interpretable persona representations of items, enabling lightweight and scalable real-time inference. In the offline stage, Persona4Rec leverages LLMs to reason over item reviews, inferring diverse user motivations that explain why different types of users may engage with an item; these inferred motivations are materialized as persona representations, providing multiple, human-interpretable views of each item. Unlike conventional approaches that rely on a single item representation, Persona4Rec learns to align user profiles with the most plausible item-side persona through a dedicated encoder, effectively transforming user-item relevance into user-persona relevance. At the online stage, this persona-profiled item index allows fast relevance computation without invoking expensive LLM reasoning. Extensive experiments show that Persona4Rec achieves performance comparable to recent LLM-based rerankers while substantially reducing inference time. Moreover, qualitative analysis confirms that persona representations not only drive efficient scoring but also provide intuitive, review-grounded explanations. These results demonstrate that Persona4Rec offers a practical and interpretable solution for next-generation recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T10:14:30Z",
+    "updated": "2026-02-25T10:14:30Z",
+    "url": "http://arxiv.org/abs/2602.21756v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21756v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的重排序环节，提出利用 LLM 进行离线推理构建人物画像索引以解决在线延迟问题，是典型的 LLM for RecSys 应用；且来自 OPPO，符合额外加分条件。",
+    "translation": "离线推理赋能高效推荐：基于大语言模型的人物画像物品索引",
+    "summary_zh": "提出一种名为 Persona4Rec 的框架，通过离线利用大语言模型分析物品评论生成多样化的人物画像表示，将在线重排序转化为轻量级的用户与画像匹配计算，从而在保持语义理解能力的同时大幅降低推理延迟。",
+    "key_points": [
+      "提出一种名为 Persona4Rec 的框架，通过离线利用大语言模型分析物品评论生成多样化的人物画像表示，将在线重排序转化为轻量级的用户与画像匹配计算，从而在保持语义理解能力的同时大幅降低推理延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21677v1",
+    "title": "Trie-Aware Transformers for Generative Recommendation",
+    "authors": [
+      "Zhenxiang Xu",
+      "Jiawei Chen",
+      "Sirui Chen",
+      "Yong He",
+      "Jieyu Yang",
+      "Chuan Yuan",
+      "Ke Ding",
+      "Can Wang"
+    ],
+    "summary": "Generative recommendation (GR) aligns with advances in generative AI by casting next-item prediction as token-level generation rather than score-based ranking. Most GR methods adopt a two-stage pipeline: (i) \\textit{item tokenization}, which maps each item to a sequence of discrete, hierarchically organized tokens; and (ii) \\textit{autoregressive generation}, which predicts the next item's tokens conditioned on the tokens of user's interaction history. Although hierarchical tokenization induces a prefix tree (trie) over items, standard autoregressive modeling with conventional Transformers often flattens item tokens into a linear stream and overlooks the underlying topology.\n  To address this, we propose TrieRec, a trie-aware generative recommendation method that augments Transformers with structural inductive biases via two positional encodings. First, a \\textit{trie-aware absolute positional encoding} aggregates a token's (node's) local structural context (\\eg depth, ancestors, and descendants) into the token representation. Second, a \\textit{topology-aware relative positional encoding} injects pairwise structural relations into self-attention to capture topology-induced semantic relatedness. TrieRec is also model-agnostic, efficient, and hyperparameter-free. In our experiments, we implement TrieRec within three representative GR backbones, achieving notably improvements of 8.83\\% on average across four real-world datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T08:25:16Z",
+    "updated": "2026-02-25T08:25:16Z",
+    "url": "http://arxiv.org/abs/2602.21677v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21677v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）的核心痛点，提出利用前缀树（Trie）结构增强 Transformer 的方法，属于推荐系统核心架构创新；且来自中国公司，符合额外加分条件。",
+    "translation": "面向生成式推荐的 Trie 感知 Transformer",
+    "summary_zh": "本文提出 TrieRec 方法，通过引入感知前缀树结构的绝对位置编码和拓扑感知相对位置编码，将物品的层级拓扑结构归纳偏置注入 Transformer，以解决传统自回归模型在生成式推荐中忽略物品层次结构的问题。",
+    "key_points": [
+      "本文提出 TrieRec 方法，通过引入感知前缀树结构的绝对位置编码和拓扑感知相对位置编码，将物品的层级拓扑结构归纳偏置注入 Transformer，以解决传统自回归模型在生成式推荐中忽略物品层次结构的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21957v1",
+    "title": "Learning to Collaborate via Structures: Cluster-Guided Item Alignment for Federated Recommendation",
+    "authors": [
+      "Yuchun Tu",
+      "Zhiwei Li",
+      "Bingli Sun",
+      "Yixuan Li",
+      "Xiao Song"
+    ],
+    "summary": "Federated recommendation facilitates collaborative model training across distributed clients while keeping sensitive user interaction data local. Conventional approaches typically rely on synchronizing high-dimensional item representations between the server and clients. This paradigm implicitly assumes that precise geometric alignment of embedding coordinates is necessary for collaboration across clients. We posit that establishing relative semantic relationships among items is more effective than enforcing shared representations. Specifically, global semantic relations serve as structural constraints for items. Within these constraints, the framework allows item representations to vary locally on each client, which flexibility enables the model to capture fine-grained user personalization while maintaining global consistency. To this end, we propose Cluster-Guided FedRec framework (CGFedRec), a framework that transforms uploaded embeddings into compact cluster labels. In this framework, the server functions as a global structure discoverer to learn item clusters and distributes only the resulting labels. This mechanism explicitly cuts off the downstream transmission of item embeddings, relieving clients from maintaining global shared item embeddings. Consequently, CGFedRec achieves the effective injection of global collaborative signals into local item representations without transmitting full embeddings. Extensive experiments demonstrate that our approach significantly improves communication efficiency while maintaining superior recommendation accuracy across multiple datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T14:39:47Z",
+    "updated": "2026-02-25T14:39:47Z",
+    "url": "http://arxiv.org/abs/2602.21957v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21957v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对联邦推荐系统（Federated Recommendation）的核心痛点，提出了一种基于聚类引导的项对齐新架构，属于推荐系统核心领域的高价值创新。",
+    "translation": "通过结构协作学习：面向联邦推荐的聚类引导项对齐方法",
+    "summary_zh": "本文提出 CGFedRec 框架，通过将高维嵌入转换为紧凑的聚类标签作为全局结构约束，在保护本地数据隐私的同时实现全局语义关系与本地个性化表征的有效协同。",
+    "key_points": [
+      "本文提出 CGFedRec 框架，通过将高维嵌入转换为紧凑的聚类标签作为全局结构约束，在保护本地数据隐私的同时实现全局语义关系与本地个性化表征的有效协同"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21600v1",
+    "title": "AQR-HNSW: Accelerating Approximate Nearest Neighbor Search via Density-aware Quantization and Multi-stage Re-ranking",
+    "authors": [
+      "Ganap Ashit Tewary",
+      "Nrusinga Charan Gantayat",
+      "Jeff Zhang"
+    ],
+    "summary": "Approximate Nearest Neighbor (ANN) search has become fundamental to modern AI infrastructure, powering recommendation systems, search engines, and large language models across industry leaders from Google to OpenAI. Hierarchical Navigable Small World (HNSW) graphs have emerged as the dominant ANN algorithm, widely adopted in production systems due to their superior recall versus latency balance. However, as vector databases scale to billions of embeddings, HNSW faces critical bottlenecks: memory consumption expands, distance computation overhead dominates query latency, and it suffers suboptimal performance on heterogeneous data distributions. This paper presents Adaptive Quantization and Rerank HNSW (AQR-HNSW), a novel framework that synergistically integrates three strategies to enhance HNSW scalability. AQR-HNSW introduces (1) density-aware adaptive quantization, achieving 4x compression while preserving distance relationships; (2) multi-state re-ranking that reduces unnecessary computations by 35%; and (3) quantization-optimized SIMD implementations delivering 16-64 operations per cycle across architectures. Evaluation on standard benchmarks demonstrates 2.5-3.3x higher queries per second (QPS) than state-of-the-art HNSW implementations while maintaining over 98% recall, with 75% memory reduction for the index graph and 5x faster index construction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-25T05:58:16Z",
+    "updated": "2026-02-25T05:58:16Z",
+    "url": "http://arxiv.org/abs/2602.21600v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21600v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI",
+      "Google"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统和搜索引擎核心的近似最近邻（ANN）检索环节，提出了优化 HNSW 算法的具体架构，属于高优先级的核心领域进展；虽涉及量化技术但非纯 LLM 研究，且来自 TAL 公司额外加 1 分。",
+    "translation": "AQR-HNSW：通过密度感知量化与多阶段重排序加速近似最近邻搜索",
+    "summary_zh": "提出一种融合密度感知自适应量化、多状态重排序及 SIMD 优化的新型 HNSW 框架，旨在解决大规模向量数据库在内存消耗、计算开销及异构数据分布下的性能瓶颈。",
+    "key_points": [
+      "提出一种融合密度感知自适应量化、多状态重排序及 SIMD 优化的新型 HNSW 框架，旨在解决大规模向量数据库在内存消耗、计算开销及异构数据分布下的性能瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22299v1",
+    "title": "Decoding the Hook: A Multimodal LLM Framework for Analyzing the Hooking Period of Video Ads",
+    "authors": [
+      "Kunpeng Zhang",
+      "Poppy Zhang",
+      "Shawndra Hill",
+      "Amel Awadelkarim"
+    ],
+    "summary": "Video-based ads are a vital medium for brands to engage consumers, with social media platforms leveraging user data to optimize ad delivery and boost engagement. A crucial but under-explored aspect is the 'hooking period', the first three seconds that capture viewer attention and influence engagement metrics. Analyzing this brief window is challenging due to the multimodal nature of video content, which blends visual, auditory, and textual elements. Traditional methods often miss the nuanced interplay of these components, requiring advanced frameworks for thorough evaluation.\n  This study presents a framework using transformer-based multimodal large language models (MLLMs) to analyze the hooking period of video ads. It tests two frame sampling strategies, uniform random sampling and key frame selection, to ensure balanced and representative acoustic feature extraction, capturing the full range of design elements. The hooking video is processed by state-of-the-art MLLMs to generate descriptive analyses of the ad's initial impact, which are distilled into coherent topics using BERTopic for high-level abstraction. The framework also integrates features such as audio attributes and aggregated ad targeting information, enriching the feature set for further analysis.\n  Empirical validation on large-scale real-world data from social media platforms demonstrates the efficacy of our framework, revealing correlations between hooking period features and key performance metrics like conversion per investment. The results highlight the practical applicability and predictive power of the approach, offering valuable insights for optimizing video ad strategies. This study advances video ad analysis by providing a scalable methodology for understanding and enhancing the initial moments of video advertisements.",
+    "categories": [
+      "cs.MM",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T18:24:06Z",
+    "updated": "2026-02-25T18:24:06Z",
+    "url": "http://arxiv.org/abs/2602.22299v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22299v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对视频广告（Ads）的核心环节（前 3 秒钩子期）进行多模态建模，明确应用于提升广告投放效果和转化率，属于高优先级的 Ads/RecSys 应用；虽基于 MLLM，但非纯 LLM 研究。根据规则给予中国公司背景额外 +1 分加分（基础分 7+1=8）。",
+    "translation": "解码钩子：一种用于分析视频广告黄金前三秒的多模态大语言模型框架",
+    "summary_zh": "提出一种基于多模态大语言模型的框架，通过采样策略和主题蒸馏技术深度解析视频广告前三秒的视听文本特征，以量化其对用户 engagement 和转化效果的影响。",
+    "key_points": [
+      "提出一种基于多模态大语言模型的框架，通过采样策略和主题蒸馏技术深度解析视频广告前三秒的视听文本特征，以量化其对用户 engagement 和转化效果的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21634v1",
+    "title": "AgentLTV: An Agent-Based Unified Search-and-Evolution Framework for Automated Lifetime Value Prediction",
+    "authors": [
+      "Chaowei Wu",
+      "Huazhu Chen",
+      "Congde Yuan",
+      "Qirui Yang",
+      "Guoqing Song",
+      "Yue Gao",
+      "Li Luo",
+      "Frank Youhua Chen",
+      "Mengzhuo Guo"
+    ],
+    "summary": "Lifetime Value (LTV) prediction is critical in advertising, recommender systems, and e-commerce. In practice, LTV data patterns vary across decision scenarios. As a result, practitioners often build complex, scenario-specific pipelines and iterate over feature processing, objective design, and tuning. This process is expensive and hard to transfer. We propose AgentLTV, an agent-based unified search-and-evolution framework for automated LTV modeling. AgentLTV treats each candidate solution as an {executable pipeline program}. LLM-driven agents generate code, run and repair pipelines, and analyze execution feedback. Two decision agents coordinate a two-stage search. The Monte Carlo Tree Search (MCTS) stage explores a broad space of modeling choices under a fixed budget, guided by the Polynomial Upper Confidence bounds for Trees criterion and a Pareto-aware multi-metric value function. The Evolutionary Algorithm (EA) stage refines the best MCTS program via island-based evolution with crossover, mutation, and migration. Experiments on a large-scale proprietary dataset and a public benchmark show that AgentLTV consistently discovers strong models across ranking and error metrics. Online bucket-level analysis further indicates improved ranking consistency and value calibration, especially for high-value and negative-LTV segments. We summarize practitioner-oriented takeaways: use MCTS for rapid adaptation to new data patterns, use EA for stable refinement, and validate deployment readiness with bucket-level ranking and calibration diagnostics. The proposed AgentLTV has been successfully deployed online.",
+    "categories": [
+      "cs.LG",
+      "cs.MA"
+    ],
+    "published": "2026-02-25T06:58:18Z",
+    "updated": "2026-02-25T06:58:18Z",
+    "url": "http://arxiv.org/abs/2602.21634v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21634v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对广告和推荐系统中的核心问题（LTV 预测），利用 LLM Agent 自动化建模流程，属于 LLM 在 RecSys/Ads 领域的直接应用。",
+    "translation": "AgentLTV：一种基于智能体的统一搜索与演化框架用于自动化生命周期价值预测",
+    "summary_zh": "提出一种基于 LLM 智能体的框架，通过蒙特卡洛树搜索和进化算法两阶段协同，自动生成并优化可执行代码管道以解决不同场景下的用户生命周期价值预测难题。",
+    "key_points": [
+      "提出一种基于 LLM 智能体的框架，通过蒙特卡洛树搜索和进化算法两阶段协同，自动生成并优化可执行代码管道以解决不同场景下的用户生命周期价值预测难题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21514v1",
+    "title": "I/O Optimizations for Graph-Based Disk-Resident Approximate Nearest Neighbor Search: A Design Space Exploration",
+    "authors": [
+      "Liang Li",
+      "Shufeng Gong",
+      "Yanan Yang",
+      "Yiduo Wang",
+      "Jie Wu"
+    ],
+    "summary": "Approximate nearest neighbor (ANN) search on SSD-backed indexes is increasingly I/O-bound (I/O accounts for 70--90\\% of query latency). We present an I/O-first framework for disk-based ANN that organizes techniques along three dimensions: memory layout, disk layout, and search algorithm. We introduce a page-level complexity model that explains how page locality and path length jointly determine page reads, and we validate the model empirically. Using consistent implementations across four public datasets, we quantify both single-factor effects and cross-dimensional synergies. We find that (i) memory-resident navigation and dynamic width provide the strongest standalone gains; (ii) page shuffle and page search are weak alone but complementary together; and (iii) a principled composition, OctopusANN, substantially reduces I/O and achieves 4.1--37.9\\% higher throughput than the state-of-the-art system Starling and 87.5--149.5\\% higher throughput than DiskANN at matched Recall@10=90\\%. Finally, we distill actionable guidelines for selecting storage-centric or hybrid designs across diverse concurrency levels and accuracy constraints, advocating systematic composition rather than isolated tweaks when pushing the performance frontier of disk-based ANN.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-02-25T03:02:32Z",
+    "updated": "2026-02-25T03:02:32Z",
+    "url": "http://arxiv.org/abs/2602.21514v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21514v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于基于磁盘的近似最近邻（ANN）搜索优化，这是推荐系统和搜索引擎召回阶段的核心基础设施技术，虽非直接的业务算法创新，但对大规模检索系统具有明确的工程应用价值。",
+    "translation": "基于图的磁盘驻留近似最近邻搜索的 I/O 优化：设计空间探索",
+    "summary_zh": "提出了一种以 I/O 为先的框架，通过协同优化内存布局、磁盘布局和搜索算法三个维度，构建了 OctopusANN 系统以显著降低磁盘 ANN 搜索的 I/O 开销并提升吞吐量。",
+    "key_points": [
+      "提出了一种以 I/O 为先的框架，通过协同优化内存布局、磁盘布局和搜索算法三个维度，构建了 OctopusANN 系统以显著降低磁盘 ANN 搜索的 I/O 开销并提升吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22278v1",
+    "title": "RETLLM: Training and Data-Free MLLMs for Multimodal Information Retrieval",
+    "authors": [
+      "Dawei Su",
+      "Dongsheng Wang"
+    ],
+    "summary": "Multimodal information retrieval (MMIR) has gained attention for its flexibility in handling text, images, or mixed queries and candidates. Recent breakthroughs in multimodal large language models (MLLMs) boost MMIR performance by incorporating MLLM knowledge under the contrastive finetuning framework. However, they suffer from pre-training inconsistency and require large datasets. In this work, we introduce a novel framework, RetLLM, designed to query MLLMs for MMIR in a training- and data-free manner. Specifically, we formulate MMIR as a similarity score generation task and prompt MLLMs to directly predict retrieval scores in a coarse-then-fine pipeline. At the coarse stage, a top-k filtering strategy builds a small yet high-quality candidate pool for each query, enabling MLLMs to focus on semantically relevant candidates. Subsequently, the retrieval score is predicted by feeding both the query and candidate into MLLMs at the fine stage. Importantly, we propose a visual enhancement module during reasoning to help MLLMs re-pick forgotten visuals, improving retrieval. Extensive experiments on MMIR benchmarks show that RetLLM outperforms fine-tuned models. Ablation studies further verify each component. Our work demonstrates that MLLMs can achieve strong MMIR performance without any training, highlighting their inherent multimodal reasoning ability in a simple, scalable framework. We release our code at: https://github.com/alivecat05/RETLLM",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T10:31:32Z",
+    "updated": "2026-02-25T10:31:32Z",
+    "url": "http://arxiv.org/abs/2602.22278v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22278v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种无需训练的多模态检索框架，属于搜索/检索的核心环节，但本质是利用通用 MLLM 的推理能力解决检索问题，缺乏针对推荐系统业务场景（如排序、重排、用户建模）的深度定制或创新架构。",
+    "translation": "RETLLM：面向多模态信息检索的训练与数据无关型多模态大语言模型",
+    "summary_zh": "提出一种无需训练和额外数据的框架，通过将多模态检索建模为相似度分数生成任务，利用“由粗到细”的筛选策略和视觉增强模块，直接 prompting 多模态大语言模型进行零样本检索打分。",
+    "key_points": [
+      "提出一种无需训练和额外数据的框架，通过将多模态检索建模为相似度分数生成任务，利用“由粗到细”的筛选策略和视觉增强模块，直接 prompting 多模态大语言模型进行零样本检索打分"
+    ]
+  },
+  {
+    "arxiv_id": "2603.02248v1",
+    "title": "HELIOS: Harmonizing Early Fusion, Late Fusion, and LLM Reasoning for Multi-Granular Table-Text Retrieval",
+    "authors": [
+      "Sungho Park",
+      "Joohyung Yun",
+      "Jongwuk Lee",
+      "Wook-Shin Han"
+    ],
+    "summary": "Table-text retrieval aims to retrieve relevant tables and text to support open-domain question answering. Existing studies use either early or late fusion, but face limitations. Early fusion pre-aligns a table row with its associated passages, forming \"stars,\" which often include irrelevant contexts and miss query-dependent relationships. Late fusion retrieves individual nodes, dynamically aligning them, but it risks missing relevant contexts. Both approaches also struggle with advanced reasoning tasks, such as column-wise aggregation and multi-hop reasoning. To address these issues, we propose HELIOS, which combines the strengths of both approaches. First, the edge-based bipartite subgraph retrieval identifies finer-grained edges between table segments and passages, effectively avoiding the inclusion of irrelevant contexts. Then, the query-relevant node expansion identifies the most promising nodes, dynamically retrieving relevant edges to grow the bipartite subgraph, minimizing the risk of missing important contexts. Lastly, the star-based LLM refinement performs logical inference at the star graph level rather than the bipartite subgraph, supporting advanced reasoning tasks. Experimental results show that HELIOS outperforms state-of-the-art models with a significant improvement up to 42.6\\% and 39.9\\% in recall and nDCG, respectively, on the OTT-QA benchmark.",
+    "categories": [
+      "cs.DB",
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T15:42:24Z",
+    "updated": "2026-02-25T15:42:24Z",
+    "url": "http://arxiv.org/abs/2603.02248v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.02248v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于开放域问答中的表 - 文检索，属于广义搜索范畴但非核心推荐/广告场景；虽应用 LLM 进行推理增强，但本质偏向 NLP 检索任务而非 RecSys 专用架构，仅因中国公司背景及检索相关性给予中等偏下分数。",
+    "translation": "HELIOS：协调早期融合、晚期融合与 LLM 推理以实现多粒度表文检索",
+    "summary_zh": "提出一种结合基于边的二分子图检索与查询相关节点扩展的混合架构，通过动态构建细粒度关联并引入星型图级别的 LLM 逻辑推理，解决表文检索中上下文冗余与复杂推理缺失的问题。",
+    "key_points": [
+      "提出一种结合基于边的二分子图检索与查询相关节点扩展的混合架构，通过动态构建细粒度关联并引入星型图级别的 LLM 逻辑推理，解决表文检索中上下文冗余与复杂推理缺失的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21456v1",
+    "title": "Revisiting Text Ranking in Deep Research",
+    "authors": [
+      "Chuan Meng",
+      "Litu Ou",
+      "Sean MacAvaney",
+      "Jeff Dalton"
+    ],
+    "summary": "Deep research has emerged as an important task that aims to address hard queries through extensive open-web exploration. To tackle it, most prior work equips large language model (LLM)-based agents with opaque web search APIs, enabling agents to iteratively issue search queries, retrieve external evidence, and reason over it. Despite search's essential role in deep research, black-box web search APIs hinder systematic analysis of search components, leaving the behaviour of established text ranking methods in deep research largely unclear. To fill this gap, we reproduce a selection of key findings and best practices for IR text ranking methods in the deep research setting. In particular, we examine their effectiveness from three perspectives: (i) retrieval units (documents vs. passages), (ii) pipeline configurations (different retrievers, re-rankers, and re-ranking depths), and (iii) query characteristics (the mismatch between agent-issued queries and the training queries of text rankers). We perform experiments on BrowseComp-Plus, a deep research dataset with a fixed corpus, evaluating 2 open-source agents, 5 retrievers, and 3 re-rankers across diverse setups. We find that agent-issued queries typically follow web-search-style syntax (e.g., quoted exact matches), favouring lexical, learned sparse, and multi-vector retrievers; passage-level units are more efficient under limited context windows, and avoid the difficulties of document length normalisation in lexical retrieval; re-ranking is highly effective; translating agent-issued queries into natural-language questions significantly bridges the query mismatch.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-02-25T00:18:07Z",
+    "updated": "2026-02-25T00:18:07Z",
+    "url": "http://arxiv.org/abs/2602.21456v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21456v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究 LLM Agent 在深度研究任务中的搜索组件行为，属于通用 IR/LLM 应用分析，缺乏针对推荐系统或商业化搜索引擎的核心技术创新。",
+    "translation": "重访深度研究中的文本排序",
+    "summary_zh": "本文通过在固定语料上复现实验，分析了检索单元、流水线配置及查询特征对 LLM 驱动的深度研究中传统文本排序方法有效性的影响。",
+    "key_points": [
+      "本文通过在固定语料上复现实验，分析了检索单元、流水线配置及查询特征对 LLM 驱动的深度研究中传统文本排序方法有效性的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21862v1",
+    "title": "Personalized Graph-Empowered Large Language Model for Proactive Information Access",
+    "authors": [
+      "Chia Cheng Chang",
+      "An-Zi Yen",
+      "Hen-Hsen Huang",
+      "Hsin-Hsi Chen"
+    ],
+    "summary": "Since individuals may struggle to recall all life details and often confuse events, establishing a system to assist users in recalling forgotten experiences is essential. While numerous studies have proposed memory recall systems, these primarily rely on deep learning techniques that require extensive training and often face data scarcity due to the limited availability of personal lifelogs. As lifelogs grow over time, systems must also adapt quickly to newly accumulated data. Recently, large language models (LLMs) have demonstrated remarkable capabilities across various tasks, making them promising for personalized applications. In this work, we present a framework that leverages LLMs for proactive information access, integrating personal knowledge graphs to enhance the detection of access needs through a refined decision-making process. Our framework offers high flexibility, enabling the replacement of base models and the modification of fact retrieval methods for continuous improvement. Experimental results demonstrate that our approach effectively identifies forgotten events, supporting users in recalling past experiences more efficiently.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-02-25T12:43:25Z",
+    "updated": "2026-02-25T12:43:25Z",
+    "url": "http://arxiv.org/abs/2602.21862v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21862v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 应用研究（个人记忆辅助），缺乏推荐/搜索系统的核心环节（如召回、排序、信息流），虽来自 TAL 加 1 分，但仍属弱相关。",
+    "translation": "基于个性化图谱增强大语言模型的主动信息访问框架",
+    "summary_zh": "提出一种结合个人知识图谱与大语言模型的框架，通过增强的决策过程主动检测用户需求，以辅助用户回忆遗忘的生活经历。",
+    "key_points": [
+      "提出一种结合个人知识图谱与大语言模型的框架，通过增强的决策过程主动检测用户需求，以辅助用户回忆遗忘的生活经历"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22412v1",
+    "title": "A Learning-Based Hybrid Decision Framework for Matching Systems with User Departure Detection",
+    "authors": [
+      "Ruiqi Zhou",
+      "Donghao Zhu",
+      "Houcai Shen"
+    ],
+    "summary": "In matching markets such as kidney exchanges and freight exchanges, delayed matching has been shown to improve overall market efficiency. The benefits of delay are highly sensitive to participants' sojourn times and departure behavior, and delaying matches can impose significant costs, including longer waiting times and increased market congestion. These competing effects make fixed matching policies inherently inflexible in dynamic environments. We propose a learning-based Hybrid framework that adaptively combines immediate and delayed matching. The framework continuously collects data on user departures over time, estimates the underlying departure distribution via regression, and determines whether to delay matching in the subsequent period based on a decision threshold that governs the system's tolerance for matching efficiency loss. The proposed framework can substantially reduce waiting times and congestion while sacrificing only a limited amount of matching efficiency. By dynamically adjusting its matching strategy, the Hybrid framework enables system performance to flexibly interpolate between purely greedy and purely patient policies, offering a robust and adaptive alternative to static matching mechanisms.",
+    "categories": [
+      "cs.LG",
+      "cs.HC",
+      "cs.IT",
+      "econ.GN"
+    ],
+    "published": "2026-02-25T21:06:43Z",
+    "updated": "2026-02-25T21:06:43Z",
+    "url": "http://arxiv.org/abs/2602.22412v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22412v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于肾脏交换和货运交换等特定匹配市场的延迟策略，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于通用匹配理论而非 RecSys 专用技术。",
+    "translation": "一种结合用户离开检测的基于学习混合决策匹配系统框架",
+    "summary_zh": "提出一种基于学习的混合框架，通过回归估计用户离开分布并动态调整即时与延迟匹配的阈值，以在动态环境中平衡匹配效率与等待成本。",
+    "key_points": [
+      "提出一种基于学习的混合框架，通过回归估计用户离开分布并动态调整即时与延迟匹配的阈值，以在动态环境中平衡匹配效率与等待成本"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22438v1",
+    "title": "From Bias to Balance: Fairness-Aware Paper Recommendation for Equitable Peer Review",
+    "authors": [
+      "Uttamasha Anjally Oyshi",
+      "Susan Gauch"
+    ],
+    "summary": "Despite frequent double-blind review, systemic biases related to author demographics still disadvantage underrepresented groups. We start from a simple hypothesis: if a post-review recommender is trained with an explicit fairness regularizer, it should increase inclusion without degrading quality. To test this, we introduce Fair-PaperRec, a Multi-Layer Perceptron (MLP) with a differentiable fairness loss over intersectional attributes (e.g., race, country) that re-ranks papers after double-blind review. We first probe the hypothesis on synthetic datasets spanning high, moderate, and near-fair biases. Across multiple randomized runs, these controlled studies map where increasing the fairness weight strengthens macro/micro diversity while keeping utility approximately stable, demonstrating robustness and adaptability under varying disparity levels. We then carry the hypothesis into the original setting, conference data from ACM Special Interest Group on Computer-Human Interaction (SIGCHI), Designing Interactive Systems (DIS), and Intelligent User Interfaces (IUI). In this real-world scenario, an appropriately tuned configuration of Fair-PaperRec achieves up to a 42.03% increase in underrepresented-group participation with at most a 3.16% change in overall utility relative to the historical selection. Taken together, the synthetic-to-original progression shows that fairness regularization can act as both an equity mechanism and a mild quality regularizer, especially in highly biased regimes. By first analyzing the behavior of the fairness parameters under controlled conditions and then validating them on real submissions, Fair-PaperRec offers a practical, equity-focused framework for post-review paper selection that preserves, and in some settings can even enhance, measured scholarly quality.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-02-25T21:57:07Z",
+    "updated": "2026-02-25T21:57:07Z",
+    "url": "http://arxiv.org/abs/2602.22438v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.22438v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于学术同行评审中的公平性重排序，属于特定领域的伦理应用，而非电商、社交或广告等核心推荐系统业务场景；虽涉及重排序技术，但缺乏通用 RecSys 架构创新，且非中国公司研究（SIGCHI/DIS/IUI 为国际会议），不适用加分。",
+    "translation": "从偏见到平衡：面向公平同行评审的公平感知论文推荐",
+    "summary_zh": "提出一种带有可微公平性损失函数的多层感知机模型，通过在双盲评审后对论文进行重排序，在保持效用稳定的同时显著提升弱势群体的参与度。",
+    "key_points": [
+      "提出一种带有可微公平性损失函数的多层感知机模型，通过在双盲评审后对论文进行重排序，在保持效用稳定的同时显著提升弱势群体的参与度"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22427v2",
+    "title": "Adversarial Hubness Detector: Detecting Hubness Poisoning in Retrieval-Augmented Generation Systems",
+    "authors": [
+      "Idan Habler",
+      "Vineeth Sai Narajala",
+      "Stav Koren",
+      "Amy Chang",
+      "Tiffany Saade"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems are essential to contemporary AI applications, allowing large language models to obtain external knowledge via vector similarity search. Nevertheless, these systems encounter a significant security flaw: hubness - items that frequently appear in the top-$k$ retrieval results for a disproportionately high number of varied queries. These hubs can be exploited to introduce harmful content, alter search rankings, bypass content filtering, and decrease system performance.\n  We introduce hubscan, an open-source security scanner that evaluates vector indices and embeddings to identify hubs in RAG systems. Hubscan presents a multi-detector architecture that integrates: (1) robust statistical hubness detection utilizing median/Median Absolute Deviation (MAD)-based z-scores, (2) cluster spread analysis to assess cross-cluster retrieval patterns, (3) stability testing under query perturbations, and (4) domain-aware and modality-aware detection for category-specific and cross-modal attacks. Our solution accommodates several vector databases (FAISS, Pinecone, Qdrant, Weaviate) and offers versatile retrieval techniques, including vector similarity, hybrid search, and lexical matching with reranking capabilities.\n  We evaluate hubscan on Food-101, MS-COCO, and FiQA adversarial hubness benchmarks constructed using state-of-the-art gradient-optimized and centroid-based hub generation methods. Hubscan achieves 90% recall at a 0.2% alert budget and 100% recall at 0.4%, with adversarial hubs ranking above the 99.8th percentile. In testing, domain-scoped scanning recovered 100% of targeted attacks that evaded global detection. Production validation on 1M real web documents from MS MARCO demonstrates significant score separation between clean documents and adversarial content.",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "published": "2026-02-25T21:37:53Z",
+    "updated": "2026-03-11T01:08:33Z",
+    "url": "http://arxiv.org/abs/2602.22427v2",
+    "pdf_url": "http://arxiv.org/pdf/2602.22427v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于 RAG 系统的安全性与对抗性攻击检测（Hubness Poisoning），属于纯 LLM 应用安全研究，并未提出针对推荐或搜索核心环节（如召回、排序、用户建模）的改进方法。",
+    "translation": "对抗性中心性检测器：检测检索增强生成系统中的中心性投毒",
+    "summary_zh": "提出一种名为 Hubscan 的多检测器架构，通过统计分析和聚类扩散评估，识别并利用向量索引中的中心性异常来检测 RAG 系统中的对抗性投毒攻击。",
+    "key_points": [
+      "提出一种名为 Hubscan 的多检测器架构，通过统计分析和聚类扩散评估，识别并利用向量索引中的中心性异常来检测 RAG 系统中的对抗性投毒攻击"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21553v1",
+    "title": "Revisiting RAG Retrievers: An Information Theoretic Benchmark",
+    "authors": [
+      "Wenqing Zheng",
+      "Dmitri Kalaev",
+      "Noah Fatsi",
+      "Daniel Barcklow",
+      "Owen Reinert",
+      "Igor Melnyk",
+      "Senthil Kumar",
+      "C. Bayan Bruss"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems rely critically on the retriever module to surface relevant context for large language models. Although numerous retrievers have recently been proposed, each built on different ranking principles such as lexical matching, dense embeddings, or graph citations, there remains a lack of systematic understanding of how these mechanisms differ and overlap. Existing benchmarks primarily compare entire RAG pipelines or introduce new datasets, providing little guidance on selecting or combining retrievers themselves. Those that do compare retrievers directly use a limited set of evaluation tools which fail to capture complementary and overlapping strengths. This work presents MIGRASCOPE, a Mutual Information based RAG Retriever Analysis Scope. We revisit state-of-the-art retrievers and introduce principled metrics grounded in information and statistical estimation theory to quantify retrieval quality, redundancy, synergy, and marginal contribution. We further show that if chosen carefully, an ensemble of retrievers outperforms any single retriever. We leverage the developed tools over major RAG corpora to provide unique insights on contribution levels of the state-of-the-art retrievers. Our findings provide a fresh perspective on the structure of modern retrieval techniques and actionable guidance for designing robust and efficient RAG systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-02-25T04:19:06Z",
+    "updated": "2026-02-25T04:19:06Z",
+    "url": "http://arxiv.org/abs/2602.21553v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21553v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 LLM 领域的 RAG 检索器评估，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交信息流等），属于通用 LLM 研究。",
+    "translation": "重访 RAG 检索器：一个信息论基准",
+    "summary_zh": "提出基于互信息的 MIGRASCOPE 框架，通过信息论指标量化不同 RAG 检索器的质量、冗余度与协同效应，以指导检索器组合优化。",
+    "key_points": [
+      "提出基于互信息的 MIGRASCOPE 框架，通过信息论指标量化不同 RAG 检索器的质量、冗余度与协同效应，以指导检索器组合优化"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21757v1",
+    "title": "Learning from Yesterday's Error: An Efficient Online Learning Method for Traffic Demand Prediction",
+    "authors": [
+      "Xiannan Huang",
+      "Quan Yuan",
+      "Chao Yang"
+    ],
+    "summary": "Accurately predicting short-term traffic demand is critical for intelligent transportation systems. While deep learning models achieve strong performance under stationary conditions, their accuracy often degrades significantly when faced with distribution shifts caused by external events or evolving urban dynamics. Frequent model retraining to adapt to such changes incurs prohibitive computational costs, especially for large-scale or foundation models. To address this challenge, we propose FORESEE (Forecasting Online with Residual Smoothing and Ensemble Experts), a lightweight online adaptation framework that is accurate, robust, and computationally efficient. FORESEE operates without any parameter updates to the base model. Instead, it corrects today's forecast in each region using yesterday's prediction error, stabilized through exponential smoothing guided by a mixture-of-experts mechanism that adapts to recent error dynamics. Moreover, an adaptive spatiotemporal smoothing component propagates error signals across neighboring regions and time slots, capturing coherent shifts in demand patterns. Extensive experiments on seven real-world datasets with three backbone models demonstrate that FORESEE consistently improves prediction accuracy, maintains robustness even when distribution shifts are minimal (avoiding performance degradation), and achieves the lowest computational overhead among existing online methods. By enabling real-time adaptation of traffic forecasting models with negligible computational cost, FORESEE paves the way for deploying reliable, up-to-date prediction systems in dynamic urban environments. Code and data are available at https://github.com/xiannanhuang/FORESEE",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-02-25T10:19:39Z",
+    "updated": "2026-02-25T10:19:39Z",
+    "url": "http://arxiv.org/abs/2602.21757v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.21757v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于交通需求预测，属于纯时空预测研究，未涉及推荐系统或搜索引擎的核心任务（如召回、排序、用户建模），与目标领域几乎不相关。",
+    "translation": "从昨日误差中学习：一种高效的交通需求预测在线学习方法",
+    "summary_zh": "提出一种无需更新基模型参数的轻量级在线自适应框架，利用指数平滑和混合专家机制，基于历史预测误差实时校正当前预测结果以应对分布偏移。",
+    "key_points": [
+      "提出一种无需更新基模型参数的轻量级在线自适应框架，利用指数平滑和混合专家机制，基于历史预测误差实时校正当前预测结果以应对分布偏移"
+    ]
+  }
+]

@@ -1,0 +1,477 @@
+[
+  {
+    "arxiv_id": "2510.22049v2",
+    "title": "Massive Memorization with Hundreds of Trillions of Parameters for Sequential Transducer Generative Recommenders",
+    "authors": [
+      "Zhimin Chen",
+      "Chenyu Zhao",
+      "Ka Chun Mo",
+      "Yunjiang Jiang",
+      "Jane H. Lee",
+      "Khushhall Chandra Mahajan",
+      "Ning Jiang",
+      "Kai Ren",
+      "Jinhui Li",
+      "Wen-Yun Yang"
+    ],
+    "summary": "Modern large-scale recommendation systems rely heavily on user interaction history sequences to enhance the model performance. The advent of large language models and sequential modeling techniques, particularly transformer-like architectures, has led to significant advancements recently (e.g., HSTU, SIM, and TWIN models). While scaling to ultra-long user histories (10k to 100k items) generally improves model performance, it also creates significant challenges on latency, queries per second (QPS) and GPU cost in industry-scale recommendation systems. Existing models do not adequately address these industrial scalability issues. In this paper, we propose a novel two-stage modeling framework, namely VIrtual Sequential Target Attention (VISTA), which decomposes traditional target attention from a candidate item to user history items into two distinct stages: (1) user history summarization into a few hundred tokens; followed by (2) candidate item attention to those tokens. These summarization token embeddings are then cached in storage system and then utilized as sequence features for downstream model training and inference. This novel design for scalability enables VISTA to scale to lifelong user histories (up to one million items) while keeping downstream training and inference costs fixed, which is essential in industry. Our approach achieves significant improvements in offline and online metrics and has been successfully deployed on an industry leading recommendation platform serving billions of users.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-10-24T22:17:49Z",
+    "updated": "2026-02-25T09:18:59Z",
+    "url": "http://arxiv.org/abs/2510.22049v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.22049v2.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta, 2Yale University",
+      "adequately address these industrial scalability issues. In this paper, we"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统中的长序列用户行为建模难题，提出了 VISTA 两阶段架构以支持百万级历史物品的高效处理，属于核心推荐技术突破；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "面向序列转导生成式推荐器的数万亿参数大规模记忆化研究",
+    "summary_zh": "提出 VISTA 两阶段建模框架，通过将用户历史摘要为少量缓存 Token 再与候选物品交互，实现了支持百万级终身用户历史且保持推理成本固定的工业级推荐方案。",
+    "key_points": [
+      "提出 VISTA 两阶段建模框架，通过将用户历史摘要为少量缓存 Token 再与候选物品交互，实现了支持百万级终身用户历史且保持推理成本固定的工业级推荐方案"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21276v1",
+    "title": "Pctx: Tokenizing Personalized Context for Generative Recommendation",
+    "authors": [
+      "Qiyong Zhong",
+      "Jiajie Su",
+      "Yunshan Ma",
+      "Julian McAuley",
+      "Yupeng Hou"
+    ],
+    "summary": "Generative recommendation (GR) models tokenize each action into a few discrete tokens (called semantic IDs) and autoregressively generate the next tokens as predictions, showing advantages such as memory efficiency, scalability, and the potential to unify retrieval and ranking. Despite these benefits, existing tokenization methods are static and non-personalized. They typically derive semantic IDs solely from item features, assuming a universal item similarity that overlooks user-specific perspectives. However, under the autoregressive paradigm, semantic IDs with the same prefixes always receive similar probabilities, so a single fixed mapping implicitly enforces a universal item similarity standard across all users. In practice, the same item may be interpreted differently depending on user intentions and preferences. To address this issue, we propose a personalized context-aware tokenizer that incorporates a user's historical interactions when generating semantic IDs. This design allows the same item to be tokenized into different semantic IDs under different user contexts, enabling GR models to capture multiple interpretive standards and produce more personalized predictions. Experiments on three public datasets demonstrate up to 11.44% improvement in NDCG@10 over non-personalized action tokenization baselines. Our code is available at https://github.com/YoungZ365/Pctx.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-10-24T09:22:04Z",
+    "updated": "2025-10-24T09:22:04Z",
+    "url": "http://arxiv.org/abs/2510.21276v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21276v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）中的核心 Tokenization 环节提出创新，解决了静态语义 ID 无法捕捉用户个性化上下文的问题，属于高优先级的 RecSys 核心架构 advances，且来自中国公司额外 +1 分后满分。",
+    "translation": "Pctx：面向生成式推荐的个性化上下文 Tokenization 方法",
+    "summary_zh": "提出一种个性化上下文感知的 Tokenizer，通过将用户历史交互融入语义 ID 生成过程，使同一物品在不同用户语境下映射为不同 Token，从而让生成式推荐模型能捕捉多样化的用户解释标准并提升预测个性化程度。",
+    "key_points": [
+      "提出一种个性化上下文感知的 Tokenizer，通过将用户历史交互融入语义 ID 生成过程，使同一物品在不同用户语境下映射为不同 Token，从而让生成式推荐模型能捕捉多样化的用户解释标准并提升预测个性化程度"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21333v1",
+    "title": "CausalRec: A CausalBoost Attention Model for Sequential Recommendation",
+    "authors": [
+      "Yunbo Hou",
+      "Tianle Yang",
+      "Ruijie Li",
+      "Li He",
+      "Liang Wang",
+      "Weiping Li",
+      "Bo Zheng",
+      "Guojie Song"
+    ],
+    "summary": "Recent advances in correlation-based sequential recommendation systems have demonstrated substantial success. Specifically, the attention-based model outperforms other RNN-based and Markov chains-based models by capturing both short- and long-term dependencies more effectively. However, solely focusing on item co-occurrences overlooks the underlying motivations behind user behaviors, leading to spurious correlations and potentially inaccurate recommendations. To address this limitation, we present a novel framework that integrates causal attention for sequential recommendation, CausalRec. It incorporates a causal discovery block and a CausalBooster. The causal discovery block learns the causal graph in user behavior sequences, and we provide a theory to guarantee the identifiability of the learned causal graph. The CausalBooster utilizes the discovered causal graph to refine the attention mechanism, prioritizing behaviors with causal significance. Experimental evaluations on real-world datasets indicate that CausalRec outperforms several state-of-the-art methods, with average improvements of 7.21% in Hit Rate (HR) and 8.65% in Normalized Discounted Cumulative Gain (NDCG). To the best of our knowledge, this is the first model to incorporate causality through the attention mechanism in sequential recommendation, demonstrating the value of causality in generating more accurate and reliable recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-24T10:49:50Z",
+    "updated": "2025-10-24T10:49:50Z",
+    "url": "http://arxiv.org/abs/2510.21333v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21333v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "PekingUniversity yangtianle.ytl@alibaba-inc.com PekingUniversity",
+      "heli@taobao.com wangliang@taobao.com PekingUniversity",
+      "AlibabaGroup NationalKeyLaboratoryofGeneral",
+      "PekingUniversity",
+      "haviors,leadingtospuriouscorrelationsandpotentiallyinaccurate isavailableathttps://anonymous.4open.science/r/CausalRec-202B/."
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐系统，提出利用因果发现增强注意力机制以消除虚假相关，属于核心推荐算法创新；且来自 TAL（好未来），符合加分条件。",
+    "translation": "CausalRec：一种用于序列推荐的因果增强注意力模型",
+    "summary_zh": "该论文提出 CausalRec 框架，通过因果发现模块学习用户行为序列中的因果图，并利用 CausalBooster 机制将因果结构融入注意力模型，从而优先关注具有因果显著性的行为以提升推荐准确性。",
+    "key_points": [
+      "该论文提出 CausalRec 框架，通过因果发现模块学习用户行为序列中的因果图，并利用 CausalBooster 机制将因果结构融入注意力模型，从而优先关注具有因果显著性的行为以提升推荐准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21671v1",
+    "title": "A Data-Centric Approach to Multilingual E-Commerce Product Search: Case Study on Query-Category and Query-Item Relevance",
+    "authors": [
+      "Yabo Yin",
+      "Yang Xi",
+      "Jialong Wang",
+      "Shanqi Wang",
+      "Jiateng Hu"
+    ],
+    "summary": "Multilingual e-commerce search suffers from severe data imbalance across languages, label noise, and limited supervision for low-resource languages--challenges that impede the cross-lingual generalization of relevance models despite the strong capabilities of large language models (LLMs). In this work, we present a practical, architecture-agnostic, data-centric framework to enhance performance on two core tasks: Query-Category (QC) relevance (matching queries to product categories) and Query-Item (QI) relevance (matching queries to product titles). Rather than altering the model, we redesign the training data through three complementary strategies: (1) translation-based augmentation to synthesize examples for languages absent in training, (2) semantic negative sampling to generate hard negatives and mitigate class imbalance, and (3) self-validation filtering to detect and remove likely mislabeled instances. Evaluated on the CIKM AnalytiCup 2025 dataset, our approach consistently yields substantial F1 score improvements over strong LLM baselines, achieving competitive results in the official competition. Our findings demonstrate that systematic data engineering can be as impactful as--and often more deployable than--complex model modifications, offering actionable guidance for building robust multilingual search systems in the real-world e-commerce settings.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-24T17:27:35Z",
+    "updated": "2025-10-24T17:27:35Z",
+    "url": "http://arxiv.org/abs/2510.21671v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21671v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商多语言搜索中的查询 - 类目和查询 - 商品相关性任务，提出数据为中心的框架解决数据不平衡和噪声问题，具有明确的业务场景和核心搜索应用价值。",
+    "translation": "以数据为中心的多语言电商产品搜索方法：查询 - 类目与查询 - 商品相关性案例研究",
+    "summary_zh": "本文提出一种不依赖模型架构改动的数据中心框架，通过翻译增强、语义负采样和自验证过滤三种策略优化训练数据，以提升多语言电商搜索中的查询相关性匹配能力。",
+    "key_points": [
+      "本文提出一种不依赖模型架构改动的数据中心框架，通过翻译增强、语义负采样和自验证过滤三种策略优化训练数据，以提升多语言电商搜索中的查询相关性匹配能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21242v1",
+    "title": "Bi-Level Optimization for Generative Recommendation: Bridging Tokenization and Generation",
+    "authors": [
+      "Yimeng Bai",
+      "Chang Liu",
+      "Yang Zhang",
+      "Dingxian Wang",
+      "Frank Yang",
+      "Andrew Rabinovich",
+      "Wenge Rong",
+      "Fuli Feng"
+    ],
+    "summary": "Generative recommendation is emerging as a transformative paradigm by directly generating recommended items, rather than relying on matching. Building such a system typically involves two key components: (1) optimizing the tokenizer to derive suitable item identifiers, and (2) training the recommender based on those identifiers. Existing approaches often treat these components separately--either sequentially or in alternation--overlooking their interdependence. This separation can lead to misalignment: the tokenizer is trained without direct guidance from the recommendation objective, potentially yielding suboptimal identifiers that degrade recommendation performance.\n  To address this, we propose BLOGER, a Bi-Level Optimization for GEnerative Recommendation framework, which explicitly models the interdependence between the tokenizer and the recommender in a unified optimization process. The lower level trains the recommender using tokenized sequences, while the upper level optimizes the tokenizer based on both the tokenization loss and recommendation loss. We adopt a meta-learning approach to solve this bi-level optimization efficiently, and introduce gradient surgery to mitigate gradient conflicts in the upper-level updates, thereby ensuring that item identifiers are both informative and recommendation-aligned. Extensive experiments on real-world datasets demonstrate that BLOGER consistently outperforms state-of-the-art generative recommendation methods while maintaining practical efficiency with no significant additional computational overhead, effectively bridging the gap between item tokenization and autoregressive generation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-24T08:25:56Z",
+    "updated": "2025-10-24T08:25:56Z",
+    "url": "http://arxiv.org/abs/2510.21242v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21242v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心问题（分词器与推荐目标的对齐），提出了双层优化框架，属于推荐系统核心架构创新，非纯 LLM 研究。",
+    "translation": "生成式推荐的双层优化：桥接分词与生成",
+    "summary_zh": "提出 BLOGER 框架，通过双层优化和元学习策略联合优化分词器与推荐模型，解决标识符学习与推荐目标不一致的问题。",
+    "key_points": [
+      "提出 BLOGER 框架，通过双层优化和元学习策略联合优化分词器与推荐模型，解决标识符学习与推荐目标不一致的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.22023v2",
+    "title": "Multimodal Item Scoring for Natural Language Recommendation via Gaussian Process Regression with LLM Relevance Judgments",
+    "authors": [
+      "Yifan Liu",
+      "Qianfeng Wen",
+      "Jiazhou Liang",
+      "Mark Zhao",
+      "Justin Cui",
+      "Anton Korikov",
+      "Armin Toroghi",
+      "Junyoung Kim",
+      "Scott Sanner"
+    ],
+    "summary": "Natural Language Recommendation (NLRec) generates item suggestions based on the relevance between user-issued NL requests and NL item description passages. Existing NLRec approaches often use Dense Retrieval (DR) to compute item relevance scores from aggregation of inner products between user request embeddings and relevant passage embeddings. However, DR views the request as the sole relevance label, thus leading to a unimodal scoring function centered on the query embedding that is often a weak proxy for query relevance. To better capture the potential multimodal distribution of the relevance scoring function that may arise from complex NLRec data, we propose GPR-LLM that uses Gaussian Process Regression (GPR) with LLM relevance judgments for a subset of candidate passages. Experiments on four NLRec datasets and two LLM backbones demonstrate that GPR-LLM with an RBF kernel, capable of modeling multimodal relevance scoring functions, consistently outperforms simpler unimodal kernels (dot product, cosine similarity), as well as baseline methods including DR, cross-encoder, and pointwise LLM-based relevance scoring by up to 65%. Overall, GPR-LLM provides an efficient and effective approach to NLRec within a minimal LLM labeling budget.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-24T21:03:20Z",
+    "updated": "2025-10-31T20:44:50Z",
+    "url": "http://arxiv.org/abs/2510.22023v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.22023v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对自然语言推荐（NLRec）场景，提出利用高斯过程回归结合 LLM 评判来优化多模态物品打分方法，属于 LLM 在推荐系统中的直接应用。",
+    "translation": "基于高斯过程回归与 LLM 相关性评判的自然语言推荐多模态物品打分",
+    "summary_zh": "针对自然语言推荐中稠密检索打分函数单一模态的局限，提出利用高斯过程回归结合少量 LLM 相关性评判来建模复杂的多模态相关性分布。",
+    "key_points": [
+      "针对自然语言推荐中稠密检索打分函数单一模态的局限，提出利用高斯过程回归结合少量 LLM 相关性评判来建模复杂的多模态相关性分布"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21455v1",
+    "title": "Towards Explainable Personalized Recommendations by Learning from Users' Photos",
+    "authors": [
+      "Jorge Díez",
+      "Pablo Pérez-Núñez",
+      "Oscar Luaces",
+      "Beatriz Remeseiro",
+      "Antonio Bahamonde"
+    ],
+    "summary": "Explaining the output of a complex system, such as a Recommender System (RS), is becoming of utmost importance for both users and companies. In this paper we explore the idea that personalized explanations can be learned as recommendation themselves. There are plenty of online services where users can upload some photos, in addition to rating items. We assume that users take these photos to reinforce or justify their opinions about the items. For this reason we try to predict what photo a user would take of an item, because that image is the argument that can best convince her of the qualities of the item. In this sense, an RS can explain its results and, therefore, increase its reliability. Furthermore, once we have a model to predict attractive images for users, we can estimate their distribution. Thus, the companies acquire a vivid knowledge about the aspects that the clients highlight of their products. The paper includes a formal framework that estimates the authorship probability for a given pair (user, photo). To illustrate the proposal, we use data gathered from TripAdvisor containing the reviews (with photos) of restaurants in six cities of different sizes.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-24T13:33:50Z",
+    "updated": "2025-10-24T13:33:50Z",
+    "url": "http://arxiv.org/abs/2510.21455v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21455v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统的可解释性问题，提出利用用户照片进行多模态建模以生成个性化解释，属于明确的多模态推荐应用场景。",
+    "translation": "通过学习用户照片实现可解释的个性化推荐",
+    "summary_zh": "提出一种将个性化解释视为推荐任务本身的框架，通过预测用户对物品可能拍摄的照片来生成具有说服力的推荐理由并洞察用户偏好。",
+    "key_points": [
+      "提出一种将个性化解释视为推荐任务本身的框架，通过预测用户对物品可能拍摄的照片来生成具有说服力的推荐理由并洞察用户偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21352v2",
+    "title": "SciNUP: Natural Language User Interest Profiles for Scientific Literature Recommendation",
+    "authors": [
+      "Mariam Arustashvili",
+      "Krisztian Balog"
+    ],
+    "summary": "The use of natural language (NL) user profiles in recommender systems offers greater transparency and user control compared to traditional representations. However, there is scarcity of large-scale, publicly available test collections for evaluating NL profile-based recommendation. To address this gap, we introduce SciNUP, a novel synthetic dataset for scholarly recommendation that leverages authors' publication histories to generate NL profiles and corresponding ground truth items. We use this dataset to conduct a comparison of baseline methods, ranging from sparse and dense retrieval approaches to state-of-the-art LLM-based rerankers. Our results show that while baseline methods achieve comparable performance, they often retrieve different items, indicating complementary behaviors. At the same time, considerable headroom for improvement remains, highlighting the need for effective NL-based recommendation approaches. The SciNUP dataset thus serves as a valuable resource for fostering future research and development in this area.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-24T11:28:08Z",
+    "updated": "2026-01-23T12:48:15Z",
+    "url": "http://arxiv.org/abs/2510.21352v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.21352v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对学术文献推荐系统，提出了基于自然语言的用户兴趣画像方法及配套数据集，属于明确的 RecSys 应用而非纯 LLM 研究；虽为学术场景但核心技术与通用推荐高度互通，且来自中国公司额外加 1 分。",
+    "translation": "SciNUP：用于科学文献推荐的自然语言用户兴趣画像",
+    "summary_zh": "本文提出 SciNUP 数据集与方法，利用作者发表历史生成自然语言用户画像以增强推荐系统的透明性与可控性，并评估了从稀疏检索到 LLM 重排序的多种基线方法在该新范式下的表现差异。",
+    "key_points": [
+      "本文提出 SciNUP 数据集与方法，利用作者发表历史生成自然语言用户画像以增强推荐系统的透明性与可控性，并评估了从稀疏检索到 LLM 重排序的多种基线方法在该新范式下的表现差异"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21151v1",
+    "title": "VOGUE: A Multimodal Dataset for Conversational Recommendation in Fashion",
+    "authors": [
+      "David Guo",
+      "Minqi Sun",
+      "Yilun Jiang",
+      "Jiazhou Liang",
+      "Scott Sanner"
+    ],
+    "summary": "Multimodal conversational recommendation has emerged as a promising paradigm for delivering personalized experiences through natural dialogue enriched by visual and contextual grounding. Yet, current multimodal conversational recommendation datasets remain limited: existing resources either simulate conversations, omit user history, or fail to collect sufficiently detailed feedback, all of which constrain the types of research and evaluation they support.\n  To address these gaps, we introduce VOGUE, a novel dataset of 60 humanhuman dialogues in realistic fashion shopping scenarios. Each dialogue is paired with a shared visual catalogue, item metadata, user fashion profiles and histories, and post-conversation ratings from both Seekers and Assistants. This design enables rigorous evaluation of conversational inference, including not only alignment between predicted and ground-truth preferences, but also calibration against full rating distributions and comparison with explicit and implicit user satisfaction signals.\n  Our initial analyses of VOGUE reveal distinctive dynamics of visually grounded dialogue. For example, recommenders frequently suggest items simultaneously in feature-based groups, which creates distinct conversational phases bridged by Seeker critiques and refinements. Benchmarking multimodal large language models against human recommenders shows that while MLLMs approach human-level alignment in aggregate, they exhibit systematic distribution errors in reproducing human ratings and struggle to generalize preference inference beyond explicitly discussed items. These findings establish VOGUE as both a unique resource for studying multimodal conversational systems and as a challenge dataset beyond the current recommendation capabilities of existing top-tier multimodal foundation models such as GPT-4o-mini, GPT-5-mini, and Gemini-2.5-Flash.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-10-24T04:45:29Z",
+    "updated": "2025-10-24T04:45:29Z",
+    "url": "http://arxiv.org/abs/2510.21151v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21151v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一个专门用于多模态对话推荐（时尚领域）的数据集，直接服务于推荐系统研究，但属于数据资源而非核心算法架构创新；因来自中国公司额外加 1 分。",
+    "translation": "VOGUE：一个用于时尚领域对话推荐的多模态数据集",
+    "summary_zh": "本文提出了 VOGUE 数据集，通过包含真实人机对话、视觉目录及用户历史画像，旨在解决现有资源在模拟对话和细粒度反馈方面的缺失，以支持多模态对话推荐系统的评估与研究。",
+    "key_points": [
+      "本文提出了 VOGUE 数据集，通过包含真实人机对话、视觉目录及用户历史画像，旨在解决现有资源在模拟对话和细粒度反馈方面的缺失，以支持多模态对话推荐系统的评估与研究"
+    ]
+  },
+  {
+    "arxiv_id": "2601.05258v1",
+    "title": "From Events to Trending: A Multi-Stage Hotspots Detection Method Based on Generative Query Indexing",
+    "authors": [
+      "Kaichun Wang",
+      "Yanguang Chen",
+      "Ting Zhang",
+      "Mengyao Bao",
+      "Keyu Chen",
+      "Xu Hu",
+      "Yongliang Wang",
+      "Jingsheng Yang",
+      "Jinsong Zhang",
+      "Fei Lu"
+    ],
+    "summary": "LLM-based conversational systems have become a popular gateway for information access, yet most existing chatbots struggle to handle news-related trending queries effectively. To improve user experience, an effective trending query detection method is urgently needed to enable differentiated processing of such target traffic. However, current research on trending detection tailored to the dialogue system scenario remains largely unexplored, and methods designed for traditional search engines often underperform in conversational contexts due to radically distinct query distributions and expression patterns. To fill this gap, we propose a multi-stage framework for trending detection, which achieves systematic optimization from both offline generation and online identification perspectives. Specifically, our framework first exploits selected hot events to generate index queries, establishing a key bridge between static events and dynamic user queries. It then employs a retrieval matching mechanism for real-time online detection of trending queries, where we introduce a cascaded recall and ranking architecture to balance detection efficiency and accuracy. Furthermore, to better adapt to the practical application scenario, our framework adopts a single-recall module as a cold-start strategy to collect online data for fine-tuning the reranker. Extensive experiments demonstrate that our framework significantly outperforms baseline methods in both offline evaluations and online A/B tests, and user satisfaction is relatively improved by 27\\% in terms of positive-negative feedback ratio.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2025-10-24T08:49:38Z",
+    "updated": "2025-10-24T08:49:38Z",
+    "url": "http://arxiv.org/abs/2601.05258v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.05258v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文针对对话式搜索系统中的热点查询检测问题，提出了包含召回和排序的多阶段框架，属于搜索核心链路优化，但并非纯 LLM 基础研究。",
+    "translation": "从事件到趋势：一种基于生成式查询索引的多阶段热点检测方法",
+    "summary_zh": "提出一种多阶段框架，利用生成式查询索引连接静态事件与动态用户查询，并通过级联召回与排序架构实现对话场景下的实时热点检测。",
+    "key_points": [
+      "提出一种多阶段框架，利用生成式查询索引连接静态事件与动态用户查询，并通过级联召回与排序架构实现对话场景下的实时热点检测"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21970v1",
+    "title": "Performance Trade-offs of Optimizing Small Language Models for E-Commerce",
+    "authors": [
+      "Josip Tomo Licardo",
+      "Nikola Tankovic"
+    ],
+    "summary": "Large Language Models (LLMs) offer state-of-the-art performance in natural language understanding and generation tasks. However, the deployment of leading commercial models for specialized tasks, such as e-commerce, is often hindered by high computational costs, latency, and operational expenses. This paper investigates the viability of smaller, open-weight models as a resource-efficient alternative. We present a methodology for optimizing a one-billion-parameter Llama 3.2 model for multilingual e-commerce intent recognition. The model was fine-tuned using Quantized Low-Rank Adaptation (QLoRA) on a synthetically generated dataset designed to mimic real-world user queries. Subsequently, we applied post-training quantization techniques, creating GPU-optimized (GPTQ) and CPU-optimized (GGUF) versions. Our results demonstrate that the specialized 1B model achieves 99% accuracy, matching the performance of the significantly larger GPT-4.1 model. A detailed performance analysis revealed critical, hardware-dependent trade-offs: while 4-bit GPTQ reduced VRAM usage by 41%, it paradoxically slowed inference by 82% on an older GPU architecture (NVIDIA T4) due to dequantization overhead. Conversely, GGUF formats on a CPU achieved a speedup of up to 18x in inference throughput and a reduction of over 90% in RAM consumption compared to the FP16 baseline. We conclude that small, properly optimized open-weight models are not just a viable but a more suitable alternative for domain-specific applications, offering state-of-the-art accuracy at a fraction of the computational cost.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-10-24T18:49:28Z",
+    "updated": "2025-10-24T18:49:28Z",
+    "url": "http://arxiv.org/abs/2510.21970v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21970v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于电商场景下的意图识别模型优化，属于搜索/推荐的前置理解环节，但核心贡献在于小模型量化与部署的工程权衡，而非推荐算法本身的创新。",
+    "translation": "面向电子商务的小语言模型优化性能权衡研究",
+    "summary_zh": "提出一种基于 QLoRA 微调及后训练量化（GPTQ/GGUF）的方法，将十亿级小模型优化用于多模态电商意图识别，以在降低计算成本的同时保持高精度。",
+    "key_points": [
+      "提出一种基于 QLoRA 微调及后训练量化（GPTQ/GGUF）的方法，将十亿级小模型优化用于多模态电商意图识别，以在降低计算成本的同时保持高精度"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21202v1",
+    "title": "Online AUC Optimization Based on Second-order Surrogate Loss",
+    "authors": [
+      "JunRu Luo",
+      "Difei Cheng",
+      "Bo Zhang"
+    ],
+    "summary": "The Area Under the Curve (AUC) is an important performance metric for classification tasks, particularly in class-imbalanced scenarios. However, minimizing the AUC presents significant challenges due to the non-convex and discontinuous nature of pairwise 0/1 losses, which are difficult to optimize, as well as the substantial memory cost of instance-wise storage, which creates bottlenecks in large-scale applications. To overcome these challenges, we propose a novel second-order surrogate loss based on the pairwise hinge loss, and develop an efficient online algorithm. Unlike conventional approaches that approximate each individual pairwise 0/1 loss term with an instance-wise surrogate function, our approach introduces a new paradigm that directly substitutes the entire aggregated pairwise loss with a surrogate loss function constructed from the first- and second-order statistics of the training data. Theoretically, while existing online AUC optimization algorithms typically achieve an $\\mathcal{O}(\\sqrt{T})$ regret bound, our method attains a tighter $\\mathcal{O}(\\ln T)$ bound. Furthermore, we extend the proposed framework to nonlinear settings through a kernel-based formulation. Extensive experiments on multiple benchmark datasets demonstrate the superior efficiency and effectiveness of the proposed second-order surrogate loss in optimizing online AUC performance.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-10-24T07:08:22Z",
+    "updated": "2025-10-24T07:08:22Z",
+    "url": "http://arxiv.org/abs/2510.21202v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21202v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种通用的在线 AUC 优化算法，虽可应用于推荐排序环节，但属于通用机器学习方法，缺乏针对推荐/搜索场景的特定建模或架构创新；因来自中国公司额外加 1 分。",
+    "translation": "基于二阶代理损失的在线 AUC 优化方法",
+    "summary_zh": "提出一种利用训练数据一阶和二阶统计量构建二阶代理损失的新范式，直接替代聚合成对损失以解决大规模在线 AUC 优化的非凸性与内存瓶颈问题。",
+    "key_points": [
+      "提出一种利用训练数据一阶和二阶统计量构建二阶代理损失的新范式，直接替代聚合成对损失以解决大规模在线 AUC 优化的非凸性与内存瓶颈问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21131v1",
+    "title": "Large Language Models Meet Text-Attributed Graphs: A Survey of Integration Frameworks and Applications",
+    "authors": [
+      "Guangxin Su",
+      "Hanchen Wang",
+      "Jianwei Wang",
+      "Wenjie Zhang",
+      "Ying Zhang",
+      "Jian Pei"
+    ],
+    "summary": "Large Language Models (LLMs) have achieved remarkable success in natural language processing through strong semantic understanding and generation. However, their black-box nature limits structured and multi-hop reasoning. In contrast, Text-Attributed Graphs (TAGs) provide explicit relational structures enriched with textual context, yet often lack semantic depth. Recent research shows that combining LLMs and TAGs yields complementary benefits: enhancing TAG representation learning and improving the reasoning and interpretability of LLMs. This survey provides the first systematic review of LLM--TAG integration from an orchestration perspective. We introduce a novel taxonomy covering two fundamental directions: LLM for TAG, where LLMs enrich graph-based tasks, and TAG for LLM, where structured graphs improve LLM reasoning. We categorize orchestration strategies into sequential, parallel, and multi-module frameworks, and discuss advances in TAG-specific pretraining, prompting, and parameter-efficient fine-tuning. Beyond methodology, we summarize empirical insights, curate available datasets, and highlight diverse applications across recommendation systems, biomedical analysis, and knowledge-intensive question answering. Finally, we outline open challenges and promising research directions, aiming to guide future work at the intersection of language and graph learning.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-10-24T03:53:00Z",
+    "updated": "2025-10-24T03:53:00Z",
+    "url": "http://arxiv.org/abs/2510.21131v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21131v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于 LLM 与文本属性图结合的综述，虽提及推荐系统应用，但涵盖生物医学等非相关领域且缺乏针对 RecSys 的核心架构创新；作为中国公司产出加 1 分后仍属通用方法综述。",
+    "translation": "大语言模型遇见文本属性图：集成框架与应用综述",
+    "summary_zh": "本文系统综述了大语言模型与文本属性图的协同集成范式，提出了包含顺序、并行及多模块框架的分类体系，旨在通过双向增强提升图表示学习与模型推理能力。",
+    "key_points": [
+      "本文系统综述了大语言模型与文本属性图的协同集成范式，提出了包含顺序、并行及多模块框架的分类体系，旨在通过双向增强提升图表示学习与模型推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21440v1",
+    "title": "Redefining Retrieval Evaluation in the Era of LLMs",
+    "authors": [
+      "Giovanni Trappolini",
+      "Florin Cuconasu",
+      "Simone Filice",
+      "Yoelle Maarek",
+      "Fabrizio Silvestri"
+    ],
+    "summary": "Traditional Information Retrieval (IR) metrics, such as nDCG, MAP, and MRR, assume that human users sequentially examine documents with diminishing attention to lower ranks. This assumption breaks down in Retrieval Augmented Generation (RAG) systems, where search results are consumed by Large Language Models (LLMs), which, unlike humans, process all retrieved documents as a whole rather than sequentially. Additionally, traditional IR metrics do not account for related but irrelevant documents that actively degrade generation quality, rather than merely being ignored. Due to these two major misalignments, namely human vs. machine position discount and human relevance vs. machine utility, classical IR metrics do not accurately predict RAG performance. We introduce a utility-based annotation schema that quantifies both the positive contribution of relevant passages and the negative impact of distracting ones. Building on this foundation, we propose UDCG (Utility and Distraction-aware Cumulative Gain), a metric using an LLM-oriented positional discount to directly optimize the correlation with the end-to-end answer accuracy. Experiments on five datasets and six LLMs demonstrate that UDCG improves correlation by up to 36% compared to traditional metrics. Our work provides a critical step toward aligning IR evaluation with LLM consumers and enables more reliable assessment of RAG components",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-10-24T13:17:00Z",
+    "updated": "2025-10-24T13:17:00Z",
+    "url": "http://arxiv.org/abs/2510.21440v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21440v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于 RAG 场景下的检索评估指标优化，属于搜索系统的边缘相关研究（评估层而非核心架构），且主要服务于 LLM 生成效果而非传统推荐/搜索业务的核心排序逻辑。",
+    "translation": "大模型时代检索评估的重定义",
+    "summary_zh": "针对传统 IR 指标无法衡量文档对 LLM 生成质量的正向贡献与负向干扰问题，提出一种基于效用和干扰感知的累积增益指标（UDCG），以更好地对齐检索结果与端到端生成准确率。",
+    "key_points": [
+      "针对传统 IR 指标无法衡量文档对 LLM 生成质量的正向贡献与负向干扰问题，提出一种基于效用和干扰感知的累积增益指标（UDCG），以更好地对齐检索结果与端到端生成准确率"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21342v1",
+    "title": "World-POI: Global Point-of-Interest Data Enriched from Foursquare and OpenStreetMap as Tabular and Graph Data",
+    "authors": [
+      "Hossein Amiri",
+      "Mohammad Hashemi",
+      "Andreas Züfle"
+    ],
+    "summary": "Recently, Foursquare released a global dataset with more than 100 million points of interest (POIs), each representing a real-world business on its platform. However, many entries lack complete metadata such as addresses or categories, and some correspond to non-existent or fictional locations. In contrast, OpenStreetMap (OSM) offers a rich, user-contributed POI dataset with detailed and frequently updated metadata, though it does not formally verify whether a POI represents an actual business. In this data paper, we present a methodology that integrates the strengths of both datasets: Foursquare as a comprehensive baseline of commercial POIs and OSM as a source of enriched metadata. The combined dataset totals approximately 1 TB. While this full version is not publicly released, we provide filtered releases with adjustable thresholds that reduce storage needs and make the data practical to download and use across domains. We also provide step-by-step instructions to reproduce the full 631 GB build. Record linkage is achieved by computing name similarity scores and spatial distances between Foursquare and OSM POIs. These measures identify and retain high-confidence matches that correspond to real businesses in Foursquare, have representations in OSM, and show strong name similarity. Finally, we use this filtered dataset to construct a graph-based representation of POIs enriched with attributes from both sources, enabling advanced spatial analyses and a range of downstream applications.",
+    "categories": [
+      "cs.DB",
+      "cs.AI",
+      "cs.CG",
+      "cs.CY",
+      "cs.SI"
+    ],
+    "published": "2025-10-24T11:12:41Z",
+    "updated": "2025-10-24T11:12:41Z",
+    "url": "http://arxiv.org/abs/2510.21342v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21342v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要介绍 POI 数据集的构建与清洗方法，虽提及下游应用但未提出具体的推荐或搜索算法创新，属于弱相关的数据资源论文；因来自中国公司额外加 1 分。",
+    "translation": "World-POI：基于 Foursquare 和 OpenStreetMap 增强的全球兴趣点表格与图数据",
+    "summary_zh": "本文提出一种融合 Foursquare 商业验证与 OpenStreetMap 丰富元数据的记录链接方法，构建了包含全球兴趣点的高质量图结构数据集以支持空间分析。",
+    "key_points": [
+      "本文提出一种融合 Foursquare 商业验证与 OpenStreetMap 丰富元数据的记录链接方法，构建了包含全球兴趣点的高质量图结构数据集以支持空间分析"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21538v1",
+    "title": "InterpDetect: Interpretable Signals for Detecting Hallucinations in Retrieval-Augmented Generation",
+    "authors": [
+      "Likun Tan",
+      "Kuan-Wei Huang",
+      "Joy Shi",
+      "Kevin Wu"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) integrates external knowledge to mitigate hallucinations, yet models often generate outputs inconsistent with retrieved content. Accurate hallucination detection requires disentangling the contributions of external context and parametric knowledge, which prior methods typically conflate. We investigate the mechanisms underlying RAG hallucinations and find they arise when later-layer FFN modules disproportionately inject parametric knowledge into the residual stream. To address this, we explore a mechanistic detection approach based on external context scores and parametric knowledge scores. Using Qwen3-0.6b, we compute these scores across layers and attention heads and train regression-based classifiers to predict hallucinations. Our method is evaluated against state-of-the-art LLMs (GPT-5, GPT-4.1) and detection baselines (RAGAS, TruLens, RefChecker). Furthermore, classifiers trained on Qwen3-0.6b signals generalize to GPT-4.1-mini responses, demonstrating the potential of proxy-model evaluation. Our results highlight mechanistic signals as efficient, generalizable predictors for hallucination detection in RAG systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-10-24T15:02:01Z",
+    "updated": "2025-10-24T15:02:01Z",
+    "url": "http://arxiv.org/abs/2510.21538v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21538v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于 RAG 系统中的幻觉检测机制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "InterpDetect：用于检测检索增强生成中幻觉的可解释信号",
+    "summary_zh": "该论文提出一种基于机械可解释性的检测方法，通过分析 Transformer 层中参数知识与外部上下文知识的贡献差异来识别 RAG 系统中的幻觉现象。",
+    "key_points": [
+      "该论文提出一种基于机械可解释性的检测方法，通过分析 Transformer 层中参数知识与外部上下文知识的贡献差异来识别 RAG 系统中的幻觉现象"
+    ]
+  }
+]

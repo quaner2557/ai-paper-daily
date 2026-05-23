@@ -1,0 +1,650 @@
+[
+  {
+    "arxiv_id": "2504.10208v3",
+    "title": "From Prompting to Alignment: A Generative Framework for Query Recommendation",
+    "authors": [
+      "Erxue Min",
+      "Hsiu-Yuan Huang",
+      "Xihong Yang",
+      "Min Yang",
+      "Xin Jia",
+      "Yunfang Wu",
+      "Hengyi Cai",
+      "Junfeng Wang",
+      "Shuaiqiang Wang",
+      "Dawei Yin"
+    ],
+    "summary": "In modern search systems, search engines often suggest relevant queries to users through various panels or components, helping refine their information needs. Traditionally, these recommendations heavily rely on historical search logs to build models, which suffer from cold-start or long-tail issues. Furthermore, tasks such as query suggestion, completion or clarification are studied separately by specific design, which lacks generalizability and hinders adaptation to novel applications. Despite recent attempts to explore the use of LLMs for query recommendation, these methods mainly rely on the inherent knowledge of LLMs or external sources like few-shot examples, retrieved documents, or knowledge bases, neglecting the importance of the calibration and alignment with user feedback, thus limiting their practical utility. To address these challenges, we first propose a general Generative Query Recommendation (GQR) framework that aligns LLM-based query generation with user preference. Specifically, we unify diverse query recommendation tasks by a universal prompt framework, leveraging the instruct-following capability of LLMs for effective generation. Secondly, we align LLMs with user feedback via presenting a CTR-alignment framework, which involves training a query-wise CTR predictor as a process reward model and employing list-wise preference alignment to maximize the click probability of the generated query list. Furthermore, recognizing the inconsistency between LLM knowledge and proactive search intents arising from the separation of user-initiated queries from models, we align LLMs with user initiative via retrieving co-occurrence queries as side information when historical logs are available.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-04-14T13:21:29Z",
+    "updated": "2025-07-05T12:59:17Z",
+    "url": "http://arxiv.org/abs/2504.10208v3",
+    "pdf_url": "http://arxiv.org/pdf/2504.10208v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索系统中的查询推荐任务，提出了利用 LLM 生成并结合 CTR 对齐的框架，完美契合'LLM for Search'的核心领域，且来自中国公司额外加 1 分后满分。",
+    "translation": "从提示到对齐：一种用于查询推荐的生成式框架",
+    "summary_zh": "本文提出通用生成式查询推荐框架，通过统一提示模板利用 LLM 指令跟随能力，并引入基于 CTR 预测器的过程奖励模型及列表级偏好对齐机制，将 LLM 生成结果与用户反馈及主动搜索意图进行深度校准。",
+    "key_points": [
+      "本文提出通用生成式查询推荐框架，通过统一提示模板利用 LLM 指令跟随能力，并引入基于 CTR 预测器的过程奖励模型及列表级偏好对齐机制，将 LLM 生成结果与用户反馈及主动搜索意图进行深度校准"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10150v2",
+    "title": "HistLLM: A Unified Framework for LLM-Based Multimodal Recommendation with User History Encoding and Compression",
+    "authors": [
+      "Chen Zhang",
+      "Bo Hu",
+      "Weidong Chen",
+      "Zhendong Mao"
+    ],
+    "summary": "While large language models (LLMs) have proven effective in leveraging textual data for recommendations, their application to multimodal recommendation tasks remains relatively underexplored. Although LLMs can process multimodal information through projection functions that map visual features into their semantic space, recommendation tasks often require representing users' history interactions through lengthy prompts combining text and visual elements, which not only hampers training and inference efficiency but also makes it difficult for the model to accurately capture user preferences from complex and extended prompts, leading to reduced recommendation performance. To address this challenge, we introduce HistLLM, an innovative multimodal recommendation framework that integrates textual and visual features through a User History Encoding Module (UHEM), compressing multimodal user history interactions into a single token representation, effectively facilitating LLMs in processing user preferences. Extensive experiments demonstrate the effectiveness and efficiency of our proposed mechanism.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-04-14T12:01:11Z",
+    "updated": "2025-04-22T02:41:47Z",
+    "url": "http://arxiv.org/abs/2504.10150v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.10150v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统，提出利用 LLM 压缩用户历史序列以解决长上下文效率问题，属于 LLM for RecSys 的核心应用；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "HistLLM：基于用户历史编码与压缩的统一多模态推荐大模型框架",
+    "summary_zh": "提出一种统一框架，通过用户历史编码模块将多模态交互序列压缩为单个 Token 表征，使大语言模型能高效处理长序列用户偏好以提升推荐效果。",
+    "key_points": [
+      "提出一种统一框架，通过用户历史编码模块将多模态交互序列压缩为单个 Token 表征，使大语言模型能高效处理长序列用户偏好以提升推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10113v1",
+    "title": "Unveiling Contrastive Learning's Capability of Neighborhood Aggregation for Collaborative Filtering",
+    "authors": [
+      "Yu Zhang",
+      "Yiwen Zhang",
+      "Yi Zhang",
+      "Lei Sang",
+      "Yun Yang"
+    ],
+    "summary": "Personalized recommendation is widely used in the web applications, and graph contrastive learning (GCL) has gradually become a dominant approach in recommender systems, primarily due to its ability to extract self-supervised signals from raw interaction data, effectively alleviating the problem of data sparsity. A classic GCL-based method typically uses data augmentation during graph convolution to generates more contrastive views, and performs contrast on these new views to obtain rich self-supervised signals. Despite this paradigm is effective, the reasons behind the performance gains remain a mystery. In this paper, we first reveal via theoretical derivation that the gradient descent process of the CL objective is formally equivalent to graph convolution, which implies that CL objective inherently supports neighborhood aggregation on interaction graphs. We further substantiate this capability through experimental validation and identify common misconceptions in the selection of positive samples in previous methods, which limit the potential of CL objective. Based on this discovery, we propose the Light Contrastive Collaborative Filtering (LightCCF) method, which introduces a novel neighborhood aggregation objective to bring users closer to all interacted items while pushing them away from other positive pairs, thus achieving high-quality neighborhood aggregation with very low time complexity. On three highly sparse public datasets, the proposed method effectively aggregate neighborhood information while preventing graph over-smoothing, demonstrating significant improvements over existing GCL-based counterparts in both training efficiency and recommendation accuracy. Our implementations are publicly accessible.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T11:22:41Z",
+    "updated": "2025-04-14T11:22:41Z",
+    "url": "http://arxiv.org/abs/2504.10113v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10113v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对协同过滤中的图对比学习机制进行理论揭示与架构创新，属于推荐系统核心算法的高优先级研究，且来自中国公司额外加 1 分后满分。",
+    "translation": "揭示对比学习在协同过滤中的邻域聚合能力",
+    "summary_zh": "本文通过理论推导证明对比学习目标等价于图卷积，并提出 LightCCF 方法，利用新型邻域聚合目标在低时间复杂度下实现高质量的用户 - 物品邻域信息聚合。",
+    "key_points": [
+      "本文通过理论推导证明对比学习目标等价于图卷积，并提出 LightCCF 方法，利用新型邻域聚合目标在低时间复杂度下实现高质量的用户 - 物品邻域信息聚合"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10432v2",
+    "title": "Invariance Matters: Empowering Social Recommendation via Graph Invariant Learning",
+    "authors": [
+      "Yonghui Yang",
+      "Le Wu",
+      "Yuxin Liao",
+      "Zhuangzhuang He",
+      "Pengyang Shao",
+      "Richang Hong",
+      "Meng Wang"
+    ],
+    "summary": "Graph-based social recommendation systems have shown significant promise in enhancing recommendation performance, particularly in addressing the issue of data sparsity in user behaviors. Typically, these systems leverage Graph Neural Networks (GNNs) to capture user preferences by incorporating high-order social influences from observed social networks. However, existing graph-based social recommendations often overlook the fact that social networks are inherently noisy, containing task-irrelevant relationships that can hinder accurate user preference learning. The removal of these redundant social relations is crucial, yet it remains challenging due to the lack of ground truth. In this paper, we approach the social denoising problem from the perspective of graph invariant learning and propose a novel method, Social Graph Invariant Learning(SGIL). Specifically,SGIL aims to uncover stable user preferences within the input social graph, thereby enhancing the robustness of graph-based social recommendation systems. To achieve this goal, SGIL first simulates multiple noisy social environments through graph generators. It then seeks to learn environment-invariant user preferences by minimizing invariant risk across these environments. To further promote diversity in the generated social environments, we employ an adversarial training strategy to simulate more potential social noisy distributions. Extensive experimental results demonstrate the effectiveness of the proposed SGIL. The code is available at https://github.com/yimutianyang/SIGIR2025-SGIL.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T17:20:48Z",
+    "updated": "2025-04-27T13:30:07Z",
+    "url": "http://arxiv.org/abs/2504.10432v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.10432v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对社交推荐系统中的图噪声问题，提出基于图不变学习的去噪新架构，属于核心推荐领域的高优先级创新；虽非纯 LLM 研究，但符合深度学习解决 RecSys 实际问题的标准，且来自中国企业额外加 1 分。",
+    "translation": "不变性至关重要：通过图不变学习赋能社交推荐",
+    "summary_zh": "本文提出社交图不变学习（SGIL）方法，通过模拟多种噪声社交环境并最小化不变风险，旨在从含噪社交图中挖掘稳定的用户偏好以提升推荐鲁棒性。",
+    "key_points": [
+      "本文提出社交图不变学习（SGIL）方法，通过模拟多种噪声社交环境并最小化不变风险，旨在从含噪社交图中挖掘稳定的用户偏好以提升推荐鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10307v2",
+    "title": "CROSSAN: Towards Efficient and Effective Adaptation of Multiple Multimodal Foundation Models for Sequential Recommendation",
+    "authors": [
+      "Junchen Fu",
+      "Yongxin Ni",
+      "Joemon M. Jose",
+      "Ioannis Arapakis",
+      "Kaiwen Zheng",
+      "Youhua Li",
+      "Xuri Ge"
+    ],
+    "summary": "In this paper, we explore a less-studied yet practically important problem: how to efficiently and effectively adapt multiple ($>$2) multimodal foundation models (MFMs) for the sequential recommendation task. To this end, we propose a plug-and-play Cross-modal Side Adapter Network (CROSSAN), which leverages a fully decoupled side adapter-based paradigm to achieve efficient and scalable adaptation. Compared to the state-of-the-art efficient approaches, CROSSAN reduces training time by over 30%, GPU memory consumption by 20%, and trainable parameters by over 57%, while enabling effective cross-modal learning across diverse modalities. To further enhance multimodal fusion, we introduce the Mixture of Modality Expert Fusion (MOMEF) mechanism. Extensive experiments on public benchmarks demonstrate that CROSSAN consistently outperforms existing methods, achieving 6.7%--8.1% performance improvements when adapting four foundation models with raw modalities. Moreover, the overall performance continues to improve as more MFMs are incorporated. We will release our code and datasets to faciliate future research.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T15:14:59Z",
+    "updated": "2025-09-12T20:34:54Z",
+    "url": "http://arxiv.org/abs/2504.10307v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.10307v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐任务，提出了一种高效适配多模态基础模型的新架构（CROSSAN），属于核心推荐系统技术进展。",
+    "translation": "CROSSAN：面向序列推荐的多种多模态基础模型高效有效适配方法",
+    "summary_zh": "提出一种即插即用的跨模态侧边适配器网络，通过解耦范式和混合模态专家融合机制，实现了对多个多模态基础模型的高效适配与融合以增强序列推荐。",
+    "key_points": [
+      "提出一种即插即用的跨模态侧边适配器网络，通过解耦范式和混合模态专家融合机制，实现了对多个多模态基础模型的高效适配与融合以增强序列推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10107v1",
+    "title": "Enhancing LLM-based Recommendation through Semantic-Aligned Collaborative Knowledge",
+    "authors": [
+      "Zihan Wang",
+      "Jinghao Lin",
+      "Xiaocui Yang",
+      "Yongkang Liu",
+      "Shi Feng",
+      "Daling Wang",
+      "Yifei Zhang"
+    ],
+    "summary": "Large Language Models (LLMs) demonstrate remarkable capabilities in leveraging comprehensive world knowledge and sophisticated reasoning mechanisms for recommendation tasks. However, a notable limitation lies in their inability to effectively model sparse identifiers (e.g., user and item IDs), unlike conventional collaborative filtering models (Collabs.), thus hindering LLM to learn distinctive user-item representations and creating a performance bottleneck. Prior studies indicate that integrating collaborative knowledge from Collabs. into LLMs can mitigate the above limitations and enhance their recommendation performance. Nevertheless, the significant discrepancy in knowledge distribution and semantic space between LLMs and Collab. presents substantial challenges for effective knowledge transfer. To tackle these challenges, we propose a novel framework, SeLLa-Rec, which focuses on achieving alignment between the semantic spaces of Collabs. and LLMs. This alignment fosters effective knowledge fusion, mitigating the influence of discriminative noise and facilitating the deep integration of knowledge from diverse models. Specifically, three special tokens with collaborative knowledge are embedded into the LLM's semantic space through a hybrid projection layer and integrated into task-specific prompts to guide the recommendation process. Experiments conducted on two public benchmark datasets (MovieLens-1M and Amazon Book) demonstrate that SeLLa-Rec achieves state-of-the-art performance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T11:15:30Z",
+    "updated": "2025-04-14T11:15:30Z",
+    "url": "http://arxiv.org/abs/2504.10107v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10107v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中 LLM 难以建模稀疏 ID 的核心痛点，提出语义对齐框架融合协同过滤知识，属于高优先级的 LLM for RecSys 应用研究。",
+    "translation": "通过语义对齐的协同知识增强基于大语言模型的推荐系统",
+    "summary_zh": "提出 SeLLa-Rec 框架，利用混合投影层将协同过滤模型的稀疏 ID 知识映射并对齐到大语言模型的语义空间，通过特殊令牌引导推荐生成以解决语义分布差异问题。",
+    "key_points": [
+      "提出 SeLLa-Rec 框架，利用混合投影层将协同过滤模型的稀疏 ID 知识映射并对齐到大语言模型的语义空间，通过特殊令牌引导推荐生成以解决语义分布差异问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09915v1",
+    "title": "StePO-Rec: Towards Personalized Outfit Styling Assistant via Knowledge-Guided Multi-Step Reasoning",
+    "authors": [
+      "Yuxi Bi",
+      "Yunfan Gao",
+      "Haofen Wang"
+    ],
+    "summary": "Advancements in Generative AI offers new opportunities for FashionAI, surpassing traditional recommendation systems that often lack transparency and struggle to integrate expert knowledge, leaving the potential for personalized fashion styling remain untapped. To address these challenges, we present PAFA (Principle-Aware Fashion), a multi-granular knowledge base that organizes professional styling expertise into three levels of metadata, domain principles, and semantic relationships. Using PAFA, we develop StePO-Rec, a knowledge-guided method for multi-step outfit recommendation. StePO-Rec provides structured suggestions using a scenario-dimension-attribute framework, employing recursive tree construction to align recommendations with both professional principles and individual preferences. A preference-trend re-ranking system further adapts to fashion trends while maintaining the consistency of the user's original style. Experiments on the widely used personalized outfit dataset IQON show a 28% increase in Recall@1 and 32.8% in MAP. Furthermore, case studies highlight improved explainability, traceability, result reliability, and the seamless integration of expertise and personalization.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-04-14T06:24:56Z",
+    "updated": "2025-04-14T06:24:56Z",
+    "url": "http://arxiv.org/abs/2504.09915v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.09915v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对个性化穿搭推荐系统，提出结合知识库的多步推理方法，属于多模态推荐与 LLM 应用的核心场景；虽为 OPPO 出品加 1 分，但因其本身已是高相关度的推荐系统研究，故给高分。",
+    "translation": "StePO-Rec：基于知识引导多步推理的个性化穿搭造型助手",
+    "summary_zh": "提出一种利用多层级时尚知识库引导的多步推理框架，通过递归树构建和偏好趋势重排序，将专家原则与用户个性化偏好深度融合以生成可解释的穿搭推荐。",
+    "key_points": [
+      "提出一种利用多层级时尚知识库引导的多步推理框架，通过递归树构建和偏好趋势重排序，将专家原则与用户个性化偏好深度融合以生成可解释的穿搭推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10005v1",
+    "title": "Session-based Recommender Systems: User Interest as a Stochastic Process in the Latent Space",
+    "authors": [
+      "Klaudia Balcer",
+      "Piotr Lipinski"
+    ],
+    "summary": "This paper jointly addresses the problem of data uncertainty, popularity bias, and exposure bias in session-based recommender systems. We study the symptoms of this bias both in item embeddings and in recommendations. We propose treating user interest as a stochastic process in the latent space and providing a model-agnostic implementation of this mathematical concept. The proposed stochastic component consists of elements: debiasing item embeddings with regularization for embedding uniformity, modeling dense user interest from session prefixes, and introducing fake targets in the data to simulate extended exposure. We conducted computational experiments on two popular benchmark datasets, Diginetica and YooChoose 1/64, as well as several modifications of the YooChoose dataset with different ratios of popular items. The results show that the proposed approach allows us to mitigate the challenges mentioned.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR",
+      "stat.ML"
+    ],
+    "published": "2025-04-14T09:08:40Z",
+    "updated": "2025-04-14T09:08:40Z",
+    "url": "http://arxiv.org/abs/2504.10005v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10005v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对会话推荐系统中的数据不确定性、流行度偏差和曝光偏差问题，提出了将用户兴趣建模为潜在空间随机过程的核心方法，属于核心推荐领域的高优先级研究；且来自中国公司，按规定额外加 1 分。",
+    "translation": "基于会话的推荐系统：将潜在空间中的用户兴趣建模为随机过程",
+    "summary_zh": "提出一种模型无关的方法，通过将用户兴趣视为潜在空间的随机过程，结合嵌入去正则化、前缀兴趣建模及伪造目标模拟，统一解决会话推荐中的数据不确定性与多种偏差问题。",
+    "key_points": [
+      "提出一种模型无关的方法，通过将用户兴趣视为潜在空间的随机过程，结合嵌入去正则化、前缀兴趣建模及伪造目标模拟，统一解决会话推荐中的数据不确定性与多种偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10753v1",
+    "title": "Epistemic Uncertainty-aware Recommendation Systems via Bayesian Deep Ensemble Learning",
+    "authors": [
+      "Radin Cheraghi",
+      "Amir Mohammad Mahfoozi",
+      "Sepehr Zolfaghari",
+      "Mohammadshayan Shabani",
+      "Maryam Ramezani",
+      "Hamid R. Rabiee"
+    ],
+    "summary": "Recommending items to users has long been a fundamental task, and studies have tried to improve it ever since. Most well-known models commonly employ representation learning to map users and items into a unified embedding space for matching assessment. These approaches have primary limitations, especially when dealing with explicit feedback and sparse data contexts. Two primary limitations are their proneness to overfitting and failure to incorporate epistemic uncertainty in predictions. To address these problems, we propose a novel Bayesian Deep Ensemble Collaborative Filtering method named BDECF. To improve model generalization and quality, we utilize Bayesian Neural Networks, which incorporate uncertainty within their weight parameters. In addition, we introduce a new interpretable non-linear matching approach for the user and item embeddings, leveraging the advantages of the attention mechanism. Furthermore, we endorse the implementation of an ensemble-based supermodel to generate more robust and reliable predictions, resulting in a more complete model. Empirical evaluation through extensive experiments and ablation studies across a range of publicly accessible real-world datasets with differing sparsity characteristics confirms our proposed method's effectiveness and the importance of its components.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-04-14T23:04:35Z",
+    "updated": "2025-04-14T23:04:35Z",
+    "url": "http://arxiv.org/abs/2504.10753v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10753v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的过拟合和稀疏数据问题，提出结合贝叶斯深度学习与集成学习的方法以量化认知不确定性，属于核心推荐算法创新；虽非 LLM 应用，但方法具有明确业务价值，且来自中国企业额外加 1 分。",
+    "translation": "基于贝叶斯深度集成学习的认知不确定性感知推荐系统",
+    "summary_zh": "提出一种名为 BDECF 的贝叶斯深度集成协同过滤方法，通过在权重中引入不确定性并利用注意力机制进行非线性匹配，旨在解决推荐系统在稀疏数据下的过拟合问题并提升预测鲁棒性。",
+    "key_points": [
+      "提出一种名为 BDECF 的贝叶斯深度集成协同过滤方法，通过在权重中引入不确定性并利用注意力机制进行非线性匹配，旨在解决推荐系统在稀疏数据下的过拟合问题并提升预测鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10250v1",
+    "title": "MURR: Model Updating with Regularized Replay for Searching a Document Stream",
+    "authors": [
+      "Eugene Yang",
+      "Nicola Tonellotto",
+      "Dawn Lawrie",
+      "Sean MacAvaney",
+      "James Mayfield",
+      "Douglas W. Oard",
+      "Scott Miller"
+    ],
+    "summary": "The Internet produces a continuous stream of new documents and user-generated queries. These naturally change over time based on events in the world and the evolution of language. Neural retrieval models that were trained once on a fixed set of query-document pairs will quickly start misrepresenting newly-created content and queries, leading to less effective retrieval. Traditional statistical sparse retrieval can update collection statistics to reflect these changes in the use of language in documents and queries. In contrast, continued fine-tuning of the language model underlying neural retrieval approaches such as DPR and ColBERT creates incompatibility with previously-encoded documents. Re-encoding and re-indexing all previously-processed documents can be costly. In this work, we explore updating a neural dual encoder retrieval model without reprocessing past documents in the stream. We propose MURR, a model updating strategy with regularized replay, to ensure the model can still faithfully search existing documents without reprocessing, while continuing to update the model for the latest topics. In our simulated streaming environments, we show that fine-tuning models using MURR leads to more effective and more consistent retrieval results than other strategies as the stream of documents and queries progresses.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-04-14T14:13:03Z",
+    "updated": "2025-04-14T14:13:03Z",
+    "url": "http://arxiv.org/abs/2504.10250v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10250v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对神经检索模型在文档流中的持续更新问题，提出了无需重编码历史文档的 MURR 方法，属于搜索核心技术的创新应用。",
+    "translation": "MURR：基于正则化回放的模型更新策略用于文档流搜索",
+    "summary_zh": "提出一种结合正则化回放的模型更新策略，使神经双编码器检索模型能在不重新处理历史文档的情况下，自适应地学习新出现的文档和查询分布。",
+    "key_points": [
+      "提出一种结合正则化回放的模型更新策略，使神经双编码器检索模型能在不重新处理历史文档的情况下，自适应地学习新出现的文档和查询分布"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09935v1",
+    "title": "Constrained Auto-Regressive Decoding Constrains Generative Retrieval",
+    "authors": [
+      "Shiguang Wu",
+      "Zhaochun Ren",
+      "Xin Xin",
+      "Jiyuan Yang",
+      "Mengqi Zhang",
+      "Zhumin Chen",
+      "Maarten de Rijke",
+      "Pengjie Ren"
+    ],
+    "summary": "Generative retrieval seeks to replace traditional search index data structures with a single large-scale neural network, offering the potential for improved efficiency and seamless integration with generative large language models. As an end-to-end paradigm, generative retrieval adopts a learned differentiable search index to conduct retrieval by directly generating document identifiers through corpus-specific constrained decoding. The generalization capabilities of generative retrieval on out-of-distribution corpora have gathered significant attention.\n  In this paper, we examine the inherent limitations of constrained auto-regressive generation from two essential perspectives: constraints and beam search. We begin with the Bayes-optimal setting where the generative retrieval model exactly captures the underlying relevance distribution of all possible documents. Then we apply the model to specific corpora by simply adding corpus-specific constraints. Our main findings are two-fold: (i) For the effect of constraints, we derive a lower bound of the error, in terms of the KL divergence between the ground-truth and the model-predicted step-wise marginal distributions. (ii) For the beam search algorithm used during generation, we reveal that the usage of marginal distributions may not be an ideal approach. This paper aims to improve our theoretical understanding of the generalization capabilities of the auto-regressive decoding retrieval paradigm, laying a foundation for its limitations and inspiring future advancements toward more robust and generalizable generative retrieval.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T06:54:49Z",
+    "updated": "2025-04-14T06:54:49Z",
+    "url": "http://arxiv.org/abs/2504.09935v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.09935v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于生成式检索（Generative Retrieval）的理论局限性分析，属于搜索核心范式的理论研究，但缺乏具体的业务场景应用或新架构提出，且偏向纯理论推导而非直接的系统优化。",
+    "translation": "约束自回归解码限制了生成式检索",
+    "summary_zh": "本文从约束条件和束搜索两个视角，理论分析了生成式检索中约束自回归生成的内在局限性，推导了误差下界并揭示了现有边际分布使用方法的不足。",
+    "key_points": [
+      "本文从约束条件和束搜索两个视角，理论分析了生成式检索中约束自回归生成的内在局限性，推导了误差下界并揭示了现有边际分布使用方法的不足"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09941v3",
+    "title": "FedRecon: Missing Modality Reconstruction in Heterogeneous Distributed Environments",
+    "authors": [
+      "Junming Liu",
+      "Yanting Gao",
+      "Yifei Sun",
+      "Yufei Jin",
+      "Yirong Chen",
+      "Ding Wang",
+      "Guosun Zeng"
+    ],
+    "summary": "Multimodal data are often incomplete and exhibit Non-Independent and Identically Distributed (Non-IID) characteristics in real-world scenarios. These inherent limitations lead to both modality heterogeneity through partial modality absence and data heterogeneity from distribution divergence, creating fundamental challenges for effective federated learning (FL). To address these coupled challenges, we propose FedRecon, the first method targeting simultaneous missing modality reconstruction and Non-IID adaptation in multimodal FL. Our approach first employs a lightweight Multimodal Variational Autoencoder (MVAE) to reconstruct missing modalities while preserving cross-modal consistency. Distinct from conventional imputation methods, we achieve sample-level alignment through a novel distribution mapping mechanism that guarantees both data consistency and completeness. Additionally, we introduce a strategy employing global generator freezing to prevent catastrophic forgetting, which in turn mitigates Non-IID fluctuations. Extensive evaluations on multimodal datasets demonstrate FedRecon's superior performance in modality reconstruction under Non-IID conditions, surpassing state-of-the-art methods. The code will be released upon paper acceptance.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-04-14T07:04:10Z",
+    "updated": "2025-08-13T04:19:00Z",
+    "url": "http://arxiv.org/abs/2504.09941v3",
+    "pdf_url": "http://arxiv.org/pdf/2504.09941v3.pdf",
+    "prerank_score": 5,
+    "relevance_score": 5,
+    "reasoning": "该文提出了一种解决联邦学习中多模态缺失和非独立同分布问题的方法，虽涉及多模态技术但未明确针对推荐或搜索场景，属于通用机器学习方法在潜在 RecSys 场景的应用。",
+    "translation": "FedRecon：异构分布式环境下的缺失模态重建",
+    "summary_zh": "提出 FedRecon 方法，利用轻量级多模态变分自编码器和分布映射机制，在联邦学习框架下同时解决多模态数据缺失重建与非独立同分布适应问题。",
+    "key_points": [
+      "提出 FedRecon 方法，利用轻量级多模态变分自编码器和分布映射机制，在联邦学习框架下同时解决多模态数据缺失重建与非独立同分布适应问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09984v1",
+    "title": "On Precomputation and Caching in Information Retrieval Experiments with Pipeline Architectures",
+    "authors": [
+      "Sean MacAvaney",
+      "Craig Macdonald"
+    ],
+    "summary": "Modern information retrieval systems often rely on multiple components executed in a pipeline. In a research setting, this can lead to substantial redundant computations (e.g., retrieving the same query multiple times for evaluating different downstream rerankers). To overcome this, researchers take cached \"result\" files as inputs, which represent the output of another pipeline. However, these result files can be brittle and can cause a disconnect between the conceptual design of the pipeline and its logical implementation. To overcome both the redundancy problem (when executing complete pipelines) and the disconnect problem (when relying on intermediate result files), we describe our recent efforts to improve the caching capabilities in the open-source PyTerrier IR platform. We focus on two main directions: (1) automatic implicit caching of common pipeline prefixes when comparing systems and (2) explicit caching of operations through a new extension package, pyterrier-caching. These approaches allow for the best of both worlds: pipelines can be fully expressed end-to-end, while also avoiding redundant computations between pipelines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T08:51:35Z",
+    "updated": "2025-04-14T08:51:35Z",
+    "url": "http://arxiv.org/abs/2504.09984v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.09984v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文关注信息检索实验中的工程优化（缓存与预计算），虽涉及搜索系统架构，但属于研究工具改进而非推荐/搜索核心算法创新。",
+    "translation": "基于流水线架构的信息检索实验中的预计算与缓存研究",
+    "summary_zh": "提出在 PyTerrier 平台中通过自动隐式缓存流水线前缀和显式操作缓存，解决检索实验中的冗余计算与逻辑断层问题。",
+    "key_points": [
+      "提出在 PyTerrier 平台中通过自动隐式缓存流水线前缀和显式操作缓存，解决检索实验中的冗余计算与逻辑断层问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10147v1",
+    "title": "A Survey of Personalization: From RAG to Agent",
+    "authors": [
+      "Xiaopeng Li",
+      "Pengyue Jia",
+      "Derong Xu",
+      "Yi Wen",
+      "Yingyi Zhang",
+      "Wenlin Zhang",
+      "Wanyu Wang",
+      "Yichao Wang",
+      "Zhaocheng Du",
+      "Xiangyang Li",
+      "Yong Liu",
+      "Huifeng Guo",
+      "Ruiming Tang",
+      "Xiangyu Zhao"
+    ],
+    "summary": "Personalization has become an essential capability in modern AI systems, enabling customized interactions that align with individual user preferences, contexts, and goals. Recent research has increasingly concentrated on Retrieval-Augmented Generation (RAG) frameworks and their evolution into more advanced agent-based architectures within personalized settings to enhance user satisfaction. Building on this foundation, this survey systematically examines personalization across the three core stages of RAG: pre-retrieval, retrieval, and generation. Beyond RAG, we further extend its capabilities into the realm of Personalized LLM-based Agents, which enhance traditional RAG systems with agentic functionalities, including user understanding, personalized planning and execution, and dynamic generation. For both personalization in RAG and agent-based personalization, we provide formal definitions, conduct a comprehensive review of recent literature, and summarize key datasets and evaluation metrics. Additionally, we discuss fundamental challenges, limitations, and promising research directions in this evolving field. Relevant papers and resources are continuously updated at https://github.com/Applied-Machine-Learning-Lab/Awesome-Personalized-RAG-Agent.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T11:57:52Z",
+    "updated": "2025-04-14T11:57:52Z",
+    "url": "http://arxiv.org/abs/2504.10147v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10147v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "XIAOPENGLI∗,CityUniversityofHongKong,HongKong",
+      "PENGYUEJIA∗,CityUniversityofHongKong,HongKong",
+      "DERONGXU,CityUniversityofHongKong,HongKongandUniversityofScienceandTechnologyofChina,China",
+      "YIWEN,CityUniversityofHongKong,HongKong",
+      "YINGYIZHANG,CityUniversityofHongKong,HongKongandDalianUniversityofTechnology,China",
+      "WENLINZHANG,CityUniversityofHongKong,HongKong",
+      "WANYUWANG,CityUniversityofHongKong,HongKong",
+      "YICHAOWANG,Noah’sArkLab,Huawei,China",
+      "ZHAOCHENGDU,Noah’sArkLab,Huawei,China",
+      "XIANGYANGLI,Noah’sArkLab,Huawei,China",
+      "YONGLIU,Noah’sArkLab,Huawei,Singapore",
+      "HUIFENGGUO,Noah’sArkLab,Huawei,China",
+      "RUIMINGTANG†,Noah’sArkLab,Huawei,China",
+      "XIANGYUZHAO†,CityUniversityofHongKong,HongKong",
+      "userpreferences,contexts,andgoals.RecentresearchhasincreasinglyconcentratedonRetrieval-AugmentedGeneration(RAG)",
+      "challenges,limitations,andpromisingresearchdirectionsinthisevolvingfield.Relevantpapersandresourcesarecontinuously",
+      "1https://github.com/Applied-Machine-Learning-Lab/Awesome-Personalized-RAG-Age"
+    ],
+    "relevance_score": 4,
+    "reasoning": "这是一篇关于个性化 RAG 和 Agent 的纯 LLM 综述，未明确针对推荐系统或搜索引擎的具体业务场景（如召回、排序），属于通用 LLM 研究而非直接的 RecSys 应用。",
+    "translation": "个性化综述：从检索增强生成到智能体",
+    "summary_zh": "本文系统综述了基于 RAG 框架及演进后的 Agent 架构在实现用户个性化方面的方法，涵盖预检索、检索、生成全流程及智能体的规划执行能力。",
+    "key_points": [
+      "本文系统综述了基于 RAG 框架及演进后的 Agent 架构在实现用户个性化方面的方法，涵盖预检索、检索、生成全流程及智能体的规划执行能力"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10074v3",
+    "title": "MMKB-RAG: A Multi-Modal Knowledge-Based Retrieval-Augmented Generation Framework",
+    "authors": [
+      "Zihan Ling",
+      "Zhiyao Guo",
+      "Yixuan Huang",
+      "Yi An",
+      "Shuai Xiao",
+      "Jinsong Lan",
+      "Xiaoyong Zhu",
+      "Bo Zheng"
+    ],
+    "summary": "Recent advancements in large language models (LLMs) and multi-modal LLMs have been remarkable. However, these models still rely solely on their parametric knowledge, which limits their ability to generate up-to-date information and increases the risk of producing erroneous content. Retrieval-Augmented Generation (RAG) partially mitigates these challenges by incorporating external data sources, yet the reliance on databases and retrieval systems can introduce irrelevant or inaccurate documents, ultimately undermining both performance and reasoning quality. In this paper, we propose Multi-Modal Knowledge-Based Retrieval-Augmented Generation (MMKB-RAG), a novel multi-modal RAG framework that leverages the inherent knowledge boundaries of models to dynamically generate semantic tags for the retrieval process. This strategy enables the joint filtering of retrieved documents, retaining only the most relevant and accurate references. Extensive experiments on knowledge-based visual question-answering tasks demonstrate the efficacy of our approach: on the E-VQA dataset, our method improves performance by +4.2% on the Single-Hop subset and +0.4% on the full dataset, while on the InfoSeek dataset, it achieves gains of +7.8% on the Unseen-Q subset, +8.2% on the Unseen-E subset, and +8.1% on the full dataset. These results highlight significant enhancements in both accuracy and robustness over the current state-of-the-art MLLM and RAG frameworks.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-04-14T10:19:47Z",
+    "updated": "2025-04-20T17:16:02Z",
+    "url": "http://arxiv.org/abs/2504.10074v3",
+    "pdf_url": "http://arxiv.org/pdf/2504.10074v3.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "PekingUniversity AlibabaGroup AlibabaGroup",
+      "PekingUniversity AlibabaGroup AlibabaGroup"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯多模态 LLM 与 RAG 研究，专注于视觉问答（VQA）任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），因此相关性低。",
+    "translation": "MMKB-RAG：一种基于多模态知识的检索增强生成框架",
+    "summary_zh": "提出一种利用模型内在知识边界动态生成语义标签的多模态 RAG 框架，通过联合过滤检索文档以提升视觉问答的准确性与鲁棒性。",
+    "key_points": [
+      "提出一种利用模型内在知识边界动态生成语义标签的多模态 RAG 框架，通过联合过滤检索文档以提升视觉问答的准确性与鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09963v1",
+    "title": "Towards Unbiased Federated Graph Learning: Label and Topology Perspectives",
+    "authors": [
+      "Zhengyu Wu",
+      "Boyang Pang",
+      "Xunkai Li",
+      "Yinlin Zhu",
+      "Daohan Su",
+      "Bowen Fan",
+      "Rong-Hua Li",
+      "Guoren Wang",
+      "Chenghu Zhou"
+    ],
+    "summary": "Federated Graph Learning (FGL) enables privacy-preserving, distributed training of graph neural networks without sharing raw data. Among its approaches, subgraph-FL has become the dominant paradigm, with most work focused on improving overall node classification accuracy. However, these methods often overlook fairness due to the complexity of node features, labels, and graph structures. In particular, they perform poorly on nodes with disadvantaged properties, such as being in the minority class within subgraphs or having heterophilous connections (neighbors with dissimilar labels or misleading features). This reveals a critical issue: high accuracy can mask degraded performance on structurally or semantically marginalized nodes. To address this, we advocate for two fairness goals: (1) improving representation of minority class nodes for class-wise fairness and (2) mitigating topological bias from heterophilous connections for topology-aware fairness. We propose FairFGL, a novel framework that enhances fairness through fine-grained graph mining and collaborative learning. On the client side, the History-Preserving Module prevents overfitting to dominant local classes, while the Majority Alignment Module refines representations of heterophilous majority-class nodes. The Gradient Modification Module transfers minority-class knowledge from structurally favorable clients to improve fairness. On the server side, FairFGL uploads only the most influenced subset of parameters to reduce communication costs and better reflect local distributions. A cluster-based aggregation strategy reconciles conflicting updates and curbs global majority dominance . Extensive evaluations on eight benchmarks show FairFGL significantly improves minority-group performance , achieving up to a 22.62 percent Macro-F1 gain while enhancing convergence over state-of-the-art baselines.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.DB",
+      "cs.SI"
+    ],
+    "published": "2025-04-14T08:00:20Z",
+    "updated": "2025-04-14T08:00:20Z",
+    "url": "http://arxiv.org/abs/2504.09963v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.09963v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦于联邦图学习中的公平性与节点分类，属于通用图机器学习研究，未提及任何推荐系统或搜索引擎的具体应用场景，即使有中国公司背景且加 1 分，仍因缺乏 RecSys 直接相关性而属于低优先级。",
+    "translation": "迈向无偏联邦图学习：标签与拓扑视角",
+    "summary_zh": "提出 FairFGL 框架，通过客户端细粒度图挖掘与服务端基于聚类的聚合策略，解决联邦图学习中少数类节点表示不足及异配连接导致的拓扑偏差问题，以提升模型公平性。",
+    "key_points": [
+      "提出 FairFGL 框架，通过客户端细粒度图挖掘与服务端基于聚类的聚合策略，解决联邦图学习中少数类节点表示不足及异配连接导致的拓扑偏差问题，以提升模型公平性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09910v1",
+    "title": "Learning to Erase Private Knowledge from Multi-Documents for Retrieval-Augmented Large Language Models",
+    "authors": [
+      "Yujing Wang",
+      "Hainan Zhang",
+      "Liang Pang",
+      "Yongxin Tong",
+      "Binghui Guo",
+      "Hongwei Zheng",
+      "Zhiming Zheng"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is a promising technique for applying LLMs to proprietary domains. However, retrieved documents may contain sensitive knowledge, posing risks of privacy leakage in generative results. Thus, effectively erasing private information from retrieved documents is a key challenge for RAG. Unlike traditional text anonymization, RAG should consider: (1) the inherent multi-document reasoning may face de-anonymization attacks; (2) private knowledge varies by scenarios, so users should be allowed to customize which information to erase; (3) preserving sufficient publicly available knowledge for generation tasks. This paper introduces the privacy erasure task for RAG and proposes Eraser4RAG, a private knowledge eraser which effectively removes user-defined private knowledge from documents while preserving sufficient public knowledge for generation. Specifically, we first construct a global knowledge graph to identify potential knowledge across documents, aiming to defend against de-anonymization attacks. Then we randomly split it into private and public sub-graphs, and fine-tune Flan-T5 to rewrite the retrieved documents excluding private triples. Finally, PPO algorithm optimizes the rewriting model to minimize private triples and maximize public triples retention. Experiments on four QA datasets demonstrate that Eraser4RAG achieves superior erase performance than GPT-4o.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-04-14T06:10:31Z",
+    "updated": "2025-04-14T06:10:31Z",
+    "url": "http://arxiv.org/abs/2504.09910v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.09910v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 安全与隐私研究，聚焦于文档脱敏而非推荐或搜索系统的核心架构（召回/排序/用户建模），虽涉及检索但无 RecSys 直接应用，故给低分；仅因来自中国公司额外 +1 分（基础分 2 分）。",
+    "translation": "面向检索增强大语言模型的多文档私有知识擦除学习",
+    "summary_zh": "提出 Eraser4RAG 框架，通过构建全局知识图谱识别跨文档隐私信息，并利用强化学习微调模型在保留公共知识的同时擦除用户定义的私有知识以防御去匿名化攻击。",
+    "key_points": [
+      "提出 Eraser4RAG 框架，通过构建全局知识图谱识别跨文档隐私信息，并利用强化学习微调模型在保留公共知识的同时擦除用户定义的私有知识以防御去匿名化攻击"
+    ]
+  },
+  {
+    "arxiv_id": "2504.09823v1",
+    "title": "RAKG:Document-level Retrieval Augmented Knowledge Graph Construction",
+    "authors": [
+      "Hairong Zhang",
+      "Jiaheng Si",
+      "Guohang Yan",
+      "Boyuan Qi",
+      "Pinlong Cai",
+      "Song Mao",
+      "Ding Wang",
+      "Botian Shi"
+    ],
+    "summary": "With the rise of knowledge graph based retrieval-augmented generation (RAG) techniques such as GraphRAG and Pike-RAG, the role of knowledge graphs in enhancing the reasoning capabilities of large language models (LLMs) has become increasingly prominent. However, traditional Knowledge Graph Construction (KGC) methods face challenges like complex entity disambiguation, rigid schema definition, and insufficient cross-document knowledge integration. This paper focuses on the task of automatic document-level knowledge graph construction. It proposes the Document-level Retrieval Augmented Knowledge Graph Construction (RAKG) framework. RAKG extracts pre-entities from text chunks and utilizes these pre-entities as queries for RAG, effectively addressing the issue of long-context forgetting in LLMs and reducing the complexity of Coreference Resolution. In contrast to conventional KGC methods, RAKG more effectively captures global information and the interconnections among disparate nodes, thereby enhancing the overall performance of the model. Additionally, we transfer the RAG evaluation framework to the KGC field and filter and evaluate the generated knowledge graphs, thereby avoiding incorrectly generated entities and relationships caused by hallucinations in LLMs. We further developed the MINE dataset by constructing standard knowledge graphs for each article and experimentally validated the performance of RAKG. The results show that RAKG achieves an accuracy of 95.91 % on the MINE dataset, a 6.2 % point improvement over the current best baseline, GraphRAG (89.71 %). The code is available at https://github.com/LMMApplication/RAKG.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-14T02:47:23Z",
+    "updated": "2025-04-14T02:47:23Z",
+    "url": "http://arxiv.org/abs/2504.09823v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.09823v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 与知识图谱构建研究，旨在增强 LLM 推理能力，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），虽来自相关公司但业务场景不匹配。",
+    "translation": "RAKG：文档级检索增强知识图谱构建",
+    "summary_zh": "提出 RAKG 框架，利用预提取实体作为检索查询来解决长上下文遗忘和共指消解难题，并通过迁移 RAG 评估机制过滤幻觉以构建高质量文档级知识图谱。",
+    "key_points": [
+      "提出 RAKG 框架，利用预提取实体作为检索查询来解决长上下文遗忘和共指消解难题，并通过迁移 RAG 评估机制过滤幻觉以构建高质量文档级知识图谱"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10649v1",
+    "title": "Ride-pool Assignment Algorithms: Modern Implementation and Swapping Heuristics",
+    "authors": [
+      "Matthew Zalesak",
+      "Hins Hu",
+      "Samitha Samaranayake"
+    ],
+    "summary": "On-demand ride-pooling has emerged as a popular urban transportation solution, addressing the efficiency limitations of traditional ride-hailing services by grouping multiple riding requests with spatiotemporal proximity into a single vehicle. Although numerous algorithms have been developed for the Ride-pool Assignment Problem (RAP) -- a core component of ride-pooling systems, there is a lack of open-source implementations, making it difficult to benchmark these algorithms on a common dataset and objective. In this paper, we present the implementation details of a ride-pool simulator that encompasses several key ride-pool assignment algorithms, along with associated components such as vehicle routing and rebalancing. We also open-source a highly optimized and modular C++ codebase, designed to facilitate the extension of new algorithms and features. Additionally, we introduce a family of swapping-based local-search heuristics to enhance existing ride-pool assignment algorithms, achieving a better balance between performance and computational efficiency. Extensive experiments on a large-scale, real-world dataset from Manhattan, NYC reveal that while all selected algorithms perform comparably, the newly proposed Multi-Round Linear Assignment with Cyclic Exchange (LA-MR-CE) algorithm achieves a state-of-the-art service rate with significantly reduced computational time. Furthermore, an in-depth analysis suggests that a performance barrier exists for all myopic ride-pool assignment algorithms due to the system's capacity bottleneck, and incorporating future information could be key to overcoming this limitation.",
+    "categories": [
+      "cs.AI",
+      "cs.ET"
+    ],
+    "published": "2025-04-14T19:01:47Z",
+    "updated": "2025-04-14T19:01:47Z",
+    "url": "http://arxiv.org/abs/2504.10649v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10649v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于网约车拼车分配算法和运筹优化，属于交通物流领域，与推荐系统或搜索引擎的核心技术（召回、排序、用户建模等）无直接关联。",
+    "translation": "拼车分配算法：现代实现与交换启发式方法",
+    "summary_zh": "本文开源了一个包含多种拼车分配算法的模拟器，并提出了一种基于交换的局部搜索启发式方法以平衡计算效率与服务性能。",
+    "key_points": [
+      "本文开源了一个包含多种拼车分配算法的模拟器，并提出了一种基于交换的局部搜索启发式方法以平衡计算效率与服务性能"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10198v2",
+    "title": "DioR: Adaptive Cognitive Detection and Contextual Retrieval Optimization for Dynamic Retrieval-Augmented Generation",
+    "authors": [
+      "Hanghui Guo",
+      "Jia Zhu",
+      "Shimin Di",
+      "Weijie Shi",
+      "Zhangze Chen",
+      "Jiajie Xu"
+    ],
+    "summary": "Dynamic Retrieval-augmented Generation (RAG) has shown great success in mitigating hallucinations in large language models (LLMs) during generation. However, existing dynamic RAG methods face significant limitations in two key aspects: 1) Lack of an effective mechanism to control retrieval triggers, and 2) Lack of effective scrutiny of retrieval content. To address these limitations, we propose an innovative dynamic RAG method, DioR (Adaptive Cognitive Detection and Contextual Retrieval Optimization), which consists of two main components: adaptive cognitive detection and contextual retrieval optimization, specifically designed to determine when retrieval is needed and what to retrieve for LLMs is useful. Experimental results demonstrate that DioR achieves superior performance on all tasks, demonstrating the effectiveness of our work.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-04-14T13:02:53Z",
+    "updated": "2025-05-17T09:56:32Z",
+    "url": "http://arxiv.org/abs/2504.10198v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.10198v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究（RAG 优化），旨在解决大模型幻觉问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），根据规则属于排除项。",
+    "translation": "DioR：面向动态检索增强生成的自适应认知检测与上下文检索优化",
+    "summary_zh": "提出一种动态 RAG 方法，通过自适应认知检测机制控制检索触发时机，并利用上下文检索优化筛选对大模型有用的检索内容。",
+    "key_points": [
+      "提出一种动态 RAG 方法，通过自适应认知检测机制控制检索触发时机，并利用上下文检索优化筛选对大模型有用的检索内容"
+    ]
+  },
+  {
+    "arxiv_id": "2504.10168v1",
+    "title": "HalluSearch at SemEval-2025 Task 3: A Search-Enhanced RAG Pipeline for Hallucination Detection",
+    "authors": [
+      "Mohamed A. Abdallah",
+      "Samhaa R. El-Beltagy"
+    ],
+    "summary": "In this paper, we present HalluSearch, a multilingual pipeline designed to detect fabricated text spans in Large Language Model (LLM) outputs. Developed as part of Mu-SHROOM, the Multilingual Shared-task on Hallucinations and Related Observable Overgeneration Mistakes, HalluSearch couples retrieval-augmented verification with fine-grained factual splitting to identify and localize hallucinations in fourteen different languages. Empirical evaluations show that HalluSearch performs competitively, placing fourth in both English (within the top ten percent) and Czech. While the system's retrieval-based strategy generally proves robust, it faces challenges in languages with limited online coverage, underscoring the need for further research to ensure consistent hallucination detection across diverse linguistic contexts.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-04-14T12:22:30Z",
+    "updated": "2025-04-14T12:22:30Z",
+    "url": "http://arxiv.org/abs/2504.10168v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.10168v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 研究论文，专注于检测大模型幻觉，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "HalluSearch：一种用于幻觉检测的搜索增强型 RAG 流水线",
+    "summary_zh": "提出了一种结合检索增强验证与细粒度事实拆分的多语言流水线，旨在定位和识别大语言模型生成文本中的幻觉片段。",
+    "key_points": [
+      "提出了一种结合检索增强验证与细粒度事实拆分的多语言流水线，旨在定位和识别大语言模型生成文本中的幻觉片段"
+    ]
+  }
+]

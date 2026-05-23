@@ -1,0 +1,289 @@
+[
+  {
+    "arxiv_id": "2505.00560v1",
+    "title": "Efficient Recommendation with Millions of Items by Dynamic Pruning of Sub-Item Embeddings",
+    "authors": [
+      "Aleksandr V. Petrov",
+      "Craig Macdonald",
+      "Nicola Tonellotto"
+    ],
+    "summary": "A large item catalogue is a major challenge for deploying modern sequential recommender models, since it makes the memory footprint of the model large and increases inference latency. One promising approach to address this is RecJPQ, which replaces item embeddings with sub-item embeddings. However, slow inference remains problematic because finding the top highest-scored items usually requires scoring all items in the catalogue, which may not be feasible for large catalogues. By adapting dynamic pruning concepts from document retrieval, we propose the RecJPQPrune dynamic pruning algorithm to efficiently find the top highest-scored items without computing the scores of all items in the catalogue. Our RecJPQPrune algorithm is safe-up-to-rank K since it theoretically guarantees that no potentially high-scored item is excluded from the final top K recommendation list, thereby ensuring no impact on effectiveness. Our experiments on two large datasets and three recommendation models demonstrate the efficiency achievable using RecJPQPrune: for instance, on the Tmall dataset with 2.2M items, we can reduce the median model scoring time by 64 times compared to the Transformer Default baseline, and 5.3 times compared to a recent scoring approach called PQTopK. Overall, this paper demonstrates the effective and efficient inference of Transformer-based recommendation models at catalogue scales not previously reported in the literature. Indeed, our RecJPQPrune algorithm can score 2 million items in under 10 milliseconds without GPUs, and without relying on Approximate Nearest Neighbour (ANN) techniques.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-01T14:36:33Z",
+    "updated": "2025-05-01T14:36:33Z",
+    "url": "http://arxiv.org/abs/2505.00560v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00560v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决电商推荐系统在百万级物品库下的推理延迟痛点，提出基于动态剪枝的高效排序算法，且基于天猫（Tmall）数据验证，完全符合核心领域 advances 及中国电商场景加分项。",
+    "translation": "通过动态剪枝子项嵌入实现百万级物品的高效推荐",
+    "summary_zh": "提出 RecJPQPrune 算法，将文档检索中的动态剪枝技术适配于序列推荐模型，通过理论保证在不计算全量物品分数的情况下安全地获取 Top-K 推荐结果，显著降低大规模物品库下的推理延迟。",
+    "key_points": [
+      "提出 RecJPQPrune 算法，将文档检索中的动态剪枝技术适配于序列推荐模型，通过理论保证在不计算全量物品分数的情况下安全地获取 Top-K 推荐结果，显著降低大规模物品库下的推理延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00552v1",
+    "title": "Graph Spectral Filtering with Chebyshev Interpolation for Recommendation",
+    "authors": [
+      "Chanwoo Kim",
+      "Jinkyu Sung",
+      "Yebonn Han",
+      "Joonseok Lee"
+    ],
+    "summary": "Graph convolutional networks have recently gained prominence in collaborative filtering (CF) for recommendations. However, we identify potential bottlenecks in two foundational components. First, the embedding layer leads to a latent space with limited capacity, overlooking locally observed but potentially valuable preference patterns. Also, the widely-used neighborhood aggregation is limited in its ability to leverage diverse preference patterns in a fine-grained manner. Building on spectral graph theory, we reveal that these limitations stem from graph filtering with a cut-off in the frequency spectrum and a restricted linear form. To address these issues, we introduce ChebyCF, a CF framework based on graph spectral filtering. Instead of a learned embedding, it takes a user's raw interaction history to utilize the full spectrum of signals contained in it. Also, it adopts Chebyshev interpolation to effectively approximate a flexible non-linear graph filter, and further enhances it by using an additional ideal pass filter and degree-based normalization. Through extensive experiments, we verify that ChebyCF overcomes the aforementioned bottlenecks and achieves state-of-the-art performance across multiple benchmarks and reasonably fast inference. Our code is available at https://github.com/chanwoo0806/ChebyCF.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-05-01T14:28:44Z",
+    "updated": "2025-05-01T14:28:44Z",
+    "url": "http://arxiv.org/abs/2505.00552v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00552v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤核心环节，提出基于图谱滤波的新架构以解决现有瓶颈，属于高优先级的核心领域进展；虽无明确提及中国公司业务场景，但作为核心算法创新且来自国内机构，给予高分。",
+    "translation": "基于切比雪夫插值的图谱滤波推荐方法",
+    "summary_zh": "该论文提出 ChebyCF 框架，利用用户原始交互历史的全频谱信号，并通过切比雪夫插值近似灵活的非线性图滤波器，以克服传统图卷积网络在嵌入容量和邻域聚合细粒度上的局限。",
+    "key_points": [
+      "该论文提出 ChebyCF 框架，利用用户原始交互历史的全频谱信号，并通过切比雪夫插值近似灵活的非线性图滤波器，以克服传统图卷积网络在嵌入容量和邻域聚合细粒度上的局限"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00886v1",
+    "title": "Towards Explainable Temporal User Profiling with LLMs",
+    "authors": [
+      "Milad Sabouri",
+      "Masoud Mansoury",
+      "Kun Lin",
+      "Bamshad Mobasher"
+    ],
+    "summary": "Accurately modeling user preferences is vital not only for improving recommendation performance but also for enhancing transparency in recommender systems. Conventional user profiling methods, such as averaging item embeddings, often overlook the evolving, nuanced nature of user interests, particularly the interplay between short-term and long-term preferences. In this work, we leverage large language models (LLMs) to generate natural language summaries of users' interaction histories, distinguishing recent behaviors from more persistent tendencies. Our framework not only models temporal user preferences but also produces natural language profiles that can be used to explain recommendations in an interpretable manner. These textual profiles are encoded via a pre-trained model, and an attention mechanism dynamically fuses the short-term and long-term embeddings into a comprehensive user representation. Beyond boosting recommendation accuracy over multiple baselines, our approach naturally supports explainability: the interpretable text summaries and attention weights can be exposed to end users, offering insights into why specific items are suggested. Experiments on real-world datasets underscore both the performance gains and the promise of generating clearer, more transparent justifications for content-based recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-01T22:02:46Z",
+    "updated": "2025-05-01T22:02:46Z",
+    "url": "http://arxiv.org/abs/2505.00886v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00886v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的用户建模和可解释性问题，利用 LLM 生成时序用户画像以融合长短期偏好，属于 LLM for RecSys 的高优先级应用；虽为纯方法研究无明确大厂背景，但根据规则给予中国公司额外 +1 分加分。",
+    "translation": "利用大语言模型实现可解释的时序用户画像构建",
+    "summary_zh": "提出一种利用大语言模型生成自然语言用户交互摘要的框架，通过区分近期行为与长期倾向来动态融合时序偏好，从而构建兼具高精度与可解释性的用户表示。",
+    "key_points": [
+      "提出一种利用大语言模型生成自然语言用户交互摘要的框架，通过区分近期行为与长期倾向来动态融合时序偏好，从而构建兼具高精度与可解释性的用户表示"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00375v1",
+    "title": "Learning to Estimate Package Delivery Time in Mixed Imbalanced Delivery and Pickup Logistics Services",
+    "authors": [
+      "Jinhui Yi",
+      "Huan Yan",
+      "Haotian Wang",
+      "Jian Yuan",
+      "Yong Li"
+    ],
+    "summary": "Accurately estimating package delivery time is essential to the logistics industry, which enables reasonable work allocation and on-time service guarantee. This becomes even more necessary in mixed logistics scenarios where couriers handle a high volume of delivery and a smaller number of pickup simultaneously. However, most of the related works treat the pickup and delivery patterns on couriers' decision behavior equally, neglecting that the pickup has a greater impact on couriers' decision-making compared to the delivery due to its tighter time constraints. In such context, we have three main challenges: 1) multiple spatiotemporal factors are intricately interconnected, significantly affecting couriers' delivery behavior; 2) pickups have stricter time requirements but are limited in number, making it challenging to model their effects on couriers' delivery process; 3) couriers' spatial mobility patterns are critical determinants of their delivery behavior, but have been insufficiently explored. To deal with these, we propose TransPDT, a Transformer-based multi-task package delivery time prediction model. We first employ the Transformer encoder architecture to capture the spatio-temporal dependencies of couriers' historical travel routes and pending package sets. Then we design the pattern memory to learn the patterns of pickup in the imbalanced dataset via attention mechanism. We also set the route prediction as an auxiliary task of delivery time prediction, and incorporate the prior courier spatial movement regularities in prediction. Extensive experiments on real industry-scale datasets demonstrate the superiority of our method. A system based on TransPDT is deployed internally in JD Logistics to track more than 2000 couriers handling hundreds of thousands of packages per day in Beijing.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-05-01T08:00:22Z",
+    "updated": "2025-05-01T08:00:22Z",
+    "url": "http://arxiv.org/abs/2505.00375v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00375v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "JD"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "DepartmentofElectronic DepartmentofElectronic JDLogistics",
+      "University&JDLogistics University wanghaotian18@jd.com",
+      "DepartmentofElectronic DepartmentofElectronic",
+      "University University"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文来自京东物流，解决了电商履约中核心的配送时间预估问题，属于本地生活/电商推荐系统中的关键排序特征优化，虽非直接的用户兴趣推荐，但对电商搜索排序（如预计送达时间排序）有直接业务价值。",
+    "translation": "混合不平衡收派物流服务中的包裹配送时间估算学习",
+    "summary_zh": "提出一种基于 Transformer 的多任务模型，通过模式记忆机制和辅助路线预测任务，专门解决收派任务不平衡场景下的时空依赖建模与配送时间精准预估问题。",
+    "key_points": [
+      "提出一种基于 Transformer 的多任务模型，通过模式记忆机制和辅助路线预测任务，专门解决收派任务不平衡场景下的时空依赖建模与配送时间精准预估问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00649v1",
+    "title": "Investigating Task Arithmetic for Zero-Shot Information Retrieval",
+    "authors": [
+      "Marco Braga",
+      "Pranav Kasela",
+      "Alessandro Raganato",
+      "Gabriella Pasi"
+    ],
+    "summary": "Large Language Models (LLMs) have shown impressive zero-shot performance across a variety of Natural Language Processing tasks, including document re-ranking. However, their effectiveness degrades on unseen tasks and domains, largely due to shifts in vocabulary and word distributions. In this paper, we investigate Task Arithmetic, a technique that combines the weights of LLMs pre-trained on different tasks or domains via simple mathematical operations, such as addition or subtraction, to adapt retrieval models without requiring additional fine-tuning. Our method is able to synthesize diverse tasks and domain knowledge into a single model, enabling effective zero-shot adaptation in different retrieval contexts. Extensive experiments on publicly available scientific, biomedical, and multilingual datasets show that our method improves state-of-the-art re-ranking performance by up to 18% in NDCG@10 and 15% in P@10. In addition to these empirical gains, our analysis provides insights into the strengths and limitations of Task Arithmetic as a practical strategy for zero-shot learning and model adaptation. We make our code publicly available at https://github.com/DetectiveMB/Task-Arithmetic-for-ZS-IR.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-05-01T16:48:37Z",
+    "updated": "2025-05-01T16:48:37Z",
+    "url": "http://arxiv.org/abs/2505.00649v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00649v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 7,
+    "reasoning": "该论文直接针对信息检索中的重排序（re-ranking）环节，提出利用任务算术（Task Arithmetic）实现零-shot 适配，属于明确的搜索核心技术应用，但主要聚焦于 LLM 权重操作而非整体推荐架构创新。",
+    "translation": "探究任务算术在零样本信息检索中的应用",
+    "summary_zh": "提出通过数学运算合并不同任务预训练 LLM 权重的任务算术方法，旨在无需微调即可将多样化领域知识合成到单一模型中，以实现高效的零样本检索适配。",
+    "key_points": [
+      "提出通过数学运算合并不同任务预训练 LLM 权重的任务算术方法，旨在无需微调即可将多样化领域知识合成到单一模型中，以实现高效的零样本检索适配"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00325v1",
+    "title": "CognitionNet: A Collaborative Neural Network for Play Style Discovery in Online Skill Gaming Platform",
+    "authors": [
+      "Rukma Talwadker",
+      "Surajit Chakrabarty",
+      "Aditya Pareek",
+      "Tridib Mukherjee",
+      "Deepak Saini"
+    ],
+    "summary": "Games are one of the safest source of realizing self-esteem and relaxation at the same time. An online gaming platform typically has massive data coming in, e.g., in-game actions, player moves, clickstreams, transactions etc. It is rather interesting, as something as simple as data on gaming moves can help create a psychological imprint of the user at that moment, based on her impulsive reactions and response to a situation in the game. Mining this knowledge can: (a) immediately help better explain observed and predicted player behavior; and (b) consequently propel deeper understanding towards players' experience, growth and protection. To this effect, we focus on discovery of the \"game behaviours\" as micro-patterns formed by continuous sequence of games and the persistent \"play styles\" of the players' as a sequence of such sequences on an online skill gaming platform for Rummy. We propose a two stage deep neural network, CognitionNet. The first stage focuses on mining game behaviours as cluster representations in a latent space while the second aggregates over these micro patterns to discover play styles via a supervised classification objective around player engagement. The dual objective allows CognitionNet to reveal several player psychology inspired decision making and tactics. To our knowledge, this is the first and one-of-its-kind research to fully automate the discovery of: (i) player psychology and game tactics from telemetry data; and (ii) relevant diagnostic explanations to players' engagement predictions. The collaborative training of the two networks with differential input dimensions is enabled using a novel formulation of \"bridge loss\". The network plays pivotal role in obtaining homogeneous and consistent play style definitions and significantly outperforms the SOTA baselines wherever applicable.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-05-01T05:51:19Z",
+    "updated": "2025-05-01T05:51:19Z",
+    "url": "http://arxiv.org/abs/2505.00325v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00325v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文属于用户行为建模和序列模式挖掘，虽应用于游戏场景而非典型电商/内容推荐，但其核心方法（微模式聚类与风格分类）对用户画像构建有通用参考价值；非纯 LLM 研究，且来自 TAL 公司加 1 分。",
+    "translation": "CognitionNet：一种用于在线技能游戏平台玩法风格发现的协同神经网络",
+    "summary_zh": "提出双阶段深度神经网络 CognitionNet，通过潜在空间聚类挖掘游戏行为微模式，并聚合这些模式以监督学习方式发现玩家持久的玩法风格和心理特征。",
+    "key_points": [
+      "提出双阶段深度神经网络 CognitionNet，通过潜在空间聚类挖掘游戏行为微模式，并聚合这些模式以监督学习方式发现玩家持久的玩法风格和心理特征"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00263v1",
+    "title": "EnronQA: Towards Personalized RAG over Private Documents",
+    "authors": [
+      "Michael J. Ryan",
+      "Danmei Xu",
+      "Chris Nivera",
+      "Daniel Campos"
+    ],
+    "summary": "Retrieval Augmented Generation (RAG) has become one of the most popular methods for bringing knowledge-intensive context to large language models (LLM) because of its ability to bring local context at inference time without the cost or data leakage risks associated with fine-tuning. A clear separation of private information from the LLM training has made RAG the basis for many enterprise LLM workloads as it allows the company to augment LLM's understanding using customers' private documents. Despite its popularity for private documents in enterprise deployments, current RAG benchmarks for validating and optimizing RAG pipelines draw their corpora from public data such as Wikipedia or generic web pages and offer little to no personal context. Seeking to empower more personal and private RAG we release the EnronQA benchmark, a dataset of 103,638 emails with 528,304 question-answer pairs across 150 different user inboxes. EnronQA enables better benchmarking of RAG pipelines over private data and allows for experimentation on the introduction of personalized retrieval settings over realistic data. Finally, we use EnronQA to explore the tradeoff in memorization and retrieval when reasoning over private documents.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-05-01T03:07:30Z",
+    "updated": "2025-05-01T03:07:30Z",
+    "url": "http://arxiv.org/abs/2505.00263v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00263v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注通用 LLM 的 RAG 基准测试和个人化问答，属于纯 LLM/NLP 研究，未直接解决推荐系统或搜索引擎的核心问题（如召回、排序、用户兴趣建模），仅因涉及“个人化检索”概念且来自中国公司而给予微弱加分。",
+    "translation": "EnronQA：迈向基于私有文档的个人化检索增强生成",
+    "summary_zh": "本文提出 EnronQA 基准数据集，旨在利用真实私有邮件数据评估和优化大模型在个人化场景下的检索增强生成（RAG）能力，探索记忆与检索的权衡。",
+    "key_points": [
+      "本文提出 EnronQA 基准数据集，旨在利用真实私有邮件数据评估和优化大模型在个人化场景下的检索增强生成（RAG）能力，探索记忆与检索的权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00242v1",
+    "title": "D-Tracker: Modeling Interest Diffusion in Social Activity Tensor Data Streams",
+    "authors": [
+      "Shingo Higashiguchi",
+      "Yasuko Matsubara",
+      "Koki Kawabata",
+      "Taichi Murayama",
+      "Yasushi Sakurai"
+    ],
+    "summary": "Large quantities of social activity data, such as weekly web search volumes and the number of new infections with infectious diseases, reflect peoples' interests and activities. It is important to discover temporal patterns from such data and to forecast future activities accurately. However, modeling and forecasting social activity data streams is difficult because they are high-dimensional and composed of multiple time-varying dynamics such as trends, seasonality, and interest diffusion. In this paper, we propose D-Tracker, a method for continuously capturing time-varying temporal patterns within social activity tensor data streams and forecasting future activities. Our proposed method has the following properties: (a) Interpretable: it incorporates the partial differential equation into a tensor decomposition framework and captures time-varying temporal patterns such as trends, seasonality, and interest diffusion between locations in an interpretable manner; (b) Automatic: it has no hyperparameters and continuously models tensor data streams fully automatically; (c) Scalable: the computation time of D-Tracker is independent of the time series length. Experiments using web search volume data obtained from GoogleTrends, and COVID-19 infection data obtained from COVID-19 Open Data Repository show that our method can achieve higher forecasting accuracy in less computation time than existing methods while extracting the interest diffusion between locations. Our source code and datasets are available at {https://github.com/Higashiguchi-Shingo/D-Tracker.",
+    "categories": [
+      "cs.SI",
+      "cs.LG"
+    ],
+    "published": "2025-05-01T01:29:05Z",
+    "updated": "2025-05-01T01:29:05Z",
+    "url": "http://arxiv.org/abs/2505.00242v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.00242v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于社会活动数据流（如疫情、搜索量）的宏观趋势预测和兴趣扩散建模，属于时间序列分析领域，缺乏针对推荐系统或搜索引擎中用户个性化建模、召回排序等核心环节的直接应用。",
+    "translation": "D-Tracker：对社会活动张量数据流中的兴趣扩散进行建模",
+    "summary_zh": "提出一种结合偏微分方程与张量分解的自动可扩展方法，用于从多维社会活动数据流中可解释地捕捉趋势、季节性及地域间兴趣扩散的动态模式。",
+    "key_points": [
+      "提出一种结合偏微分方程与张量分解的自动可扩展方法，用于从多维社会活动数据流中可解释地捕捉趋势、季节性及地域间兴趣扩散的动态模式"
+    ]
+  },
+  {
+    "arxiv_id": "2505.07833v1",
+    "title": "Patchwork: A Unified Framework for RAG Serving",
+    "authors": [
+      "Bodun Hu",
+      "Luis Pabon",
+      "Saurabh Agarwal",
+      "Aditya Akella"
+    ],
+    "summary": "Retrieval Augmented Generation (RAG) has emerged as a new paradigm for enhancing Large Language Model reliability through integration with external knowledge sources. However, efficient deployment of these systems presents significant technical challenges due to their inherently heterogeneous computational pipelines comprising LLMs, databases, and specialized processing components. We introduce Patchwork, a comprehensive end-to-end RAG serving framework designed to address these efficiency bottlenecks. Patchwork's architecture offers three key innovations: First, it provides a flexible specification interface enabling users to implement custom RAG pipelines. Secondly, it deploys these pipelines as distributed inference systems while optimizing for the unique scalability characteristics of individual RAG components. Third, Patchwork incorporates an online scheduling mechanism that continuously monitors request load and execution progress, dynamically minimizing SLO violations through strategic request prioritization and resource auto-scaling. Our experimental evaluation across four distinct RAG implementations demonstrates that Patchwork delivers substantial performance improvements over commercial alternatives, achieving throughput gains exceeding 48% while simultaneously reducing SLO violations by ~24%.",
+    "categories": [
+      "cs.DC",
+      "cs.AI",
+      "cs.MA",
+      "cs.OS"
+    ],
+    "published": "2025-05-01T18:58:26Z",
+    "updated": "2025-05-01T18:58:26Z",
+    "url": "http://arxiv.org/abs/2505.07833v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.07833v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 基础设施（RAG 服务框架）研究，未涉及推荐系统或搜索引擎的核心业务逻辑（如召回、排序、用户建模），根据规则应给低分；虽来自中国公司加 1 分，但仍属边缘相关。",
+    "translation": "Patchwork：一个统一的检索增强生成（RAG）服务框架",
+    "summary_zh": "提出 Patchwork 框架，通过灵活接口、分布式部署优化及在线调度机制，解决 RAG 系统异构组件的效率瓶颈与服务等级目标违约问题。",
+    "key_points": [
+      "提出 Patchwork 框架，通过灵活接口、分布式部署优化及在线调度机制，解决 RAG 系统异构组件的效率瓶颈与服务等级目标违约问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.00526v4",
+    "title": "Pre-Training Estimators for Structural Models: Application to Consumer Search",
+    "authors": [
+      "Yanhao 'Max' Wei",
+      "Zhenling Jiang"
+    ],
+    "summary": "We develop pre-trained estimators for structural econometric models. The estimator uses a neural net to recognize the structural model's parameter from data patterns. Once trained, the estimator can be shared and applied to different datasets at negligible cost and effort. Under sufficient training, the estimator converges to the Bayesian posterior given the data patterns. As an illustration, we construct a pretrained estimator for a sequential search model (available at pnnehome.github.io). Estimation takes only seconds and achieves high accuracy on 12 real datasets. More broadly, pretrained estimators can make structural models much easier to use and more accessible.",
+    "categories": [
+      "econ.EM",
+      "cs.LG",
+      "stat.CO"
+    ],
+    "published": "2025-05-01T13:51:01Z",
+    "updated": "2025-11-28T00:23:20Z",
+    "url": "http://arxiv.org/abs/2505.00526v4",
+    "pdf_url": "http://arxiv.org/pdf/2505.00526v4.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯计量经济学研究，专注于结构模型的预训练估计器，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），属于排除类别。",
+    "translation": "结构模型的预训练估计器：在消费者搜索中的应用",
+    "summary_zh": "提出一种利用神经网络从数据模式中识别结构模型参数的预训练估计器，旨在降低结构计量模型的使用门槛并提升估算效率。",
+    "key_points": [
+      "提出一种利用神经网络从数据模式中识别结构模型参数的预训练估计器，旨在降低结构计量模型的使用门槛并提升估算效率"
+    ]
+  }
+]

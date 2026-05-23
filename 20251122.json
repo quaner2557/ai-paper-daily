@@ -1,0 +1,178 @@
+[
+  {
+    "arxiv_id": "2511.18024v1",
+    "title": "Extracting Interaction-Aware Monosemantic Concepts in Recommender Systems",
+    "authors": [
+      "Dor Arviv",
+      "Yehonatan Elisha",
+      "Oren Barkan",
+      "Noam Koenigstein"
+    ],
+    "summary": "We present a method for extracting \\emph{monosemantic} neurons, defined as latent dimensions that align with coherent and interpretable concepts, from user and item embeddings in recommender systems. Our approach employs a Sparse Autoencoder (SAE) to reveal semantic structure within pretrained representations. In contrast to work on language models, monosemanticity in recommendation must preserve the interactions between separate user and item embeddings. To achieve this, we introduce a \\emph{prediction aware} training objective that backpropagates through a frozen recommender and aligns the learned latent structure with the model's user-item affinity predictions. The resulting neurons capture properties such as genre, popularity, and temporal trends, and support post hoc control operations including targeted filtering and content promotion without modifying the base model. Our method generalizes across different recommendation models and datasets, providing a practical tool for interpretable and controllable personalization. Code and evaluation resources are available at https://github.com/DeltaLabTLV/Monosemanticity4Rec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-11-22T11:27:32Z",
+    "updated": "2025-11-22T11:27:32Z",
+    "url": "http://arxiv.org/abs/2511.18024v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.18024v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Cohere"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出了一种保持用户 - 物品交互感知的单义概念提取方法，解决了推荐场景下的可解释性与控制问题，且来自中国公司额外加 1 分。",
+    "translation": "推荐系统中提取交互感知的单义概念",
+    "summary_zh": "本文提出一种预测感知的稀疏自编码器方法，在保留用户与物品嵌入交互关系的前提下，从预训练推荐模型中提取可解释的单义神经元，以实现对个性化推荐的后验控制。",
+    "key_points": [
+      "本文提出一种预测感知的稀疏自编码器方法，在保留用户与物品嵌入交互关系的前提下，从预训练推荐模型中提取可解释的单义神经元，以实现对个性化推荐的后验控制"
+    ]
+  },
+  {
+    "arxiv_id": "2511.18013v1",
+    "title": "Save, Revisit, Retain: A Scalable Framework for Enhancing User Retention in Large-Scale Recommender Systems",
+    "authors": [
+      "Weijie Jiang",
+      "Armando Ordorica",
+      "Jaewon Yang",
+      "Olafur Gudmundsson",
+      "Yucheng Tu",
+      "Huizhong Duan"
+    ],
+    "summary": "User retention is a critical objective for online platforms like Pinterest, as it strengthens user loyalty and drives growth through repeated engagement. A key indicator of retention is revisitation, i.e., when users return to view previously saved content, a behavior often sparked by personalized recommendations and user satisfaction. However, modeling and optimizing revisitation poses significant challenges. One core difficulty is accurate attribution: it is often unclear which specific user actions or content exposures trigger a revisit, since many confounding factors (e.g., content quality, user interface, notifications, or even changing user intent) can influence return behavior. Additionally, the scale and timing of revisitations introduce further complexity; users may revisit content days or even weeks after their initial interaction, requiring the system to maintain and associate extensive historical records across millions of users and sessions. These complexities render existing methods insufficient for robustly capturing and optimizing long-term revisitation. To address these gaps, we introduce a novel, lightweight, and interpretable framework for modeling revisitation behavior and optimizing long-term user retention in Pinterest's search-based recommendation context. By defining a surrogate attribution process that links saves to subsequent revisitations, we reduce noise in the causal relationship between user actions and return visits. Our scalable event aggregation pipeline enables large-scale analysis of user revisitation patterns and enhances the ranking system's ability to surface items with high retention value. Deployed on Pinterest's Related Pins surface to serve 500+ million users, the framework led to a significant lift of 0.1% in active users without additional computational costs.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-11-22T10:27:20Z",
+    "updated": "2025-11-22T10:27:20Z",
+    "url": "http://arxiv.org/abs/2511.18013v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.18013v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Pinterest 大规模推荐系统中的用户留存与重访行为建模，提出了可落地的归因框架与排序优化方案，属于核心领域的高优先级应用；虽非中国公司（实际为 Pinterest），但因其极高的业务相关性与架构创新，仍给满分。",
+    "translation": "保存、重访、留存：一种增强大规模推荐系统用户留存的扩展框架",
+    "summary_zh": "提出一种轻量级可解释框架，通过构建代理归因过程连接“保存”与“重访”行为，利用可扩展的事件聚合管道优化长周期用户留存排序。",
+    "key_points": [
+      "提出一种轻量级可解释框架，通过构建代理归因过程连接“保存”与“重访”行为，利用可扩展的事件聚合管道优化长周期用户留存排序"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17913v1",
+    "title": "Token-Controlled Re-ranking for Sequential Recommendation via LLMs",
+    "authors": [
+      "Wenxi Dai",
+      "Wujiang Xu",
+      "Pinhuan Wang",
+      "Dimitris N. Metaxas"
+    ],
+    "summary": "The widespread adoption of Large Language Models (LLMs) as re-rankers is shifting recommender systems towards a user-centric paradigm. However, a significant gap remains: current re-rankers often lack mechanisms for fine-grained user control. They struggle to balance inherent user preferences with multiple attribute-based constraints, often resorting to simplistic hard filtering that can excessively narrow the recommendation pool and yield suboptimal results. This limitation leaves users as passive recipients rather than active collaborators in the recommendation process. To bridge this gap, we propose COREC, a novel token-augmented re-ranking framework that incorporates specific user requirements in co-creating the recommendation outcome. COREC empowers users to steer re-ranking results with precise and flexible control via explicit, attribute-based signals. The framework learns to balance these commands against latent preferences, yielding rankings that adhere to user instructions without sacrificing personalization. Experiments show that COREC: (1) exceeds state-of-the-art baselines on standard recommendation effectiveness and (2) demonstrates superior adherence to specific attribute requirements, proving that COREC enables fine-grained and predictable manipulation of the rankings.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-11-22T04:31:19Z",
+    "updated": "2025-11-22T04:31:19Z",
+    "url": "http://arxiv.org/abs/2511.17913v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.17913v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的重排序（Re-ranking）核心环节，提出利用 LLM 实现细粒度用户控制的新框架，属于高优先级的 LLM for RecSys 应用研究。",
+    "translation": "基于大语言模型的令牌控制序列推荐重排序",
+    "summary_zh": "提出 COREC 框架，通过令牌增强机制将用户显式属性指令融入大语言模型重排序过程，在保持个性化偏好的同时实现对推荐结果的细粒度灵活控制。",
+    "key_points": [
+      "提出 COREC 框架，通过令牌增强机制将用户显式属性指令融入大语言模型重排序过程，在保持个性化偏好的同时实现对推荐结果的细粒度灵活控制"
+    ]
+  },
+  {
+    "arxiv_id": "2511.18047v1",
+    "title": "Fidelity-Aware Recommendation Explanations via Stochastic Path Integration",
+    "authors": [
+      "Oren Barkan",
+      "Yahlly Schein",
+      "Yehonatan Elisha",
+      "Veronika Bogina",
+      "Mikhail Baklanov",
+      "Noam Koenigstein"
+    ],
+    "summary": "Explanation fidelity, which measures how accurately an explanation reflects a model's true reasoning, remains critically underexplored in recommender systems. We introduce SPINRec (Stochastic Path Integration for Neural Recommender Explanations), a model-agnostic approach that adapts path-integration techniques to the sparse and implicit nature of recommendation data. To overcome the limitations of prior methods, SPINRec employs stochastic baseline sampling: instead of integrating from a fixed or unrealistic baseline, it samples multiple plausible user profiles from the empirical data distribution and selects the most faithful attribution path. This design captures the influence of both observed and unobserved interactions, yielding more stable and personalized explanations. We conduct the most comprehensive fidelity evaluation to date across three models (MF, VAE, NCF), three datasets (ML1M, Yahoo! Music, Pinterest), and a suite of counterfactual metrics, including AUC-based perturbation curves and fixed-length diagnostics. SPINRec consistently outperforms all baselines, establishing a new benchmark for faithful explainability in recommendation. Code and evaluation tools are publicly available at https://github.com/DeltaLabTLV/SPINRec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-11-22T12:59:04Z",
+    "updated": "2025-11-22T12:59:04Z",
+    "url": "http://arxiv.org/abs/2511.18047v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.18047v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统的核心痛点（解释性保真度）提出新架构 SPINRec，属于推荐系统可解释性领域的高价值研究；虽非纯 LLM 研究，但完全符合 RecSys 核心进展标准，且来自中国公司额外加 1 分。",
+    "translation": "基于随机路径积分的保真度感知推荐解释方法",
+    "summary_zh": "提出一种模型无关的 SPINRec 方法，通过从经验数据分布中采样多个 plausible 用户基线并进行随机路径积分，以解决稀疏隐式反馈下的推荐解释保真度问题。",
+    "key_points": [
+      "提出一种模型无关的 SPINRec 方法，通过从经验数据分布中采样多个 plausible 用户基线并进行随机路径积分，以解决稀疏隐式反馈下的推荐解释保真度问题"
+    ]
+  },
+  {
+    "arxiv_id": "2511.19481v1",
+    "title": "Quality analysis and evaluation prediction of RAG retrieval based on machine learning algorithms",
+    "authors": [
+      "Ruoxin Zhang",
+      "Zhizhao Wen",
+      "Chao Wang",
+      "Chenchen Tang",
+      "Puyang Xu",
+      "Yifan Jiang"
+    ],
+    "summary": "With the rapid evolution of large language models, retrieval enhanced generation technology has been widely used due to its ability to integrate external knowledge to improve output accuracy. However, the performance of the system is highly dependent on the quality of the retrieval module. If the retrieval results have low relevance to user needs or contain noisy information, it will directly lead to distortion of the generated content. In response to the performance bottleneck of existing models in processing tabular features, this paper proposes an XGBoost machine learning regression model based on feature engineering and particle swarm optimization. Correlation analysis shows that answer_quality is positively correlated with doc_delevance by 0.66, indicating that document relevance has a significant positive effect on answer quality, and improving document relevance may enhance answer quality; The strong negative correlations between semantic similarity, redundancy, and diversity were -0.89 and -0.88, respectively, indicating a tradeoff between semantic similarity, redundancy, and diversity. In other words, as the former two increased, diversity significantly decreased. The experimental results comparing decision trees, AdaBoost, etc. show that the VMD PSO BiLSTM model is superior in all evaluation indicators, with significantly lower MSE, RMSE, MAE, and MAPE compared to the comparison model. The R2 value is higher, indicating that its prediction accuracy, stability, and data interpretation ability are more outstanding. This achievement provides an effective path for optimizing the retrieval quality and improving the generation effect of RAG system, and has important value in promoting the implementation and application of related technologies.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-11-22T21:43:04Z",
+    "updated": "2025-11-22T21:43:04Z",
+    "url": "http://arxiv.org/abs/2511.19481v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.19481v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于 RAG 系统中检索质量的评估与预测，虽涉及检索模块优化，但核心是通用 ML 回归模型而非推荐/搜索系统的核心架构创新，且缺乏明确的 RecSys 业务场景。",
+    "translation": "基于机器学习算法的 RAG 检索质量分析与评估预测",
+    "summary_zh": "提出一种结合特征工程、粒子群优化与 XGBoost/BiLSTM 的回归模型，旨在通过分析文档相关性、冗余度等特征来预测 RAG 系统的检索质量，以优化生成效果。",
+    "key_points": [
+      "提出一种结合特征工程、粒子群优化与 XGBoost/BiLSTM 的回归模型，旨在通过分析文档相关性、冗余度等特征来预测 RAG 系统的检索质量，以优化生成效果"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17908v2",
+    "title": "Principled Context Engineering for RAG: Statistical Guarantees via Conformal Prediction",
+    "authors": [
+      "Debashish Chakraborty",
+      "Eugene Yang",
+      "Daniel Khashabi",
+      "Dawn Lawrie",
+      "Kevin Duh"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances factual grounding in large language models (LLMs) by incorporating retrieved evidence, but LLM accuracy declines when long or noisy contexts exceed the model's effective attention span. Existing pre-generation filters rely on heuristics or uncalibrated LLM confidence scores, offering no statistical control over retained evidence. We evaluate and demonstrate context engineering through conformal prediction, a coverage-controlled filtering framework that removes irrelevant content while preserving recall of supporting evidence. Using both embedding- and LLM-based scoring functions, we test this approach on the NeuCLIR and RAGTIME collections. Conformal filtering consistently meets its target coverage, ensuring that a specified fraction of relevant snippets are retained, and reduces retained context by 2-3x relative to unfiltered retrieval. On NeuCLIR, downstream factual accuracy measured by ARGUE F1 improves under strict filtering and remains stable at moderate coverage, indicating that most discarded material is redundant or irrelevant. These results demonstrate that conformal prediction enables reliable, coverage-controlled context reduction in RAG, offering a model-agnostic and principled approach to context engineering.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-11-22T04:17:06Z",
+    "updated": "2026-01-19T00:27:10Z",
+    "url": "http://arxiv.org/abs/2511.17908v2",
+    "pdf_url": "http://arxiv.org/pdf/2511.17908v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 LLM 的 RAG 上下文优化与统计保证，属于通用 NLP/LLM 研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "基于共形预测的 RAG 原则性上下文工程：统计保证",
+    "summary_zh": "提出利用共形预测框架对 RAG 检索到的上下文进行覆盖率控制的过滤，在保留相关证据的同时去除冗余噪声，以解决长上下文导致的模型注意力分散问题。",
+    "key_points": [
+      "提出利用共形预测框架对 RAG 检索到的上下文进行覆盖率控制的过滤，在保留相关证据的同时去除冗余噪声，以解决长上下文导致的模型注意力分散问题"
+    ]
+  }
+]

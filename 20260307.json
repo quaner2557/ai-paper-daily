@@ -1,0 +1,249 @@
+[
+  {
+    "arxiv_id": "2603.07107v1",
+    "title": "Efficient Personalized Reranking with Semi-Autoregressive Generation and Online Knowledge Distillation",
+    "authors": [
+      "Kai Cheng",
+      "Hao Wang",
+      "Wei Guo",
+      "Weiwen Liu",
+      "Yong Liu",
+      "Yawen Li",
+      "Enhong Chen"
+    ],
+    "summary": "Generative models offer a promising paradigm for the final stage reranking in multi-stage recommender systems, with the ability to capture inter-item dependencies within reranked lists. However, their practical deployment still faces two key challenges: (1) an inherent conflict between achieving high generation quality and ensuring low-latency inference, making it difficult to balance the two, and (2) insufficient interaction between user and item features in existing methods. To address these challenges, we propose a novel Personalized Semi-Autoregressive with online knowledge Distillation (PSAD) framework for reranking. In this framework, the teacher model adopts a semi-autoregressive generator to balance generation quality and efficiency, while its ranking knowledge is distilled online into a lightweight scoring network during joint training, enabling real-time and efficient inference. Furthermore, we propose a User Profile Network (UPN) that injects user intent and models interest dynamics, enabling deeper interactions between users and items. Extensive experiments conducted on three large-scale public datasets demonstrate that PSAD significantly outperforms state-of-the-art baselines in both ranking performance and inference efficiency.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-03-07T08:37:13Z",
+    "updated": "2026-03-07T08:37:13Z",
+    "url": "http://arxiv.org/abs/2603.07107v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07107v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的重排序（Reranking）核心环节，提出了解决生成质量与延迟冲突及用户 - 物品交互不足的具体架构，属于高优先级的核心领域进展。",
+    "translation": "基于半自回归生成与在线知识蒸馏的高效个性化重排序",
+    "summary_zh": "提出一种结合半自回归生成器与在线知识蒸馏的重排序框架，通过教师模型平衡生成质量与效率，并将知识蒸馏至轻量级评分网络以实现实时推理，同时引入用户画像网络增强用户意图与物品特征的深层交互。",
+    "key_points": [
+      "提出一种结合半自回归生成器与在线知识蒸馏的重排序框架，通过教师模型平衡生成质量与效率，并将知识蒸馏至轻量级评分网络以实现实时推理，同时引入用户画像网络增强用户意图与物品特征的深层交互"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07086v1",
+    "title": "Multi-TAP: Multi-criteria Target Adaptive Persona Modeling for Cross-Domain Recommendation",
+    "authors": [
+      "Daehee Kang",
+      "Yeon-Chang Lee"
+    ],
+    "summary": "Cross-domain recommendation (CDR) aims to alleviate data sparsity by transferring knowledge across domains, yet existing methods primarily rely on coarse-grained behavioral signals and often overlook intra-domain heterogeneity in user preferences. We propose Multi-TAP, a multi-criteria target-adaptive persona framework that explicitly captures such heterogeneity through semantic persona modeling. To enable effective transfer, Multi-TAP selectively incorporates source-domain signals conditioned on the target domain, preserving relevance during knowledge transfer. Experiments on real-world datasets demonstrate that Multi-TAP consistently outperforms state-of-the-art CDR methods, highlighting the importance of modeling intra-domain heterogeneity for robust cross-domain recommendation. The codebase of Multi-TAP is currently available at https://github.com/archivehee/Multi-TAP.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-03-07T07:48:10Z",
+    "updated": "2026-03-07T07:48:10Z",
+    "url": "http://arxiv.org/abs/2603.07086v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07086v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨域推荐系统中的用户偏好异质性问题提出新架构，属于核心推荐算法创新，非纯 LLM 研究。",
+    "translation": "Multi-TAP：面向跨域推荐的多准则目标自适应角色建模",
+    "summary_zh": "提出 Multi-TAP 框架，通过语义角色建模显式捕捉域内用户偏好异质性，并基于目标域选择性迁移源域信号以解决跨域推荐中的数据稀疏问题。",
+    "key_points": [
+      "提出 Multi-TAP 框架，通过语义角色建模显式捕捉域内用户偏好异质性，并基于目标域选择性迁移源域信号以解决跨域推荐中的数据稀疏问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.06976v1",
+    "title": "A Systematic Investigation of Document Chunking Strategies and Embedding Sensitivity",
+    "authors": [
+      "Muhammad Arslan Shaukat",
+      "Muntasir Adnan",
+      "Carlos C. N. Kuhn"
+    ],
+    "summary": "We present the first large-scale, cross-domain evaluation of document chunking strategies for dense retrieval, addressing a critical but underexplored aspect of retrieval-augmented systems. In our study, 36 segmentation methods spanning fixed-size, semantic, structure-aware, hierarchical, adaptive, and LLM-assisted approaches are benchmarked across six diverse knowledge domains using five different embedding models. Retrieval performance is assessed using graded relevance scores from a state-of-the-art LLM evaluator, with Normalised DCG@5 as the primary metric (complemented by Hit@5 and MRR). Our experiments show that content-aware chunking significantly improves retrieval effectiveness over naive fixed-length splitting. The top-performing strategy, Paragraph Group Chunking, achieved the highest overall accuracy (mean nDCG@5~0.459) and substantially better top-rank hit rates (Precision@1~24%, Hit@5~59%). In contrast, simple fixed-size character chunking as baselines performed poorly (nDCG@5 < 0.244, Precision@1~2-3%). We observe pronounced domain-specific differences: dynamic token sizing is strongest in biology, physics and health, while paragraph grouping is strongest in legal and maths. Larger embedding models yield higher absolute scores but remain sensitive to suboptimal segmentation, indicating that better chunking and large embeddings provide complementary benefits. In addition to accuracy gains, we quantify the efficiency trade-offs of advanced chunking. Producing more, smaller chunks can increase index size and latency. Consequently, we identify methods (like dynamic chunking) that approach an optimal balance of effectiveness and efficiency. These findings establish chunking as a vital lever for improving retrieval performance and reliability.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-03-07T01:33:44Z",
+    "updated": "2026-03-07T01:33:44Z",
+    "url": "http://arxiv.org/abs/2603.06976v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.06976v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究密集检索（Dense Retrieval）中的文档分块策略，这是搜索和 RAG 系统的核心预处理环节，具有明确的搜索应用场景；虽非纯推荐算法创新，但属于搜索核心技术，且来自 TAL 公司额外加 1 分。",
+    "translation": "文档分块策略与嵌入敏感性的系统性研究",
+    "summary_zh": "本文提出了一种跨领域的大规模评估框架，系统分析了包括语义感知和 LLM 辅助在内的多种文档分块策略对密集检索效果的影响，揭示了内容感知分块相较于固定长度分割在提升检索相关性方面的核心优势。",
+    "key_points": [
+      "本文提出了一种跨领域的大规模评估框架，系统分析了包括语义感知和 LLM 辅助在内的多种文档分块策略对密集检索效果的影响，揭示了内容感知分块相较于固定长度分割在提升检索相关性方面的核心优势"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07229v1",
+    "title": "A Hybrid LTR-based System via Social Context Embedding for Recommending Solutions of Software Bugs in Developer Communities",
+    "authors": [
+      "Fouzi Harrag",
+      "Mokdad Khemliche"
+    ],
+    "summary": "Questions and Answering forums such as Stack Overflow play an important role in supporting software developers in finding answers to queries related to issues such as software errors and bugs. However, searching through a large set of candidate answers could be time consuming and may not lead to the best solution. In this research, the effectiveness of data mining models and machine learning techniques to solve this kind of problems is evaluated. We propose a recommender system to aid developers in finding solutions to their software bugs by carefully mining Stack Overflow. The proposed model leverages the knowledge available through crowdsourcing the Q&A available in Stack Overflow to recommend a solution to software bugs. We use deep learning techniques to construct the required Learning-to-Rank (LTR)-based model using the social context embedding the Stack Overflow features. Text mining, natural language processing and recommendation algorithms are used to extract, evaluate and recommend the best relevant bug solutions. Additionally, our model achieves nearly 78% correct solutions when recommending the 10 best answers for each question.",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "published": "2026-03-07T14:24:25Z",
+    "updated": "2026-03-07T14:24:25Z",
+    "url": "http://arxiv.org/abs/2603.07229v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07229v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文构建了针对特定领域（开发者社区）的推荐系统，属于有明确应用场景的垂直领域 RecSys，但方法较为常规且非主流电商/社交场景。",
+    "translation": "基于社会上下文嵌入的混合 LTR 系统用于推荐开发者社区中的软件缺陷解决方案",
+    "summary_zh": "提出一种结合深度学习与社会上下文嵌入的 Learning-to-Rank 模型，利用 Stack Overflow 问答数据为软件缺陷自动推荐最佳解决方案。",
+    "key_points": [
+      "提出一种结合深度学习与社会上下文嵌入的 Learning-to-Rank 模型，利用 Stack Overflow 问答数据为软件缺陷自动推荐最佳解决方案"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07179v1",
+    "title": "Retrieving Minimal and Sufficient Reasoning Subgraphs with Graph Foundation Models for Path-aware GraphRAG",
+    "authors": [
+      "Haonan Yuan",
+      "Qingyun Sun",
+      "Junhua Shi",
+      "Mingjun Liu",
+      "Jiaqi Yuan",
+      "Ziwei Zhang",
+      "Xingcheng Fu",
+      "Jianxin Li"
+    ],
+    "summary": "Graph-based retrieval-augmented generation (GraphRAG) exploits structured knowledge to support knowledge-intensive reasoning. However, most existing methods treat graphs as intermediate artifacts, and the few subgraph-based retrieval methods depend on heuristic rules coupled with domain-specific distributions. They fail in typical cold-start scenarios where data in target domains is scarce, thus yielding reasoning contexts that are either informationally incomplete or structurally redundant. In this work, we revisit retrieval from a structural perspective, and propose GFM-Retriever that directly responds to user queries with a subgraph, where a pre-trained Graph Foundation Model acts as a cross-domain Retriever for multi-hop path-aware reasoning. Building on this perspective, we repurpose a pre-trained GFM from an entity ranking function into a generalized retriever to support cross-domain retrieval. On top of the retrieved graph, we further derive a label-free subgraph selector optimized by a principled Information Bottleneck objective to identify the query-conditioned subgraph, which contains informationally sufficient and structurally minimal golden evidence in a self-contained \"core set\". To connect structure with generation, we explicitly extract and reorganize relational paths as in-context prompts, enabling interpretable reasoning. Extensive experiments on multi-hop question answering benchmarks demonstrate that GFM-Retriever achieves state-of-the-art performance in both retrieval quality and answer generation, while maintaining efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-07T12:39:21Z",
+    "updated": "2026-03-07T12:39:21Z",
+    "url": "http://arxiv.org/abs/2603.07179v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07179v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯图神经网络与 RAG（检索增强生成）研究，专注于多跳问答任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），不符合 RecSys/Search 直接应用的标准。",
+    "translation": "利用图基础模型检索最小充分推理子图以实现路径感知的图 RAG",
+    "summary_zh": "提出一种基于预训练图基础模型和信息瓶颈原则的检索方法，旨在从知识图中提取结构最小且信息充分的子图，以支持可解释的多跳推理生成。",
+    "key_points": [
+      "提出一种基于预训练图基础模型和信息瓶颈原则的检索方法，旨在从知识图中提取结构最小且信息充分的子图，以支持可解释的多跳推理生成"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07271v1",
+    "title": "AutoDataset: A Lightweight System for Continuous Dataset Discovery and Search",
+    "authors": [
+      "Junzhe Yang",
+      "Xinghao Chen",
+      "Yunuo Liu",
+      "Zhijing Sun",
+      "Wenjin Guo",
+      "Xiaoyu Shen"
+    ],
+    "summary": "The continuous expansion of task-specific datasets has become a major driver of progress in machine learning. However, discovering newly released datasets remains difficult, as existing platforms largely depend on manual curation or community submissions, leading to limited coverage and substantial delays. To address this challenge, we introduce AutoDataset, a lightweight, automated system for real-time dataset discovery and retrieval. AutoDataset adopts a paper-first approach by continuously monitoring arXiv to detect and index datasets directly from newly published research. The system operates through a low-overhead multi-stage pipeline. First, a lightweight classifier rapidly filters titles and abstracts to identify papers releasing datasets, achieving an F1 score of 0.94 with an inference latency of 11 ms. For identified papers, we parse PDFs with GROBID and apply a sentence-level extractor to extract dataset descriptions. Dataset URLs are extracted from the paper text with an automated fallback to LaTeX source analysis when needed. Finally, the structured records are indexed using a dense semantic retriever, enabling low-latency natural language search. We deploy AutoDataset as a live system that continuously ingests new papers and provides up-to-date dataset discovery. In practice, it has been shown to significantly reduce the time required for researchers to locate newly released datasets, improving dataset discovery efficiency by up to 80%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-07T16:01:38Z",
+    "updated": "2026-03-07T16:01:38Z",
+    "url": "http://arxiv.org/abs/2603.07271v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07271v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于机器学习数据集发现与检索工具的纯 NLP/系统工程研究，完全未涉及推荐系统或搜索引擎的核心算法（如召回、排序、用户建模等）。",
+    "translation": "AutoDataset：一种用于持续数据集发现与搜索的轻量级系统",
+    "summary_zh": "该论文提出了一种基于论文优先策略的自动化系统，通过监控 arXiv、分类筛选及解析 PDF 来实时发现和索引新发布的数据集，并支持语义搜索。",
+    "key_points": [
+      "该论文提出了一种基于论文优先策略的自动化系统，通过监控 arXiv、分类筛选及解析 PDF 来实时发现和索引新发布的数据集，并支持语义搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07304v2",
+    "title": "Tursio for Credit Unions: Structured Data Search with Automated Context Graphs",
+    "authors": [
+      "Shivani Tripathi",
+      "Ravi Shetye",
+      "Shi Qiao",
+      "Alekh Jindal"
+    ],
+    "summary": "Extracting actionable insights from structured databases in regulated industries, such as credit unions, is often hindered by complex schemas, legacy systems, and stringent data governance requirements. We present Tursio, a secure, on-premises, database search platform that enables business users to query enterprise databases using natural language. Tursio automatically infers a context graph -- a schema-level metadata structure that captures join paths, column semantics, and domain annotations -- and uses it to systematically generate accurate query plans through LLM-assisted compilation, grounding, and rewriting. Unlike existing AI/BI tools that require extensive manual context curation, Tursio automates this end-to-end and deploys entirely on-premises. We demonstrate Tursio through realistic scenarios in the credit union domain, and discuss its applicability to other regulated settings.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-03-07T18:17:47Z",
+    "updated": "2026-03-11T12:02:03Z",
+    "url": "http://arxiv.org/abs/2603.07304v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.07304v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于利用 LLM 进行结构化数据库自然语言查询（Text-to-SQL）的论文，属于通用 BI/NLP 应用，完全不涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模）。",
+    "translation": "Tursio 赋能信用合作社：基于自动化上下文图的结构化数据搜索",
+    "summary_zh": "提出一种自动构建上下文图的方法，利用大模型辅助编译和重写，实现无需人工干预的自然语言到企业结构化数据库的准确查询。",
+    "key_points": [
+      "提出一种自动构建上下文图的方法，利用大模型辅助编译和重写，实现无需人工干预的自然语言到企业结构化数据库的准确查询"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07230v1",
+    "title": "Conditional Rank-Rank Regression via Deep Conditional Transformation Models",
+    "authors": [
+      "Xiaoyi Wang",
+      "Long Feng",
+      "Zhaojun Wang"
+    ],
+    "summary": "Intergenerational mobility quantifies the transmission of socio-economic outcomes from parents to children. While rank-rank regression (RRR) is standard, adding covariates directly (RRRX) often yields parameters with unclear interpretation. Conditional rank-rank regression (CRRR) resolves this by using covariate-adjusted (conditional) ranks to measure within-group mobility. We improve and extend CRRR by estimating conditional ranks with a deep conditional transformation model (DCTM) and cross-fitting, enabling end-to-end conditional distribution learning with structural constraints and strong performance under nonlinearity, high-order interactions, and discrete ordered outcomes where the distributional regression used in traditional CRRR may be cumbersome or prone to misconfiguration. We further extend CRRR to discrete outcomes via an $ω$-indexed conditional-rank definition and study sensitivity to $ω$. For continuous outcomes, we establish an asymptotic theory for the proposed estimators and verify the validity of exchangeable bootstrap inference. Simulations across simple/complex continuous and discrete ordered designs show clear accuracy gains in challenging settings. Finally, we apply our method to two empirical studies, revealing substantial within-group persistence in U.S. income and pronounced gender differences in educational mobility in India.",
+    "categories": [
+      "stat.ME",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-03-07T14:27:09Z",
+    "updated": "2026-03-07T14:27:09Z",
+    "url": "http://arxiv.org/abs/2603.07230v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07230v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯统计学/计量经济学论文，研究代际流动性和社会经济学结果，与推荐系统或搜索引擎完全无关。",
+    "translation": "基于深度条件变换模型的条件秩 - 秩回归",
+    "summary_zh": "提出一种利用深度条件变换模型估计条件秩的方法，以解决传统回归在衡量组内流动性时难以处理非线性及离散有序结果的问题。",
+    "key_points": [
+      "提出一种利用深度条件变换模型估计条件秩的方法，以解决传统回归在衡量组内流动性时难以处理非线性及离散有序结果的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.07146v1",
+    "title": "Fine-Grained Table Retrieval Through the Lens of Complex Queries",
+    "authors": [
+      "Wojciech Kosiuk",
+      "Xingyu Ji",
+      "Yeounoh Chung",
+      "Fatma Özcan",
+      "Madelon Hulsebos"
+    ],
+    "summary": "Enabling question answering over tables and databases in natural language has become a key capability in the democratization of insights from tabular data sources. These systems first require retrieval of data that is relevant to a given natural language query, for which several methods have been introduced. In this work we present and study a table retrieval mechanism devising fine-grained typed query decomposition and global connectivity-awareness (DCTR), to handle the challenges induced by open-domain question answering over relational databases in complex usage contexts. We evaluate the effectiveness of the two mechanisms through the lens of retrieval complexity which we measure along the axes of query- and data complexity. Our analyses over industry-aligned benchmarks illustrate the robustness of DCTR for highly composite queries and densely connected databases.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.DB"
+    ],
+    "published": "2026-03-07T10:57:32Z",
+    "updated": "2026-03-07T10:57:32Z",
+    "url": "http://arxiv.org/abs/2603.07146v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.07146v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/数据库领域的研究，专注于表格问答（Table QA）中的数据检索，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "基于复杂查询视角的细粒度表格检索研究",
+    "summary_zh": "提出一种结合细粒度类型查询分解与全局连接感知机制的表格检索方法，旨在解决开放域环境下针对关系型数据库的复杂自然语言查询难题。",
+    "key_points": [
+      "提出一种结合细粒度类型查询分解与全局连接感知机制的表格检索方法，旨在解决开放域环境下针对关系型数据库的复杂自然语言查询难题"
+    ]
+  }
+]

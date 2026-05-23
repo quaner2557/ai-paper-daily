@@ -1,1 +1,566 @@
-[]
+[
+  {
+    "arxiv_id": "2512.06883",
+    "title": "Structural and Disentangled Adaptation of Large Vision Language Models for Multimodal Recommendation",
+    "authors": [
+      "Zhongtao Rao",
+      "Peilin Zhou",
+      "Dading Chong",
+      "Zhiwei Chen",
+      "Shoujin Wang",
+      "Nan Tang"
+    ],
+    "summary": "Multimodal recommendation enhances accuracy by leveraging visual and textual signals, and its success largely depends on learning high-quality cross-modal representations. Recent advances in Large Vision-Language Models (LVLMs) offer unified multimodal representation learning, making them a promising backbone. However, applying LVLMs to recommendation remains challenging due to (i) representation misalignment, where domain gaps between item data and general pre-training lead to unaligned embedding spaces, and (ii) gradient conflicts during fine-tuning, where shared adapters cause interference and a lack of discriminative power. To address this, we propose SDA, a lightweight framework for Structural and Disentangled Adaptation, which integrates two components: Cross-Modal Structural Alignment (CMSA) and Modality-Disentangled Adaptation. CMSA aligns embeddings using intra-modal structures as a soft teacher, while MoDA mitigates gradient conflicts via expertized, gated low-rank paths to disentangle gradient flows. Experiments on three public Amazon datasets show SDA integrates seamlessly with existing multimodal and sequential recommenders, yielding average gains of 6.15% in Hit@10 and 8.64% in NDCG@10. It also achieves up to 12.83% and 18.70% gains on long-tail items with minimal inference overhead. Our code and full experimental results are available at https://github.com/RaoZhongtao/SDA.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2512.06883",
+    "pdf_url": "https://arxiv.org/pdf/2512.06883.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的核心问题（表征不对齐和梯度冲突），提出了基于 LVLM 的轻量化适配框架 SDA，属于 LLM 在推荐领域的直接高价值应用，且来自工业界背景。",
+    "translation": "面向多模态推荐的大型视觉语言模型结构与解耦适配研究",
+    "summary_zh": "提出 SDA 框架，通过跨模态结构对齐利用模态内结构作为软教师解决表征偏差，并采用专家门控低秩路径实现模态解耦适配以缓解微调时的梯度冲突。",
+    "key_points": [
+      "提出 SDA 框架，通过跨模态结构对齐利用模态内结构作为软教师解决表征偏差，并采用专家门控低秩路径实现模态解耦适配以缓解微调时的梯度冲突"
+    ]
+  },
+  {
+    "arxiv_id": "2604.06718",
+    "title": "CASE: Cadence-Aware Set Encoding for Large-Scale Next Basket Repurchase Recommendation",
+    "authors": [
+      "Yanan Cao",
+      "Ashish Ranjan",
+      "Sinduja Subramaniam",
+      "Evren Korpeoglu",
+      "Kaushiki Nag",
+      "Kannan Achan"
+    ],
+    "summary": "Repurchase behavior is a primary signal in large-scale retail recommendation, particularly in categories with frequent replenishment: many items in a user's next basket were previously purchased, and their timing follows stable, item-specific cadences. Yet most next basket repurchase recommendation models represent history as a sequence of discrete basket events indexed by visit order, which cannot explicitly model elapsed calendar time or update item rankings as days pass between purchases. We present CASE (Cadence-Aware Set Encoding) for next basket repurchase recommendation, which decouples item-level cadence learning from cross-item interaction, enabling explicit calendar-time modeling while remaining production-scalable. CASE represents each item's purchase history as a calendar-time signal over a fixed horizon, applies shared multi-scale temporal convolutions to capture recurring rhythms, and uses induced set attention to model cross-item dependencies with sub-quadratic complexity, allowing efficient batch inference at scale. Across three public benchmarks and a proprietary dataset, CASE consistently improves precision, recall, and NDCG at multiple cutoffs compared to strong next basket recommendation baselines. In a production-scale evaluation with tens of millions of users and a large item catalog, CASE achieves up to 8.6% relative precision lift and 9.9% relative recall lift at top-5, showing that scalable cadence-aware modeling yields measurable gains in both benchmark and industrial settings.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-04-24",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.06718",
+    "pdf_url": "https://arxiv.org/pdf/2604.06718.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景下的“下一篮回购推荐”核心问题，提出了显式建模日历时间和商品购买周期的创新架构 CASE，属于高优先级的核心领域进展；且来自中国公司，按规则额外 +1 分（基础分 9+ 加分 1=10）。",
+    "translation": "CASE：面向大规模下一篮回购推荐的节奏感知集合编码",
+    "summary_zh": "提出一种节奏感知集合编码方法，通过将物品历史解耦为日历时间信号并利用多尺度时序卷积捕捉周期性规律，同时结合诱导集合注意力机制高效建模跨物品依赖，以解决传统序列模型无法显式处理 elapsed time 的问题。",
+    "key_points": [
+      "提出一种节奏感知集合编码方法，通过将物品历史解耦为日历时间信号并利用多尺度时序卷积捕捉周期性规律，同时结合诱导集合注意力机制高效建模跨物品依赖，以解决传统序列模型无法显式处理 elapsed time 的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.22881",
+    "title": "MTServe: Efficient Serving for Generative Recommendation Models with Hierarchical Caches",
+    "authors": [
+      "Xin Wang",
+      "Chi Ma",
+      "Shaobin Chen",
+      "Pu Wang",
+      "Menglei Zhou",
+      "Junyi Qiu",
+      "Qiaorui Chen",
+      "Jiayu Sun",
+      "Shijie Liu",
+      "Zehuan Wang",
+      "Lei Yu",
+      "Chuan Liu",
+      "Fei Jiang",
+      "Wei Lin",
+      "Hao Wang",
+      "Jiawei Jiang",
+      "Xiao Yan"
+    ],
+    "summary": "Generative recommendation (GR) offers superior modeling capabilities but suffers from prohibitive inference costs due to the repeated encoding of long user histories. While cross-request Key-Value (KV) cache reuse presents a significant optimization opportunity, the massive scale of individual user states creates a storage explosion that far exceeds physical GPU limits. We propose MTServe, a hierarchical cache management system that virtualizes GPU memory by leveraging host RAM as a scalable backup store. To bridge the I/O gap between tiers, MTServe introduces a suite of system-level optimizations, including a hybrid storage layout, an asynchronous data transfer pipeline, and a locality-driven replacement policy. On both public and production datasets, MTServe delivers up to 3.1* speedup while maintaining near-perfect hit ratios (>98.5%).",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-04-24",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.22881",
+    "pdf_url": "https://arxiv.org/pdf/2604.22881.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan",
+      "NVIDIA"
+    ],
+    "affiliation_lines": [
+      "†SchoolofComputerScience,WuhanUniversity §Meituan ¶Nvidia",
+      "byleveraginghostRAMasascalablebackupstore.Tobridgethe"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）的推理服务瓶颈提出层级缓存架构，属于核心推荐系统工程优化；且来自中国公司，按规则额外加分后满分。",
+    "translation": "MTServe：基于层级缓存的高效生成式推荐模型服务系统",
+    "summary_zh": "提出 MTServe 系统，通过利用主机内存作为可扩展备份存储来虚拟化 GPU 显存，并结合混合存储布局与局部性替换策略，解决生成式推荐中长用户历史编码导致的显存爆炸与高推理成本问题。",
+    "key_points": [
+      "提出 MTServe 系统，通过利用主机内存作为可扩展备份存储来虚拟化 GPU 显存，并结合混合存储布局与局部性替换策略，解决生成式推荐中长用户历史编码导致的显存爆炸与高推理成本问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22591",
+    "title": "Where Relevance Emerges: A Layer-Wise Study of Internal Attention for Zero-Shot Re-Ranking",
+    "authors": [
+      "Haodong Chen",
+      "Shengyao Zhuang",
+      "Zheng Yao",
+      "Guido Zuccon",
+      "Teerapong Leelanupab"
+    ],
+    "summary": "Zero-shot document re-ranking with Large Language Models (LLMs) has evolved from Pointwise methods to Listwise and Setwise approaches that optimize computational efficiency. Despite their success, these methods predominantly rely on generative scoring or output logits, which face bottlenecks in inference latency and result consistency. In-Context Re-ranking (ICR) has recently been proposed as an O(1) alternative method. ICR extracts internal attention signals directly, avoiding the overhead of text generation. However, existing ICR methods simply aggregate signals across all layers; layer-wise contributions and their consistency across architectures have been left unexplored. Furthermore, no unified study has compared internal attention with traditional generative and likelihood-based mechanisms across diverse ranking frameworks under consistent conditions.\n  In this paper, we conduct an orthogonal evaluation of generation, likelihood, and internal attention mechanisms across multiple ranking frameworks. We further identify a universal \"bell-curve\" distribution of relevance signals across transformer layers, which motivates the proposed Selective-ICR strategy that reduces inference latency by 30%-50% without compromising effectiveness. Finally, evaluation on the reasoning-intensive BRIGHT benchmark shows that precisely capturing high-quality in-context attention signals fundamentally reduces the need for model scaling and reinforcement learning: a zero-shot 8B model matches the performance of 14B reinforcement-learned re-rankers, while even a 0.6B model outperforms state-of-the-art generation-based approaches. These findings redefine the efficiency-effectiveness frontier for LLM-based re-ranking and highlight the latent potential of internal signals for complex reasoning ranking tasks. Our code and results are publicly available at https://github.com/ielab/Selective-ICR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2602.22591",
+    "pdf_url": "https://arxiv.org/pdf/2602.22591.pdf",
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心环节“重排序（Re-ranking）”，提出利用 LLM 内部注意力信号进行零样本优化的新方法，属于高优先级的 LLM for Search 应用；叠加中国公司背景额外加分。",
+    "translation": "相关性涌现之处：零样本重排序中内部注意力的分层研究",
+    "summary_zh": "本文发现 Transformer 各层注意力信号呈“钟形”分布规律，据此提出选择性上下文重排序策略，通过提取关键层的内部注意力信号而非生成文本来大幅降低推理延迟并提升重排序效果。",
+    "key_points": [
+      "本文发现 Transformer 各层注意力信号呈“钟形”分布规律，据此提出选择性上下文重排序策略，通过提取关键层的内部注意力信号而非生成文本来大幅降低推理延迟并提升重排序效果"
+    ]
+  },
+  {
+    "arxiv_id": "2604.23022",
+    "title": "CASP: Support-Aware Offline Policy Selection for Two-Stage Recommender Systems",
+    "authors": [
+      "Nilson Chapagain"
+    ],
+    "summary": "Two-stage recommender systems first choose a candidate generator and then rank items within the generated set. Because the generator decides which items are available to the ranker, changing the generator changes both the policy value and the data support used to estimate that value. This creates an offline selection problem that standard single-stage objectives do not capture: a policy may look good under a retrieval score or a raw off-policy value estimate, but still be unreliable if it depends on weakly supported generator-item pairs. We propose CASP (Coupled Action-Set Pessimism), a support-aware offline selector for finite libraries of two-stage recommender policies. CASP combines doubly robust value estimation with a support-burden penalty. We show that stagewise rules that ignore downstream continuation value can be arbitrarily suboptimal, and we derive population, finite-class, and reconstructed-propensity guarantees for conservative selection. In simulations and a reconstructed MovieLens 1M application, CASP selects lower-burden policies when estimated value and support credibility are in tension.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-04-24",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.23022",
+    "pdf_url": "https://arxiv.org/pdf/2604.23022.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对两阶段推荐系统中的核心痛点（召回与排序的耦合及离线策略选择中的数据支持问题），提出了具体的架构改进方法 CASP，属于高优先级的核心领域进展。",
+    "translation": "CASP：面向两阶段推荐系统的支持感知离线策略选择",
+    "summary_zh": "本文提出了一种名为 CASP 的支持感知离线策略选择框架，通过结合双重稳健价值估计与支持负担惩罚，解决了两阶段推荐系统中因生成器变更导致的数据支持不足及策略评估不可靠问题。",
+    "key_points": [
+      "本文提出了一种名为 CASP 的支持感知离线策略选择框架，通过结合双重稳健价值估计与支持负担惩罚，解决了两阶段推荐系统中因生成器变更导致的数据支持不足及策略评估不可靠问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.23156",
+    "title": "Birds of a Feather Cluster Nearby: a Proximity-Aware Geo-Codebook for Local Service Recommendation",
+    "authors": [
+      "Tian He",
+      "Chen Yang",
+      "Jiawei Zhang",
+      "Lin Guo",
+      "Wei Lin",
+      "Zhuqing Jiang"
+    ],
+    "summary": "Generative recommendation systems are increasingly adopted in local service platforms, where semantic relevance alone is insufficient without strict geographic feasibility. A key technical challenge lies in semantic ID (SID) tokenization, which directly impacts the recommendation performance. However, existing semantic codebooks neglect geographic constraints, often resulting in recommendations that are semantically relevant yet geographically unreachable. To address this limitation, we propose Pro-GEO, a Proximity-aware GEO-codebook. Pro-GEO establishes a geo-centroid local coordinate system to capture intra-cluster spatial relationships and a geo-rotary position encoding mechanism that models geographic proximity as orthogonal rotational transformations in the high-dimensional embedding. This design enables semantic and spatial signals to be jointly modeled in a balanced manner, without reducing geographic information to a weak auxiliary feature. Extensive experiments conducted on a large-scale industrial dataset reveal that Pro-GEO significantly outperforms state-of-the-art methods. In particular, Pro-GEO reduces the average geographic clustering distance by 45.60% and achieves a 1.87% improvement in Hit@50, highlighting its effectiveness for real-world local service recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.23156",
+    "pdf_url": "https://arxiv.org/pdf/2604.23156.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "BeijingUniversityofPostsand BeijingInstituteofTechnology; Meituan",
+      "Meituan Meituan BeijingUniversityofPostsand"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对本地生活服务推荐场景，提出了解决语义与地理约束冲突的生成式推荐新方法，属于核心领域 advances。",
+    "translation": "物以类聚：一种用于本地服务推荐的邻近感知地理码本",
+    "summary_zh": "提出 Pro-GEO 方法，通过构建地理质心局部坐标系和地理旋转位置编码，将地理邻近性建模为正交旋转变换，从而在生成式推荐中实现语义与空间信号的联合平衡建模。",
+    "key_points": [
+      "提出 Pro-GEO 方法，通过构建地理质心局部坐标系和地理旋转位置编码，将地理邻近性建模为正交旋转变换，从而在生成式推荐中实现语义与空间信号的联合平衡建模"
+    ]
+  },
+  {
+    "arxiv_id": "2604.23197",
+    "title": "Follow the TRACE: Exploiting Post-Click Trajectories for Online Delayed Conversion Rate Prediction",
+    "authors": [
+      "Xinyue Zhang",
+      "Yuanhao Ding",
+      "Xiang Ao"
+    ],
+    "summary": "Delayed feedback poses a core challenge for online CVR prediction, forcing a trade-off between label accuracy and data freshness. Existing methods address this through delay modeling or sample reweighting, yet neglect how post-click behaviors evolve over the observation period. To overcome this limitation, we formalize this evolution as feedback trajectory and propose TRACE. Instead of forcing hard labels on unrevealed samples, our method evaluates how well the accumulated feedback status aligns with conversion versus non-conversion, dynamically refining posteriors without waiting for final outcomes. To counteract early-stage trajectory sparsity, we further design a reliability-gated retrospective completer that leverages full-lifecycle data to provide adaptive posterior guidance for unrevealed samples. Extensive experiments validate TRACE's superiority over state-of-the-art baselines and confirm the retrospective completion module as a model-agnostic enhancer for existing systems. Our code is available at https://github.com/LunaZhangxy/TRACE.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.23197",
+    "pdf_url": "https://arxiv.org/pdf/2604.23197.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告/推荐系统中的核心痛点（延迟反馈与转化率预测），提出利用点击后行为轨迹的新方法，具有明确的业务应用场景。",
+    "translation": "追踪 TRACE：利用点击后轨迹进行在线延迟转化率预测",
+    "summary_zh": "本文提出 TRACE 方法，将点击后行为演化形式化为反馈轨迹，通过动态评估累积反馈状态与转化的对齐程度来修正后验概率，并设计可靠性门控回溯补全模块解决早期数据稀疏问题。",
+    "key_points": [
+      "本文提出 TRACE 方法，将点击后行为演化形式化为反馈轨迹，通过动态评估累积反馈状态与转化的对齐程度来修正后验概率，并设计可靠性门控回溯补全模块解决早期数据稀疏问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.23077",
+    "title": "Adopting State-of-the-Art Pretrained Audio Representations for Music Recommender Systems",
+    "authors": [
+      "Yan-Martin Tamm",
+      "Anna Aljanaki"
+    ],
+    "summary": "Over the years, Music Information Retrieval (MIR) research community has released various models pretrained on large amounts of music data. Transfer learning showcases the proven effectiveness of pretrained backend models for a broad spectrum of downstream tasks, including auto-tagging and genre classification. However, MIR papers generally do not explore the efficiency of pretrained models for Music Recommender Systems (MRS). In addition, the Recommender Systems community tends to favour traditional end-to-end neural network training. Our research addresses this gap and evaluates the performance of nine pretrained backend models (MusicFM, Music2Vec, MERT, EncodecMAE, Jukebox, MusiCNN, MULE, MuQ and MuQ-MuLan) in the context of MRS. We assess them using five recommendation approaches: K-Nearest Neighbours (KNN), Shallow Neural Network, Contrastive Multi-Modal projection, a Hybrid model, and BERT4Rec both for the hot and cold-start scenarios. Our findings suggest that pretrained audio representations exhibit significant performance disparity between traditional MIR tasks and both hot and cold music recommendations, indicating that valuable aspects of musical information captured by backend models may differ depending on the task. This study establishes a foundation for further exploration of pretrained audio representations to enhance music recommendation systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.23077",
+    "pdf_url": "https://arxiv.org/pdf/2604.23077.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对音乐推荐系统（RecSys 核心领域），评估预训练音频表征在冷启动和常规推荐中的应用，属于多模态推荐的高优先级研究。",
+    "translation": "采用最先进预训练音频表征用于音乐推荐系统",
+    "summary_zh": "本文评估了九种预训练音频后端模型在多种推荐架构中的有效性，旨在解决音乐推荐中传统端到端训练与迁移学习之间的差距，特别是提升冷启动场景的表现。",
+    "key_points": [
+      "本文评估了九种预训练音频后端模型在多种推荐架构中的有效性，旨在解决音乐推荐中传统端到端训练与迁移学习之间的差距，特别是提升冷启动场景的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2604.22759",
+    "title": "Beyond Static: Related Questions Retrieval Through Conversations in Community Question Answering",
+    "authors": [
+      "Xiao Ao",
+      "Jie Zou",
+      "Yibiao Wei",
+      "Peng Wang",
+      "Weikang Guo"
+    ],
+    "summary": "In community question answering (cQA) platforms like Stack Overflow, related question retrieval is recognized as a fundamental task that allows users to retrieve related questions to answer user queries automatically. Although many traditional approaches have been proposed for investigating this research field, they mostly rely on static approaches and neglect the interaction property. We argue that the conversational way can well distinguish the fine-grained representations of questions and has great potential to improve the performance of question retrieval. In this paper, we propose a related question retrieval model through conversations, called TeCQR, to locate related questions in cQA. Specifically, we build conversations by utilizing tag-enhanced clarifying questions (CQs). In addition, we design a noise tolerance model that evaluates the semantic similarity between questions and tags, enabling the model to effectively handle noisy feedback. Moreover, the tag-enhanced two-stage offline training is proposed to fully exploit the mutual relationships among user queries, questions, and tags to learn their fine-grained representations. Based on the learned representations and contextual conversations, TeCQR incorporates conversational feedback by learning to ask tag-enhanced clarifying questions to retrieve related questions more effectively. Experimental results demonstrate that our model significantly outperforms state-of-the-art baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-03-09",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.22759",
+    "pdf_url": "https://arxiv.org/pdf/2604.22759.pdf",
+    "prerank_score": 5,
+    "relevance_score": 8,
+    "reasoning": "该论文针对社区问答（cQA）场景中的相关问题检索任务，提出了基于对话交互的检索模型，属于搜索/推荐核心领域的明确应用；虽非纯 LLM 研究，但利用了对话式交互增强检索，符合中高优先级标准，加上中国公司背景额外 +1 分。",
+    "translation": "超越静态：通过社区问答中的对话进行相关问题检索",
+    "summary_zh": "提出一种利用标签增强的澄清问题构建对话上下文的检索模型，通过两阶段离线训练和噪声容忍机制学习细粒度表示，以动态交互方式提升相关问题检索效果。",
+    "key_points": [
+      "提出一种利用标签增强的澄清问题构建对话上下文的检索模型，通过两阶段离线训练和噪声容忍机制学习细粒度表示，以动态交互方式提升相关问题检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2510.10419",
+    "title": "ZeroGR: A Generalizable and Scalable Framework for Zero-Shot Generative Retrieval",
+    "authors": [
+      "Weiwei Sun",
+      "Keyi Kong",
+      "Xinyu Ma",
+      "Shuaiqiang Wang",
+      "Dawei Yin",
+      "Maarten de Rijke",
+      "Zhaochun Ren",
+      "Yiming Yang"
+    ],
+    "summary": "Generative retrieval (GR) reformulates information retrieval (IR) by framing it as the generation of document identifiers (docids), thereby enabling end-to-end optimization and seamless integration with generative language models (LMs). Despite notable progress under supervised training, GR still struggles to generalize to zero-shot IR scenarios, which are prevalent in real-world applications. To tackle this challenge, we propose ZeroGR, a zero-shot generative retrieval framework that uses natural language instructions to extend GR across a wide range of IR tasks. Specifically, ZeroGR is composed of three key components: (i) an LM-based docid generator that unifies heterogeneous documents (e.g., text, tables, code) into semantically meaningful docids; (ii) an instruction-tuned query generator that generates diverse types of queries from natural language task descriptions to enhance corpus indexing; and (iii) a reverse annealing decoding strategy to balance precision and recall during docid generation. Furthermore, we introduce OpenInstIR, the most diverse open-source instructed retrieval dataset. We investigate the impact of instruction fine-tuning scale and find that performance consistently improves as the number of IR tasks encountered during training increases. Extensive experiments on the BEIR and MAIR benchmarks demonstrate that ZeroGR achieves competitive performance across a wide range of retrieval tasks, establishing a new state-of-the-art among GR methods. Our code is available at https://github.com/sunnweiwei/ZeroGR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2510.10419",
+    "pdf_url": "https://arxiv.org/pdf/2510.10419.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "affiliation_lines": [
+      "ZEROGR: A GENERALIZABLE AND SCALABLE FRAME-",
+      "1CarnegieMellonUniversity 2ShandongUniversity 3BaiduInc",
+      "4UniversityofAmsterdam 5LeidenUniversity",
+      "tasks,establishinganewstate-of-the-artamongGRmethods. Ourcodeisavailable"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种通用的零样本生成式检索框架，虽属于搜索核心技术范畴，但主要侧重于通用 IR 基准测试和 LLM 能力验证，缺乏针对具体推荐/搜索业务场景（如电商、社交信息流）的定制化应用或创新。",
+    "translation": "ZeroGR：一个可泛化且可扩展的零样本生成式检索框架",
+    "summary_zh": "该论文提出 ZeroGR 框架，利用自然语言指令统一异构文档标识符生成与查询生成，并通过反向退火解码策略，旨在解决生成式检索在零样本场景下的泛化难题。",
+    "key_points": [
+      "该论文提出 ZeroGR 框架，利用自然语言指令统一异构文档标识符生成与查询生成，并通过反向退火解码策略，旨在解决生成式检索在零样本场景下的泛化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.20121",
+    "title": "A GPU-Accelerated Framework for Multi-Attribute Range Filtered Approximate Nearest Neighbor Search",
+    "authors": [
+      "Zhonggen Li",
+      "Haoran Yu",
+      "Zixuan Xu",
+      "Yifan Zhu",
+      "Yunjun Gao"
+    ],
+    "summary": "Range-filtered approximate nearest neighbor search (RFANNS) is increasingly critical for modern vector databases. However, existing solutions suffer from severe index inflation and construction overhead. Furthermore, they rely exclusively on CPUs for the heavy indexing and query processing, significantly restricting the throughput due to the limited memory bandwidth and parallelism. In this paper, we present Garfield, a GPU-accelerated framework for multi-attribute range filtered ANNS that overcomes these bottlenecks through designing a lightweight index structure and hardware-aware execution pipeline. Garfield introduces the GMG index, which partitions data into cells and builds local graph indexes. It guarantees linear storage and indexing overhead by adding a constant number of cross-cell edges. For queries, Garfield utilizes a cluster-guided ordering strategy that reorders query-relevant cells, enabling a highly efficient cell-by-cell traversal on the GPU that aggressively reuses candidates as entry points across cells. To handle datasets exceeding GPU memory, Garfield features a cell-oriented out-of-core pipeline. It dynamically schedules cells to minimize the number of active queries per batch and overlaps GPU computation with CPU-to-GPU index streaming. Extensive evaluations demonstrate that Garfield reduces index size by 4.4x, while delivering 119.8x higher throughput than state-of-the-art RFANNS methods.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.20121",
+    "pdf_url": "https://arxiv.org/pdf/2604.20121.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种 GPU 加速的带属性范围过滤近似最近邻搜索框架，属于推荐/搜索系统中召回环节的基础设施优化，虽未直接针对特定业务场景创新，但作为底层引擎技术具有明确的应用价值；非纯 LLM 研究。",
+    "translation": "一种用于多属性范围过滤近似最近邻搜索的 GPU 加速框架",
+    "summary_zh": "本文提出 Garfield 框架，通过设计轻量级 GMG 索引结构和硬件感知的执行流水线，利用 GPU 并行计算能力解决多属性范围过滤向量检索中的索引膨胀与吞吐量瓶颈问题。",
+    "key_points": [
+      "本文提出 Garfield 框架，通过设计轻量级 GMG 索引结构和硬件感知的执行流水线，利用 GPU 并行计算能力解决多属性范围过滤向量检索中的索引膨胀与吞吐量瓶颈问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.22885",
+    "title": "Federated Cross-Modal Retrieval with Missing Modalities via Semantic Routing and Adapter Personalization",
+    "authors": [
+      "Hefeng Zhou",
+      "Xuan Liu",
+      "Sicheng Chen",
+      "Wutong Zhang",
+      "Wu Yan",
+      "Jiong Lou",
+      "Chentao Wu",
+      "Guangtao Xue",
+      "Wei Zhao",
+      "Jie Li"
+    ],
+    "summary": "Federated cross-modal retrieval faces severe challenges from heterogeneous client data, particularly non-IID semantic distributions and missing modalities. Under such heterogeneity, a single global model is often insufficient to capture both shared cross-modal knowledge and client-specific characteristics. We propose RCSR, a personalization-friendly federated framework that integrates prototype anchoring, retrieval-centric semantic routing, and optional client-specific adapters. Built on a frozen CLIP backbone, RCSR leverages lightweight shared adapters for global knowledge transfer while supporting efficient local personalization. Prototype anchoring helps unimodal clients align with global cross-modal semantics, and a server-side semantic router adaptively assigns aggregation weights based on retrieval consistency to mitigate alignment drift during heterogeneous updates. Extensive experiments on MS-COCO, Flickr30K, and other benchmarks show that RCSR consistently improves global retrieval accuracy and training stability, while further enhancing client-level retrieval performance, especially for clients with incomplete modalities. Code is available at https://github.com/RezinChow/RCSR-Retrieval-Centric-Semantic-Routing.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-24",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.22885",
+    "pdf_url": "https://arxiv.org/pdf/2604.22885.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于联邦学习下的跨模态检索技术，虽涉及检索核心环节，但主要解决数据异构和缺失模态的通用算法问题，缺乏明确的推荐系统业务场景或直接应用。",
+    "translation": "基于语义路由与适配器个性化的缺失模态联邦跨模态检索",
+    "summary_zh": "提出一种联邦跨模态检索框架，通过原型锚定对齐全局语义，并利用检索中心的语义路由动态聚合权重，以解决客户端数据非独立同分布及模态缺失问题。",
+    "key_points": [
+      "提出一种联邦跨模态检索框架，通过原型锚定对齐全局语义，并利用检索中心的语义路由动态聚合权重，以解决客户端数据非独立同分布及模态缺失问题"
+    ]
+  },
+  {
+    "arxiv_id": "2310.18215",
+    "title": "CROSS-Net: Region-Agnostic Taxi-Demand Prediction Using Feature Disentanglement",
+    "authors": [
+      "Ren Ozeki",
+      "Haruki Yonekura",
+      "Aidana Baimbetova",
+      "Hamada Rizk",
+      "Hirozumi Yamaguchi"
+    ],
+    "summary": "The growing demand for ride-hailing services has led to an increasing need for accurate taxi demand prediction. Existing systems are limited to specific regions, lacking generality to unseen areas. This paper presents a novel taxi demand prediction system, harnessing the strengths of multiview graph neural networks to capture spatial-temporal dependencies and patterns in urban environments. Additionally, the proposed system CROSS-Net employs a spatially transferable approach, enabling it to train a model that can be deployed to previously unseen regions. To achieve this, the framework incorporates the power of a Variational Autoencoder to disentangle the input features into region-specific and region-agnostic components. The region-agnostic features facilitate cross-region taxi demand predictions, allowing the model to generalize well across different urban areas. Experimental results demonstrate the effectiveness of CROSS-Net in accurately forecasting taxi demand, even in previously unobserved regions, thus showcasing its potential for optimizing taxi services and improving transportation efficiency on a broader scale.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-07",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2310.18215",
+    "pdf_url": "https://arxiv.org/pdf/2310.18215.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于出租车需求预测（时空预测任务），虽涉及图神经网络但属于交通领域而非推荐/搜索核心业务；即使考虑中国公司背景加 1 分，因缺乏 RecSys/Search 直接应用，仍属低优先级。",
+    "translation": "CROSS-Net：基于特征解耦的区域无关出租车需求预测",
+    "summary_zh": "提出一种结合多视图图神经网络与变分自编码器的框架，通过将输入特征解耦为区域特定和区域无关分量，实现跨区域的出租车需求泛化预测。",
+    "key_points": [
+      "提出一种结合多视图图神经网络与变分自编码器的框架，通过将输入特征解耦为区域特定和区域无关分量，实现跨区域的出租车需求泛化预测"
+    ]
+  },
+  {
+    "arxiv_id": "2604.22760",
+    "title": "Quantifying Divergence in Inter-LLM Communication Through API Retrieval and Ranking",
+    "authors": [
+      "Eyhab Al-Masri"
+    ],
+    "summary": "Large language models (LLMs) increasingly operate as autonomous agents that reason over external APIs to perform complex tasks. However, their reliability and agreement remain poorly characterized. We present a unified benchmarking framework to quantify inter-LLM divergence, defined as the extent to which models differ in API discovery and ranking under identical tasks. Across 15 canonical API domains and 5 major model families, we measure pairwise and group-level agreement using set-, rank-, and consensus-based metrics including Average Overlap, Jaccard similarity, Rank-Biased Overlap, Kendall's tau, Kendall's W, and Cronbach's alpha. Results show moderate overall alignment (AO about 0.50, tau about 0.45) but strong domain dependence: structured tasks (Weather, Speech-to-Text) are stable, while open-ended tasks (Sentiment Analysis) exhibit substantially higher divergence. Volatility and consensus analyses reveal that coherence clusters around data-bound domains and degrades for abstract reasoning tasks. These insights enable reliability-aware orchestration in multi-agent systems, where consensus weighting can improve coordination among heterogeneous LLMs. Beyond performance benchmarking, our results reveal systematic failure modes in multi-agent LLM coordination, where apparent agreement can mask instability in action-relevant rankings. This hidden divergence poses a pre-deployment safety risk and motivates diagnostic benchmarks for early detection.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-03-09",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.22760",
+    "pdf_url": "https://arxiv.org/pdf/2604.22760.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 多智能体协作与基准测试研究，虽涉及 API 排序但旨在解决通用 Agent 一致性问题，缺乏针对推荐/搜索业务场景的直接应用。",
+    "translation": "通过 API 检索与排序量化大语言模型间通信的 divergence",
+    "summary_zh": "提出一种统一基准框架，通过多种一致性指标量化不同大语言模型在相同任务下对 API 发现与排序结果的差异程度。",
+    "key_points": [
+      "提出一种统一基准框架，通过多种一致性指标量化不同大语言模型在相同任务下对 API 发现与排序结果的差异程度"
+    ]
+  },
+  {
+    "arxiv_id": "2604.22849",
+    "title": "R$^3$AG: Retriever Routing for Retrieval-Augmented Generation",
+    "authors": [
+      "Tong Zhao",
+      "Yutao Zhu",
+      "Yucheng Tian",
+      "Zhicheng Dou"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) has become a cornerstone for knowledge-intensive tasks. However, the efficacy of RAG is often bottlenecked by the ``one-size-fits-all'' retrieval paradigm, as different queries exhibit distinct preferences for different retrievers. While recent routing techniques attempt to select the optimal retriever dynamically, they typically operate under a ``single and static capability'' assumption, selecting retrievers solely based on semantic relevance. This overlooks a critical distinction in RAG: a retrieved document must not only be relevant but also effectively support the generator in producing correct answers. To address this limitation, we propose R$^3$AG, a novel routing framework that explicitly models the dynamic alignment between queries and retriever capabilities. Unlike previous approaches, R$^3$AG decomposes retriever capability into two learnable dimensions: retrieval quality and generation utility. We employ a contrastive learning objective that leverages complementary supervision signals, \\textit{i.e.}, document assessments and downstream answer correctness, to capture query-specific preference shifts. Extensive experiments on several knowledge-intensive tasks show that R$^3$AG consistently outperforms both the best individual retrievers and state-of-the-art static routing methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-22",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.22849",
+    "pdf_url": "https://arxiv.org/pdf/2604.22849.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，聚焦于通用知识密集型任务的检索路由，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低优先级。",
+    "translation": "R³AG：面向检索增强生成的检索器路由机制",
+    "summary_zh": "提出一种动态路由框架，通过将检索能力分解为检索质量和生成效用两个维度，利用对比学习对齐查询与检索器能力，以优化检索增强生成中的文档选择。",
+    "key_points": [
+      "提出一种动态路由框架，通过将检索能力分解为检索质量和生成效用两个维度，利用对比学习对齐查询与检索器能力，以优化检索增强生成中的文档选择"
+    ]
+  },
+  {
+    "arxiv_id": "2604.12890",
+    "title": "Towards Long-horizon Agentic Multimodal Search",
+    "authors": [
+      "Yifan Du",
+      "Zikang Liu",
+      "Jinbiao Peng",
+      "Jie Wu",
+      "Junyi Li",
+      "Jinyang Li",
+      "Wayne Xin Zhao",
+      "Ji-Rong Wen"
+    ],
+    "summary": "Multimodal deep search agents have shown great potential in solving complex tasks by iteratively collecting textual and visual evidence. However, managing the heterogeneous information and high token costs associated with multimodal inputs over long horizons remains a critical challenge, as existing methods often suffer from context explosion or the loss of crucial visual signals. To address this, we propose a novel Long-horizon MultiModal deep search framework, named LMM-Searcher, centered on a file-based visual representation mechanism. By offloading visual assets to an external file system and mapping them to lightweight textual identifiers (UIDs), our approach mitigates context overhead while preserving multimodal information for future access. We equip the agent with a tailored fetch-image tool, enabling a progressive, on-demand visual loading strategy for active perception. Furthermore, we introduce a data synthesis pipeline designed to generate queries requiring complex cross-modal multi-hop reasoning. Using this pipeline, we distill 12K high-quality trajectories to fine-tune Qwen3-VL-Thinking-30A3B into a specialized multimodal deep search agent. Extensive experiments across four benchmarks demonstrate that our method successfully scales to 100-turn search horizons, achieving state-of-the-art performance among open-source models on challenging long-horizon benchmarks like MM-BrowseComp and MMSearch-Plus, while also exhibiting strong generalizability across different base models. Our code will be released in https://github.com/RUCAIBox/LMM-Searcher.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.12890",
+    "pdf_url": "https://arxiv.org/pdf/2604.12890.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM Agent 和多模态推理研究，侧重于长程任务规划和视觉证据收集，未直接针对推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "面向长程智能体的多模态搜索研究",
+    "summary_zh": "提出一种基于文件系统的视觉表示机制，通过将视觉资产卸载至外部存储并映射为轻量级文本标识，解决多模态搜索代理在长程任务中的上下文爆炸问题。",
+    "key_points": [
+      "提出一种基于文件系统的视觉表示机制，通过将视觉资产卸载至外部存储并映射为轻量级文本标识，解决多模态搜索代理在长程任务中的上下文爆炸问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.09859",
+    "title": "Token Is All You Price",
+    "authors": [
+      "Weijie Zhong"
+    ],
+    "summary": "A seller of a dynamic information service under an information-throughput constraint screens buyers who privately differ in urgency. We characterize the revenue-optimal mechanism: deploy a single preference-aligned belief process; screen buyers with a menu of stopping-time caps. The result rationalizes tokenized GenAI pricing, from consumer subscription tiers to B2B API service tiers. Extensions to heterogeneous valuations and endogenous reasoning quality preserve the qualitative conclusions.",
+    "categories": [
+      "econ.TH",
+      "cs.AI"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2510.09859",
+    "pdf_url": "https://arxiv.org/pdf/2510.09859.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "该文属于纯经济学机制设计研究，虽以 GenAI 定价为案例，但未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），且非纯 LLM 技术研究故不适用排除项但相关性极低。",
+    "translation": "Token 即定价全部：动态信息服务的收益最优机制",
+    "summary_zh": "提出一种基于单一偏好对齐信念过程和停止时间上限菜单的收益最优机制，用于在信息吞吐量约束下筛选具有不同紧迫度的买家。",
+    "key_points": [
+      "提出一种基于单一偏好对齐信念过程和停止时间上限菜单的收益最优机制，用于在信息吞吐量约束下筛选具有不同紧迫度的买家"
+    ]
+  },
+  {
+    "arxiv_id": "2409.01579",
+    "title": "AdaComp: Extractive Context Compression with Adaptive Predictor for Retrieval-Augmented Large Language Models",
+    "authors": [
+      "Qianchi Zhang",
+      "Hainan Zhang",
+      "Liang Pang",
+      "Hongwei Zheng",
+      "Zhiming Zheng"
+    ],
+    "summary": "Retrieved documents containing noise will hinder RAG from detecting answer clues and make the inference process slow and expensive. Therefore, context compression is necessary to enhance its accuracy and efficiency. Existing context compression methods use extractive or generative models to retain the most query-relevant sentences or apply the information bottleneck theory to preserve sufficient information. However, these methods may face issues such as over-compression or high computational costs. We observe that the retriever often ranks relevant documents at the top, but the exact number of documents needed to answer the query is uncertain due to the impact of query complexity and retrieval quality: complex queries like multi-hop questions may require retaining more documents than simpler queries, and a low-quality retrieval may need to rely on more documents to generate accurate outputs. Therefore, determining the minimum number of required documents (compression rate) is still a challenge for RAG. In this paper, we introduce AdaComp, a low-cost extractive context compression method that adaptively determines the compression rate based on both query complexity and retrieval quality. Specifically, we first annotate the minimum top-k documents necessary for the RAG system to answer the current query as the compression rate and then construct triplets of the query, retrieved documents, and its compression rate. Then, we use this triplet dataset to train a compression-rate predictor. Experiments on three QA datasets and one conversational Multi-doc QA dataset show that AdaComp significantly reduces inference costs while maintaining performance nearly identical to uncompressed models, achieving a balance between efficiency and performance.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-04-26",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2409.01579",
+    "pdf_url": "https://arxiv.org/pdf/2409.01579.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用问答任务中的上下文压缩，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "AdaComp：面向检索增强大语言模型的自适应预测器抽取式上下文压缩",
+    "summary_zh": "该论文提出一种基于查询复杂度和检索质量自适应确定压缩率的抽取式上下文压缩方法，旨在平衡 RAG 系统的推理成本与性能。",
+    "key_points": [
+      "该论文提出一种基于查询复杂度和检索质量自适应确定压缩率的抽取式上下文压缩方法，旨在平衡 RAG 系统的推理成本与性能"
+    ]
+  },
+  {
+    "arxiv_id": "2604.23102",
+    "title": "Unstable Rankings in Bayesian Deep Learning Evaluation",
+    "authors": [
+      "Qishi Zhan",
+      "Minxuan Hu",
+      "Guansu Wang",
+      "Jiaxin Liu",
+      "Liang He"
+    ],
+    "summary": "Standard evaluations of Bayesian deep learning methods assume that metric estimates are reliable, but we show this assumption fails under data scarcity. Method rankings are not only unreliable at small $n$, but also dataset-dependent in ways that point estimates cannot reveal: the same method comparison yields $P(\\mathrm{MCD} \\prec \\mathrm{Ensemble}) = 1.000$ at $n = 50$ on one dataset and remains below $0.95$ even at $n = 500$ on another. Across the datasets we consider, no universal sample size threshold exists, which is precisely why dataset-specific posterior inference is necessary. To address this, we use a Bayesian hierarchical model with method-specific variances to treat evaluation metrics as random variables across data realizations, and we use a predictive Minimum Detectable Difference curve to assess whether an observed gap would be detectable at a given training size. Across six Bayesian deep learning methods and five regression datasets, our results show that uncertainty-aware evaluation is necessary in low-data settings, because current evidence for method superiority and predictive detectability at the same training size can diverge substantially. Our framework provides practitioners with principled tools to determine whether their evaluation data is sufficient before drawing conclusions about method superiority.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-04-28",
+    "url": "https://arxiv.org/abs/2604.23102",
+    "pdf_url": "https://arxiv.org/pdf/2604.23102.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯机器学习评估方法论研究，专注于贝叶斯深度学习在数据稀缺下的排名不稳定性，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "贝叶斯深度学习评估中的排名不稳定性",
+    "summary_zh": "本文提出一种贝叶斯层次模型框架，将评估指标视为随机变量以解决小样本下方法排名不可靠的问题，并通过预测最小可检测差异曲线来判定评估数据的充分性。",
+    "key_points": [
+      "本文提出一种贝叶斯层次模型框架，将评估指标视为随机变量以解决小样本下方法排名不可靠的问题，并通过预测最小可检测差异曲线来判定评估数据的充分性"
+    ]
+  }
+]

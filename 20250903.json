@@ -1,0 +1,621 @@
+[
+  {
+    "arxiv_id": "2509.03746v1",
+    "title": "Efficient Item ID Generation for Large-Scale LLM-based Recommendation",
+    "authors": [
+      "Anushya Subbiah",
+      "Vikram Aggarwal",
+      "James Pine",
+      "Steffen Rendle",
+      "Krishna Sayana",
+      "Kun Su"
+    ],
+    "summary": "Integrating product catalogs and user behavior into LLMs can enhance recommendations with broad world knowledge, but the scale of real-world item catalogs, often containing millions of discrete item identifiers (Item IDs), poses a significant challenge. This contrasts with the smaller, tokenized text vocabularies typically used in LLMs. The predominant view within the LLM-based recommendation literature is that it is infeasible to treat item ids as a first class citizen in the LLM and instead some sort of tokenization of an item into multiple tokens is required. However, this creates a key practical bottleneck in serving these models for real-time low-latency applications.\n  Our paper challenges this predominant practice and integrates item ids as first class citizens into the LLM. We provide simple, yet highly effective, novel training and inference modifications that enable single-token representations of items and single-step decoding. Our method shows improvements in recommendation quality (Recall and NDCG) over existing techniques on the Amazon shopping datasets while significantly improving inference efficiency by 5x-14x. Our work offers an efficiency perspective distinct from that of other popular approaches within LLM-based recommendation, potentially inspiring further research and opening up a new direction for integrating IDs into LLMs. Our code is available here https://drive.google.com/file/d/1cUMj37rV0Z1bCWMdhQ6i4q4eTRQLURtC",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T22:09:57Z",
+    "updated": "2025-09-03T22:09:57Z",
+    "url": "http://arxiv.org/abs/2509.03746v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03746v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "Google"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "GoogleResearch GoogleResearch GoogleResearch",
+      "GoogleResearch GoogleResearch GoogleResearch"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决 LLM 推荐系统中大规模物品 ID 处理的核心瓶颈，提出将 ID 作为一等公民的单步解码新架构，显著提升推理效率，属于高优先级的 LLM for RecSys 研究；且来自中国公司，按规则额外加分。",
+    "translation": "面向大规模基于 LLM 推荐的高效物品 ID 生成方法",
+    "summary_zh": "该论文挑战了现有 LLM 推荐需多 token 表示物品的惯例，提出通过改进训练与推理机制，将物品 ID 作为单 token 直接集成到大模型中，实现单步解码以大幅降低延迟并提升推荐质量。",
+    "key_points": [
+      "该论文挑战了现有 LLM 推荐需多 token 表示物品的惯例，提出通过改进训练与推理机制，将物品 ID 作为单 token 直接集成到大模型中，实现单步解码以大幅降低延迟并提升推荐质量"
+    ]
+  },
+  {
+    "arxiv_id": "2510.21711v1",
+    "title": "Improving E-commerce Search with Category-Aligned Retrieval",
+    "authors": [
+      "Rauf Aliev"
+    ],
+    "summary": "Traditional e-commerce search systems often struggle with the semantic gap between user queries and product catalogs. In this paper, we propose a Category-Aligned Retrieval System (CARS) that improves search relevance by first predicting the product category from a user's query and then boosting products within that category. We introduce a novel method for creating \"Trainable Category Prototypes\" from query embeddings. We evaluate this method with two models: a lightweight all-MiniLM-L6-v2 and OpenAI's text-embedding-ada-002. Our offline evaluation shows this method is highly effective, with the OpenAI model increasing Top-3 category prediction accuracy from a zero-shot baseline of 43.8% to 83.2% after training. The end-to-end simulation, however, highlights the limitations of blindly applying category boosts in a complex retrieval pipeline: while accuracy is high, naive integration can negatively affect search relevance metrics such as nDCG@10. We argue that this is partly due to dataset-specific ambiguities (e.g., polysemous queries in the Amazon ESCI corpus) and partly due to the sensitivity of retrieval systems to over-constraining filters. Crucially, these results do not diminish the value of the approach; rather, they emphasize the need for confidence-aware and adaptive integration strategies.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T20:43:52Z",
+    "updated": "2025-09-03T20:43:52Z",
+    "url": "http://arxiv.org/abs/2510.21711v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21711v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "OpenAI"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索场景，提出了类别对齐检索系统（CARS）以解决查询与商品间的语义鸿沟，属于核心领域进展；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "利用类别对齐检索提升电商搜索效果",
+    "summary_zh": "提出一种类别对齐检索系统，通过预测用户查询的商品类别并生成可训练类别原型来增强相关品类商品的召回，同时强调了需结合置信度进行自适应集成以避免过度约束。",
+    "key_points": [
+      "提出一种类别对齐检索系统，通过预测用户查询的商品类别并生成可训练类别原型来增强相关品类商品的召回，同时强调了需结合置信度进行自适应集成以避免过度约束"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03236v5",
+    "title": "OneSearch: A Preliminary Exploration of the Unified End-to-End Generative Framework for E-commerce Search",
+    "authors": [
+      "Ben Chen",
+      "Xian Guo",
+      "Siyuan Wang",
+      "Zihan Liang",
+      "Yue Lv",
+      "Yufei Ma",
+      "Xinlong Xiao",
+      "Bowen Xue",
+      "Xuxin Zhang",
+      "Ying Yang",
+      "Huangyu Dai",
+      "Xing Xu",
+      "Tong Zhao",
+      "Mingcan Peng",
+      "Xiaoyang Zheng",
+      "Chao Wang",
+      "Qihang Zhao",
+      "Zhixin Zhai",
+      "Yang Zhao",
+      "Bochao Liu",
+      "Jingshan Lv",
+      "Xiao Liang",
+      "Yuqing Ding",
+      "Jing Chen",
+      "Chenyi Lei",
+      "Wenwu Ou",
+      "Han Li",
+      "Kun Gai"
+    ],
+    "summary": "Traditional e-commerce search systems employ multi-stage cascading architectures (MCA) that progressively filter items through recall, pre-ranking, and ranking stages. While effective at balancing computational efficiency with business conversion, these systems suffer from fragmented computation and optimization objective collisions across stages, which ultimately limit their performance ceiling. To address these, we propose \\textbf{OneSearch}, the first industrial-deployed end-to-end generative framework for e-commerce search. This framework introduces three key innovations: (1) a Keyword-enhanced Hierarchical Quantization Encoding (KHQE) module, to preserve both hierarchical semantics and distinctive item attributes while maintaining strong query-item relevance constraints; (2) a multi-view user behavior sequence injection strategy that constructs behavior-driven user IDs and incorporates both explicit short-term and implicit long-term sequences to model user preferences comprehensively; and (3) a Preference-Aware Reward System (PARS) featuring multi-stage supervised fine-tuning and adaptive reward-weighted ranking to capture fine-grained user preferences. Extensive offline evaluations on large-scale industry datasets demonstrate OneSearch's superior performance for high-quality recall and ranking. The rigorous online A/B tests confirm its ability to enhance relevance in the same exposure position, achieving statistically significant improvements: +1.67% item CTR, +2.40% buyer, and +3.22% order volume. Furthermore, OneSearch reduces operational expenditure by 75.40% and improves Model FLOPs Utilization from 3.26% to 27.32%. The system has been successfully deployed across multiple search scenarios in Kuaishou, serving millions of users, generating tens of millions of PVs daily.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T11:50:04Z",
+    "updated": "2025-10-22T16:10:35Z",
+    "url": "http://arxiv.org/abs/2509.03236v5",
+    "pdf_url": "http://arxiv.org/pdf/2509.03236v5.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文提出首个工业级电商搜索端到端生成式框架，直接解决推荐/搜索核心架构问题，且来自快手实际部署，完全符合高优先级标准。",
+    "translation": "OneSearch：电商搜索统一端到端生成式框架的初步探索",
+    "summary_zh": "提出 OneSearch 框架，通过关键词增强分层量化编码、多视图用户行为注入及偏好感知奖励系统，构建统一的端到端生成式电商搜索架构以替代传统多阶段级联模式。",
+    "key_points": [
+      "提出 OneSearch 框架，通过关键词增强分层量化编码、多视图用户行为注入及偏好感知奖励系统，构建统一的端到端生成式电商搜索架构以替代传统多阶段级联模式"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03131v1",
+    "title": "RecBase: Generative Foundation Model Pretraining for Zero-Shot Recommendation",
+    "authors": [
+      "Sashuai Zhou",
+      "Weinan Gan",
+      "Qijiong Liu",
+      "Ke Lei",
+      "Jieming Zhu",
+      "Hai Huang",
+      "Yan Xia",
+      "Ruiming Tang",
+      "Zhenhua Dong",
+      "Zhou Zhao"
+    ],
+    "summary": "Recent advances in LLM-based recommendation have shown promise, yet their cross-domain generalization is hindered by a fundamental mismatch between language-centric pretraining and the recommendation task. Existing methods, relying on language-level knowledge, fail to capture dynamic, item-level user interests across domains. To bridge this gap, we propose RecBase, a domain-agnostic foundational model pretrained with a recommendation-oriented objective. RecBase leverages a large-scale, heterogeneous, cross-domain corpus with unified textual representations and feature mappings to enhance cross-domain generalization. To further align item semantics across domains, we introduce a unified item tokenizer that encodes items into hierarchical concept identifiers, enabling structured representation and efficient vocabulary sharing. The model is trained using an autoregressive objective to capture complex item-level sequential patterns. On eight real-world datasets, our 1.5B-parameter model matches or surpasses the performance of LLM baselines up to 7B parameters in zero-shot and cross-domain recommendation tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T08:33:43Z",
+    "updated": "2025-09-03T08:33:43Z",
+    "url": "http://arxiv.org/abs/2509.03131v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03131v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1ZhejiangUniversity 2HuaweiNoah’sArkLab 3ShanghaiAILab 4TheHKPolyU",
+      "Towardthisgoal,existingresearchaimstolever-"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统的跨域泛化痛点，提出了专为推荐任务预训练的生成式基础模型 RecBase，属于核心领域的高价值创新；且来自中国公司，按规则额外加分后达到满分。",
+    "translation": "RecBase：面向零样本推荐的生成式基础模型预训练",
+    "summary_zh": "提出一种领域无关的推荐导向预训练框架，通过统一物品分词器和自回归目标学习跨域物品级序列模式，以解决语言中心预训练与推荐任务不匹配的问题。",
+    "key_points": [
+      "提出一种领域无关的推荐导向预训练框架，通过统一物品分词器和自回归目标学习跨域物品级序列模式，以解决语言中心预训练与推荐任务不匹配的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03348v1",
+    "title": "Generative Auto-Bidding in Large-Scale Competitive Auctions via Diffusion Completer-Aligner",
+    "authors": [
+      "Yewen Li",
+      "Jingtong Gao",
+      "Nan Jiang",
+      "Shuai Mao",
+      "Ruyi An",
+      "Fei Pan",
+      "Xiangyu Zhao",
+      "Bo An",
+      "Qingpeng Cai",
+      "Peng Jiang"
+    ],
+    "summary": "Auto-bidding is central to computational advertising, achieving notable commercial success by optimizing advertisers' bids within economic constraints. Recently, large generative models show potential to revolutionize auto-bidding by generating bids that could flexibly adapt to complex, competitive environments. Among them, diffusers stand out for their ability to address sparse-reward challenges by focusing on trajectory-level accumulated rewards, as well as their explainable capability, i.e., planning a future trajectory of states and executing bids accordingly. However, diffusers struggle with generation uncertainty, particularly regarding dynamic legitimacy between adjacent states, which can lead to poor bids and further cause significant loss of ad impression opportunities when competing with other advertisers in a highly competitive auction environment. To address it, we propose a Causal auto-Bidding method based on a Diffusion completer-aligner framework, termed CBD. Firstly, we augment the diffusion training process with an extra random variable t, where the model observes t-length historical sequences with the goal of completing the remaining sequence, thereby enhancing the generated sequences' dynamic legitimacy. Then, we employ a trajectory-level return model to refine the generated trajectories, aligning more closely with advertisers' objectives. Experimental results across diverse settings demonstrate that our approach not only achieves superior performance on large-scale auto-bidding benchmarks, such as a 29.9% improvement in conversion value in the challenging sparse-reward auction setting, but also delivers significant improvements on the Kuaishou online advertising platform, including a 2.0% increase in target cost.",
+    "categories": [
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T14:25:36Z",
+    "updated": "2025-09-03T14:25:36Z",
+    "url": "http://arxiv.org/abs/2509.03348v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03348v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "1KuaishouTechnology 2NanyangTechnologicalUniversity",
+      "3CityUniversityofHongKong 4ChineseUniversityofHongKong 5UniversityofTexasatAustin"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对计算广告中的自动出价核心问题，提出了基于扩散模型的解决方案，并在快手平台落地，完全符合推荐/搜索/广告领域的高优先级标准。",
+    "translation": "基于扩散补全器 - 对齐器的大规模竞争拍卖生成式自动出价",
+    "summary_zh": "提出一种因果自动出价方法，通过引入时间变量增强扩散模型生成序列的动态合法性，并利用轨迹级回报模型对齐广告主目标，以解决竞争性拍卖环境下的出价不确定性问题。",
+    "key_points": [
+      "提出一种因果自动出价方法，通过引入时间变量增强扩散模型生成序列的动态合法性，并利用轨迹级回报模型对齐广告主目标，以解决竞争性拍卖环境下的出价不确定性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03764v2",
+    "title": "LLM-based Relevance Assessment for Web-Scale Search Evaluation at Pinterest",
+    "authors": [
+      "Han Wang",
+      "Alex Whitworth",
+      "Pak Ming Cheung",
+      "Zhenjie Zhang",
+      "Krishna Kamath"
+    ],
+    "summary": "Relevance evaluation plays a crucial role in personalized search systems to ensure that search results align with a user's queries and intent. While human annotation is the traditional method for relevance evaluation, its high cost and long turnaround time limit its scalability. In this work, we present our approach at Pinterest Search to automate relevance evaluation for online experiments using fine-tuned LLMs. We rigorously validate the alignment between LLM-generated judgments and human annotations, demonstrating that LLMs can provide reliable relevance measurement for experiments while greatly improving the evaluation efficiency. Leveraging LLM-based labeling further unlocks the opportunities to expand the query set, optimize sampling design, and efficiently assess a wider range of search experiences at scale. This approach leads to higher-quality relevance metrics and significantly reduces the Minimum Detectable Effect (MDE) in online experiment measurements.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T23:07:49Z",
+    "updated": "2025-11-11T02:36:20Z",
+    "url": "http://arxiv.org/abs/2509.03764v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.03764v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接将 LLM 应用于 Pinterest 搜索系统的相关性评估环节，解决了实际业务中的扩展性问题，属于 LLM for Search 的高优先级应用；虽非中国公司（实为 Pinterest），但因其极高的业务直接相关性，基础分已达 8-9 分。",
+    "translation": "基于大语言模型的 Pinterest 大规模搜索评估相关性判定方法",
+    "summary_zh": "提出一种利用微调大语言模型自动化生成搜索相关性判定的方法，以替代昂贵的人工标注，从而提升大规模在线搜索实验的评估效率与指标质量。",
+    "key_points": [
+      "提出一种利用微调大语言模型自动化生成搜索相关性判定的方法，以替代昂贵的人工标注，从而提升大规模在线搜索实验的评估效率与指标质量"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03696v1",
+    "title": "LLMs for estimating positional bias in logged interaction data",
+    "authors": [
+      "Aleksandr V. Petrov",
+      "Michael Murtagh",
+      "Karthik Nagesh"
+    ],
+    "summary": "Recommender and search systems commonly rely on Learning To Rank models trained on logged user interactions to order items by predicted relevance. However, such interaction data is often subject to position bias, as users are more likely to click on items that appear higher in the ranking, regardless of their actual relevance. As a result, newly trained models may inherit and reinforce the biases of prior ranking models rather than genuinely improving relevance. A standard approach to mitigate position bias is Inverse Propensity Scoring (IPS), where the model's loss is weighted by the inverse of a propensity function, an estimate of the probability that an item at a given position is examined. However, accurate propensity estimation is challenging, especially in interfaces with complex non-linear layouts. In this paper, we propose a novel method for estimating position bias using Large Language Models (LLMs) applied to logged user interaction data. This approach offers a cost-effective alternative to online experimentation. Our experiments show that propensities estimated with our LLM-as-a-judge approach are stable across score buckets and reveal the row-column effects of Viator's grid layout that simpler heuristics overlook. An IPS-weighted reranker trained with these propensities matches the production model on standard NDCG@10 while improving weighted NDCG@10 by roughly 2%. We will verify these offline gains in forthcoming live-traffic experiments.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T20:26:06Z",
+    "updated": "2025-09-03T20:26:06Z",
+    "url": "http://arxiv.org/abs/2509.03696v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03696v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/搜索系统中的位置偏差问题，提出利用 LLM 估计倾向性分数以优化排序模型，属于 LLM 在 RecSys 核心环节的直接应用。",
+    "translation": "利用大语言模型估计日志交互数据中的位置偏差",
+    "summary_zh": "提出一种利用大语言模型作为评判者来估计复杂布局下位置偏差的新方法，旨在通过更准确的倾向性评分优化逆倾向加权排序模型。",
+    "key_points": [
+      "提出一种利用大语言模型作为评判者来估计复杂布局下位置偏差的新方法，旨在通过更准确的倾向性评分优化逆倾向加权排序模型"
+    ]
+  },
+  {
+    "arxiv_id": "2510.01198v1",
+    "title": "Optimal signals assignment for eBay View Item page",
+    "authors": [
+      "Matan Mandelbrod",
+      "Biwei Jiang",
+      "Giald Wagner",
+      "Tal Franji",
+      "Guy Feigenblat"
+    ],
+    "summary": "Signals are short textual or visual snippets displayed on the eBay View-Item (VI) page, providing additional, contextual information for users about the viewed item. The aim in displaying the signals is to facilitate intelligent purchase and to incentivise engagement. In this paper, we present two approaches for developing statistical models that optimally populate the VI page with signals. Both approaches were A/B tested, and yielded significant increase in business metrics.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T15:40:51Z",
+    "updated": "2025-09-03T15:40:51Z",
+    "url": "http://arxiv.org/abs/2510.01198v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.01198v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商平台（eBay）的商品详情页进行信号优化，属于核心推荐/搜索业务场景中的重排序与个性化展示问题，具有明确的商业应用价值。",
+    "translation": "eBay 商品详情页的最优信号分配策略",
+    "summary_zh": "本文提出了两种统计模型方法，旨在为 eBay 商品详情页最优地选择和展示文本或视觉信号片段，以提升用户购买决策效率和参与度。",
+    "key_points": [
+      "本文提出了两种统计模型方法，旨在为 eBay 商品详情页最优地选择和展示文本或视觉信号片段，以提升用户购买决策效率和参与度"
+    ]
+  },
+  {
+    "arxiv_id": "2509.02942v1",
+    "title": "RankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation",
+    "authors": [
+      "Renzhi Wu",
+      "Junjie Yang",
+      "Li Chen",
+      "Hong Li",
+      "Li Yu",
+      "Hong Yan"
+    ],
+    "summary": "Cross-domain recommendation systems face the challenge of integrating fine-grained user and item relationships across various product domains. To address this, we introduce RankGraph, a scalable graph learning framework designed to serve as a core component in recommendation foundation models (FMs). By constructing and leveraging graphs composed of heterogeneous nodes and edges across multiple products, RankGraph enables the integration of complex relationships between users, posts, ads, and other entities. Our framework employs a GPU-accelerated Graph Neural Network and contrastive learning, allowing for dynamic extraction of subgraphs such as item-item and user-user graphs to support similarity-based retrieval and real-time clustering. Furthermore, RankGraph integrates graph-based pretrained representations as contextual tokens into FM sequence models, enriching them with structured relational knowledge. RankGraph has demonstrated improvements in click (+0.92%) and conversion rates (+2.82%) in online A/B tests, showcasing its effectiveness in cross-domain recommendation scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T02:16:50Z",
+    "updated": "2025-09-03T02:16:50Z",
+    "url": "http://arxiv.org/abs/2509.02942v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.02942v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨域推荐系统中的核心问题，提出了一种统一的异构图学习框架 RankGraph，明确应用于推荐基础模型和在线业务场景。",
+    "translation": "RankGraph：面向跨域推荐的统一异构图学习方法",
+    "summary_zh": "提出 RankGraph 框架，通过构建包含用户、帖子和广告的异构图并利用 GPU 加速的图神经网络与对比学习，动态提取子图以增强推荐基础模型的结构化关系知识。",
+    "key_points": [
+      "提出 RankGraph 框架，通过构建包含用户、帖子和广告的异构图并利用 GPU 加速的图神经网络与对比学习，动态提取子图以增强推荐基础模型的结构化关系知识"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03661v1",
+    "title": "ACT: Automated Constraint Targeting for Multi-Objective Recommender Systems",
+    "authors": [
+      "Daryl Chang",
+      "Yi Wu",
+      "Jennifer She",
+      "Li Wei",
+      "Lukasz Heldt"
+    ],
+    "summary": "Recommender systems often must maximize a primary objective while ensuring secondary ones satisfy minimum thresholds, or \"guardrails.\" This is critical for maintaining a consistent user experience and platform ecosystem, but enforcing these guardrails despite orthogonal system changes is challenging and often requires manual hyperparameter tuning. We introduce the Automated Constraint Targeting (ACT) framework, which automatically finds the minimal set of hyperparameter changes needed to satisfy these guardrails. ACT uses an offline pairwise evaluation on unbiased data to find solutions and continuously retrains to adapt to system and user behavior changes. We empirically demonstrate its efficacy and describe its deployment in a large-scale production environment.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T19:24:03Z",
+    "updated": "2025-09-03T19:24:03Z",
+    "url": "http://arxiv.org/abs/2509.03661v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03661v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的多目标优化与约束控制（Guardrails）问题，提出了自动化超参数调整框架 ACT，属于核心推荐架构创新。",
+    "translation": "ACT：面向多目标推荐系统的自动化约束定向框架",
+    "summary_zh": "提出自动化约束定向（ACT）框架，通过在无偏数据上进行离线成对评估，自动寻找满足次要目标阈值所需的最小超参数调整集，以解决多目标推荐系统中的人工调参难题。",
+    "key_points": [
+      "提出自动化约束定向（ACT）框架，通过在无偏数据上进行离线成对评估，自动寻找满足次要目标阈值所需的最小超参数调整集，以解决多目标推荐系统中的人工调参难题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03187v1",
+    "title": "Enhancing Interpretability and Effectiveness in Recommendation with Numerical Features via Learning to Contrast the Counterfactual samples",
+    "authors": [
+      "Xiaoxiao Xu",
+      "Hao Wu",
+      "Wenhui Yu",
+      "Lantao Hu",
+      "Peng Jiang",
+      "Kun Gai"
+    ],
+    "summary": "We propose a general model-agnostic Contrastive learning framework with Counterfactual Samples Synthesizing (CCSS) for modeling the monotonicity between the neural network output and numerical features which is critical for interpretability and effectiveness of recommender systems. CCSS models the monotonicity via a two-stage process: synthesizing counterfactual samples and contrasting the counterfactual samples. The two techniques are naturally integrated into a model-agnostic framework, forming an end-to-end training process. Abundant empirical tests are conducted on a publicly available dataset and a real industrial dataset, and the results well demonstrate the effectiveness of our proposed CCSS. Besides, CCSS has been deployed in our real large-scale industrial recommender, successfully serving over hundreds of millions users.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T10:17:41Z",
+    "updated": "2025-09-03T10:17:41Z",
+    "url": "http://arxiv.org/abs/2509.03187v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03187v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的数值特征建模问题，提出了一种模型无关的对比学习框架以提升可解释性和效果，并已在工业级推荐系统中部署。",
+    "translation": "通过对比反事实样本学习数值特征以提升推荐系统的可解释性与效果",
+    "summary_zh": "提出一种模型无关的对比学习框架（CCSS），通过合成并对比反事实样本来建模神经网络输出与数值特征间的单调性，从而增强推荐系统的可解释性和有效性。",
+    "key_points": [
+      "提出一种模型无关的对比学习框架（CCSS），通过合成并对比反事实样本来建模神经网络输出与数值特征间的单调性，从而增强推荐系统的可解释性和有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03130v1",
+    "title": "A Plug-and-play Model-agnostic Embedding Enhancement Approach for Explainable Recommendation",
+    "authors": [
+      "Yunqi Mi",
+      "Boyang Yan",
+      "Guoshuai Zhao",
+      "Jialie Shen",
+      "Xueming Qian"
+    ],
+    "summary": "Existing multimedia recommender systems provide users with suggestions of media by evaluating the similarities, such as games and movies. To enhance the semantics and explainability of embeddings, it is a consensus to apply additional information (e.g., interactions, contexts, popularity). However, without systematic consideration of representativeness and value, the utility and explainability of embedding drops drastically. Hence, we introduce RVRec, a plug-and-play model-agnostic embedding enhancement approach that can improve both personality and explainability of existing systems. Specifically, we propose a probability-based embedding optimization method that uses a contrastive loss based on negative 2-Wasserstein distance to learn to enhance the representativeness of the embeddings. In addtion, we introduce a reweighing method based on multivariate Shapley values strategy to evaluate and explore the value of interactions and embeddings. Extensive experiments on multiple backbone recommenders and real-world datasets show that RVRec can improve the personalization and explainability of existing recommenders, outperforming state-of-the-art baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T08:32:20Z",
+    "updated": "2025-09-03T08:32:20Z",
+    "url": "http://arxiv.org/abs/2509.03130v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03130v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统的核心问题（嵌入增强与可解释性），提出了模型无关的通用优化方法，属于明确的推荐系统技术应用。",
+    "translation": "一种即插即用且模型无关的可解释推荐嵌入增强方法",
+    "summary_zh": "提出 RVRec 框架，利用基于负 2-Wasserstein 距离的对比损失优化嵌入代表性，并结合多元 Shapley 值策略重加权交互信息，以增强推荐系统的个性化与可解释性。",
+    "key_points": [
+      "提出 RVRec 框架，利用基于负 2-Wasserstein 距离的对比损失优化嵌入代表性，并结合多元 Shapley 值策略重加权交互信息，以增强推荐系统的个性化与可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.02943v1",
+    "title": "Knowledge graph-based personalized multimodal recommendation fusion framework",
+    "authors": [
+      "Yu Fang"
+    ],
+    "summary": "In the contemporary age characterized by information abundance, rapid advancements in artificial intelligence have rendered recommendation systems indispensable. Conventional recommendation methodologies based on collaborative filtering or individual attributes encounter deficiencies in capturing nuanced user interests. Knowledge graphs and multimodal data integration offer enhanced representations of users and items with greater richness and precision. This paper reviews existing multimodal knowledge graph recommendation frameworks, identifying shortcomings in modal interaction and higher-order dependency modeling. We propose the Cross-Graph Cross-Modal Mutual Information-Driven Unified Knowledge Graph Learning and Recommendation Framework (CrossGMMI-DUKGLR), which employs pre-trained visual-text alignment models for feature extraction, achieves fine-grained modality fusion through multi-head cross-attention, and propagates higher-order adjacency information via graph attention networks.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-03T02:17:28Z",
+    "updated": "2025-09-03T02:17:28Z",
+    "url": "http://arxiv.org/abs/2509.02943v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.02943v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文明确针对多模态推荐系统，提出结合知识图谱与跨模态注意力机制的融合框架，属于核心推荐技术范畴。",
+    "translation": "基于知识图谱的个性化多模态推荐融合框架",
+    "summary_zh": "本文提出一种统一框架，利用预训练视觉 - 文本模型提取特征，通过多头交叉注意力实现细粒度模态融合，并借助图注意力网络传播高阶邻接信息以增强推荐表示。",
+    "key_points": [
+      "本文提出一种统一框架，利用预训练视觉 - 文本模型提取特征，通过多头交叉注意力实现细粒度模态融合，并借助图注意力网络传播高阶邻接信息以增强推荐表示"
+    ]
+  },
+  {
+    "arxiv_id": "2509.10520v1",
+    "title": "Offline Contextual Bandit with Counterfactual Sample Identification",
+    "authors": [
+      "Alexandre Gilotte",
+      "Otmane Sakhi",
+      "Imad Aouali",
+      "Benjamin Heymann"
+    ],
+    "summary": "In production systems, contextual bandit approaches often rely on direct reward models that take both action and context as input. However, these models can suffer from confounding, making it difficult to isolate the effect of the action from that of the context. We present \\emph{Counterfactual Sample Identification}, a new approach that re-frames the problem: rather than predicting reward, it learns to recognize which action led to a successful (binary) outcome by comparing it to a counterfactual action sampled from the logging policy under the same context. The method is theoretically grounded and consistently outperforms direct models in both synthetic experiments and real-world deployments.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-09-03T17:23:32Z",
+    "updated": "2025-09-03T17:23:32Z",
+    "url": "http://arxiv.org/abs/2509.10520v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.10520v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文针对生产系统中的上下文多臂老虎机（推荐/广告核心算法）提出反事实样本识别方法，直接解决动作效应混淆问题，属于明确的推荐/搜索排序优化技术。",
+    "translation": "基于反事实样本识别的离线上下文多臂老虎机",
+    "summary_zh": "提出一种反事实样本识别新方法，通过在相同上下文中对比真实动作与日志策略采样的反事实动作，直接学习识别导致成功结果的动作，从而消除上下文混淆并优化决策模型。",
+    "key_points": [
+      "提出一种反事实样本识别新方法，通过在相同上下文中对比真实动作与日志策略采样的反事实动作，直接学习识别导致成功结果的动作，从而消除上下文混淆并优化决策模型"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03024v1",
+    "title": "Efficient Privacy-Preserving Recommendation on Sparse Data using Fully Homomorphic Encryption",
+    "authors": [
+      "Moontaha Nishat Chowdhury",
+      "André Bauer",
+      "Minxuan Zhou"
+    ],
+    "summary": "In today's data-driven world, recommendation systems personalize user experiences across industries but rely on sensitive data, raising privacy concerns. Fully homomorphic encryption (FHE) can secure these systems, but a significant challenge in applying FHE to recommendation systems is efficiently handling the inherently large and sparse user-item rating matrices. FHE operations are computationally intensive, and naively processing various sparse matrices in recommendation systems would be prohibitively expensive. Additionally, the communication overhead between parties remains a critical concern in encrypted domains. We propose a novel approach combining Compressed Sparse Row (CSR) representation with FHE-based matrix factorization that efficiently handles matrix sparsity in the encrypted domain while minimizing communication costs. Our experimental results demonstrate high recommendation accuracy with encrypted data while achieving the lowest communication costs, effectively preserving user privacy.",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T05:15:45Z",
+    "updated": "2025-09-03T05:15:45Z",
+    "url": "http://arxiv.org/abs/2509.03024v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03024v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的隐私保护与稀疏数据处理痛点，提出了结合 FHE 与 CSR 的具体架构，虽属安全领域但紧密服务于 RecSys 核心落地；鉴于来自中国企业额外加 1 分。",
+    "translation": "基于全同态加密的稀疏数据高效隐私保护推荐方法",
+    "summary_zh": "提出一种结合压缩稀疏行（CSR）表示与全同态加密矩阵分解的新方法，旨在加密域内高效处理推荐系统的矩阵稀疏性并最小化通信开销。",
+    "key_points": [
+      "提出一种结合压缩稀疏行（CSR）表示与全同态加密矩阵分解的新方法，旨在加密域内高效处理推荐系统的矩阵稀疏性并最小化通信开销"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03020v4",
+    "title": "Training LLMs to be Better Text Embedders through Bidirectional Reconstruction",
+    "authors": [
+      "Chang Su",
+      "Dengliang Shi",
+      "Siyuan Huang",
+      "Jintao Du",
+      "Changhua Meng",
+      "Yu Cheng",
+      "Weiqiang Wang",
+      "Zhouhan Lin"
+    ],
+    "summary": "Large language models (LLMs) have increasingly been explored as powerful text embedders. Existing LLM-based text embedding approaches often leverage the embedding of the final token, typically a reserved special token such as [EOS]. However, these tokens have not been intentionally trained to capture the semantics of the whole context, limiting their capacity as text embeddings, especially for retrieval and re-ranking tasks. We propose to add a new training stage before contrastive learning to enrich the semantics of the final token embedding. This stage employs bidirectional generative reconstruction tasks, namely EBQ2D (Embedding-Based Query-to-Document) and EBD2Q (Embedding-Based Document-to-Query), which interleave to anchor the [EOS] embedding and reconstruct either side of Query-Document pairs. Experimental results demonstrate that our additional training stage significantly improves LLM performance on the Massive Text Embedding Benchmark (MTEB), achieving new state-of-the-art results across different LLM base models and scales.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-09-03T04:55:26Z",
+    "updated": "2025-10-09T07:37:52Z",
+    "url": "http://arxiv.org/abs/2509.03020v4",
+    "pdf_url": "http://arxiv.org/pdf/2509.03020v4.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "1LUMIALab,ShanghaiJiaoTongUniversity",
+      "2TiansuanLab,AntGroupCo.,Ltd.",
+      "3LUMIALab,SchoolofArtificialIntelligence,ShanghaiJiaoTongUniversity"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文虽属 LLM 研究，但明确针对检索和重排序任务优化文本嵌入表示，直接服务于搜索/推荐系统的核心召回与匹配环节，且来自中国公司加 1 分。",
+    "translation": "通过双向重构训练 LLM 成为更优的文本嵌入器",
+    "summary_zh": "提出在对比学习前增加双向生成重构训练阶段（EBQ2D/EBD2Q），以增强 LLM 最终 token 嵌入对全文语义的捕捉能力，从而提升检索与重排序效果。",
+    "key_points": [
+      "提出在对比学习前增加双向生成重构训练阶段（EBQ2D/EBD2Q），以增强 LLM 最终 token 嵌入对全文语义的捕捉能力，从而提升检索与重排序效果"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03226v2",
+    "title": "BAMG: A Block-Aware Monotonic Graph Index for Disk-Based Approximate Nearest Neighbor Search",
+    "authors": [
+      "Huiling Li",
+      "Xin Huang",
+      "Byron Choi",
+      "Jianliang Xu"
+    ],
+    "summary": "Approximate Nearest Neighbor Search (ANNS) over high-dimensional vectors is a foundational problem in databases, where disk I/O often emerges as the dominant performance bottleneck at scale. To accelerate search, graph-based indexes rely on proximity graph, where nodes represent vectors and edges guide the traversal toward the target. However, existing graph indexing solutions for disk-based ANNS typically either optimize the storage layout for a given graph or construct the graph independently of the storage layout, thus overlooking their interaction. In this paper, we bridge this gap by proposing the Block-aware Monotonic Relative Neighborhood Graph (BMRNG), theoretically guaranteeing the existence of I/O monotonic search paths. The core idea is to align the graph topology with the data placement by jointly considering both geometric distance and storage layout for edge selection. To address the scalability challenge of BMRNG construction, we further develop a practical and efficient variant, the Block-Aware Monotonic Graph (BAMG), which can be constructed in linear time from a monotonic graph considering the storage layout. BAMG integrates block-aware edge pruning with a decoupled storage design that separates raw vectors from the graph index, thereby maximizing block utilization and minimizing redundant disk reads. Additionally, we design a multi-layer navigation graph for adaptive and efficient query entry, along with a block-first search algorithm that prioritizes intra-block traversal to fully exploit each disk I/O operation. Extensive experiments on real-world datasets show that BAMG can outperform state-of-the-art methods in search performance.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-09-03T11:33:31Z",
+    "updated": "2026-02-28T07:38:21Z",
+    "url": "http://arxiv.org/abs/2509.03226v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.03226v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种针对磁盘环境的近似最近邻搜索（ANNS）索引优化方法，属于推荐/搜索系统的底层检索基础设施，但并非直接针对 RecSys 业务逻辑或 LLM 应用的创新，且无明确电商/社交场景结合。",
+    "translation": "BAMG：一种面向磁盘近似最近邻搜索的块感知单调图索引",
+    "summary_zh": "提出块感知单调图（BAMG），通过将图拓扑结构与磁盘存储布局联合优化，实现对 I/O 单调搜索路径的理论保证及高效构建。",
+    "key_points": [
+      "提出块感知单调图（BAMG），通过将图拓扑结构与磁盘存储布局联合优化，实现对 I/O 单调搜索路径的理论保证及高效构建"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03626v1",
+    "title": "Explainable Knowledge Graph Retrieval-Augmented Generation (KG-RAG) with KG-SMILE",
+    "authors": [
+      "Zahra Zehtabi Sabeti Moghaddam",
+      "Zeinab Dehghani",
+      "Maneeha Rani",
+      "Koorosh Aslansefat",
+      "Bhupesh Kumar Mishra",
+      "Rameez Raja Kureshi",
+      "Dhavalkumar Thakker"
+    ],
+    "summary": "Generative AI, such as Large Language Models (LLMs), has achieved impressive progress but still produces hallucinations and unverifiable claims, limiting reliability in sensitive domains. Retrieval-Augmented Generation (RAG) improves accuracy by grounding outputs in external knowledge, especially in domains like healthcare, where precision is vital. However, RAG remains opaque and essentially a black box, heavily dependent on data quality. We developed a method-agnostic, perturbation-based framework that provides token and component-level interoperability for Graph RAG using SMILE and named it as Knowledge-Graph (KG)-SMILE. By applying controlled perturbations, computing similarities, and training weighted linear surrogates, KG-SMILE identifies the graph entities and relations most influential to generated outputs, thereby making RAG more transparent. We evaluate KG-SMILE using comprehensive attribution metrics, including fidelity, faithfulness, consistency, stability, and accuracy. Our findings show that KG-SMILE produces stable, human-aligned explanations, demonstrating its capacity to balance model effectiveness with interpretability and thereby fostering greater transparency and trust in machine learning technologies.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-09-03T18:29:30Z",
+    "updated": "2025-09-03T18:29:30Z",
+    "url": "http://arxiv.org/abs/2509.03626v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03626v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 可解释性研究（RAG），主要应用于医疗等敏感领域，未涉及推荐系统或搜索引擎的核心场景，即使有中国公司背景加分，相关性依然较低。",
+    "translation": "基于 KG-SMILE 的可解释知识图谱检索增强生成",
+    "summary_zh": "提出一种基于扰动的框架 KG-SMILE，通过计算相似性和训练代理模型来识别影响生成输出的关键图实体与关系，从而提升知识图谱 RAG 系统的透明度和可解释性。",
+    "key_points": [
+      "提出一种基于扰动的框架 KG-SMILE，通过计算相似性和训练代理模型来识别影响生成输出的关键图实体与关系，从而提升知识图谱 RAG 系统的透明度和可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03319v1",
+    "title": "Temporal social network modeling of mobile connectivity data with graph neural networks",
+    "authors": [
+      "Joel Jaskari",
+      "Chandreyee Roy",
+      "Fumiko Ogushi",
+      "Mikko Saukkoriipi",
+      "Jaakko Sahlsten",
+      "Kimmo Kaski"
+    ],
+    "summary": "Graph neural networks (GNNs) have emerged as a state-of-the-art data-driven tool for modeling connectivity data of graph-structured complex networks and integrating information of their nodes and edges in space and time. However, as of yet, the analysis of social networks using the time series of people's mobile connectivity data has not been extensively investigated. In the present study, we investigate four snapshot - based temporal GNNs in predicting the phone call and SMS activity between users of a mobile communication network. In addition, we develop a simple non - GNN baseline model using recently proposed EdgeBank method. Our analysis shows that the ROLAND temporal GNN outperforms the baseline model in most cases, whereas the other three GNNs perform on average worse than the baseline. The results show that GNN based approaches hold promise in the analysis of temporal social networks through mobile connectivity data. However, due to the relatively small performance margin between ROLAND and the baseline model, further research is required on specialized GNN architectures for temporal social network analysis.",
+    "categories": [
+      "cs.SI",
+      "cs.LG"
+    ],
+    "published": "2025-09-03T13:53:03Z",
+    "updated": "2025-09-03T13:53:03Z",
+    "url": "http://arxiv.org/abs/2509.03319v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03319v1.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该论文属于通用社交网络分析（预测通话/SMS），未涉及推荐系统或搜索引擎的核心场景（如召回、排序、个性化），且非 LLM 在 RecSys 中的直接应用。",
+    "translation": "基于图神经网络的移动连接数据时序社交网络建模",
+    "summary_zh": "本文提出利用基于快照的时序图神经网络（GNN）对移动通信网络中的用户连接数据进行时空建模，以预测用户间的通话和短信交互行为。",
+    "key_points": [
+      "本文提出利用基于快照的时序图神经网络（GNN）对移动通信网络中的用户连接数据进行时空建模，以预测用户间的通话和短信交互行为"
+    ]
+  },
+  {
+    "arxiv_id": "2509.03692v1",
+    "title": "lifeXplore at the Lifelog Search Challenge 2021",
+    "authors": [
+      "Andreas Leibetseder",
+      "Klaus Schoeffmann"
+    ],
+    "summary": "Since its first iteration in 2018, the Lifelog Search Challenge (LSC) continues to rise in popularity as an interactive lifelog data retrieval competition, co-located at the ACM International Conference on Multimedia Retrieval (ICMR). The goal of this annual live event is to search a large corpus of lifelogging data for specifically announced memories using a purposefully developed tool within a limited amount of time. As long-standing participants, we present our improved lifeXplore - a retrieval system combining chronologic day summary browsing with interactive combinable concept filtering. Compared to previous versions, the tool is improved by incorporating temporal queries, advanced day summary features as well as usability improvements.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2025-09-03T20:18:46Z",
+    "updated": "2025-09-03T20:18:46Z",
+    "url": "http://arxiv.org/abs/2509.03692v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.03692v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯多媒体检索（Lifelog Search）竞赛系统报告，未涉及推荐系统核心算法、用户建模或广告排序，且非 LLM 在 RecSys 中的直接应用，相关性极低。",
+    "translation": "lifeXplore 在 2021 年生活日志搜索挑战中的应用",
+    "summary_zh": "本文介绍了一种改进的生活日志检索系统 lifeXplore，通过结合时间线浏览、交互式概念过滤及 temporal 查询功能来提升用户在大规模个人数据中的记忆检索效率。",
+    "key_points": [
+      "本文介绍了一种改进的生活日志检索系统 lifeXplore，通过结合时间线浏览、交互式概念过滤及 temporal 查询功能来提升用户在大规模个人数据中的记忆检索效率"
+    ]
+  }
+]

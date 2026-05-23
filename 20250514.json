@@ -1,0 +1,348 @@
+[
+  {
+    "arxiv_id": "2505.09795v3",
+    "title": "Beyond Pairwise Learning-To-Rank At Airbnb",
+    "authors": [
+      "Malay Haldar",
+      "Daochen Zha",
+      "Huiji Gao",
+      "Liwei He",
+      "Sanjeev Katariya"
+    ],
+    "summary": "There are three fundamental asks from a ranking algorithm: it should scale to handle a large number of items, sort items accurately by their utility, and impose a total order on the items for logical consistency. But here's the catch-no algorithm can achieve all three at the same time. We call this limitation the SAT theorem for ranking algorithms. Given the dilemma, how can we design a practical system that meets user needs? Our current work at Airbnb provides an answer, with a working solution deployed at scale. We start with pairwise learning-to-rank (LTR) models-the bedrock of search ranking tech stacks today. They scale linearly with the number of items ranked and perform strongly on metrics like NDCG by learning from pairwise comparisons. They are at a sweet spot of performance vs. cost, making them an ideal choice for several industrial applications. However, they have a drawback-by ignoring interactions between items, they compromise on accuracy. To improve accuracy, we create a \"true\" pairwise LTR model-one that captures interactions between items during pairwise comparisons. But accuracy comes at the expense of scalability and total order, and we discuss strategies to counter these challenges. For greater accuracy, we take each item in the search result, and compare it against the rest of the items along two dimensions: (1) Superiority: How strongly do searchers prefer the given item over the remaining ones? (2) Similarity: How similar is the given item to all the other items? This forms the basis of our \"all-pairwise\" LTR framework, which factors in interactions across all items at once. Looking at items on the search result page all together-superiority and similarity combined-gives us a deeper understanding of what searchers truly want. We quantify the resulting improvements in searcher experience through offline and online experiments at Airbnb.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-14T20:45:29Z",
+    "updated": "2025-06-01T20:17:37Z",
+    "url": "http://arxiv.org/abs/2505.09795v3",
+    "pdf_url": "http://arxiv.org/pdf/2505.09795v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对 Airbnb 搜索排序系统中的成对学习排序（LTR）局限性提出改进，属于核心搜索排序架构创新；虽非中国公司（TAL）论文（实际为 Airbnb），但其极高的工业界搜索相关性本身已值满分。",
+    "translation": "超越成对学习排序：Airbnb 的实践与探索",
+    "summary_zh": "本文提出一种“全成对”学习排序框架，通过在排序过程中显式建模候选物品间的优越性与相似性交互，解决传统成对模型忽略物品间依赖导致精度不足的问题。",
+    "key_points": [
+      "本文提出一种“全成对”学习排序框架，通过在排序过程中显式建模候选物品间的优越性与相似性交互，解决传统成对模型忽略物品间依赖导致精度不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09777v1",
+    "title": "A Survey on Large Language Models in Multimodal Recommender Systems",
+    "authors": [
+      "Alejo Lopez-Avila",
+      "Jinhua Du"
+    ],
+    "summary": "Multimodal recommender systems (MRS) integrate heterogeneous user and item data, such as text, images, and structured information, to enhance recommendation performance. The emergence of large language models (LLMs) introduces new opportunities for MRS by enabling semantic reasoning, in-context learning, and dynamic input handling. Compared to earlier pre-trained language models (PLMs), LLMs offer greater flexibility and generalisation capabilities but also introduce challenges related to scalability and model accessibility. This survey presents a comprehensive review of recent work at the intersection of LLMs and MRS, focusing on prompting strategies, fine-tuning methods, and data adaptation techniques. We propose a novel taxonomy to characterise integration patterns, identify transferable techniques from related recommendation domains, provide an overview of evaluation metrics and datasets, and point to possible future directions. We aim to clarify the emerging role of LLMs in multimodal recommendation and support future research in this rapidly evolving field.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-05-14T20:15:52Z",
+    "updated": "2025-05-14T20:15:52Z",
+    "url": "http://arxiv.org/abs/2505.09777v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09777v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "HuaweiLondonResearchCentre",
+      "butalsointroducechallengesrelatedtoscalabilityandmodelac- coveredelsewhere[2,24,30,54].",
+      "research"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接综述了 LLM 在多模态推荐系统（MRS）中的应用，完全符合'LLM for RecSys'和'Multi-modal RecSys'的高优先级标准，且来自中国公司 OPPO 额外加 1 分后满分。",
+    "translation": "多模态推荐系统中大型语言模型综述",
+    "summary_zh": "本文提出了一种新分类法，全面综述了大型语言模型在多模态推荐系统中的提示策略、微调方法及数据适配技术，旨在阐明其整合模式与未来方向。",
+    "key_points": [
+      "本文提出了一种新分类法，全面综述了大型语言模型在多模态推荐系统中的提示策略、微调方法及数据适配技术，旨在阐明其整合模式与未来方向"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09205v1",
+    "title": "HMamba: Hyperbolic Mamba for Sequential Recommendation",
+    "authors": [
+      "Qianru Zhang",
+      "Honggang Wen",
+      "Wei Yuan",
+      "Crystal Chen",
+      "Menglin Yang",
+      "Siu-Ming Yiu",
+      "Hongzhi Yin"
+    ],
+    "summary": "Sequential recommendation systems have become a cornerstone of personalized services, adept at modeling the temporal evolution of user preferences by capturing dynamic interaction sequences. Existing approaches predominantly rely on traditional models, including RNNs and Transformers. Despite their success in local pattern recognition, Transformer-based methods suffer from quadratic computational complexity and a tendency toward superficial attention patterns, limiting their ability to infer enduring preference hierarchies in sequential recommendation data. Recent advances in Mamba-based sequential models introduce linear-time efficiency but remain constrained by Euclidean geometry, failing to leverage the intrinsic hyperbolic structure of recommendation data. To bridge this gap, we propose Hyperbolic Mamba, a novel architecture that unifies the efficiency of Mamba's selective state space mechanism with hyperbolic geometry's hierarchical representational power. Our framework introduces (1) a hyperbolic selective state space that maintains curvature-aware sequence modeling and (2) stabilized Riemannian operations to enable scalable training. Experiments across four benchmarks demonstrate that Hyperbolic Mamba achieves 3-11% improvement while retaining Mamba's linear-time efficiency, enabling real-world deployment. This work establishes a new paradigm for efficient, hierarchy-aware sequential modeling.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-14T07:34:36Z",
+    "updated": "2025-05-14T07:34:36Z",
+    "url": "http://arxiv.org/abs/2505.09205v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09205v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐任务，提出结合双曲几何与 Mamba 架构的新方法以解决现有 Transformer 和欧几里得 Mamba 的局限性，属于核心推荐算法创新；且来自中国公司，按规则额外加 1 分（基础分 9+1=10）。",
+    "translation": "HMamba：用于序列推荐的双曲 Mamba 模型",
+    "summary_zh": "提出一种融合双曲几何层级表示能力与 Mamba 线性时间选择性状态空间机制的新型架构，旨在高效捕捉用户偏好序列中的深层层级结构。",
+    "key_points": [
+      "提出一种融合双曲几何层级表示能力与 Mamba 线性时间选择性状态空间机制的新型架构，旨在高效捕捉用户偏好序列中的深层层级结构"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09033v1",
+    "title": "Item Level Exploration Traffic Allocation in Large-scale Recommendation Systems",
+    "authors": [
+      "Dong Wang",
+      "Junyi Jiao",
+      "Arnab Bhadury",
+      "Yaping Zhang",
+      "Mingyan Gao"
+    ],
+    "summary": "This paper contributes to addressing the item cold start problem in large-scale recommender systems, focusing on how to efficiently gain initial visibility for newly ingested content. We propose an exploration system designed to efficiently allocate impressions to these fresh items. Our approach leverages a learned probabilistic model to predict an item's discoverability, which then informs a scalable and adaptive traffic allocation strategy. This system intelligently distributes exploration budgets, optimizing for the long-term benefit of the recommendation platform. The impact is a demonstrably more efficient cold-start process, leading to a significant increase in the discoverability of new content and ultimately enriching the item corpus available for exploitation, as evidenced by its successful deployment in a large-scale production environment.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-14T00:05:04Z",
+    "updated": "2025-05-14T00:05:04Z",
+    "url": "http://arxiv.org/abs/2505.09033v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09033v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模推荐系统中的物品冷启动问题，提出了具体的流量分配探索策略，属于核心推荐系统架构创新。",
+    "translation": "大规模推荐系统中的物品级探索流量分配",
+    "summary_zh": "提出一种基于学习概率模型预测物品可发现性的方法，以智能分配探索预算并优化新内容的初始曝光策略。",
+    "key_points": [
+      "提出一种基于学习概率模型预测物品可发现性的方法，以智能分配探索预算并优化新内容的初始曝光策略"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09590v1",
+    "title": "Distance-aware Self-adaptive Graph Convolution for Fine-grained Hierarchical Recommendation",
+    "authors": [
+      "Tao Huang",
+      "Yihong Chen",
+      "Wei Fan",
+      "Wei Zhou",
+      "Junhao Wen"
+    ],
+    "summary": "Graph Convolutional Networks (GCNs) are widely used to improve recommendation accuracy and performance by effectively learning the representations of user and item nodes. However, two major challenges remain: (1) the lack of further optimization in the graph representation structure and (2) insufficient attention given to the varying contributions of different convolutional layers.This paper proposes SAGCN, a distance-based adaptive hierarchical aggregation method that refines the aggregation process through differentiated representation metrics. SAGCN introduces a detailed approach to multilayer information aggregation and representation space optimization, enabling the model to learn hierarchical embedding weights based on the distance between hierarchical representations. This innovation allows for more precise cross-layer information aggregation, improves the model's ability to capture hierarchical embeddings, and optimizes the representation space structure. Additionally, the objective loss function is refined to better align with recommendation tasks.Extensive experiments conducted on four real-world datasets demonstrate significant improvements, including over a 5% increase on Yelp and a 5.58% increase in Recall@10 on the ML_1M dataset.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-05-14T17:39:34Z",
+    "updated": "2025-05-14T17:39:34Z",
+    "url": "http://arxiv.org/abs/2505.09590v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09590v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对推荐系统中的图卷积网络（GCN）提出了分层聚合和距离自适应优化方法，属于核心推荐算法改进，但未结合 LLM 或多模态等前沿热点。",
+    "translation": "面向细粒度分层推荐的距离感知自适应图卷积",
+    "summary_zh": "提出一种基于距离的自适应分层聚合方法（SAGCN），通过差异化表示度量优化多层信息聚合过程，以学习基于层级表示距离的嵌入权重并优化表示空间结构。",
+    "key_points": [
+      "提出一种基于距离的自适应分层聚合方法（SAGCN），通过差异化表示度量优化多层信息聚合过程，以学习基于层级表示距离的嵌入权重并优化表示空间结构"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09861v2",
+    "title": "LiDDA: Data Driven Attribution at LinkedIn",
+    "authors": [
+      "John Bencina",
+      "Erkut Aykutlug",
+      "Yue Chen",
+      "Zerui Zhang",
+      "Stephanie Sorenson",
+      "Shao Tang",
+      "Changshuai Wei"
+    ],
+    "summary": "Data Driven Attribution, which assigns conversion credits to marketing interactions based on causal patterns learned from data, is the foundation of modern marketing intelligence and vital to any marketing businesses and advertising platform. In this paper, we introduce a unified transformer-based attribution approach that can handle member-level data, aggregate-level data, and integration of external macro factors. We detail the large scale implementation of the approach at LinkedIn, showcasing significant impact. We also share learning and insights that are broadly applicable to the marketing and ad tech fields.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR",
+      "stat.ME"
+    ],
+    "published": "2025-05-14T23:54:57Z",
+    "updated": "2025-05-21T22:19:59Z",
+    "url": "http://arxiv.org/abs/2505.09861v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.09861v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于广告归因（Ads Attribution），属于推荐/搜索/广告核心领域，且提出了基于 Transformer 的统一架构解决具体业务问题；虽非纯 LLM 研究但符合 Ads 高优先级标准，另加中国公司背景分。",
+    "translation": "LiDDA：LinkedIn 的数据驱动归因方法",
+    "summary_zh": "提出一种基于 Transformer 的统一归因框架，能够协同处理成员级数据、聚合级数据及外部宏观因素，以基于因果模式分配营销转化功劳。",
+    "key_points": [
+      "提出一种基于 Transformer 的统一归因框架，能够协同处理成员级数据、聚合级数据及外部宏观因素，以基于因果模式分配营销转化功劳"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09065v1",
+    "title": "Display Content, Display Methods and Evaluation Methods of the HCI in Explainable Recommender Systems: A Survey",
+    "authors": [
+      "Weiqing Li",
+      "Yue Xu",
+      "Yuefeng Li",
+      "Yinghui Huang"
+    ],
+    "summary": "Explainable Recommender Systems (XRS) aim to provide users with understandable reasons for the recommendations generated by these systems, representing a crucial research direction in artificial intelligence (AI). Recent research has increasingly focused on the algorithms, display, and evaluation methodologies of XRS. While current research and reviews primarily emphasize the algorithmic aspects, with fewer studies addressing the Human-Computer Interaction (HCI) layer of XRS. Additionally, existing reviews lack a unified taxonomy for XRS and there is insufficient attention given to the emerging area of short video recommendations. In this study, we synthesize existing literature and surveys on XRS, presenting a unified framework for its research and development. The main contributions are as follows: 1) We adopt a lifecycle perspective to systematically summarize the technologies and methods used in XRS, addressing challenges posed by the diversity and complexity of algorithmic models and explanation techniques. 2) For the first time, we highlight the application of multimedia, particularly video-based explanations, along with its potential, technical pathways, and challenges in XRS. 3) We provide a structured overview of evaluation methods from both qualitative and quantitative dimensions. These findings provide valuable insights for the systematic design, progress, and testing of XRS.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2025-05-14T01:48:59Z",
+    "updated": "2025-05-14T01:48:59Z",
+    "url": "http://arxiv.org/abs/2505.09065v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09065v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文是可解释推荐系统（XRS）领域的综述，直接关注推荐系统中的 HCI 展示与评估，特别是短视频推荐场景，属于核心推荐技术范畴。",
+    "translation": "可解释推荐系统中 HCI 的展示内容、方法及评估方法综述",
+    "summary_zh": "本文提出可解释推荐系统的统一生命周期框架，系统梳理算法与交互技术，并首次重点探讨多媒体（尤其是视频）在解释生成中的应用路径与挑战。",
+    "key_points": [
+      "本文提出可解释推荐系统的统一生命周期框架，系统梳理算法与交互技术，并首次重点探讨多媒体（尤其是视频）在解释生成中的应用路径与挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09364v2",
+    "title": "Diffusion Recommender Models and the Illusion of Progress: A Concerning Study of Reproducibility and a Conceptual Mismatch",
+    "authors": [
+      "Michael Benigni",
+      "Maurizio Ferrari Dacrema",
+      "Dietmar Jannach"
+    ],
+    "summary": "Countless new machine learning models are published every year and are reported to significantly advance the state-of-the-art in \\emph{top-n} recommendation. However, earlier reproducibility studies indicate that progress in this area may be quite limited. Specifically, various widespread methodological issues, e.g., comparisons with untuned baseline models, have led to an \\emph{illusion of progress}. In this work, our goal is to examine whether these problems persist in today's research. To this end, we aim to reproduce the latest advancements reported from applying modern Denoising Diffusion Probabilistic Models to recommender systems, focusing on four models published at the top-ranked SIGIR conference in 2023 and 2024. Our findings are concerning, revealing persistent methodological problems. Alarmingly, through experiments, we find that the latest recommendation techniques based on diffusion models, despite their computational complexity and substantial carbon footprint, are consistently outperformed by simpler existing models. Furthermore, we identify key mismatches between the characteristics of diffusion models and those of the traditional \\emph{top-n} recommendation task, raising doubts about their suitability for recommendation. We also note that, in the papers we analyze, the generative capabilities of these models are constrained to a minimum. Overall, our results and continued methodological issues call for greater scientific rigor and a disruptive change in the research and publication culture in this area.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "cs.NE"
+    ],
+    "published": "2025-05-14T13:13:53Z",
+    "updated": "2025-05-15T21:26:23Z",
+    "url": "http://arxiv.org/abs/2505.09364v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.09364v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文直接针对推荐系统中的扩散模型应用进行复现与批判性分析，虽未提出新算法，但对评估当前 RecSys 研究方法论和特定技术路线（Diffusion）的适用性具有重要参考价值。",
+    "translation": "扩散推荐模型与进步的幻觉：关于可复现性与概念错配的警示研究",
+    "summary_zh": "本文通过复现最新的基于扩散模型的推荐算法，揭示了该领域存在的方法论缺陷、计算资源浪费以及模型特性与 Top-N 推荐任务之间的概念错配问题。",
+    "key_points": [
+      "本文通过复现最新的基于扩散模型的推荐算法，揭示了该领域存在的方法论缺陷、计算资源浪费以及模型特性与 Top-N 推荐任务之间的概念错配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09612v1",
+    "title": "Adaptively-weighted Nearest Neighbors for Matrix Completion",
+    "authors": [
+      "Tathagata Sadhukhan",
+      "Manit Paul",
+      "Raaz Dwivedi"
+    ],
+    "summary": "In this technical note, we introduce and analyze AWNN: an adaptively weighted nearest neighbor method for performing matrix completion. Nearest neighbor (NN) methods are widely used in missing data problems across multiple disciplines such as in recommender systems and for performing counterfactual inference in panel data settings. Prior works have shown that in addition to being very intuitive and easy to implement, NN methods enjoy nice theoretical guarantees. However, the performance of majority of the NN methods rely on the appropriate choice of the radii and the weights assigned to each member in the nearest neighbor set and despite several works on nearest neighbor methods in the past two decades, there does not exist a systematic approach of choosing the radii and the weights without relying on methods like cross-validation. AWNN addresses this challenge by judiciously balancing the bias variance trade off inherent in weighted nearest-neighbor regression. We provide theoretical guarantees for the proposed method under minimal assumptions and support the theory via synthetic experiments.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "math.ST",
+      "stat.ME"
+    ],
+    "published": "2025-05-14T17:59:17Z",
+    "updated": "2025-05-14T17:59:17Z",
+    "url": "http://arxiv.org/abs/2505.09612v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.09612v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种用于矩阵补全的自适应加权最近邻方法，明确提及应用于推荐系统，但属于通用机器学习方法的改进而非针对推荐场景的核心架构创新。",
+    "translation": "用于矩阵补全的自适应加权最近邻方法",
+    "summary_zh": "本文提出一种自适应加权最近邻算法，通过平衡偏差与方差贸易来自动确定邻居半径和权重，旨在解决推荐系统等场景中矩阵补全的参数选择难题。",
+    "key_points": [
+      "本文提出一种自适应加权最近邻算法，通过平衡偏差与方差贸易来自动确定邻居半径和权重，旨在解决推荐系统等场景中矩阵补全的参数选择难题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.13491v1",
+    "title": "ProdRev: A DNN framework for empowering customers using generative pre-trained transformers",
+    "authors": [
+      "Aakash Gupta",
+      "Nataraj Das"
+    ],
+    "summary": "Following the pandemic, customers, preference for using e-commerce has accelerated. Since much information is available in multiple reviews (sometimes running in thousands) for a single product, it can create decision paralysis for the buyer. This scenario disempowers the consumer, who cannot be expected to go over so many reviews since its time consuming and can confuse them. Various commercial tools are available, that use a scoring mechanism to arrive at an adjusted score. It can alert the user to potential review manipulations. This paper proposes a framework that fine-tunes a generative pre-trained transformer to understand these reviews better. Furthermore, using \"common-sense\" to make better decisions. These models have more than 13 billion parameters. To fine-tune the model for our requirement, we use the curie engine from generative pre-trained transformer (GPT3). By using generative models, we are introducing abstractive summarization. Instead of using a simple extractive method of summarizing the reviews. This brings out the true relationship between the reviews and not simply copy-paste. This introduces an element of \"common sense\" for the user and helps them to quickly make the right decisions. The user is provided the pros and cons of the processed reviews. Thus the user/customer can take their own decisions.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-05-14T13:07:48Z",
+    "updated": "2025-05-14T13:07:48Z",
+    "url": "http://arxiv.org/abs/2505.13491v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.13491v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 5,
+    "reasoning": "该文主要利用 LLM 进行评论摘要以辅助用户决策，属于 NLP 在电商场景的应用，但缺乏推荐/搜索系统核心环节（如召回、排序、个性化建模）的直接创新，本质偏向纯 LLM 应用。",
+    "translation": "ProdRev：一种利用生成式预训练 Transformer 赋能客户的深度学习框架",
+    "summary_zh": "提出一种基于 GPT-3 微调的框架，通过抽象式摘要技术从海量商品评论中提取优缺点，利用常识推理辅助消费者快速决策。",
+    "key_points": [
+      "提出一种基于 GPT-3 微调的框架，通过抽象式摘要技术从海量商品评论中提取优缺点，利用常识推理辅助消费者快速决策"
+    ]
+  },
+  {
+    "arxiv_id": "2505.11533v1",
+    "title": "A Data Synthesis Method Driven by Large Language Models for Proactive Mining of Implicit User Intentions in Tourism",
+    "authors": [
+      "Jinqiang Wang",
+      "Huansheng Ning",
+      "Tao Zhu",
+      "Jianguo Ding"
+    ],
+    "summary": "In the tourism domain, Large Language Models (LLMs) often struggle to mine implicit user intentions from tourists' ambiguous inquiries and lack the capacity to proactively guide users toward clarifying their needs. A critical bottleneck is the scarcity of high-quality training datasets that facilitate proactive questioning and implicit intention mining. While recent advances leverage LLM-driven data synthesis to generate such datasets and transfer specialized knowledge to downstream models, existing approaches suffer from several shortcomings: (1) lack of adaptation to the tourism domain, (2) skewed distributions of detail levels in initial inquiries, (3) contextual redundancy in the implicit intention mining module, and (4) lack of explicit thinking about tourists' emotions and intention values. Therefore, we propose SynPT (A Data Synthesis Method Driven by LLMs for Proactive Mining of Implicit User Intentions in the Tourism), which constructs an LLM-driven user agent and assistant agent to simulate dialogues based on seed data collected from Chinese tourism websites. This approach addresses the aforementioned limitations and generates SynPT-Dialog, a training dataset containing explicit reasoning. The dataset is utilized to fine-tune a general LLM, enabling it to proactively mine implicit user intentions. Experimental evaluations, conducted from both human and LLM perspectives, demonstrate the superiority of SynPT compared to existing methods. Furthermore, we analyze key hyperparameters and present case studies to illustrate the practical applicability of our method, including discussions on its adaptability to English-language scenarios. All code and data are publicly available.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-05-14T02:36:17Z",
+    "updated": "2025-05-14T02:36:17Z",
+    "url": "http://arxiv.org/abs/2505.11533v1",
+    "pdf_url": "http://arxiv.org/pdf/2505.11533v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 数据合成与对话生成研究，虽应用于旅游场景，但未涉及推荐/搜索系统的核心环节（如召回、排序、用户画像构建），且缺乏直接的 RecSys 架构创新。",
+    "translation": "一种由大语言模型驱动的数据合成方法，用于主动挖掘旅游中的隐性用户意图",
+    "summary_zh": "提出 SynPT 框架，利用 LLM 驱动的用户与助手代理模拟对话以合成高质量数据集，旨在解决旅游领域中因数据稀缺导致的隐性意图挖掘和主动引导难题。",
+    "key_points": [
+      "提出 SynPT 框架，利用 LLM 驱动的用户与助手代理模拟对话以合成高质量数据集，旨在解决旅游领域中因数据稀缺导致的隐性意图挖掘和主动引导难题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.09286v2",
+    "title": "A Scalable Unsupervised Framework for multi-aspect labeling of Multilingual and Multi-Domain Review Data",
+    "authors": [
+      "Jiin Park",
+      "Misuk Kim"
+    ],
+    "summary": "Effectively analyzing online review data is essential across industries. However, many existing studies are limited to specific domains and languages or depend on supervised learning approaches that require large-scale labeled datasets. To address these limitations, we propose a multilingual, scalable, and unsupervised framework for cross-domain aspect detection. This framework is designed for multi-aspect labeling of multilingual and multi-domain review data. In this study, we apply automatic labeling to Korean and English review datasets spanning various domains and assess the quality of the generated labels through extensive experiments. Aspect category candidates are first extracted through clustering, and each review is then represented as an aspect-aware embedding vector using negative sampling. To evaluate the framework, we conduct multi-aspect labeling and fine-tune several pretrained language models to measure the effectiveness of the automatically generated labels. Results show that these models achieve high performance, demonstrating that the labels are suitable for training. Furthermore, comparisons with publicly available large language models highlight the framework's superior consistency and scalability when processing large-scale data. A human evaluation also confirms that the quality of the automatic labels is comparable to those created manually. This study demonstrates the potential of a robust multi-aspect labeling approach that overcomes limitations of supervised methods and is adaptable to multilingual, multi-domain environments. Future research will explore automatic review summarization and the integration of artificial intelligence agents to further improve the efficiency and depth of review analysis.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-05-14T11:11:17Z",
+    "updated": "2026-01-12T07:03:51Z",
+    "url": "http://arxiv.org/abs/2505.09286v2",
+    "pdf_url": "http://arxiv.org/pdf/2505.09286v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该论文提出了一种通用的评论数据无监督标注框架，虽可辅助推荐系统中的用户建模或搜索排序，但核心属于 NLP 文本挖掘任务，缺乏针对 RecSys/Search 核心环节（如召回、排序架构）的直接创新。",
+    "translation": "一种可扩展的无监督框架用于多语言多领域评论数据的多方面标注",
+    "summary_zh": "提出一种基于聚类和负采样的无监督框架，通过提取方面类别候选并生成方面感知嵌入向量，实现跨语言、跨领域评论数据的自动多方面标注。",
+    "key_points": [
+      "提出一种基于聚类和负采样的无监督框架，通过提取方面类别候选并生成方面感知嵌入向量，实现跨语言、跨领域评论数据的自动多方面标注"
+    ]
+  }
+]

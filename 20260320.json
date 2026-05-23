@@ -1,0 +1,82 @@
+[
+  {
+    "arxiv_id": "2603.20338v1",
+    "title": "Low-pass Personalized Subgraph Federated Recommendation",
+    "authors": [
+      "Wooseok Sim",
+      "Hogun Park"
+    ],
+    "summary": "Federated Recommender Systems (FRS) preserve privacy by training decentralized models on client-specific user-item subgraphs without sharing raw data. However, FRS faces a unique challenge: subgraph structural imbalance, where drastic variations in subgraph scale (user/item counts) and connectivity (item degree) misalign client representations, making it challenging to train a robust model that respects each client's unique structural characteristics. To address this, we propose a Low-pass Personalized Subgraph Federated recommender system (LPSFed). LPSFed leverages graph Fourier transforms and low-pass spectral filtering to extract low-frequency structural signals that remain stable across subgraphs of varying size and degree, allowing robust personalized parameter updates guided by similarity to a neutral structural anchor. Additionally, we leverage a localized popularity bias-aware margin that captures item-degree imbalance within each subgraph and incorporates it into a personalized bias correction term to mitigate recommendation bias. Supported by theoretical analysis and validated on five real-world datasets, LPSFed achieves superior recommendation accuracy and enhances model robustness.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-03-20T09:01:00Z",
+    "updated": "2026-03-20T09:01:00Z",
+    "url": "http://arxiv.org/abs/2603.20338v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.20338v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对联邦推荐系统中的子图结构不平衡问题提出新架构，属于核心推荐系统技术；且来自中国公司（Gree），根据规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "低通个性化子图联邦推荐系统",
+    "summary_zh": "提出一种利用图傅里叶变换和低通谱滤波提取稳定低频结构信号的联邦推荐方法，结合局部流行度偏差感知机制，以解决客户端子图规模与连接性差异导致的模型训练难题。",
+    "key_points": [
+      "提出一种利用图傅里叶变换和低通谱滤波提取稳定低频结构信号的联邦推荐方法，结合局部流行度偏差感知机制，以解决客户端子图规模与连接性差异导致的模型训练难题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.20513v1",
+    "title": "ReBOL: Retrieval via Bayesian Optimization with Batched LLM Relevance Observations and Query Reformulation",
+    "authors": [
+      "Anton Korikov",
+      "Scott Sanner"
+    ],
+    "summary": "LLM-reranking is limited by the top-k documents retrieved by vector similarity, which neither enables contextual query-document token interactions nor captures multimodal relevance distributions. While LLM query reformulation attempts to improve recall by generating improved or additional queries, it is still followed by vector similarity retrieval. We thus propose to address these top-k retrieval stage failures by introducing ReBOL, which 1) uses LLM query reformulations to initialize a multimodal Bayesian Optimization (BO) posterior over document relevance, and 2) iteratively acquires document batches for LLM query-document relevance scoring followed by posterior updates to optimize relevance. After exploring query reformulation and document batch diversification techniques, we evaluate ReBOL against LLM reranker baselines on five BEIR datasets and using two LLMs (Gemini-2.5-Flash-Lite, GPT-5.2). ReBOL consistently achieves higher recall and competitive rankings, for example compared to the best LLM reranker on the Robust04 dataset with 46.5% vs. 35.0% recall@100 and 63.6% vs. 61.2% NDCG@10. We also show that ReBOL can achieve comparable latency to LLM rerankers.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-03-20T21:30:13Z",
+    "updated": "2026-03-20T21:30:13Z",
+    "url": "http://arxiv.org/abs/2603.20513v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.20513v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统的检索与重排序环节，提出利用 LLM 和贝叶斯优化解决传统向量检索的局限性，属于明确的搜索核心技术创新。",
+    "translation": "ReBOL：基于批量 LLM 相关性观测与查询重构的贝叶斯优化检索方法",
+    "summary_zh": "提出 ReBOL 框架，利用 LLM 生成的查询重构初始化多模态贝叶斯优化后验，并通过迭代获取文档批次进行 LLM 相关性评分以直接优化检索结果的相关性分布。",
+    "key_points": [
+      "提出 ReBOL 框架，利用 LLM 生成的查询重构初始化多模态贝叶斯优化后验，并通过迭代获取文档批次进行 LLM 相关性评分以直接优化检索结果的相关性分布"
+    ]
+  },
+  {
+    "arxiv_id": "2603.20336v1",
+    "title": "GEM: A Native Graph-based Index for Multi-Vector Retrieval",
+    "authors": [
+      "Yao Tian",
+      "Zhoujin Tian",
+      "Xi Zhao",
+      "Ruiyuan Zhang",
+      "Xiaofang Zhou"
+    ],
+    "summary": "In multi-vector retrieval, both queries and data are represented as sets of high-dimensional vectors, enabling finer-grained semantic matching and improving retrieval quality over single-vector approaches. However, its practical adoption is held back by the lack of effective indexing algorithms. Existing work, attempting to reuse standard single-vector indexes, often fails to preserve multi-vector semantics or remains slow. In this work, we present GEM, a native indexing framework for multi-vector representations. The core idea is to construct a proximity graph directly over vector sets, preserving their fine-grained semantics while enabling efficient navigation. First, GEM designs a set-level clustering scheme. It associates each vector set with only its most informative clusters, effectively reducing redundancy without hurting semantic coverage. Then, it builds local proximity graphs within clusters and bridges them into a globally navigable structure. To handle the non-metric nature of multi-vector similarity, GEM decouples the graph construction metric from the final relevance score and injects semantic shortcuts to guide efficient navigation toward relevant regions. At query time, GEM launches beam search from multiple entry points and prunes paths early using cluster cues. To further enhance efficiency, a quantized distance estimation technique is used for both indexing and search. Across in-domain, out-of-domain, and multi-modal benchmarks, GEM achieves up to 16x speedup over state-of-the-art methods while matching or improving accuracy.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.DB"
+    ],
+    "published": "2026-03-20T08:44:21Z",
+    "updated": "2026-03-20T08:44:21Z",
+    "url": "http://arxiv.org/abs/2603.20336v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.20336v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种针对多向量检索的原生图索引方法，直接解决了推荐系统和搜索引擎中召回阶段的核心效率与语义匹配问题，属于明确的基础设施创新。",
+    "translation": "GEM：一种面向多向量检索的原生图索引",
+    "summary_zh": "提出 GEM 框架，通过在向量集上构建原生邻近图并结合集合级聚类，解决多向量检索中语义保持与高效导航的难题。",
+    "key_points": [
+      "提出 GEM 框架，通过在向量集上构建原生邻近图并结合集合级聚类，解决多向量检索中语义保持与高效导航的难题"
+    ]
+  }
+]

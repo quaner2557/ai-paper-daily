@@ -1,0 +1,357 @@
+[
+  {
+    "arxiv_id": "2507.03047v2",
+    "title": "Enhancing Temporal Sensitivity of Large Language Model for Recommendation with Counterfactual Tuning",
+    "authors": [
+      "Yutian Liu",
+      "Zhengyi Yang",
+      "Jiancan Wu",
+      "Xiang Wang"
+    ],
+    "summary": "Recent advances have applied large language models (LLMs) to sequential recommendation, leveraging their pre-training knowledge and reasoning capabilities to provide more personalized user experiences. However, existing LLM-based methods fail to sufficiently leverage the rich temporal information inherent in users' historical interaction sequences, stemming from fundamental architectural constraints: LLMs process information through self-attention mechanisms that lack inherent sequence ordering and rely on position embeddings designed primarily for natural language rather than user interaction sequences. This limitation significantly impairs their ability to capture the evolution of user preferences over time and predict future interests accurately.\n  To address this critical gap, we propose \\underline{C}ounterfactual \\underline{E}nhanced \\underline{T}emporal Framework for LLM-Based \\underline{Rec}ommendation (CETRec). CETRec is grounded in causal inference principles, which allow it to isolate and measure the specific impact of temporal information on recommendation outcomes. Combined with our counterfactual tuning task derived from causal analysis, CETRec effectively enhances LLMs' awareness of both absolute order (how recently items were interacted with) and relative order (the sequential relationships between items). Extensive experiments on real-world datasets demonstrate the effectiveness of our CETRec. Our code is available at https://anonymous.4open.science/r/CETRec-B9CE/.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-07-03T10:11:35Z",
+    "updated": "2025-08-20T09:09:56Z",
+    "url": "http://arxiv.org/abs/2507.03047v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.03047v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LLM 在序列推荐中时间敏感性不足的核心痛点，提出基于反事实推理的调优框架，属于 LLM for RecSys 的高优先级创新；且来自中国公司，按规则额外加 1 分（基础 9 分 +1）。",
+    "translation": "基于反事实调优增强大语言模型推荐的时间敏感性",
+    "summary_zh": "本文提出 CETRec 框架，利用因果推断原理设计反事实调优任务，解决 LLM 自注意力机制在用户交互序列中时间序列表征不足的问题，从而增强模型对用户偏好演变的捕捉能力。",
+    "key_points": [
+      "本文提出 CETRec 框架，利用因果推断原理设计反事实调优任务，解决 LLM 自注意力机制在用户交互序列中时间序列表征不足的问题，从而增强模型对用户偏好演变的捕捉能力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.21099v1",
+    "title": "Rewrite-to-Rank: Optimizing Ad Visibility via Retrieval-Aware Text Rewriting",
+    "authors": [
+      "Chloe Ho",
+      "Ishneet Sukhvinder Singh",
+      "Diya Sharma",
+      "Tanvi Reddy Anumandla",
+      "Michael Lu",
+      "Vasu Sharma",
+      "Kevin Zhu"
+    ],
+    "summary": "Search algorithms and user query relevance have given LLMs the ability to return relevant information, but the effect of content phrasing on ad visibility remains underexplored. We investigate how LLM-based rewriting of advertisements can improve their ranking in retrieval systems and inclusion in generated LLM responses, without modifying the retrieval model itself. We introduce a supervised fine-tuning framework with a custom loss balancing semantic relevance and content fidelity. To evaluate effectiveness, we propose two metrics: DeltaMRR@K (ranking improvement) and DeltaDIR@K (inclusion frequency improvement). Our approach presents a scalable method to optimize ad phrasing, enhancing visibility in retrieval-based LLM workflows. Experiments across both instruction-based and few-shot prompting demonstrate that PPO trained models outperform both prompt engineering and supervised fine-tuning in most cases, achieving up to a 2.79 DeltaDIR@5 and 0.0073 DeltaMRR@5 in instruction-based prompting. These results highlight the importance of how the ad is written before retrieval and prompt format and reinforcement learning in effective ad rewriting for LLM integrated retrieval systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-07-03T05:36:08Z",
+    "updated": "2025-07-03T05:36:08Z",
+    "url": "http://arxiv.org/abs/2507.21099v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.21099v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告在检索系统和 LLM 生成结果中的可见性优化，属于核心的 Ads/Search 应用场景，且提出了具体的重写排序方法。",
+    "translation": "Rewrite-to-Rank：通过检索感知的文本重写优化广告可见性",
+    "summary_zh": "提出一种基于 LLM 的广告文本重写框架，通过平衡语义相关性与内容忠实度，在不修改检索模型的前提下提升广告在检索排序及 LLM 生成回复中的曝光率。",
+    "key_points": [
+      "提出一种基于 LLM 的广告文本重写框架，通过平衡语义相关性与内容忠实度，在不修改检索模型的前提下提升广告在检索排序及 LLM 生成回复中的曝光率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02255v1",
+    "title": "Listwise Preference Alignment Optimization for Tail Item Recommendation",
+    "authors": [
+      "Zihao Li",
+      "Chao Yang",
+      "Tong Zhang",
+      "Yakun Chen",
+      "Xianzhi Wang",
+      "Guandong Xu",
+      "Daoyi Dong"
+    ],
+    "summary": "Preference alignment has achieved greater success on Large Language Models (LLMs) and drawn broad interest in recommendation research. Existing preference alignment methods for recommendation either require explicit reward modeling or only support pairwise preference comparison. The former directly increases substantial computational costs, while the latter hinders training efficiency on negative samples. Moreover, no existing effort has explored preference alignment solutions for tail-item recommendation. To bridge the above gaps, we propose LPO4Rec, which extends the Bradley-Terry model from pairwise comparison to listwise comparison, to improve the efficiency of model training. Specifically, we derive a closed form optimal policy to enable more efficient and effective training without explicit reward modeling. We also present an adaptive negative sampling and reweighting strategy to prioritize tail items during optimization and enhance performance in tail-item recommendations. Besides, we theoretically prove that optimizing the listwise preference optimization (LPO) loss is equivalent to maximizing the upper bound of the optimal reward. Our experiments on three public datasets show that our method outperforms 10 baselines by a large margin, achieving up to 50% performance improvement while reducing 17.9% GPU memory usage when compared with direct preference optimization (DPO) in tail-item recommendation. Our code is available at https://github.com/Yuhanleeee/LPO4Rec.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-07-03T03:08:23Z",
+    "updated": "2025-07-03T03:08:23Z",
+    "url": "http://arxiv.org/abs/2507.02255v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02255v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的长尾物品推荐问题，提出了一种基于列表式偏好对齐优化的新方法，属于核心推荐算法创新。",
+    "translation": "面向长尾物品推荐的列表式偏好对齐优化",
+    "summary_zh": "提出 LPO4Rec 方法，将 Bradley-Terry 模型扩展为列表式比较以消除显式奖励建模，并结合自适应负采样策略高效优化长尾物品推荐。",
+    "key_points": [
+      "提出 LPO4Rec 方法，将 Bradley-Terry 模型扩展为列表式比较以消除显式奖励建模，并结合自适应负采样策略高效优化长尾物品推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02353v1",
+    "title": "OMS: On-the-fly, Multi-Objective, Self-Reflective Ad Keyword Generation via LLM Agent",
+    "authors": [
+      "Bowen Chen",
+      "Zhao Wang",
+      "Shingo Takamatsu"
+    ],
+    "summary": "Keyword decision in Sponsored Search Advertising is critical to the success of ad campaigns. While LLM-based methods offer automated keyword generation, they face three major limitations: reliance on large-scale query-keyword pair data, lack of online multi-objective performance monitoring and optimization, and weak quality control in keyword selection. These issues hinder the agentic use of LLMs in fully automating keyword decisions by monitoring and reasoning over key performance indicators such as impressions, clicks, conversions, and CTA effectiveness. To overcome these challenges, we propose OMS, a keyword generation framework that is On-the-fly (requires no training data, monitors online performance, and adapts accordingly), Multi-objective (employs agentic reasoning to optimize keywords based on multiple performance metrics), and Self-reflective (agentically evaluates keyword quality). Experiments on benchmarks and real-world ad campaigns show that OMS outperforms existing methods; ablation and human evaluations confirm the effectiveness of each component and the quality of generated keywords.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-07-03T06:37:55Z",
+    "updated": "2025-07-03T06:37:55Z",
+    "url": "http://arxiv.org/abs/2507.02353v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02353v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对赞助搜索广告（Sponsored Search）中的核心关键词生成问题，利用 LLM Agent 解决在线多目标优化和自反思质量控制，属于 LLM 在搜索广告领域的直接高价值应用。",
+    "translation": "OMS：基于 LLM 智能体的即时、多目标、自反思广告关键词生成",
+    "summary_zh": "提出一种无需训练数据的 LLM 智能体框架，通过即时监控在线多目标性能指标并进行自反思推理，实现广告关键词的自动化生成与动态优化。",
+    "key_points": [
+      "提出一种无需训练数据的 LLM 智能体框架，通过即时监控在线多目标性能指标并进行自反思推理，实现广告关键词的自动化生成与动态优化"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02652v2",
+    "title": "HiRA: A Hierarchical Reasoning Framework for Decoupled Planning and Execution in Deep Search",
+    "authors": [
+      "Jiajie Jin",
+      "Xiaoxi Li",
+      "Guanting Dong",
+      "Yuyao Zhang",
+      "Yutao Zhu",
+      "Yang Zhao",
+      "Hongjin Qian",
+      "Zhicheng Dou"
+    ],
+    "summary": "Complex information needs in real-world search scenarios demand deep reasoning and knowledge synthesis across diverse sources, which traditional retrieval-augmented generation (RAG) pipelines struggle to address effectively. Current reasoning-based approaches suffer from a fundamental limitation: they use a single model to handle both high-level planning and detailed execution, leading to inefficient reasoning and limited scalability. In this paper, we introduce HiRA, a hierarchical framework that separates strategic planning from specialized execution. Our approach decomposes complex search tasks into focused subtasks, assigns each subtask to domain-specific agents equipped with external tools and reasoning capabilities, and coordinates the results through a structured integration mechanism. This separation prevents execution details from disrupting high-level reasoning while enabling the system to leverage specialized expertise for different types of information processing. Experiments on four complex, cross-modal deep search benchmarks demonstrate that HiRA significantly outperforms state-of-the-art RAG and agent-based systems. Our results show improvements in both answer quality and system efficiency, highlighting the effectiveness of decoupled planning and execution for multi-step information seeking tasks. Our code is available at https://github.com/ignorejjj/HiRA.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-07-03T14:18:08Z",
+    "updated": "2025-10-31T03:57:07Z",
+    "url": "http://arxiv.org/abs/2507.02652v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.02652v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对深度搜索场景提出分层推理框架，明确解决了复杂搜索任务中的规划与执行问题，属于搜索核心技术创新；虽涉及 Agent 和 LLM，但直接应用于搜索系统而非纯理论研究，故给予高分并加上中国公司加分。",
+    "translation": "HiRA：面向深度搜索中规划与执行解耦的分层推理框架",
+    "summary_zh": "提出一种分层框架 HiRA，通过将复杂搜索任务分解为子任务并分配给专用代理，实现战略规划与具体执行的解耦，以提升多步信息检索的效率和质量。",
+    "key_points": [
+      "提出一种分层框架 HiRA，通过将复杂搜索任务分解为子任务并分配给专用代理，实现战略规划与具体执行的解耦，以提升多步信息检索的效率和质量"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02643v1",
+    "title": "Calibrated Recommendations: Survey and Future Directions",
+    "authors": [
+      "Diego Corrêa da Silva",
+      "Dietmar Jannach"
+    ],
+    "summary": "The idea of calibrated recommendations is that the properties of the items that are suggested to users should match the distribution of their individual past preferences. Calibration techniques are therefore helpful to ensure that the recommendations provided to a user are not limited to a certain subset of the user's interests. Over the past few years, we have observed an increasing number of research works that use calibration for different purposes, including questions of diversity, biases, and fairness. In this work, we provide a survey on the recent developments in the area of calibrated recommendations. We both review existing technical approaches for calibration and provide an overview on empirical and analytical studies on the effectiveness of calibration for different use cases. Furthermore, we discuss limitations and common challenges when implementing calibration in practice.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-03T14:08:10Z",
+    "updated": "2025-07-03T14:08:10Z",
+    "url": "http://arxiv.org/abs/2507.02643v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02643v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "这是一篇关于推荐系统核心重排序技术（校准）的综述，直接解决多样性、偏差和公平性等实际推荐问题，属于明确的中高优先级 RecSys 研究。",
+    "translation": "校准推荐：综述与未来方向",
+    "summary_zh": "本文综述了校准推荐技术，旨在使推荐物品的属性分布匹配用户历史偏好分布，以解决推荐系统中的多样性、偏差及公平性问题。",
+    "key_points": [
+      "本文综述了校准推荐技术，旨在使推荐物品的属性分布匹配用户历史偏好分布，以解决推荐系统中的多样性、偏差及公平性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02244v2",
+    "title": "Order Acquisition Under Competitive Pressure: A Rapidly Adaptive Reinforcement Learning Approach for Ride-Hailing Subsidy Strategies",
+    "authors": [
+      "Fangzhou Shi",
+      "Xiaopeng Ke",
+      "Xinye Xiong",
+      "Kexin Meng",
+      "Chang Men",
+      "Zhengdan Zhu"
+    ],
+    "summary": "The proliferation of ride-hailing aggregator platforms presents significant growth opportunities for ride-service providers by increasing order volume and gross merchandise value (GMV). On most ride-hailing aggregator platforms, service providers that offer lower fares are ranked higher in listings and, consequently, are more likely to be selected by passengers. This competitive ranking mechanism creates a strong incentive for service providers to adopt coupon strategies that lower prices to secure a greater number of orders, as order volume directly influences their long-term viability and sustainability. Thus, designing an effective coupon strategy that can dynamically adapt to market fluctuations while optimizing order acquisition under budget constraints is a critical research challenge. However, existing studies in this area remain scarce.\n  To bridge this gap, we propose FCA-RL, a novel reinforcement learning-based subsidy strategy framework designed to rapidly adapt to competitors' pricing adjustments. Our approach integrates two key techniques: Fast Competition Adaptation (FCA), which enables swift responses to dynamic price changes, and Reinforced Lagrangian Adjustment (RLA), which ensures adherence to budget constraints while optimizing coupon decisions on new price landscape. Furthermore, we introduce RideGym, the first dedicated simulation environment tailored for ride-hailing aggregators, facilitating comprehensive evaluation and benchmarking of different pricing strategies without compromising real-world operational efficiency. Experimental results demonstrate that our proposed method consistently outperforms baseline approaches across diverse market conditions, highlighting its effectiveness in subsidy optimization for ride-hailing service providers.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-03T02:38:42Z",
+    "updated": "2025-07-04T03:27:45Z",
+    "url": "http://arxiv.org/abs/2507.02244v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.02244v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对网约车聚合平台的补贴策略，直接利用排名机制（ranking mechanism）优化订单获取，属于本地生活领域的搜索/推荐排序与决策应用；虽为纯 RL 方法但场景高度契合，且来自中国公司，故给予中高评分。",
+    "translation": "竞争压力下的订单获取：一种用于网约车补贴策略的快速自适应强化学习方法",
+    "summary_zh": "提出一种基于强化学习的补贴框架，通过快速竞争适应和拉格朗日调整机制，在预算约束下动态响应竞争对手定价以优化网约车平台的订单获取效率。",
+    "key_points": [
+      "提出一种基于强化学习的补贴框架，通过快速竞争适应和拉格朗日调整机制，在预算约束下动态响应竞争对手定价以优化网约车平台的订单获取效率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02282v1",
+    "title": "Content filtering methods for music recommendation: A review",
+    "authors": [
+      "Terence Zeng",
+      "Abhishek K. Umrawal"
+    ],
+    "summary": "Recommendation systems have become essential in modern music streaming platforms, shaping how users discover and engage with songs. One common approach in recommendation systems is collaborative filtering, which suggests content based on the preferences of users with similar listening patterns to the target user. However, this method is less effective on media where interactions are sparse. Music is one such medium, since the average user of a music streaming service will never listen to the vast majority of tracks. Due to this sparsity, there are several challenges that have to be addressed with other methods. This review examines the current state of research in addressing these challenges, with an emphasis on the role of content filtering in mitigating biases inherent in collaborative filtering approaches. We explore various methods of song classification for content filtering, including lyrical analysis using Large Language Models (LLMs) and audio signal processing techniques. Additionally, we discuss the potential conflicts between these different analysis methods and propose avenues for resolving such discrepancies.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-07-03T03:44:20Z",
+    "updated": "2025-07-03T03:44:20Z",
+    "url": "http://arxiv.org/abs/2507.02282v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02282v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "这是一篇直接针对音乐推荐系统的综述，重点讨论利用 LLM 分析歌词等内容过滤方法来解决稀疏性问题，属于明确的多模态推荐应用。",
+    "translation": "音乐推荐中的内容过滤方法：综述",
+    "summary_zh": "本文综述了利用歌词大模型分析和音频信号处理等内容过滤技术，以解决音乐推荐中的数据稀疏性及协同过滤偏差问题。",
+    "key_points": [
+      "本文综述了利用歌词大模型分析和音频信号处理等内容过滤技术，以解决音乐推荐中的数据稀疏性及协同过滤偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.03036v1",
+    "title": "Adaptive Cubic Regularized Second-Order Latent Factor Analysis Model",
+    "authors": [
+      "Jialiang Wang",
+      "Junzhou Wang",
+      "Xin Liao"
+    ],
+    "summary": "High-dimensional and incomplete (HDI) data, characterized by massive node interactions, have become ubiquitous across various real-world applications. Second-order latent factor models have shown promising performance in modeling this type of data. Nevertheless, due to the bilinear and non-convex nature of the SLF model's objective function, incorporating a damping term into the Hessian approximation and carefully tuning associated parameters become essential. To overcome these challenges, we propose a new approach in this study, named the adaptive cubic regularized second-order latent factor analysis (ACRSLF) model. The proposed ACRSLF adopts the two-fold ideas: 1) self-tuning cubic regularization that dynamically mitigates non-convex optimization instabilities; 2) multi-Hessian-vector product evaluation during conjugate gradient iterations for precise second-order information assimilation. Comprehensive experiments on two industrial HDI datasets demonstrate that the ACRSLF converges faster and achieves higher representation accuracy than the advancing optimizer-based LFA models.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-07-03T03:15:54Z",
+    "updated": "2025-07-03T03:15:54Z",
+    "url": "http://arxiv.org/abs/2507.03036v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.03036v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文提出的二阶隐因子分析模型直接针对高维稀疏数据建模，这是推荐系统评分预测的核心问题，但属于传统深度学习优化方法而非 LLM 应用。",
+    "translation": "自适应立方正则化二阶隐因子分析模型",
+    "summary_zh": "提出一种自适应立方正则化二阶隐因子分析模型，通过自调节立方正则化和多 Hessian-向量积评估，解决非凸优化不稳定性并精确融合二阶信息以提升隐因子表示能力。",
+    "key_points": [
+      "提出一种自适应立方正则化二阶隐因子分析模型，通过自调节立方正则化和多 Hessian-向量积评估，解决非凸优化不稳定性并精确融合二阶信息以提升隐因子表示能力"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02248v1",
+    "title": "Transfer Learning for Matrix Completion",
+    "authors": [
+      "Dali Liu",
+      "Haolei Weng"
+    ],
+    "summary": "In this paper, we explore the knowledge transfer under the setting of matrix completion, which aims to enhance the estimation of a low-rank target matrix with auxiliary data available. We propose a transfer learning procedure given prior information on which source datasets are favorable. We study its convergence rates and prove its minimax optimality. Our analysis reveals that with the source matrices close enough to the target matrix, out method outperforms the traditional method using the single target data. In particular, we leverage the advanced sharp concentration inequalities introduced in \\cite{brailovskaya2024universality} to eliminate a logarithmic factor in the convergence rate, which is crucial for proving the minimax optimality. When the relevance of source datasets is unknown, we develop an efficient detection procedure to identify informative sources and establish its selection consistency. Simulations and real data analysis are conducted to support the validity of our methodology.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2025-07-03T02:43:40Z",
+    "updated": "2025-07-03T02:43:40Z",
+    "url": "http://arxiv.org/abs/2507.02248v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02248v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "MiniMax"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 5,
+    "reasoning": "该文研究矩阵补全中的迁移学习理论，虽矩阵补全是推荐系统的基础技术，但本文侧重统计收敛性证明而非直接解决推荐业务问题；因来自中国公司额外加 1 分。",
+    "translation": "矩阵补全中的迁移学习研究",
+    "summary_zh": "提出一种利用辅助数据增强低秩目标矩阵估计的迁移学习框架，包含源数据集选择检测机制并证明了其极小极大最优收敛率。",
+    "key_points": [
+      "提出一种利用辅助数据增强低秩目标矩阵估计的迁移学习框架，包含源数据集选择检测机制并证明了其极小极大最优收敛率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02801v2",
+    "title": "Learning to Coordinate Bidders in Non-Truthful Auctions",
+    "authors": [
+      "Hu Fu",
+      "Tao Lin"
+    ],
+    "summary": "In non-truthful auctions such as first-price and all-pay auctions, the independent strategic behaviors of bidders, with the corresponding Bayes-Nash equilibrium notion, are notoriously difficult to characterize and can cause undesirable outcomes. An alternative approach to achieve better outcomes in non-truthful auctions is to coordinate the bidders: let a mediator make incentive-compatible recommendations of correlated bidding strategies to the bidders, namely, implementing a Bayes correlated equilibrium (BCE). The implementation of BCE, however, requires knowledge of the distributions of bidders' private valuations, which is often unavailable. We initiate the study of the sample complexity of learning Bayes correlated equilibria in non-truthful auctions. We prove that the set of strategic-form BCEs in a large class of non-truthful auctions, including first-price and all-pay auctions, can be learned with a polynomial number $\\tilde O(\\frac{n}{\\varepsilon^2})$ of samples of bidders' values. This moderate number of samples demonstrates the statistical feasibility of learning to coordinate bidders. Our technique is a reduction to the problem of estimating bidders' expected utility from samples, combined with an analysis of the pseudo-dimension of the class of all monotone bidding strategies.",
+    "categories": [
+      "cs.GT",
+      "cs.LG",
+      "econ.TH"
+    ],
+    "published": "2025-07-03T17:03:14Z",
+    "updated": "2025-10-25T04:40:44Z",
+    "url": "http://arxiv.org/abs/2507.02801v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.02801v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文研究广告拍卖中的竞价协调机制，属于 Ads 系统的底层博弈论基础，但侧重于理论样本复杂度分析而非直接的推荐/排序模型创新，且非 LLM 应用。",
+    "translation": "在非真实拍卖中学习协调竞价者",
+    "summary_zh": "提出一种基于样本学习的方法，通过中介推荐相关竞价策略来实现非真实拍卖中的贝叶斯相关均衡，证明了在未知估值分布下学习该均衡的统计可行性。",
+    "key_points": [
+      "提出一种基于样本学习的方法，通过中介推荐相关竞价策略来实现非真实拍卖中的贝叶斯相关均衡，证明了在未知估值分布下学习该均衡的统计可行性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02762v1",
+    "title": "Contextual Online Pricing with (Biased) Offline Data",
+    "authors": [
+      "Yixuan Zhang",
+      "Ruihao Zhu",
+      "Qiaomin Xie"
+    ],
+    "summary": "We study contextual online pricing with biased offline data. For the scalar price elasticity case, we identify the instance-dependent quantity $δ^2$ that measures how far the offline data lies from the (unknown) online optimum. We show that the time length $T$, bias bound $V$, size $N$ and dispersion $λ_{\\min}(\\hatΣ)$ of the offline data, and $δ^2$ jointly determine the statistical complexity. An Optimism-in-the-Face-of-Uncertainty (OFU) policy achieves a minimax-optimal, instance-dependent regret bound $\\tilde{\\mathcal{O}}\\big(d\\sqrt{T} \\wedge (V^2T + \\frac{dT}{λ_{\\min}(\\hatΣ) + (N \\wedge T) δ^2})\\big)$. For general price elasticity, we establish a worst-case, minimax-optimal rate $\\tilde{\\mathcal{O}}\\big(d\\sqrt{T} \\wedge (V^2T + \\frac{dT }{λ_{\\min}(\\hatΣ)})\\big)$ and provide a generalized OFU algorithm that attains it. When the bias bound $V$ is unknown, we design a robust variant that always guarantees sub-linear regret and strictly improves on purely online methods whenever the exact bias is small. These results deliver the first tight regret guarantees for contextual pricing in the presence of biased offline data. Our techniques also transfer verbatim to stochastic linear bandits with biased offline data, yielding analogous bounds.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2025-07-03T16:21:49Z",
+    "updated": "2025-07-03T16:21:49Z",
+    "url": "http://arxiv.org/abs/2507.02762v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02762v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于动态定价与线性 Bandit 算法，虽在电商广告中有潜在应用，但属于通用强化学习/运筹优化研究，缺乏针对推荐或搜索核心链路（召回、排序等）的直接创新。",
+    "translation": "利用（有偏）离线数据进行上下文在线定价",
+    "summary_zh": "提出一种基于不确定性乐观原则（OFU）的鲁棒算法，通过量化离线数据偏差与分布分散度，在有偏离线数据辅助下实现上下文动态定价的最优遗憾界。",
+    "key_points": [
+      "提出一种基于不确定性乐观原则（OFU）的鲁棒算法，通过量化离线数据偏差与分布分散度，在有偏离线数据辅助下实现上下文动态定价的最优遗憾界"
+    ]
+  },
+  {
+    "arxiv_id": "2507.02715v1",
+    "title": "A Comprehensive Machine Learning Framework for Micromobility Demand Prediction",
+    "authors": [
+      "Omri Porat",
+      "Michael Fire",
+      "Eran Ben-Elia"
+    ],
+    "summary": "Dockless e-scooters, a key micromobility service, have emerged as eco-friendly and flexible urban transport alternatives. These services improve first and last-mile connectivity, reduce congestion and emissions, and complement public transport for short-distance travel. However, effective management of these services depends on accurate demand prediction, which is crucial for optimal fleet distribution and infrastructure planning. While previous studies have focused on analyzing spatial or temporal factors in isolation, this study introduces a framework that integrates spatial, temporal, and network dependencies for improved micromobility demand forecasting. This integration enhances accuracy while providing deeper insights into urban micromobility usage patterns. Our framework improves demand prediction accuracy by 27 to 49% over baseline models, demonstrating its effectiveness in capturing micromobility demand patterns. These findings support data-driven micromobility management, enabling optimized fleet distribution, cost reduction, and sustainable urban planning.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-03T15:31:10Z",
+    "updated": "2025-07-03T15:31:10Z",
+    "url": "http://arxiv.org/abs/2507.02715v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.02715v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯交通/城市规划领域的时空预测研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），不符合 RecSys/Search 应用场景。",
+    "translation": "一种用于微出行需求预测的综合机器学习框架",
+    "summary_zh": "提出一种整合空间、时间及网络依赖性的机器学习框架，旨在提升无桩电动滑板车等微出行服务的需求预测精度以优化车队调度。",
+    "key_points": [
+      "提出一种整合空间、时间及网络依赖性的机器学习框架，旨在提升无桩电动滑板车等微出行服务的需求预测精度以优化车队调度"
+    ]
+  }
+]

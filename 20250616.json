@@ -1,0 +1,445 @@
+[
+  {
+    "arxiv_id": "2506.13695v4",
+    "title": "OneRec Technical Report",
+    "authors": [
+      "Guorui Zhou",
+      "Jiaxin Deng",
+      "Jinghao Zhang",
+      "Kuo Cai",
+      "Lejian Ren",
+      "Qiang Luo",
+      "Qianqian Wang",
+      "Qigen Hu",
+      "Rui Huang",
+      "Shiyao Wang",
+      "Weifeng Ding",
+      "Wuchao Li",
+      "Xinchen Luo",
+      "Xingmei Wang",
+      "Zexuan Cheng",
+      "Zixing Zhang",
+      "Bin Zhang",
+      "Boxuan Wang",
+      "Chaoyi Ma",
+      "Chengru Song",
+      "Chenhui Wang",
+      "Di Wang",
+      "Dongxue Meng",
+      "Fan Yang",
+      "Fangyu Zhang",
+      "Feng Jiang",
+      "Fuxing Zhang",
+      "Gang Wang",
+      "Guowang Zhang",
+      "Han Li",
+      "Hengrui Hu",
+      "Hezheng Lin",
+      "Hongtao Cheng",
+      "Hongyang Cao",
+      "Huanjie Wang",
+      "Jiaming Huang",
+      "Jiapeng Chen",
+      "Jiaqiang Liu",
+      "Jinghui Jia",
+      "Kun Gai",
+      "Lantao Hu",
+      "Liang Zeng",
+      "Liao Yu",
+      "Qiang Wang",
+      "Qidong Zhou",
+      "Shengzhe Wang",
+      "Shihui He",
+      "Shuang Yang",
+      "Shujie Yang",
+      "Sui Huang",
+      "Tao Wu",
+      "Tiantian He",
+      "Tingting Gao",
+      "Wei Yuan",
+      "Xiao Liang",
+      "Xiaoxiao Xu",
+      "Xugang Liu",
+      "Yan Wang",
+      "Yi Wang",
+      "Yiwu Liu",
+      "Yue Song",
+      "Yufei Zhang",
+      "Yunfan Wu",
+      "Yunfeng Zhao",
+      "Zhanyu Liu"
+    ],
+    "summary": "Recommender systems have been widely used in various large-scale user-oriented platforms for many years. However, compared to the rapid developments in the AI community, recommendation systems have not achieved a breakthrough in recent years. For instance, they still rely on a multi-stage cascaded architecture rather than an end-to-end approach, leading to computational fragmentation and optimization inconsistencies, and hindering the effective application of key breakthrough technologies from the AI community in recommendation scenarios.\n  To address these issues, we propose OneRec, which reshapes the recommendation system through an end-to-end generative approach and achieves promising results. Firstly, we have enhanced the computational FLOPs of the current recommendation model by 10 $\\times$ and have identified the scaling laws for recommendations within certain boundaries. Secondly, reinforcement learning techniques, previously difficult to apply for optimizing recommendations, show significant potential in this framework. Lastly, through infrastructure optimizations, we have achieved 23.7% and 28.8% Model FLOPs Utilization (MFU) on flagship GPUs during training and inference, respectively, aligning closely with the LLM community. This architecture significantly reduces communication and storage overhead, resulting in operating expense that is only 10.6% of traditional recommendation pipelines. Deployed in Kuaishou/Kuaishou Lite APP, it handles 25% of total queries per second, enhancing overall App Stay Time by 0.54% and 1.24%, respectively. Additionally, we have observed significant increases in metrics such as 7-day Lifetime, which is a crucial indicator of recommendation experience. We also provide practical lessons and insights derived from developing, optimizing, and maintaining a production-scale recommendation system with significant real-world impact.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-16T16:58:55Z",
+    "updated": "2025-09-16T09:35:09Z",
+    "url": "http://arxiv.org/abs/2506.13695v4",
+    "pdf_url": "http://arxiv.org/pdf/2506.13695v4.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文由快手提出，直接针对推荐系统架构进行端到端生成式重构，完美契合核心领域进展及中国社交平台背景，非纯 LLM 研究。",
+    "translation": "OneRec 技术报告：基于端到端生成式方法的重构推荐系统",
+    "summary_zh": "本文提出 OneRec 架构，通过端到端生成式方法取代传统多阶段级联流程，并结合强化学习与基础设施优化，解决了推荐系统中的计算碎片化与优化不一致问题。",
+    "key_points": [
+      "本文提出 OneRec 架构，通过端到端生成式方法取代传统多阶段级联流程，并结合强化学习与基础设施优化，解决了推荐系统中的计算碎片化与优化不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.21579v1",
+    "title": "LLM2Rec: Large Language Models Are Powerful Embedding Models for Sequential Recommendation",
+    "authors": [
+      "Yingzhi He",
+      "Xiaohao Liu",
+      "An Zhang",
+      "Yunshan Ma",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Sequential recommendation aims to predict users' future interactions by modeling collaborative filtering (CF) signals from historical behaviors of similar users or items. Traditional sequential recommenders predominantly rely on ID-based embeddings, which capture CF signals through high-order co-occurrence patterns. However, these embeddings depend solely on past interactions, lacking transferable knowledge to generalize to unseen domains. Recent advances in large language models (LLMs) have motivated text-based recommendation approaches that derive item representations from textual descriptions. While these methods enhance generalization, they fail to encode CF signals-i.e., latent item correlations and preference patterns-crucial for effective recommendation. We argue that an ideal embedding model should seamlessly integrate CF signals with rich semantic representations to improve both in-domain and out-of-domain recommendation performance.\n  To this end, we propose LLM2Rec, a novel embedding model tailored for sequential recommendation, integrating the rich semantic understanding of LLMs with CF awareness. Our approach follows a two-stage training framework: (1) Collaborative Supervised Fine-tuning, which adapts LLMs to infer item relationships based on historical interactions, and (2) Item-level Embedding Modeling, which refines these specialized LLMs into structured item embedding models that encode both semantic and collaborative information. Extensive experiments on real-world datasets demonstrate that LLM2Rec effectively improves recommendation quality across both in-domain and out-of-domain settings. Our findings highlight the potential of leveraging LLMs to build more robust, generalizable embedding models for sequential recommendation. Our codes are available at https://github.com/HappyPointer/LLM2Rec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-06-16T13:27:06Z",
+    "updated": "2025-06-16T13:27:06Z",
+    "url": "http://arxiv.org/abs/2506.21579v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.21579v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐任务，提出利用 LLM 构建融合协同过滤信号与语义信息的嵌入模型，完美契合'LLM for RecSys'的高优先级标准；叠加中国公司背景额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "LLM2Rec：大型语言模型作为序列推荐的强大嵌入模型",
+    "summary_zh": "提出一种两阶段训练框架，通过协同监督微调和项级嵌入建模，将大语言模型的语义理解能力与协同过滤信号融合，以构建适用于域内及跨域场景的通用序列推荐嵌入模型。",
+    "key_points": [
+      "提出一种两阶段训练框架，通过协同监督微调和项级嵌入建模，将大语言模型的语义理解能力与协同过滤信号融合，以构建适用于域内及跨域场景的通用序列推荐嵌入模型"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13315v2",
+    "title": "Gated Rotary-Enhanced Linear Attention for Long-term Sequential Recommendation",
+    "authors": [
+      "Juntao Hu",
+      "Wei Zhou",
+      "Huayi Shen",
+      "Xiao Du",
+      "Jie Liao",
+      "Min Gao",
+      "Jun Zeng",
+      "Junhao Wen"
+    ],
+    "summary": "In Sequential Recommendation Systems (SRSs), Transformer models have demonstrated remarkable performance but face computational and memory cost challenges, especially when modeling long-term user behavior sequences. Due to its quadratic complexity, the dot-product attention mechanism in Transformers becomes expensive for processing long sequences. By approximating the dot-product attention using elaborate mapping functions, linear attention provides a more efficient option with linear complexity. However, existing linear attention methods face three limitations: 1) they often use learnable position encodings, which incur extra computational costs in long-term sequence scenarios, 2) they may not sufficiently account for user's fine-grained local preferences (short-lived burst of interest), and 3) they try to capture some temporary activities, but often confuse these with stable and long-term interests. This can result in unclear or less effective recommendations. To remedy these drawbacks, we propose a long-term sequential Recommendation model with Gated Rotary Enhanced Linear Attention (RecGRELA). Specifically, we first propose a Rotary-Enhanced Linear Attention (RELA) module to efficiently model long-range dependency within the user's historical information using rotary position encodings. Then, we introduce a local short operation to add the local preferences of interactions and show the theoretical insight. We further introduce a SiLU-based Gated mechanism for RELA (GRELA) to help the model tell if a user behavior shows a short-term, local interest or a real change in their long-term tastes. Experimental results on four public benchmark datasets show that our RecGRELA achieves state-of-the-art performance compared with existing SRSs based on Recurrent Neural Networks, Transformer, and Mamba while keeping low memory overhead.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-16T09:56:10Z",
+    "updated": "2025-11-02T13:29:58Z",
+    "url": "http://arxiv.org/abs/2506.13315v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.13315v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对长序列推荐系统中的计算效率与兴趣解耦问题提出新架构，属于核心推荐领域的高优先级创新；且来自中国公司，按规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "用于长序列推荐的门控旋转增强线性注意力机制",
+    "summary_zh": "提出一种结合旋转位置编码线性注意力与门控机制的模型，旨在高效建模长程依赖并区分用户的短期局部偏好与长期稳定兴趣。",
+    "key_points": [
+      "提出一种结合旋转位置编码线性注意力与门控机制的模型，旨在高效建模长程依赖并区分用户的短期局部偏好与长期稳定兴趣"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13229v3",
+    "title": "IGD: Token Decisiveness Modeling via Information Gain in LLMs for Personalized Recommendation",
+    "authors": [
+      "Zijie Lin",
+      "Yang Zhang",
+      "Xiaoyan Zhao",
+      "Fengbin Zhu",
+      "Fuli Feng",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Large Language Models (LLMs) have shown strong potential for recommendation by framing item prediction as a token-by-token language generation task. However, existing methods treat all item tokens equally, simply pursuing likelihood maximization during both optimization and decoding. This overlooks crucial token-level differences in decisiveness-many tokens contribute little to item discrimination yet can dominate optimization or decoding. To quantify token decisiveness, we propose a novel perspective that models item generation as a decision process, measuring token decisiveness by the Information Gain (IG) each token provides in reducing uncertainty about the generated item. Our empirical analysis reveals that most tokens have low IG but often correspond to high logits, disproportionately influencing training loss and decoding, which may impair model performance. Building on these insights, we introduce an Information Gain-based Decisiveness-aware Token handling (IGD) strategy that integrates token decisiveness into both tuning and decoding. Specifically, IGD downweights low-IG tokens during tuning and rebalances decoding to emphasize tokens with high IG. In this way, IGD moves beyond pure likelihood maximization, effectively prioritizing high-decisiveness tokens. Extensive experiments on four benchmark datasets with two LLM backbones demonstrate that IGD consistently improves recommendation accuracy, achieving significant gains on widely used ranking metrics compared to strong baselines.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-06-16T08:28:19Z",
+    "updated": "2025-10-30T08:26:57Z",
+    "url": "http://arxiv.org/abs/2506.13229v3",
+    "pdf_url": "http://arxiv.org/pdf/2506.13229v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 在个性化推荐中的应用，提出了解决现有方法平等对待所有 token 导致性能受损的具体策略，属于 LLM for RecSys 的核心创新。",
+    "translation": "IGD：基于信息增益的 LLM Token 决定性建模用于个性化推荐",
+    "summary_zh": "该论文提出将物品生成视为决策过程，利用信息增益量化 Token 的决定性，并在训练和解码阶段分别对低决定性 Token 进行降权和重平衡，以优化 LLM 推荐效果。",
+    "key_points": [
+      "该论文提出将物品生成视为决策过程，利用信息增益量化 Token 的决定性，并在训练和解码阶段分别对低决定性 Token 进行降权和重平衡，以优化 LLM 推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13021v1",
+    "title": "C-TLSAN: Content-Enhanced Time-Aware Long- and Short-Term Attention Network for Personalized Recommendation",
+    "authors": [
+      "Siqi Liang",
+      "Yudi Zhang",
+      "Yubo Wang"
+    ],
+    "summary": "Sequential recommender systems aim to model users' evolving preferences by capturing patterns in their historical interactions. Recent advances in this area have leveraged deep neural networks and attention mechanisms to effectively represent sequential behaviors and time-sensitive interests. In this work, we propose C-TLSAN (Content-Enhanced Time-Aware Long- and Short-Term Attention Network), an extension of the TLSAN architecture that jointly models long- and short-term user preferences while incorporating semantic content associated with items, such as product descriptions.\n  C-TLSAN enriches the recommendation pipeline by embedding textual content linked to users' historical interactions directly into both long-term and short-term attention layers. This allows the model to learn from both behavioral patterns and rich item content, enhancing user and item representations across temporal dimensions. By fusing sequential signals with textual semantics, our approach improves the expressiveness and personalization capacity of recommendation systems.\n  We conduct extensive experiments on large-scale Amazon datasets, benchmarking C-TLSAN against state-of-the-art baselines, including recent sequential recommenders based on Large Language Models (LLMs), which represent interaction history and predictions in text form. Empirical results demonstrate that C-TLSAN consistently outperforms strong baselines in next-item prediction tasks. Notably, it improves AUC by 1.66%, Recall@10 by 93.99%, and Precision@10 by 94.80% on average over the best-performing baseline (TLSAN) across 10 Amazon product categories. These results highlight the value of integrating content-aware enhancements into temporal modeling frameworks for sequential recommendation. Our code is available at https://github.com/booml247/cTLSAN.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-06-16T01:16:26Z",
+    "updated": "2025-06-16T01:16:26Z",
+    "url": "http://arxiv.org/abs/2506.13021v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.13021v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐系统，提出融合内容语义与长短期时间注意力的新架构，属于核心推荐领域创新；虽提及 LLM 基线但非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "C-TLSAN：用于个性化推荐的内容增强型时间感知长短期注意力网络",
+    "summary_zh": "提出 C-TLSAN 模型，通过在长短期注意力层中直接嵌入物品文本内容，联合建模用户行为序列模式与语义信息以增强时序推荐表示。",
+    "key_points": [
+      "提出 C-TLSAN 模型，通过在长短期注意力层中直接嵌入物品文本内容，联合建模用户行为序列模式与语义信息以增强时序推荐表示"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13409v1",
+    "title": "Beyond One-Size-Fits-All: A Study of Neural and Behavioural Variability Across Different Recommendation Categories",
+    "authors": [
+      "Georgios Koutroumpas",
+      "Sebastian Idesis",
+      "Mireia Masias Bruns",
+      "Carlos Segura",
+      "Joemon M. Jose",
+      "Sergi Abadal",
+      "Ioannis Arapakis"
+    ],
+    "summary": "Traditionally, Recommender Systems (RS) have primarily measured performance based on the accuracy and relevance of their recommendations. However, this algorithmic-centric approach overlooks how different types of recommendations impact user engagement and shape the overall quality of experience. In this paper, we shift the focus to the user and address for the first time the challenge of decoding the neural and behavioural variability across distinct recommendation categories, considering more than just relevance. Specifically, we conducted a controlled study using a comprehensive e-commerce dataset containing various recommendation types, and collected Electroencephalography and behavioural data. We analysed both neural and behavioural responses to recommendations that were categorised as Exact, Substitute, Complement, or Irrelevant products within search query results. Our findings offer novel insights into user preferences and decision-making processes, revealing meaningful relationships between behavioural and neural patterns for each category, but also indicate inter-subject variability.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-16T12:23:17Z",
+    "updated": "2025-06-16T12:23:17Z",
+    "url": "http://arxiv.org/abs/2506.13409v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.13409v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对电商搜索推荐场景，通过神经科学（EEG）和行为数据深入分析不同推荐类别对用户体验的影响，属于用户建模和体验优化的核心研究。",
+    "translation": "超越一刀切：不同推荐类别下的神经与行为变异性研究",
+    "summary_zh": "本文结合脑电图与行为数据，揭示了用户在搜索场景中面对精确、替代、互补及无关商品推荐时的神经响应差异与决策机制。",
+    "key_points": [
+      "本文结合脑电图与行为数据，揭示了用户在搜索场景中面对精确、替代、互补及无关商品推荐时的神经响应差异与决策机制"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13144v2",
+    "title": "EnhanceGraph: A Continuously Enhanced Graph-based Index for High-dimensional Approximate Nearest Neighbor Search",
+    "authors": [
+      "Xiaoyao Zhong",
+      "Jiabao Jin",
+      "Peng Cheng",
+      "Mingyu Yang",
+      "Haoyang Li",
+      "Zhitao Shen",
+      "Heng Tao Shen",
+      "Jingkuan Song"
+    ],
+    "summary": "Recently, Approximate Nearest Neighbor Search in high-dimensional vector spaces has garnered considerable attention due to the rapid advancement of deep learning techniques. We observed that a substantial amount of search and construction logs are generated throughout the lifespan of a graph-based index. However, these two types of valuable logs are not fully exploited due to the static nature of existing indexes. We present the EnhanceGraph framework, which integrates two types of logs into a novel structure called a conjugate graph. The conjugate graph is then used to improve search quality. Through theoretical analyses and observations of the limitations of graph-based indexes, we propose several optimization methods. For the search logs, the conjugate graph stores the edges from local optima to global optima to enhance routing to the nearest neighbor. For the construction logs, the conjugate graph stores the pruned edges from the proximity graph to enhance retrieving of k nearest neighbors. Our experimental results on several public and real-world industrial datasets show that EnhanceGraph significantly improves search accuracy with the greatest improvement on recall from 41.74% to 93.42%, but does not sacrifices search efficiency. In addition, our EnhanceGraph algorithm has been integrated into Ant Group's open-source vector library, VSAG.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2025-06-16T06:57:33Z",
+    "updated": "2025-06-23T11:34:25Z",
+    "url": "http://arxiv.org/abs/2506.13144v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.13144v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "1Tongji University, Shanghai, China; 2Ant Group, Shanghai, China; 3HKUST (GZ), Guangzhou, China; 4PolyU, Hong Kong SAR, China"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种利用搜索和构建日志持续优化图索引的方法，直接提升了高维向量检索（召回阶段）的效率和精度，属于搜索系统的核心基础设施创新；虽非纯 LLM 研究，但对向量数据库和检索系统有明确且重要的应用价值。",
+    "translation": "EnhanceGraph：一种用于高维近似最近邻搜索的持续增强型图索引",
+    "summary_zh": "该论文提出 EnhanceGraph 框架，通过构建共轭图结构整合搜索与构建日志，利用局部到全局的最优路径及剪枝边信息，在不牺牲效率的前提下显著优化图索引的检索质量。",
+    "key_points": [
+      "该论文提出 EnhanceGraph 框架，通过构建共轭图结构整合搜索与构建日志，利用局部到全局的最优路径及剪枝边信息，在不牺牲效率的前提下显著优化图索引的检索质量"
+    ]
+  },
+  {
+    "arxiv_id": "2506.21581v1",
+    "title": "Evaluating the Robustness of Dense Retrievers in Interdisciplinary Domains",
+    "authors": [
+      "Sarthak Chaturvedi",
+      "Anurag Acharya",
+      "Rounak Meyur",
+      "Koby Hayashi",
+      "Sai Munikoti",
+      "Sameera Horawalavithana"
+    ],
+    "summary": "Evaluation benchmark characteristics may distort the true benefits of domain adaptation in retrieval models. This creates misleading assessments that influence deployment decisions in specialized domains. We show that two benchmarks with drastically different features such as topic diversity, boundary overlap, and semantic complexity can influence the perceived benefits of fine-tuning. Using environmental regulatory document retrieval as a case study, we fine-tune ColBERTv2 model on Environmental Impact Statements (EIS) from federal agencies. We evaluate these models across two benchmarks with different semantic structures. Our findings reveal that identical domain adaptation approaches show very different perceived benefits depending on evaluation methodology. On one benchmark, with clearly separated topic boundaries, domain adaptation shows small improvements (maximum 0.61% NDCG gain). However, on the other benchmark with overlapping semantic structures, the same models demonstrate large improvements (up to 2.22% NDCG gain), a 3.6-fold difference in the performance benefit. We compare these benchmarks through topic diversity metrics, finding that the higher-performing benchmark shows 11% higher average cosine distances between contexts and 23% lower silhouette scores, directly contributing to the observed performance difference. These results demonstrate that benchmark selection strongly determines assessments of retrieval system effectiveness in specialized domains. Evaluation frameworks with well-separated topics regularly underestimate domain adaptation benefits, while those with overlapping semantic boundaries reveal improvements that better reflect real-world regulatory document complexity. Our findings have important implications for developing and deploying AI systems for interdisciplinary domains that integrate multiple topics.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-06-16T23:54:08Z",
+    "updated": "2025-06-16T23:54:08Z",
+    "url": "http://arxiv.org/abs/2506.21581v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.21581v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦检索模型在特定领域的评估方法论，虽属搜索核心环节但偏向评测分析而非架构创新；因涉及中国公司研究按规则额外 +1 分。",
+    "translation": "跨学科领域中稠密检索器的鲁棒性评估",
+    "summary_zh": "本文提出基准测试的特征（如主题多样性和语义边界重叠）会显著扭曲对检索模型领域自适应效果的评估，揭示了评估方法选择对判断系统有效性的决定性影响。",
+    "key_points": [
+      "本文提出基准测试的特征（如主题多样性和语义边界重叠）会显著扭曲对检索模型领域自适应效果的评估，揭示了评估方法选择对判断系统有效性的决定性影响"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13163v2",
+    "title": "Efficient Algorithms for Logistic Contextual Slate Bandits with Bandit Feedback",
+    "authors": [
+      "Tanmay Goyal",
+      "Gaurav Sinha"
+    ],
+    "summary": "We study the Logistic Contextual Slate Bandit problem, where, at each round, an agent selects a slate of $N$ items from an exponentially large set (of size $2^{Ω(N)}$) of candidate slates provided by the environment. A single binary reward, determined by a logistic model, is observed for the chosen slate. Our objective is to develop algorithms that maximize cumulative reward over $T$ rounds while maintaining low per-round computational costs. We propose two algorithms, Slate-GLM-OFU and Slate-GLM-TS, that accomplish this goal. These algorithms achieve $N^{O(1)}$ per-round time complexity via local planning (independent slot selections), and low regret through global learning (joint parameter estimation). We provide theoretical and empirical evidence supporting these claims. Under a well-studied diversity assumption, we prove that Slate-GLM-OFU incurs only $\\tilde{O}(\\sqrt{T})$ regret. Extensive experiments across a wide range of synthetic settings demonstrate that our algorithms consistently outperform state-of-the-art baselines, achieving both the lowest regret and the fastest runtime. Furthermore, we apply our algorithm to select in-context examples in prompts of Language Models for solving binary classification tasks such as sentiment analysis. Our approach achieves competitive test accuracy, making it a viable alternative in practical scenarios.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-06-16T07:19:02Z",
+    "updated": "2026-03-07T08:27:28Z",
+    "url": "http://arxiv.org/abs/2506.13163v2",
+    "pdf_url": "http://arxiv.org/pdf/2506.13163v2.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "MicrosoftResearchIndia MicrosoftResearchIndia"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文提出的 Slate Bandit 算法虽在理论上适用于推荐系统的重排序（Slate Optimization），但其核心实验验证仅针对 LLM 的 In-context Learning 示例选择，缺乏直接的 RecSys 业务场景验证，属于边缘相关。",
+    "translation": "基于带反馈的逻辑上下文片段老虎机的高效算法",
+    "summary_zh": "提出两种结合局部规划与全局学习的算法，旨在解决指数级候选空间下的逻辑上下文片段老虎机问题，以平衡累积奖励最大化与低计算成本。",
+    "key_points": [
+      "提出两种结合局部规划与全局学习的算法，旨在解决指数级候选空间下的逻辑上下文片段老虎机问题，以平衡累积奖励最大化与低计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13980v1",
+    "title": "ProfiLLM: An LLM-Based Framework for Implicit Profiling of Chatbot Users",
+    "authors": [
+      "Shahaf David",
+      "Yair Meidan",
+      "Ido Hersko",
+      "Daniel Varnovitzky",
+      "Dudu Mimran",
+      "Yuval Elovici",
+      "Asaf Shabtai"
+    ],
+    "summary": "Despite significant advancements in conversational AI, large language model (LLM)-powered chatbots often struggle with personalizing their responses according to individual user characteristics, such as technical expertise, learning style, and communication preferences. This lack of personalization is particularly problematic in specialized knowledge-intense domains like IT/cybersecurity (ITSec), where user knowledge levels vary widely. Existing approaches for chatbot personalization primarily rely on static user categories or explicit self-reported information, limiting their adaptability to an evolving perception of the user's proficiency, obtained in the course of ongoing interactions. In this paper, we propose ProfiLLM, a novel framework for implicit and dynamic user profiling through chatbot interactions. This framework consists of a taxonomy that can be adapted for use in diverse domains and an LLM-based method for user profiling in terms of the taxonomy. To demonstrate ProfiLLM's effectiveness, we apply it in the ITSec domain where troubleshooting interactions are used to infer chatbot users' technical proficiency. Specifically, we developed ProfiLLM[ITSec], an ITSec-adapted variant of ProfiLLM, and evaluated its performance on 1,760 human-like chatbot conversations from 263 synthetic users. Results show that ProfiLLM[ITSec] rapidly and accurately infers ITSec profiles, reducing the gap between actual and predicted scores by up to 55--65\\% after a single prompt, followed by minor fluctuations and further refinement. In addition to evaluating our new implicit and dynamic profiling framework, we also propose an LLM-based persona simulation methodology, a structured taxonomy for ITSec proficiency, our codebase, and a dataset of chatbot interactions to support future research.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-06-16T20:33:44Z",
+    "updated": "2025-06-16T20:33:44Z",
+    "url": "http://arxiv.org/abs/2506.13980v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.13980v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于聊天机器人的用户画像构建，属于纯 LLM 应用研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、信息流），与 RecSys/Search 产品直接相关性弱。",
+    "translation": "ProfiLLM：一种基于大语言模型的聊天机器人用户隐式画像框架",
+    "summary_zh": "提出一种基于大语言模型的框架，通过分析对话交互内容动态推断用户的专业技能水平和偏好，以实现聊天机器人的个性化响应。",
+    "key_points": [
+      "提出一种基于大语言模型的框架，通过分析对话交互内容动态推断用户的专业技能水平和偏好，以实现聊天机器人的个性化响应"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13607v1",
+    "title": "Tree-Based Text Retrieval via Hierarchical Clustering in RAGFrameworks: Application on Taiwanese Regulations",
+    "authors": [
+      "Chia-Heng Yu",
+      "Yen-Lung Tsai"
+    ],
+    "summary": "Traditional Retrieval-Augmented Generation (RAG) systems employ brute-force inner product search to retrieve the top-k most similar documents, then combined with the user query and passed to a language model. This allows the model to access external knowledge and reduce hallucinations. However, selecting an appropriate k value remains a significant challenge in practical applications: a small k may fail to retrieve sufficient information, while a large k can introduce excessive and irrelevant content. To address this, we propose a hierarchical clustering-based retrieval method that eliminates the need to predefine k. Our approach maintains the accuracy and relevance of system responses while adaptively selecting semantically relevant content. In the experiment stage, we applied our method to a Taiwanese legal dataset with expert-graded queries. The results show that our approach achieves superior performance in expert evaluations and maintains high precision while eliminating the need to predefine k, demonstrating improved accuracy and interpretability in legal text retrieval tasks. Our framework is simple to implement and easily integrates with existing RAG pipelines, making it a practical solution for real-world applications under limited resources.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-06-16T15:34:29Z",
+    "updated": "2025-06-16T15:34:29Z",
+    "url": "http://arxiv.org/abs/2506.13607v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.13607v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 应用研究，专注于法律领域的文本检索，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交、广告等），属于排除类别。",
+    "translation": "基于 RAG 框架中层次聚类的树状文本检索：在台湾法规中的应用",
+    "summary_zh": "提出一种基于层次聚类的检索方法，通过自适应选择语义相关内容来消除 RAG 系统中预定义 top-k 值的需求，以提升法律文本检索的准确性与可解释性。",
+    "key_points": [
+      "提出一种基于层次聚类的检索方法，通过自适应选择语义相关内容来消除 RAG 系统中预定义 top-k 值的需求，以提升法律文本检索的准确性与可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13380v4",
+    "title": "The Structure-Content Trade-off in Knowledge Graph Retrieval",
+    "authors": [
+      "Valentin Six",
+      "Evan Dufraisse",
+      "Gaël de Chalendar"
+    ],
+    "summary": "Large Language Models (LLMs) increasingly rely on knowledge graphs for factual reasoning, yet how retrieval design shapes their performance remains unclear. We examine how question decomposition changes the retrieved subgraph's content and structure. Using a hybrid retrieval function that controls the importance of initial question and subquestions, we show that subquestion-based retrieval improves content precision, but yields disjoint subgraphs, while question-based retrieval maintains structure at the cost of relevance. Optimal performance arises between these extremes, revealing that balancing retrieval content and structure is key to effective LLM reasoning over structured knowledge.",
+    "categories": [
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-06-16T11:44:28Z",
+    "updated": "2025-11-26T05:55:16Z",
+    "url": "http://arxiv.org/abs/2506.13380v4",
+    "pdf_url": "http://arxiv.org/pdf/2506.13380v4.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 与知识图谱检索的研究，专注于提升 LLM 的事实推理能力，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "知识图谱检索中的结构与内容权衡",
+    "summary_zh": "该研究探讨了在基于 LLM 的推理中，如何通过混合检索策略平衡子问题驱动的内容精度与原始问题驱动的结构完整性，以优化结构化知识上的推理效果。",
+    "key_points": [
+      "该研究探讨了在基于 LLM 的推理中，如何通过混合检索策略平衡子问题驱动的内容精度与原始问题驱动的结构完整性，以优化结构化知识上的推理效果"
+    ]
+  },
+  {
+    "arxiv_id": "2506.13188v1",
+    "title": "SPOT: Bridging Natural Language and Geospatial Search for Investigative Journalists",
+    "authors": [
+      "Lynn Khellaf",
+      "Ipek Baris Schlicht",
+      "Tilman Mirass",
+      "Julia Bayer",
+      "Tilman Wagner",
+      "Ruben Bouwmeester"
+    ],
+    "summary": "OpenStreetMap (OSM) is a vital resource for investigative journalists doing geolocation verification. However, existing tools to query OSM data such as Overpass Turbo require familiarity with complex query languages, creating barriers for non-technical users. We present SPOT, an open source natural language interface that makes OSM's rich, tag-based geographic data more accessible through intuitive scene descriptions. SPOT interprets user inputs as structured representations of geospatial object configurations using fine-tuned Large Language Models (LLMs), with results being displayed in an interactive map interface. While more general geospatial search tasks are conceivable, SPOT is specifically designed for use in investigative journalism, addressing real-world challenges such as hallucinations in model output, inconsistencies in OSM tagging, and the noisy nature of user input. It combines a novel synthetic data pipeline with a semantic bundling system to enable robust, accurate query generation. To our knowledge, SPOT is the first system to achieve reliable natural language access to OSM data at this level of accuracy. By lowering the technical barrier to geolocation verification, SPOT contributes a practical tool to the broader efforts to support fact-checking and combat disinformation.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published": "2025-06-16T07:55:44Z",
+    "updated": "2025-06-16T07:55:44Z",
+    "url": "http://arxiv.org/abs/2506.13188v1",
+    "pdf_url": "http://arxiv.org/pdf/2506.13188v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 应用研究，专注于调查新闻中的地理空间数据查询，与推荐系统或搜索引擎的核心业务（召回、排序、用户建模）无直接关联，因此给予低分。",
+    "translation": "SPOT：为调查记者搭建自然语言与地理空间搜索的桥梁",
+    "summary_zh": "该论文提出 SPOT 系统，利用微调的大语言模型将自然语言描述转化为结构化地理空间查询，以降低非技术用户访问 OpenStreetMap 数据的门槛。",
+    "key_points": [
+      "该论文提出 SPOT 系统，利用微调的大语言模型将自然语言描述转化为结构化地理空间查询，以降低非技术用户访问 OpenStreetMap 数据的门槛"
+    ]
+  }
+]

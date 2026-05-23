@@ -1,0 +1,350 @@
+[
+  {
+    "arxiv_id": "2603.14259",
+    "title": "GenRecEdit: Adapting Model Editing for Generative Recommendation with Cold-Start Items",
+    "authors": [
+      "Chenglei Shen",
+      "Teng Shi",
+      "Weijie Yu",
+      "Xiao Zhang",
+      "Jun Xu"
+    ],
+    "summary": "Generative recommendation (GR) has shown strong potential for sequential recommendation in an end-to-end generation paradigm. However, existing GR models suffer from severe cold-start collapse: their recommendation accuracy on cold-start items can drop to near zero. Current solutions typically rely on retraining with cold-start interactions, which is hindered by sparse feedback, high computational cost, and delayed updates, limiting practical utility in rapidly evolving recommendation catalogs. Inspired by model editing in NLP, which enables training-free knowledge injection into large language models, we explore how to bring this paradigm to generative recommendation. This, however, faces two key challenges: GR lacks the explicit subject-object binding common in natural language, making targeted edits difficult; and GR does not exhibit stable token co-occurrence patterns, making the injection of multi-token item representations unreliable. To address these challenges, we propose GenRecEdit, a model editing framework tailored for generative recommendation. GenRecEdit explicitly models the relationship between the full sequence context and next-token generation, adopts iterative token-level editing to inject multi-token item representations, and introduces a one-to-one trigger mechanism to reduce interference among multiple edits during inference. Extensive experiments on multiple datasets show that GenRecEdit substantially improves recommendation performance on cold-start items while preserving the model's original recommendation quality. Moreover, it achieves these gains using only about 9.5% of the training time required for retraining, enabling more efficient and frequent model updates.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2603.14259",
+    "pdf_url": "https://arxiv.org/pdf/2603.14259.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的冷启动核心难题，提出了一种基于模型编辑的高效更新框架，属于高优先级的 RecSys 核心架构创新，且来自中国公司。",
+    "translation": "GenRecEdit：适配模型编辑以解决生成式推荐中的冷启动物品问题",
+    "summary_zh": "本文提出 GenRecEdit 框架，通过显式建模序列上下文与下一 token 生成的关系、采用迭代级 token 编辑及一对一触发机制，实现了无需重训练即可向生成式推荐模型高效注入冷启动物品知识。",
+    "key_points": [
+      "本文提出 GenRecEdit 框架，通过显式建模序列上下文与下一 token 生成的关系、采用迭代级 token 编辑及一对一触发机制，实现了无需重训练即可向生成式推荐模型高效注入冷启动物品知识"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00499",
+    "title": "Time-Interval-Aware Disentangled Expert Modeling for Next-Basket Recommendation",
+    "authors": [
+      "Zhiying Deng",
+      "Yuan Fu",
+      "Usman Farooq",
+      "Ziwei Tian",
+      "Wei Liu",
+      "Jianjun Li"
+    ],
+    "summary": "Next-basket recommendation (NBR) is a type of recommendation that aims to predict a set of items a user will purchase based on their historical transaction basket sequences. It is governed by a dynamic interplay between two distinct user intents: habitual repurchase, which involves repeating past behaviors, and exploratory interest, which involves discovering new items. However, existing NBR methods generally suffer from two limitations: (1) they often entangle these conflicting motives within a single representation, causing habits to overshadow discovery, and (2) they rely on discrete sequential modeling that ignores continuous-time intervals and item-specific periodicities. In this paper, we propose a novel solution named Time-Interval Disentangled Experts (TIDE) to address these challenges. TIDE incorporates a Hawkes-enhanced Fourier Time Encoding to capture item-specific temporal periodicities and dynamic decay. To decouple user intentions, TIDE utilizes a dual-expert architecture that integrates a Habit Expert for recurring needs and a Pattern-Guided Exploration Expert for discovery. Combined with an item-aware gating mechanism, TIDE adaptively balances repurchase and exploration. Extensive experiments on four diverse real-world datasets demonstrate that TIDE consistently outperforms representative state-of-the-art NBR methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00499",
+    "pdf_url": "https://arxiv.org/pdf/2605.00499.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的核心场景（下一篮推荐），提出了结合时间间隔感知与意图解耦的创新架构，且来自中国公司，完全符合高优先级标准。",
+    "translation": "面向下一篮推荐的时间间隔感知解耦专家建模",
+    "summary_zh": "提出一种双专家架构，利用霍克斯增强的傅里叶时间编码捕捉周期性，将用户的习惯性复购与探索性兴趣解耦，以自适应平衡推荐结果。",
+    "key_points": [
+      "提出一种双专家架构，利用霍克斯增强的傅里叶时间编码捕捉周期性，将用户的习惯性复购与探索性兴趣解耦，以自适应平衡推荐结果"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00327",
+    "title": "DynamicPO: Dynamic Preference Optimization for Recommendation",
+    "authors": [
+      "Xingyu Hu",
+      "Kai Zhang",
+      "Jiancan Wu",
+      "Shuli Wang",
+      "Chi Wang",
+      "Wenshuai Chen",
+      "Yinhua Zhu",
+      "Haitao Wang",
+      "Xingxing Wang",
+      "Xiang Wang"
+    ],
+    "summary": "In large language model (LLM)-based recommendation systems, direct preference optimization (DPO) effectively aligns recommendations with user preferences, requiring multi-negative objective functions to leverage abundant implicit-feedback negatives and sharpen preference boundaries. However, our empirical analyses reveal a counterintuitive phenomenon, preference optimization collapse, where increasing the number of negative samples can lead to performance degradation despite a continuously decreasing training loss. We further theoretically demonstrate that this collapse arises from gradient suppression, caused by the dominance of easily discriminable negatives over boundary-critical negatives that truly define user preference boundaries. As a result, boundary-relevant signals are under-optimized, weakening the model's decision boundary. Motivated by these observations, we propose DynamicPO (Dynamic Preference Optimization), a lightweight and plug-and-play framework comprising two adaptive mechanisms: Dynamic Boundary Negative Selection, which identifies and prioritizes informative negatives near the model's decision boundary, and Dual-Margin Dynamic beta Adjustment, which calibrates optimization strength per sample according to boundary ambiguity. Extensive experiments on three public datasets show that DynamicPO effectively prevents optimization collapse and improves recommendation accuracy on multi-negative preference optimization methods, with negligible computational overhead. Our code and datasets are available at https://github.com/xingyuHuxingyu/DynamicPO.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00327",
+    "pdf_url": "https://arxiv.org/pdf/2605.00327.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出 DynamicPO 方法解决多负样本偏好优化中的梯度抑制问题，属于 LLM for RecSys 的核心应用。",
+    "translation": "DynamicPO：用于推荐的动态偏好优化",
+    "summary_zh": "针对 LLM 推荐系统中多负样本导致的偏好优化崩溃问题，提出一种通过动态选择边界负样本和调整优化强度的自适应框架，以强化决策边界并提升推荐准确性。",
+    "key_points": [
+      "针对 LLM 推荐系统中多负样本导致的偏好优化崩溃问题，提出一种通过动态选择边界负样本和调整优化强度的自适应框架，以强化决策边界并提升推荐准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00353",
+    "title": "Negative Data Mining for Contrastive Learning in Dense Retrieval at IKEA.com",
+    "authors": [
+      "Eva Agapaki",
+      "Amritpal Singh Gill"
+    ],
+    "summary": "Contrastive learning is a core component of modern retrieval systems, but its effectiveness heavily relies on the quality of negative examples used during training. In this work, we present a systematic approach to improving dense retrieval for IKEA product search through structured negative sampling strategies and scalable LLM-as-a-judge relevance evaluation.\n  Building on IKEA Search Engine's late-interaction retrieval architectures, we introduce two key contributions: (1) structured negative sampling strategies that leverage product hierarchical taxonomy and product attributes to generate semantically challenging negatives, and (2) a comprehensive LLM-based evaluation methodology for generating training data. Rather than relying on sparse human annotations or random sampling, our LLM-based evaluation system allocates a score for all candidate products against each query.\n  Our methodology achieves +2.6\\% average category accuracy on offline real user query experiments on the Canada market. However, our A/B test on long-tail queries showed no statistically significant differences in user engagement metrics between the improved and baseline models ($p > 0.05$). We trace this gap to user search behavior: 67\\% of popular searches exhibit zero-click rates above 50\\%, indicating that a substantial proportion of search sessions result in no product engagement regardless of result ranking. These findings underscore the importance of hard negative mining but also the need for grounding training data and offline evals in real user search behavior -- including query intent distribution and zero-click patterns -- to bridge the gap between offline retrieval quality and online user engagement.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00353",
+    "pdf_url": "https://arxiv.org/pdf/2605.00353.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索（IKEA）中的稠密检索问题，提出了结合结构化负采样和 LLM 作为评判者的训练数据构建方法，属于核心搜索技术落地。",
+    "translation": "IKEA.com 稠密检索中用于对比学习的负数据挖掘",
+    "summary_zh": "本文提出一种利用商品层级分类和属性进行结构化负采样，并结合大语言模型作为评判者来生成高质量训练数据的系统方法，旨在提升电商场景下的稠密检索效果。",
+    "key_points": [
+      "本文提出一种利用商品层级分类和属性进行结构化负采样，并结合大语言模型作为评判者来生成高质量训练数据的系统方法，旨在提升电商场景下的稠密检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00560",
+    "title": "When More Reformulations Hurt: Avoiding Drift using Ranker Feedback",
+    "authors": [
+      "V Venktesh",
+      "Mandeep Rathee",
+      "Avishek Anand"
+    ],
+    "summary": "Modern retrieval pipelines increasingly rely on query reformulation and neural reranking to improve effectiveness, but this comes at a significant computational cost and introduces a fundamental tradeoff between recall and query drift. Generating many reformulated queries can substantially increase recall, yet naively merging or exhaustively reranking their results is prohibitively expensive. In this work, we argue that the core challenge is not reformulation generation itself, but the adaptive selection of reformulations and their retrieved documents under a strict inference budget. We propose ReformIR, a budget-aware retrieval framework that treats query reformulations as first-class features and performs online relevance estimation using a strong reranker as a teacher. Given multiple reformulated queries, ReformIR constructs a large candidate pool and learns a lightweight surrogate model that estimates document utility from reformulation-specific retrieval signals. Under a fixed reranking budget, the surrogate adaptively prioritizes both reformulations and documents, selectively querying a teacher reranker anchored to the original query. This process increases recall while actively suppressing drift through online feature selection over reformulations. We conduct extensive experiments on the MSMARCO passage corpora and TREC Deep Learning benchmarks (DL19-DL22). Our results show that ReformIR consistently outperforms existing reformulation strategies, particularly as the number of reformulations increases, where prior methods suffer from severe quality degradation due to drift. Our findings also suggest a shift in retrieval system design, rather than using large language models as rerankers, their capacity is more effectively leveraged in the reformulation stage with feedback-driven optimization.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00560",
+    "pdf_url": "https://arxiv.org/pdf/2605.00560.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决搜索系统中的查询改写漂移与计算成本权衡问题，提出了基于排序器反馈的自适应检索框架 ReformIR，属于核心搜索技术突破；虽涉及 LLM 但仅作为教师模型用于反馈优化，非纯 LLM 研究。",
+    "translation": "更多改写反而有害：利用排序器反馈避免查询漂移",
+    "summary_zh": "提出一种预算感知的检索框架 ReformIR，将查询改写视为一级特征，利用强排序器作为教师在线估计文档效用，在固定重排序预算下自适应选择改写query和文档，以平衡召回率提升与查询漂移抑制。",
+    "key_points": [
+      "提出一种预算感知的检索框架 ReformIR，将查询改写视为一级特征，利用强排序器作为教师在线估计文档效用，在固定重排序预算下自适应选择改写query和文档，以平衡召回率提升与查询漂移抑制"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00324",
+    "title": "Intelligent Elastic Feature Fading: Enabling Model Retrain-Free Feature Efficiency Rollouts at Scale",
+    "authors": [
+      "Jieming Di",
+      "Xiaoyu Chen",
+      "Ying She",
+      "Siyu Wang",
+      "Lizzie Liu",
+      "Fenggang Wu",
+      "Jiaoying Mu",
+      "Tony Tsui",
+      "Amr Elroumy",
+      "Hsing Tang",
+      "Zewei Jiang",
+      "Qiao Yang",
+      "Lin Qi",
+      "Haibo Lin",
+      "Weifeng Cui",
+      "Daniel Li",
+      "Kapil Gupta",
+      "Shivendra Pratap Singh",
+      "Jie Zheng",
+      "Arnold Overwijk",
+      "Ling Leng",
+      "Sri Reddy",
+      "Robert Malkin",
+      "Rocky Liu"
+    ],
+    "summary": "Large-scale ranking systems depend on thousands of features derived from user behavior across multiple time horizons. Typically requires model retraining -- resulting in long iteration cycles (3--6 months), substantial GPU resource consumption, and limited rollout throughput.\n  We introduce Intelligent Elastic Feature Fading (IEFF), a production infrastructure system that enables retrain-free feature efficiency rollouts by elastically controlling feature coverage and distribution at serving time. IEFF supports incremental feature coverage adjustments while models adapt through recurring training, eliminating dependencies on explicit retraining cycles. The system incorporates strict safety guardrails, reversibility mechanisms, and comprehensive monitoring to ensure stability at scale.\n  Across multiple production use cases, IEFF accelerates efficiency-related rollouts by 5$\\times$, eliminates retraining-related GPU overhead, and enables faster capacity recycling. Extensive offline and online experiments demonstrate that gradual feature fading prevents 50--55\\% of online performance degradation compared to abrupt feature removal, while maintaining stable model behavior. These results establish elastic, system-level feature fading as a practical and scalable approach for managing feature efficiency in modern industrial ranking systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00324",
+    "pdf_url": "https://arxiv.org/pdf/2605.00324.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对工业级推荐排序系统中的特征效率与迭代痛点，提出了无需重训的弹性特征衰减架构，属于核心工程创新；虽非算法理论突破，但紧密贴合搜索/推荐业务场景，且来自中国公司，故给予高分。",
+    "translation": "智能弹性特征衰减：在大规模系统中实现无需重训的特征效率 rollout",
+    "summary_zh": "提出一种名为 IEFF 的生产级系统架构，通过在服务时弹性控制特征覆盖率和分布，实现在不重新训练模型的情况下安全、渐进地淘汰低效特征，从而大幅缩短迭代周期并节省计算资源。",
+    "key_points": [
+      "提出一种名为 IEFF 的生产级系统架构，通过在服务时弹性控制特征覆盖率和分布，实现在不重新训练模型的情况下安全、渐进地淘汰低效特征，从而大幅缩短迭代周期并节省计算资源"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00670",
+    "title": "Robust Multimodal Recommendation via Graph Retrieval-Enhanced Modality Completion",
+    "authors": [
+      "Yuan Li",
+      "Jun Hu",
+      "Jiaxin Jiang",
+      "Bryan Hooi",
+      "Bingsheng He"
+    ],
+    "summary": "Multimodal data plays a critical role in web-based recommendation systems, where information from diverse modalities such as vision and text enhances representation learning. However, real-world multimodal datasets often suffer from modality incompleteness due to sensor failures, annotation scarcity, or privacy constraints, which substantially degrade model performance and reliability. One effective solution to address this issue is modality completion, which reconstructs missing features to provide modality-complete graphs for downstream tasks. Given a query node with missing multimodal features, existing modality completion methods typically infer information from the node itself or its neighbors to reconstruct the missing modality. However, these methods may overlook semantically relevant context in the graph, which contains valuable cues that are non-trivial to capture through simple methods like neighborhood aggregation. In this work, we propose GRE-MC, a Graph Retrieval-Enhanced Modality Completion framework, to overcome these limitations. By introducing a modality-aware subgraph retrieval mechanism, GRE-MC selects semantically relevant subgraphs from the entire graph, providing richer contextual information for completing missing modalities. Subsequently, a graph transformer jointly encodes the query node and the retrieved subgraph via global attention to complete the missing features, while a learnable sparse-routing codebook regularizes latent embeddings into compact bases for improved robustness. Extensive experiments on multimodal recommendation benchmarks demonstrate that GRE-MC consistently outperforms state-of-the-art methods, validating the effectiveness of subgraph retrieval and joint-encoding graph transformer for robust modality completion.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00670",
+    "pdf_url": "https://arxiv.org/pdf/2605.00670.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态推荐系统中的模态缺失问题，提出基于图检索的补全框架，属于明确的多模态推荐核心技术应用。",
+    "translation": "基于图检索增强模态补全的鲁棒多模态推荐",
+    "summary_zh": "提出一种图检索增强的模态补全框架，通过检索语义相关的子图并利用图 Transformer 联合编码，以解决多模态推荐中因数据缺失导致的性能下降问题。",
+    "key_points": [
+      "提出一种图检索增强的模态补全框架，通过检索语义相关的子图并利用图 Transformer 联合编码，以解决多模态推荐中因数据缺失导致的性能下降问题"
+    ]
+  },
+  {
+    "arxiv_id": "2512.13511",
+    "title": "Adapting MLLMs for Nuanced Video Retrieval",
+    "authors": [
+      "Piyush Bagad",
+      "Andrew Zisserman"
+    ],
+    "summary": "Our objective is to build an embedding model that captures the nuanced relationship between a search query and candidate videos. We cover three aspects of nuanced retrieval: (i) temporal, (ii) negation, and (iii) multimodal. For temporal nuance, we consider chiral actions that need distinguishing between temporally opposite actions like \"opening a door\" vs. \"closing a door\". For negation, we consider queries with negators such as \"not\", \"none\" that allow user to specify what they do not want. For multimodal nuance, we consider the task of composed retrieval where the query comprises a video along with a text edit instruction. The goal is to develop a unified embedding model that handles such nuances effectively. To that end, we repurpose a Multimodal Large Language Model (MLLM) trained to generate text into an embedding model. We fine-tune it with a contrastive loss on text alone with carefully sampled hard negatives that instill the desired nuances in the learned embedding space. Despite the text-only training, our method achieves state of the art performance on all benchmarks for nuanced video retrieval. We also analyze how this improvement is achieved, and show that text-only training reduces the modality gap between text and video embeddings leading to better organization of the embedding space.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2512.13511",
+    "pdf_url": "https://arxiv.org/pdf/2512.13511.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对视频检索（搜索核心环节）中的细粒度语义匹配问题，利用 MLLM 构建嵌入模型，属于多模态搜索的直接应用；虽涉及 LLM 但非纯理论研究，结合 OPPO 背景额外加 1 分。",
+    "translation": "适配多模态大语言模型以实现细粒度视频检索",
+    "summary_zh": "提出将生成式多模态大语言模型转化为嵌入模型的方法，通过仅文本的对比学习微调，使模型能够有效捕捉视频检索中时间顺序、否定语义及多模态组合编辑等细粒度查询意图。",
+    "key_points": [
+      "提出将生成式多模态大语言模型转化为嵌入模型的方法，通过仅文本的对比学习微调，使模型能够有效捕捉视频检索中时间顺序、否定语义及多模态组合编辑等细粒度查询意图"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00063",
+    "title": "A Survey of Reasoning-Intensive Retrieval: Progress and Challenges",
+    "authors": [
+      "Yiyang Wei",
+      "Tingyu Song",
+      "Siyue Zhang",
+      "Yilun Zhao"
+    ],
+    "summary": "Reasoning-Intensive Retrieval (RIR) targets retrieval settings where relevance is mediated by latent inferential links between a query and supporting evidence, rather than semantic similarity. Motivated by the emergent reasoning abilities of Large Language Models (LLMs), recent work integrates these capabilities into the IR field, spanning the entire pipeline from benchmarks to retrievers and rerankers. Despite this progress, the field lacks a systematic framework to organize current efforts and articulate a clear path forward. To provide a clear roadmap for this rapidly growing yet fragmented area, this survey (1) systematizes existing RIR benchmarks by knowledge domains and modalities, providing a detailed analysis of the current landscape; (2) introduces a structured taxonomy that categorizes methods based on where and how reasoning is integrated into the retrieval pipeline, alongside an analysis of their trade-offs and practical applications; and (3) summarizes challenges and future directions to guide research in this evolving field.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-30",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00063",
+    "pdf_url": "https://arxiv.org/pdf/2605.00063.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "这是一篇关于推理密集型检索的综述，主要聚焦于 LLM 在通用信息检索（IR）中的推理能力，缺乏针对推荐系统或电商/社交搜索具体业务场景的直接应用。",
+    "translation": "推理密集型检索综述：进展与挑战",
+    "summary_zh": "本文系统梳理了利用大语言模型隐性推理能力进行检索的研究现状，提出了基于推理集成位置的分类体系并分析了未来挑战。",
+    "key_points": [
+      "本文系统梳理了利用大语言模型隐性推理能力进行检索的研究现状，提出了基于推理集成位置的分类体系并分析了未来挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00318",
+    "title": "Structure-Aware Chunking for Tabular Data in Retrieval-Augmented Generation",
+    "authors": [
+      "Pooja Guttal",
+      "Varun Magotra",
+      "Vasudeva Mahavishnu",
+      "Natasha Chanto",
+      "Sidharth Sivaprasad",
+      "Manas Gaur"
+    ],
+    "summary": "Tabular documents such as CSV and Excel files are widely used in enterprise data pipelines, yet existing chunking strategies for retrieval-augmented generation (RAG) are primarily designed for unstructured text and do not account for tabular structure. We propose a structure-aware tabular chunking (STC) framework that operates on row-level units by constructing a hierarchical Row Tree representation, where each row is encoded as a key-value block. STC performs token-constrained splitting aligned with structural boundaries and applies overlap-free greedy merging to produce dense, non-overlapping chunks. This design preserves semantic relationships between fields within a row while improving token utilization and reducing fragmentation. Across evaluations on the MAUD dataset, STC reduces chunk count by up to 40% and 56% compared to standard recursive and key-value based baselines, respectively, while improving token utilization and processing efficiency. In retrieval benchmarks, STC improves MRR from 0.3576 to 0.5945 in a hybrid setting and increases Recall@1 from 0.366 to 0.754 in BM25-only retrieval. These results demonstrate that preserving structure during chunking improves retrieval performance, highlighting the importance of structure-aware chunking for RAG over tabular data.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00318",
+    "pdf_url": "https://arxiv.org/pdf/2605.00318.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于 RAG 中表格数据的分块策略，属于通用 NLP/数据处理技术，虽提及检索指标但非针对推荐系统或搜索引擎的核心架构创新，且无明确 RecSys 业务场景。",
+    "translation": "检索增强生成中表格数据的结构感知分块方法",
+    "summary_zh": "提出一种基于行树层级表示的结构感知分块框架，通过对齐结构边界进行令牌约束分割和无重叠贪婪合并，以保留表格行内语义关系并提升检索效率。",
+    "key_points": [
+      "提出一种基于行树层级表示的结构感知分块框架，通过对齐结构边界进行令牌约束分割和无重叠贪婪合并，以保留表格行内语义关系并提升检索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2406.14429",
+    "title": "CollaFuse: Collaborative Diffusion Models",
+    "authors": [
+      "Simeon Allmendinger",
+      "Domenique Zipperling",
+      "Lukas Struppek",
+      "Niklas Kühl"
+    ],
+    "summary": "In the landscape of generative artificial intelligence, diffusion-based models have emerged as a promising method for generating synthetic images. However, the application of diffusion models poses numerous challenges, particularly concerning data availability, computational requirements, and privacy. Traditional approaches to address these shortcomings, like federated learning, often impose significant computational burdens on individual clients, especially those with constrained resources. In response to these challenges, we introduce the novel approach CollaFuse for distributed collaborative diffusion models inspired by split learning. Our approach facilitates collaborative training of diffusion models while alleviating client computational burdens during image synthesis. This reduced computational burden is achieved by retaining data and computationally inexpensive processes locally at each client while outsourcing the computationally expensive processes to shared, more efficient server resources. Through experiments on the common datasets CelebA, CIFAR-10, and Animals-with-Attributes2, our approach demonstrates enhanced performance while decreasing information disclosure as it reduces the necessity for sharing raw data. These capabilities hold significant potential across various application areas, including the design of edge computing solutions. Thus, our work advances distributed machine learning by contributing to the evolution of collaborative diffusion models.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2406.14429",
+    "pdf_url": "https://arxiv.org/pdf/2406.14429.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯计算机视觉（图像生成）与分布式学习的研究，未涉及推荐系统或搜索引擎的任何核心环节，属于排除类别。",
+    "translation": "CollaFuse：基于分割学习的协作扩散模型",
+    "summary_zh": "提出一种受分割学习启发的分布式协作训练框架，通过将计算密集型任务卸载至服务器，在保护数据隐私的同时降低客户端生成图像的算力负担。",
+    "key_points": [
+      "提出一种受分割学习启发的分布式协作训练框架，通过将计算密集型任务卸载至服务器，在保护数据隐私的同时降低客户端生成图像的算力负担"
+    ]
+  },
+  {
+    "arxiv_id": "2605.00529",
+    "title": "Hierarchical Abstract Tree for Cross-Document Retrieval-Augmented Generation",
+    "authors": [
+      "Ziwen Zhao",
+      "Menglin Yang"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) enhances large language models with external knowledge, and tree-based RAG organizes documents into hierarchical indexes to support queries at multiple granularities. However, existing Tree-RAG methods designed for single-document retrieval face critical challenges in scaling to cross-document multi-hop questions: (1) poor distribution adaptability, where $k$-means clustering introduces noise due to rigid distribution assumptions; (2) structural isolation, as tree indexes lack explicit cross-document connections; and (3) coarse abstraction, which obscures fine-grained details. To address these limitations, we propose $Ψ$-RAG, a tree-RAG framework with two key components. First, a hierarchical abstract tree index built through an iterative \"merging and collapse\" process that adapts to data distributions without a priori assumption. Second, a multi-granular retrieval agent that intelligently interacts with the knowledge base with reorganized queries and an agent-powered hybrid retriever. $Ψ$-RAG supports diverse tasks from token-level question answering to document-level summarization. On cross-document multi-hop QA benchmarks, it outperforms RAPTOR by 25.9% and HippoRAG 2 by 7.4% in average F1 score. Code is available at https://github.com/Newiz430/Psi-RAG.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-05-01",
+    "updated": "2026-05-04",
+    "url": "https://arxiv.org/abs/2605.00529",
+    "pdf_url": "https://arxiv.org/pdf/2605.00529.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于跨文档问答和摘要任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "用于跨文档检索增强生成的分层抽象树",
+    "summary_zh": "提出Ψ-RAG 框架，通过迭代合并与坍缩构建自适应数据的分层抽象树索引，并利用多粒度检索代理解决跨文档多跳问答中的分布适应与结构隔离问题。",
+    "key_points": [
+      "提出Ψ-RAG 框架，通过迭代合并与坍缩构建自适应数据的分层抽象树索引，并利用多粒度检索代理解决跨文档多跳问答中的分布适应与结构隔离问题"
+    ]
+  }
+]

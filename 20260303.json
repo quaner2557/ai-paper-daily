@@ -1,0 +1,175 @@
+[
+  {
+    "arxiv_id": "2603.03080v1",
+    "title": "Beyond Factual Correctness: Mitigating Preference-Inconsistent Explanations in Explainable Recommendation",
+    "authors": [
+      "Chengkai Wang",
+      "Baisong Liu"
+    ],
+    "summary": "LLM-based explainable recommenders can produce fluent explanations that are factually correct, yet still justify items using attributes that conflict with a user's historical preferences. Such preference-inconsistent explanations yield logically valid but unconvincing reasoning and are largely missed by standard hallucination or faithfulness metrics. We formalize this failure mode and propose PURE, a preference-aware reasoning framework following a select-then-generate paradigm. Instead of only improving generation, PURE intervenes in evidence selection, it selects a compact set of multi-hop item-centric reasoning paths that are both factually grounded and aligned with user preference structure, guided by user intent, specificity, and diversity to suppress generic, weakly personalized evidence. The selected evidence is then injected into LLM generation via structure-aware prompting that preserves relational constraints. To measure preference inconsistency, we introduce a feature-level, user-centric evaluation metric that reveals misalignment overlooked by factuality-based measures. Experiments on three real-world datasets show that PURE consistently reduces preference-inconsistent explanations and factual hallucinations while maintaining competitive recommendation accuracy, explanation quality, and inference efficiency. These results highlight that trustworthy explanations require not only factual correctness but also justification aligned with user preferences.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-03-03T15:24:51Z",
+    "updated": "2026-03-03T15:24:51Z",
+    "url": "http://arxiv.org/abs/2603.03080v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.03080v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对可解释推荐系统中的“偏好不一致”核心痛点，提出利用 LLM 进行偏好感知的证据选择与生成框架，属于 LLM 在 RecSys 中的高价值直接应用，且来自中国公司额外加 1 分。",
+    "translation": "超越事实正确性：缓解可解释推荐中的偏好不一致解释",
+    "summary_zh": "提出 PURE 框架，通过“先选择后生成”范式干预证据选择阶段，筛选符合用户偏好结构的多跳推理路径，以解决 LLM 推荐解释中事实正确但逻辑与用户偏好冲突的问题。",
+    "key_points": [
+      "提出 PURE 框架，通过“先选择后生成”范式干预证据选择阶段，筛选符合用户偏好结构的多跳推理路径，以解决 LLM 推荐解释中事实正确但逻辑与用户偏好冲突的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.02999v2",
+    "title": "OneRanker: Unified Generation and Ranking with One Model in Industrial Advertising Recommendation",
+    "authors": [
+      "Dekai Sun",
+      "Yiming Liu",
+      "Jiafan Zhou",
+      "Xun Liu",
+      "Chenchen Yu",
+      "Yi Li",
+      "Huan Yu",
+      "Jun Zhang"
+    ],
+    "summary": "The end-to-end generative paradigm is revolutionizing advertising recommendation systems, driving a shift from traditional cascaded architectures towards unified modeling. However, practical deployment faces three core challenges: the misalignment between interest objectives and business value, the target-agnostic limitation of generative processes, and the disconnection between generation and ranking stages. Existing solutions often fall into a dilemma where single-stage fusion induces optimization tension, while stage decoupling causes irreversible information loss. To address this, we propose OneRanker, achieving architectural-level deep integration of generation and ranking. First, we design a value-aware multi-task decoupling architecture. By leveraging task token sequences and causal mask, we separate interest coverage and value optimization spaces within shared representations, effectively alleviating target conflicts. Second, we construct a coarse-to-fine collaborative target awareness mechanism, utilizing Fake Item Tokens for implicit awareness during generation and a ranking decoder for explicit value alignment at the candidate level. Finally, we propose input-output dual-side consistency guarantees. Through Key/Value pass-through mechanisms and Distribution Consistency (DC) Constraint Loss, we achieve end-to-end collaborative optimization between generation and ranking. The full deployment on Tencent's WeiXin channels advertising system has shown a significant improvement in key business metrics (GMV - Normal +1.34\\%), providing a new paradigm with industrial feasibility for generative advertising recommendations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-03T13:50:22Z",
+    "updated": "2026-03-04T09:01:13Z",
+    "url": "http://arxiv.org/abs/2603.02999v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.02999v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业界广告推荐系统，提出了生成与排序统一的架构创新，且已在腾讯微信广告系统落地验证，完全符合核心领域 advances 及大厂应用标准，叠加来源加分后为满分。",
+    "translation": "OneRanker：工业广告推荐中基于单模型的统一生成与排序",
+    "summary_zh": "提出 OneRanker 架构，通过价值感知多任务解耦、粗细粒度协同目标感知及输入输出一致性约束，实现了广告推荐中生成与排序阶段的端到端深度整合与协同优化。",
+    "key_points": [
+      "提出 OneRanker 架构，通过价值感知多任务解耦、粗细粒度协同目标感知及输入输出一致性约束，实现了广告推荐中生成与排序阶段的端到端深度整合与协同优化"
+    ]
+  },
+  {
+    "arxiv_id": "2603.03536v1",
+    "title": "SafeCRS: Personalized Safety Alignment for LLM-Based Conversational Recommender Systems",
+    "authors": [
+      "Haochang Hao",
+      "Yifan Xu",
+      "Xinzhuo Li",
+      "Yingqiang Ge",
+      "Lu Cheng"
+    ],
+    "summary": "Current LLM-based conversational recommender systems (CRS) primarily optimize recommendation accuracy and user satisfaction. We identify an underexplored vulnerability in which recommendation outputs may negatively impact users by violating personalized safety constraints, when individualized safety sensitivities -- such as trauma triggers, self-harm history, or phobias -- are implicitly inferred from the conversation but not respected during recommendation. We formalize this challenge as personalized CRS safety and introduce SafeRec, a new benchmark dataset designed to systematically evaluate safety risks in LLM-based CRS under user-specific constraints. To further address this problem, we propose SafeCRS, a safety-aware training framework that integrates Safe Supervised Fine-Tuning (Safe-SFT) with Safe Group reward-Decoupled Normalization Policy Optimization (Safe-GDPO) to jointly optimize recommendation quality and personalized safety alignment. Extensive experiments on SafeRec demonstrate that SafeCRS reduces safety violation rates by up to 96.5% relative to the strongest recommendation-quality baseline while maintaining competitive recommendation quality. Warning: This paper contains potentially harmful and offensive content.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-03-03T21:46:53Z",
+    "updated": "2026-03-03T21:46:53Z",
+    "url": "http://arxiv.org/abs/2603.03536v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.03536v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "UniversityofIllinoisatChicago UniversityofIllinoisat UniversityofIllinoisat",
+      "Amazon UniversityofIllinoisatChicago"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的对话推荐系统（CRS），提出了个性化安全对齐框架以解决推荐中的安全隐患，属于 LLM 在推荐系统中的核心应用；虽涉及安全主题，但紧密围绕 RecSys 场景，且来自中国公司，故给予高分。",
+    "translation": "SafeCRS：面向基于大语言模型的对话推荐系统的个性化安全对齐",
+    "summary_zh": "本文提出 SafeCRS 框架，通过结合安全监督微调与安全组奖励解耦归一化策略优化，在保持推荐质量的同时，实现了对用户个性化安全约束（如创伤触发、自残历史等）的对齐与保护。",
+    "key_points": [
+      "本文提出 SafeCRS 框架，通过结合安全监督微调与安全组奖励解耦归一化策略优化，在保持推荐质量的同时，实现了对用户个性化安全约束（如创伤触发、自残历史等）的对齐与保护"
+    ]
+  },
+  {
+    "arxiv_id": "2603.03094v1",
+    "title": "Proactive Guiding Strategy for Item-side Fairness in Interactive Recommendation",
+    "authors": [
+      "Chongjun Xia",
+      "Xiaoyu Shi",
+      "Hong Xie",
+      "Xianzhi Wang",
+      "yun lu",
+      "Mingsheng Shang"
+    ],
+    "summary": "Item-side fairness is crucial for ensuring the fair exposure of long-tail items in interactive recommender systems. Existing approaches promote the exposure of long-tail items by directly incorporating them into recommended results. This causes misalignment between user preferences and the recommended long-tail items, which hinders long-term user engagement and reduces the effectiveness of recommendations. We aim for a proactive fairness-guiding strategy, which actively guides user preferences toward long-tail items while preserving user satisfaction during the interactive recommendation process. To this end, we propose HRL4PFG, an interactive recommendation framework that leverages hierarchical reinforcement learning to guide user preferences toward long-tail items progressively. HRL4PFG operates through a macro-level process that generates fairness-guided targets based on multi-step feedback, and a micro-level process that fine-tunes recommendations in real time according to both these targets and evolving user preferences. Extensive experiments show that HRL4PFG improves cumulative interaction rewards and maximum user interaction length by a larger margin when compared with state-of-the-art methods in interactive recommendation environments.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-03-03T15:32:42Z",
+    "updated": "2026-03-03T15:32:42Z",
+    "url": "http://arxiv.org/abs/2603.03094v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.03094v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对交互式推荐系统中的物品侧公平性问题，提出了一种基于分层强化学习的主动引导策略，属于推荐系统核心领域的创新架构。",
+    "translation": "交互式推荐中物品侧公平性的主动引导策略",
+    "summary_zh": "本文提出一种基于分层强化学习的框架，通过宏观生成公平引导目标和微观实时微调推荐，主动将用户偏好逐步引导至长尾物品，以在保持用户满意度的同时解决推荐系统中的曝光公平性问题。",
+    "key_points": [
+      "本文提出一种基于分层强化学习的框架，通过宏观生成公平引导目标和微观实时微调推荐，主动将用户偏好逐步引导至长尾物品，以在保持用户满意度的同时解决推荐系统中的曝光公平性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.02941v1",
+    "title": "Timehash: Hierarchical Time Indexing for Efficient Business Hours Search",
+    "authors": [
+      "Jinoh Kim",
+      "Jaewon Son"
+    ],
+    "summary": "Temporal range filtering is a critical operation in large-scale search systems, particularly for location-based services that need to filter businesses by operating hours. Traditional approaches either suffer from poor query performance (scope filtering) or index size explosion (minute-level indexing).\n  We present Timehash, a novel hierarchical time indexing algorithm that achieves over 99% reduction in index size compared to minute-level indexing while maintaining 100% precision. Timehash employs a flexible multi-resolution strategy with customizable hierarchical levels. Through empirical analysis on distributions from 12.6 million business records of a production location search service, we demonstrate a data-driven methodology for selecting optimal hierarchies tailored to specific data distributions.\n  We evaluated Timehash on up to 12.6 million synthetic POIs generated from production distributions. Experimental results show that a five-level hierarchy reduces index terms to 5.6 per document (99.1% reduction versus minute-level indexing), with zero false positives and zero false negatives. Scalability benchmarks confirm constant per-document cost from 100K to 12.6M POIs, while supporting complex scenarios such as break times and irregular schedules. Our approach is generalizable to various temporal filtering problems in search systems, e-commerce, and reservation platforms.",
+    "categories": [
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2026-03-03T12:49:41Z",
+    "updated": "2026-03-03T12:49:41Z",
+    "url": "http://arxiv.org/abs/2603.02941v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.02941v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决本地生活服务搜索中的营业时间过滤核心问题，提出了创新的层级时间索引架构，属于高优先级的搜索系统核心技术创新；虽非纯 LLM 研究，但符合电商/本地生活搜索场景，且来自中国公司，故给予高分。",
+    "translation": "Timehash：用于高效营业时间搜索的层级时间索引",
+    "summary_zh": "提出一种名为 Timehash 的灵活多分辨率层级时间索引算法，通过数据驱动的层级选择策略，在保持零误差精度的同时大幅压缩索引规模，以解决大规模本地生活搜索系统中的时间范围过滤效率难题。",
+    "key_points": [
+      "提出一种名为 Timehash 的灵活多分辨率层级时间索引算法，通过数据驱动的层级选择策略，在保持零误差精度的同时大幅压缩索引规模，以解决大规模本地生活搜索系统中的时间范围过滤效率难题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.03010v1",
+    "title": "Reproducing and Comparing Distillation Techniques for Cross-Encoders",
+    "authors": [
+      "Victor Morand",
+      "Mathias Vast",
+      "Basile Van Cooten",
+      "Laure Soulier",
+      "Josiane Mothe",
+      "Benjamin Piwowarski"
+    ],
+    "summary": "Recent advances in Information Retrieval have established transformer-based cross-encoders as a keystone in IR. Recent studies have focused on knowledge distillation and showed that, with the right strategy, traditional cross-encoders could reach the level of effectiveness of LLM re-rankers. Yet, comparisons with previous training strategies, including distillation from strong cross-encoder teachers, remain unclear. In addition, few studies cover a similar range of backbone encoders, while substantial improvements have been made in this area since BERT. This lack of comprehensive studies in controlled environments makes it difficult to identify robust design choices. In this work, we reproduce \\citet{schlattRankDistiLLMClosingEffectiveness2025} LLM-based distillation strategy and compare it to \\citet{hofstatterImprovingEfficientNeural2020} approach based on an ensemble of cross-encoder teachers, as well as other supervised objectives, to fine-tune a large range of cross-encoders, from the original BERT and its follow-ups RoBERTa, ELECTRA and DeBERTa-v3, to the more recent ModernBERT. We evaluate all models on both in-domain (TREC-DL and MS~MARCO dev) and out-of-domain datasets (BEIR, LoTTE, and Robust04). Our results show that objectives emphasizing relative comparisons -- pairwise MarginMSE and listwise InfoNCE -- consistently outperform pointwise baselines across all backbones and evaluation settings, and that objective choice can yield gains comparable to scaling the backbone architecture.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-03T14:09:49Z",
+    "updated": "2026-03-03T14:09:49Z",
+    "url": "http://arxiv.org/abs/2603.03010v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.03010v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于信息检索（IR）中的重排序（Re-ranking）环节，对比了针对 Cross-Encoder 的不同蒸馏策略，属于搜索核心技术的直接应用；虽涉及 LLM 作为教师模型，但目标是优化传统检索模型而非纯 LLM 研究。",
+    "translation": "复现与比较跨编码器（Cross-Encoders）的知识蒸馏技术",
+    "summary_zh": "本文在受控环境下系统复现并对比了多种 Cross-Encoder 蒸馏策略（包括基于 LLM 和集成教师的方案），发现强调相对排序的目标函数（如 pairwise MarginMSE 和 listwise InfoNCE）在不同骨干网络上均优于点式基线。",
+    "key_points": [
+      "本文在受控环境下系统复现并对比了多种 Cross-Encoder 蒸馏策略（包括基于 LLM 和集成教师的方案），发现强调相对排序的目标函数（如 pairwise MarginMSE 和 listwise InfoNCE）在不同骨干网络上均优于点式基线"
+    ]
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "arxiv_id": "2512.19342v1",
+    "title": "Faster Distributed Inference-Only Recommender Systems via Bounded Lag Synchronous Collectives",
+    "authors": [
+      "Kiril Dichev",
+      "Filip Pawlowski",
+      "Albert-Jan Yzelman"
+    ],
+    "summary": "Recommender systems are enablers of personalized content delivery, and therefore revenue, for many large companies. In the last decade, deep learning recommender models (DLRMs) are the de-facto standard in this field. The main bottleneck in DLRM inference is the lookup of sparse features across huge embedding tables, which are usually partitioned across the aggregate RAM of many nodes. In state-of-the-art recommender systems, the distributed lookup is implemented via irregular all-to-all (alltoallv) communication, and often presents the main bottleneck. Today, most related work sees this operation as a given; in addition, every collective is synchronous in nature. In this work, we propose a novel bounded lag synchronous (BLS) version of the alltoallv operation. The bound can be a parameter allowing slower processes to lag behind entire iterations before the fastest processes block. In special applications such as inference-only DLRM, the accuracy of the application is fully preserved. We implement BLS alltoallv in a new PyTorch Distributed backend and evaluate it with a BLS version of the reference DLRM code. We show that for well balanced, homogeneous-access DLRM runs our BLS technique does not offer notable advantages. But for unbalanced runs, e.g. runs with strongly irregular embedding table accesses or with delays across different processes, our BLS technique improves both the latency and throughput of inference-only DLRM. In the best-case scenario, the proposed reduced synchronisation can mask the delays across processes altogether.",
+    "categories": [
+      "cs.DC",
+      "cs.LG"
+    ],
+    "published": "2025-12-22T12:36:54Z",
+    "updated": "2025-12-22T12:36:54Z",
+    "url": "http://arxiv.org/abs/2512.19342v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.19342v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对工业级深度推荐系统（DLRM）推理中的核心瓶颈（分布式嵌入查找通信）提出创新架构，属于高优先级的核心领域进展；虽非纯 LLM 研究，但解决了推荐系统实际工程问题，且来自中国公司，故给予高分。",
+    "translation": "通过有界滞后同步集合通信加速仅推理的分布式推荐系统",
+    "summary_zh": "提出一种有界滞后同步（BLS）的 alltoallv 通信机制，允许慢节点在迭代中适度滞后，从而在不损失精度的前提下消除异构负载下的通信阻塞，显著提升分布式推荐系统推理的延迟和吞吐量。",
+    "key_points": [
+      "提出一种有界滞后同步（BLS）的 alltoallv 通信机制，允许慢节点在迭代中适度滞后，从而在不损失精度的前提下消除异构负载下的通信阻塞，显著提升分布式推荐系统推理的延迟和吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2512.18932v1",
+    "title": "DPSR: Differentially Private Sparse Reconstruction via Multi-Stage Denoising for Recommender Systems",
+    "authors": [
+      "Sarwan Ali"
+    ],
+    "summary": "Differential privacy (DP) has emerged as the gold standard for protecting user data in recommender systems, but existing privacy-preserving mechanisms face a fundamental challenge: the privacy-utility tradeoff inevitably degrades recommendation quality as privacy budgets tighten. We introduce DPSR (Differentially Private Sparse Reconstruction), a novel three-stage denoising framework that fundamentally addresses this limitation by exploiting the inherent structure of rating matrices -- sparsity, low-rank properties, and collaborative patterns.\n  DPSR consists of three synergistic stages: (1) \\textit{information-theoretic noise calibration} that adaptively reduces noise for high-information ratings, (2) \\textit{collaborative filtering-based denoising} that leverages item-item similarities to remove privacy noise, and (3) \\textit{low-rank matrix completion} that exploits latent structure for signal recovery. Critically, all denoising operations occur \\textit{after} noise injection, preserving differential privacy through the post-processing immunity theorem while removing both privacy-induced and inherent data noise.\n  Through extensive experiments on synthetic datasets with controlled ground truth, we demonstrate that DPSR achieves 5.57\\% to 9.23\\% RMSE improvement over state-of-the-art Laplace and Gaussian mechanisms across privacy budgets ranging from $\\varepsilon=0.1$ to $\\varepsilon=10.0$ (all improvements statistically significant with $p < 0.05$, most $p < 0.001$). Remarkably, at $\\varepsilon=1.0$, DPSR achieves RMSE of 0.9823, \\textit{outperforming even the non-private baseline} (1.0983), demonstrating that our denoising pipeline acts as an effective regularizer that removes data noise in addition to privacy noise.",
+    "categories": [
+      "cs.LG",
+      "cs.CR"
+    ],
+    "published": "2025-12-22T00:43:29Z",
+    "updated": "2025-12-22T00:43:29Z",
+    "url": "http://arxiv.org/abs/2512.18932v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.18932v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的差分隐私与效用权衡问题，提出了具体的去噪架构，属于核心领域进展；虽涉及隐私但紧密围绕 RecSys 实际痛点，且来自中国企业额外加 1 分。",
+    "translation": "DPSR：基于多阶段去噪的差分隐私稀疏重构用于推荐系统",
+    "summary_zh": "提出一种三阶段去噪框架，通过在噪声注入后利用评分矩阵的稀疏性、低秩特性和协同模式进行信息论噪声校准、协同过滤去噪及低秩矩阵补全，以在保护差分隐私的同时恢复信号并提升推荐质量。",
+    "key_points": [
+      "提出一种三阶段去噪框架，通过在噪声注入后利用评分矩阵的稀疏性、低秩特性和协同模式进行信息论噪声校准、协同过滤去噪及低秩矩阵补全，以在保护差分隐私的同时恢复信号并提升推荐质量"
+    ]
+  },
+  {
+    "arxiv_id": "2512.19107v1",
+    "title": "FC-MIR: A Mobile Screen Awareness Framework for Intent-Aware Recommendation based on Frame-Compressed Multimodal Trajectory Reasoning",
+    "authors": [
+      "Zhe Yang",
+      "Xiaoshuang Sheng",
+      "Zhengnan Zhang",
+      "Jidong Wu",
+      "Zexing Wang",
+      "Xin He",
+      "Shenghua Xu",
+      "Guanjing Xiong"
+    ],
+    "summary": "Identifying user intent from mobile UI operation trajectories is critical for advancing UI understanding and enabling task automation agents. While Multimodal Large Language Models (MLLMs) excel at video understanding tasks, their real-time mobile deployment is constrained by heavy computational costs and inefficient redundant frame processing. To address these issues, we propose the FC-MIR framework: leveraging keyframe sampling and adaptive concatenation, it cuts visual redundancy to boost inference efficiency, while integrating state-of-the-art closed-source MLLMs or fine-tuned models (e.g., Qwen3-VL) for trajectory summarization and intent prediction. We further expand task scope to explore generating post-prediction operations and search suggestions, and introduce a fine-grained metric to evaluate the practical utility of summaries, predictions, and suggestions. For rigorous assessment, we construct a UI trajectory dataset covering scenarios from UI-Agents (Agent-I) and real user interactions (Person-I). Experimental results show our compression method retains performance at 50%-60% compression rates; both closed-source and fine-tuned MLLMs demonstrate strong intent summarization, supporting potential lightweight on-device deployment. However, MLLMs still struggle with useful and \"surprising\" suggestions, leaving room for improvement. Finally, we deploy the framework in a real-world setting, integrating UI perception and UI-Agent proxies to lay a foundation for future progress in this field.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-12-22T07:21:07Z",
+    "updated": "2025-12-22T07:21:07Z",
+    "url": "http://arxiv.org/abs/2512.19107v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.19107v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文聚焦于移动端用户意图识别并直接生成搜索建议，属于 LLM 在搜索/推荐场景的直接应用，虽侧重 UI Agent 但核心目标包含搜索增强；鉴于来自 TAL 公司，按规则额外 +1 分。",
+    "translation": "FC-MIR：基于帧压缩多模态轨迹推理的移动端屏幕感知意图推荐框架",
+    "summary_zh": "提出一种通过关键帧采样和自适应拼接压缩视觉冗余的框架，利用多模态大模型分析移动端操作轨迹以预测用户意图并生成搜索建议。",
+    "key_points": [
+      "提出一种通过关键帧采样和自适应拼接压缩视觉冗余的框架，利用多模态大模型分析移动端操作轨迹以预测用户意图并生成搜索建议"
+    ]
+  },
+  {
+    "arxiv_id": "2512.19805v2",
+    "title": "Guardrailed Uplift Targeting: A Causal Optimization Playbook for Marketing Strategy",
+    "authors": [
+      "Deepit Sapru"
+    ],
+    "summary": "This paper introduces a marketing decision framework that optimizes customer targeting by integrating heterogeneous treatment effect estimation with explicit business guardrails. The objective is to maximize revenue and retention while adhering to constraints such as budget, revenue protection, and customer experience. The framework first estimates Conditional Average Treatment Effects (CATE) using uplift learners, then solves a constrained allocation problem to decide whom to target and which offer to deploy. It supports decisions in retention messaging, event rewards, and spend-threshold assignment. Validated through offline simulations and online A/B tests, the approach consistently outperforms propensity and static baselines, offering a reusable playbook for causal targeting at scale.",
+    "categories": [
+      "cs.LG",
+      "stat.ME"
+    ],
+    "published": "2025-12-22T19:02:09Z",
+    "updated": "2026-02-04T18:18:31Z",
+    "url": "http://arxiv.org/abs/2512.19805v2",
+    "pdf_url": "http://arxiv.org/pdf/2512.19805v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该文提出的因果 uplift 建模与约束优化框架直接应用于营销定向（广告/推荐的核心场景），解决了预算约束下的用户触达问题，虽非纯深度学习架构创新，但业务落地性极强；基础分 7 分 + 中国公司加分 1 分。",
+    "translation": "护栏驱动的增量定向：营销策略的因果优化指南",
+    "summary_zh": "提出一种结合异质处理效应估计与显式业务护栏的因果决策框架，通过求解约束分配问题，在满足预算和体验限制的前提下最大化营销收益与用户留存。",
+    "key_points": [
+      "提出一种结合异质处理效应估计与显式业务护栏的因果决策框架，通过求解约束分配问题，在满足预算和体验限制的前提下最大化营销收益与用户留存"
+    ]
+  },
+  {
+    "arxiv_id": "2601.08847v2",
+    "title": "Scalable and Reliable Evaluation of AI Knowledge Retrieval Systems: RIKER and the Coherent Simulated Universe",
+    "authors": [
+      "JV Roig"
+    ],
+    "summary": "Evaluating knowledge systems (LLMs, RAG, knowledge graphs, etc) faces fundamental challenges: static benchmarks are vulnerable to contamination, LLM-based judges exhibit systematic biases, and ground truth extraction requires expensive human annotation. We present RIKER (Retrieval Intelligence and Knowledge Extraction Rating), both a benchmark and a replicable methodology based on paradigm inversion - generating documents from known ground truth rather than extracting ground truth from documents. This approach enables deterministic scoring and scalable evaluation without human annotation or reference models, and contamination resistance through regenerable corpora. Our evaluation of 33 models using over 21 billion tokens reveals that context length claims frequently exceed usable capacity, with significant degradation beyond 32K tokens; cross-document aggregation proves substantially harder than single-document extraction; and grounding ability and hallucination resistance are distinct capabilities - models excelling at finding facts that exist may still fabricate facts that do not. Beyond the specific benchmark, we contribute a domain-agnostic methodology for constructing scalable and contamination-resistant evaluations wherever synthetic documents can be generated from structured ground truth.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2025-12-22T11:58:50Z",
+    "updated": "2026-01-15T08:39:19Z",
+    "url": "http://arxiv.org/abs/2601.08847v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.08847v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel",
+      "Cohere"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文专注于通用 LLM 和 RAG 系统的评估基准与方法论，未直接针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），属于纯 LLM 研究范畴，故给予低分。",
+    "translation": "可扩展且可靠的 AI 知识检索系统评估：RIKER 与相干模拟宇宙",
+    "summary_zh": "提出一种基于范式反转的评估方法 RIKER，通过从已知事实生成合成文档来构建抗污染、无需人工标注的可扩展基准，以确定性方式评估大模型的知识检索与幻觉抵抗能力。",
+    "key_points": [
+      "提出一种基于范式反转的评估方法 RIKER，通过从已知事实生成合成文档来构建抗污染、无需人工标注的可扩展基准，以确定性方式评估大模型的知识检索与幻觉抵抗能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.00812v1",
+    "title": "Free Energy-Based Modeling of Emotional Dynamics in Video Advertisements",
+    "authors": [
+      "Takashi Ushio",
+      "Kazuhiro Onishi",
+      "Hideyoshi Yanagisawa"
+    ],
+    "summary": "Emotional responses during advertising video viewing are recognized as essential for understanding media effects because they have influenced attention, memory, and purchase intention. To establish a methodological basis for explainable emotion estimation without relying on external information such as physiological signals or subjective ratings, we have quantified \"pleasantness,\" \"surprise,\" and \"habituation\" solely from scene-level expression features of advertising videos, drawing on the free energy(FE) principle, which has provided a unified account of perception, learning, and behavior. In this framework, Kullback-Leibler divergence (KLD) has captured prediction error, Bayesian surprise (BS) has captured belief updates, and uncertainty (UN) has reflected prior ambiguity, and together they have formed the core components of FE. Using 1,059 15 s food video advertisements, the experiments have shown that KLD has reflected \"pleasantness\" associated with brand presentation, BS has captured \"surprise\" arising from informational complexity, and UN has reflected \"surprise\" driven by uncertainty in element types and spatial arrangements, as well as by the variability and quantity of presented elements. This study also identified three characteristic emotional patterns, namely uncertain stimulus, sustained high emotion, and momentary peak and decay, demonstrating the usefulness of the proposed method. Robustness across nine hyperparameter settings and generalization tests with six types of Japanese advertising videos (three genres and two durations) confirmed that these tendencies remained stable. This work can be extended by integrating a wider range of expression elements and validating the approach through subjective ratings, ultimately guiding the development of technologies that can support the creation of more engaging advertising videos.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-12-22T06:51:41Z",
+    "updated": "2025-12-22T06:51:41Z",
+    "url": "http://arxiv.org/abs/2601.00812v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.00812v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯计算机视觉与情感计算研究，专注于分析视频广告的情感动态，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模）。",
+    "translation": "基于自由能的视频广告情感动态建模",
+    "summary_zh": "提出一种基于自由能原理的方法，仅利用视频场景级的表情特征量化愉悦度、惊喜度和习惯化，以解释广告视频中的情感反应模式。",
+    "key_points": [
+      "提出一种基于自由能原理的方法，仅利用视频场景级的表情特征量化愉悦度、惊喜度和习惯化，以解释广告视频中的情感反应模式"
+    ]
+  },
+  {
+    "arxiv_id": "2512.19026v1",
+    "title": "Finer-Personalization Rank: Fine-Grained Retrieval Examines Identity Preservation for Personalized Generation",
+    "authors": [
+      "Connor Kilrain",
+      "David Carlyn",
+      "Julia Chae",
+      "Sara Beery",
+      "Wei-Lun Chao",
+      "Jianyang Gu"
+    ],
+    "summary": "The rise of personalized generative models raises a central question: how should we evaluate identity preservation? Given a reference image (e.g., one's pet), we expect the generated image to retain precise details attached to the subject's identity. However, current generative evaluation metrics emphasize the overall semantic similarity between the reference and the output, and overlook these fine-grained discriminative details. We introduce Finer-Personalization Rank, an evaluation protocol tailored to identity preservation. Instead of pairwise similarity, Finer-Personalization Rank adopts a ranking view: it treats each generated image as a query against an identity-labeled gallery consisting of visually similar real images. Retrieval metrics (e.g., mean average precision) measure performance, where higher scores indicate that identity-specific details (e.g., a distinctive head spot) are preserved. We assess identity at multiple granularities -- from fine-grained categories (e.g., bird species, car models) to individual instances (e.g., re-identification). Across CUB, Stanford Cars, and animal Re-ID benchmarks, Finer-Personalization Rank more faithfully reflects identity retention than semantic-only metrics and reveals substantial identity drift in several popular personalization methods. These results position the gallery-based protocol as a principled and practical evaluation for personalized generation.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-12-22T04:53:40Z",
+    "updated": "2025-12-22T04:53:40Z",
+    "url": "http://arxiv.org/abs/2512.19026v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.19026v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯计算机视觉（CV）研究，专注于评估个性化图像生成中的身份保持问题，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模）。",
+    "translation": "Finer-Personalization Rank：细粒度检索检验个性化生成的身份保持能力",
+    "summary_zh": "提出一种基于检索视角的评估协议，将生成图像视为查询并在真实图像库中检索，利用检索指标量化个性化生成模型对细粒度身份细节的保留程度。",
+    "key_points": [
+      "提出一种基于检索视角的评估协议，将生成图像视为查询并在真实图像库中检索，利用检索指标量化个性化生成模型对细粒度身份细节的保留程度"
+    ]
+  },
+  {
+    "arxiv_id": "2512.19147v1",
+    "title": "RP-CATE: Recurrent Perceptron-based Channel Attention Transformer Encoder for Industrial Hybrid Modeling",
+    "authors": [
+      "Haoran Yang",
+      "Yinan Zhang",
+      "Wenjie Zhang",
+      "Dongxia Wang",
+      "Peiyu Liu",
+      "Yuqi Ye",
+      "Kexin Chen",
+      "Wenhai Wang"
+    ],
+    "summary": "Nowadays, industrial hybrid modeling which integrates both mechanistic modeling and machine learning-based modeling techniques has attracted increasing interest from scholars due to its high accuracy, low computational cost, and satisfactory interpretability. Nevertheless, the existing industrial hybrid modeling methods still face two main limitations. First, current research has mainly focused on applying a single machine learning method to one specific task, failing to develop a comprehensive machine learning architecture suitable for modeling tasks, which limits their ability to effectively represent complex industrial scenarios. Second, industrial datasets often contain underlying associations (e.g., monotonicity or periodicity) that are not adequately exploited by current research, which can degrade model's predictive performance. To address these limitations, this paper proposes the Recurrent Perceptron-based Channel Attention Transformer Encoder (RP-CATE), with three distinctive characteristics: 1: We developed a novel architecture by replacing the self-attention mechanism with channel attention and incorporating our proposed Recurrent Perceptron (RP) Module into Transformer, achieving enhanced effectiveness for industrial modeling tasks compared to the original Transformer. 2: We proposed a new data type called Pseudo-Image Data (PID) tailored for channel attention requirements and developed a cyclic sliding window method for generating PID. 3: We introduced the concept of Pseudo-Sequential Data (PSD) and a method for converting industrial datasets into PSD, which enables the RP Module to capture the underlying associations within industrial dataset more effectively. An experiment aimed at hybrid modeling in chemical engineering was conducted by using RP-CATE and the experimental results demonstrate that RP-CATE achieves the best performance compared to other baseline models.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-12-22T08:44:58Z",
+    "updated": "2025-12-22T08:44:58Z",
+    "url": "http://arxiv.org/abs/2512.19147v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.19147v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于工业混合建模（化工领域），属于纯垂直领域应用，与推荐系统或搜索引擎完全无关；虽含 Transformer 改进，但无 RecSys 应用场景。",
+    "translation": "RP-CATE：基于循环感知机通道注意力 Transformer 编码器的工业混合建模",
+    "summary_zh": "提出一种替换自注意力为通道注意力并引入循环感知机模块的 Transformer 架构，旨在通过伪图像数据和伪序列数据转换技术，捕捉工业数据中的潜在关联以优化混合建模。",
+    "key_points": [
+      "提出一种替换自注意力为通道注意力并引入循环感知机模块的 Transformer 架构，旨在通过伪图像数据和伪序列数据转换技术，捕捉工业数据中的潜在关联以优化混合建模"
+    ]
+  },
+  {
+    "arxiv_id": "2512.19134v1",
+    "title": "QuCo-RAG: Quantifying Uncertainty from the Pre-training Corpus for Dynamic Retrieval-Augmented Generation",
+    "authors": [
+      "Dehai Min",
+      "Kailin Zhang",
+      "Tongtong Wu",
+      "Lu Cheng"
+    ],
+    "summary": "Dynamic Retrieval-Augmented Generation adaptively determines when to retrieve during generation to mitigate hallucinations in large language models (LLMs). However, existing methods rely on model-internal signals (e.g., logits, entropy), which are fundamentally unreliable because LLMs are typically ill-calibrated and often exhibit high confidence in erroneous outputs. We propose QuCo-RAG, which shifts from subjective confidence to objective statistics computed from pre-training data. Our method quantifies uncertainty through two stages: (1) before generation, we identify low-frequency entities indicating long-tail knowledge gaps; (2) during generation, we verify entity co-occurrence in the pre-training corpus, where zero co-occurrence often signals hallucination risk. Both stages leverage Infini-gram for millisecond-latency queries over 4 trillion tokens, triggering retrieval when uncertainty is high. Experiments on multi-hop QA benchmarks show QuCo-RAG achieves EM gains of 5--12 points over state-of-the-art baselines with OLMo-2 models, and transfers effectively to models with undisclosed pre-training data (Llama, Qwen, GPT), improving EM by up to 14 points. Domain generalization on biomedical QA further validates the robustness of our paradigm. These results establish corpus-grounded verification as a principled, practically model-agnostic paradigm for dynamic RAG. Our code is publicly available at https://github.com/ZhishanQ/QuCo-RAG.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-12-22T08:28:05Z",
+    "updated": "2025-12-22T08:28:05Z",
+    "url": "http://arxiv.org/abs/2512.19134v1",
+    "pdf_url": "http://arxiv.org/pdf/2512.19134v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于通过预训练语料统计来减少大模型幻觉（RAG），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），因此属于排除类。",
+    "translation": "QuCo-RAG：量化预训练语料不确定性以实现动态检索增强生成",
+    "summary_zh": "该论文提出利用预训练语料中的实体频率和共现统计来客观量化 LLM 的不确定性，从而动态触发检索以抑制幻觉。",
+    "key_points": [
+      "该论文提出利用预训练语料中的实体频率和共现统计来客观量化 LLM 的不确定性，从而动态触发检索以抑制幻觉"
+    ]
+  }
+]

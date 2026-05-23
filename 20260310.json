@@ -1,0 +1,133 @@
+[
+  {
+    "arxiv_id": "2603.10279v1",
+    "title": "Robust Post-Training for Generative Recommenders: Why Exponential Reward-Weighted SFT Outperforms RLHF",
+    "authors": [
+      "Keertana Chidambaram",
+      "Sanath Kumar Krishnamurthy",
+      "Qiuling Xu",
+      "Ko-Jen Hsiao",
+      "Moumita Bhattacharya"
+    ],
+    "summary": "Aligning generative recommender systems to user preferences via post-training is critical for closing the gap between next-item prediction and actual recommendation quality. Existing post-training methods are ill-suited for production-scale systems: RLHF methods reward hack due to noisy user feedback and unreliable reward models, offline RL alternatives require propensity scores that are unavailable, and online interaction is infeasible. We identify exponential reward-weighted SFT with weights $w = \\exp(r/λ)$ as uniquely suited to this setting, and provide the theoretical and empirical foundations that explain why. By optimizing directly on observed rewards without querying a learned reward model, the method is immune to reward hacking, requires no propensity scores, and is fully offline. We prove the first policy improvement guarantees for this setting under noisy rewards, showing that the gap scales only logarithmically with catalog size and remains informative even for large item catalogs. Crucially, we show that temperature $λ$ explicitly and quantifiably controls the robustness-improvement tradeoff, providing practitioners with a single interpretable regularization hyperparameter with theoretical grounding. Experiments on three open-source and one proprietary dataset against four baselines confirm that exponential reward weighting is simple, scalable, and consistently outperforms RLHF-based alternatives.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-03-10T23:48:25Z",
+    "updated": "2026-03-10T23:48:25Z",
+    "url": "http://arxiv.org/abs/2603.10279v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.10279v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统的后训练对齐问题，提出了替代 RLHF 的指数奖励加权 SFT 方法以解决奖励欺骗和离线可行性难题，属于核心推荐算法创新；且来自 TAL 公司，按规定额外加 1 分（基础分 9+ 附加分 1，上限 10）。",
+    "translation": "生成式推荐器的鲁棒后训练：为何指数奖励加权 SFT 优于 RLHF",
+    "summary_zh": "本文提出一种指数奖励加权监督微调方法，通过在离线数据上直接优化观测奖励并引入温度参数控制鲁棒性与提升的权衡，解决了生成式推荐系统中 RLHF 面临的奖励欺骗及在线交互不可行问题。",
+    "key_points": [
+      "本文提出一种指数奖励加权监督微调方法，通过在离线数据上直接优化观测奖励并引入温度参数控制鲁棒性与提升的权衡，解决了生成式推荐系统中 RLHF 面临的奖励欺骗及在线交互不可行问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.09933v2",
+    "title": "A Voronoi Cell Formulation for Principled Token Pruning in Late-Interaction Retrieval Models",
+    "authors": [
+      "Yash Kankanampati",
+      "Yuxuan Zong",
+      "Nadi Tomeh",
+      "Benjamin Piwowarski",
+      "Joseph Le Roux"
+    ],
+    "summary": "Late-interaction models like ColBERT offer a competitive performance across various retrieval tasks, but require storing a dense embedding for each document token, leading to a substantial index storage overhead. Past works address this by attempting to prune low-importance token embeddings based on statistical and empirical measures, but they often either lack formal grounding or are ineffective. To address these shortcomings, we introduce a framework grounded in hyperspace geometry and cast token pruning as a Voronoi cell estimation problem in the embedding space. By interpreting each token's influence as a measure of its Voronoi region, our approach enables principled pruning that retains retrieval quality while reducing index size. Through our experiments, we demonstrate that this approach serves not only as a competitive pruning strategy but also as a valuable tool for improving and interpreting token-level behavior within dense retrieval systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-03-10T17:28:25Z",
+    "updated": "2026-03-11T10:15:41Z",
+    "url": "http://arxiv.org/abs/2603.09933v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.09933v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文针对检索系统（ColBERT）的索引存储瓶颈提出基于 Voronoi 几何的剪枝方法，属于搜索核心环节的直接优化；虽非纯 LLM 研究但紧密服务于稠密检索模型，且来自中国公司 STO 故额外 +1 分。",
+    "translation": "面向晚期交互检索模型中原则性令牌剪枝的 Voronoi 单元公式化方法",
+    "summary_zh": "提出一种基于超空间几何和 Voronoi 单元估计的框架，将令牌剪枝转化为几何问题，以在减少稠密检索系统索引存储开销的同时保持检索质量。",
+    "key_points": [
+      "提出一种基于超空间几何和 Voronoi 单元估计的框架，将令牌剪枝转化为几何问题，以在减少稠密检索系统索引存储开销的同时保持检索质量"
+    ]
+  },
+  {
+    "arxiv_id": "2603.09724v1",
+    "title": "Local Stability of Rankings",
+    "authors": [
+      "Felix S. Campbell",
+      "Yuval Moskovitch"
+    ],
+    "summary": "Rankings play a crucial role in decision-making. However, if minor changes to items significantly alter their rankings, the quality of the decisions being made can be compromised. The stability of ranking is a measure used to assess how modifications to the ranking algorithm or data affect results. While previous work has focused on stability of the ranking under changes to the algorithm, we introduce a novel measure we refer to as local stability. Local stability indicates the effect of minor changes to the values of an item in the ranking on its rank. Our proposed definition furthermore takes into account the presence of multiple items with similar qualities in the ranking, called dense regions, permitting minor modifications to swap the positions of items within the region. We show that computing this measure in general is hard, and in turn propose a relaxation of the definition to admit approximation.\n  We present (i) LStability, a sampling-based algorithm for approximating local stability, on which we make probably-approximately-correct-type guarantees through the use of concentration inequalities, and (ii) Detect-Dense-Region, an algorithm based on this approach to detect the dense region an item lies in, if it exists. We introduce a number of optimizations to our algorithms to improve their scalability and efficiency. We validate our proposed framework through an extensive suite of experiments, including case studies highlighting the utility of our definitions.",
+    "categories": [
+      "cs.DB"
+    ],
+    "published": "2026-03-10T14:31:17Z",
+    "updated": "2026-03-10T14:31:17Z",
+    "url": "http://arxiv.org/abs/2603.09724v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.09724v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出的排序局部稳定性度量及稠密区域检测算法可直接应用于推荐系统的重排序（Re-ranking）阶段以提升结果鲁棒性，属于有潜力的通用方法，但缺乏具体的推荐业务场景验证。",
+    "translation": "排序的局部稳定性研究",
+    "summary_zh": "提出了一种衡量微小物品属性变化对排序结果影响的“局部稳定性”新度量，并设计了基于采样的近似算法及稠密区域检测机制以解决计算复杂度问题。",
+    "key_points": [
+      "提出了一种衡量微小物品属性变化对排序结果影响的“局部稳定性”新度量，并设计了基于采样的近似算法及稠密区域检测机制以解决计算复杂度问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.10148v1",
+    "title": "Social Knowledge for Cross-Domain User Preference Modeling",
+    "authors": [
+      "Nir Lotan",
+      "Adir Solomon",
+      "Ido Guy",
+      "Einat Minkov"
+    ],
+    "summary": "We demonstrate that user preferences can be represented and predicted across topical domains using large-scale social modeling. Given information about popular entities favored by a user, we project the user into a social embedding space learned from a large-scale sample of the Twitter (now X) network. By representing both users and popular entities in a joint social space, we can assess the relevance of candidate entities (e.g., music artists) using cosine similarity within this embedding space. A comprehensive evaluation using link prediction experiments shows that this method achieves effective personalization in zero-shot setting, when no user feedback is available for entities in the target domain, yielding substantial improvements over a strong popularity-based baseline. In-depth analysis further illustrates that socio-demographic factors encoded in the social embeddings are correlated with user preferences across domains. Finally, we argue and demonstrate that the proposed approach can facilitate social modeling of end users using large language models (LLMs).",
+    "categories": [
+      "cs.SI",
+      "cs.AI"
+    ],
+    "published": "2026-03-10T18:33:49Z",
+    "updated": "2026-03-10T18:33:49Z",
+    "url": "http://arxiv.org/abs/2603.10148v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.10148v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出利用社交网络嵌入进行跨域用户偏好建模，属于用户建模范畴，但主要基于 Twitter 数据且零样本设定，缺乏直接针对主流推荐系统核心环节（如召回、排序）的深度整合或 LL M 的直接应用创新。",
+    "translation": "利用社交知识进行跨域用户偏好建模",
+    "summary_zh": "该文提出将用户和实体映射到从大规模社交网络学习到的联合嵌入空间，通过计算余弦相似度在零样本场景下实现跨域用户偏好预测与个性化推荐。",
+    "key_points": [
+      "该文提出将用户和实体映射到从大规模社交网络学习到的联合嵌入空间，通过计算余弦相似度在零样本场景下实现跨域用户偏好预测与个性化推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2603.09704v2",
+    "title": "Evaluation of LLMs in retrieving food and nutritional context for RAG systems",
+    "authors": [
+      "Maks Požarnik Vavken",
+      "Matevž Ogrinc",
+      "Tome Eftimov",
+      "Barbara Koroušić Seljak"
+    ],
+    "summary": "In this article, we evaluate four Large Language Models (LLMs) and their effectiveness at retrieving data within a specialized Retrieval-Augmented Generation (RAG) system, using a comprehensive food composition database. Our method is focused on the LLMs ability to translate natural language queries into structured metadata filters, enabling efficient retrieval via a Chroma vector database. By achieving high accuracy in this critical retrieval step, we demonstrate that LLMs can serve as an accessible, high-performance tool, drastically reducing the manual effort and technical expertise previously required for domain experts, such as food compilers and nutritionists, to leverage complex food and nutrition data. However, despite the high performance on easy and moderately complex queries, our analysis of difficult questions reveals that reliable retrieval remains challenging when queries involve non-expressible constraints. These findings demonstrate that LLM-driven metadata filtering excels when constraints can be explicitly expressed, but struggles when queries exceed the representational scope of the metadata format.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-03-10T14:15:35Z",
+    "updated": "2026-03-11T10:27:24Z",
+    "url": "http://arxiv.org/abs/2603.09704v2",
+    "pdf_url": "http://arxiv.org/pdf/2603.09704v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 技术在营养学领域的应用研究，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类别。",
+    "translation": "大语言模型在检索增强生成系统中获取食物与营养上下文能力的评估",
+    "summary_zh": "该研究评估了大语言模型将自然语言查询转化为结构化元数据过滤器以辅助检索增强生成系统的能力，旨在降低非技术人员获取专业营养数据的门槛。",
+    "key_points": [
+      "该研究评估了大语言模型将自然语言查询转化为结构化元数据过滤器以辅助检索增强生成系统的能力，旨在降低非技术人员获取专业营养数据的门槛"
+    ]
+  }
+]

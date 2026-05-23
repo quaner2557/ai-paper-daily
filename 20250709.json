@@ -1,0 +1,458 @@
+[
+  {
+    "arxiv_id": "2507.06503v2",
+    "title": "USD: A User-Intent-Driven Sampling and Dual-Debiasing Framework for Large-Scale Homepage Recommendations",
+    "authors": [
+      "Jiaqi Zheng",
+      "Cheng Guo",
+      "Yi Cao",
+      "Chaoqun Hou",
+      "Tong Liu",
+      "Bo Zheng"
+    ],
+    "summary": "Large-scale homepage recommendations face critical challenges from pseudo-negative samples caused by exposure bias, where non-clicks may indicate inattention rather than disinterest. Existing work lacks thorough analysis of invalid exposures and typically addresses isolated aspects (e.g., sampling strategies), overlooking the critical impact of pseudo-positive samples - such as homepage clicks merely to visit marketing portals. We propose a unified framework for large-scale homepage recommendation sampling and debiasing. Our framework consists of two key components: (1) a user intent-aware negative sampling module to filter invalid exposure samples, and (2) an intent-driven dual-debiasing module that jointly corrects exposure bias and click bias. Extensive online experiments on Taobao demonstrate the efficacy of our framework, achieving significant improvements in user click-through rates (UCTR) by 35.4% and 14.5% in two variants of the marketing block on the Taobao homepage, Baiyibutie and Taobaomiaosha.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-09T03:02:23Z",
+    "updated": "2025-07-10T06:49:21Z",
+    "url": "http://arxiv.org/abs/2507.06503v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.06503v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对淘宝首页推荐场景，提出了解决曝光偏差和伪正样本的用户意图驱动去偏框架，属于核心电商推荐系统创新，且来自工业界落地实践。",
+    "translation": "USD：一种用于大规模首页推荐的用户意图驱动采样与双重去偏框架",
+    "summary_zh": "本文提出一种统一框架，通过用户意图感知模块过滤无效曝光负样本，并利用意图驱动的双重去偏模块联合校正曝光偏差与点击偏差，以解决大规模首页推荐中的伪负样本和伪正样本问题。",
+    "key_points": [
+      "本文提出一种统一框架，通过用户意图感知模块过滤无效曝光负样本，并利用意图驱动的双重去偏模块联合校正曝光偏差与点击偏差，以解决大规模首页推荐中的伪负样本和伪正样本问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.16829v1",
+    "title": "You Don't Bring Me Flowers: Mitigating Unwanted Recommendations Through Conformal Risk Control",
+    "authors": [
+      "Giovanni De Toni",
+      "Erasmo Purificato",
+      "Emilia Gómez",
+      "Bruno Lepri",
+      "Andrea Passerini",
+      "Cristian Consonni"
+    ],
+    "summary": "Recommenders are significantly shaping online information consumption. While effective at personalizing content, these systems increasingly face criticism for propagating irrelevant, unwanted, and even harmful recommendations. Such content degrades user satisfaction and contributes to significant societal issues, including misinformation, radicalization, and erosion of user trust. Although platforms offer mechanisms to mitigate exposure to undesired content, these mechanisms are often insufficiently effective and slow to adapt to users' feedback. This paper introduces an intuitive, model-agnostic, and distribution-free method that uses conformal risk control to provably bound unwanted content in personalized recommendations by leveraging simple binary feedback on items. We also address a limitation of traditional conformal risk control approaches, i.e., the fact that the recommender can provide a smaller set of recommended items, by leveraging implicit feedback on consumed items to expand the recommendation set while ensuring robust risk mitigation. Our experimental evaluation on data coming from a popular online video-sharing platform demonstrates that our approach ensures an effective and controllable reduction of unwanted recommendations with minimal effort. The source code is available here: https://github.com/geektoni/mitigating-harm-recsys.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-09T21:27:35Z",
+    "updated": "2025-07-09T21:27:35Z",
+    "url": "http://arxiv.org/abs/2507.16829v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.16829v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的“不想要内容”过滤问题，提出基于共形风险控制的模型无关方法，属于核心推荐算法创新且来自工业界场景。",
+    "translation": "你未送我鲜花：通过共形风险控制缓解不想要的推荐",
+    "summary_zh": "提出一种模型无关且分布自由的共形风险控制方法，利用二元反馈和隐式消费信号，在严格保证 unwanted 内容风险上界的同时动态调整推荐列表规模。",
+    "key_points": [
+      "提出一种模型无关且分布自由的共形风险控制方法，利用二元反馈和隐式消费信号，在严格保证 unwanted 内容风险上界的同时动态调整推荐列表规模"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07064v1",
+    "title": "Boosting Parameter Efficiency in LLM-Based Recommendation through Sophisticated Pruning",
+    "authors": [
+      "Shanle Zheng",
+      "Keqin Bao",
+      "Jizhi Zhang",
+      "Yang Zhang",
+      "Fuli Feng",
+      "Xiangnan He"
+    ],
+    "summary": "LLM-based recommender systems have made significant progress; however, the deployment cost associated with the large parameter volume of LLMs still hinders their real-world applications. This work explores parameter pruning to improve parameter efficiency while maintaining recommendation quality, thereby enabling easier deployment. Unlike existing approaches that focus primarily on inter-layer redundancy, we uncover intra-layer redundancy within components such as self-attention and MLP modules. Building on this analysis, we propose a more fine-grained pruning approach that integrates both intra-layer and layer-wise pruning. Specifically, we introduce a three-stage pruning strategy that progressively prunes parameters at different levels and parts of the model, moving from intra-layer to layer-wise pruning, or from width to depth. Each stage also includes a performance restoration step using distillation techniques, helping to strike a balance between performance and parameter efficiency. Empirical results demonstrate the effectiveness of our approach: across three datasets, our models achieve an average of 88% of the original model's performance while pruning more than 95% of the non-embedding parameters. This underscores the potential of our method to significantly reduce resource requirements without greatly compromising recommendation quality. Our code will be available at: https://github.com/zheng-sl/PruneRec",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-09T17:26:10Z",
+    "updated": "2025-07-09T17:26:10Z",
+    "url": "http://arxiv.org/abs/2507.07064v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07064v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 在推荐系统中的部署瓶颈，提出细粒度剪枝方案以提升参数效率，属于 LLM for RecSys 的核心应用研究；且来自中国公司，按规则额外加 1 分。",
+    "translation": "通过精细化剪枝提升基于大语言模型的推荐系统参数效率",
+    "summary_zh": "本文提出一种结合层内与层间冗余分析的三阶段细粒度剪枝策略，并辅以蒸馏恢复机制，旨在大幅降低 LLM 推荐模型的参数量以优化实际部署效率。",
+    "key_points": [
+      "本文提出一种结合层内与层间冗余分析的三阶段细粒度剪枝策略，并辅以蒸馏恢复机制，旨在大幅降低 LLM 推荐模型的参数量以优化实际部署效率"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06877v1",
+    "title": "CDC: Causal Domain Clustering for Multi-Domain Recommendation",
+    "authors": [
+      "Huishi Luo",
+      "Yiqing Wu",
+      "Yiwen Chen",
+      "Fuzhen Zhuang",
+      "Deqing Wang"
+    ],
+    "summary": "Multi-domain recommendation leverages domain-general knowledge to improve recommendations across several domains. However, as platforms expand to dozens or hundreds of scenarios, training all domains in a unified model leads to performance degradation due to significant inter-domain differences. Existing domain grouping methods, based on business logic or data similarities, often fail to capture the true transfer relationships required for optimal grouping. To effectively cluster domains, we propose Causal Domain Clustering (CDC). CDC models domain transfer patterns within a large number of domains using two distinct effects: the Isolated Domain Affinity Matrix for modeling non-interactive domain transfers, and the Hybrid Domain Affinity Matrix for considering dynamic domain synergy or interference under joint training. To integrate these two transfer effects, we introduce causal discovery to calculate a cohesion-based coefficient that adaptively balances their contributions. A Co-Optimized Dynamic Clustering algorithm iteratively optimizes target domain clustering and source domain selection for training. CDC significantly enhances performance across over 50 domains on public datasets and in industrial settings, achieving a 4.9% increase in online eCPM. Code is available at https://github.com/Chrissie-Law/Causal-Domain-Clustering-for-Multi-Domain-Recommendation",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-09T14:15:47Z",
+    "updated": "2025-07-09T14:15:47Z",
+    "url": "http://arxiv.org/abs/2507.06877v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.06877v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多域推荐系统中的核心聚类与迁移问题，提出了基于因果发现的领域聚类新架构，并在工业界电商场景验证了效果，属于高优先级的核心领域进展。",
+    "translation": "CDC：面向多域推荐的因果领域聚类方法",
+    "summary_zh": "提出因果领域聚类（CDC）框架，通过隔离域亲和矩阵与混合域亲和矩阵建模非交互与动态协同效应，并利用因果发现自适应平衡两者以优化多域场景下的动态聚类与源域选择。",
+    "key_points": [
+      "提出因果领域聚类（CDC）框架，通过隔离域亲和矩阵与混合域亲和矩阵建模非交互与动态协同效应，并利用因果发现自适应平衡两者以优化多域场景下的动态聚类与源域选择"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06507v2",
+    "title": "GR-LLMs: Recent Advances in Generative Recommendation Based on Large Language Models",
+    "authors": [
+      "Zhen Yang",
+      "Haitao Lin",
+      "Jiawei xue",
+      "Ziji Zhang"
+    ],
+    "summary": "In the past year, Generative Recommendations (GRs) have undergone substantial advancements, especially in leveraging the powerful sequence modeling and reasoning capabilities of Large Language Models (LLMs) to enhance overall recommendation performance. LLM-based GRs are forming a new paradigm that is distinctly different from discriminative recommendations, showing strong potential to replace traditional recommendation systems heavily dependent on complex hand-crafted features. In this paper, we provide a comprehensive survey aimed at facilitating further research of LLM-based GRs. Initially, we outline the general preliminaries and application cases of LLM-based GRs. Subsequently, we introduce the main considerations when LLM-based GRs are applied in real industrial scenarios. Finally, we explore promising directions for LLM-based GRs. We hope that this survey contributes to the ongoing advancement of the GR domain.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-07-09T03:13:08Z",
+    "updated": "2025-07-14T07:46:11Z",
+    "url": "http://arxiv.org/abs/2507.06507v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.06507v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "这是一篇直接针对基于大语言模型的生成式推荐系统（GR）的综述，完全符合 LLM for RecSys 的核心领域，并非纯 LLM 研究。",
+    "translation": "GR-LLMs：基于大语言模型的生成式推荐最新进展综述",
+    "summary_zh": "本文系统综述了利用大语言模型序列建模与推理能力构建生成式推荐的新范式，涵盖其基础原理、工业落地考量及未来发展方向。",
+    "key_points": [
+      "本文系统综述了利用大语言模型序列建模与推理能力构建生成式推荐的新范式，涵盖其基础原理、工业落地考量及未来发展方向"
+    ]
+  },
+  {
+    "arxiv_id": "2507.07251v1",
+    "title": "A Language-Driven Framework for Improving Personalized Recommendations: Merging LLMs with Traditional Algorithms",
+    "authors": [
+      "Aaron Goldstein",
+      "Ayan Dutta"
+    ],
+    "summary": "Traditional recommendation algorithms are not designed to provide personalized recommendations based on user preferences provided through text, e.g., \"I enjoy light-hearted comedies with a lot of humor\". Large Language Models (LLMs) have emerged as one of the most promising tools for natural language processing in recent years. This research proposes a novel framework that mimics how a close friend would recommend items based on their knowledge of an individual's tastes. We leverage LLMs to enhance movie recommendation systems by refining traditional algorithm outputs and integrating them with language-based user preference inputs. We employ Singular Value Decomposition (SVD) or SVD++ algorithms to generate initial movie recommendations, implemented using the Surprise Python library and trained on the MovieLens-Latest-Small dataset. We compare the performance of the base algorithms with our LLM-enhanced versions using leave-one-out validation hit rates and cumulative hit rates. Additionally, to compare the performance of our framework against the current state-of-the-art recommendation systems, we use rating and ranking metrics with an item-based stratified 0.75 train, 0.25 test split. Our framework can generate preference profiles automatically based on users' favorite movies or allow manual preference specification for more personalized results. Using an automated approach, our framework overwhelmingly surpassed SVD and SVD++ on every evaluation metric used (e.g., improvements of up to ~6x in cumulative hit rate, ~3.7x in NDCG, etc.), albeit at the cost of a slight increase in computational overhead.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2025-07-09T19:48:33Z",
+    "updated": "2025-07-09T19:48:33Z",
+    "url": "http://arxiv.org/abs/2507.07251v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.07251v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接将 LLM 应用于推荐系统，通过融合文本偏好输入与传统算法（SVD）来解决个性化推荐问题，符合 LLM for RecSys 的核心定义。",
+    "translation": "一种语言驱动的个性化推荐改进框架：融合大语言模型与传统算法",
+    "summary_zh": "提出一种混合框架，利用大语言模型解析用户自然语言偏好并优化传统协同过滤算法的输出，以实现更精准的个性化电影推荐。",
+    "key_points": [
+      "提出一种混合框架，利用大语言模型解析用户自然语言偏好并优化传统协同过滤算法的输出，以实现更精准的个性化电影推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06782v1",
+    "title": "Temporal Information Retrieval via Time-Specifier Model Merging",
+    "authors": [
+      "SeungYoon Han",
+      "Taeho Hwang",
+      "Sukmin Cho",
+      "Soyeong Jeong",
+      "Hoyun Song",
+      "Huije Lee",
+      "Jong C. Park"
+    ],
+    "summary": "The rapid expansion of digital information and knowledge across structured and unstructured sources has heightened the importance of Information Retrieval (IR). While dense retrieval methods have substantially improved semantic matching for general queries, they consistently underperform on queries with explicit temporal constraints--often those containing numerical expressions and time specifiers such as ``in 2015.'' Existing approaches to Temporal Information Retrieval (TIR) improve temporal reasoning but often suffer from catastrophic forgetting, leading to reduced performance on non-temporal queries. To address this, we propose Time-Specifier Model Merging (TSM), a novel method that enhances temporal retrieval while preserving accuracy on non-temporal queries. TSM trains specialized retrievers for individual time specifiers and merges them in to a unified model, enabling precise handling of temporal constraints without compromising non-temporal retrieval. Extensive experiments on both temporal and non-temporal datasets demonstrate that TSM significantly improves performance on temporally constrained queries while maintaining strong results on non-temporal queries, consistently outperforming other baseline methods. Our code is available at https://github.com/seungyoonee/TSM .",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2025-07-09T12:16:11Z",
+    "updated": "2025-07-09T12:16:11Z",
+    "url": "http://arxiv.org/abs/2507.06782v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.06782v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于信息检索（IR）中的时间约束查询问题，属于搜索核心领域，虽未明确提及推荐系统，但检索技术直接适用于搜索产品；非纯 LLM 研究，且来自 TAL 公司加 1 分。",
+    "translation": "基于时间限定符模型合并的时序信息检索",
+    "summary_zh": "提出时间限定符模型合并（TSM）方法，通过训练针对特定时间表达式的专用检索器并将其合并为统一模型，以在提升时间约束查询精度的同时避免灾难性遗忘并保持非时间查询的性能。",
+    "key_points": [
+      "提出时间限定符模型合并（TSM）方法，通过训练针对特定时间表达式的专用检索器并将其合并为统一模型，以在提升时间约束查询精度的同时避免灾难性遗忘并保持非时间查询的性能"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06654v1",
+    "title": "MS-DPPs: Multi-Source Determinantal Point Processes for Contextual Diversity Refinement of Composite Attributes in Text to Image Retrieval",
+    "authors": [
+      "Naoya Sogi",
+      "Takashi Shibata",
+      "Makoto Terao",
+      "Masanori Suganuma",
+      "Takayuki Okatani"
+    ],
+    "summary": "Result diversification (RD) is a crucial technique in Text-to-Image Retrieval for enhancing the efficiency of a practical application. Conventional methods focus solely on increasing the diversity metric of image appearances. However, the diversity metric and its desired value vary depending on the application, which limits the applications of RD. This paper proposes a novel task called CDR-CA (Contextual Diversity Refinement of Composite Attributes). CDR-CA aims to refine the diversities of multiple attributes, according to the application's context. To address this task, we propose Multi-Source DPPs, a simple yet strong baseline that extends the Determinantal Point Process (DPP) to multi-sources. We model MS-DPP as a single DPP model with a unified similarity matrix based on a manifold representation. We also introduce Tangent Normalization to reflect contexts. Extensive experiments demonstrate the effectiveness of the proposed method. Our code is publicly available at https://github.com/NEC-N-SOGI/msdpp.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-07-09T08:38:46Z",
+    "updated": "2025-07-09T08:38:46Z",
+    "url": "http://arxiv.org/abs/2507.06654v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.06654v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 7,
+    "reasoning": "该文针对图文检索中的结果多样性重排序问题，提出了多源行列式点过程方法，属于搜索/推荐核心环节的直接应用；虽非纯 LLM 研究且来自中国企业（+1 分），但场景较垂直，故评为中高优先级。",
+    "translation": "MS-DPPs：用于图文检索中复合属性上下文多样性优化的多源行列式点过程",
+    "summary_zh": "本文提出多源行列式点过程（MS-DPPs），通过统一流形表示和切线归一化技术，在图文检索中根据应用场景上下文动态优化多种复合属性的结果多样性。",
+    "key_points": [
+      "本文提出多源行列式点过程（MS-DPPs），通过统一流形表示和切线归一化技术，在图文检索中根据应用场景上下文动态优化多种复合属性的结果多样性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06859v2",
+    "title": "Episodic Contextual Bandits with Knapsacks under Conversion Models",
+    "authors": [
+      "Wang Chi Cheung",
+      "Zitian Li"
+    ],
+    "summary": "We study an online setting, where a decision maker (DM) interacts with contextual bandit-with-knapsack (BwK) instances in repeated episodes. These episodes start with different resource amounts, and the contexts' probability distributions are non-stationary in an episode. All episodes share the same latent conversion model, which governs the random outcome contingent upon a request's context and an allocation decision. Our model captures applications such as dynamic pricing on perishable resources with episodic replenishment, and first price auctions in repeated episodes with different starting budgets. We design an online algorithm that achieves a regret sub-linear in $T$, the number of episodes, assuming access to a \\emph{confidence bound oracle} that achieves an $o(T)$-regret. Such an oracle is readily available from existing contextual bandit literature. We overcome the technical challenge with arbitrarily many possible contexts, which leads to a reinforcement learning problem with an unbounded state space. Our framework provides improved regret bounds in certain settings when the DM is provided with unlabeled feature data, which is novel to the contextual BwK literature.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-09T14:00:05Z",
+    "updated": "2026-01-02T11:55:23Z",
+    "url": "http://arxiv.org/abs/2507.06859v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.06859v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究带资源约束的上下文多臂老虎机理论，虽提及动态定价和拍卖等边缘应用场景，但缺乏针对推荐/搜索核心环节（如召回、排序、用户建模）的直接创新，属于通用强化学习/运筹优化方法。",
+    "translation": "转化模型下带资源约束的episodic上下文多臂老虎机",
+    "summary_zh": "提出一种在线算法，通过在重复片段中利用共享的潜在转化模型和置信界预言机，解决非平稳上下文分布及无界状态空间下的资源约束决策问题。",
+    "key_points": [
+      "提出一种在线算法，通过在重复片段中利用共享的潜在转化模型和置信界预言机，解决非平稳上下文分布及无界状态空间下的资源约束决策问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06563v1",
+    "title": "DS@GT at CheckThat! 2025: Exploring Retrieval and Reranking Pipelines for Scientific Claim Source Retrieval on Social Media Discourse",
+    "authors": [
+      "Jeanette Schofield",
+      "Shuyu Tian",
+      "Hoang Thanh Thanh Truong",
+      "Maximilian Heil"
+    ],
+    "summary": "Social media users often make scientific claims without citing where these claims come from, generating a need to verify these claims. This paper details work done by the DS@GT team for CLEF 2025 CheckThat! Lab Task 4b Scientific Claim Source Retrieval which seeks to find relevant scientific papers based on implicit references in tweets. Our team explored 6 different data augmentation techniques, 7 different retrieval and reranking pipelines, and finetuned a bi-encoder. Achieving an MRR@5 of 0.58, our team ranked 16th out of 30 teams for the CLEF 2025 CheckThat! Lab Task 4b, and improvement of 0.15 over the BM25 baseline of 0.43. Our code is available on Github at https://github.com/dsgt-arc/checkthat-2025-swd/tree/main/subtask-4b.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2025-07-09T05:32:02Z",
+    "updated": "2025-07-09T05:32:02Z",
+    "url": "http://arxiv.org/abs/2507.06563v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.06563v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于科学声明的验证与来源检索（事实核查任务），属于特定 NLP 应用而非通用的推荐系统或搜索引擎核心技术，且未涉及用户建模或个性化排序。",
+    "translation": "DS@GT 在 CheckThat! 2025：探索社交媒体话语中科学声明来源的检索与重排序流程",
+    "summary_zh": "本文提出了一套结合数据增强、双编码器微调及多种检索重排序管道的框架，旨在从社交媒体推文中定位隐含引用的科学论文来源以进行事实核查。",
+    "key_points": [
+      "本文提出了一套结合数据增强、双编码器微调及多种检索重排序管道的框架，旨在从社交媒体推文中定位隐含引用的科学论文来源以进行事实核查"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06554v2",
+    "title": "SEARA: An Automated Approach for Obtaining Optimal Retrievers",
+    "authors": [
+      "Zou Yuheng",
+      "Wang Yiran",
+      "Tian Yuzhu",
+      "Zhu Min",
+      "Huang Yanhua"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is a core approach for enhancing Large Language Models (LLMs), where the effectiveness of the retriever largely determines the overall response quality of RAG systems. Retrievers encompass a multitude of hyperparameters that significantly impact performance outcomes and demonstrate sensitivity to specific applications. Nevertheless, hyperparameter optimization entails prohibitively high computational expenses. Existing evaluation methods suffer from either prohibitive costs or disconnection from domain-specific scenarios. This paper proposes SEARA (Subset sampling Evaluation for Automatic Retriever Assessment), which addresses evaluation data challenges through subset sampling techniques and achieves robust automated retriever evaluation by minimal retrieval facts extraction and comprehensive retrieval metrics. Based on real user queries, this method enables fully automated retriever evaluation at low cost, thereby obtaining optimal retriever for specific business scenarios. We validate our method across classic RAG applications in rednote, including knowledge-based Q\\&A system and retrieval-based travel assistant, successfully obtaining scenario-specific optimal retrievers.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-09T05:13:09Z",
+    "updated": "2025-09-28T02:55:24Z",
+    "url": "http://arxiv.org/abs/2507.06554v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.06554v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于优化 RAG 系统中的检索器超参数，属于纯 LLM 应用研究，虽在小红书场景验证但未提出通用的推荐/搜索核心架构创新，相关性较弱。",
+    "translation": "SEARA：一种获取最优检索器的自动化方法",
+    "summary_zh": "提出 SEARA 方法，通过子集采样和最小化检索事实提取技术，以低成本实现针对特定业务场景的检索器自动化评估与最优参数选择。",
+    "key_points": [
+      "提出 SEARA 方法，通过子集采样和最小化检索事实提取技术，以低成本实现针对特定业务场景的检索器自动化评估与最优参数选择"
+    ]
+  },
+  {
+    "arxiv_id": "2507.08860v2",
+    "title": "e-Profits: A Business-Aligned Evaluation Metric for Profit-Sensitive Customer Churn Prediction",
+    "authors": [
+      "Awais Manzoor",
+      "M. Atif Qureshi",
+      "Etain Kidney",
+      "Luca Longo"
+    ],
+    "summary": "Retention campaigns in customer relationship management often rely on churn prediction models evaluated using traditional metrics such as AUC and F1-score. However, these metrics fail to reflect financial outcomes and may mislead strategic decisions. We introduce e-Profits, a novel business-aligned evaluation metric that quantifies model performance based on customer lifetime value, retention probability, and intervention costs. Unlike existing profit-based metrics such as Expected Maximum Profit, which assume fixed population-level parameters, e-Profits uses Kaplan-Meier survival analysis to estimate tenure-conditioned (customer-level) one-period retention probabilities and supports granular, per-customer profit evaluation. We benchmark six classifiers across two telecom datasets (IBM Telco and Maven Telecom) and demonstrate that e-Profits reshapes model rankings compared to traditional metrics, revealing financial advantages in models previously overlooked by AUC or F1-score. The metric also enables segment-level insight into which models maximise return on investment for high-value customers. e-Profits provides a transparent, customer-level evaluation framework that bridges predictive modelling and profit-driven decision-making in operational churn management. All source code is available at: https://github.com/Awaismanzoor/eprofits.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-07-09T11:22:24Z",
+    "updated": "2026-01-14T15:22:34Z",
+    "url": "http://arxiv.org/abs/2507.08860v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.08860v2.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于客户流失预测的评估指标，属于 CRM 范畴，虽与用户建模有弱相关，但缺乏推荐/搜索核心环节（召回、排序等）的直接应用，且非纯 LLM 研究故不适用低分排除规则，仅因中国公司背景加 1 分。",
+    "translation": "e-Profits：一种面向利润敏感型客户流失预测的业务对齐评估指标",
+    "summary_zh": "提出 e-Profits 指标，结合客户终身价值与生存分析，实现细粒度单客户级别的利润导向模型评估，以替代传统 AUC/F1 指标指导留存决策。",
+    "key_points": [
+      "提出 e-Profits 指标，结合客户终身价值与生存分析，实现细粒度单客户级别的利润导向模型评估，以替代传统 AUC/F1 指标指导留存决策"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06596v1",
+    "title": "Impacts of Mainstream-Driven Algorithms on Recommendations for Children Across Domains: A Reproducibility Study",
+    "authors": [
+      "Robin Ungruh",
+      "Alejandro Bellogín",
+      "Dominik Kowald",
+      "Maria Soledad Pera"
+    ],
+    "summary": "Children are often exposed to items curated by recommendation algorithms. Yet, research seldom considers children as a user group, and when it does, it is anchored on datasets where children are underrepresented, risking overlooking their interests, favoring those of the majority, i.e., mainstream users. Recently, Ungruh et al. demonstrated that children's consumption patterns and preferences differ from those of mainstream users, resulting in inconsistent recommendation algorithm performance and behavior for this user group. These findings, however, are based on two datasets with a limited child user sample. We reproduce and replicate this study on a wider range of datasets in the movie, music, and book domains, uncovering interaction patterns and aspects of child-recommender interactions consistent across domains, as well as those specific to some user samples in the data. We also extend insights from the original study with popularity bias metrics, given the interpretation of results from the original study. With this reproduction and extension, we uncover consumption patterns and differences between age groups stemming from intrinsic differences between children and others, and those unique to specific datasets or domains.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-07-09T07:15:12Z",
+    "updated": "2025-07-09T07:15:12Z",
+    "url": "http://arxiv.org/abs/2507.06596v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.06596v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文属于推荐系统中的公平性与用户群体分析（儿童），但主要是对现有算法的复现与偏差评估，缺乏核心架构或算法创新，且未涉及 LLM 应用。",
+    "translation": "主流驱动算法对跨域儿童推荐的影响：一项可复现性研究",
+    "summary_zh": "本文通过多领域数据集复现并扩展了关于儿童用户推荐行为的研究，揭示了儿童与主流用户在消费模式及流行度偏差上的内在差异与数据特异性。",
+    "key_points": [
+      "本文通过多领域数据集复现并扩展了关于儿童用户推荐行为的研究，揭示了儿童与主流用户在消费模式及流行度偏差上的内在差异与数据特异性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06838v2",
+    "title": "Shifting from Ranking to Set Selection for Retrieval Augmented Generation",
+    "authors": [
+      "Dahyun Lee",
+      "Yongrae Jo",
+      "Haeju Park",
+      "Moontae Lee"
+    ],
+    "summary": "Retrieval in Retrieval-Augmented Generation(RAG) must ensure that retrieved passages are not only individually relevant but also collectively form a comprehensive set. Existing approaches primarily rerank top-k passages based on their individual relevance, often failing to meet the information needs of complex queries in multi-hop question answering. In this work, we propose a set-wise passage selection approach and introduce SETR, which explicitly identifies the information requirements of a query through Chain-of-Thought reasoning and selects an optimal set of passages that collectively satisfy those requirements. Experiments on multi-hop RAG benchmarks show that SETR outperforms both proprietary LLM-based rerankers and open-source baselines in terms of answer correctness and retrieval quality, providing an effective and efficient alternative to traditional rerankers in RAG systems. The code is available at https://github.com/LGAI-Research/SetR",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2025-07-09T13:35:36Z",
+    "updated": "2025-07-10T01:36:33Z",
+    "url": "http://arxiv.org/abs/2507.06838v2",
+    "pdf_url": "http://arxiv.org/pdf/2507.06838v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于多跳问答中的检索增强生成，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交信息流、广告等）。",
+    "translation": "从排序转向集合选择：用于检索增强生成的新方法",
+    "summary_zh": "提出一种基于思维链推理的集合级段落选择方法（SETR），旨在为复杂查询选出 collectively 满足信息需求的最佳文档集合，而非仅依赖单文档相关性重排序。",
+    "key_points": [
+      "提出一种基于思维链推理的集合级段落选择方法（SETR），旨在为复杂查询选出 collectively 满足信息需求的最佳文档集合，而非仅依赖单文档相关性重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06993v3",
+    "title": "IMAIA: Interactive Maps AI Assistant for Travel Planning and Geo-Spatial Intelligence",
+    "authors": [
+      "Jieren Deng",
+      "Zhizhang Hu",
+      "Ziyan He",
+      "Aleksandar Cvetkovic",
+      "Pak Kiu Chung",
+      "Dragomir Yankov",
+      "Chiqun Zhang"
+    ],
+    "summary": "Map applications are still largely point-and-click, making it difficult to ask map-centric questions or connect what a camera sees to the surrounding geospatial context with view-conditioned inputs. We introduce IMAIA, an interactive Maps AI Assistant that enables natural-language interaction with both vector (street) maps and satellite imagery, and augments camera inputs with geospatial intelligence to help users understand the world. IMAIA comprises two complementary components. Maps Plus treats the map as first-class context by parsing tiled vector/satellite views into a grid-aligned representation that a language model can query to resolve deictic references (e.g., ``the flower-shaped building next to the park in the top-right''). Places AI Smart Assistant (PAISA) performs camera-aware place understanding by fusing image--place embeddings with geospatial signals (location, heading, proximity) to ground a scene, surface salient attributes, and generate concise explanations. A lightweight multi-agent design keeps latency low and exposes interpretable intermediate decisions. Across map-centric QA and camera-to-place grounding tasks, IMAIA improves accuracy and responsiveness over strong baselines while remaining practical for user-facing deployments. By unifying language, maps, and geospatial cues, IMAIA moves beyond scripted tools toward conversational mapping that is both spatially grounded and broadly usable.",
+    "categories": [
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2025-07-09T16:18:09Z",
+    "updated": "2025-09-23T03:59:02Z",
+    "url": "http://arxiv.org/abs/2507.06993v3",
+    "pdf_url": "http://arxiv.org/pdf/2507.06993v3.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 与地理空间智能结合的研究，专注于旅行规划和地图交互，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模）。",
+    "translation": "IMAIA：用于旅行规划与地理空间智能的交互式地图 AI 助手",
+    "summary_zh": "该论文提出了一种结合向量地图、卫星图像和相机输入的交互式 AI 助手，通过多代理架构实现自然语言与地理空间上下文的深度融合以辅助场景理解。",
+    "key_points": [
+      "该论文提出了一种结合向量地图、卫星图像和相机输入的交互式 AI 助手，通过多代理架构实现自然语言与地理空间上下文的深度融合以辅助场景理解"
+    ]
+  },
+  {
+    "arxiv_id": "2507.06956v1",
+    "title": "Investigating the Robustness of Retrieval-Augmented Generation at the Query Level",
+    "authors": [
+      "Sezen Perçin",
+      "Xin Su",
+      "Qutub Sha Syed",
+      "Phillip Howard",
+      "Aleksei Kuvshinov",
+      "Leo Schwinn",
+      "Kay-Ulrich Scholl"
+    ],
+    "summary": "Large language models (LLMs) are very costly and inefficient to update with new information. To address this limitation, retrieval-augmented generation (RAG) has been proposed as a solution that dynamically incorporates external knowledge during inference, improving factual consistency and reducing hallucinations. Despite its promise, RAG systems face practical challenges-most notably, a strong dependence on the quality of the input query for accurate retrieval. In this paper, we investigate the sensitivity of different components in the RAG pipeline to various types of query perturbations. Our analysis reveals that the performance of commonly used retrievers can degrade significantly even under minor query variations. We study each module in isolation as well as their combined effect in an end-to-end question answering setting, using both general-domain and domain-specific datasets. Additionally, we propose an evaluation framework to systematically assess the query-level robustness of RAG pipelines and offer actionable recommendations for practitioners based on the results of more than 1092 experiments we performed.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-07-09T15:39:17Z",
+    "updated": "2025-07-09T15:39:17Z",
+    "url": "http://arxiv.org/abs/2507.06956v1",
+    "pdf_url": "http://arxiv.org/pdf/2507.06956v1.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "affiliation_lines": [
+      "1TechnicalUniversityofMunich,2IntelLabs,3Thoughtworks,"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和 RAG 鲁棒性研究，专注于问答场景下的查询扰动分析，未涉及推荐系统或搜索引擎的核心业务逻辑（如召回、排序、个性化）。",
+    "translation": "检索增强生成在查询级别的鲁棒性研究",
+    "summary_zh": "本文分析了检索增强生成（RAG）系统中不同组件对查询扰动的敏感性，揭示了检索器在微小查询变化下性能显著下降的问题，并提出了一套评估 RAG 管道查询级鲁棒性的框架。",
+    "key_points": [
+      "本文分析了检索增强生成（RAG）系统中不同组件对查询扰动的敏感性，揭示了检索器在微小查询变化下性能显著下降的问题，并提出了一套评估 RAG 管道查询级鲁棒性的框架"
+    ]
+  }
+]

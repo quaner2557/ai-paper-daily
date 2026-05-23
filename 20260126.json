@@ -1,0 +1,553 @@
+[
+  {
+    "arxiv_id": "2601.18457v1",
+    "title": "Token-level Collaborative Alignment for LLM-based Generative Recommendation",
+    "authors": [
+      "Fake Lin",
+      "Binbin Hu",
+      "Zhi Zheng",
+      "Xi Zhu",
+      "Ziqi Liu",
+      "Zhiqiang Zhang",
+      "Jun Zhou",
+      "Tong Xu"
+    ],
+    "summary": "Large Language Models (LLMs) have demonstrated strong potential for generative recommendation by leveraging rich semantic knowledge. However, existing LLM-based recommender systems struggle to effectively incorporate collaborative filtering (CF) signals, due to a fundamental mismatch between item-level preference modeling in CF and token-level next-token prediction (NTP) optimization in LLMs. Prior approaches typically treat CF as contextual hints or representation bias, and resort to multi-stage training to reduce behavioral semantic space discrepancies, leaving CF unable to explicitly regulate LLM generation. In this work, we propose Token-level Collaborative Alignment for Recommendation (TCA4Rec), a model-agnostic and plug-and-play framework that establishes an explicit optimization-level interface between CF supervision and LLM generation. TCA4Rec consists of (i) Collaborative Tokenizer, which projects raw item-level CF logits into token-level distributions aligned with the LLM token space, and (ii) Soft Label Alignment, which integrates these CF-informed distributions with one-hot supervision to optimize a soft NTP objective. This design preserves the generative nature of LLM training while enabling collaborative alignment with essential user preference of CF models. We highlight TCA4Rec is compatible with arbitrary traditional CF models and generalizes across a wide range of decoder-based LLM recommender architectures. Moreover, it provides an explicit mechanism to balance behavioral alignment and semantic fluency, yielding generative recommendations that are both accurate and controllable. Extensive experiments demonstrate that TCA4Rec consistently improves recommendation performance across a broad spectrum of CF models and LLM-based recommender systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T13:05:02Z",
+    "updated": "2026-01-26T13:05:02Z",
+    "url": "http://arxiv.org/abs/2601.18457v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18457v1.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "Token-level Collaborative Alignment for LLM-based Generative",
+      "UniversityofScienceandTechnology AntGroup UniversityofScienceandTechnology",
+      "RutgersUniversity AntGroup AntGroup",
+      "AntGroup UniversityofScienceandTechnology",
+      "Abstract controllable.ExtensiveexperimentsdemonstratethatTCA4Reccon-",
+      "edge.However,existingLLM-basedrecommendersystemsstruggle codeisavailableathttps://github.com/critical88/TCA4Rec.",
+      "toeffectivelyincorporatecollaborativefiltering(CF)signals,dueto",
+      "Alignment,SoftLabel",
+      "levelCollaborativeAlignmentforRecommendation(TCA4Rec),",
+      "andLLMgeneration.TCA4Recconsistsof(i)CollaborativeTok- andTongXu.2018.Token-levelCollaborativeAlignmentforLLM-based"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决 LLM 用于推荐系统中的核心痛点（协同过滤信号与 Token 预测的不匹配），提出了具体的架构创新，属于高优先级的 LLM for RecSys 研究；且来自中国公司，按规则额外加分后达到满分。",
+    "translation": "基于 LLM 的生成式推荐的 Token 级协同对齐方法",
+    "summary_zh": "提出一种模型无关的框架，通过将物品级协同过滤 logits 映射为 Token 级分布并与软标签对齐，在优化层面显式地将协同信号融入 LLM 的下一词预测训练中。",
+    "key_points": [
+      "提出一种模型无关的框架，通过将物品级协同过滤 logits 映射为 Token 级分布并与软标签对齐，在优化层面显式地将协同信号融入 LLM 的下一词预测训练中"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18251v1",
+    "title": "GenCI: Generative Modeling of User Interest Shift via Cohort-based Intent Learning for CTR Prediction",
+    "authors": [
+      "Kesha Ou",
+      "Zhen Tian",
+      "Wayne Xin Zhao",
+      "Hongyu Lu",
+      "Ji-Rong Wen"
+    ],
+    "summary": "Click-through rate (CTR) prediction plays a pivotal role in online advertising and recommender systems. Despite notable progress in modeling user preferences from historical behaviors, two key challenges persist. First, exsiting discriminative paradigms focus on matching candidates to user history, often overfitting to historically dominant features and failing to adapt to rapid interest shifts. Second, a critical information chasm emerges from the point-wise ranking paradigm. By scoring each candidate in isolation, CTR models discard the rich contextual signal implied by the recalled set as a whole, leading to a misalignment where long-term preferences often override the user's immediate, evolving intent. To address these issues, we propose GenCI, a generative user intent framework that leverages semantic interest cohorts to model dynamic user preferences for CTR prediction. The framework first employs a generative model, trained with a next-item prediction (NTP) objective, to proactively produce candidate interest cohorts. These cohorts serve as explicit, candidate-agnostic representations of a user's immediate intent. A hierarchical candidate-aware network then injects this rich contextual signal into the ranking stage, refining them with cross-attention to align with both user history and the target item. The entire model is trained end-to-end, creating a more aligned and effective CTR prediction pipeline. Extensive experiments on three widely used datasets demonstrate the effectiveness of our approach.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T08:15:04Z",
+    "updated": "2026-01-26T08:15:04Z",
+    "url": "http://arxiv.org/abs/2601.18251v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18251v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统/广告中的 CTR 预测痛点，提出基于生成式建模和意图群组的新架构来解决用户兴趣漂移问题，属于核心领域的高优先级创新；且来自中国公司，按规定额外加 1 分（基础分 9+ 奖励 1）。",
+    "translation": "GenCI：基于群组意图学习的用户兴趣漂移生成式建模用于 CTR 预测",
+    "summary_zh": "该论文提出 GenCI 框架，利用生成式模型通过下一项预测目标主动构建语义兴趣群组以表征用户即时意图，并结合层级感知网络将上下文信号注入排序阶段，从而解决传统判别式范式难以适应兴趣漂移及缺乏集合上下文信号的问题。",
+    "key_points": [
+      "该论文提出 GenCI 框架，利用生成式模型通过下一项预测目标主动构建语义兴趣群组以表征用户即时意图，并结合层级感知网络将上下文信号注入排序阶段，从而解决传统判别式范式难以适应兴趣漂移及缺乏集合上下文信号的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18570v1",
+    "title": "Feature-Indexed Federated Recommendation with Residual-Quantized Codebooks",
+    "authors": [
+      "Mingzhe Han",
+      "Jiahao Liu",
+      "Dongsheng Li",
+      "Hansu Gu",
+      "Peng Zhang",
+      "Ning Gu",
+      "Tun Lu"
+    ],
+    "summary": "Federated recommendation provides a privacy-preserving solution for training recommender systems without centralizing user interactions. However, existing methods follow an ID-indexed communication paradigm that transmit whole item embeddings between clients and the server, which has three major limitations: 1) consumes uncontrollable communication resources, 2) the uploaded item information cannot generalize to related non-interacted items, and 3) is sensitive to client noisy feedback. To solve these problems, it is necessary to fundamentally change the existing ID-indexed communication paradigm. Therefore, we propose a feature-indexed communication paradigm that transmits feature code embeddings as codebooks rather than raw item embeddings. Building on this paradigm, we present RQFedRec, which assigns each item a list of discrete code IDs via Residual Quantization (RQ)-Kmeans. Each client generates and trains code embeddings as codebooks based on discrete code IDs provided by the server, and the server collects and aggregates these codebooks rather than item embeddings. This design makes communication controllable since the codebooks could cover all items, enabling updates to propagate across related items in same code ID. In addition, since code embedding represents many items, which is more robust to a single noisy item. To jointly capture semantic and collaborative information, RQFedRec further adopts a collaborative-semantic dual-channel aggregation with a curriculum strategy that emphasizes semantic codes early and gradually increases the contribution of collaborative codes over training. Extensive experiments on real-world datasets demonstrate that RQFedRec consistently outperforms state-of-the-art federated recommendation baselines while significantly reducing communication overhead.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T15:14:19Z",
+    "updated": "2026-01-26T15:14:19Z",
+    "url": "http://arxiv.org/abs/2601.18570v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18570v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "FudanUniversity FudanUniversity MicrosoftResearchAsia",
+      "Seattle,UnitedStates FudanUniversity FudanUniversity",
+      "FudanUniversity",
+      "Abstract codesearlyandgraduallyincreasesthecontributionofcollabo-",
+      "1)consumesuncontrollablecommunicationresources,2)theup- CCSConcepts"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文提出了一种基于特征索引和残量量化码本的联邦推荐新架构，直接解决了推荐系统中的隐私、通信效率和泛化问题，属于核心领域的高价值创新；且来自中国企业，符合加分项。",
+    "translation": "基于残量量化码本的特征索引联邦推荐系统",
+    "summary_zh": "本文提出用特征索引的离散码本通信范式替代传统的 ID 索引嵌入传输，通过残量量化将物品映射为代码序列，并设计双通道聚合策略以协同捕捉语义与协作信息，从而在保护隐私的同时提升联邦推荐系统的通信可控性与鲁棒性。",
+    "key_points": [
+      "本文提出用特征索引的离散码本通信范式替代传统的 ID 索引嵌入传输，通过残量量化将物品映射为代码序列，并设计双通道聚合策略以协同捕捉语义与协作信息，从而在保护隐私的同时提升联邦推荐系统的通信可控性与鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18213v1",
+    "title": "Generative Chain of Behavior for User Trajectory Prediction",
+    "authors": [
+      "Chengkai Huang",
+      "Xiaodi Chen",
+      "Hongtao Huang",
+      "Quan Z. Sheng",
+      "Lina Yao"
+    ],
+    "summary": "Modeling long-term user behavior trajectories is essential for understanding evolving preferences and enabling proactive recommendations. However, most sequential recommenders focus on next-item prediction, overlooking dependencies across multiple future actions. We propose Generative Chain of Behavior (GCB), a generative framework that models user interactions as an autoregressive chain of semantic behaviors over multiple future steps. GCB first encodes items into semantic IDs via RQ-VAE with k-means refinement, forming a discrete latent space that preserves semantic proximity. On top of this space, a transformer-based autoregressive generator predicts multi-step future behaviors conditioned on user history, capturing long-horizon intent transitions and generating coherent trajectories. Experiments on benchmark datasets show that GCB consistently outperforms state-of-the-art sequential recommenders in multi-step accuracy and trajectory consistency. Beyond these gains, GCB offers a unified generative formulation for capturing user preference evolution.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T06:57:31Z",
+    "updated": "2026-01-26T06:57:31Z",
+    "url": "http://arxiv.org/abs/2601.18213v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18213v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的用户长程行为建模问题，提出了生成式行为链框架以预测多步未来轨迹，属于核心推荐技术突破；且来自中国公司，符合加分条件。",
+    "translation": "用于用户轨迹预测的生成式行为链方法",
+    "summary_zh": "提出一种生成式行为链框架，通过 RQ-VAE 构建离散语义空间并利用自回归 Transformer 建模用户多步未来行为依赖，以捕捉长周期意图演变并生成连贯的用户行为轨迹。",
+    "key_points": [
+      "提出一种生成式行为链框架，通过 RQ-VAE 构建离散语义空间并利用自回归 Transformer 建模用户多步未来行为依赖，以捕捉长周期意图演变并生成连贯的用户行为轨迹"
+    ]
+  },
+  {
+    "arxiv_id": "2601.19005v1",
+    "title": "Recommending Composite Items Using Multi-Level Preference Information: A Joint Interaction Modeling Approach",
+    "authors": [
+      "Xuan Bi",
+      "Yaqiong Wang",
+      "Gediminas Adomavicius",
+      "Shawn Curley"
+    ],
+    "summary": "With the advancement of machine learning and artificial intelligence technologies, recommender systems have been increasingly used across a vast variety of platforms to efficiently and effectively match users with items. As application contexts become more diverse and complex, there is a growing need for more sophisticated recommendation techniques. One example is the composite item (for example, fashion outfit) recommendation where multiple levels of user preference information might be available and relevant. In this study, we propose JIMA, a joint interaction modeling approach that uses a single model to take advantage of all data from different levels of granularity and incorporate interactions to learn the complex relationships among lower-order (atomic item) and higher-order (composite item) user preferences as well as domain expertise (e.g., on the stylistic fit). We comprehensively evaluate the proposed method and compare it with advanced baselines through multiple simulation studies as well as with real data in both offline and online settings. The results consistently demonstrate the superior performance of the proposed approach.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-01-26T22:35:17Z",
+    "updated": "2026-01-26T22:35:17Z",
+    "url": "http://arxiv.org/abs/2601.19005v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.19005v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Intel"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的组合物品（如时尚搭配）推荐问题，提出了利用多级偏好信息的联合交互建模方法，属于核心推荐算法创新。",
+    "translation": "利用多级偏好信息推荐组合物品：一种联合交互建模方法",
+    "summary_zh": "提出 JIMA 模型，通过单一架构联合建模原子物品与组合物品的多级用户偏好及领域专家知识，以捕捉复杂的层级交互关系。",
+    "key_points": [
+      "提出 JIMA 模型，通过单一架构联合建模原子物品与组合物品的多级用户偏好及领域专家知识，以捕捉复杂的层级交互关系"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18664v2",
+    "title": "S$^2$GR: Stepwise Semantic-Guided Reasoning in Latent Space for Generative Recommendation",
+    "authors": [
+      "Zihao Guo",
+      "Jian Wang",
+      "Ruxin Zhou",
+      "Youhua Liu",
+      "Jiawei Guo",
+      "Jun Zhao",
+      "Xiaoxiao Xu",
+      "Yongqi Liu",
+      "Kaiqiao Zhan"
+    ],
+    "summary": "Generative Recommendation (GR) has emerged as a transformative paradigm with its end-to-end generation advantages. However, existing GR methods primarily focus on direct Semantic ID (SID) generation from interaction sequences, failing to activate deeper reasoning capabilities analogous to those in large language models and thus limiting performance potential. We identify two critical limitations in current reasoning-enhanced GR approaches: (1) Strict sequential separation between reasoning and generation steps creates imbalanced computational focus across hierarchical SID codes, degrading quality for SID codes; (2) Generated reasoning vectors lack interpretable semantics, while reasoning paths suffer from unverifiable supervision. In this paper, we propose stepwise semantic-guided reasoning in latent space (S$^2$GR), a novel reasoning enhanced GR framework. First, we establish a robust semantic foundation via codebook optimization, integrating item co-occurrence relationship to capture behavioral patterns, and load balancing and uniformity objectives that maximize codebook utilization while reinforcing coarse-to-fine semantic hierarchies. Our core innovation introduces the stepwise reasoning mechanism inserting thinking tokens before each SID generation step, where each token explicitly represents coarse-grained semantics supervised via contrastive learning against ground-truth codebook cluster distributions ensuring physically grounded reasoning paths and balanced computational focus across all SID codes. Extensive experiments demonstrate the superiority of S$^2$GR, and online A/B test confirms efficacy on large-scale industrial short video platform.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T16:40:37Z",
+    "updated": "2026-02-01T11:07:22Z",
+    "url": "http://arxiv.org/abs/2601.18664v2",
+    "pdf_url": "http://arxiv.org/pdf/2601.18664v2.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation），提出了在潜在空间中进行逐步语义引导推理的新架构，并已在工业级短视频平台验证，完全符合核心领域进展。",
+    "translation": "S²GR：潜在空间中用于生成式推荐的逐步语义引导推理",
+    "summary_zh": "提出一种逐步语义引导推理框架，通过在生成语义 ID 的每一步前插入由对比学习监督的思维令牌，解决现有方法推理与生成分离及语义不可解释的问题，实现粗到细的层级化推荐生成。",
+    "key_points": [
+      "提出一种逐步语义引导推理框架，通过在生成语义 ID 的每一步前插入由对比学习监督的思维令牌，解决现有方法推理与生成分离及语义不可解释的问题，实现粗到细的层级化推荐生成"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18432v1",
+    "title": "TopKGAT: A Top-K Objective-Driven Architecture for Recommendation",
+    "authors": [
+      "Sirui Chen",
+      "Jiawei Chen",
+      "Canghong Jin",
+      "Sheng Zhou",
+      "Jingbang Chen",
+      "Wujie Sun",
+      "Can Wang"
+    ],
+    "summary": "Recommendation systems (RS) aim to retrieve the top-K items most relevant to users, with metrics such as Precision@K and Recall@K commonly used to assess effectiveness. The architecture of an RS model acts as an inductive bias, shaping the patterns the model is inclined to learn. In recent years, numerous recommendation architectures have emerged, spanning traditional matrix factorization, deep neural networks, and graph neural networks. However, their designs are often not explicitly aligned with the top-K objective, thereby limiting their effectiveness.\n  To address this limitation, we propose TopKGAT, a novel recommendation architecture directly derived from a differentiable approximation of top-K metrics. The forward computation of a single TopKGAT layer is intrinsically aligned with the gradient ascent dynamics of the Precision@K metric, enabling the model to naturally improve top-K recommendation accuracy. Structurally, TopKGAT resembles a graph attention network and can be implemented efficiently. Extensive experiments on four benchmark datasets demonstrate that TopKGAT consistently outperforms state-of-the-art baselines. The code is available at https://github.com/StupidThree/TopKGAT.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T12:45:12Z",
+    "updated": "2026-01-26T12:45:12Z",
+    "url": "http://arxiv.org/abs/2601.18432v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18432v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统的核心目标（Top-K 检索）提出新架构，通过可微分近似将模型设计与 Precision@K 指标对齐，属于核心领域创新。",
+    "translation": "TopKGAT：一种面向 Top-K 目标的推荐系统架构",
+    "summary_zh": "提出 TopKGAT 架构，通过将图注意力机制与 Top-K 评估指标的可微分近似相结合，使模型前向计算内在对齐精度提升动态，从而直接优化推荐系统的 Top-K 检索效果。",
+    "key_points": [
+      "提出 TopKGAT 架构，通过将图注意力机制与 Top-K 评估指标的可微分近似相结合，使模型前向计算内在对齐精度提升动态，从而直接优化推荐系统的 Top-K 检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18146v1",
+    "title": "Think When Needed: Model-Aware Reasoning Routing for LLM-based Ranking",
+    "authors": [
+      "Huizhong Guo",
+      "Tianjun Wei",
+      "Dongxia Wang",
+      "Yingpeng Du",
+      "Ziyan Wang",
+      "Jie Zhang",
+      "Zhu Sun"
+    ],
+    "summary": "Large language models (LLMs) are increasingly applied to ranking tasks in retrieval and recommendation. Although reasoning prompting can enhance ranking utility, our preliminary exploration reveals that its benefits are inconsistent and come at a substantial computational cost, suggesting that when to reason is as crucial as how to reason. To address this issue, we propose a reasoning routing framework that employs a lightweight, plug-and-play router head to decide whether to use direct inference (Non-Think) or reasoning (Think) for each instance before generation. The router head relies solely on pre-generation signals: i) compact ranking-aware features (e.g., candidate dispersion) and ii) model-aware difficulty signals derived from a diagnostic checklist reflecting the model's estimated need for reasoning. By leveraging these features before generation, the router outputs a controllable token that determines whether to apply the Think mode. Furthermore, the router can adaptively select its operating policy along the validation Pareto frontier during deployment, enabling dynamic allocation of computational resources toward instances most likely to benefit from Think under varying system constraints. Experiments on three public ranking datasets with different scales of open-source LLMs show consistent improvements in ranking utility with reduced token consumption (e.g., +6.3\\% NDCG@10 with -49.5\\% tokens on MovieLens with Qwen3-4B), demonstrating reasoning routing as a practical solution to the accuracy-efficiency trade-off.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T05:09:07Z",
+    "updated": "2026-01-26T05:09:07Z",
+    "url": "http://arxiv.org/abs/2601.18146v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18146v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/搜索中的排序（Ranking）环节，提出了一种基于 LLM 的动态推理路由框架以平衡效果与效率，属于 LLM 在 RecSys 核心任务中的直接应用。",
+    "translation": "按需思考：基于 LLM 排序的模型感知推理路由",
+    "summary_zh": "提出一种轻量级路由机制，利用预生成特征动态决定每个样本是否启用 LLM 推理模式，以优化排序任务中的准确率与计算成本权衡。",
+    "key_points": [
+      "提出一种轻量级路由机制，利用预生成特征动态决定每个样本是否启用 LLM 推理模式，以优化排序任务中的准确率与计算成本权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18096v1",
+    "title": "Enhancing LLM-based Recommendation with Preference Hint Discovery from Knowledge Graph",
+    "authors": [
+      "Yuting Zhang",
+      "Ziliang Pei",
+      "Chao Wang",
+      "Ying Sun",
+      "Fuzhen Zhuang"
+    ],
+    "summary": "LLMs have garnered substantial attention in recommendation systems. Yet they fall short of traditional recommenders when capturing complex preference patterns. Recent works have tried integrating traditional recommendation embeddings into LLMs to resolve this issue, yet a core gap persists between their continuous embedding and discrete semantic spaces. Intuitively, textual attributes derived from interactions can serve as critical preference rationales for LLMs' recommendation logic. However, directly inputting such attribute knowledge presents two core challenges: (1) Deficiency of sparse interactions in reflecting preference hints for unseen items; (2) Substantial noise introduction from treating all attributes as hints. To this end, we propose a preference hint discovery model based on the interaction-integrated knowledge graph, enhancing LLM-based recommendation. It utilizes traditional recommendation principles to selectively extract crucial attributes as hints. Specifically, we design a collaborative preference hint extraction schema, which utilizes semantic knowledge from similar users' explicit interactions as hints for unseen items. Furthermore, we develop an instance-wise dual-attention mechanism to quantify the preference credibility of candidate attributes, identifying hints specific to each unseen item. Using these item- and user-based hints, we adopt a flattened hint organization method to shorten input length and feed the textual hint information to the LLM for commonsense reasoning. Extensive experiments on both pair-wise and list-wise recommendation tasks verify the effectiveness of our proposed framework, indicating an average relative improvement of over 3.02% against baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-01-26T03:20:42Z",
+    "updated": "2026-01-26T03:20:42Z",
+    "url": "http://arxiv.org/abs/2601.18096v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18096v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 在推荐系统中的短板，提出利用知识图谱挖掘偏好提示（Preference Hint）的新方法，属于 LLM for RecSys 的核心创新。",
+    "translation": "基于知识图谱偏好提示发现的 LLM 推荐增强方法",
+    "summary_zh": "提出一种基于交互融合知识图谱的偏好提示发现模型，通过协同提取和实例级双重注意力机制筛选关键属性作为提示，以增强大语言模型的推荐推理能力。",
+    "key_points": [
+      "提出一种基于交互融合知识图谱的偏好提示发现模型，通过协同提取和实例级双重注意力机制筛选关键属性作为提示，以增强大语言模型的推荐推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18747v1",
+    "title": "Capturing P: On the Expressive Power and Efficient Evaluation of Boolean Retrieval",
+    "authors": [
+      "Amir Aavani"
+    ],
+    "summary": "Modern information retrieval is transitioning from simple document filtering to complex, neuro-symbolic reasoning workflows. However, current retrieval architectures face a fundamental efficiency dilemma when handling the rigorous logical and arithmetic constraints required by this new paradigm. Standard iterator-based engines (Document-at-a-Time) do not natively support complex, nested logic graphs; forcing them to execute such queries typically results in intractable runtime performance. Conversely, naive recursive approaches (Term-at-a-Time), while capable of supporting these structures, suffer from prohibitive memory consumption when enforcing broad logical exclusions.\n  In this paper, we propose that a retrieval engine must be capable of ``Capturing $\\mathbf{P}$'' -- evaluating any polynomial-time property directly over its index in a computationally efficient manner. We define a formal Retrieval Language ($\\mathcal{L}_R$) based on Directed Acyclic Graphs (DAGs) and prove it precisely captures the complexity class $\\mathbf{P}$. We introduce \\texttt{ComputePN}, a novel evaluation algorithm that makes $\\mathcal{L}_R$ tractable. By combining native DAG traversal with a memory-efficient ``Positive-Negative'' response mechanism, \\texttt{ComputePN} ensures the efficient evaluation of any query in $\\mathcal{L}_R$. This work establishes the theoretical foundation for turning the search index into a general-purpose computational engine.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CC",
+      "cs.CL",
+      "cs.DB"
+    ],
+    "published": "2026-01-26T18:07:40Z",
+    "updated": "2026-01-26T18:07:40Z",
+    "url": "http://arxiv.org/abs/2601.18747v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18747v1.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索引擎核心架构，提出了一种能高效处理复杂布尔逻辑检索的新引擎设计，解决了传统检索系统在复杂查询下的效率瓶颈，属于搜索领域的核心基础创新；虽含理论证明，但明确服务于检索系统升级，且来自中国企业，故给予高分。",
+    "translation": "捕捉 P 类：论布尔检索的表达能力与高效评估",
+    "summary_zh": "本文提出一种基于有向无环图的形式化检索语言及配套评估算法，旨在使搜索引擎索引具备直接在多项式时间内高效执行复杂嵌套逻辑查询的能力，从而将搜索索引转化为通用计算引擎。",
+    "key_points": [
+      "本文提出一种基于有向无环图的形式化检索语言及配套评估算法，旨在使搜索引擎索引具备直接在多项式时间内高效执行复杂嵌套逻辑查询的能力，从而将搜索索引转化为通用计算引擎"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18225v1",
+    "title": "ShopSimulator: Evaluating and Exploring RL-Driven LLM Agent for Shopping Assistants",
+    "authors": [
+      "Pei Wang",
+      "Yanan Wu",
+      "Xiaoshuai Song",
+      "Weixun Wang",
+      "Gengru Chen",
+      "Zhongwen Li",
+      "Kezhong Yan",
+      "Ken Deng",
+      "Qi Liu",
+      "Shuaibing Zhao",
+      "Shaopan Xiong",
+      "Xuepeng Liu",
+      "Xuefeng Chen",
+      "Wanxi Deng",
+      "Wenbo Su",
+      "Bo Zheng"
+    ],
+    "summary": "Large language model (LLM)-based agents are increasingly deployed in e-commerce shopping. To perform thorough, user-tailored product searches, agents should interpret personal preferences, engage in multi-turn dialogues, and ultimately retrieve and discriminate among highly similar products. However, existing research has yet to provide a unified simulation environment that consistently captures all of these aspects, and always focuses solely on evaluation benchmarks without training support. In this paper, we introduce ShopSimulator, a large-scale and challenging Chinese shopping environment. Leveraging ShopSimulator, we evaluate LLMs across diverse scenarios, finding that even the best-performing models achieve less than 40% full-success rate. Error analysis reveals that agents struggle with deep search and product selection in long trajectories, fail to balance the use of personalization cues, and to effectively engage with users. Further training exploration provides practical guidance for overcoming these weaknesses, with the combination of supervised fine-tuning (SFT) and reinforcement learning (RL) yielding significant performance improvements. Code and data will be released at https://github.com/ShopAgent-Team/ShopSimulator.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-01-26T07:24:28Z",
+    "updated": "2026-01-26T07:24:28Z",
+    "url": "http://arxiv.org/abs/2601.18225v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18225v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对电商搜索与推荐场景，构建了用于评估和训练购物助手 Agent 的仿真环境，解决了多轮对话、个性化检索等核心 RecSys 问题，并非纯 LLM 研究。",
+    "translation": "ShopSimulator：评估与探索用于购物助手的 RL 驱动大语言模型智能体",
+    "summary_zh": "本文提出了 ShopSimulator，一个大规模中文购物仿真环境，旨在通过结合监督微调与强化学习，解决 LLM 智能体在电商场景中面临的深层搜索、个性化平衡及长轨迹交互难题。",
+    "key_points": [
+      "本文提出了 ShopSimulator，一个大规模中文购物仿真环境，旨在通过结合监督微调与强化学习，解决 LLM 智能体在电商场景中面临的深层搜索、个性化平衡及长轨迹交互难题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18151v1",
+    "title": "Explaining Synergistic Effects in Social Recommendations",
+    "authors": [
+      "Yicong Li",
+      "Shan Jin",
+      "Qi Liu",
+      "Shuo Wang",
+      "Jiaying Liu",
+      "Shuo Yu",
+      "Qiang Zhang",
+      "Kuanjiu Zhou",
+      "Feng Xia"
+    ],
+    "summary": "In social recommenders, the inherent nonlinearity and opacity of synergistic effects across multiple social networks hinders users from understanding how diverse information is leveraged for recommendations, consequently diminishing explainability. However, existing explainers can only identify the topological information in social networks that significantly influences recommendations, failing to further explain the synergistic effects among this information. Inspired by existing findings that synergistic effects enhance mutual information between inputs and predictions to generate information gain, we extend this discovery to graph data. We quantify graph information gain to identify subgraphs embodying synergistic effects. Based on the theoretical insights, we propose SemExplainer, which explains synergistic effects by identifying subgraphs that embody them. SemExplainer first extracts explanatory subgraphs from multi-view social networks to generate preliminary importance explanations for recommendations. A conditional entropy optimization strategy to maximize information gain is developed, thereby further identifying subgraphs that embody synergistic effects from explanatory subgraphs. Finally, SemExplainer searches for paths from users to recommended items within the synergistic subgraphs to generate explanations for the recommendations. Extensive experiments on three datasets demonstrate the superiority of SemExplainer over baseline methods, providing superior explanations of synergistic effects.",
+    "categories": [
+      "cs.SI",
+      "cs.AI"
+    ],
+    "published": "2026-01-26T05:14:59Z",
+    "updated": "2026-01-26T05:14:59Z",
+    "url": "http://arxiv.org/abs/2601.18151v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18151v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对社交推荐系统中的可解释性问题，提出了量化协同效应的新方法，属于核心推荐技术范畴。",
+    "translation": "解释社交推荐中的协同效应",
+    "summary_zh": "提出 SemExplainer 方法，通过量化图信息增益识别体现协同效应的子图，从而解释多视图社交网络中复杂的非线性推荐逻辑。",
+    "key_points": [
+      "提出 SemExplainer 方法，通过量化图信息增益识别体现协同效应的子图，从而解释多视图社交网络中复杂的非线性推荐逻辑"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18579v1",
+    "title": "FastInsight: Fast and Insightful Retrieval via Fusion Operators for Graph RAG",
+    "authors": [
+      "Seonho An",
+      "Chaejeong Hyun",
+      "Min-Soo Kim"
+    ],
+    "summary": "Existing Graph RAG methods aiming for insightful retrieval on corpus graphs typically rely on time-intensive processes that interleave Large Language Model (LLM) reasoning. To enable time-efficient insightful retrieval, we propose FastInsight. We first introduce a graph retrieval taxonomy that categorizes existing methods into three fundamental operations: vector search, graph search, and model-based search. Through this taxonomy, we identify two critical limitations in current approaches: the topology-blindness of model-based search and the semantics-blindness of graph search. FastInsight overcomes these limitations by interleaving two novel fusion operators: the Graph-based Reranker (GRanker), which functions as a graph model-based search, and Semantic-Topological eXpansion (STeX), which operates as a vector-graph search. Extensive experiments on broad retrieval and generation datasets demonstrate that FastInsight significantly improves both retrieval accuracy and generation quality compared to state-of-the-art baselines, achieving a substantial Pareto improvement in the trade-off between effectiveness and efficiency.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-01-26T15:23:41Z",
+    "updated": "2026-01-26T15:23:41Z",
+    "url": "http://arxiv.org/abs/2601.18579v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18579v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM/RAG 检索研究，虽涉及检索优化但未明确针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），仅作为通用检索技术参考价值有限。",
+    "translation": "FastInsight：基于融合算子实现快速且具洞察力的图 RAG 检索",
+    "summary_zh": "提出一种结合图重排序器与语义拓扑扩展算子的图 RAG 框架，旨在解决现有方法在拓扑结构与语义理解上的盲区，以平衡检索效率与效果。",
+    "key_points": [
+      "提出一种结合图重排序器与语义拓扑扩展算子的图 RAG 框架，旨在解决现有方法在拓扑结构与语义理解上的盲区，以平衡检索效率与效果"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18886v1",
+    "title": "XProvence: Zero-Cost Multilingual Context Pruning for Retrieval-Augmented Generation",
+    "authors": [
+      "Youssef Mohamed",
+      "Mohamed Elhoseiny",
+      "Thibault Formal",
+      "Nadezhda Chirkova"
+    ],
+    "summary": "This paper introduces XProvence, a multilingual zero-cost context pruning model for retrieval-augmented generation (RAG), trained on 16 languages and supporting 100+ languages through effective cross-lingual transfer. Motivated by the growing use of RAG systems across diverse languages, we explore several strategies to generalize the Provence framework-which first integrated efficient zero-cost context pruning directly into the re-ranking model-beyond English. Across four multilingual question answering benchmarks, we show how XProvence can prune RAG contexts with minimal-to-no performance degradation and outperforms strong baselines. Our model is available at https://huggingface.co/naver/xprovence-reranker-bgem3-v2.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-01-26T19:00:11Z",
+    "updated": "2026-01-26T19:00:11Z",
+    "url": "http://arxiv.org/abs/2601.18886v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18886v1.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于 RAG 系统中的上下文剪枝和多语言问答，属于纯 NLP/LLM 研究，未直接涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "XProvence：检索增强生成的零成本多语言上下文剪枝",
+    "summary_zh": "提出一种多语言零成本上下文剪枝模型，通过将剪枝策略集成到重排序模型中，在保留 RAG 性能的同时高效过滤无关上下文。",
+    "key_points": [
+      "提出一种多语言零成本上下文剪枝模型，通过将剪枝策略集成到重排序模型中，在保留 RAG 性能的同时高效过滤无关上下文"
+    ]
+  },
+  {
+    "arxiv_id": "2602.02524v1",
+    "title": "GASTON: Graph-Aware Social Transformer for Online Networks",
+    "authors": [
+      "Olha Wloch",
+      "Liam Hebert",
+      "Robin Cohen",
+      "Lukasz Golab"
+    ],
+    "summary": "Online communities have become essential places for socialization and support, yet they also possess toxicity, echo chambers, and misinformation. Detecting this harmful content is difficult because the meaning of an online interaction stems from both what is written (textual content) and where it is posted (social norms). We propose GASTON (Graph-Aware Social Transformer for Online Networks), which learns text and user embeddings that are grounded in their local norms, providing the necessary context for downstream tasks. The heart of our solution is a contrastive initialization strategy that pretrains community embeddings based on user membership patterns, capturing a community's user base before processing any text. This allows GASTON to distinguish between communities (e.g., a support group vs. a hate group) based on who interacts there, even if they share similar vocabulary. Experiments on tasks such as stress detection, toxicity scoring, and norm violation demonstrate that the embeddings produced by GASTON outperform state-of-the-art baselines.",
+    "categories": [
+      "cs.SI",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-01-26T05:45:48Z",
+    "updated": "2026-01-26T05:45:48Z",
+    "url": "http://arxiv.org/abs/2602.02524v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.02524v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于在线社区有害内容检测（毒性、误导信息），属于 NLP 和社会计算范畴，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、个性化），即使有 +1 分加分，仍属弱相关。",
+    "translation": "GASTON：面向在线网络的图感知社交 Transformer",
+    "summary_zh": "提出一种结合用户成员模式对比初始化与文本内容的图感知 Transformer，旨在通过学习植根于局部社区规范的嵌入来检测在线有害内容。",
+    "key_points": [
+      "提出一种结合用户成员模式对比初始化与文本内容的图感知 Transformer，旨在通过学习植根于局部社区规范的嵌入来检测在线有害内容"
+    ]
+  },
+  {
+    "arxiv_id": "2602.02525v1",
+    "title": "Community Norms in the Spotlight: Enabling Task-Agnostic Unsupervised Pre-Training to Benefit Online Social Media",
+    "authors": [
+      "Liam Hebert",
+      "Lucas Kopp",
+      "Robin Cohen"
+    ],
+    "summary": "Modelling the complex dynamics of online social platforms is critical for addressing challenges such as hate speech and misinformation. While Discussion Transformers, which model conversations as graph structures, have emerged as a promising architecture, their potential is severely constrained by reliance on high-quality, human-labelled datasets. In this paper, we advocate a paradigm shift from task-specific fine-tuning to unsupervised pretraining, grounded in an entirely novel consideration of community norms. We posit that this framework not only mitigates data scarcity but also enables interpretation of the social norms underlying the decisions made by such an AI system. Ultimately, we believe that this direction offers many opportunities for AI for Social Good.",
+    "categories": [
+      "cs.SI",
+      "cs.AI"
+    ],
+    "published": "2026-01-26T05:52:19Z",
+    "updated": "2026-01-26T05:52:19Z",
+    "url": "http://arxiv.org/abs/2602.02525v1",
+    "pdf_url": "http://arxiv.org/pdf/2602.02525v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于利用社区规范进行无监督预训练以解决仇恨言论和虚假信息问题，属于内容安全与社会计算范畴，缺乏针对推荐系统或搜索引擎核心环节（如召回、排序、用户建模）的直接应用，即使考虑 OPPO 背景加分，其相关性依然较低。",
+    "translation": "聚焦社区规范：启用任务无关的无监督预训练以赋能在线社交媒体",
+    "summary_zh": "提出一种基于社区规范的无监督预训练框架，旨在通过建模对话图结构来捕捉社会规范，从而减少对标注数据的依赖并提升 AI 对社交动态的理解能力。",
+    "key_points": [
+      "提出一种基于社区规范的无监督预训练框架，旨在通过建模对话图结构来捕捉社会规范，从而减少对标注数据的依赖并提升 AI 对社交动态的理解能力"
+    ]
+  },
+  {
+    "arxiv_id": "2601.18919v1",
+    "title": "One Global Model, Many Behaviors: Stockout-Aware Feature Engineering and Dynamic Scaling for Multi-Horizon Retail Demand Forecasting with a Cost-Aware Ordering Policy (VN2 Winner Report)",
+    "authors": [
+      "Bartosz Szabłowski"
+    ],
+    "summary": "Inventory planning for retail chains requires translating demand forecasts into ordering decisions, including asymmetric shortages and holding costs. The VN2 Inventory Planning Challenge formalizes this setting as a weekly decision-making cycle with a two-week product delivery lead time, where the total cost is defined as the shortage cost plus the holding cost. This report presents the winning VN2 solution: a two-stage predict-then-optimize pipeline that combines a single global multi-horizon forecasting model with a cost-aware ordering policy. The forecasting model is trained in a global paradigm, jointly using all available time series. A gradient-boosted decision tree (GBDT) model implemented in CatBoost is used as the base learner. The model incorporates stockout-aware feature engineering to address censored demand during out-of-stock periods, per-series scaling to focus learning on time-series patterns rather than absolute levels, and time-based observation weights to reflect shifts in demand patterns. In the decision stage, inventory is projected to the start of the delivery week, and a target stock level is calculated that explicitly trades off shortage and holding costs. Evaluated by the official competition simulation in six rounds, the solution achieved first place by combining a strong global forecasting model with a lightweight cost-aware policy. Although developed for the VN2 setting, the proposed approach can be extended to real-world applications and additional operational constraints.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-01-26T19:36:52Z",
+    "updated": "2026-01-26T19:36:52Z",
+    "url": "http://arxiv.org/abs/2601.18919v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.18919v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文专注于零售库存预测与补货优化，属于供应链运筹领域，虽涉及电商场景但完全未触及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），且非 LLM 研究，故评分较低。",
+    "translation": "单一全局模型应对多种行为：面向多周期零售需求预测的缺货感知特征工程与动态缩放及成本感知订货策略",
+    "summary_zh": "提出一种两阶段“预测后优化”框架，结合考虑缺货 censoring 的全局时间序列预测模型与显式权衡缺货和持有成本的订货策略，以解决零售库存规划问题。",
+    "key_points": [
+      "提出一种两阶段“预测后优化”框架，结合考虑缺货 censoring 的全局时间序列预测模型与显式权衡缺货和持有成本的订货策略，以解决零售库存规划问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.19030v1",
+    "title": "A Unifying View of Coverage in Linear Off-Policy Evaluation",
+    "authors": [
+      "Philip Amortila",
+      "Audrey Huang",
+      "Akshay Krishnamurthy",
+      "Nan Jiang"
+    ],
+    "summary": "Off-policy evaluation (OPE) is a fundamental task in reinforcement learning (RL). In the classic setting of linear OPE, finite-sample guarantees often take the form $$ \\textrm{Evaluation error} \\le \\textrm{poly}(C^π, d, 1/n,\\log(1/δ)), $$ where $d$ is the dimension of the features and $C^π$ is a coverage parameter that characterizes the degree to which the visited features lie in the span of the data distribution. While such guarantees are well-understood for several popular algorithms under stronger assumptions (e.g. Bellman completeness), the understanding is lacking and fragmented in the minimal setting where only the target value function is linearly realizable in the features. Despite recent interest in tight characterizations of the statistical rate in this setting, the right notion of coverage remains unclear, and candidate definitions from prior analyses have undesirable properties and are starkly disconnected from more standard definitions in the literature.\n  We provide a novel finite-sample analysis of a canonical algorithm for this setting, LSTDQ. Inspired by an instrumental-variable view, we develop error bounds that depend on a novel coverage parameter, the feature-dynamics coverage, which can be interpreted as linear coverage in an induced dynamical system for feature evolution. With further assumptions -- such as Bellman-completeness -- our definition successfully recovers the coverage parameters specialized to those settings, finally yielding a unified understanding for coverage in linear OPE.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "published": "2026-01-26T23:30:24Z",
+    "updated": "2026-01-26T23:30:24Z",
+    "url": "http://arxiv.org/abs/2601.19030v1",
+    "pdf_url": "http://arxiv.org/pdf/2601.19030v1.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "UniversityofCalifornia,Berkeley UniversityofIllinois,Urbana-Champaign",
+      "MicrosoftResearch,NYC UniversityofIllinois,Urbana-Champaign"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯强化学习（RL）理论论文，专注于离线策略评估中的覆盖率参数分析，未涉及推荐系统或搜索引擎的具体应用场景。尽管来自中国公司，但因属于排除项中的'纯 RL（无推荐搜索应用）'，基础分极低，加分后仍为低分。",
+    "translation": "线性离线策略评估中覆盖率问题的统一视角",
+    "summary_zh": "本文提出了一种基于特征动态覆盖的新参数，为线性离线策略评估提供了统一的有限样本误差界分析框架。",
+    "key_points": [
+      "本文提出了一种基于特征动态覆盖的新参数，为线性离线策略评估提供了统一的有限样本误差界分析框架"
+    ]
+  }
+]

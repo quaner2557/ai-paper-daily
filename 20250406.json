@@ -1,0 +1,138 @@
+[
+  {
+    "arxiv_id": "2504.04405v3",
+    "title": "Universal Item Tokenization for Transferable Generative Recommendation",
+    "authors": [
+      "Bowen Zheng",
+      "Hongyu Lu",
+      "Yu Chen",
+      "Wayne Xin Zhao",
+      "Ji-Rong Wen"
+    ],
+    "summary": "Recently, generative recommendation has emerged as a promising paradigm, attracting significant research attention. The basic framework involves an item tokenizer, which represents each item as a sequence of codes serving as its identifier, and a generative recommender that predicts the next item by autoregressively generating the target item identifier. However, in existing methods, both the tokenizer and the recommender are typically domain-specific, limiting their ability for effective transfer or adaptation to new domains. To this end, we propose UTGRec, a Universal item Tokenization approach for transferable Generative Recommendation. Specifically, we design a universal item tokenizer for encoding rich item semantics by adapting a multimodal large language model (MLLM). By devising tree-structured codebooks, we discretize content representations into corresponding codes for item tokenization. To effectively learn the universal item tokenizer on multiple domains, we introduce two key techniques in our approach. For raw content reconstruction, we employ dual lightweight decoders to reconstruct item text and images from discrete representations to capture general knowledge embedded in the content. For collaborative knowledge integration, we assume that co-occurring items are similar and integrate collaborative signals through co-occurrence alignment and reconstruction. Finally, we present a joint learning framework to pre-train and adapt the transferable generative recommender across multiple domains. Extensive experiments on four public datasets demonstrate the superiority of UTGRec compared to both traditional and generative recommendation baselines.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-06T08:07:49Z",
+    "updated": "2025-05-25T06:31:38Z",
+    "url": "http://arxiv.org/abs/2504.04405v3",
+    "pdf_url": "http://arxiv.org/pdf/2504.04405v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心痛点（领域迁移性），提出了一种通用的物品分词器架构，属于 RecSys 核心领域的创新。",
+    "translation": "面向可迁移生成式推荐的通用物品分词方法",
+    "summary_zh": "本文提出 UTGRec，通过适配多模态大模型构建树状码本的通用物品分词器，并利用双重解码重建与共现对齐技术整合内容与协同信号，实现跨域可迁移的生成式推荐。",
+    "key_points": [
+      "本文提出 UTGRec，通过适配多模态大模型构建树状码本的通用物品分词器，并利用双重解码重建与共现对齐技术整合内容与协同信号，实现跨域可迁移的生成式推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2504.04400v3",
+    "title": "Pre-training Generative Recommender with Multi-Identifier Item Tokenization",
+    "authors": [
+      "Bowen Zheng",
+      "Enze Liu",
+      "Zhongfu Chen",
+      "Zhongrui Ma",
+      "Yue Wang",
+      "Wayne Xin Zhao",
+      "Ji-Rong Wen"
+    ],
+    "summary": "Generative recommendation autoregressively generates item identifiers to recommend potential items. Existing methods typically adopt a one-to-one mapping strategy, where each item is represented by a single identifier. However, this scheme poses issues, such as suboptimal semantic modeling for low-frequency items and limited diversity in token sequence data. To overcome these limitations, we propose MTGRec, which leverages Multi-identifier item Tokenization to augment token sequence data for Generative Recommender pre-training. Our approach involves two key innovations: multi-identifier item tokenization and curriculum recommender pre-training. For multi-identifier item tokenization, we leverage the RQ-VAE as the tokenizer backbone and treat model checkpoints from adjacent training epochs as semantically relevant tokenizers. This allows each item to be associated with multiple identifiers, enabling a single user interaction sequence to be converted into several token sequences as different data groups. For curriculum recommender pre-training, we introduce a curriculum learning scheme guided by data influence estimation, dynamically adjusting the sampling probability of each data group during recommender pre-training. After pre-training, we fine-tune the model using a single tokenizer to ensure accurate item identification for recommendation. Extensive experiments on three public benchmark datasets demonstrate that MTGRec significantly outperforms both traditional and generative recommendation baselines in terms of effectiveness and scalability.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-06T08:03:03Z",
+    "updated": "2025-05-25T06:28:48Z",
+    "url": "http://arxiv.org/abs/2504.04400v3",
+    "pdf_url": "http://arxiv.org/pdf/2504.04400v3.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统，提出多标识符分词和课程预训练策略以解决低频项建模和数据多样性问题，属于核心推荐领域的高优先级创新。",
+    "translation": "基于多标识符物品分词的生成式推荐预训练研究",
+    "summary_zh": "提出 MTGRec 框架，利用多标识符物品分词技术将单一交互序列转化为多种令牌序列以增强数据多样性，并结合基于数据影响力估计的课程学习策略进行生成式推荐模型的预训练。",
+    "key_points": [
+      "提出 MTGRec 框架，利用多标识符物品分词技术将单一交互序列转化为多种令牌序列以增强数据多样性，并结合基于数据影响力估计的课程学习策略进行生成式推荐模型的预训练"
+    ]
+  },
+  {
+    "arxiv_id": "2504.08786v1",
+    "title": "AdaptRec: A Self-Adaptive Framework for Sequential Recommendations with Large Language Models",
+    "authors": [
+      "Tong Zhang"
+    ],
+    "summary": "The recent advancements in Large Language Models (LLMs) have generated considerable interest in their utilization for sequential recommendation tasks. While collaborative signals from similar users are central to recommendation modeling, effectively transforming these signals into a format that LLMs can understand and utilize remains challenging. The critical challenges include selecting relevant demonstrations from large-scale user interactions and ensuring their alignment with LLMs' reasoning process. To address these challenges, we introduce AdaptRec, a self-adaptive fram-ework that leverages LLMs for sequential recommendations by incorporating explicit collaborative signals. AdaptRec employs a two-phase user selection mechanism -- User Similarity Retrieval and Self-Adaptive User Selection -- to efficiently identify relevant user sequences in large-scale datasets from multi-metric evaluation. We also develop a User-Based Similarity Retrieval Prompt, enabling the model to actively select similar users and continuously refine its selection criteria during training. Using the collaborative signals from similar users, we construct a User-Contextualized Recommendation Prompt that translates their behavior sequences into natural language, explicitly integrating this information into the recommendation process. Experiments demonstrate AdaptRec's superior performance, with significant improvements in HitRatio@1 scores of 7.13\\%, 18.16\\%, and 10.41\\% across real-world datasets with full fine-tuning, and even higher gains of 23.00\\%, 15.97\\%, and 17.98\\% in few-shot scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-06T00:30:50Z",
+    "updated": "2025-04-06T00:30:50Z",
+    "url": "http://arxiv.org/abs/2504.08786v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.08786v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐任务，提出利用 LLM 整合显式协同信号的自适应框架，属于 LLM 在推荐系统中的核心应用。",
+    "translation": "AdaptRec：一种基于大语言模型的序列推荐自适应框架",
+    "summary_zh": "提出一种自适应框架，通过两阶段用户选择机制检索相似用户序列，并将其转化为自然语言提示以显式整合协同信号至大语言模型中进行序列推荐。",
+    "key_points": [
+      "提出一种自适应框架，通过两阶段用户选择机制检索相似用户序列，并将其转化为自然语言提示以显式整合协同信号至大语言模型中进行序列推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2504.04443v1",
+    "title": "Squeeze and Excitation: A Weighted Graph Contrastive Learning for Collaborative Filtering",
+    "authors": [
+      "Zheyu Chen",
+      "Jinfeng Xu",
+      "Yutong Wei",
+      "Ziyue Peng"
+    ],
+    "summary": "Contrastive Learning (CL) has recently emerged as a powerful technique in recommendation systems, particularly for its capability to harness self-supervised signals from perturbed views to mitigate the persistent challenge of data sparsity. The process of constructing perturbed views of the user-item bipartite graph and performing contrastive learning between perturbed views in a graph convolutional network (GCN) is called graph contrastive learning (GCL), which aims to enhance the robustness of representation learning. Although existing GCL-based models are effective, the weight assignment method for perturbed views has not been fully explored. A critical problem in existing GCL-based models is the irrational allocation of feature attention. This problem limits the model's ability to effectively leverage crucial features, resulting in suboptimal performance. To address this, we propose a Weighted Graph Contrastive Learning framework (WeightedGCL). Specifically, WeightedGCL applies a robust perturbation strategy, which perturbs only the view of the final GCN layer. In addition, WeightedGCL incorporates a squeeze and excitation network (SENet) to dynamically weight the features of the perturbed views. Our WeightedGCL strengthens the model's focus on crucial features and reduces the impact of less relevant information. Extensive experiments on widely used datasets demonstrate that our WeightedGCL achieves significant accuracy improvements compared to competitive baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-06T11:30:59Z",
+    "updated": "2025-04-06T11:30:59Z",
+    "url": "http://arxiv.org/abs/2504.04443v1",
+    "pdf_url": "http://arxiv.org/pdf/2504.04443v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对协同过滤（推荐系统核心任务）中的数据稀疏问题，提出了一种结合 SENet 的加权图对比学习框架，属于明确的推荐系统核心技术创新。",
+    "translation": "压缩与激励：一种用于协同过滤的加权图对比学习方法",
+    "summary_zh": "该论文提出 WeightedGCL 框架，通过在图卷积网络末层应用鲁棒扰动策略并引入 SENet 动态加权特征，以优化对比学习中视图的特征注意力分配，从而增强推荐表示的鲁棒性。",
+    "key_points": [
+      "该论文提出 WeightedGCL 框架，通过在图卷积网络末层应用鲁棒扰动策略并引入 SENet 动态加权特征，以优化对比学习中视图的特征注意力分配，从而增强推荐表示的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2504.04452v2",
+    "title": "COHESION: Composite Graph Convolutional Network with Dual-Stage Fusion for Multimodal Recommendation",
+    "authors": [
+      "Jinfeng Xu",
+      "Zheyu Chen",
+      "Wei Wang",
+      "Xiping Hu",
+      "Sang-Wook Kim",
+      "Edith C. H. Ngai"
+    ],
+    "summary": "Recent works in multimodal recommendations, which leverage diverse modal information to address data sparsity and enhance recommendation accuracy, have garnered considerable interest. Two key processes in multimodal recommendations are modality fusion and representation learning. Previous approaches in modality fusion often employ simplistic attentive or pre-defined strategies at early or late stages, failing to effectively handle irrelevant information among modalities. In representation learning, prior research has constructed heterogeneous and homogeneous graph structures encapsulating user-item, user-user, and item-item relationships to better capture user interests and item profiles. Modality fusion and representation learning were considered as two independent processes in previous work. In this paper, we reveal that these two processes are complementary and can support each other. Specifically, powerful representation learning enhances modality fusion, while effective fusion improves representation quality. Stemming from these two processes, we introduce a COmposite grapH convolutional nEtwork with dual-stage fuSION for the multimodal recommendation, named COHESION. Specifically, it introduces a dual-stage fusion strategy to reduce the impact of irrelevant information, refining all modalities using ID embedding in the early stage and fusing their representations at the late stage. It also proposes a composite graph convolutional network that utilizes user-item, user-user, and item-item graphs to extract heterogeneous and homogeneous latent relationships within users and items. Besides, it introduces a novel adaptive optimization to ensure balanced and reasonable representations across modalities. Extensive experiments on three widely used datasets demonstrate the significant superiority of COHESION over various competitive baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-04-06T11:42:49Z",
+    "updated": "2025-05-22T13:50:30Z",
+    "url": "http://arxiv.org/abs/2504.04452v2",
+    "pdf_url": "http://arxiv.org/pdf/2504.04452v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态推荐系统，提出了融合模态与图表示学习的新架构，属于核心推荐技术范畴。",
+    "translation": "COHESION：用于多模态推荐的复合图卷积网络与双阶段融合方法",
+    "summary_zh": "提出一种复合图卷积网络，通过双阶段融合策略协同优化模态融合与图表示学习，以解决多模态推荐中的无关信息干扰和表征不平衡问题。",
+    "key_points": [
+      "提出一种复合图卷积网络，通过双阶段融合策略协同优化模态融合与图表示学习，以解决多模态推荐中的无关信息干扰和表征不平衡问题"
+    ]
+  }
+]

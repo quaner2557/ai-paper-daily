@@ -1,0 +1,228 @@
+[
+  {
+    "arxiv_id": "2603.00638v1",
+    "title": "RAIE: Region-Aware Incremental Preference Editing with LoRA for LLM-based Recommendation",
+    "authors": [
+      "Jin Zeng",
+      "Yupeng Qi",
+      "Hui Li",
+      "Chengming Li",
+      "Ziyu Lyu",
+      "Lixin Cui",
+      "Lu Bai"
+    ],
+    "summary": "Large language models (LLMs) are increasingly adopted as the backbone of recommender systems. However, user-item interactions in real-world scenarios are non-stationary, making preference drift over time inevitable. Existing model update strategies mainly rely on global fine-tuning or pointwise editing, but they face two fundamental challenges: (i) imbalanced update granularity, where global updates perturb behaviors unrelated to the target while pointwise edits fail to capture broader preference shifts; (ii) unstable incremental updates, where repeated edits interfere with prior adaptations, leading to catastrophic forgetting and inconsistent recommendations. To address these issues, we propose Region-Aware Incremental Editing (RAIE), a plug-in framework that freezes the backbone model and performs region-level updates. RAIE first constructs semantically coherent preference regions via spherical k-means in the representation space. It then assigns incoming sequences to regions via confidence-aware gating and performs three localized edit operations - Update, Expand, and Add - to dynamically revise the affected region. Each region is equipped with a dedicated Low-Rank Adaptation (LoRA) module, which is trained only on the region's updated data. During inference, RAIE routes each user sequence to its corresponding region and activates the region-specific adapter for prediction. Experiments on two benchmark datasets under a time-sliced protocol that segments data into Set-up (S), Finetune (F), and Test (T) show that RAIE significantly outperforms state-of-the-art baselines while effectively mitigating forgetting. These results demonstrate that region-aware editing offers an accurate and scalable mechanism for continual adaptation in dynamic recommendation scenarios. Our code is available at https://github.com/fengaogao/RAIE.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-28T13:12:38Z",
+    "updated": "2026-02-28T13:12:38Z",
+    "url": "http://arxiv.org/abs/2603.00638v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00638v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的用户偏好漂移和持续学习问题，提出了基于区域感知和 LoRA 的增量编辑框架，属于 LLM 在推荐系统核心环节的直接创新应用，且来自中国公司。",
+    "translation": "RAIE：基于 LoRA 的区域感知增量偏好编辑用于大语言模型推荐",
+    "summary_zh": "提出一种区域感知增量编辑框架，通过在表示空间构建语义一致的偏好区域并为每个区域配备独立 LoRA 模块，实现对动态用户偏好的局部更新与持续适应，有效解决全局微调扰动大和点式编辑粒度细的问题。",
+    "key_points": [
+      "提出一种区域感知增量编辑框架，通过在表示空间构建语义一致的偏好区域并为每个区域配备独立 LoRA 模块，实现对动态用户偏好的局部更新与持续适应，有效解决全局微调扰动大和点式编辑粒度细的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00632v1",
+    "title": "Stop Treating Collisions Equally: Qualification-Aware Semantic ID Learning for Recommendation at Industrial Scale",
+    "authors": [
+      "Zheng Hu",
+      "Yuxin Chen",
+      "Yongsen Pan",
+      "Xu Yuan",
+      "Yuting Yin",
+      "Daoyuan Wang",
+      "Boyang Xia",
+      "Zefei Luo",
+      "Hongyang Wang",
+      "Songhao Ni",
+      "Dongxu Liang",
+      "Jun Wang",
+      "Shimin Cai",
+      "Tao Zhou",
+      "Fuji Ren",
+      "Wenwu Ou"
+    ],
+    "summary": "Semantic IDs (SIDs) are compact discrete representations derived from multimodal item features, serving as a unified abstraction for ID-based and generative recommendation. However, learning high-quality SIDs remains challenging due to two issues. (1) Collision problem: the quantized token space is prone to collisions, in which semantically distinct items are assigned identical or overly similar SID compositions, resulting in semantic entanglement. (2) Collision-signal heterogeneity: collisions are not uniformly harmful. Some reflect genuine conflicts between semantically unrelated items, while others stem from benign redundancy or systematic data effects. To address these challenges, we propose Qualification-Aware Semantic ID Learning (QuaSID), an end-to-end framework that learns collision-qualified SIDs by selectively repelling qualified conflict pairs and scaling the repulsion strength by collision severity. QuaSID consists of two mechanisms: Hamming-guided Margin Repulsion, which translates low-Hamming SID overlaps into explicit, severity-scaled geometric constraints on the encoder space; and Conflict-Aware Valid Pair Masking, which masks protocol-induced benign overlaps to denoise repulsion supervision. In addition, QuaSID incorporates a dual-tower contrastive objective to inject collaborative signals into tokenization. Experiments on public benchmarks and industrial data validate QuaSID. On public datasets, QuaSID consistently outperforms strong baselines, improving top-K ranking quality by 5.9% over the best baseline while increasing SID composition diversity. In an online A/B test on Kuaishou e-commerce with a 5% traffic split, QuaSID increases ranking GMV-S2 by 2.38% and improves completed orders on cold-start retrieval by up to 6.42%. Finally, we show that the proposed repulsion loss is plug-and-play and enhances a range of SID learning frameworks across datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-02-28T12:55:49Z",
+    "updated": "2026-02-28T12:55:49Z",
+    "url": "http://arxiv.org/abs/2603.00632v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00632v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "UniversityofElectronic KuaishouTechnology UniversityofElectronic YutingYin",
+      "UniversityofElectronic UniversityofElectronic UniversityofElectronic KuaishouTechnology"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统中的语义 ID 碰撞问题提出创新架构，且已在快手电商场景验证，属于核心领域高优先级工作。",
+    "translation": "停止平等对待碰撞：面向工业级推荐的资格感知语义 ID 学习",
+    "summary_zh": "提出资格感知语义 ID 学习框架，通过汉明引导的边际排斥和冲突感知掩码机制，选择性抑制有害碰撞并保留良性冗余，以优化推荐系统的离散表征学习。",
+    "key_points": [
+      "提出资格感知语义 ID 学习框架，通过汉明引导的边际排斥和冲突感知掩码机制，选择性抑制有害碰撞并保留良性冗余，以优化推荐系统的离散表征学习"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00700v1",
+    "title": "SODA: Semantic-Oriented Distributional Alignment for Generative Recommendation",
+    "authors": [
+      "Ziqi Xue",
+      "Dingxian Wang",
+      "Yimeng Bai",
+      "Shuai Zhu",
+      "Jialei Li",
+      "Xiaoyan Zhao",
+      "Frank Yang",
+      "Andrew Rabinovich",
+      "Yang Zhang",
+      "Pablo N. Mendes"
+    ],
+    "summary": "Generative recommendation has emerged as a scalable alternative to traditional retrieve-and-rank pipelines by operating in a compact token space. However, existing methods mainly rely on discrete code-level supervision, which leads to information loss and limits the joint optimization between the tokenizer and the generative recommender. In this work, we propose a distribution-level supervision paradigm that leverages probability distributions over multi-layer codebooks as soft and information-rich representations. Building on this idea, we introduce Semantic-Oriented Distributional Alignment (SODA), a plug-and-play contrastive supervision framework based on Bayesian Personalized Ranking, which aligns semantically rich distributions via negative KL divergence while enabling end-to-end differentiable training. Extensive experiments on multiple real-world datasets demonstrate that SODA consistently improves the performance of various generative recommender backbones, validating its effectiveness and generality. Codes will be available upon acceptance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-02-28T15:18:28Z",
+    "updated": "2026-02-28T15:18:28Z",
+    "url": "http://arxiv.org/abs/2603.00700v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00700v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统，提出了一种新的分布级监督范式以解决现有方法的离散编码信息丢失问题，属于核心推荐算法创新。",
+    "translation": "SODA：面向生成式推荐的语义导向分布对齐方法",
+    "summary_zh": "本文提出 SODA 框架，利用多层码本上的概率分布作为软表示，通过基于贝叶斯个性化排序的对比监督机制，实现 tokenizer 与生成式推荐器的端到端联合优化。",
+    "key_points": [
+      "本文提出 SODA 框架，利用多层码本上的概率分布作为软表示，通过基于贝叶斯个性化排序的对比监督机制，实现 tokenizer 与生成式推荐器的端到端联合优化"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00502v1",
+    "title": "Trinity: A Scenario-Aware Recommendation Framework for Large-Scale Cold-Start Users",
+    "authors": [
+      "Wenhao Zheng",
+      "Wang Lu",
+      "Fangshuang Tang",
+      "Yiyang Lu",
+      "Jun Yang",
+      "Pengcheng Xiong",
+      "Yulan Yan"
+    ],
+    "summary": "Early-stage users in a new scenario intensify cold-start challenges, yet prior works often address only parts of the problem through model architecture. Launching a new user experience to replace an established product involves sparse behavioral signals, low-engagement cohorts, and unstable model performance. We argue that effective recommendations require the synergistic integration of feature engineering, model architecture, and stable model updating. We propose Trinity, a framework embodying this principle. Trinity extracts valuable information from existing scenarios while ensuring predictive effectiveness and accuracy in the new scenario. In this paper, we showcase Trinity applied to a billion-user Microsoft product transition. Both offline and online experiments demonstrate that our framework achieves substantial improvements in addressing the combined challenge of new users in new scenarios.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-28T06:58:33Z",
+    "updated": "2026-02-28T06:58:33Z",
+    "url": "http://arxiv.org/abs/2603.00502v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00502v1.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的冷启动难题，提出了结合特征工程与模型架构的框架，并在亿级用户场景中验证，属于核心领域的高优先级应用。",
+    "translation": "Trinity：面向大规模冷启动用户的场景感知推荐框架",
+    "summary_zh": "提出 Trinity 框架，通过协同整合特征工程、模型架构及稳定更新机制，利用现有场景信息解决新场景下新用户面临的稀疏信号与冷启动挑战。",
+    "key_points": [
+      "提出 Trinity 框架，通过协同整合特征工程、模型架构及稳定更新机制，利用现有场景信息解决新场景下新用户面临的稀疏信号与冷启动挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00416v1",
+    "title": "MuonRec: Shifting the Optimizer Paradigm Beyond Adam in Scalable Generative Recommendation",
+    "authors": [
+      "Rong Shan",
+      "Aofan Yu",
+      "Bo Chen",
+      "Kuo Cai",
+      "Qiang Luo",
+      "Ruiming Tang",
+      "Han Li",
+      "Weiwen Liu",
+      "Weinan Zhang",
+      "Jianghao Lin"
+    ],
+    "summary": "Recommender systems (RecSys) are increasingly emphasizing scaling, leveraging larger architectures and more interaction data to improve personalization. Yet, despite the optimizer's pivotal role in training, modern RecSys pipelines almost universally default to Adam/AdamW, with limited scrutiny of whether these choices are truly optimal for recommendation. In this work, we revisit optimizer design for scalable recommendation and introduce MuonRec, the first framework that brings the recently proposed Muon optimizer to RecSys training. Muon performs orthogonalized momentum updates for 2D weight matrices via Newton-Schulz iteration, promoting diverse update directions and improving optimization efficiency. We develop an open-source training recipe for recommendation models and evaluate it across both traditional sequential recommenders and modern generative recommenders. Extensive experiments demonstrate that MuonRec reduces converged training steps by an average of 32.4\\% while simultaneously improving final ranking quality. Specifically, MuonRec yields consistent relative gains in NDCG@10, averaging 12.6\\% across all settings, with particularly pronounced improvements in generative recommendation models. These results consistently outperform strong Adam/AdamW baselines, positioning Muon as a promising new optimizer standard for RecSys training. Our code is available.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-28T02:32:44Z",
+    "updated": "2026-02-28T02:32:44Z",
+    "url": "http://arxiv.org/abs/2603.00416v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00416v1.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "Scalable Generative Recommendation",
+      "ShanghaiJiaoTongUniversity ShanghaiJiaoTongUniversity KuaishouTechnology",
+      "KuaishouTechnology ShanghaiJiaoTongUniversity ShanghaiJiaoTongUniversity",
+      "ShanghaiJiaoTongUniversity",
+      "mizerdesignforscalablerecommendationandintroduceMuonRec,",
+      "researchandindustrialdeploymentistheemphasisonscaling,"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统训练中的优化器瓶颈提出改进，属于核心推荐技术环节；虽非算法架构创新，但明确解决了可扩展生成式推荐的实际问题，且来自中国公司额外加 1 分。",
+    "translation": "MuonRec：在可扩展生成式推荐中超越 Adam 的优化器范式转变",
+    "summary_zh": "提出 MuonRec 框架，首次将基于牛顿 - 舒尔茨迭代的正交化动量优化器 Muon 引入推荐系统训练，旨在通过多样化更新方向提升大规模生成式推荐模型的优化效率与排序质量。",
+    "key_points": [
+      "提出 MuonRec 框架，首次将基于牛顿 - 舒尔茨迭代的正交化动量优化器 Muon 引入推荐系统训练，旨在通过多样化更新方向提升大规模生成式推荐模型的优化效率与排序质量"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00511v1",
+    "title": "Multimodal Adaptive Retrieval Augmented Generation through Internal Representation Learning",
+    "authors": [
+      "Ruoshuang Du",
+      "Xin Sun",
+      "Qiang Liu",
+      "Bowen Song",
+      "Zhongqi Chen",
+      "Weiqiang Wang",
+      "Liang Wang"
+    ],
+    "summary": "Visual Question Answering systems face reliability issues due to hallucinations, where models generate answers misaligned with visual input or factual knowledge. While Retrieval Augmented Generation frameworks mitigate this issue by incorporating external knowledge, static retrieval often introduces irrelevant or conflicting content, particularly in visual RAG settings where visually similar but semantically incorrect evidence may be retrieved. To address this, we propose Multimodal Adaptive RAG (MMA-RAG), which dynamically assesses the confidence in the internal knowledge of the model to decide whether to incorporate the retrieved external information into the generation process. Central to MMA-RAG is a decision classifier trained through a layer-wise analysis, which leverages joint internal visual and textual representations to guide the use of reverse image retrieval. Experiments demonstrated that the model achieves a significant improvement in response performance in three VQA datasets. Meanwhile, ablation studies highlighted the importance of internal representations in adaptive retrieval decisions. In general, the experimental results demonstrated that MMA-RAG effectively balances external knowledge utilization and inference robustness in diverse multimodal scenarios.",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-02-28T07:17:13Z",
+    "updated": "2026-02-28T07:17:13Z",
+    "url": "http://arxiv.org/abs/2603.00511v1",
+    "pdf_url": "http://arxiv.org/pdf/2603.00511v1.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "Shanghaitech University Chinese Academy of Sciences Chinese Academy of Sciences",
+      "School of Information Science and Technology Institute of Automation Institute of Automation",
+      "bowen.sbw@antgroup.com chenzhongqi.czq@antgroup.com weiqiang.wwq@antgroup.com Institute of Automation"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文属于纯多模态 VQA（视觉问答）研究，旨在解决幻觉问题，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），即使有中国公司背景且为多模态，因缺乏 RecSys 直接应用，仍属低优先级。",
+    "translation": "基于内部表征学习的多模态自适应检索增强生成",
+    "summary_zh": "提出一种多模态自适应 RAG 框架，通过分析模型内部视觉与文本表征的置信度，动态决定是否引入外部检索知识以抑制视觉问答中的幻觉现象。",
+    "key_points": [
+      "提出一种多模态自适应 RAG 框架，通过分析模型内部视觉与文本表征的置信度，动态决定是否引入外部检索知识以抑制视觉问答中的幻觉现象"
+    ]
+  }
+]

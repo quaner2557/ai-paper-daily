@@ -1,0 +1,376 @@
+[
+  {
+    "arxiv_id": "2509.25522v2",
+    "title": "Understanding Generative Recommendation with Semantic IDs from a Model-scaling View",
+    "authors": [
+      "Jingzhe Liu",
+      "Liam Collins",
+      "Jiliang Tang",
+      "Tong Zhao",
+      "Neil Shah",
+      "Clark Mingxuan Ju"
+    ],
+    "summary": "Recent advancements in generative models have allowed the emergence of a promising paradigm for recommender systems (RS), known as Generative Recommendation (GR), which tries to unify rich item semantics and collaborative filtering signals. One popular modern approach is to use semantic IDs (SIDs), which are discrete codes quantized from the embeddings of modality encoders (e.g., large language or vision models), to represent items in an autoregressive user interaction sequence modeling setup (henceforth, SID-based GR). While generative models in other domains exhibit well-established scaling laws, our work reveals that SID-based GR shows significant bottlenecks while scaling up the model. In particular, the performance of SID-based GR quickly saturates as we enlarge each component: the modality encoder, the quantization tokenizer, and the RS itself. In this work, we identify the limited capacity of SIDs to encode item semantic information as one of the fundamental bottlenecks. Motivated by this observation, as an initial effort to obtain GR models with better scaling behaviors, we revisit another GR paradigm that directly uses large language models (LLMs) as recommenders (henceforth, LLM-as-RS). Our experiments show that the LLM-as-RS paradigm has superior model scaling properties and achieves up to 20 percent improvement over the best achievable performance of SID-based GR through scaling. We also challenge the prevailing belief that LLMs struggle to capture collaborative filtering information, showing that their ability to model user-item interactions improves as LLMs scale up. Our analyses on both SID-based GR and LLMs across model sizes from 44M to 14B parameters underscore the intrinsic scaling limits of SID-based GR and position LLM-as-RS as a promising path toward foundation models for GR.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-09-29T21:24:17Z",
+    "updated": "2025-10-03T01:21:43Z",
+    "url": "http://arxiv.org/abs/2509.25522v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.25522v2.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）的核心架构问题，对比了语义 ID 方法与直接使用 LLM 作为推荐器（LLM-as-RS）的扩展性，提出了将大模型直接应用于推荐排序的新范式，完全符合核心领域进展及 LLM for RecSys 的高优先级标准。",
+    "translation": "从模型扩展视角理解基于语义 ID 的生成式推荐",
+    "summary_zh": "本文揭示了基于语义 ID 的生成式推荐在模型扩展时存在性能饱和瓶颈，并提出直接使用大语言模型作为推荐器（LLM-as-RS）具有更优的扩展性及更强的用户交互建模能力。",
+    "key_points": [
+      "本文揭示了基于语义 ID 的生成式推荐在模型扩展时存在性能饱和瓶颈，并提出直接使用大语言模型作为推荐器（LLM-as-RS）具有更优的扩展性及更强的用户交互建模能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.24632v1",
+    "title": "UniDex: Rethinking Search Inverted Indexing with Unified Semantic Modeling",
+    "authors": [
+      "Zan Li",
+      "Jiahui Chen",
+      "Yuan Chai",
+      "Xiaoze Jiang",
+      "Xiaohua Qi",
+      "Zhiheng Qin",
+      "Runbin Zhou",
+      "Shun Zuo",
+      "Guangchao Hao",
+      "Kefeng Wang",
+      "Jingshan Lv",
+      "Yupeng Huang",
+      "Xiao Liang",
+      "Han Li"
+    ],
+    "summary": "Inverted indexing has traditionally been a cornerstone of modern search systems, leveraging exact term matches to determine relevance between queries and documents. However, this term-based approach often emphasizes surface-level token overlap, limiting the system's generalization capabilities and retrieval effectiveness. To address these challenges, we propose UniDex, a novel model-based method that employs unified semantic modeling to revolutionize inverted indexing. UniDex replaces complex manual designs with a streamlined architecture, enhancing semantic generalization while reducing maintenance overhead. Our approach involves two key components: UniTouch, which maps queries and documents into semantic IDs for improved retrieval, and UniRank, which employs semantic matching to rank results effectively. Through large-scale industrial datasets and real-world online traffic assessments, we demonstrate that UniDex significantly improves retrieval capabilities, marking a paradigm shift from term-based to model-based indexing. Our deployment within Kuaishou's short-video search systems further validates UniDex's practical effectiveness, serving hundreds of millions of active users efficiently.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-29T11:41:12Z",
+    "updated": "2025-09-29T11:41:12Z",
+    "url": "http://arxiv.org/abs/2509.24632v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.24632v1.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对快手短视频搜索系统的倒排索引进行革新，提出了基于统一语义建模的 UniDex 架构，属于核心搜索技术且已在亿级用户场景落地，完全符合高优先级标准。",
+    "translation": "UniDex：利用统一语义建模重构搜索倒排索引",
+    "summary_zh": "提出 UniDex 框架，通过 UniTouch 生成语义 ID 和 UniRank 进行语义匹配，将传统基于词的倒排索引转变为基于模型的语义索引，以解决术语重叠限制并提升检索泛化能力。",
+    "key_points": [
+      "提出 UniDex 框架，通过 UniTouch 生成语义 ID 和 UniRank 进行语义匹配，将传统基于词的倒排索引转变为基于模型的语义索引，以解决术语重叠限制并提升检索泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25085v4",
+    "title": "jina-reranker-v3: Last but Not Late Interaction for Listwise Document Reranking",
+    "authors": [
+      "Feng Wang",
+      "Yuqing Li",
+      "Han Xiao"
+    ],
+    "summary": "jina-reranker-v3 is a 0.6B-parameter multilingual listwise reranker that introduces a novel \"last but not late\" interaction. Unlike late interaction models like ColBERT that encode documents separately before multi-vector matching, our approach applies causal attention between the query and all candidate documents in the same context window, enabling rich interactions before extracting contextual embeddings from each document's final token. The new model achieves state-of-the-art BEIR performance with 61.94 nDCG@10 while being significantly smaller than other models with comparable performance.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-09-29T17:23:54Z",
+    "updated": "2025-10-06T09:18:00Z",
+    "url": "http://arxiv.org/abs/2509.25085v4",
+    "pdf_url": "http://arxiv.org/pdf/2509.25085v4.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心环节“重排序（Reranking）”，提出了一种新的列表式交互架构，属于明确的高优先级应用场景。",
+    "translation": "jina-reranker-v3：用于列表式文档重排序的“最后但不迟”交互机制",
+    "summary_zh": "提出一种“最后但不迟”的交互机制，通过在单一上下文窗口中对查询与所有候选文档应用因果注意力，在提取最终令牌嵌入前实现丰富的深层交互。",
+    "key_points": [
+      "提出一种“最后但不迟”的交互机制，通过在单一上下文窗口中对查询与所有候选文档应用因果注意力，在提取最终令牌嵌入前实现丰富的深层交互"
+    ]
+  },
+  {
+    "arxiv_id": "2509.24961v1",
+    "title": "SemanticShield: LLM-Powered Audits Expose Shilling Attacks in Recommender Systems",
+    "authors": [
+      "Kaihong Li",
+      "Huichi Zhou",
+      "Bin Ma",
+      "Fangjun Huang"
+    ],
+    "summary": "Recommender systems (RS) are widely used in e-commerce for personalized suggestions, yet their openness makes them susceptible to shilling attacks, where adversaries inject fake behaviors to manipulate recommendations. Most existing defenses emphasize user-side behaviors while overlooking item-side features such as titles and descriptions that can expose malicious intent. To address this gap, we propose a two-stage detection framework that integrates item-side semantics via large language models (LLMs). The first stage pre-screens suspicious users using low-cost behavioral criteria, and the second stage employs LLM-based auditing to evaluate semantic consistency. Furthermore, we enhance the auditing model through reinforcement fine-tuning on a lightweight LLM with carefully designed reward functions, yielding a specialized detector called SemanticShield. Experiments on six representative attack strategies demonstrate the effectiveness of SemanticShield against shilling attacks, and further evaluation on previously unseen attack methods shows its strong generalization capability. Code is available at https://github.com/FrankenstLee/SemanticShield.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2025-09-29T15:53:47Z",
+    "updated": "2025-09-29T15:53:47Z",
+    "url": "http://arxiv.org/abs/2509.24961v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.24961v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的托攻击（Shilling Attacks）防御问题，利用 LLM 分析物品侧语义特征，属于明确的 RecSys 安全与应用研究，而非纯 LLM 理论探索。",
+    "translation": "SemanticShield：基于大语言模型的审计机制揭露推荐系统中的托攻击",
+    "summary_zh": "提出一种两阶段检测框架，通过大语言模型审计物品标题与描述的语义一致性，结合强化微调技术以识别和防御推荐系统中的恶意托攻击。",
+    "key_points": [
+      "提出一种两阶段检测框架，通过大语言模型审计物品标题与描述的语义一致性，结合强化微调技术以识别和防御推荐系统中的恶意托攻击"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25487v2",
+    "title": "Scalable Disk-Based Approximate Nearest Neighbor Search with Page-Aligned Graph",
+    "authors": [
+      "Dingyi Kang",
+      "Dongming Jiang",
+      "Hanshen Yang",
+      "Hang Liu",
+      "Bingzhe Li"
+    ],
+    "summary": "Approximate Nearest Neighbor Search (ANNS), as the core of vector databases (VectorDBs), has become widely used in modern AI and ML systems, powering applications from information retrieval to bio-informatics. While graph-based ANNS methods achieve high query efficiency, their scalability is constrained by the available host memory. Recent disk-based ANNS approaches mitigate memory usage by offloading data to Solid-State Drives (SSDs). However, they still suffer from issues such as long I/O traversal path, misalignment with storage I/O granularity, and high in-memory indexing overhead, leading to significant I/O latency and ultimately limiting scalability for large-scale vector search.\n  In this paper, we propose PageANN, a disk-based approximate nearest neighbor search (ANNS) framework designed for high performance and scalability. PageANN introduces a page-node graph structure that aligns logical graph nodes with physical SSD pages, thereby shortening I/O traversal paths and reducing I/O operations. Specifically, similar vectors are clustered into page nodes, and a co-designed disk data layout leverages this structure with a merging technique to store only representative vectors and topology information, avoiding unnecessary reads. To further improve efficiency, we design a memory management strategy that combines lightweight indexing with coordinated memory-disk data allocation, maximizing host memory utilization while minimizing query latency and storage overhead. Experimental results show that PageANN significantly outperforms state-of-the-art (SOTA) disk-based ANNS methods, achieving 1.85x-10.83x higher throughput and 51.7%-91.9% lower latency across different datasets and memory budgets, while maintaining comparable high recall accuracy.",
+    "categories": [
+      "cs.LG",
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2025-09-29T20:44:13Z",
+    "updated": "2025-10-04T22:28:46Z",
+    "url": "http://arxiv.org/abs/2509.25487v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.25487v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该文提出的磁盘基近似最近邻搜索（ANNS）技术是大规模推荐/搜索系统召回阶段的核心基础设施，直接解决工业界向量检索的可扩展性与延迟问题；虽属底层系统优化而非算法创新，但应用场景明确且关键，基础分 7 分，因来自中国公司额外 +1 分。",
+    "translation": "基于页对齐图的可扩展磁盘近似最近邻搜索",
+    "summary_zh": "提出 PageANN 框架，通过将逻辑图节点与物理 SSD 页对齐的页节点图结构，优化磁盘 I/O 遍历路径与内存管理，以实现大规模向量搜索的高吞吐与低延迟。",
+    "key_points": [
+      "提出 PageANN 框架，通过将逻辑图节点与物理 SSD 页对齐的页节点图结构，优化磁盘 I/O 遍历路径与内存管理，以实现大规模向量搜索的高吞吐与低延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25429v2",
+    "title": "Feedback Control for Small Budget Pacing",
+    "authors": [
+      "Sreeja Apparaju",
+      "Yichuan Niu",
+      "Xixi Qi"
+    ],
+    "summary": "Budget pacing is critical in online advertising to align spend with campaign goals under dynamic auctions. Existing pacing methods often rely on ad-hoc parameter tuning, which can be unstable and inefficient. We propose a principled controller that combines bucketized hysteresis with proportional feedback to provide stable and adaptive spend control. Our method provides a framework and analysis for parameter selection that enables accurate tracking of desired spend rates across campaigns. Experiments in real-world auctions demonstrate significant improvements in pacing accuracy and delivery consistency, reducing pacing error by 13% and $λ$-volatility by 54% compared to baseline method. By bridging control theory with advertising systems, our approach offers a scalable and reliable solution for budget pacing, with particular benefits for small-budget campaigns.",
+    "categories": [
+      "cs.LG",
+      "cs.GT"
+    ],
+    "published": "2025-09-29T19:38:34Z",
+    "updated": "2026-03-09T02:44:27Z",
+    "url": "http://arxiv.org/abs/2509.25429v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.25429v2.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对在线广告系统中的预算平滑（Budget Pacing）核心问题，提出了一种结合控制理论的反馈机制，属于搜索/广告领域的关键工程技术。",
+    "translation": "小预算平滑的反馈控制方法",
+    "summary_zh": "本文提出一种结合分桶滞后与比例反馈的原理性控制器，旨在解决动态拍卖环境下小预算广告活动的支出控制不稳定及参数调优困难问题。",
+    "key_points": [
+      "本文提出一种结合分桶滞后与比例反馈的原理性控制器，旨在解决动态拍卖环境下小预算广告活动的支出控制不稳定及参数调优困难问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25602v2",
+    "title": "TRUE: A Reproducible Framework for LLM-Driven Relevance Judgment in Information Retrieval",
+    "authors": [
+      "Mouly Dewan",
+      "Jiqun Liu",
+      "Chirag Shah"
+    ],
+    "summary": "LLM-based relevance judgment generation has become a crucial approach in advancing evaluation methodologies in Information Retrieval (IR). It has progressed significantly, often showing high correlation with human judgments as reflected in LLMJudge leaderboards \\cite{rahmani2025judging}. However, existing methods for relevance judgments, rely heavily on sensitive prompting strategies, lacking standardized workflows for generating reliable labels. To fill this gap, we reintroduce our method, \\textit{Task-aware Rubric-based Evaluation} (TRUE), for relevance judgment generation. Originally developed for usefulness evaluation in search sessions, we extend TRUE to mitigate the gap in relevance judgment due to its demonstrated effectiveness and reproducible workflow. This framework leverages iterative data sampling and reasoning to evaluate relevance judgments across multiple factors including intent, coverage, specificity, accuracy and usefulness. In this paper, we evaluate TRUE on the TREC DL 2019, 2020 and LLMJudge datasets and our results show that TRUE achieves strong performance on the system-ranking LLM leaderboards. The primary focus of this work is to provide a reproducible framework for LLM-based relevance judgments, and we further analyze the effectiveness of TRUE across multiple dimensions.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-29T23:58:47Z",
+    "updated": "2026-01-11T00:24:50Z",
+    "url": "http://arxiv.org/abs/2509.25602v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.25602v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于利用 LLM 改进信息检索中的相关性标注（评估方法），属于 IR 评估工具而非直接的推荐/搜索核心算法（如召回、排序、用户建模）创新，且主要贡献在于框架的可复现性而非业务场景的直接应用。",
+    "translation": "TRUE：一种用于信息检索中 LLM 驱动相关性判定的可复现框架",
+    "summary_zh": "提出了一种基于任务感知和规则的评价框架 TRUE，通过迭代数据采样和多维度推理，旨在标准化并提升大模型在信息检索相关性判定中的可复现性与可靠性。",
+    "key_points": [
+      "提出了一种基于任务感知和规则的评价框架 TRUE，通过迭代数据采样和多维度推理，旨在标准化并提升大模型在信息检索相关性判定中的可复现性与可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.24869v2",
+    "title": "Retro*: Optimizing LLMs for Reasoning-Intensive Document Retrieval",
+    "authors": [
+      "Junwei Lan",
+      "Jianlyu Chen",
+      "Zheng Liu",
+      "Chaofan Li",
+      "Siqi Bao",
+      "Defu Lian"
+    ],
+    "summary": "With the growing popularity of LLM agents and RAG, it has become increasingly important to retrieve documents that are essential for solving a task, even when their connection to the task is indirect or implicit. Addressing this problem requires fine-grained reasoning to accurately assess the relevance between the task and each candidate document. This capability, however, poses a significant challenge for existing IR techniques. Despite recent progress in reasoning-enhanced IR, existing approaches still face significant challenges in applicability, scalability, and efficiency. In this work, we propose Retro*, a novel approach for reasoning-intensive document retrieval. Our method introduces a rubric-based relevance scoring mechanism, enabling the model to reason about the relationship between a task and a document based on explicitly defined criteria, whereby producing a fine-grained, interpretable relevance score. Retro* also supports test-time scaling by combining multiple reasoning trajectories via score integration, which produces more reliable relevance estimates. To optimize Retro*'s reasoning capabilities, we introduce a novel reinforcement learning algorithm tailored for its relevance scoring mechanism, which employs two composite rewards to fully exploit the trajectories of each training sample. Our experiments show that Retro* outperforms existing document retrieval methods with notable advantages, leading to state-of-the-art performance on the BRIGHT benchmark.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2025-09-29T14:53:05Z",
+    "updated": "2025-10-12T09:37:17Z",
+    "url": "http://arxiv.org/abs/2509.24869v2",
+    "pdf_url": "http://arxiv.org/pdf/2509.24869v2.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于增强 LLM 在 RAG 场景下的推理检索能力，属于通用 NLP/IR 研究，未明确针对推荐系统或电商/社交搜索的具体业务场景进行优化。",
+    "translation": "Retro*：优化大语言模型以进行推理密集型文档检索",
+    "summary_zh": "提出一种基于规则的相关性评分机制和定制强化学习算法，使模型能通过显式标准进行细粒度推理，从而提升复杂任务下的文档检索准确性。",
+    "key_points": [
+      "提出一种基于规则的相关性评分机制和定制强化学习算法，使模型能通过显式标准进行细粒度推理，从而提升复杂任务下的文档检索准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25435v1",
+    "title": "GESA: Graph-Enhanced Semantic Allocation for Generalized, Fair, and Explainable Candidate-Role Matching",
+    "authors": [
+      "Rishi Ashish Shah",
+      "Shivaay Dhondiyal",
+      "Kartik Sharma",
+      "Sukriti Talwar",
+      "Saksham Jain",
+      "Sparsh Jain"
+    ],
+    "summary": "Accurate, fair, and explainable allocation of candidates to roles represents a fundamental challenge across multiple domains including corporate hiring, academic admissions, fellowship awards, and volunteer placement systems. Current state-of-the-art approaches suffer from semantic inflexibility, persistent demographic bias, opacity in decision-making processes, and poor scalability under dynamic policy constraints. We present GESA (Graph-Enhanced Semantic Allocation), a comprehensive framework that addresses these limitations through the integration of domain-adaptive transformer embeddings, heterogeneous self-supervised graph neural networks, adversarial debiasing mechanisms, multi-objective genetic optimization, and explainable AI components. Our experimental evaluation on large-scale international benchmarks comprising 20,000 candidate profiles and 3,000 role specifications demonstrates superior performance with 94.5% top-3 allocation accuracy, 37% improvement in diversity representation, 0.98 fairness score across demographic categories, and sub-second end-to-end latency. Additionally, GESA incorporates hybrid recommendation capabilities and glass-box explainability, making it suitable for deployment across diverse international contexts in industry, academia, and non-profit sectors.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-09-29T19:41:55Z",
+    "updated": "2025-09-29T19:41:55Z",
+    "url": "http://arxiv.org/abs/2509.25435v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.25435v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要解决招聘/招生等通用匹配问题，虽提及混合推荐能力但非核心 RecSys/Search 场景研究，属于弱相关；因来自 TAL 公司额外 +1 分。",
+    "translation": "GESA：面向通用、公平且可解释的候选者 - 角色匹配的图增强语义分配框架",
+    "summary_zh": "提出一种融合领域自适应 Transformer 嵌入、异构图神经网络及对抗去偏机制的框架，旨在解决动态策略约束下的多目标公平匹配与可解释性难题。",
+    "key_points": [
+      "提出一种融合领域自适应 Transformer 嵌入、异构图神经网络及对抗去偏机制的框架，旨在解决动态策略约束下的多目标公平匹配与可解释性难题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.24815v1",
+    "title": "Efficient Sketching and Nearest Neighbor Search Algorithms for Sparse Vector Sets",
+    "authors": [
+      "Sebastian Bruch",
+      "Franco Maria Nardini",
+      "Cosimo Rulli",
+      "Rossano Venturini"
+    ],
+    "summary": "Sparse embeddings of data form an attractive class due to their inherent interpretability: Every dimension is tied to a term in some vocabulary, making it easy to visually decipher the latent space. Sparsity, however, poses unique challenges for Approximate Nearest Neighbor Search (ANNS) which finds, from a collection of vectors, the k vectors closest to a query. To encourage research on this underexplored topic, sparse ANNS featured prominently in a BigANN Challenge at NeurIPS 2023, where approximate algorithms were evaluated on large benchmark datasets by throughput and accuracy. In this work, we introduce a set of novel data structures and algorithmic methods, a combination of which leads to an elegant, effective, and highly efficient solution to sparse ANNS. Our contributions range from a theoretically-grounded sketching algorithm for sparse vectors to reduce their effective dimensionality while preserving inner product-induced ranks; a geometric organization of the inverted index; and the blending of local and global information to improve the efficiency and efficacy of ANNS. Empirically, our final algorithm, dubbed Seismic, reaches sub-millisecond per-query latency with high accuracy on a large-scale benchmark dataset using a single CPU.",
+    "categories": [
+      "cs.DS",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-09-29T14:02:45Z",
+    "updated": "2025-09-29T14:02:45Z",
+    "url": "http://arxiv.org/abs/2509.24815v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.24815v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于稀疏向量的近似最近邻搜索（ANNS）算法优化，虽为检索系统的基础组件，但属于通用算法研究，未直接针对推荐/搜索业务场景或用户建模提出特定创新。",
+    "translation": "稀疏向量集的高效草图绘制与最近邻搜索算法",
+    "summary_zh": "提出一种结合理论草图算法、倒排索引几何组织及局部全局信息融合的新方法，旨在解决稀疏嵌入向量在大规模数据下的高效近似最近邻搜索问题。",
+    "key_points": [
+      "提出一种结合理论草图算法、倒排索引几何组织及局部全局信息融合的新方法，旨在解决稀疏嵌入向量在大规模数据下的高效近似最近邻搜索问题"
+    ]
+  },
+  {
+    "arxiv_id": "2509.24696v1",
+    "title": "T-POP: Test-Time Personalization with Online Preference Feedback",
+    "authors": [
+      "Zikun Qu",
+      "Min Zhang",
+      "Mingze Kong",
+      "Xiang Li",
+      "Zhiwei Shang",
+      "Zhiyong Wang",
+      "Yikun Ban",
+      "Shuang Qiu",
+      "Yao Shu",
+      "Zhongxiang Dai"
+    ],
+    "summary": "Personalizing large language models (LLMs) to individual user preferences is a critical step beyond generating generically helpful responses. However, current personalization methods are ill-suited for new users, as they typically require either slow, resource-intensive fine-tuning or a substantial amount of pre-existing user data, creating a significant cold-start problem. To address this challenge, we introduce a new paradigm for real-time personalization by learning from online pairwise preference feedback collected during text generation. We propose T-POP (Test-Time Personalization with Online Preference Feedback}), a novel algorithm that synergistically combines test-time alignment with dueling bandits. Without updating the LLM parameters, T-POP steers the decoding process of a frozen LLM by learning a reward function online that captures user preferences. By leveraging dueling bandits, T-POP intelligently queries the user to efficiently balance between exploring their preferences and exploiting the learned knowledge to generate personalized text. Extensive experiments demonstrate that T-POP achieves rapid and data-efficient personalization, significantly outperforming existing baselines and showing consistent improvement with more user interactions.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2025-09-29T12:28:23Z",
+    "updated": "2025-09-29T12:28:23Z",
+    "url": "http://arxiv.org/abs/2509.24696v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.24696v1.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 对齐与个性化生成的研究，专注于测试时通过反馈调整文本生成策略，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、物品匹配等）。",
+    "translation": "T-POP：基于在线偏好反馈的测试时个性化方法",
+    "summary_zh": "提出一种结合测试时对齐与决斗老虎机算法的新范式，通过在文本生成过程中在线学习用户偏好奖励函数，在不更新模型参数的情况下实时引导冻结 LLM 的解码过程以实现个性化。",
+    "key_points": [
+      "提出一种结合测试时对齐与决斗老虎机算法的新范式，通过在文本生成过程中在线学习用户偏好奖励函数，在不更新模型参数的情况下实时引导冻结 LLM 的解码过程以实现个性化"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25530v1",
+    "title": "Beyond Static Retrieval: Opportunities and Pitfalls of Iterative Retrieval in GraphRAG",
+    "authors": [
+      "Kai Guo",
+      "Xinnan Dai",
+      "Shenglai Zeng",
+      "Harry Shomer",
+      "Haoyu Han",
+      "Yu Wang",
+      "Jiliang Tang"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) is a powerful paradigm for improving large language models (LLMs) on knowledge-intensive question answering. Graph-based RAG (GraphRAG) leverages entity-relation graphs to support multi-hop reasoning, but most systems still rely on static retrieval. When crucial evidence, especially bridge documents that connect disjoint entities, is absent, reasoning collapses and hallucinations persist. Iterative retrieval, which performs multiple rounds of evidence selection, has emerged as a promising alternative, yet its role within GraphRAG remains poorly understood. We present the first systematic study of iterative retrieval in GraphRAG, analyzing how different strategies interact with graph-based backbones and under what conditions they succeed or fail. Our findings reveal clear opportunities: iteration improves complex multi-hop questions, helps promote bridge documents into leading ranks, and different strategies offer complementary strengths. At the same time, pitfalls remain: naive expansion often introduces noise that reduces precision, gains are limited on single-hop or simple comparison questions, and several bridge evidences still be buried too deep to be effectively used. Together, these results highlight a central bottleneck, namely that GraphRAG's effectiveness depends not only on recall but also on whether bridge evidence is consistently promoted into leading positions where it can support reasoning chains. To address this challenge, we propose Bridge-Guided Dual-Thought-based Retrieval (BDTR), a simple yet effective framework that generates complementary thoughts and leverages reasoning chains to recalibrate rankings and bring bridge evidence into leading positions. BDTR achieves consistent improvements across diverse GraphRAG settings and provides guidance for the design of future GraphRAG systems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2025-09-29T21:38:28Z",
+    "updated": "2025-09-29T21:38:28Z",
+    "url": "http://arxiv.org/abs/2509.25530v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.25530v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于知识问答中的多跳推理，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），虽有中国公司背景加分，但核心领域不匹配。",
+    "translation": "超越静态检索：GraphRAG 中迭代检索的机遇与陷阱",
+    "summary_zh": "本文系统研究了 GraphRAG 中的迭代检索机制，提出了一种基于桥接引导的双重思维检索框架，旨在通过推理链重新校准排序以提升复杂多跳问答中的证据召回能力。",
+    "key_points": [
+      "本文系统研究了 GraphRAG 中的迭代检索机制，提出了一种基于桥接引导的双重思维检索框架，旨在通过推理链重新校准排序以提升复杂多跳问答中的证据召回能力"
+    ]
+  },
+  {
+    "arxiv_id": "2509.25494v1",
+    "title": "On-Premise AI for the Newsroom: Evaluating Small Language Models for Investigative Document Search",
+    "authors": [
+      "Nick Hagar",
+      "Nicholas Diakopoulos",
+      "Jeremy Gilbert"
+    ],
+    "summary": "Investigative journalists routinely confront large document collections. Large language models (LLMs) with retrieval-augmented generation (RAG) capabilities promise to accelerate the process of document discovery, but newsroom adoption remains limited due to hallucination risks, verification burden, and data privacy concerns. We present a journalist-centered approach to LLM-powered document search that prioritizes transparency and editorial control through a five-stage pipeline -- corpus summarization, search planning, parallel thread execution, quality evaluation, and synthesis -- using small, locally-deployable language models that preserve data security and maintain complete auditability through explicit citation chains. Evaluating three quantized models (Gemma 3 12B, Qwen 3 14B, and GPT-OSS 20B) on two corpora, we find substantial variation in reliability. All models achieved high citation validity and ran effectively on standard desktop hardware (e.g., 24 GB of memory), demonstrating feasibility for resource-constrained newsrooms. However, systematic challenges emerged, including error propagation through multi-stage synthesis and dramatic performance variation based on training data overlap with corpus content. These findings suggest that effective newsroom AI deployment requires careful model selection and system design, alongside human oversight for maintaining standards of accuracy and accountability.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2025-09-29T20:50:40Z",
+    "updated": "2025-09-29T20:50:40Z",
+    "url": "http://arxiv.org/abs/2509.25494v1",
+    "pdf_url": "http://arxiv.org/pdf/2509.25494v1.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 应用研究，专注于新闻调查中的文档搜索和事实核查，未涉及推荐系统或通用搜索引擎的核心技术（如召回、排序、用户建模）。",
+    "translation": "新闻编辑室的本地化 AI：评估用于调查性文档搜索的小型语言模型",
+    "summary_zh": "提出一种基于小型本地部署 LLM 的五阶段新闻文档搜索流程，通过显式引用链和人工监督机制解决幻觉与隐私问题，以增强调查记者的文档发现能力。",
+    "key_points": [
+      "提出一种基于小型本地部署 LLM 的五阶段新闻文档搜索流程，通过显式引用链和人工监督机制解决幻觉与隐私问题，以增强调查记者的文档发现能力"
+    ]
+  }
+]

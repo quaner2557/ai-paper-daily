@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精排结果 - CTR/CVR 生成式预训练推荐论文</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px 40px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #5B7C99;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        .score-distribution {
+            padding: 30px 40px;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        
+        .score-distribution h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .score-bars {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .score-bar {
+            flex: 1;
+            min-width: 80px;
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+        
+        .score-bar.high { background: linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%); }
+        .score-bar.good { background: linear-gradient(135deg, #6B9080 0%, #88B3A3 100%); }
+        .score-bar.mid { background: linear-gradient(135deg, #7FA1C3 0%, #9AB5D1 100%); }
+        .score-bar.low { background: linear-gradient(135deg, #A8B8C8 0%, #B8C8D8 100%); }
+        
+        .score-bar-count {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .score-bar-range {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .papers-section {
+            padding: 30px 40px;
+        }
+        
+        .papers-section h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .paper-card {
+            background: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .paper-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+        
+        .paper-title {
+            font-size: 1.3em;
+            color: #2c3e50;
+            font-weight: 600;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .paper-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .paper-title a:hover {
+            color: #5B7C99;
+        }
+        
+        .paper-scores {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 120px;
+        }
+        
+        .score-badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .score-badge.finerank {
+            background: linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%);
+            color: white;
+        }
+        
+        .score-badge.prerank {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .paper-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .paper-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .paper-abstract {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .paper-keywords {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .keyword-tag {
+            background: #e8f4fd;
+            color: #5B7C99;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .paper-header { flex-direction: column; }
+            .paper-scores { flex-direction: row; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 精排结果 - CTR/CVR 生成式预训练推荐论文</h1>
+            <p>Generative Pretraining for CTR/CVR Recommendation Papers</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">299</div>
+                <div class="stat-label">总论文数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8.44</div>
+                <div class="stat-label">粗排平均分</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">6.76</div>
+                <div class="stat-label">精排平均分</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2,472</div>
+                <div class="stat-label">搜索总数</div>
+            </div>
+        </div>
+        
+        <div class="score-distribution">
+            <h2>📈 分数分布</h2>
+            <div class="score-bars">
+                <div class="score-bar high">
+                    <div class="score-bar-count">33</div>
+                    <div class="score-bar-range">9-10 分</div>
+                </div>
+                <div class="score-bar high">
+                    <div class="score-bar-count">56</div>
+                    <div class="score-bar-range">8-9 分</div>
+                </div>
+                <div class="score-bar good">
+                    <div class="score-bar-count">91</div>
+                    <div class="score-bar-range">7-8 分</div>
+                </div>
+                <div class="score-bar mid">
+                    <div class="score-bar-count">64</div>
+                    <div class="score-bar-range">6-7 分</div>
+                </div>
+                <div class="score-bar low">
+                    <div class="score-bar-count">55</div>
+                    <div class="score-bar-range">&lt;6 分</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="papers-section">
+            <h2>📚 论文列表（按精排分数排序）</h2>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2506.03699v2.pdf" target="_blank">1. Scaling Transformers for Discriminative Recommendation via Generative Pretraining</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 10.0</div>
+                        <div class="score-badge prerank">粗排 10.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-06-04</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Discriminative recommendation tasks, such as CTR (click-through rate) and CVR (conversion rate) prediction, play critical roles in the ranking stage of large-scale industrial recommender systems. However, training a discriminative model encounters a significant overfitting issue induced by data spar...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2506.03699v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.11246v1.pdf" target="_blank">2. Generative Click-through Rate Prediction with Applications to Search Advertising</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 10.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-15</span>
+                    <span>🏷️ cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-Through Rate (CTR) prediction models are integral to a myriad of industrial settings, such as personalized search advertising. Current methods typically involve feature extraction from users' historical behavior sequences combined with product information, feeding into a discriminative model t...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2507.11246v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2504.16420v1.pdf" target="_blank">3. A Survey of Foundation Model-Powered Recommender Systems: From Feature-Based, Generative to Agentic Paradigms</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-04-23</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recommender systems (RS) have become essential in filtering information and personalizing content for users. RS techniques have traditionally relied on modeling interactions between users and items as well as the features of content using models specific to each task. The emergence of foundation mod...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2504.16420v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2511.14403v1.pdf" target="_blank">4. Infer As You Train: A Symmetric Paradigm of Masked Generative for Click-Through Rate Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-18</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative models are increasingly being explored in click-through rate (CTR) prediction field to overcome the limitations of the conventional discriminative paradigm, which rely on a simple binary classification objective. However, existing generative models typically confine the generative paradig...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2511.14403v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.11410v1.pdf" target="_blank">5. CADET: Context-Conditioned Ads CTR Prediction With a Decoder-Only Transformer</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-11</span>
+                    <span>🏷️ cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-through rate (CTR) prediction is fundamental to online advertising systems. While Deep Learning Recommendation Models (DLRMs) with explicit feature interactions have long dominated this domain, recent advances in generative recommenders have shown promising results in content recommendation. H...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.11410v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.18251v1.pdf" target="_blank">6. GenCI: Generative Modeling of User Interest Shift via Cohort-based Intent Learning for CTR Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-26</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-through rate (CTR) prediction plays a pivotal role in online advertising and recommender systems. Despite notable progress in modeling user preferences from historical behaviors, two key challenges persist. First, exsiting discriminative paradigms focus on matching candidates to user history, ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.18251v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.11235v2.pdf" target="_blank">7. MTFM: A Scalable and Alignment-free Foundation Model for Industrial Recommendation in Meituan</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-11</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Industrial recommendation systems typically involve multiple scenarios, yet existing cross-domain (CDR) and multi-scenario (MSR) methods often require prohibitive resources and strict input alignment, limiting their extensibility. We propose MTFM (Meituan Foundation Model for Recommendation), a tran...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.11235v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2511.12081v1.pdf" target="_blank">8. From Scaling to Structured Expressivity: Rethinking Transformers for CTR Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-15</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Despite massive investments in scale, deep models for click-through rate (CTR) prediction often exhibit rapidly diminishing returns - a stark contrast to the smooth, predictable gains seen in large language models. We identify the root cause as a structural misalignment: Transformers assume sequenti...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2511.12081v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.12704v3.pdf" target="_blank">9. PinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-17</span>
+                    <span>🏷️ cs.LG, cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    User activity sequences have emerged as one of the most important signals in recommender systems. We present a foundational model, PinFM, for understanding user activity sequences across multiple applications at a billion-scale visual discovery platform. We pretrain a transformer model with 20B+ par...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2507.12704v3</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.09393v2.pdf" target="_blank">10. ChoirRec: Semantic User Grouping via LLMs for Conversion Rate Prediction of Low-Activity Users</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-10</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Accurately predicting conversion rates (CVR) for low-activity users remains a fundamental challenge in large-scale e-commerce recommender systems. Existing approaches face three critical limitations: (i) reliance on noisy and unreliable behavioral signals; (ii) insufficient user-level information du...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.09393v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2603.03988v1.pdf" target="_blank">11. SORT: A Systematically Optimized Ranking Transformer for Industrial-scale Recommenders</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-03-04</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    While Transformers have achieved remarkable success in LLMs through superior scalability, their application in industrial-scale ranking models remains nascent, hindered by the challenges of high feature sparsity and low label density. In this paper, we propose SORT (Systematically Optimized Ranking ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2603.03988v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.20083v1.pdf" target="_blank">12. LLaTTE: Scaling Laws for Multi-Stage Sequence Modeling in Large-Scale Ads Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-27</span>
+                    <span>🏷️ cs.IR, cs.AI, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    We present LLaTTE (LLM-Style Latent Transformers for Temporal Events), a scalable transformer architecture for production ads recommendation. Through systematic experiments, we demonstrate that sequence modeling in recommendation systems follows predictable power-law scaling similar to LLMs. Crucial...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.20083v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.10811v1.pdf" target="_blank">13. EST: Towards Efficient Scaling Laws in Click-Through Rate Prediction via Unified Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-11</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Efficiently scaling industrial Click-Through Rate (CTR) prediction has recently attracted significant research attention. Existing approaches typically employ early aggregation of user behaviors to maintain efficiency. However, such non-unified or partially unified modeling creates an information bo...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.10811v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.15994v2.pdf" target="_blank">14. Scaling Recommender Transformers to One Billion Parameters</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-21</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    While large transformer models have been successfully used in many real-world applications such as natural language processing, computer vision, and speech processing, scaling transformers for recommender systems remains a challenging problem. Recently, Generative Recommenders framework was proposed...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2507.15994v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.02929v2.pdf" target="_blank">15. Realizing Scaling Laws in Recommender Systems: A Foundation-Expert Paradigm for Hyperscale Model Deployment</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-04</span>
+                    <span>🏷️ cs.IR, cs.AI, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    While scaling laws promise significant performance gains for recommender systems, efficiently deploying hyperscale models remains a major unsolved challenge. In contrast to fields where FMs are already widely adopted such as natural language processing and computer vision, progress in recommender sy...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.02929v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.16752v3.pdf" target="_blank">16. Action is All You Need: Dual-Flow Generative Ranking Network for Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-22</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Deep Learning Recommendation Models (DLRMs) often rely on extensive manual feature engineering to improve accuracy and user experience, which increases system complexity and limits scalability of model performance with respect to computational resources. Recently, Meta introduced a generative rankin...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.16752v3</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.21117v2.pdf" target="_blank">17. A Comprehensive Review on Harnessing Large Language Models to Overcome Recommender System Challenges</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-17</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recommender systems have traditionally followed modular architectures comprising candidate generation, multi-stage ranking, and re-ranking, each trained separately with supervised objectives and hand-engineered features. While effective in many domains, such systems face persistent challenges includ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2507.21117v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.14948v1.pdf" target="_blank">18. Large Foundation Model for Ads Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-20</span>
+                    <span>🏷️ cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Online advertising relies on accurate recommendation models, with recent advances using pre-trained large-scale foundation models (LFMs) to capture users' general interests across multiple scenarios and tasks. However, existing methods have critical limitations: they extract and transfer only user r...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.14948v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2506.11999v3.pdf" target="_blank">19. Generative Representational Learning of Foundation Models for Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-06-13</span>
+                    <span>🏷️ cs.IR, cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Developing a single foundation model with the capability to excel across diverse tasks has been a long-standing objective in the field of artificial intelligence. As the wave of general-purpose foundation models sweeps across various domains, their influence has significantly extended to the field o...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2506.11999v3</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.17631v1.pdf" target="_blank">20. BehaveGPT: A Foundation Model for Large-scale User Behavior Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-23</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In recent years, foundational models have revolutionized the fields of language and vision, demonstrating remarkable abilities in understanding and generating complex data; however, similar advances in user behavior modeling have been limited, largely due to the complexity of behavioral data and the...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.17631v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.22732v2.pdf" target="_blank">21. Generative Recommendation for Large-Scale Advertising</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-26</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative recommendation has recently attracted widespread attention in industry due to its potential for scaling and stronger model capacity. However, deploying real-time generative recommendation in large-scale advertising requires designs beyond large-language-model (LLM)-style training and serv...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.22732v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.10102v1.pdf" target="_blank">22. PANTHER: Generative Pretraining Beyond Language for Sequential User Behavior Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-11</span>
+                    <span>🏷️ cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Large language models (LLMs) have shown that generative pretraining can distill vast world knowledge into compact token representations. While LLMs encapsulate extensive world knowledge, they remain limited in modeling the behavioral knowledge contained within user interaction histories. User behavi...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.10102v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2511.10138v3.pdf" target="_blank">23. GPR: Towards a Generative Pre-trained One-Model Paradigm for Large-Scale Advertising Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 10.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-13</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    As an intelligent infrastructure connecting users with commercial content, advertising recommendation systems play a central role in information flow and value creation within the digital economy. However, existing multi-stage advertising recommendation systems suffer from objective misalignment and...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2511.10138v3</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.04180v2.pdf" target="_blank">24. Towards Large-scale Generative Ranking</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-07</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative recommendation has recently emerged as a promising paradigm in information retrieval. However, generative ranking systems are still understudied, particularly with respect to their effectiveness and feasibility in large-scale industrial settings. This paper investigates this topic at the ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.04180v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2603.07107v1.pdf" target="_blank">25. Efficient Personalized Reranking with Semi-Autoregressive Generation and Online Knowledge Distillation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-03-07</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative models offer a promising paradigm for the final stage reranking in multi-stage recommender systems, with the ability to capture inter-item dependencies within reranked lists. However, their practical deployment still faces two key challenges: (1) an inherent conflict between achieving hig...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2603.07107v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.07594v1.pdf" target="_blank">26. ELEC: Efficient Large Language Model-Empowered Click-Through Rate Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-09</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-through rate (CTR) prediction plays an important role in online advertising systems. On the one hand, traditional CTR prediction models capture the collaborative signals in tabular data via feature interaction modeling, but they lose semantics in text. On the other hand, Large Language Models ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.07594v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.14500v2.pdf" target="_blank">27. DGenCTR: Towards a Universal Generative Paradigm for Click-Through Rate Prediction via Discrete Diffusion</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-20</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent advances in generative models have inspired the field of recommender systems to explore generative approaches, but most existing research focuses on sequence generation, a paradigm ill-suited for click-through rate (CTR) prediction. CTR models critically depend on a large number of cross-feat...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.14500v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.07298v2.pdf" target="_blank">28. Principled Synthetic Data Enables the First Scaling Laws for LLMs in Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-07</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Large Language Models (LLMs) represent a promising frontier for recommender systems, yet their development has been impeded by the absence of predictable scaling laws, which are crucial for guiding research and optimizing resource allocation. We hypothesize that this may be attributed to the inheren...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.07298v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.02361v1.pdf" target="_blank">29. GCRank: A Generative Contextual Comprehension Paradigm for Takeout Ranking Model</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-15</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    The ranking stage serves as the central optimization and allocation hub in advertising systems, governing economic value distribution through eCPM and orchestrating the user-centric blending of organic and advertising content. Prevailing ranking models often rely on fragmented modules and hand-craft...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.02361v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.15311v2.pdf" target="_blank">30. Modeling Long-term User Behaviors with Diffusion-driven Multi-interest Network for CTR Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-21</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    CTR (Click-Through Rate) prediction, crucial for recommender systems and online advertising, etc., has been confirmed to benefit from modeling long-term user behaviors. Nonetheless, the vast number of behaviors and complexity of noise interference pose challenges to prediction efficiency and effecti...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.15311v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.08957v2.pdf" target="_blank">31. LUMOS: Large User MOdels for User Behavior Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-28</span>
+                    <span>🏷️ cs.LG, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    User behavior prediction at scale remains a critical challenge for online B2C platforms. Traditional approaches rely heavily on task-specific models and domain-specific feature engineering. This is time-consuming, computationally expensive, and requires domain expertise and therefore, not scalable. ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.08957v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.13179v1.pdf" target="_blank">32. Efficient Cold-Start Recommendation via BPE Token-Level Embedding Initialization with LLM</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-16</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    The cold-start issue is the challenge when we talk about recommender systems, especially in the case when we do not have the past interaction data of new users or new items. Content-based features or hybrid solutions are common as conventional solutions, but they can only work in a sparse metadata e...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.13179v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.14041v1.pdf" target="_blank">33. From Feature Interaction to Feature Generation: A Generative Paradigm of CTR Prediction Models</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 9.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-16</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-Through Rate (CTR) prediction, a core task in recommendation systems, aims to estimate the probability of users clicking on items. Existing models predominantly follow a discriminative paradigm, which relies heavily on explicit interactions between raw ID embeddings. However, this paradigm inh...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.14041v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.25220v1.pdf" target="_blank">34. GReF: A Unified Generative Framework for Efficient Reranking via Ordered Multi-token Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-29</span>
+                    <span>🏷️ cs.IR, cs.AI, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In a multi-stage recommendation system, reranking plays a crucial role in modeling intra-list correlations among items. A key challenge lies in exploring optimal sequences within the combinatorial space of permutations. Recent research follows a two-stage (generator-evaluator) paradigm, where a gene...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.25220v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.14057v2.pdf" target="_blank">35. Field Matters: A Lightweight LLM-enhanced Method for CTR Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-20</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-through rate (CTR) prediction is a fundamental task in modern recommender systems. In recent years, the integration of large language models (LLMs) has been shown to effectively enhance the performance of traditional CTR methods. However, existing LLM-enhanced methods often require extensive p...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.14057v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.26063v1.pdf" target="_blank">36. Fading to Grow: Growing Preference Ratios via Preference Fading Discrete Diffusion for Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-30</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recommenders aim to rank items from a discrete item corpus in line with user interests, yet suffer from extremely sparse user preference data. Recent advances in diffusion models have inspired diffusion-based recommenders, which alleviate sparsity by injecting noise during a forward process to preve...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.26063v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.17682v1.pdf" target="_blank">37. Tuning Language Models for Robust Prediction of Diverse User Behaviors</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-23</span>
+                    <span>🏷️ cs.CL, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Predicting user behavior is essential for intelligent assistant services, yet deep learning models often struggle to capture long-tailed behaviors. Large language models (LLMs), with their pretraining on vast corpora containing rich behavioral knowledge, offer promise. However, existing fine-tuning ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.17682v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.22913v1.pdf" target="_blank">38. SIGMA: A Semantic-Grounded Instruction-Driven Generative Multi-Task Recommender at AliExpress</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-26</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    With the rapid evolution of Large Language Models, generative recommendation is gradually reshaping the paradigm of recommender systems. However, most existing methods are still confined to the interaction-driven next-item prediction paradigm, failing to rapidly adapt to evolving trends or address d...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.22913v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.18091v1.pdf" target="_blank">39. OnePiece: Bringing Context Engineering and Reasoning to Industrial Cascade Ranking System</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-22</span>
+                    <span>🏷️ cs.IR, cs.AI, cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Despite the growing interest in replicating the scaled success of large language models (LLMs) in industrial search and recommender systems, most existing industrial efforts remain limited to transplanting Transformer architectures, which bring only incremental improvements over strong Deep Learning...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.18091v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.24787v2.pdf" target="_blank">40. HiGR: Efficient Generative Slate Recommendation via Hierarchical Planning and Multi-Objective Preference Alignment</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-31</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Slate recommendation, which presents users with a ranked item list in a single display, is ubiquitous across mainstream online platforms. Recent advances in generative models have shown significant potential for this task via autoregressive modeling of discrete semantic ID sequences. However, existi...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.24787v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.02017v1.pdf" target="_blank">41. Empowering Large Language Model for Sequential Recommendation via Multimodal Embeddings and Semantic IDs</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-02</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Sequential recommendation (SR) aims to capture users' dynamic interests and sequential patterns based on their historical interactions. Recently, the powerful capabilities of large language models (LLMs) have driven their adoption in SR. However, we identify two critical challenges in existing LLM-b...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.02017v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2603.02999v2.pdf" target="_blank">42. OneRanker: Unified Generation and Ranking with One Model in Industrial Advertising Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-03-03</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    The end-to-end generative paradigm is revolutionizing advertising recommendation systems, driving a shift from traditional cascaded architectures towards unified modeling. However, practical deployment faces three core challenges: the misalignment between interest objectives and business value, the ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2603.02999v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.25522v2.pdf" target="_blank">43. Understanding Generative Recommendation with Semantic IDs from a Model-scaling View</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-29</span>
+                    <span>🏷️ cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent advancements in generative models have allowed the emergence of a promising paradigm for recommender systems (RS), known as Generative Recommendation (GR), which tries to unify rich item semantics and collaborative filtering signals. One popular modern approach is to use semantic IDs (SIDs), ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.25522v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.21526v1.pdf" target="_blank">44. Selective LLM-Guided Regularization for Enhancing Recommendation Models</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-25</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Large language models provide rich semantic priors and strong reasoning capabilities, making them promising auxiliary signals for recommendation. However, prevailing approaches either deploy LLMs as standalone recommender or apply global knowledge distillation, both of which suffer from inherent dra...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.21526v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.21801v1.pdf" target="_blank">45. DMGIN: How Multimodal LLMs Enhance Large Recommendation Models for Lifelong User Post-click Behaviors</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-29</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Modeling user interest based on lifelong user behavior sequences is crucial for enhancing Click-Through Rate (CTR) prediction. However, long post-click behavior sequences themselves pose severe performance issues: the sheer volume of data leads to high computational costs and inefficiencies in model...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.21801v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2511.03155v1.pdf" target="_blank">46. Generative Sequential Recommendation via Hierarchical Behavior Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-05</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recommender systems in multi-behavior domains, such as advertising and e-commerce, aim to guide users toward high-value but inherently sparse conversions. Leveraging auxiliary behaviors (e.g., clicks, likes, shares) is therefore essential. Recent progress on generative recommendations has brought ne...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2511.03155v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.14492v2.pdf" target="_blank">47. Query as Anchor: Scenario-Adaptive User Representation via Large Language Model</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-16</span>
+                    <span>🏷️ cs.CL, cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Industrial-scale user representation learning requires balancing robust universality with acute task-sensitivity. However, existing paradigms primarily yield static, task-agnostic embeddings that struggle to reconcile the divergent requirements of downstream scenarios within unified vector spaces. F...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.14492v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.07105v1.pdf" target="_blank">48. Knowledge Distillation for Enhancing Walmart E-commerce Search Relevance Using Large Language Models</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-11</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Ensuring the products displayed in e-commerce search results are relevant to users queries is crucial for improving the user experience. With their advanced semantic understanding, deep learning models have been widely used for relevance matching in search tasks. While large language models (LLMs) o...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.07105v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.14910v1.pdf" target="_blank">49. Closing the Performance Gap in Generative Recommenders with Collaborative Tokenization and Efficient Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-12</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent work has explored generative recommender systems as an alternative to traditional ID-based models, reframing item recommendation as a sequence generation task over discrete item tokens. While promising, such methods often underperform in practice compared to well-tuned ID-based baselines like...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.14910v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.17754v1.pdf" target="_blank">50. DiffusionGS: Generative Search with Query Conditioned Diffusion in Kuaishou</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-25</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Personalized search ranking systems are critical for driving engagement and revenue in modern e-commerce and short-video platforms. While existing methods excel at estimating users' broad interests based on the filtered historical behaviors, they typically under-exploit explicit alignment between a ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.17754v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.07774v4.pdf" target="_blank">51. Generative Reasoning Re-ranker</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-08</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent studies increasingly explore Large Language Models (LLMs) as a new paradigm for recommendation systems due to their scalability and world knowledge. However, existing work has three key limitations: (1) most efforts focus on retrieval and ranking, while the reranking phase, critical for refin...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.07774v4</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.11639v2.pdf" target="_blank">52. OneRec-Think: In-Text Reasoning for Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-13</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    The powerful generative capacity of Large Language Models (LLMs) has instigated a paradigm shift in recommendation. However, existing generative models (e.g., OneRec) operate as implicit predictors, critically lacking the capacity for explicit and controllable reasoning-a key advantage of LLMs. To b...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.11639v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.05588v4.pdf" target="_blank">53. Autoregressive Ranking: Bridging the Gap Between Dual and Cross Encoders</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-09</span>
+                    <span>🏷️ cs.IR, cs.AI, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    The success of Large Language Models (LLMs) has motivated a shift toward generative approaches to retrieval and ranking, aiming to supersede classical Dual Encoders (DEs) and Cross Encoders (CEs). A prominent paradigm is pointwise Autoregressive Ranking (ARR), where an LLM generates document identif...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.05588v4</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2504.08949v1.pdf" target="_blank">54. Large Language Model Empowered Recommendation Meets All-domain Continual Pre-Training</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-04-11</span>
+                    <span>🏷️ cs.IR, cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent research efforts have investigated how to integrate Large Language Models (LLMs) into recommendation, capitalizing on their semantic comprehension and open-world knowledge for user behavior understanding. These approaches predominantly employ supervised fine-tuning on single-domain user inter...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2504.08949v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.00570v2.pdf" target="_blank">55. SPRINT: Scalable and Predictive Intent Refinement for LLM-Enhanced Session-based Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-01</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Large language models (LLMs) have enhanced conventional recommendation models via user profiling, which generates representative textual profiles from users' historical interactions. However, their direct application to session-based recommendation (SBR) remains challenging due to severe session con...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.00570v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.20676v1.pdf" target="_blank">56. PRECTR-V2:Unified Relevance-CTR Framework with Cross-User Preference Mining, Exposure Bias Correction, and LLM-Distilled Encoder Optimization</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-24</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In search systems, effectively coordinating the two core objectives of search relevance matching and click-through rate (CTR) prediction is crucial for discovering users' interests and enhancing platform revenue. In our prior work PRECTR, we proposed a unified framework to integrate these two subtas...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.20676v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.21543v1.pdf" target="_blank">57. CEMG: Collaborative-Enhanced Multimodal Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-25</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative recommendation models often struggle with two key challenges: (1) the superficial integration of collaborative signals, and (2) the decoupled fusion of multimodal features. These limitations hinder the creation of a truly holistic item representation. To overcome this, we propose CEMG, a ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.21543v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.02338v1.pdf" target="_blank">58. Rethinking Generative Recommender Tokenizer: Recsys-Native Encoding and Semantic Quantization Beyond LLMs</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-02</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Semantic ID (SID)-based recommendation is a promising paradigm for scaling sequential recommender systems, but existing methods largely follow a semantic-centric pipeline: item embeddings are learned from foundation models and discretized using generic quantization schemes. This design is misaligned...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.02338v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.18654v4.pdf" target="_blank">59. MTGR: Industrial-Scale Generative Recommendation Framework in Meituan</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-24</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Scaling law has been extensively validated in many domains such as natural language processing and computer vision. In the recommendation system, recent work has adopted generative recommendations to achieve scalability, but their generative approaches require abandoning the carefully constructed cr...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.18654v4</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2506.15833v1.pdf" target="_blank">60. Architecture is All You Need: Improving LLM Recommenders by Dropping the Text</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-06-18</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In recent years, there has been an explosion of interest in the applications of large pre-trained language models (PLMs) to recommender systems, with many studies showing strong performance of PLMs on common benchmark datasets. PLM-based recommender models benefit from flexible and customizable prom...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2506.15833v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.24762v2.pdf" target="_blank">61. OpenOneRec Technical Report</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-31</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    While the OneRec series has successfully unified the fragmented recommendation pipeline into an end-to-end generative framework, a significant gap remains between recommendation systems and general intelligence. Constrained by isolated data, they operate as domain specialists-proficient in pattern m...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.24762v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.09401v1.pdf" target="_blank">62. SARM: LLM-Augmented Semantic Anchor for End-to-End Live-Streaming Ranking</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-10</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Large-scale live-streaming recommendation requires precise modeling of non-stationary content semantics under strict real-time serving constraints. In industrial deployment, two common approaches exhibit fundamental limitations: discrete semantic abstractions sacrifice descriptive precision through ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.09401v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.00596v1.pdf" target="_blank">63. DLRREC: Denoising Latent Representations via Multi-Modal Knowledge Fusion in Deep Recommender Systems</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-29</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Modern recommender systems struggle to effectively utilize the rich, yet high-dimensional and noisy, multi-modal features generated by Large Language Models (LLMs). Treating these features as static inputs decouples them from the core recommendation task. We address this limitation with a novel fram...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.00596v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.06286v1.pdf" target="_blank">64. RecMind: LLM-Enhanced Graph Neural Networks for Personalized Consumer Recommendations</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-08</span>
+                    <span>🏷️ cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Personalization is a core capability across consumer technologies, streaming, shopping, wearables, and voice, yet it remains challenged by sparse interactions, fast content churn, and heterogeneous textual signals. We present RecMind, an LLM-enhanced graph recommender that treats the language model ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.06286v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.06887v2.pdf" target="_blank">65. UniSearch: Rethinking Search System with a Unified Generative Architecture</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-08</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Modern search systems play a crucial role in facilitating information acquisition. Traditional search engines typically rely on a cascaded architecture, where results are retrieved through recall, pre-ranking, and ranking stages. The complexity of designing and maintaining multiple modules makes it ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.06887v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.08575v1.pdf" target="_blank">66. RankGR: Rank-Enhanced Generative Retrieval with Listwise Direct Preference Optimization in Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-09</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative retrieval (GR) has emerged as a promising paradigm in recommendation systems by autoregressively decoding identifiers of target items. Despite its potential, current approaches typically rely on the next-token prediction schema, which treats each token of the next interacted items as the ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.08575v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.24431v1.pdf" target="_blank">67. MiniOneRec: An Open-Source Framework for Scaling Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-28</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    The recent success of large language models (LLMs) has renewed interest in whether recommender systems can achieve similar scaling benefits. Conventional recommenders, dominated by massive embedding tables, tend to plateau as embedding dimensions grow. In contrast, the emerging generative paradigm r...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.24431v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.03668v1.pdf" target="_blank">68. CTR-Sink: Attention Sink for Language Models in Click-Through Rate Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-05</span>
+                    <span>🏷️ cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Click-Through Rate (CTR) prediction, a core task in recommendation systems, estimates user click likelihood using historical behavioral data. Modeling user behavior sequences as text to leverage Language Models (LMs) for this task has gained traction, owing to LMs' strong semantic understanding and ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.03668v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.19876v1.pdf" target="_blank">69. Adaptive User Interest Modeling via Conditioned Denoising Diffusion For Click-Through Rate Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-24</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    User behavior sequences in search systems resemble "interest fossils", capturing genuine intent yet eroded by exposure bias, category drift, and contextual noise. Current methods predominantly follow an "identify-aggregate" paradigm, assuming sequences immutably reflect user preferences while overlo...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.19876v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.03131v1.pdf" target="_blank">70. RecBase: Generative Foundation Model Pretraining for Zero-Shot Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-03</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent advances in LLM-based recommendation have shown promise, yet their cross-domain generalization is hindered by a fundamental mismatch between language-centric pretraining and the recommendation task. Existing methods, relying on language-level knowledge, fail to capture dynamic, item-level use...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2509.03131v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2506.06270v2.pdf" target="_blank">71. RecGPT: A Foundation Model for Sequential Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-06-06</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    This work addresses a fundamental barrier in recommender systems: the inability to generalize across domains without extensive retraining. Traditional ID-based approaches fail entirely in cold-start and cross-domain scenarios where new users or items lack sufficient interaction history. Inspired by ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2506.06270v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.10837v1.pdf" target="_blank">72. EncodeRec: An Embedding Backbone for Recommendation Systems</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-15</span>
+                    <span>🏷️ cs.CL, cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent recommender systems increasingly leverage embeddings from large pre-trained language models (PLMs). However, such embeddings exhibit two key limitations: (1) PLMs are not explicitly optimized to produce structured and discriminative embedding spaces, and (2) their representations remain overl...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.10837v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.07197v1.pdf" target="_blank">73. A Generative Re-ranking Model for List-level Multi-objective Optimization at Taobao</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-12</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    E-commerce recommendation systems aim to generate ordered lists of items for customers, optimizing multiple business objectives, such as clicks, conversions and Gross Merchandise Volume (GMV). Traditional multi-objective optimization methods like formulas or Learning-to-rank (LTR) models take effect...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2505.07197v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.22879v2.pdf" target="_blank">74. RecGPT Technical Report</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-30</span>
+                    <span>🏷️ cs.IR, cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recommender systems are among the most impactful applications of artificial intelligence, serving as critical infrastructure connecting users, merchants, and platforms. However, most current industrial systems remain heavily reliant on historical co-occurrence patterns and log-fitting objectives, i....
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2507.22879v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.10622v1.pdf" target="_blank">75. How Do Decoder-Only LLMs Perceive Users? Rethinking Attention Masking for User Representation Learning</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-11</span>
+                    <span>🏷️ cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Decoder-only large language models are increasingly used as behavioral encoders for user representation learning, yet the impact of attention masking on the quality of user embeddings remains underexplored. In this work, we conduct a systematic study of causal, hybrid, and bidirectional attention ma...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2602.10622v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.18664v2.pdf" target="_blank">76. S$^2$GR: Stepwise Semantic-Guided Reasoning in Latent Space for Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-26</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative Recommendation (GR) has emerged as a transformative paradigm with its end-to-end generation advantages. However, existing GR methods primarily focus on direct Semantic ID (SID) generation from interaction sequences, failing to activate deeper reasoning capabilities analogous to those in l...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.18664v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2603.00700v1.pdf" target="_blank">77. SODA: Semantic-Oriented Distributional Alignment for Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-28</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Generative recommendation has emerged as a scalable alternative to traditional retrieve-and-rank pipelines by operating in a compact token space. However, existing methods mainly rely on discrete code-level supervision, which leads to information loss and limits the joint optimization between the to...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2603.00700v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.03025v3.pdf" target="_blank">78. LORE: A Large Generative Model for Search Relevance</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-02</span>
+                    <span>🏷️ cs.IR, cs.AI, cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Achievement. We introduce LORE, a systematic framework for Large Generative Model-based relevance in e-commerce search. Deployed and iterated over three years, LORE achieves a cumulative +27\% improvement in online GoodRate metrics. This report shares the valuable experience gained throughout its de...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.03025v3</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.09496v1.pdf" target="_blank">79. Unifying Search and Recommendation in LLMs via Gradient Multi-Subspace Tuning</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-14</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Search and recommendation (S&R) are core to online platforms, addressing explicit intent through queries and modeling implicit intent from behaviors, respectively. Their complementary roles motivate a unified modeling paradigm. Early studies to unify S&R adopt shared encoders with task-specific head...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.09496v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.06507v2.pdf" target="_blank">80. GR-LLMs: Recent Advances in Generative Recommendation Based on Large Language Models</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-09</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In the past year, Generative Recommendations (GRs) have undergone substantial advancements, especially in leveraging the powerful sequence modeling and reasoning capabilities of Large Language Models (LLMs) to enhance overall recommendation performance. LLM-based GRs are forming a new paradigm that ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2507.06507v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2511.11255v2.pdf" target="_blank">81. Align$^3$GR: Unified Multi-Level Alignment for LLM-based Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-14</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Large Language Models (LLMs) demonstrate significant advantages in leveraging structured world knowledge and multi-step reasoning capabilities. However, fundamental challenges arise when transforming LLMs into real-world recommender systems due to semantic and behavioral misalignment. To bridge this...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2511.11255v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.21460v1.pdf" target="_blank">82. Diffusion-based Multi-modal Synergy Interest Network for Click-through Rate Prediction</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-29</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In click-through rate prediction, click-through rate prediction is used to model users' interests. However, most of the existing CTR prediction methods are mainly based on the ID modality. As a result, they are unable to comprehensively model users' multi-modal preferences. Therefore, it is necessar...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.21460v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2506.16893v1.pdf" target="_blank">83. Multi-Objective Recommendation in the Era of Generative AI: A Survey of Recent Progress and Future Prospects</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-06-20</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    With the recent progress in generative artificial intelligence (Generative AI), particularly in the development of large language models, recommendation systems are evolving to become more versatile. Unlike traditional techniques, generative AI not only learns patterns and representations from compl...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2506.16893v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2601.10321v2.pdf" target="_blank">84. An Efficient Long-Context Ranking Architecture With Calibrated LLM Distillation: Application to Person-Job Fit</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-01-15</span>
+                    <span>🏷️ cs.CL, cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Finding the most relevant person for a job proposal in real time is challenging, especially when resumes are long, structured, and multilingual. In this paper, we propose a re-ranking model based on a new generation of late cross-attention architecture, that decomposes both resumes and project brief...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2601.10321v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2508.20900v4.pdf" target="_blank">85. OneRec-V2 Technical Report</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-08-28</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent breakthroughs in generative AI have transformed recommender systems through end-to-end generation. OneRec reformulates recommendation as an autoregressive generation task, achieving high Model FLOPs Utilization. While OneRec-V1 has shown significant empirical success in real-world deployment,...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2508.20900v4</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.21713v1.pdf" target="_blank">86. asLLR: LLM based Leads Ranking in Auto Sales</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-10</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    In the area of commercial auto sales system, high-quality lead score sequencing determines the priority of a sale's work and is essential for optimizing the efficiency of the sales system. Since CRM (Customer Relationship Management) system contains plenty of textual interaction features between sal...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.21713v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.11016v1.pdf" target="_blank">87. Instruction-aware User Embedding via Synergistic Language and Representation Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-13</span>
+                    <span>🏷️ cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    User representation modeling has become increasingly crucial for personalized applications, yet existing approaches struggle with generalizability across domains and sensitivity to noisy behavioral signals. We present InstructUE, an instruction-aware user embedding foundation model that leverages la...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2510.11016v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.02555v1.pdf" target="_blank">88. ADORE: Autonomous Domain-Oriented Relevance Engine for E-commerce</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-02</span>
+                    <span>🏷️ cs.CL, cs.AI, cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Relevance modeling in e-commerce search remains challenged by semantic gaps in term-matching methods (e.g., BM25) and neural models' reliance on the scarcity of domain-specific hard samples. We propose ADORE, a self-sustaining framework that synergizes three innovations: (1) A Rule-aware Relevance D...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2512.02555v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2506.06336v1.pdf" target="_blank">89. Research on E-Commerce Long-Tail Product Recommendation Mechanism Based on Large-Scale Language Models</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 8.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-31</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    As e-commerce platforms expand their product catalogs, accurately recommending long-tail items becomes increasingly important for enhancing both user experience and platform revenue. A key challenge is the long-tail problem, where extreme data sparsity and cold-start issues limit the performance of ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：HIGH</span>
+                    <span class="keyword-tag">2506.06336v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.17249v2.pdf" target="_blank">90. R4ec: A Reasoning, Reflection, and Refinement Framework for Recommendation Systems</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-23</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Harnessing Large Language Models (LLMs) for recommendation systems has emerged as a prominent avenue, drawing substantial research interest. However, existing approaches primarily involve basic prompt techniques for knowledge acquisition, which resemble System-1 thinking. This makes these methods hi...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2507.17249v2</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.20995v1.pdf" target="_blank">91. Generative Pseudo-Labeling for Pre-Ranking with LLMs</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-24</span>
+                    <span>🏷️ cs.IR, cs.CL</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Pre-ranking is a critical stage in industrial recommendation systems, tasked with efficiently scoring thousands of recalled items for downstream ranking. A key challenge is the train-serving discrepancy: pre-ranking models are trained only on exposed interactions, yet must score all recalled candida...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2602.20995v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.08559v1.pdf" target="_blank">92. QARM V2: Quantitative Alignment Multi-Modal Recommendation for Reasoning User Sequence Modeling</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-09</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    With the evolution of large language models (LLMs), there is growing interest in leveraging their rich semantic understanding to enhance industrial recommendation systems (RecSys). Traditional RecSys relies on ID-based embeddings for user sequence modeling in the General Search Unit (GSU) and Exact ...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2602.08559v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2512.06883v1.pdf" target="_blank">93. Structural and Disentangled Adaptation of Large Vision Language Models for Multimodal Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-12-07</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Multimodal recommendation enhances accuracy by leveraging visual and textual signals, and its success largely depends on learning high-quality cross-modal representations. Recent advances in Large Vision-Language Models (LVLMs) offer unified multimodal representation learning, making them a promisin...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2512.06883v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2505.17549v3.pdf" target="_blank">94. EGA-V2: An End-to-end Generative Framework for Industrial Advertising</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-05-23</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Traditional online industrial advertising systems suffer from the limitations of multi-stage cascaded architectures, which often discard high-potential candidates prematurely and distribute decision logic across disconnected modules. While recent generative recommendation approaches provide end-to-e...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2505.17549v3</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.18907v1.pdf" target="_blank">95. DeepInterestGR: Mining Deep Multi-Interest Using Multi-Modal LLMs for Generative Recommendation</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-21</span>
+                    <span>🏷️ cs.LG, cs.CV, cs.CY</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recent generative recommendation frameworks have demonstrated remarkable scaling potential by reformulating item prediction as autoregressive Semantic ID (SID) generation. However, existing methods primarily rely on shallow behavioral signals, encoding items solely through surface-level textual feat...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2602.18907v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2509.03236v5.pdf" target="_blank">96. OneSearch: A Preliminary Exploration of the Unified End-to-End Generative Framework for E-commerce Search</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 9.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-09-03</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Traditional e-commerce search systems employ multi-stage cascading architectures (MCA) that progressively filter items through recall, pre-ranking, and ranking stages. While effective at balancing computational efficiency with business conversion, these systems suffer from fragmented computation and...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2509.03236v5</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2511.07166v1.pdf" target="_blank">97. AdaRec: Adaptive Recommendation with LLMs via Narrative Profiling and Dual-Channel Reasoning</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-11-10</span>
+                    <span>🏷️ cs.CL, cs.AI, cs.CE</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    We propose AdaRec, a few-shot in-context learning framework that leverages large language models for an adaptive personalized recommendation. AdaRec introduces narrative profiling, transforming user-item interactions into natural language representations to enable unified task handling and enhance h...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2511.07166v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2602.05663v1.pdf" target="_blank">98. GLASS: A Generative Recommender for Long-sequence Modeling via SID-Tier and Semantic Search</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2026-02-05</span>
+                    <span>🏷️ cs.IR</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Leveraging long-term user behavioral patterns is a key trajectory for enhancing the accuracy of modern recommender systems. While generative recommender systems have emerged as a transformative paradigm, they face hurdles in effectively modeling extensive historical sequences. To address this challe...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2602.05663v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2510.26461v1.pdf" target="_blank">99. Vectorized Context-Aware Embeddings for GAT-Based Collaborative Filtering</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-10-30</span>
+                    <span>🏷️ cs.IR, cs.LG</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Recommender systems often struggle with data sparsity and cold-start scenarios, limiting their ability to provide accurate suggestions for new or infrequent users. This paper presents a Graph Attention Network (GAT) based Collaborative Filtering (CF) framework enhanced with Large Language Model (LLM...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2510.26461v1</span>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-header">
+                    <div class="paper-title">
+                        <a href="http://arxiv.org/pdf/2507.05733v1.pdf" target="_blank">100. When Transformers Meet Recommenders: Integrating Self-Attentive Sequential Recommendation with Fine-Tuned LLMs</a>
+                    </div>
+                    <div class="paper-scores">
+                        <div class="score-badge finerank">精排 7.0</div>
+                        <div class="score-badge prerank">粗排 8.0</div>
+                    </div>
+                </div>
+                
+                <div class="paper-meta">
+                    <span>📅 2025-07-08</span>
+                    <span>🏷️ cs.IR, cs.AI</span>
+                </div>
+                
+                <div class="paper-abstract">
+                    Self-Attentive Sequential Recommendation (SASRec) effectively captures long-term user preferences by applying attention mechanisms to historical interactions. Concurrently, the rise of Large Language Models (LLMs) has motivated research into LLM-based recommendation, which leverages their powerful g...
+                </div>
+                
+                <div class="paper-keywords">
+                    <span class="keyword-tag">相关性：GOOD</span>
+                    <span class="keyword-tag">2507.05733v1</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: 20px; color: #666;">
+                <p>显示前 100 篇，共 299 篇论文</p>
+                <p style="margin-top: 10px;">完整数据请查看 <a href="related_papers_ctr_cvr.json" style="color: #5B7C99;">JSON 文件</a></p>
+            </div>
+
+        </div>
+        
+        <div class="footer">
+            <p>生成时间：2026-03-17 11:52:14 | 
+               搜索时间：2026-03-17 10:31:18</p>
+            <p>粗排模型：qwen3.5-flash | 
+               精排模型：qwen3.5-plus</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,1 +1,551 @@
-[]
+[
+  {
+    "arxiv_id": "2605.21752",
+    "title": "PEARL: Unbiased Percentile Estimation via Contrastive Learning for Industrial-Scale Livestream Recommendation",
+    "authors": [
+      "Blake Gella",
+      "Wei Wu",
+      "Yuhao Yin",
+      "Zexi Huang",
+      "Zikai Wang",
+      "Emily Liu",
+      "Junlin Zhang",
+      "Wentao Guo",
+      "Qinglei Wang"
+    ],
+    "summary": "Recommender systems trained on user interaction data are susceptible to behavioral intensity imbalance--a systematic distortion arising from heterogeneous engagement patterns across users. This imbalance skews feedback signals such that observed interactions no longer faithfully reflect true preferences, causing models to disproportionately amplify signals from highly active users while underrepresenting others, which ultimately degrades recommendation quality and robustness at scale. To address this issue, we propose a nonparametric contrastive percentile approximation framework, PEARL, that models relative preference signals instead of absolute engagement magnitudes. Building upon relative advantage debiasing, PEARL leverages real contrastive interaction samples to approximate percentile relationships directly, without relying on auxiliary distribution estimation models. We provide theoretical justification demonstrating that such pairwise comparisons yield unbiased estimates of percentile-based preference signals. For broader applicability, we introduce a prediction-based bootstrapping mechanism for percentile smoothing to handle sparse and discrete feedback, alongside a generalized value-weighted formulation and a co-training strategy to enhance both modeling flexibility and representation learning. Extensive offline experiments demonstrate that PEARL effectively mitigates behavioral bias and consistently improves recommendation performance across multiple ranking targets. Deployed in a production livestream platform with a combined user base of billions, online A/B testing confirms substantial real-world gains: +2.10% Watch Duration, +0.80% Consumption Amount, +1.49% Interaction Rate, and -6.91% Report Rate.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21752",
+    "pdf_url": "https://arxiv.org/pdf/2605.21752.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级直播推荐系统中的用户行为强度不平衡问题，提出了一种基于对比学习的无偏百分位估计框架，属于核心推荐算法创新且已在大厂落地。",
+    "translation": "PEARL：通过对比学习实现工业级直播推荐的无偏百分位估计",
+    "summary_zh": "提出 PEARL 框架，利用非参数对比学习方法直接建模相对偏好信号以近似百分位关系，从而消除因用户活跃度差异导致的反馈信号偏差，提升推荐系统的鲁棒性与公平性。",
+    "key_points": [
+      "提出 PEARL 框架，利用非参数对比学习方法直接建模相对偏好信号以近似百分位关系，从而消除因用户活跃度差异导致的反馈信号偏差，提升推荐系统的鲁棒性与公平性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21832",
+    "title": "FLUID: From Ephemeral IDs to Multimodal Semantic Codes for Industrial-Scale Livestreaming Recommendation",
+    "authors": [
+      "Xinhang Yuan",
+      "Zexi Huang",
+      "Anjia Cao",
+      "Xudong Lu",
+      "Zikai Wang",
+      "Penghao Zhou",
+      "Chang Liu",
+      "Wentao Guo",
+      "Qinglei Wang"
+    ],
+    "summary": "Modern recommender systems rely heavily on ID-based collaborative filtering: each item is represented by a unique ID embedding that accumulates collaborative signals from user interactions. Livestreaming recommendation, however, faces a unique challenge in this paradigm: a live room typically broadcasts for only tens of minutes, so its item ID remains poorly learned in a persistent cold-start state and ID-centric ranking models fail to generalize. We present FLUID, the first framework to fully retire the candidate-side item ID from a production-scale livestreaming ranker. FLUID couples a cross-domain multimodal encoder, jointly trained on short videos and livestreams to produce discrete hierarchical codes (LUCID), with a late-fusion, ID-free design that injects slice-level and room-level LUCID as independent tokens, stabilized by a staged warmup under online incremental training. Deployed on our industrial livestreaming recommenders with a cross-platform combined user base of over one billion globally, FLUID delivers significant online gains of +0.55% Quality Watch Duration, +2.05% Cold-Start Room Views, and +0.05% Active Hours.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21832",
+    "pdf_url": "https://arxiv.org/pdf/2605.21832.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决工业级直播推荐中的冷启动难题，提出完全移除物品 ID 的多模态语义编码框架，属于核心推荐系统架构创新且已在大厂落地。",
+    "translation": "FLUID：从瞬时 ID 到多模态语义码的工业级直播推荐框架",
+    "summary_zh": "提出 FLUID 框架，通过跨域多模态编码器生成离散层级代码（LUCID）替代传统物品 ID 嵌入，利用晚期融合机制解决直播场景下因房间生命周期短导致的物品冷启动与泛化难题。",
+    "key_points": [
+      "提出 FLUID 框架，通过跨域多模态编码器生成离散层级代码（LUCID）替代传统物品 ID 嵌入，利用晚期融合机制解决直播场景下因房间生命周期短导致的物品冷启动与泛化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21967",
+    "title": "Reinforced Preference Optimization for Reasoning-Augmented Recommendations",
+    "authors": [
+      "Jingtong Gao",
+      "Zeyu Song",
+      "Chi Lu",
+      "Xiaopeng Li",
+      "Derong Xu",
+      "Maolin Wang",
+      "Peng Jiang",
+      "Kun Gai",
+      "Qingpeng Cai",
+      "Xiangyu Zhao"
+    ],
+    "summary": "Recommender systems are critical for delivering personalized content across digital platforms, and recent advances in Large Language Models (LLMs) offer new opportunities to enhance them with richer world knowledge and explicit reasoning capabilities. With the help of reasoning knowledge, recommendations can better infer users' underlying intents, adapt to evolving preferences, and leverage semantic relationships for improved accuracy and interpretability. However, existing reasoning-based recommendation methods often fail to fully align the LLM's reasoning process with recommendation-specific objectives due to structural disruption during integration and difficulties in translating free-form generation into accurate item predictions. In this paper, we introduce RPORec, a reinforced preference optimization framework that unifies an LLM backbone's reasoning ability with a dedicated recommendation head (Rechead) for precise item retrieval. RPORec comprises two stages: (1) Reasoning-Augmented Recommendation Modeling, where high-quality Chain-of-Thought (CoT) reasoning is generated and used as auxiliary knowledge to guide the Rechead in learning recommendation-specific representations; and (2) Advanced Reasoning Refinement and Alignment, in which the trained Rechead produces verifiable rewards to fine-tune the LLM backbone via reinforcement learning, enhancing reasoning quality, structural consistency, and task relevance. Extensive experiments on public benchmarks and large-scale online deployments show that RPORec consistently outperforms state-of-the-art LLM-based recommendation methods, demonstrating the effectiveness of reasoning-augmented recommendation modeling in real-world systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21967",
+    "pdf_url": "https://arxiv.org/pdf/2605.21967.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "1CityUniversityofHongKong 2KuaishouTechnology"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出利用强化学习对齐 LLM 推理能力与推荐目标的框架（RPORec），属于 LLM for RecSys 的核心创新；且来自中国公司，按规则额外 +1 分后满分。",
+    "translation": "用于推理增强推荐的强化偏好优化方法",
+    "summary_zh": "提出 RPORec 框架，通过生成思维链辅助推荐头学习表征，并利用推荐头产生的可验证奖励反向微调 LLM 骨干，实现推理过程与推荐目标的深度对齐。",
+    "key_points": [
+      "提出 RPORec 框架，通过生成思维链辅助推荐头学习表征，并利用推荐头产生的可验证奖励反向微调 LLM 骨干，实现推理过程与推荐目标的深度对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21969",
+    "title": "LLM Retrieval for Stable and Predictable Ad Recommendations",
+    "authors": [
+      "Vinodh Kumar Sunkara",
+      "Satheeshkumar Karuppusamy",
+      "Hangjun Xu",
+      "Sai Deepika Regani",
+      "Kshitij Gupta",
+      "Gaby Nahum",
+      "Sneha Iyer",
+      "Jean-Baptiste Fiot",
+      "Yinglong Guo",
+      "Xiaowen Guo",
+      "Atul Jangra",
+      "Yucheng Liu",
+      "Jinghao Yan",
+      "Vijay Pappu",
+      "Benjamin Schulte",
+      "Deepak Chandra"
+    ],
+    "summary": "Traditional ads recommendation systems have primarily focused on optimizing for prediction accuracy of click or conversion events using canonical metrics such as recall or normalized discounted cumulative gain (NDCG). With the hyper-growth of ads inventory and liquidity with generative AI technologies, the prediction stability and predictability is becoming increasingly critical. Intuitively, prediction stability and predictability can be defined to quantify system robustness with respect to minor/noisy input (ads, creatives) perturbations, the lack of which could lead to advertiser perceivable problems such as repeatability, cold start and under-exploration. In this paper, we introduce a new evaluation framework for quantifying stability and predictability of an ads recommender system, and present an online validated semantic candidate generation framework powered by fine-tuned Large Language Models (LLMs) that showed significant improvement along these metrics by fundamentally improving the semantic-awareness of the system. The approach extracts hierarchical semantic attributes from ad creatives to obtain LLM representations, which serve as the foundation for graph-based expansion, ensuring the retrieved candidates encapsulate semantic variants of an ad, guaranteeing that small creative variants from the advertiser yield consistent and explainable delivery results to the user. We tested this LLM ads retrieval framework in a large-scale industrial ads recommendation system, demonstrating significant improvements across offline and online A/B experiments, showcasing gains in both predictability and traditional performance metrics. Although evaluated in the ads stack, this is a general framework that can be applied broadly to any large-scale recommendation and retrieval systems facing similar scaling and predictability challenges.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21969",
+    "pdf_url": "https://arxiv.org/pdf/2605.21969.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告推荐系统中的稳定性与可预测性痛点，提出了基于微调 LLM 的语义候选生成框架，属于核心业务场景的直接创新；叠加中国公司背景额外加分。",
+    "translation": "面向稳定且可预测广告推荐的 LLM 检索方法",
+    "summary_zh": "提出一种利用微调大语言模型提取广告创意层级语义属性并构建图扩展的检索框架，旨在解决广告推荐中因输入扰动导致的冷启动和交付不一致问题，提升系统的语义感知与鲁棒性。",
+    "key_points": [
+      "提出一种利用微调大语言模型提取广告创意层级语义属性并构建图扩展的检索框架，旨在解决广告推荐中因输入扰动导致的冷启动和交付不一致问题，提升系统的语义感知与鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.22073",
+    "title": "Behavior-Guided Candidate Calibration for Multimodal Recommendation",
+    "authors": [
+      "Zesheng Li",
+      "Chengchang Pan",
+      "Honggang Qi"
+    ],
+    "summary": "Multimodal recommendation benefits from content signals, but the gain depends on how those signals interact with the ranking pipeline. We find that moderate cross-view agreement helps, while stronger agreement suppresses recommendation-specific variation. Spectral analysis shows a clear split: low-frequency components capture shared structure, and higher-frequency components preserve more discriminative signal. Based on this finding, we introduce a behavior-guided candidate calibration model that converts training-only co-user overlap into signed candidate evidence and applies it only to the shortlist produced by the multimodal backbone. The backbone keeps the representation space stable; behavior evidence acts only where ranking is decided. Results on Amazon Baby, Sports, and Electronics show consistent gains over strong multimodal baselines. Code is available at https://github.com/LIZESHENG13/bridge.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.22073",
+    "pdf_url": "https://arxiv.org/pdf/2605.22073.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的排序校准问题，提出了基于用户行为引导的候选者校准新方法，属于核心推荐技术突破；结合来自中国公司（Gree）的背景，给予额外加分后满分。",
+    "translation": "行为引导的多模态推荐候选者校准",
+    "summary_zh": "提出一种行为引导的候选者校准模型，利用训练阶段的共现用户重叠生成有符号证据，仅对多模态骨干网络生成的短列表进行校准，以平衡内容信号与推荐特异性变异。",
+    "key_points": [
+      "提出一种行为引导的候选者校准模型，利用训练阶段的共现用户重叠生成有符号证据，仅对多模态骨干网络生成的短列表进行校准，以平衡内容信号与推荐特异性变异"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21736",
+    "title": "Support-aware offline policy selection for advertising marketplaces",
+    "authors": [
+      "Prashant Shekhar",
+      "Caroline Howard"
+    ],
+    "summary": "Logged advertising auctions make offline reserve-price evaluation attractive but risky. Replay tables can identify policies with large apparent yield gains, yet they can also hide weak threshold support, multiple-comparison effects, subgroup harm, and bidder-response uncertainty. Existing replay and off-policy evaluation methods estimate or rank policy values, but they do not directly answer the operational question of whether the available evidence is strong enough to justify validation. This paper develops a support-aware offline decision framework for reserve-policy selection. Rather than outputting a single point-estimate winner, the framework converts logged evidence into a conservative decision object consisting of certified policies, statistically dominated alternatives, and unresolved candidates requiring further validation. The main theoretical result gives a unified finite-catalog guarantee showing that, under simultaneous uncertainty control and conservative support gates, the framework preserves the best gate-passing policy while eliminating only policies with certified regret. Supporting results characterize support-localized replay generalization, establish information-theoretic threshold-resolution limits, and quantify when heterogeneous bidder response can overturn localized replay rankings. Experiments on iPinYou real-time-bidding logs show that the leading reserve rule achieves a 47.66% replay lift in season two, a 40.71% simultaneous lower-bound lift, and a 43.87% frozen out-of-time replay lift in season three. The framework reduces a 19-policy catalog to a two-policy validation shortlist while certifying non-harm across 44 advertiser, exchange, and region segments. The results support the central claim that offline reserve-policy evaluation should produce certified validation decisions rather than point-estimate rankings alone.",
+    "categories": [
+      "stat.ML",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21736",
+    "pdf_url": "https://arxiv.org/pdf/2605.21736.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决广告市场（Ads）中的离线策略选择与保留价优化问题，属于核心推荐/搜索/广告领域的高优先级应用，且来自中国公司额外加 1 分。",
+    "translation": "广告市场中支持感知的离线策略选择",
+    "summary_zh": "提出一种支持感知的离线决策框架，将日志证据转化为包含认证策略、被支配替代方案及待验证候选者的保守决策对象，以解决广告保留价策略评估中的不确定性风险。",
+    "key_points": [
+      "提出一种支持感知的离线决策框架，将日志证据转化为包含认证策略、被支配替代方案及待验证候选者的保守决策对象，以解决广告保留价策略评估中的不确定性风险"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21556",
+    "title": "Beyond Single Slot: Joint Optimization for Multi-Slot Guaranteed Display Advertising",
+    "authors": [
+      "Zhaoqi Zhang",
+      "Jiaming Deng",
+      "Miao Xie",
+      "Linyou Cai",
+      "Qianlong Xie",
+      "Xingxing Wang",
+      "Siqiang Luo",
+      "Gao Cong"
+    ],
+    "summary": "Guaranteed display advertising is crucial for platform monetization, yet existing methods often operate under a single-slot assumption, limiting their ability to optimize allocation across multi-slot page views. In this paper, we propose a novel joint optimization framework for multi-slot GD allocation, addressing key challenges such as slot-level redundancy, contract imbalance, and exposure concentration. Our approach formulates the allocation as an offline bipartite matching problem with a contract roulette mechanism for slot exclusivity and Page View constraints for impression control, and incorporates a scalable allocation optimization algorithm for efficient large-scale deployment. Extensive online tests on the Meituan advertising platform demonstrate that our method significantly improves merchant ROI, platform revenue efficiency, and contract fulfillment robustness. Specifically, online A/B tests show a 28.99% increase in Average Revenue Per User under 70% traffic, and DID analysis further indicates improved contract stability, demonstrating the strong applicability and effectiveness of our framework in real-world advertising deployments.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21556",
+    "pdf_url": "https://arxiv.org/pdf/2605.21556.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "NanyangTechnologicalUniversity Meituan ChinaAgriculturalUniversity",
+      "NanyangTechnologicalUniversity NanyangTechnologicalUniversity",
+      "49thInternationalACMSIGIRConferenceonResearchandDevelopmentin",
+      "trol,andincorporatesascalableallocationoptimizationalgorithm"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文直接解决美团广告平台的多槽位保量展示广告联合优化问题，属于核心推荐/广告业务场景的重大架构创新，且来自本地生活头部公司，完全符合最高优先级标准。",
+    "translation": "超越单槽位：多槽位保量展示广告的联合优化",
+    "summary_zh": "提出一种针对多槽位保量广告分配的联合优化框架，通过离线二分图匹配结合合约轮询机制与页面浏览约束，解决槽位冗余、合约失衡及曝光集中问题。",
+    "key_points": [
+      "提出一种针对多槽位保量广告分配的联合优化框架，通过离线二分图匹配结合合约轮询机制与页面浏览约束，解决槽位冗余、合约失衡及曝光集中问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.10445",
+    "title": "End-to-End Semantic ID Generation for Generative Advertisement Recommendation",
+    "authors": [
+      "Jie Jiang",
+      "Xinxun Zhang",
+      "Enming Zhang",
+      "Yuling Xiong",
+      "Jun Zhang",
+      "Jingwen Wang",
+      "Huan Yu",
+      "Yuxiang Wang",
+      "Hao Wang",
+      "Xiao Yan",
+      "Jiawei Jiang"
+    ],
+    "summary": "Generative Recommendation (GR) has excelled by framing recommendation as next-token prediction. This paradigm relies on Semantic IDs (SIDs) to tokenize large-scale items into discrete sequences. Existing GR approaches predominantly generate SIDs via Residual Quantization (RQ), where items are encoded into embeddings and then quantized to discrete SIDs. However, this paradigm suffers from inherent limitations: 1) Objective misalignment and semantic degradation stemming from the two-stage compression; 2) Error accumulation inherent in the structure of RQ. To address these limitations, we propose UniSID, a Unified SID generation framework for generative advertisement recommendation. Specifically, we jointly optimize embeddings and SIDs in an end-to-end manner from raw advertising data, enabling semantic information to flow directly into the SID space and thus addressing the inherent limitations of the two-stage cascading compression paradigm. To capture fine-grained semantics, a multi-granularity contrastive learning strategy is introduced to align distinct items across SID levels. Finally, a summary-based ad reconstruction mechanism is proposed to encourage SIDs to capture high-level semantic information that is not explicitly present in advertising contexts. Experiments demonstrate that UniSID consistently outperforms state-of-the-art SID generation methods, yielding up to a 4.62% improvement in Hit Rate metrics across downstream advertising scenarios compared to the strongest baseline.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2602.10445",
+    "pdf_url": "https://arxiv.org/pdf/2602.10445.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "1TencentInc.,China;2WuhanUniversity,China"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告推荐系统中的生成式推荐范式，提出了一种端到端的语义 ID 生成框架以解决现有量化方法的缺陷，属于核心推荐技术改进。",
+    "translation": "面向生成式广告推荐的端到端语义 ID 生成方法",
+    "summary_zh": "本文提出 UniSID 框架，通过端到端联合优化嵌入与语义 ID，并引入多粒度对比学习及基于摘要的广告重建机制，旨在解决生成式推荐中两阶段压缩导致的语义退化与误差累积问题。",
+    "key_points": [
+      "本文提出 UniSID 框架，通过端到端联合优化嵌入与语义 ID，并引入多粒度对比学习及基于摘要的广告重建机制，旨在解决生成式推荐中两阶段压缩导致的语义退化与误差累积问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21812",
+    "title": "Bridging the Cold-Start Gap: LLM-Powered Synthetic Data Generation for Natural Language Search at Airbnb",
+    "authors": [
+      "Wendy Ran Wei",
+      "Hao Li",
+      "Weiwei Guo",
+      "Xiaowei Liu",
+      "Xueyin Chen",
+      "Dillon Davis",
+      "Malay Haldar",
+      "Soumyadip Banerjee",
+      "Kedar Bellare",
+      "Huiji Gao",
+      "Stephanie Moyerman",
+      "Sanjeev Katariya"
+    ],
+    "summary": "Deploying natural language search systems presents a critical cold-start challenge: no real user queries to learn linguistic patterns, and no relevance labels to train ranking models. We present a framework for generating synthetic queries and labels using large language models (LLMs), powering model training and evaluation for Airbnb's natural language search.\n  For query generation, we combine contrastive listing pairs from booking sessions with seed queries from user research to balance realism and diversity, enabling a cold-to-warm start transition as real user data becomes available. For label generation, we introduce contrastive generation that produces topicality labels by construction, and Virtual Judge (VJ) labeling for broader coverage.\n  We compare our approach against a no-seed contrastive baseline and an InPars-style baseline. For query length, the InPars baseline produces verbose queries with KL divergence of 12.03 vs. real users; our seed-guided approach achieves 0.66, a 7.5x improvement. For attribute type distributions, our approach achieves the lowest KL divergence (0.04), outperforming even seed queries (0.09). Experiments show our approach produces harder evaluation examples than the no-seed baseline (79% vs. 97% pairwise accuracy), providing discriminative signal for model improvement. We deploy production pipelines generating synthetic examples daily for embedding-based retrieval and ranking evaluation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21812",
+    "pdf_url": "https://arxiv.org/pdf/2605.21812.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 Airbnb 自然语言搜索系统的冷启动问题，利用 LLM 生成合成查询和标签以训练检索与排序模型，属于典型的 LLM for Search 工业界应用。",
+    "translation": "bridging the Cold-Start Gap:LLM 驱动的合成数据生成用于 Airbnb 自然语言搜索",
+    "summary_zh": "提出一种利用大语言模型结合种子查询和对比列表对生成合成搜索查询及相关性标签的框架，旨在解决自然语言搜索系统因缺乏真实用户数据而面临的冷启动难题。",
+    "key_points": [
+      "提出一种利用大语言模型结合种子查询和对比列表对生成合成搜索查询及相关性标签的框架，旨在解决自然语言搜索系统因缺乏真实用户数据而面临的冷启动难题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21987",
+    "title": "Generative Conversational Recommender System",
+    "authors": [
+      "Sixiao Zhang",
+      "Mingrui Liu",
+      "Cheng Long"
+    ],
+    "summary": "Conversational recommender systems aim to provide personalized recommendations via natural language interactions. However, existing approaches either decouple recommendation from dialog generation or rely on retrieval-based pipelines, limiting the integration between recommendation and response generation and leading to suboptimal modeling of user intent. In this paper, we propose a fully generative conversational recommender system that unifies recommendation and dialog generation within a single autoregressive framework. Our approach represents items as discrete semantic IDs and integrates them directly into the generation process, enabling joint prediction of items and responses via next-token modeling. We further introduce a structured generation paradigm that factorizes conversational recommendation into a sequence of interdependent decisions, where the model first predicts the response intent and the recommendation target, and then generates the response conditioned on them. This design enables end-to-end optimization, enforces a more coherent dependency structure, and supports faithful item generation via constrained decoding. Extensive experiments demonstrate that our method consistently improves recommendation performance, achieving gains of up to 29% on Recall@1 over strong baselines, while maintaining competitive dialog quality.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21987",
+    "pdf_url": "https://arxiv.org/pdf/2605.21987.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话推荐系统（RecSys 的核心分支），提出了一种将推荐与对话生成统一在单一自回归框架下的纯生成式新架构，解决了现有方法解耦或检索式的局限，具有极高的业务应用价值。",
+    "translation": "生成式对话推荐系统",
+    "summary_zh": "提出一种完全生成式的对话推荐框架，通过将物品表示为离散语义 ID 并引入结构化生成范式，在单一自回归模型中实现用户意图理解、物品推荐与自然语言回复的端到端联合优化。",
+    "key_points": [
+      "提出一种完全生成式的对话推荐框架，通过将物品表示为离散语义 ID 并引入结构化生成范式，在单一自回归模型中实现用户意图理解、物品推荐与自然语言回复的端到端联合优化"
+    ]
+  },
+  {
+    "arxiv_id": "2605.20683",
+    "title": "Layer-wise Token Compression for Efficient Document Reranking",
+    "authors": [
+      "Shengyao Zhuang",
+      "Zhichao Xu",
+      "Ivano Lauriola"
+    ],
+    "summary": "Transformer-based document cross-encoder rerankers are a central component of modern information retrieval systems. Despite their success, these models suffer from high computational costs due to processing long query-document sequences at inference time. A known approach to improve efficiency is token compression, which consists of aggregating groups of tokens together in the initial embedding layer, reducing the effective number of tokens, and making the computation faster. While token compression has proven to be successful for bi-encoder retrievers, we empirically observed that this approach may be ineffective for cross-encoder rerankers. In this paper, we propose Layer-wise Token Compression (LTC), which applies adaptive token pooling at intermediate transformer layers. Through extensive ablation studies on MS MARCO passage and document ranking tasks, we demonstrate that compression at middle layers preserves ranking quality while increasing inference QPS by up to 25% for passage ranking and up to 116% for document ranking. We also extend LTC to listwise LLM rerankers and show that the same approach can be easily applied to long-context listwise reranking, where the QPS improvements are even greater. More surprisingly, when applying rerankers trained on short passages to long-document ranking tasks, models trained with compression outperform their uncompressed counterparts, suggesting that compression may act as a beneficial regularizer that encourages length-invariant representations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.20683",
+    "pdf_url": "https://arxiv.org/pdf/2605.20683.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索系统中的核心环节——文档重排序（Reranking），提出了一种新的层间令牌压缩架构以解决计算效率问题，属于高优先级的搜索核心技术改进。",
+    "translation": "面向高效文档重排序的层间令牌压缩方法",
+    "summary_zh": "提出一种层间令牌压缩（LTC）方法，通过在 Transformer 中间层应用自适应令牌池化，在保持重排序质量的同时显著降低交叉编码器及列表式 LLM 重排序器的推理计算成本。",
+    "key_points": [
+      "提出一种层间令牌压缩（LTC）方法，通过在 Transformer 中间层应用自适应令牌池化，在保持重排序质量的同时显著降低交叉编码器及列表式 LLM 重排序器的推理计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20107",
+    "title": "Structural Anchor Pruning: Training-Free Multi-Vector Compression for Visual Document Retrieval",
+    "authors": [
+      "Zhuchenyang Liu",
+      "Ziyu Hu",
+      "Yao Zhang",
+      "Yu Xiao"
+    ],
+    "summary": "Recent Vision-Language Models (e.g., ColPali) enable fine-grained Visual Document Retrieval (VDR) but incur prohibitive multi-vector index storage overhead. Existing training-free pruning methods either rely on heuristic layer choices or degrade sharply under aggressive compression, leading prior work to argue that effective high-compression pruning requires query-dependent training. We challenge this view with Structural Anchor Pruning (SAP), a self-calibrating, training-free, and query-agnostic index-time pruning framework with three components: (i) Score Retention (SR), a white-box per-layer compression diagnostic; (ii) SR-guided window selection, a procedure that automatically locates the structural pruning region for any backbone with no per-model hyperparameters; and (iii) a visual in-degree centrality scorer that identifies anchor patches within the selected window. On the ViDoRe v1/v2 benchmarks across three architectures spanning 18, 28, and 36 backbone layers, SAP retains over 90\\% of NDCG@5 while pruning more than 90\\% of visual tokens, without any per-model parameter tuning. Our layer-resolved SR analysis reveals an Alignment-Aggregation Divergence: the document's visual structure is preserved as a stable ``Structural Plateau'' within the backbone, but the final layers reshape this representation into a sparse, query-aligned form that is no longer suitable for pruning. This is the mechanistic reason SAP succeeds where final-layer methods fail.",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2601.20107",
+    "pdf_url": "https://arxiv.org/pdf/2601.20107.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对视觉文档检索（VDR）中的索引存储瓶颈提出训练免费的压缩方法，属于多模态搜索的核心技术优化；虽非纯推荐算法，但紧密服务于搜索系统效率，且来自中国公司，故给予高分。",
+    "translation": "结构锚点剪枝：用于视觉文档检索的免训练多向量压缩技术",
+    "summary_zh": "提出一种名为结构锚点剪枝（SAP）的免训练框架，通过白盒诊断定位骨干网络中的结构稳定区并利用视觉入度中心性识别锚点块，从而在大幅削减视觉令牌数量的同时保留文档结构信息以支持高效检索。",
+    "key_points": [
+      "提出一种名为结构锚点剪枝（SAP）的免训练框架，通过白盒诊断定位骨干网络中的结构稳定区并利用视觉入度中心性识别锚点块，从而在大幅削减视觉令牌数量的同时保留文档结构信息以支持高效检索"
+    ]
+  },
+  {
+    "arxiv_id": "2605.22041",
+    "title": "RADAR: Defending RAG Dynamically against Retrieval Corruption",
+    "authors": [
+      "Ziyuan Chen",
+      "Yueming Lyu",
+      "Yi Liu",
+      "Weixiang Han",
+      "Jing Dong",
+      "Caifeng Shan",
+      "Tieniu Tan"
+    ],
+    "summary": "While RAG systems are increasingly deployed in dynamic web search, temporal volatility amplifies their vulnerability to adversarial attacks. Existing static-oriented defenses struggle to handle evolving threats and incur prohibitive storage costs in dynamic settings. We propose RADAR, a framework that models reliable context selection as a graph-based energy minimization problem, solved exactly via Max-Flow Min-Cut. By incorporating a Bayesian memory node, RADAR recursively updates a belief state instead of archiving raw historical documents, effectively balancing stability against attacks with adaptability to genuine knowledge shifts. Experiments on a novel dynamic dataset show that RADAR achieves superior robustness and response quality with minimal storage overhead compared to the baselines.",
+    "categories": [
+      "cs.CR",
+      "cs.LG"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.22041",
+    "pdf_url": "https://arxiv.org/pdf/2605.22041.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于 RAG 系统的对抗防御与安全鲁棒性，属于通用 LLM 应用安全研究，并未提出针对推荐或搜索核心链路（如召回、排序、用户建模）的创新方法，仅因涉及动态 Web 搜索场景且来自中国公司而给予微弱加分。",
+    "translation": "RADAR：动态防御检索增强生成免受检索污染",
+    "summary_zh": "提出 RADAR 框架，将可靠上下文选择建模为基于图的能量最小化问题，利用贝叶斯记忆节点递归更新信念状态，以在动态环境中平衡对抗攻击的稳定性与真实知识变化的适应性。",
+    "key_points": [
+      "提出 RADAR 框架，将可靠上下文选择建模为基于图的能量最小化问题，利用贝叶斯记忆节点递归更新信念状态，以在动态环境中平衡对抗攻击的稳定性与真实知识变化的适应性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.18600",
+    "title": "MapTab: Are MLLMs Ready for Multi-Criteria Route Planning in Heterogeneous Graphs?",
+    "authors": [
+      "Ziqiao Shang",
+      "Lingyue Ge",
+      "Zi-Jian Cheng",
+      "Shi-Yu Tian",
+      "Zhenyu Huang",
+      "Wenbo Fu",
+      "Weiming Wu",
+      "Yang Chen",
+      "Xiangwen Zhang",
+      "Yulan Hu",
+      "Bin Liu",
+      "Yu-Feng Li",
+      "Lan-Zhe Guo"
+    ],
+    "summary": "Systematic evaluation of Multimodal Large Language Models (MLLMs) is crucial for advancing Artificial General Intelligence (AGI). However, existing benchmarks remain insufficient for rigorously assessing their reasoning capabilities under multi-criteria constraints. To bridge this gap, we introduce MapTab, a multimodal benchmark specifically designed to evaluate holistic multi-criteria reasoning in MLLMs via route planning tasks. MapTab requires MLLMs to perceive and ground visual cues from map images alongside route attributes (e.g., Time, Price) from structured tabular data. The benchmark encompasses two scenarios: Metromap, covering metro networks in 160 cities across 52 countries, and Travelmap, depicting 168 representative tourist attractions from 19 countries. In total, MapTab comprises 328 images, 196,800 route planning queries, and 3,936 QA queries, all incorporating 4 key criteria: Time, Price, Comfort, and Reliability. Extensive evaluations across 15 representative MLLMs reveal that current models face substantial challenges in multi-criteria multimodal reasoning. Notably, under conditions of limited visual perception, multimodal collaboration often underperforms compared to unimodal approaches. We believe MapTab provides a challenging and realistic testbed to advance the systematic evaluation of MLLMs. Our code is available at https://github.com/Ziqiao-Shang/MapTab.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2602.18600",
+    "pdf_url": "https://arxiv.org/pdf/2602.18600.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/多模态基准评测研究，旨在评估 MLLM 的推理能力，未提出任何直接应用于推荐或搜索系统的核心算法或架构。",
+    "translation": "MapTab：多模态大语言模型是否已准备好应对异构图中的多标准路线规划？",
+    "summary_zh": "本文提出 MapTab 基准，通过结合地图图像与结构化表格数据的多标准路线规划任务，系统评估多模态大语言模型在复杂约束下的 holistic 推理与视觉 grounding 能力。",
+    "key_points": [
+      "本文提出 MapTab 基准，通过结合地图图像与结构化表格数据的多标准路线规划任务，系统评估多模态大语言模型在复杂约束下的 holistic 推理与视觉 grounding 能力"
+    ]
+  },
+  {
+    "arxiv_id": "2510.10129",
+    "title": "CacheClip: Accelerating RAG with Effective KV Cache Reuse",
+    "authors": [
+      "Bin Yang",
+      "Qiuyu Leng",
+      "Jun Zeng",
+      "Zhenhua Wu"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems suffer from severe time-to-first-token (TTFT) bottlenecks due to long input sequences. Existing KV cache reuse methods face a fundamental trade-off: prefix caching requires identical prefixes that rarely occur in RAG scenarios, while direct precomputation sacrifices quality due to missing inter-chunk attention and repeated attention sinks. Recent methods like APE and CacheBlend partially address these issues but remain inadequate for robust RAG applications. This paper presents CacheClip, a novel framework that achieves both fast TTFT and high generation quality. Our key insight is that small auxiliary LLMs exhibit similar last-layer attention distributions to primary LLMs (the target model for generation), enabling efficient identification of tokens critical for restoring inter-chunk attention, thereby significantly improving response quality on cross-chunk reasoning tasks. CacheClip integrates four techniques: (1) auxiliary-model-guided token selection for selective KV cache recomputation, (2) shared prefixes to eliminate redundant attention sinks, (3) a sliding-window grouping strategy to maintain local coherence during partial KV cache updates, and (4) a CPU-GPU hybrid design that offloads auxiliary model inference to idle CPU resources, avoiding additional GPU overhead. The recomputation ratio is adjustable, allowing users to flexibly balance efficiency and quality for different deployment requirements. Experiments show CacheClip retains up to 85.2% and 91.1% of full-attention performance on NIAH and LongBench, outperforming CacheBlend and APE by 16.1 and 12.8 points on NIAH, and by 4.5 and 4.2 points on LongBench (with recomp% = 20%). Meanwhile, CacheClip accelerates LLM inference by up to 3.33$\\times$ in prefill time (with recomp% = 20%), providing a practical solution to the efficiency-quality trade-off in RAG systems.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2510.10129",
+    "pdf_url": "https://arxiv.org/pdf/2510.10129.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 推理加速研究（针对 RAG 系统），未涉及推荐/搜索核心算法（如召回、排序、用户建模），虽 RAG 可用于搜索但本文聚焦底层缓存优化而非搜索业务逻辑，故给低分；因来自中国公司额外 +1 分后仍属低优先级。",
+    "translation": "CacheClip：通过高效 KV 缓存复用加速检索增强生成",
+    "summary_zh": "提出利用小型辅助模型识别关键 token 以选择性重计算 KV 缓存，结合滑动窗口分组和 CPU-GPU 混合架构，解决 RAG 系统中长序列推理的效率与质量权衡问题。",
+    "key_points": [
+      "提出利用小型辅助模型识别关键 token 以选择性重计算 KV 缓存，结合滑动窗口分组和 CPU-GPU 混合架构，解决 RAG 系统中长序列推理的效率与质量权衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21993",
+    "title": "ECPO: Evidence-Coupled Policy Optimization for Evidence-Certified Candidate Ranking",
+    "authors": [
+      "Miaobo Hu",
+      "Shuhao Hu",
+      "BoKun Wang",
+      "Yina Sa",
+      "Xin Wang",
+      "Xiaobo Guo",
+      "Daren Zha",
+      "Jun Xiao"
+    ],
+    "summary": "Ranking systems used in decision-support settings should not only order candidates but also expose evidence that can be independently checked. We study evidence-certified candidate ranking: given an intent_id, a predefined plan skeleton, a window-local candidate roster, and text-derived candidate trajectories with span provenance, a system must output a Top-K list together with doc_id:span evidence certificates whose cited spans are sufficient to recover the decision. We instantiate this task on MAVEN-ERE and RAMS with fixed upstream extraction, window-local randomized candidate identifiers, skeleton-aligned trajectory supervision, hard negatives, and audit references. We introduce Evidence-Coupled Policy Optimization (ECPO), a listwise policy-optimization objective whose action is the joint object of ranking and evidence certificate. ECPO first learns an interpretable trajectory reward from skeleton alignment, argument consistency, and optional graph features; it then optimizes a constrained policy with three coupled rewards: listwise ranking utility, span-level certificate validity, and an evidence-cycle reward computed by a label-free deterministic verifier that reconstructs candidate support from claim-stripped cited spans. This reframes the goal from maximizing ordinary NDCG alone to maximizing CertNDCG and decision-evidence coupling. The evaluation compares ECPO against zero-shot, SFT, and GRPO policies, RM-only scoring with deterministic evidence attachment, grammar/JSON-constrained decoding, validator retry, best-of-N RM selection, and post-hoc evidence rationalization under closed-roster, predicted-roster, and hybrid-roster settings.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21993",
+    "pdf_url": "https://arxiv.org/pdf/2605.21993.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 研究论文，专注于基于证据的决策支持和可解释性推理，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "ECPO：用于证据认证候选排序的证据耦合策略优化",
+    "summary_zh": "该论文提出一种证据耦合策略优化方法，将排序动作与生成可验证的证据证书联合优化，旨在确保决策结果具备可追溯的文本依据。",
+    "key_points": [
+      "该论文提出一种证据耦合策略优化方法，将排序动作与生成可验证的证据证书联合优化，旨在确保决策结果具备可追溯的文本依据"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21994",
+    "title": "Ex-GraphRAG: Interpretable Evidence Routing for Graph-Augmented LLMs",
+    "authors": [
+      "Yoav Kor Sade",
+      "Arvindh Arun",
+      "Rishi Puri",
+      "Steffen Staab",
+      "Maya Bechler-Speicher"
+    ],
+    "summary": "GraphRAG conditions language models on subgraphs retrieved from knowledge graphs, encoded via message-passing GNNs. Because these encoders entangle node contributions through iterated neighborhood aggregation, there is no closed-form way to determine how much each retrieved entity influenced the encoder's output, and therefore no way to faithfully audit what structural evidence actually reached the model. We introduce Ex-GraphRAG, which replaces the GNN encoder with a Multivariate Graph Neural Additive Network (M-GNAN), an extension of additive graph models to high-dimensional embedding spaces that yields an exact decomposition of the encoder's output across individual nodes and feature groups, without post-hoc approximation. On STaRK-Prime, this auditable encoder matches black-box performance. Using it to audit evidence routing, we uncover a semantic-structural mismatch: the nodes that dominate the encoder's output are structurally disconnected in the retrieved subgraph, held together by low-attribution intermediaries whose removal degrades multi-hop QA by up to 28%. This mismatch, invisible to any opaque encoder, reveals that semantic importance and structural connectivity are governed by disjoint sets of nodes, with direct implications for retrieval pruning, context construction, and failure diagnosis in graph-augmented LLMs.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-21",
+    "updated": "2026-05-22",
+    "url": "https://arxiv.org/abs/2605.21994",
+    "pdf_url": "https://arxiv.org/pdf/2605.21994.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA",
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "TelAvivUniversity InstituteforAI,UniversityofStuttgart NVIDIA",
+      "InstituteforAI,UniversityofStuttgart MetaAI"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 和知识图谱可解释性研究，专注于多跳问答（QA）任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "Ex-GraphRAG：面向图增强大语言模型的可解释证据路由",
+    "summary_zh": "该论文提出用多元图神经加法网络替代传统 GNN 编码器，实现了对图增强大语言模型中各节点贡献的精确分解与审计，揭示了语义重要性与结构连通性之间的不匹配现象。",
+    "key_points": [
+      "该论文提出用多元图神经加法网络替代传统 GNN 编码器，实现了对图增强大语言模型中各节点贡献的精确分解与审计，揭示了语义重要性与结构连通性之间的不匹配现象"
+    ]
+  }
+]

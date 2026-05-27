@@ -133,7 +133,7 @@
         </div>
 
         <div class="footer">
-            <p>数据来源：arXiv API | 最后更新：<span id="lastUpdate">2026-05-27 10:22</span></p>
+            <p>数据来源：arXiv API | 最后更新：<span id="lastUpdate">2026-05-27 10:26</span></p>
             <p><a href="OVERVIEW.md">查看详细统计报告</a></p>
         </div>
     </div>
@@ -226,6 +226,7 @@
                 const dayKey = String(day).padStart(2, '0');
                 const count = data[dayKey] || 0;
                 const dateStr = `${currentMonthKey}${dayKey}`;
+                const monthDir = currentMonthKey;
                 const c = getColor(count);
 
                 dayEl.className = 'calendar-day';
@@ -235,7 +236,7 @@
                 if (count > 0) {
                     dayEl.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
                     dayEl.innerHTML = `<span class="day-number">${day}</span><span class="paper-count">${count}篇</span>`;
-                    dayEl.onclick = () => window.open(`${dateStr}.html`, '_blank');
+                    dayEl.onclick = () => window.open(`${monthDir}/${dateStr}.html`, '_blank');
                 } else {
                     dayEl.innerHTML = `<span class="day-number">${day}</span>`;
                 }

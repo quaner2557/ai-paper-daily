@@ -324,6 +324,7 @@ def generate_html(paper_data, stats):
                 const dayKey = String(day).padStart(2, '0');
                 const count = data[dayKey] || 0;
                 const dateStr = `${{currentMonthKey}}${{dayKey}}`;
+                const monthDir = currentMonthKey;
                 const c = getColor(count);
 
                 dayEl.className = 'calendar-day';
@@ -333,7 +334,7 @@ def generate_html(paper_data, stats):
                 if (count > 0) {{
                     dayEl.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
                     dayEl.innerHTML = `<span class="day-number">${{day}}</span><span class="paper-count">${{count}}篇</span>`;
-                    dayEl.onclick = () => window.open(`${{dateStr}}.html`, '_blank');
+                    dayEl.onclick = () => window.open(`${{monthDir}}/${{dateStr}}.html`, '_blank');
                 }} else {{
                     dayEl.innerHTML = `<span class="day-number">${{day}}</span>`;
                 }}

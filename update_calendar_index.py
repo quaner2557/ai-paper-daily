@@ -22,7 +22,10 @@ def scan_papers():
     """扫描所有 JSON 文件，统计每天的论文数量"""
     paper_data = {}
 
-    for json_file in OUTPUT_DIR.glob('*.json'):
+    # Scan both root output/ and monthly subdirectories
+    json_files = list(OUTPUT_DIR.glob('*.json')) + list(OUTPUT_DIR.glob('*/*.json'))
+
+    for json_file in json_files:
         if json_file.name in ['paper_data.json', 'abstract_cache.json', 'cache_stats.json',
                                'related_papers_ctr_cvr.json', 'prerank_cache.json',
                                'papers_metadata_10000.json', 'raw_papers_10000.json',

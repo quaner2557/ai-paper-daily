@@ -45,9 +45,7 @@ def scan_papers():
                 papers = json.load(f)
                 if isinstance(papers, list):
                     filtered = [p for p in papers if p.get('relevance_score', 0) >= 6]
-                    industry = [p for p in filtered if p.get('is_industry', False)]
-                    other = [p for p in filtered if not p.get('is_industry', False)]
-                    count = min(len(industry), 5) + min(len(other), 10)
+                    count = len(filtered)  # 与钉钉推送保持一致：所有 >= 6 分的论文
                 else:
                     count = 0
 

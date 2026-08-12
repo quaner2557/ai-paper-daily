@@ -133,80 +133,56 @@
         </div>
 
         <div class="footer">
-            <p>数据来源：arXiv API | 最后更新：<span id="lastUpdate">2026-08-12 10:08</span></p>
+            <p>数据来源：arXiv API | 最后更新：<span id="lastUpdate">2026-08-12 10:44</span></p>
             <p><a href="OVERVIEW.md">查看详细统计报告</a></p>
         </div>
     </div>
 
-        <script>
-        const monthNames = ["1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
-        const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
-        
-        let paperData = {};
-        let allMonths = [];
-        let currentYear, currentMonth;
+    <script>
+        // 论文数据（内嵌，不依赖 fetch）
+        const paperData = {"202505": {"05": 5, "25": 12, "12": 8, "06": 8, "08": 6, "26": 11, "02": 5, "17": 3, "09": 4, "10": 3, "28": 13, "03": 5, "13": 4, "11": 2, "30": 8, "14": 9, "07": 9, "20": 9, "22": 16, "01": 6, "29": 5, "31": 7, "19": 4, "23": 10, "04": 2, "18": 8, "27": 15, "21": 6, "15": 3, "16": 8, "24": 4}, "202504": {"01": 3, "22": 3, "10": 11, "03": 8, "13": 7, "07": 9, "06": 5, "09": 12, "05": 5, "18": 6, "02": 11, "11": 4, "23": 10, "16": 5, "25": 2, "04": 6, "27": 2, "30": 8, "24": 8, "15": 7, "19": 6, "26": 5, "20": 3, "14": 11, "17": 7, "12": 2, "21": 6, "28": 3, "29": 6, "08": 11}, "202607": {"30": 17, "16": 10, "29": 33, "15": 14, "21": 6, "31": 20, "23": 10, "20": 12, "14": 15, "13": 5, "27": 9, "28": 13, "24": 13, "12": 0, "19": 0, "22": 14, "17": 13}, "202509": {"28": 5, "24": 6, "12": 5, "04": 6, "16": 7, "23": 9, "08": 9, "30": 8, "13": 2, "25": 7, "07": 4, "11": 5, "14": 4, "20": 3, "06": 4, "19": 10, "29": 6, "18": 6, "05": 5, "03": 17, "02": 8, "15": 5, "21": 4, "09": 9, "01": 8, "26": 5, "17": 6, "22": 9, "27": 2, "10": 7}, "202604": {"01": 5, "30": 7, "16": 14, "11": 9, "14": 9, "12": 2, "28": 12, "10": 8, "02": 8, "13": 4, "19": 4, "26": 0, "03": 4, "15": 3, "23": 6, "09": 11, "06": 8, "25": 7, "17": 10, "07": 13, "08": 10, "27": 12, "05": 4, "24": 8, "20": 10, "21": 7, "29": 13, "22": 9, "18": 12, "04": 6}, "202512": {"12": 3, "07": 4, "25": 7, "19": 8, "05": 2, "11": 6, "08": 7, "30": 6, "29": 1, "01": 3, "28": 1, "02": 6, "13": 5, "24": 5, "18": 7, "26": 3, "04": 1, "20": 1, "10": 5, "14": 4, "16": 7, "09": 3, "03": 7, "27": 1, "22": 4, "21": 2, "31": 5, "17": 7, "15": 16, "23": 5, "06": 3}, "202508": {"15": 7, "26": 7, "20": 10, "09": 6, "29": 9, "03": 2, "12": 11, "04": 17, "24": 2, "27": 14, "17": 2, "07": 18, "05": 12, "14": 13, "11": 11, "30": 4, "25": 16, "16": 4, "01": 9, "21": 17, "08": 8, "10": 8, "28": 20, "23": 4, "13": 13, "02": 7, "22": 12, "18": 8, "31": 2, "06": 17, "19": 15}, "202606": {"01": 7}, "202511": {"22": 4, "23": 8, "07": 4, "13": 2, "20": 5, "25": 13, "29": 1, "26": 6, "04": 6, "28": 6, "14": 8, "16": 5, "09": 6, "01": 4, "12": 2, "24": 12, "11": 5, "21": 5, "19": 5, "17": 12, "30": 4, "18": 8, "08": 3, "03": 9, "02": 3, "06": 6, "05": 4, "15": 6, "10": 12, "27": 12}, "202506": {"14": 5, "20": 6, "29": 6, "24": 6, "28": 0, "25": 9, "27": 7, "10": 10, "15": 4, "04": 6, "06": 8, "01": 6, "12": 8, "17": 6, "08": 3, "30": 5, "05": 9, "11": 4, "19": 9, "22": 4, "21": 8, "13": 7, "09": 6, "02": 9, "26": 4, "18": 9, "07": 2, "03": 9, "16": 8, "23": 10}, "202507": {"04": 5, "13": 3, "31": 8, "07": 14, "30": 4, "24": 6, "20": 4, "18": 9, "15": 4, "14": 10, "06": 2, "21": 9, "28": 3, "26": 4, "19": 5, "02": 7, "16": 7, "23": 11, "03": 9, "08": 12, "09": 8, "22": 10, "05": 8, "27": 8, "29": 9, "12": 7, "25": 9, "01": 10, "17": 6, "11": 4, "10": 8}, "202605": {"21": 6, "01": 16, "27": 11, "19": 1, "13": 4, "29": 9, "11": 5, "03": 2, "08": 12, "17": 7, "05": 5, "18": 7, "26": 10, "28": 15, "22": 0, "20": 1, "16": 2, "07": 1, "15": 5, "12": 8, "25": 11, "06": 8, "04": 8, "14": 9}, "202601": {"28": 12, "12": 5, "06": 12, "07": 8, "17": 1, "18": 1, "11": 5, "25": 3, "20": 7, "01": 2, "27": 20, "02": 4, "05": 6, "31": 11, "24": 8, "16": 10, "26": 12, "14": 9, "30": 3, "09": 5, "19": 4, "10": 2, "21": 10, "13": 11, "29": 6, "04": 3, "15": 9, "03": 3, "23": 8, "08": 11, "22": 6}, "202608": {"07": 9, "04": 10, "05": 9, "10": 10, "08": 0, "06": 10, "03": 17}, "202603": {"27": 5, "24": 5, "22": 3, "07": 4, "26": 5, "11": 3, "01": 4, "12": 6, "18": 4, "06": 6, "29": 2, "30": 3, "09": 1, "21": 4, "31": 3, "10": 4, "05": 6, "20": 3, "14": 9, "17": 4, "25": 7, "19": 1, "28": 9, "02": 8, "13": 8, "04": 9, "16": 4, "08": 4, "23": 9, "03": 6, "15": 3}, "202510": {"27": 8, "26": 3, "03": 5, "25": 3, "09": 10, "13": 20, "19": 3, "12": 6, "24": 13, "10": 13, "30": 7, "01": 5, "04": 3, "31": 9, "15": 8, "14": 11, "28": 6, "22": 7, "05": 6, "18": 2, "29": 9, "17": 10, "02": 11, "07": 3, "16": 13, "23": 9, "08": 7, "20": 7, "21": 11, "11": 6, "06": 7}, "202602": {"10": 20, "26": 18, "22": 1, "04": 8, "01": 3, "18": 11, "14": 7, "24": 10, "16": 11, "06": 11, "02": 8, "09": 16, "25": 9, "20": 8, "23": 9, "03": 13, "11": 20, "07": 8, "12": 18, "28": 5, "27": 11, "17": 10, "05": 9, "13": 10, "15": 2, "19": 15, "21": 5, "08": 7}};
 
-        // 动态加载数据
-        async function loadData() {
-            try {
-                // 从 paper_data.json 动态加载（避免硬编码）
-                const response = await fetch('paper_data.json?' + Date.now()); // 添加时间戳避免缓存
-                if (!response.ok) {
-                    throw new Error('Failed to load paper_data.json');
-                }
-                paperData = await response.json();
-                allMonths = Object.keys(paperData).sort();
-                
-                // 自动获取最新月份
-                const latestMonth = allMonths[allMonths.length - 1];
-                currentYear = parseInt(latestMonth.substring(0, 4));
-                currentMonth = parseInt(latestMonth.substring(4, 6)) - 1;
-                
-                // 更新统计数据
-                updateStats();
-                
-                // 渲染日历
-                renderCalendar();
-            } catch (error) {
-                console.error('加载数据失败:', error);
-                document.getElementById('monthYear').textContent = '数据加载失败';
-            }
+        const monthNames = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+        const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
+
+        let allMonths = Object.keys(paperData).sort();
+        let currentMonthKey = allMonths[allMonths.length - 1]; // 默认显示最新月份
+
+        function parseMonthKey(key) {
+            return { year: parseInt(key.substring(0, 4)), month: parseInt(key.substring(4, 6)) };
         }
 
-        function updateStats() {
-            let totalPapers = 0;
-            let totalDays = 0;
-            
-            for (const month in paperData) {
-                const days = paperData[month];
-                for (const day in days) {
-                    totalPapers += days[day];
-                    totalDays++;
-                }
-            }
-            
-            const avg = totalDays > 0 ? (totalPapers / totalDays).toFixed(1) : 0;
-            
-            document.getElementById('totalDays').textContent = totalDays;
-            document.getElementById('totalPapers').textContent = totalPapers.toLocaleString();
-            document.getElementById('avgPapers').textContent = avg;
-            
-            // 更新最后更新时间
-            const now = new Date();
-            const timeStr = now.getFullYear() + '-' + 
-                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
-                           String(now.getDate()).padStart(2, '0') + ' ' + 
-                           String(now.getHours()).padStart(2, '0') + ':' + 
-                           String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('lastUpdate').textContent = timeStr;
+        function formatMonthLabel(key) {
+            const { year, month } = parseMonthKey(key);
+            return `${year}年${monthNames[month - 1]}`;
         }
 
         function getDaysInMonth(year, month) {
-            return new Date(year, month + 1, 0).getDate();
+            return new Date(year, month, 0).getDate();
         }
 
         function getFirstDayOfMonth(year, month) {
-            return new Date(year, month, 1).getDay();
+            return new Date(year, month - 1, 1).getDay();
+        }
+
+        function getColor(count) {
+            if (count >= 15) return { bg: 'linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%)', color: 'white' };
+            if (count >= 10) return { bg: 'linear-gradient(135deg, #6B9080 0%, #88B3A3 100%)', color: 'white' };
+            if (count >= 5)  return { bg: 'linear-gradient(135deg, #7FA1C3 0%, #9AB5D1 100%)', color: 'white' };
+            if (count > 0)   return { bg: 'linear-gradient(135deg, #A8B8C8 0%, #B8C8D8 100%)', color: 'white' };
+            return { bg: '#f8f9fa', color: '#999' };
+        }
+
+        function renderMonthNav() {
+            const nav = document.getElementById('monthNav');
+            nav.innerHTML = '';
+            allMonths.forEach(key => {
+                const btn = document.createElement('button');
+                btn.textContent = formatMonthLabel(key);
+                if (key === currentMonthKey) btn.className = 'active';
+                btn.onclick = () => { currentMonthKey = key; renderCalendar(); };
+                nav.appendChild(btn);
+            });
         }
 
         function renderCalendar() {
@@ -214,99 +190,99 @@
             const monthYear = document.getElementById('monthYear');
             const prevBtn = document.getElementById('prevMonth');
             const nextBtn = document.getElementById('nextMonth');
-            
+
             grid.innerHTML = '';
-            
-            // 更新月份显示
-            monthYear.textContent = `${currentYear}年${monthNames[currentMonth]}`;
-            
-            // 更新按钮状态
-            const currentMonthKey = `${currentYear}${String(currentMonth + 1).padStart(2, '0')}`;
-            const firstMonth = allMonths[0];
-            const lastMonth = allMonths[allMonths.length - 1];
-            prevBtn.disabled = currentMonthKey <= firstMonth;
-            nextBtn.disabled = currentMonthKey >= lastMonth;
-            
-            // 添加星期标题
+
+            const { year, month } = parseMonthKey(currentMonthKey);
+            monthYear.textContent = formatMonthLabel(currentMonthKey);
+
+            const ci = allMonths.indexOf(currentMonthKey);
+            prevBtn.disabled = ci <= 0;
+            nextBtn.disabled = ci >= allMonths.length - 1;
+
+            // 星期标题
             dayNames.forEach(name => {
                 const header = document.createElement('div');
                 header.className = 'calendar-day-header';
                 header.textContent = name;
                 grid.appendChild(header);
             });
-            
-            // 添加空白占位
-            const daysInMonth = getDaysInMonth(currentYear, currentMonth);
-            const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
-            const monthKey = `${currentYear}${String(currentMonth + 1).padStart(2, '0')}`;
-            
+
+            const daysInMonth = getDaysInMonth(year, month);
+            const firstDay = getFirstDayOfMonth(year, month);
+
+            // 空白占位
             for (let i = 0; i < firstDay; i++) {
-                const emptyDay = document.createElement('div');
-                grid.appendChild(emptyDay);
+                const empty = document.createElement('div');
+                empty.className = 'calendar-day empty';
+                grid.appendChild(empty);
             }
-            
-            // 添加日期
+
             const today = new Date();
+            const data = paperData[currentMonthKey] || {};
+
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayEl = document.createElement('div');
                 const dayKey = String(day).padStart(2, '0');
-                const paperCount = paperData[monthKey]?.[dayKey] || 0;
-                const dateStr = `${monthKey}${dayKey}`;
-                
+                const count = data[dayKey] || 0;
+                const dateStr = `${currentMonthKey}${dayKey}`;
+                const monthDir = currentMonthKey;
+                const c = getColor(count);
+
                 dayEl.className = 'calendar-day';
-                
-                if (paperCount > 0) {
-                    // 更柔和的颜色方案
-                    if (paperCount >= 15) {
-                        // 深蓝色：高产出日
-                        dayEl.style.background = 'linear-gradient(135deg, #5B7C99 0%, #6D97BA 100%)';
-                    } else if (paperCount >= 10) {
-                        // 青绿色：中等产出日
-                        dayEl.style.background = 'linear-gradient(135deg, #6B9080 0%, #88B3A3 100%)';
-                    } else if (paperCount >= 5) {
-                        // 淡蓝色：正常产出日
-                        dayEl.style.background = 'linear-gradient(135deg, #7FA1C3 0%, #9AB5D1 100%)';
-                    } else {
-                        // 浅灰色：少量产出日
-                        dayEl.style.background = 'linear-gradient(135deg, #A8B8C8 0%, #B8C8D8 100%)';
-                    }
-                    dayEl.style.color = 'white';
+                dayEl.style.background = c.bg;
+                dayEl.style.color = c.color;
+
+                if (count > 0) {
                     dayEl.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
-                    dayEl.innerHTML = `<span style="font-size: 1.2em; font-weight: bold;">${day}</span><span style="font-size: 0.7em; opacity: 0.95;">${paperCount}篇</span>`;
-                    dayEl.onclick = () => window.open(`${dateStr}.html`, '_blank');
-                    dayEl.style.cursor = 'pointer';
+                    dayEl.innerHTML = `<span class="day-number">${day}</span><span class="paper-count">${count}篇</span>`;
+                    dayEl.onclick = () => window.open(`${monthDir}/${dateStr}.html`, '_blank');
                 } else {
-                    dayEl.style.background = '#f8f9fa';
-                    dayEl.style.color = '#999';
-                    dayEl.innerHTML = `<span style="font-size: 1.1em;">${day}</span>`;
+                    dayEl.innerHTML = `<span class="day-number">${day}</span>`;
                 }
-                
+
                 // 标记今天
-                const isToday = currentYear === today.getFullYear() && 
-                               currentMonth === today.getMonth() && 
-                               day === today.getDate();
-                if (isToday) {
+                if (year === today.getFullYear() && (month - 1) === today.getMonth() && day === today.getDate()) {
                     dayEl.style.border = '3px solid #f5576c';
                 }
-                
+
                 grid.appendChild(dayEl);
             }
+
+            renderMonthNav();
         }
 
         function changeMonth(delta) {
-            currentMonth += delta;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            } else if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
+            const ci = allMonths.indexOf(currentMonthKey);
+            const ni = ci + delta;
+            if (ni >= 0 && ni < allMonths.length) {
+                currentMonthKey = allMonths[ni];
+                renderCalendar();
             }
-            renderCalendar();
         }
 
-        // 页面加载时初始化
-        loadData();
+        function updateStats() {
+            let totalPapers = 0, totalDays = 0;
+            for (const m in paperData) {
+                for (const d in paperData[m]) {
+                    totalPapers += paperData[m][d];
+                    totalDays++;
+                }
+            }
+            const avg = totalDays > 0 ? (totalPapers / totalDays).toFixed(1) : 0;
+            document.getElementById('totalDays').textContent = totalDays;
+            document.getElementById('totalPapers').textContent = totalPapers.toLocaleString();
+            document.getElementById('avgPapers').textContent = avg;
+        }
+
+        function updateDateRange() {
+            document.getElementById('dateRange').textContent = `论文日历导航 | ${formatMonthLabel(allMonths[0])} - ${formatMonthLabel(allMonths[allMonths.length - 1])}`;
+        }
+
+        // 初始化
+        updateDateRange();
+        updateStats();
+        renderCalendar();
     </script>
 </body>
 </html>

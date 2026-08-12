@@ -1,0 +1,264 @@
+[
+  {
+    "arxiv_id": "2608.07816",
+    "title": "Preserving Item Semantics for Free: Rethinking Token Initialization in LLM-Based Generative Recommendation",
+    "authors": [
+      "Donald Loveland",
+      "Liam Collins",
+      "Bhuvesh Kumar",
+      "Danai Koutra",
+      "Neil Shah"
+    ],
+    "summary": "Recent advances in generative recommendation (GR) leverage large language models (LLMs) as recommender backbones, enabling LLMs to directly generate recommendations conditioned on item-interaction histories. In these systems, items are often represented through semantic IDs (SIDs) added to the LLM vocabulary as special tokens. Ideally, SIDs imbue item token representations with semantic priors, thereby improving model generalization. However, standard vocabulary expansion typically initializes these tokens as random Gaussian vectors, discarding the SIDs' underlying continuous geometry and forcing the LLM to relearn token relationships from interaction data. To demonstrate the consequences of this design, we first show that training from this initialization tends to organize SID embeddings around item popularity rather than semantics. We further show that, despite partially reducing the reliance on popularity and improving cold item performance, the computationally expensive process of continual pretraining (CPT) fails to reliably recover the original semantic geometry. To address these findings, we propose a simple, parameter-free intervention that initializes SID token embeddings directly from their corresponding centroids in the semantic embedding space. Requiring only a few lines of code and no additional training or inference overhead, this drop-in approach improves pure-SFT Recall@5 by up to 16%, reaches peak performance with up to 40% fewer SFT steps, and improves cold-item Recall@5 by up to 60%. Moreover, on datasets that benefit from additional CPT, centroid initialization reaches comparable performance while requiring half as many CPT epochs. Together, our findings show that preserving SID geometry, beyond shared-prefix structure, provides a simple and effective semantic prior for LLM-based GR.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-07",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2608.07816",
+    "pdf_url": "https://arxiv.org/pdf/2608.07816.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的生成式推荐系统（Generative Recommendation），提出了一种改进 Item Token 初始化的方法以保留语义几何结构，属于 LLM for RecSys 的核心创新，且来自中国公司额外加 1 分后满分。",
+    "translation": "免费保留物品语义：重构基于 LLM 的生成式推荐中的 Token 初始化",
+    "summary_zh": "本文提出一种无参数干预方法，通过将语义 ID 对应的嵌入向量初始化为语义空间中的质心，而非随机高斯向量，从而在基于大语言模型的生成式推荐中有效保留物品的语义几何结构并提升冷启动表现。",
+    "key_points": [
+      "本文提出一种无参数干预方法，通过将语义 ID 对应的嵌入向量初始化为语义空间中的质心，而非随机高斯向量，从而在基于大语言模型的生成式推荐中有效保留物品的语义几何结构并提升冷启动表现"
+    ]
+  },
+  {
+    "arxiv_id": "2608.07989",
+    "title": "PushDualGen: Enabling LLMs to Generate Semantic IDs with Interpretable Copy for Industrial Push Recommendation",
+    "authors": [
+      "Manjia Lin",
+      "Da Li",
+      "Yan Wang",
+      "Yong Jin",
+      "Zheming Ding",
+      "Wei Yuan",
+      "Lei Yan",
+      "Yanan Xia",
+      "Lu Zhang",
+      "Fan Yang",
+      "Xuanping Li",
+      "Yanan Niu"
+    ],
+    "summary": "Push recommendation in KuaiShou proactively delivers personalized content to nearly one billion users to facilitate their engagement. Recently, generative recommendation has achieved end-to-end user personalization through semantic ID. However, their black- box characteristics make recommendation logics difficult to trace, hindering their deployment. OneRec-Thinking addresses this by incorporating CoT before generating SIDs, but this significantly increases inference cost. To support large-scale industrial applications, we propose PushDualGen, a lightweight generator, which first generates the SID and then produces a copy as a skippable explanation. PushDualGen has been deployed in Kuaishou's push recommendation system. Online A/B tests demonstrate the effectiveness of PushDualGen, delivering significant improvements in both user attraction and satisfaction. The effective play rate for videos recommended to users has relatively increased by 8.50%, while the dissatisfaction rate has relatively fallen by 37.70%. In the long term, PushDualGen optimises the content ecosystem, providing more exposure for long-tail videos.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-08",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2608.07989",
+    "pdf_url": "https://arxiv.org/pdf/2608.07989.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对快手工业级推送推荐系统，提出了解决生成式推荐黑盒问题且低成本的 PushDualGen 架构，属于核心领域的高价值落地创新；符合中国社交平台背景，给予额外加分。",
+    "translation": "PushDualGen：赋能大模型在工业推送推荐中生成具可解释文案的语义 ID",
+    "summary_zh": "提出一种轻量级双阶段生成架构，先生成语义 ID 再生成可跳过的解释性文案，以低成本解决工业级推送推荐中生成式模型的可解释性与部署难题。",
+    "key_points": [
+      "提出一种轻量级双阶段生成架构，先生成语义 ID 再生成可跳过的解释性文案，以低成本解决工业级推送推荐中生成式模型的可解释性与部署难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.07998",
+    "title": "Give the Long-tail More SPACE: Promoting Provider Fairness in Next POI Recommendation",
+    "authors": [
+      "Anran Zhang",
+      "Jiaqi Jiang",
+      "jiahui Jin",
+      "Yuhan Zhao"
+    ],
+    "summary": "Next point-of-interest (POI) recommendation predicts users' future destinations from historical mobility sequences and has become a key component of location-based services. However, mainstream models often concentrate exposure on a small set of popular POIs, leaving long-tail merchants systematically under-exposed. While provider fairness has recently attracted increasing attention, directly applying existing provider-fairness techniques to POI recommendation is problematic: (i) users face execution constraints; and (ii) POIs face resource supply constraints. To address this, we propose SPACE (Supply- and Physics-Aware Conditional Embedding generation), a model-agnostic framework that improves long-tail POI exposure via virtual user generation under explicit feasibility and supply control. SPACE consists of three stages: (1) community inference to capture heterogeneous user execution constraints; (2) unbalanced optimal-transport allocation to decide how many virtual users each tail POI should receive from which communities under POI-specific supply budgets; and (3) constraint-guided latent diffusion to generate POI-conditional, community-consistent virtual user embeddings. The generated user-POI pairs can be seamlessly used to train existing recommenders without modifying their architectures. Extensive experiments on three real-world datasets demonstrate that SPACE substantially improves provider fairness while maintaining and often improving recommendation accuracy across multiple backbone models. Our code is publicly available at https://github.com/Anniran1/SPACE-main.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-08",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2608.07998",
+    "pdf_url": "https://arxiv.org/pdf/2608.07998.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对本地生活服务（如美团、滴滴）中的下一个 POI 推荐问题，提出了提升长尾商家曝光的公平性框架，属于核心推荐系统业务场景创新；且来自中国公司，符合额外加分条件。",
+    "translation": "给予长尾更多空间：在下一个兴趣点推荐中促进提供者公平性",
+    "summary_zh": "提出 SPACE 框架，通过社区推断、非平衡最优运输分配及约束引导的潜在扩散模型生成虚拟用户嵌入，在满足用户执行约束和商家供应约束的前提下，无缝提升现有推荐模型对长尾兴趣点的曝光公平性。",
+    "key_points": [
+      "提出 SPACE 框架，通过社区推断、非平衡最优运输分配及约束引导的潜在扩散模型生成虚拟用户嵌入，在满足用户执行约束和商家供应约束的前提下，无缝提升现有推荐模型对长尾兴趣点的曝光公平性"
+    ]
+  },
+  {
+    "arxiv_id": "2511.22130",
+    "title": "Benchmarking In-context Experiential Learning Through Repeated Product Recommendations",
+    "authors": [
+      "Gilbert Yang",
+      "Yaqin Chen",
+      "Thomson Yen",
+      "Hongseok Namkoong"
+    ],
+    "summary": "To navigate ever-shifting real-world environments, agents must grapple with incomplete knowledge and adapt their strategies through experience. However, current evaluations of LLM-based agents largely overlook this capability. Crucially, we stress not just the ability to contend with uncertainty within a task (episode), as episode-specific information is progressively revealed across turns, but also the refinement of such adaptive ability across similar episodes, as agents accumulate experiences and infer their shared latent structure. Repeated product recommendation offers a natural setting to isolate this need for experiential learning: within each interaction, an intelligent recommender must elicit unknown customer preferences through questions; across multiple interactions, it should tailor its questioning strategy to the observed customer and product distributions. We instantiate the Benchmark for Experiential Learning and Active exploration (BELA) by combining (1) a rich catalog of real-world products from Amazon, (2) a diverse collection of synthetic customer personas aimed to capture heterogeneous latent preferences, and (3) an LLM-based customer simulator framework that emulate preference-revealing interactions. Rather than aiming to faithfully replicate real consumer behavior, BELA provides a controlled and scalable testbed for whether agents can exploit consistent latent preferences across episodes. Benchmarking current models reveals that they can learn across turns, but struggle to improve across episodes. This underscore the need for frontier models to advance in experiential learning capabilities.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-08",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2511.22130",
+    "pdf_url": "https://arxiv.org/pdf/2511.22130.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "论文利用重复产品推荐场景评估 LLM 代理的经验学习能力，直接关联推荐系统中的用户偏好 elicitation 和策略优化，虽侧重基准测试但应用场景明确。",
+    "translation": "通过重复产品推荐基准测试上下文经验学习",
+    "summary_zh": "本文提出 BELA 基准，利用亚马逊商品数据和合成用户画像，在重复产品推荐任务中评估 LLM 代理跨交互轮次积累经验和优化提问策略的能力。",
+    "key_points": [
+      "本文提出 BELA 基准，利用亚马逊商品数据和合成用户画像，在重复产品推荐任务中评估 LLM 代理跨交互轮次积累经验和优化提问策略的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.07593",
+    "title": "Weather- and Location-Aware Agentic Dining Recommendation: Leveraging LLM World Knowledge for Region-Sensitive Contextual Reasoning",
+    "authors": [
+      "Kadharmoideen Fadurudeen"
+    ],
+    "summary": "Context-aware recommender systems have long recognized that factors such as location, time, and weather shape where and what people choose to eat. Existing weather-aware food and point-of-interest recommenders, however, typically treat weather generically -- mapping conditions to preferences through hand-crafted rules or specially trained context models -- and do not capture that the culturally appropriate response to weather is itself region-specific: a rainy evening calls for hot tea and fried snacks in one culinary culture and for very different comfort food in another. Encoding such weather-by-region-by-cuisine interactions as explicit rules or training data is brittle and does not scale. We present a weather- and location-aware agentic dining-recommendation system that takes a different approach: a large language model (LLM) orchestrates tools for location and weather retrieval and then reasons in natural language over the combined context, drawing on the cultural and culinary world knowledge already latent in the model to produce region-sensitive, weather-appropriate recommendations without per-region rule tables or specialized training. We describe the agent architecture, the tool-orchestration flow (Google location services and a weather service feeding an OpenAI LLM), and the reasoning mechanism, and we report on a working prototype that was implemented and briefly deployed end-to-end. We discuss design trade-offs -- cost, latency, ambiguity handling, and fallbacks -- and we are explicit about limitations, including the absence of a formal user study and the risk of cultural stereotyping in locality-based inference. The contribution is architectural: a simple, extensible pattern for incorporating environmental and cultural context into agentic recommendation through LLM reasoning rather than engineered rules.",
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2608.07593",
+    "pdf_url": "https://arxiv.org/pdf/2608.07593.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对餐饮推荐场景，提出利用 LLM 的世界知识进行天气和地点感知的上下文推理，属于 LLM 在 RecSys 中的直接应用；虽为原型系统且缺乏大规模实验，但核心思想明确解决了传统规则方法的局限性。",
+    "translation": "天气与位置感知的代理餐饮推荐：利用 LLM 世界知识进行区域敏感的上下文推理",
+    "summary_zh": "提出一种基于 LLM 代理的推荐架构，通过编排工具获取实时天气与位置信息，利用模型隐含的文化常识进行自然语言推理，以生成适应特定区域和天气情境的餐饮推荐，替代了传统的硬编码规则。",
+    "key_points": [
+      "提出一种基于 LLM 代理的推荐架构，通过编排工具获取实时天气与位置信息，利用模型隐含的文化常识进行自然语言推理，以生成适应特定区域和天气情境的餐饮推荐，替代了传统的硬编码规则"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05543",
+    "title": "omni-macos: On-Device Omni-Modal Search on Apple Silicon",
+    "authors": [
+      "Han Xiao"
+    ],
+    "summary": "A search engine that embeds text, code, documents, images, audio and video into the same representation space has to run its encoder and keep its index somewhere, and almost every component built for the purpose assumes a server. We present omni-macos, which runs its encoder, index and store on the Mac that already holds the files, so no file, query or vector ever leaves the machine. It keeps a background indexer and an interactive search box inside one memory budget the user sets: it re-encodes only the chunks an edit changes, hands the GPU smaller units while the user is typing, answers queries from a quantized replica with exact rescoring, and propagates that budget to the allocators that draw on unified memory. We measure every mechanism on five Macs spanning an eightfold range of accelerator width and a thirty-twofold range of memory, each one indexing its own local files.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-07",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2608.05543",
+    "pdf_url": "https://arxiv.org/pdf/2608.05543.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Apple"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于端侧多模态搜索引擎的系统架构与隐私保护，虽涉及搜索但属于系统工程而非推荐/排序算法核心创新；且非中国公司研究（Apple），不适用额外加分。",
+    "translation": "omni-macos：基于 Apple Silicon 的端侧全模态搜索",
+    "summary_zh": "提出一种在本地设备上运行编码器、索引和存储的全模态搜索系统，通过统一内存预算管理和增量重编码技术，实现无需数据出端的隐私安全多模态检索。",
+    "key_points": [
+      "提出一种在本地设备上运行编码器、索引和存储的全模态搜索系统，通过统一内存预算管理和增量重编码技术，实现无需数据出端的隐私安全多模态检索"
+    ]
+  },
+  {
+    "arxiv_id": "2606.30412",
+    "title": "Can LLMs Rank? A Tale of Triads and Triage",
+    "authors": [
+      "Gaurab Pokharel",
+      "Shafkat Farabi",
+      "Patrick J. Fowler",
+      "Sanmay Das"
+    ],
+    "summary": "From housing allocation for households experiencing homelessness to triage in emergency departments, LLMs are increasingly being considered as judges of consequential decisions that require ranking people for scarce resources. Ranking large groups simultaneously is cognitively demanding and error-prone. A natural solution, drawing on decades of social choice theory, elicits pairwise comparisons and aggregates them into a total order. However, a fundamental question remains when LLMs serve as the pairwise judge: how can a practitioner tell, before committing to a ranking, whether the LLM's judgments are sufficiently consistent to trust the result? We discuss two different ways of identifying consistency. A classical diagnostic, the coefficient of consistency $ζ$, originally developed to measure judge reliability by counting circular triads in tournament graphs, provides a cheap, model-free measure of intra-run consistency. Various standard measures of distance between rankings, for example Kendall's $τ$, can measure inter-run variability. We show, in both theory and practice, that these measures are independently valuable, and advocate for using both to assess reliability of rankings. We demonstrate the practical importance of our results across two high-stakes prioritization tasks: homelessness service allocation and emergency department triage. Three different leading LLMs have considerably different performance profiles across these two axes of consistency. We provide guidelines for how practitioners could think about measuring and assessing consistency before committing to a model for ranking or prioritization.",
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "published": "2026-08-07",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2606.30412",
+    "pdf_url": "https://arxiv.org/pdf/2606.30412.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 在社会选择与资源分配中的排序一致性研究，未涉及推荐系统或搜索引擎的核心场景（如召回、匹配、个性化），虽经中国公司加分但仍属弱相关。",
+    "translation": "大语言模型能排序吗？关于三元组与分诊的探讨",
+    "summary_zh": "本文提出利用社会选择理论中的循环三元组系数和排名距离度量，在无需真实标签的情况下评估大语言模型进行成对比较排序时的一致性与可靠性。",
+    "key_points": [
+      "本文提出利用社会选择理论中的循环三元组系数和排名距离度量，在无需真实标签的情况下评估大语言模型进行成对比较排序时的一致性与可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.07517",
+    "title": "The Judge Knows When It Knows: Calibrated Abstention for LLM-Based A/B-Test Prediction",
+    "authors": [
+      "Tyler Dooskin",
+      "Squoosh Technical Staff"
+    ],
+    "summary": "Can a multimodal LLM predict which version of a web page will win a real A/B test from screenshots alone? We report the most complete answer we are aware of, from six weeks of pre-registered experiments on real conversion tests: mostly no -- and the exceptions are identifiable in advance. On 330 real A/B tests a Gemini 3 Flash judge reaches Cohen's kappa = 0.14, but on the trustworthy (statistically significant) half of the labels the evidence is inconclusive (kappa = 0.11, CI includes zero). We show that 44% of the \"ground-truth\" labels in a leading CRO agency's catalog come from non-significant tests, and that the judge agrees more with the unreliable labels than the reliable ones -- a shared prior between labeler and model, not prediction. Every standard improvement lever (a 2.8x more expensive frontier model, prompt redesign, stimulus fidelity, change-type priors) fails its pre-registered gate. The judge's confident calls are different: a vote-margin gate isolates a subset (49% coverage) reaching kappa = 0.31 on significant labels. We measure the mechanism directly -- judges differing in model or prompt agree with each other at kappa = 0.74-0.88 while agreeing with real outcomes at only ~0.2, so a 16-vote panel carries about 2 effective independent votes -- and we reproduce it in humans: 15 CRO experts agree with each other (inter-rater kappa = 0.53) but score at chance against real outcomes (kappa ~ 0). Consensus, human or model, is reproducible, persuasive, and not evidence. We release our pre-registrations, locked gates, negative results, statistical harness, human responses, and a claims ledger in which every number carries an evidence tier.",
+    "categories": [
+      "cs.HC",
+      "cs.CL",
+      "stat.AP"
+    ],
+    "published": "2026-07-02",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2608.07517",
+    "pdf_url": "https://arxiv.org/pdf/2608.07517.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 评估研究，专注于 A/B 测试预测的校准与弃权机制，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），且实验结果为负面。尽管来自相关公司，但因缺乏 RecSys/Search 直接应用且为纯 LLM 分析，严格遵循规则给予低分（基础分 1+ 公司加分 1=2）。",
+    "translation": "法官知其所知：基于大语言模型的 A/B 测试预测校准弃权方法",
+    "summary_zh": "本文提出一种针对大语言模型预测 A/B 测试结果的校准弃权机制，通过投票边缘门控筛选高置信度子集以提升预测可靠性，并揭示了模型与人类专家在共识形成上与真实结果脱节的现象。",
+    "key_points": [
+      "本文提出一种针对大语言模型预测 A/B 测试结果的校准弃权机制，通过投票边缘门控筛选高置信度子集以提升预测可靠性，并揭示了模型与人类专家在共识形成上与真实结果脱节的现象"
+    ]
+  },
+  {
+    "arxiv_id": "2604.00715",
+    "title": "To Memorize or to Retrieve: Scaling the Interaction Between Pretraining and Retrieval",
+    "authors": [
+      "Karan Singh",
+      "Michael Yu",
+      "Varun Gangal",
+      "Zhuofu Tao",
+      "Sachin Kumar",
+      "Emmy Liu",
+      "Steven Y. Feng"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) improves language model (LM) performance by providing relevant context at test time for knowledge-intensive situations. In this work, we systematically study the trade-off between pretraining and retrieval by training OLMo-2-based LMs ranging from 30M to 3B parameters on up to 100B DCLM tokens, while varying pretraining data scale, retrieval store size, and retrieval store source (pretraining vs. new data) across reasoning, scientific QA, and open-domain QA benchmarks. We find that retrieval gains depend on model capacity and pretraining exposure and are strongly front-loaded, with a median 91% of the largest observed improvement realized by one retrieval token per model parameter. However, the interaction is objective-dependent: smaller models gain more in gold-answer perplexity, whereas larger, more-pretrained models gain more in accuracy. Retrieval from previously seen data also preserves most of the held-out retrieval gain. Retrieval is therefore a task-, regime-, and metric-dependent complement to parametric learning whose value also depends on datastore size and information novelty. Overall, this motivates the explicit partitioning of data between internalization and external access for LM design.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-07",
+    "updated": "2026-08-11",
+    "url": "https://arxiv.org/abs/2604.00715",
+    "pdf_url": "https://arxiv.org/pdf/2604.00715.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 预训练与检索增强生成（RAG）的基础研究，未涉及推荐系统或搜索引擎的具体应用场景，属于排除类论文。",
+    "translation": "记忆还是检索：扩展预训练与检索之间的交互",
+    "summary_zh": "本文系统研究了大语言模型预训练规模与检索增强生成之间的权衡关系，发现检索收益高度依赖于模型容量及预训练数据暴露度。",
+    "key_points": [
+      "本文系统研究了大语言模型预训练规模与检索增强生成之间的权衡关系，发现检索收益高度依赖于模型容量及预训练数据暴露度"
+    ]
+  }
+]

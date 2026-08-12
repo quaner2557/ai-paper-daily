@@ -1,0 +1,547 @@
+[
+  {
+    "arxiv_id": "2603.29247",
+    "title": "MemRerank: Preference Memory for Personalized Product Reranking",
+    "authors": [
+      "Zhiyuan Peng",
+      "Xuyang Wu",
+      "Huaixiao Tou",
+      "Yi Fang",
+      "Yu Gong"
+    ],
+    "summary": "LLM-based shopping agents increasingly rely on long purchase histories and multi-turn interactions for personalization, yet naively appending raw history to prompts is often ineffective due to noise, length, and relevance mismatch. We propose MemRerank, a preference memory framework that distills user purchase history into concise, query-independent signals for personalized product reranking. To study this problem, we build an end-to-end benchmark and evaluation framework centered on an LLM-based \\textbf{1-in-5} selection task, which measures both memory quality and downstream reranking utility. We further train the memory extractor with reinforcement learning (RL), using downstream reranking performance as supervision. Experiments with two LLM-based rerankers show that MemRerank consistently outperforms no-memory, raw-history, and off-the-shelf memory baselines, yielding up to \\textbf{+10.61} absolute points in 1-in-5 accuracy. These results suggest that explicit preference memory is a practical and effective building block for personalization in agentic e-commerce systems.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2603.29247",
+    "pdf_url": "https://arxiv.org/pdf/2603.29247.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景下的个性化重排序（Reranking）问题，提出利用记忆模块优化 LLM Agent 的用户偏好建模，属于核心的推荐系统应用研究，且来自中国公司。",
+    "translation": "MemRerank：用于个性化商品重排序的偏好记忆框架",
+    "summary_zh": "本文提出 MemRerank 框架，通过将用户购买历史蒸馏为简洁的查询无关信号构建偏好记忆，并利用强化学习优化记忆提取器，以解决 LLM 购物代理在长序列交互中的噪声与上下文限制问题，从而提升个性化重排序效果。",
+    "key_points": [
+      "本文提出 MemRerank 框架，通过将用户购买历史蒸馏为简洁的查询无关信号构建偏好记忆，并利用强化学习优化记忆提取器，以解决 LLM 购物代理在长序列交互中的噪声与上下文限制问题，从而提升个性化重排序效果"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18803",
+    "title": "ProfiLLM: Utility-Aligned Agentic User Profiling for Industrial Ride-Hailing Dispatch",
+    "authors": [
+      "Tengfei Lyu",
+      "Zirui Yuan",
+      "Xu Liu",
+      "Kai Wan",
+      "Zihao Lu",
+      "Li Ma",
+      "Hao Liu"
+    ],
+    "summary": "Bringing Large Language Models (LLMs) into industrial ride-hailing dispatch as semantic feature extractors over platform-scale behavioral logs is a compelling but under-explored data systems problem. Production matching pipelines remain dominated by structured numerical features, yet decisive behavioral signals (e.g., a driver's habitual aversion to certain regions) are inherently contextual and naturally expressible as LLM-generated user profiles. However, scaling such profiling to a live, millisecond-latency dispatcher faces three intertwined constraints rarely addressed together: on a platform with millions of daily orders, logs exceed any LLM's context window by orders of magnitude; most users are long-tail, with too few interactions for per-user profiling; and surface-fluent profiles do not necessarily improve downstream prediction utility. We present ProfiLLM, an agentic LLM data pipeline that operationalizes utility-aligned user profiling for production matching systems through two modules. (1) Tool-Augmented Global Knowledge Mining equips an LLM agent with 27 analytical tools to mine platform-scale data, producing reusable global knowledge, adaptive user clustering rules, and region-level supply-demand priors. (2) Utility-Aligned Profile Exploration generates multiple candidate profiles per cluster, evaluates them via a lightweight downstream utility proxy, iteratively refines the best candidates and constructs preference pairs for DPO fine-tuning. Deployed on DiDi's production dispatcher, ProfiLLM achieves up to +6.14% relative AUC improvement in outcome prediction, up to +4.35% GMV gain in dispatching simulation, and consistent improvements in a 14-day online A/B test including +0.47% GMV, +0.33% Completion Rate, and -0.82% Cancel-Before-Accept rate.",
+    "categories": [
+      "cs.AI",
+      "cs.CY"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18803",
+    "pdf_url": "https://arxiv.org/pdf/2606.18803.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接针对滴滴（本地生活）的派单匹配系统，利用 LLM Agent 进行用户画像建模以解决工业界实际约束，完全符合核心领域应用标准。",
+    "translation": "ProfiLLM：面向工业网约车调度的效用对齐代理式用户画像",
+    "summary_zh": "提出一种代理式 LLM 数据流水线，通过工具增强的全局知识挖掘和基于下游效用代理的偏好优化（DPO），生成适用于大规模实时派单系统的用户画像。",
+    "key_points": [
+      "提出一种代理式 LLM 数据流水线，通过工具增强的全局知识挖掘和基于下游效用代理的偏好优化（DPO），生成适用于大规模实时派单系统的用户画像"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18897",
+    "title": "SAERec: Constructing Fine-grained Interpretable Intents Priors via Sparse Autoencoders for Recommendation",
+    "authors": [
+      "Jiangnan Xia",
+      "Xuansheng Wu",
+      "Yu Yang",
+      "Xin Wang",
+      "Ninghao Liu"
+    ],
+    "summary": "Intent-based recommender systems have gained significant attention for improving accuracy and interpretability by modeling the underlying motivations behind user behaviors. Most existing models derive intents directly from user sequences via clustering or prototype learning. However, they are sensitive to sequence quality, require presetting the number of intents, and lack explicit semantic grounding. These issues lead to an incomplete and coarse intent set and limit the effectiveness of recommendation. In this paper, we propose the Sparse Autoencoder for intent-based recommendation (SAERec), a novel recommender that automatically constructs a fine-grained and interpretable intent space from a textual corpus to guide recommendation. Rather than treating texts as side signals, SAERec leverages them as high information density evidence for intent construction. Specifically, we first extract a comprehensive set of fine-grained interpretable intents from the latent space of large language models (LLMs) by using a sparse autoencoder (SAE) to disentangle and interpret text embeddings, which isolates intent-related semantics from textual noise. Then, for each user, we retrieve relevant intents from this set as priors to guide recommendation. It contains personal intents matching a user's current interests and public intents capturing general item patterns shared across users (e.g., quality, price). Finally, to integrate retrieved intents into sequence modeling, we propose a multi-branch attention mechanism that captures temporal dependencies and injects both personal and public intent signals, followed by an adaptive fusion layer to construct the final user representation for recommendation. Extensive experiments on public datasets demonstrate the superiority of SAERec, consistently outperforming state-of-the-art baselines while providing human-understandable explanations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18897",
+    "pdf_url": "https://arxiv.org/pdf/2606.18897.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出利用稀疏自编码器从 LLM 文本嵌入中解耦细粒度可解释意图先验，以解决现有意图建模的粗糙和语义缺失问题。",
+    "translation": "SAERec：利用稀疏自编码器构建细粒度可解释意图先验用于推荐",
+    "summary_zh": "该方法通过稀疏自编码器从 LLM 潜空间解耦出细粒度且可解释的意图集合，并利用多分支注意力机制将检索到的个人与公共意图先验注入序列建模，以指导推荐生成。",
+    "key_points": [
+      "该方法通过稀疏自编码器从 LLM 潜空间解耦出细粒度且可解释的意图集合，并利用多分支注意力机制将检索到的个人与公共意图先验注入序列建模，以指导推荐生成"
+    ]
+  },
+  {
+    "arxiv_id": "2606.19108",
+    "title": "JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling",
+    "authors": [
+      "Daochen Zha",
+      "Chun How Tan",
+      "Xin Liu",
+      "Bin Xu",
+      "Han Zhao",
+      "Xiaowei Liu",
+      "Tracy Yu",
+      "Hui Gao",
+      "Huiji Gao",
+      "Liwei He",
+      "Stephanie Moyerman",
+      "Sanjeev Katariya"
+    ],
+    "summary": "Sequence modeling has become increasingly popular in recommendation and ranking algorithms, owing to its capacity to model users' historical behaviors and infer user intentions. Despite its theoretical simplicity, the practical deployment of a sequence model in production is non-trivial due to complexity of the sequence and sparse labels. For example, in Airbnb, guest sequences are often long, exploratory and complex, and we focus on booking labels, which are sparse. As such, we are often required to make various design decisions regarding data and modeling to strike a balance between effectiveness and scalability. This work delved into these production challenges and deployed JourneyFormer, a sequence modeling solution for search ranking at Airbnb. We detail crucial design considerations, covering aspects such as guest event selection, ID embeddings, model architecture, and label attribution. Additionally, we describe several tailored strategies to accelerate model training and inference. JourneyFormer has been successfully deployed within Airbnb's production, where its effectiveness and impact have been evidenced not only by improved offline ranking metrics but also by significant gains in key business metrics through online A/B testing across 2 production surfaces.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.19108",
+    "pdf_url": "https://arxiv.org/pdf/2606.19108.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该文直接针对 Airbnb 搜索排序中的序列建模落地问题，提出了 JourneyFormer 架构并成功部署，属于核心推荐搜索技术的高优先级应用；虽非中国公司（系美国 Airbnb），但因其极高的业务相关性和实战价值，基础分已达 8 分。",
+    "translation": "JourneyFormer：利用序列建模编码 Airbnb 房客旅程",
+    "summary_zh": "本文提出 JourneyFormer，一种专为解决长序列、稀疏标签及生产扩展性挑战而设计的序列建模方案，用于优化 Airbnb 搜索排序中的房客意图推断。",
+    "key_points": [
+      "本文提出 JourneyFormer，一种专为解决长序列、稀疏标签及生产扩展性挑战而设计的序列建模方案，用于优化 Airbnb 搜索排序中的房客意图推断"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29517",
+    "title": "FLASH-MAXSIM: IO-Aware Fused Kernels for Late-Interaction Retrieval",
+    "authors": [
+      "Roi Pony",
+      "Daniel Ezer",
+      "Adi Raz Goldfarb",
+      "Idan Friedman",
+      "Oshri Naparstek",
+      "Udi Barzelay"
+    ],
+    "summary": "Late-interaction retrieval (ColBERT, ColPali) scores a query against a document via the MaxSim operator. The standard PyTorch implementation materialises the full query-token x document-token similarity tensor only to reduce it away. At ColPali scale this is the single largest tensor in the pipeline (e.g. 21 GB in FP16 for 10K documents) and limits both candidate set size at inference and batch size during contrastive training. We present Flash-MaxSim (FM), an IO-aware fused GPU kernel that computes the same MaxSim scores without ever materialising the tensor, and extends the same principle to the training backward. At ColPali scale on A100 this cuts inference memory up to 9x and training memory by two orders of magnitude, unlocking candidate sets and contrastive batch sizes a single GPU could not previously reach. The kernel is a drop-in replacement, exact up to floating-point evaluation order under its stated FP32-accumulation protocol: rankings match the FP32 reference within 5e-4 of nDCG@10 on BEIR and REAL-MM-RAG. A separate INT8 path trades exactness for halved index storage at high fidelity. Released open-source.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2605.29517",
+    "pdf_url": "https://arxiv.org/pdf/2605.29517.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "IBMResearchIsrael"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文针对检索系统（ColBERT/ColPali）中的核心 MaxSim 算子提出 IO 感知融合核优化，直接解决大规模检索场景下的显存瓶颈问题，属于搜索/检索系统的底层核心技术创新；虽涉及 LLM 嵌入，但非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "FLASH-MAXSIM：面向后期交互检索的 IO 感知融合核",
+    "summary_zh": "提出一种 IO 感知的融合 GPU 核 Flash-MaxSim，通过避免实例化完整的查询 - 文档令牌相似性张量，直接在计算过程中完成 MaxSim 归约，从而大幅降低检索推理和对比训练时的显存占用。",
+    "key_points": [
+      "提出一种 IO 感知的融合 GPU 核 Flash-MaxSim，通过避免实例化完整的查询 - 文档令牌相似性张量，直接在计算过程中完成 MaxSim 归约，从而大幅降低检索推理和对比训练时的显存占用"
+    ]
+  },
+  {
+    "arxiv_id": "2606.01697",
+    "title": "RCEM: Robust Conversational Search EMbedder in Distributional Shift",
+    "authors": [
+      "Kilho Son",
+      "Paul Hsu",
+      "Cha Zhang",
+      "Dinei Florencio"
+    ],
+    "summary": "We propose RCEM, a Robust Conversational search EMbedder that is additionally equipped with LLM's query reformulation capability without losing base model's generalization. Unlike prior conversational dense retrieval approaches that learn direct conversation-to-passage matching, RCEM aligns conversations, prepended by special token, to LLM-rewritten queries, while preserving the original embedding space. The unchanged embedding space automatically maps the rewritten-query to the relevant passages. As a result, RCEM (1) reduces overfitting by simplifying the alignment task from long passages to shorter rewritten queries, (2) eliminates the need for conversation-to-passage relevance labels for training, and (3) maintains its original embedding space that allows conversational queries against indexes built by original embedder without rebuilding them. Extensive experiments show that RCEM consistently outperforms prior approaches, achieving up to 30% improvement under distributional shift.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.01697",
+    "pdf_url": "https://arxiv.org/pdf/2606.01697.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话式搜索（Conversational Search）中的检索鲁棒性问题，提出了结合 LLM 查询重写能力的嵌入器架构，属于搜索核心技术的直接应用。",
+    "translation": "RCEM：分布偏移下的鲁棒对话搜索嵌入器",
+    "summary_zh": "提出一种鲁棒对话搜索嵌入器 RCEM，通过将对话对齐到 LLM 重写的查询而非直接匹配文档，在保留原始嵌入空间兼容性的同时提升了分布偏移下的检索能力。",
+    "key_points": [
+      "提出一种鲁棒对话搜索嵌入器 RCEM，通过将对话对齐到 LLM 重写的查询而非直接匹配文档，在保留原始嵌入空间兼容性的同时提升了分布偏移下的检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18750",
+    "title": "Ensuring Trustworthy Online A/B Testing: Addressing Five Key Questions on CUPED",
+    "authors": [
+      "Yu Zhang",
+      "Bokui Wan",
+      "Yongli Qin",
+      "Jinyong Ma",
+      "Yifan Guo"
+    ],
+    "summary": "A/B testing has become the gold standard for data-driven decision-making in large-scale online experimentation, providing critical guidance for feature launch, pricing optimization, and user experience enhancement. To maximize statistical sensitivity, many technology companies routinely employ Controlled-experiment Using Pre-Experiment Data (CUPED), a technique that achieves substantial variance reduction while preserving the unbiasedness of estimating the average treatment effect. Despite its widespread adoption, several critical methodological and practical nuances of CUPED remain underexplored. This paper systematically addresses five frequently encountered yet overlooked questions regarding the application of CUPED. First, we provide a comparative analysis of various post-CUPED estimators to identify the optimal adjustment specification. Second, we evaluate the validity of regression-based adjustments and delineate robust variance estimation methods tailored for such frameworks. Finally, we extend our investigation to complex but common scenarios, including multi-arm experiments and two-stage sampling designs. Our findings reveal that in these settings, naive reliance on standard variance estimators can lead to severely misleading inferences. By offering rigorous theoretical insights and extensive experimental validation, this work deepens the conceptual understanding of CUPED. Notably, the recommended methodologies have been successfully deployed and integrated into ByteDance's experimentation platform.",
+    "categories": [
+      "stat.AP",
+      "cs.LG"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18750",
+    "pdf_url": "https://arxiv.org/pdf/2606.18750.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "ZhongtaiSecuritiesInstitutefor ByteDance ByteDance",
+      "University wanbokui@bytedance.com yongli.qin@bytedance.com"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文虽聚焦于通用的 A/B 测试统计方法（CUPED）而非直接的推荐算法创新，但明确解决了字节跳动等大厂在推荐/搜索系统迭代中的核心评估痛点，属于高价值的工程基础设施研究。",
+    "translation": "确保可信的在线 A/B 测试：解决关于 CUPED 的五个关键问题",
+    "summary_zh": "本文系统分析了 CUPED 技术在复杂实验场景（如多臂实验、两阶段采样）中的估计量选择与方差计算问题，提出了避免错误推断的稳健统计方法以优化线上实验评估。",
+    "key_points": [
+      "本文系统分析了 CUPED 技术在复杂实验场景（如多臂实验、两阶段采样）中的估计量选择与方差计算问题，提出了避免错误推断的稳健统计方法以优化线上实验评估"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18811",
+    "title": "Rescaling MLM-Head for Neural Sparse Retrieval",
+    "authors": [
+      "Youngjoon Jang",
+      "Seongtae Hong",
+      "Jonah Turner",
+      "Heuiseok Lim"
+    ],
+    "summary": "Learned sparse retrieval (LSR) models such as SPLADE have traditionally used BERT-style masked language models as backbone encoders. A natural expectation is that replacing BERT with stronger pretrained encoders should improve retrieval effectiveness. However, we find that under standard SPLADE training recipes, backbones with large MLM-head L2 norms can suffer performance degradation and even training collapse under standard SPLADE training recipes. We identify this failure as a scale mismatch in the MLM head: SPLADE directly uses MLM-head outputs to construct sparse lexical representations, and query-document relevance is computed by an unnormalized dot product over these representations. As a result, an inflated MLM-head scale can amplify sparse activations, distort matching scores, and destabilize contrastive training under common training settings. To address this issue, we introduce a simple initialization-time correction that rescales the MLM-head projection by a constant factor before SPLADE training. This zero-cost adjustment improves training stability without modifying the model architecture or training objective. Across both in-domain and out-of-domain retrieval benchmarks, this simple correction substantially improves large-norm backbones such as ModernBERT and Ettin, turning unstable training runs into competitive sparse retrievers. In several settings, the corrected models further match or surpass the classic BERT-SPLADE baseline. These findings suggest that the bottleneck in adapting pretrained encoders to LSR is not encoder capacity alone, but the calibration of the MLM-head scale used to construct sparse lexical representations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18811",
+    "pdf_url": "https://arxiv.org/pdf/2606.18811.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对神经稀疏检索（Neural Sparse Retrieval）中的训练崩溃问题提出解决方案，属于搜索核心召回/匹配环节的关键技术优化，虽非纯 LLM 研究但紧密服务于搜索系统。",
+    "translation": "重缩放 MLM 头以优化神经稀疏检索",
+    "summary_zh": "本文发现预训练编码器中过大的 MLM 头范数会导致稀疏检索训练不稳定，提出通过初始化时重缩放投影矩阵来校准尺度，从而在不改变架构的前提下提升大模型骨干在搜索任务中的训练稳定性和效果。",
+    "key_points": [
+      "本文发现预训练编码器中过大的 MLM 头范数会导致稀疏检索训练不稳定，提出通过初始化时重缩放投影矩阵来校准尺度，从而在不改变架构的前提下提升大模型骨干在搜索任务中的训练稳定性和效果"
+    ]
+  },
+  {
+    "arxiv_id": "2606.19037",
+    "title": "Querit-Reranker: Training Compact Multilingual Rerankers via Efficient Label-Free Distribution Adaptation",
+    "authors": [
+      "Yunfei Zhong",
+      "Jun Yang",
+      "Wei Huang",
+      "Yinqiong Cai",
+      "Haosheng Qian",
+      "Yixing Fan",
+      "Ruqing Zhang",
+      "Lixin Su",
+      "Daiting Shi",
+      "Jiafeng Guo"
+    ],
+    "summary": "Deployable multilingual rerankers must generalize across languages, domains, and target ranking tasks while remaining efficient enough for second-stage reranking. However, adapting them to new target distributions typically requires extensive task-specific relevance annotations, which are costly to obtain. We present Querit-Reranker, a family of multilingual cross-encoder rerankers trained with a data-centric pipeline for label-efficient adaptation. We instantiate it as Querit-Reranker-A0.4B, initialized from an in-house MoE backbone with 0.4B activated parameters, and Querit-Reranker-4B, initialized from Qwen3-Embedding-4B. Our pipeline first learns general relevance modeling from large-scale ranking-oriented data, then adapts to target distributions through synthetic-query mining with teacher scores as continuous soft labels. To consolidate complementary task-adapted strengths, we further merge checkpoints via spherical linear interpolation, obtaining a single deployable model without runtime ensembling overhead. Using Qwen3-Embedding-0.6B as the shared first-stage retriever, Querit-Reranker-A0.4B improves average nDCG@10 from 54.11 to 59.28 on BEIR and from 59.87 to 67.70 on MIRACL. On MTEB Multilingual v2 Reranking, it also substantially outperforms larger embedding-based baselines, while Querit-Reranker-4B further achieves state-of-the-art performance among publicly available models. We release both models on Hugging Face.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.19037",
+    "pdf_url": "https://arxiv.org/pdf/2606.19037.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心重排序（Reranking）环节，提出了一种无需标签的多语言适配方法，具有明确的业务应用价值。",
+    "translation": "Querit-Reranker：通过高效无标签分布适应训练紧凑的多语言重排序模型",
+    "summary_zh": "提出一种数据驱动的流水线，利用合成查询挖掘和教师模型软标签，在无目标域标注数据的情况下实现多语言重排序模型的高效分布适应与模型融合。",
+    "key_points": [
+      "提出一种数据驱动的流水线，利用合成查询挖掘和教师模型软标签，在无目标域标注数据的情况下实现多语言重排序模型的高效分布适应与模型融合"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18801",
+    "title": "SHIFT: Semantic Harmonization via Index-side Feature Transformation for Multilingual Information Retrieval",
+    "authors": [
+      "Youngjoon Jang",
+      "Seongtae Hong",
+      "Hyeonseok Moon",
+      "Heuiseok Lim"
+    ],
+    "summary": "With the rapid expansion of massive multilingual corpora, Multilingual Information Retrieval (MLIR) has emerged as a critical technology for global information access. MLIR enables users to retrieve semantically relevant documents from multilingual text collections using a single-language query. However, recent multilingual dense retrieval models often exhibit a strong preference for documents in the same language as the query. This leads to severe language bias, where top-ranked results are dominated by documents of specific languages, even when documents in other languages contain more semantically relevant information. To address this issue, we propose SHIFT, a training-free method applicable in the indexing stage. Specifically, SHIFT utilizes parallel translation pairs to estimate a relative language vector for each target language with respect to a source language. Subsequently, SHIFT corrects the language-specific offset by subtracting this relative language vector from document embeddings during indexing. Our comprehensive evaluation across four MLIR benchmarks and diverse dense retrieval models confirms that SHIFT can effectively mitigate language bias and enhance MLIR performance.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18801",
+    "pdf_url": "https://arxiv.org/pdf/2606.18801.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于多语言信息检索（MLIR）中的语言偏差问题，属于搜索核心领域的应用研究，但主要解决的是跨语言语义对齐而非通用的推荐系统架构或用户建模创新。",
+    "translation": "SHIFT：通过索引端特征变换实现多语言信息检索的语义协调",
+    "summary_zh": "提出一种无需训练的索引端方法，利用平行语料估计并减去语言特定偏移向量，以消除多语言稠密检索中的语言偏差并提升跨语言语义匹配能力。",
+    "key_points": [
+      "提出一种无需训练的索引端方法，利用平行语料估计并减去语言特定偏移向量，以消除多语言稠密检索中的语言偏差并提升跨语言语义匹配能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18814",
+    "title": "LensKit-Auto",
+    "authors": [
+      "Max Breit",
+      "Anass Amezian El Idrissi",
+      "Rishikesh Giriraj Kulkarni",
+      "Luca Quade"
+    ],
+    "summary": "Recommender systems have a wide area of application, e.g. in fields like video streaming, social media, or digital marketplaces. But, for a recommender-system, finding the right algorithm with the right hyperparameters is a reoccurring challenge. There is no one-fits-all solution, since the performance of one algorithm can vary immensely on different data sets. Due to the challenges of finding the right algorithm and the broad use of recommender-systems, it is of interest to create an Automated Recommender System (AutoRecSys) that takes on the task of finding the right algorithm-hyperparameter-combination for a given data set. In this work, we present the enhancement of LensKit-Auto, a framework introduced by Vente et al., that solves exactly this task of finding a fitting algorithm-hyperparameter-combination. LensKit-Auto's biggest strength lies in its ease of use, where it operates as a black-box, into which the user can feed their data set and receive the information of which algorithm and hyperparameters work best on this data set. In this work, we bring LensKit-Auto up to date, so that it works with the new version of its underlying framework, LensKit. We also implement further functionalities, such as the Tree Parzen Estimator as an additional optimization method, the ability to reuse the found algorithm, updated documentation, and the ability to visualize the optimization process. We also adapt an existing meta-learning framework to generate a suitable meta-dataset for LensKit-Auto, which could enable the integration of meta-learning into LensKit-Auto in the future. The presented changes bring LensKit-Auto up to date and enhance its usability, so that even non-experts in the field can find the right algorithm for their use case.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18814",
+    "pdf_url": "https://arxiv.org/pdf/2606.18814.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于推荐系统的自动化超参数优化和算法选择工具（AutoML for RecSys），属于核心推荐技术的基础设施，但缺乏针对具体业务场景的新模型架构创新；虽为中国公司贡献，但本质为工程框架更新。",
+    "translation": "LensKit-Auto：面向推荐系统的自动化算法与超参数优化框架增强",
+    "summary_zh": "本文介绍了 LensKit-Auto 框架的升级版，旨在通过黑盒自动化方式为非专家用户寻找特定数据集下的最佳推荐算法及超参数组合，并集成了新的优化方法和元学习数据生成能力。",
+    "key_points": [
+      "本文介绍了 LensKit-Auto 框架的升级版，旨在通过黑盒自动化方式为非专家用户寻找特定数据集下的最佳推荐算法及超参数组合，并集成了新的优化方法和元学习数据生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18781",
+    "title": "Lost in a Single Vector: Improving Long-Document Retrieval with Chunk Evidence Aggregation",
+    "authors": [
+      "Shanshan Lyu",
+      "Yiwei Wang",
+      "Yujun Cai",
+      "Jiafeng Guo",
+      "Shenghua Liu"
+    ],
+    "summary": "Dense retrieval ranks one query vector against one document vector. On long documents, this interface can fail when a short but decisive span is weakened during document encoding before ranking. We study this failure mode as document-side early compression and introduce the Evidence Dilution Index (EDI) to measure how far a document-level representation falls below the strongest chunk-level evidence within the same gold document. Guided by this view, we propose DICE (Document Inference via Chunk Evidence), a training-free document-side strategy that splits documents into chunks, encodes them independently with a frozen model, and aggregates them back into a single vector while preserving the standard one-query-one-document interface. On LongEmbed, DICE improves retrieval across four backbones, with the largest gains on slices beyond 4k tokens: for Dream, Passkey >4k rises from 30.0 to 90.0 and Needle >4k from 23.3 to 74.0. Across 12,779 filtered samples, DICE yields lower EDI than the single-vector baseline in 92.8% of cases. These results establish document-level encoding as a practical and underexplored lever for long-document retrieval.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18781",
+    "pdf_url": "https://arxiv.org/pdf/2606.18781.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于长文档检索中的稠密表示压缩问题，属于搜索核心检索环节的技术优化，但主要贡献在于通用向量聚合策略而非针对推荐/搜索业务的特定创新。",
+    "translation": "迷失在单一向量中：利用片段证据聚合改进长文档检索",
+    "summary_zh": "提出一种无需训练的文档端策略 DICE，通过将长文档分块编码并聚合为单一向量，解决长文档在稠密检索中因早期压缩导致关键信息稀释的问题。",
+    "key_points": [
+      "提出一种无需训练的文档端策略 DICE，通过将长文档分块编码并聚合为单一向量，解决长文档在稠密检索中因早期压缩导致关键信息稀释的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18885",
+    "title": "LARE: Low-Attention Region Encoding for Text-Image Retrieval",
+    "authors": [
+      "Abdulmalik Alquwayfili",
+      "Faisal Almeshal",
+      "Jumanah Almajnouni",
+      "Leena Alotaibi",
+      "Faisal Alhajari",
+      "Mohammed Alkhrashi",
+      "Alreem Almuhrij",
+      "Abdullah Aldwyish",
+      "Raied Aljadaany",
+      "Huda Alamri",
+      "Muhammad Kamran J. Khan"
+    ],
+    "summary": "Image retrieval in crowded scenes is particularly challenging due to the salience bias of conventional visual encoders, which tend to focus on dominant objects while neglecting low-attention regions that are often crucial for fine-grained retrieval. We propose LARE (Low-Attention Region Encoding), a framework that explicitly models these overlooked regions. LARE adopts a dual-encoding strategy that encodes low-attention regions of an image and the full image in parallel, leading to more diverse and informative image embeddings. To evaluate image retrieval performance in challenging crowded scenes, we introduce Dense-Set, a challenging subset derived from COCO and Flickr30K. In this subset, images are re-captioned to provide richer descriptions of low-attention or previously overlooked regions. This dataset highlights the limitations of existing retrieval models and enables a more rigorous evaluation under densely crowded scene conditions. Experimental results demonstrate that the proposed framework improves retrieval performance by preserving subtle, non-dominant visual cues within the shared latent space.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18885",
+    "pdf_url": "https://arxiv.org/pdf/2606.18885.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种针对图文检索中低注意力区域编码的新方法，属于多模态搜索的核心技术，但主要聚焦于通用视觉表征改进而非特定推荐系统业务场景。",
+    "translation": "LARE：面向图文检索的低注意力区域编码方法",
+    "summary_zh": "提出 LARE 框架，通过双编码策略并行处理图像的全局与低注意力区域，以解决拥挤场景下细粒度图文检索中忽略次要视觉线索的问题。",
+    "key_points": [
+      "提出 LARE 框架，通过双编码策略并行处理图像的全局与低注意力区域，以解决拥挤场景下细粒度图文检索中忽略次要视觉线索的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22222",
+    "title": "TWICE: Modeling the Temporal Evolution of Personalized User Behavior via Event-Driven Agents",
+    "authors": [
+      "Bingrui Jin",
+      "Kunyao Lan",
+      "Baihan LI",
+      "Mengyue Wu"
+    ],
+    "summary": "User simulators are widely used for data generation, evaluation, and agent-based interaction, but existing approaches often model users as static personas or rely on generic historical context, making it difficult to capture how individual behavior evolves over time. To address this limitation, we propose TWICE, an LLM-based framework for temporally grounded personalized user simulation. TWICE combines structured user profiling, an event-driven memory module organized around life events and behavioral shifts, and a two-stage workflow separating event-grounded content planning from personalized style adaptation. This design enables the simulator to model not only what a user says, but also how past experiences shape later expression. We evaluate TWICE on a large-scale longitudinal Twitter dataset and introduce a comprehensive evaluation framework that jointly measures authenticity, consistency, and humanlikeness. Results show that TWICE consistently outperforms strong baselines, suggesting that event-centered memory is a promising mechanism for modeling the temporal evolution of personalized user behavior.",
+    "categories": [
+      "cs.IR",
+      "cs.MA"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2602.22222",
+    "pdf_url": "https://arxiv.org/pdf/2602.22222.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 用户模拟研究，主要关注行为演化建模而非直接解决推荐/搜索系统的召回、排序等核心问题，虽来自中国公司加 1 分，但仍属弱相关。",
+    "translation": "TWICE：通过事件驱动代理建模个性化用户行为的时序演化",
+    "summary_zh": "提出一种基于大语言模型的事件驱动框架，通过结构化用户画像和以生活事件为核心的记忆模块，模拟用户行为随时间演化的动态过程及表达风格适应。",
+    "key_points": [
+      "提出一种基于大语言模型的事件驱动框架，通过结构化用户画像和以生活事件为核心的记忆模块，模拟用户行为随时间演化的动态过程及表达风格适应"
+    ]
+  },
+  {
+    "arxiv_id": "2601.00567",
+    "title": "Improving Scientific Document Retrieval with Academic Concept Index",
+    "authors": [
+      "Jeyun Lee",
+      "Junhyoung Lee",
+      "Wonbin Kweon",
+      "Bowen Jin",
+      "Yu Zhang",
+      "Susik Yoon",
+      "Dongha Lee",
+      "Hwanjo Yu",
+      "Jiawei Han",
+      "Seongku Kang"
+    ],
+    "summary": "Adapting general-domain retrievers to scientific domains is challenging due to the scarcity of large-scale domain-specific relevance annotations and the substantial mismatch in vocabulary and information needs. Recent approaches address these issues through two independent directions that leverage large language models (LLMs): (1) generating synthetic queries for fine-tuning, and (2) generating auxiliary contexts to support relevance matching. However, both directions overlook the diverse academic concepts embedded within scientific documents, often producing redundant or conceptually narrow queries and contexts. To address this limitation, we introduce an academic concept index, which extracts key concepts from papers and organizes them guided by an academic taxonomy. This structured index serves as a foundation for improving both directions. First, we enhance the synthetic query generation with concept coverage-based generation (CCQGen), which adaptively conditions LLMs on uncovered concepts to generate complementary queries with broader concept coverage. Second, we strengthen the context augmentation with concept-focused auxiliary contexts (CCExpand), which leverages a set of document snippets that serve as concise responses to the concept-aware CCQGen queries. Extensive experiments show that incorporating the academic concept index into both query generation and context augmentation leads to higher-quality queries, better conceptual alignment, and improved retrieval performance.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2601.00567",
+    "pdf_url": "https://arxiv.org/pdf/2601.00567.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于学术文档检索（垂直领域搜索），虽涉及检索技术，但缺乏电商/社交等主流推荐系统场景，且核心创新依赖于 LLM 生成数据而非推荐架构本身的突破，属于弱相关。",
+    "translation": "利用学术概念索引提升科学文档检索效果",
+    "summary_zh": "提出一种学术概念索引结构，通过基于概念覆盖的合成查询生成和概念聚焦的上下文增强，解决科学领域检索中词汇不匹配和标注稀缺的问题。",
+    "key_points": [
+      "提出一种学术概念索引结构，通过基于概念覆盖的合成查询生成和概念聚焦的上下文增强，解决科学领域检索中词汇不匹配和标注稀缺的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.20869",
+    "title": "Engineering RAG Systems for Real-World Applications: Design, Development, and Evaluation",
+    "authors": [
+      "Md Toufique Hasan",
+      "Muhammad Waseem",
+      "Kai-Kristian Kemell",
+      "Ayman Asad Khan",
+      "Mika Saari",
+      "Pekka Abrahamsson"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems are emerging as a key approach for grounding Large Language Models (LLMs) in external knowledge, addressing limitations in factual accuracy and contextual relevance. However, there is a lack of empirical studies that report on the development of RAG-based implementations grounded in real-world use cases, evaluated through general user involvement, and accompanied by systematic documentation of lessons learned. This paper presents five domain-specific RAG applications developed for real-world scenarios across governance, cybersecurity, agriculture, industrial research, and medical diagnostics. Each system incorporates multilingual OCR, semantic retrieval via vector embeddings, and domain-adapted LLMs, deployed through local servers or cloud APIs to meet distinct user needs. A web-based evaluation involving a total of 100 participants assessed the systems across six dimensions: (i) Ease of Use, (ii) Relevance, (iii) Transparency, (iv) Responsiveness, (v) Accuracy, and (vi) Likelihood of Recommendation. Based on user feedback and our development experience, we documented twelve key lessons learned, highlighting technical, operational, and ethical challenges affecting the reliability and usability of RAG systems in practice.",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2025-09-24",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2506.20869",
+    "pdf_url": "https://arxiv.org/pdf/2506.20869.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM/RAG 系统构建研究，应用场景为政务、医疗等通用领域，完全未涉及推荐系统或搜索引擎的核心业务（如召回、排序、用户建模），虽来自中国公司但相关性极低。",
+    "translation": "面向现实应用的 RAG 系统工程：设计、开发与评估",
+    "summary_zh": "本文提出了五种针对特定垂直领域的检索增强生成（RAG）系统架构，整合了多模态 OCR 与语义检索技术，并总结了实际部署中的工程经验与伦理挑战。",
+    "key_points": [
+      "本文提出了五种针对特定垂直领域的检索增强生成（RAG）系统架构，整合了多模态 OCR 与语义检索技术，并总结了实际部署中的工程经验与伦理挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18508",
+    "title": "MCompassRAG: Topic Metadata as a Semantic Compass for Paragraph-Level Retrieval",
+    "authors": [
+      "Amirhossein Abaskohi",
+      "Raymond Li",
+      "Gaetano Cimino",
+      "Peter West",
+      "Giuseppe Carenini",
+      "Issam H. Laradji"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) systems depend critically on how documents are chunked and searched. Fine-grained chunks can improve retrieval precision but expand the search space, increasing latency and cost; larger chunks reduce the number of candidates but make dense similarity less reliable, as the representation for each chunk mixes multiple topics and introduces more semantic noise. This trade-off becomes especially limiting in deep research tasks, where retrieval must be both fast and precise across large, heterogeneous corpora. We introduce MCompassRAG, a metadata-guided retrieval framework that uses topic-level signals as a semantic compass for selecting relevant evidence. Instead of relying only on cosine similarity between queries and noisy chunk embeddings, MCompassRAG enriches chunk representations with topic metadata in the same embedding space and trains a lightweight retriever through LLM-teacher distillation. At inference time, MCompassRAG performs topic-aware retrieval without additional LLM calls, improving both efficiency and evidence quality. Across six complex retrieval benchmarks, MCompassRAG improves information efficiency (IE) by 8.24% on average with over 5 times lower latency than the strongest efficient RAG baselines. Code is available on https://github.com/AmirAbaskohi/MCompassRAG.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-06-16",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18508",
+    "pdf_url": "https://arxiv.org/pdf/2606.18508.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 RAG/LLM 检索优化研究，专注于通用文档检索和深度研究任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "MCompassRAG：利用主题元数据作为语义指南进行段落级检索",
+    "summary_zh": "提出一种利用主题元数据增强片段表示的检索框架，通过蒸馏轻量级检索器实现无需额外 LLM 调用的主题感知高效检索。",
+    "key_points": [
+      "提出一种利用主题元数据增强片段表示的检索框架，通过蒸馏轻量级检索器实现无需额外 LLM 调用的主题感知高效检索"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18381",
+    "title": "SproutRAG: Attention-Guided Tree Search with Progressive Embeddings for Long-Document RAG",
+    "authors": [
+      "Amirhossein Abaskohi",
+      "Issam H. Laradji",
+      "Peter West",
+      "Giuseppe Carenini"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) systems must balance retrieval granularity with contextual coherence, a challenge that existing methods address through LLM-guided chunking, single-level context expansion, or hierarchical summarization. These approaches variously depend on costly LLM calls during indexing or retrieval, limit context aggregation to a single granularity level, or introduce information loss through summarization. We present SproutRAG, an attention-guided hierarchical RAG framework that addresses this trade-off by organizing sentence-level chunks into progressively larger but semantically coherent units, using learned inter-sentence attention to construct a binary chunking tree. Unlike prior approaches that rely on external LLMs, fixed context expansion, or lossy summarization, SproutRAG learns which attention heads and layers best capture semantic document structure, enabling multi-granularity retrieval without additional LLM calls or compressed summaries. At retrieval time, SproutRAG uses hierarchical beam search to retrieve candidates at multiple granularities, capturing multi-sentence relevance beyond flat retrieval. The framework is trained end-to-end with a joint objective that improves both embeddings and tree structure. Experiments across four benchmarks spanning scientific, legal, and open-domain settings demonstrate that SproutRAG improves information efficiency (IE) by 6.1% on average over the strongest baseline. Code is available on https://github.com/AmirAbaskohi/SproutRAG.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-06-16",
+    "updated": "2026-06-18",
+    "url": "https://arxiv.org/abs/2606.18381",
+    "pdf_url": "https://arxiv.org/pdf/2606.18381.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 NLP/RAG 研究，专注于长文档检索与生成的平衡，未涉及推荐系统或搜索引擎的核心业务场景（如用户建模、个性化排序、广告等）。",
+    "translation": "SproutRAG：基于注意力引导树搜索与渐进式嵌入的长文档检索增强生成",
+    "summary_zh": "提出一种注意力引导的分层 RAG 框架，通过学习句子间注意力构建二元分块树，利用分层束搜索实现多粒度检索，无需额外 LLM 调用或损失性摘要即可平衡检索粒度与上下文连贯性。",
+    "key_points": [
+      "提出一种注意力引导的分层 RAG 框架，通过学习句子间注意力构建二元分块树，利用分层束搜索实现多粒度检索，无需额外 LLM 调用或损失性摘要即可平衡检索粒度与上下文连贯性"
+    ]
+  }
+]

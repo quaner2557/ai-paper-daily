@@ -1,0 +1,213 @@
+[
+  {
+    "arxiv_id": "2602.21009",
+    "title": "HiSAC: Hierarchical Sparse Activation Compression for Ultra-long Sequence Modeling in Recommenders",
+    "authors": [
+      "Kun Yuan",
+      "Junyu Bi",
+      "Daixuan Cheng",
+      "Changfa Wu",
+      "Shuwen Xiao",
+      "Binbin Cao",
+      "Jian Wu",
+      "Yuning Jiang"
+    ],
+    "summary": "Modern recommender systems leverage ultra-long user behavior sequences to capture dynamic preferences, but end-to-end modeling is infeasible in production due to latency and memory constraints. While summarizing history via interest centers offers a practical alternative, existing methods struggle to (1) identify user-specific centers at appropriate granularity and (2) accurately assign behaviors, leading to quantization errors and loss of long-tail preferences. To alleviate these issues, we propose Hierarchical Sparse Activation Compression (HiSAC), an efficient framework for personalized sequence modeling. HiSAC encodes interactions into multi-level semantic IDs and constructs a global hierarchical codebook. A hierarchical voting mechanism sparsely activates personalized interest-agents as fine-grained preference centers. Guided by these agents, Soft-Routing Attention aggregates historical signals in semantic space, weighting by similarity to minimize quantization error and retain long-tail behaviors. Deployed on Taobao's \"Guess What You Like\" homepage, HiSAC achieves significant compression and cost reduction, with online A/B tests showing a consistent 1.65% CTR uplift -- demonstrating its scalability and real-world effectiveness.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-07-03",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2602.21009",
+    "pdf_url": "https://arxiv.org/pdf/2602.21009.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "AlibabaGroup AlibabaGroup RenminUniversity AlibabaGroup",
+      "theyimposeafixednumberofglobalinterestcentersthatignore",
+      "preferencecenters,and(3)aSoft-RoutingAttentionthataggregates Modernrecommendationsystemsine-commerceandvideostream-"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的超长序列建模难题，提出了 HiSAC 架构并在淘宝线上部署取得显著收益，完全符合核心领域 advances 及电商场景的高优先级标准。",
+    "translation": "HiSAC：用于推荐系统超长序列建模的分层稀疏激活压缩方法",
+    "summary_zh": "本文提出一种分层稀疏激活压缩框架，通过构建全局分层码本和个性化兴趣代理，利用软路由注意力机制在语义空间高效聚合历史行为信号，以解决超长序列建模中的延迟与长尾偏好丢失问题。",
+    "key_points": [
+      "本文提出一种分层稀疏激活压缩框架，通过构建全局分层码本和个性化兴趣代理，利用软路由注意力机制在语义空间高效聚合历史行为信号，以解决超长序列建模中的延迟与长尾偏好丢失问题"
+    ]
+  },
+  {
+    "arxiv_id": "2507.11866",
+    "title": "SimDiffRec: Semantic Similarity-Guided Diffusion for Contrastive Sequential Recommendation",
+    "authors": [
+      "Jinkyeong Choi",
+      "Yejin Noh",
+      "Donghyeon Park"
+    ],
+    "summary": "In sequential recommendation systems, data augmentation and contrastive learning techniques have recently been introduced using diffusion models to achieve robust representation learning. However, most of the existing approaches use random augmentation, which risks damaging the contextual information of the original sequence. Accordingly, we propose SimDiffRec: a Semantic Similarity-Guided Diffusion for Contrastive Sequential Recommendation. Our framework leverages the similarity between item embedding vectors to generate semantically consistent noise. Moreover, we utilize high confidence scores in the denoising process to select our augmentation positions. This approach more effectively reflects contextual and structural information compared to augmentation at random positions. From a contrastive learning perspective, the proposed augmentation technique, combined with hard negative sampling, provides more discriminative positive and negative samples, simultaneously improving training efficiency and recommendation performance. Experimental results on five benchmark datasets show that SimDiffRec outperforms the existing baseline models. The code of our framework is available at https://github.com/zingyon/SimDiffRec.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-03",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2507.11866",
+    "pdf_url": "https://arxiv.org/pdf/2507.11866.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐系统中的数据增强问题，提出基于语义相似度的扩散模型方法，属于核心推荐算法创新；虽涉及扩散模型，但紧密围绕 RecSys 场景，且来自 TAL 公司，符合加分条件。",
+    "translation": "SimDiffRec：基于语义相似度引导扩散的对比序列推荐",
+    "summary_zh": "提出一种利用物品嵌入语义相似度指导扩散噪声生成及去噪位置选择的框架，旨在解决序列推荐中随机数据增强破坏上下文信息的问题，并通过结合硬负采样提升对比学习效果。",
+    "key_points": [
+      "提出一种利用物品嵌入语义相似度指导扩散噪声生成及去噪位置选择的框架，旨在解决序列推荐中随机数据增强破坏上下文信息的问题，并通过结合硬负采样提升对比学习效果"
+    ]
+  },
+  {
+    "arxiv_id": "2510.00566",
+    "title": "Panorama: Fast-Track Nearest Neighbors",
+    "authors": [
+      "Vansh Ramani",
+      "Alexis Schlomer",
+      "Akash Nayar",
+      "Sayan Ranu",
+      "Jignesh M. Patel",
+      "Panagiotis Karras"
+    ],
+    "summary": "Approximate Nearest-Neighbor Search (ANNS) pipelines for high-dimensional neural embeddings spend the bulk of their query time in candidate verification, making it the primary bottleneck in the search process. In this paper, we present PANORAMA, a state-of-the-art refinement technique that accelerates verification by exploiting the inherent spectral decay of these embeddings. Using PCA to compact signal energy, PANORAMA evaluates candidate distances incrementally, computing at each step a strict lower bound on the full-vector distance and dynamically pruning candidates the moment this bound exceeds the running k-th nearest neighbor distance. While PCA's concentration of variance facilitates pruning, it breaks the uniform-variance assumption required by Product Quantization (PQ); we resolve this with a variance-shaping step that redistributes energy across subvectors, rendering accretive refinement compatible with quantized indexes. Optimized for modern memory hierarchies via vectorized bulk-pruning and cache-conscious data layouts, PANORAMA has been upstreamed into the FAISS library across major index families (IVFPQ/Flat, HNSW, and Refine). PANORAMA achieves higher QPS at any target recall with a cost that provably scales inversely with dataset spectral decay, delivering end-to-end speedups of up to 28.9x and outperforming probabilistic methods across all recall bands.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.DB"
+    ],
+    "published": "2026-07-02",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2510.00566",
+    "pdf_url": "https://arxiv.org/pdf/2510.00566.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/搜索系统中的核心瓶颈——高维向量近似最近邻搜索（ANNS）的候选验证环节提出创新加速方法，属于搜索基础设施的关键技术；且来自 TAL 公司，按规则额外 +1 分。",
+    "translation": "Panorama：快速最近邻搜索技术",
+    "summary_zh": "提出一种利用嵌入谱衰减特性的增量式候选验证优化方法，通过 PCA 能量压缩、方差重塑及动态剪界策略，在兼容量化索引的同时显著加速向量检索过程。",
+    "key_points": [
+      "提出一种利用嵌入谱衰减特性的增量式候选验证优化方法，通过 PCA 能量压缩、方差重塑及动态剪界策略，在兼容量化索引的同时显著加速向量检索过程"
+    ]
+  },
+  {
+    "arxiv_id": "2210.10619",
+    "title": "Restricted Bernoulli Matrix Factorization: Balancing the trade-off between prediction accuracy and coverage in classification based collaborative filtering",
+    "authors": [
+      "Ángel González-Prieto",
+      "Abraham Gutiérrez",
+      "Fernando Ortega",
+      "Raúl Lara-Cabrera"
+    ],
+    "summary": "Reliability measures associated with the prediction of the machine learning models are critical to strengthening user confidence in artificial intelligence. Therefore, those models that provide not only predictions, but also reliability, enjoy greater popularity. In the field of recommender systems, reliability is crucial, since users tend to prefer those recommendations that are sure to interest them, that is, high predictions with high reliabilities. In this paper, we propose Restricted Bernoulli Matrix Factorization (ResBeMF), a new algorithm aimed at enhancing the performance of classification-based collaborative filtering. This model is based on a collection of restricted matrix factorizations that jointly generate, for each user-item pair, a full probability distribution over the possible rating scores. To prove its effectiveness, the proposed model has been compared to other existing solutions in the literature in terms of prediction quality (Mean Absolute Error and accuracy scores), prediction quantity (coverage score) and recommendation quality (Mean Average Precision score). The experimental results demonstrate that the proposed model provides a good balance in terms of the quality measures used compared to other recommendation models.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-03",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2210.10619",
+    "pdf_url": "https://arxiv.org/pdf/2210.10619.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤问题，提出新算法以平衡预测准确率与覆盖率，属于核心推荐技术；虽为传统机器学习方法而非 LLM，但应用场景明确且来自中国公司（TAL），故给予高分。",
+    "translation": "受限伯努利矩阵分解：平衡基于分类的协同过滤中预测准确率与覆盖率的权衡",
+    "summary_zh": "提出受限伯努利矩阵分解（ResBeMF）算法，通过生成用户 - 物品评分的全概率分布，在基于分类的协同过滤中同时优化预测可靠性、准确率及推荐覆盖率。",
+    "key_points": [
+      "提出受限伯努利矩阵分解（ResBeMF）算法，通过生成用户 - 物品评分的全概率分布，在基于分类的协同过滤中同时优化预测可靠性、准确率及推荐覆盖率"
+    ]
+  },
+  {
+    "arxiv_id": "2607.03296",
+    "title": "Taste-aware music retrieval from audio embeddings",
+    "authors": [
+      "Matteo Spanio",
+      "Antonio Rodà"
+    ],
+    "summary": "Crossmodal correspondences between sound and taste are well established in psychology and neuroscience, but largely absent from content-based multimedia retrieval. We formalise taste-from-audio prediction as a content-based music information retrieval benchmark over a perceptually validated multi-source corpus, comparing ten frozen audio encoders from the four HEAR families under a shared multi-task regression head, with gated late-fusion as a configurable variant. In order to assess the effectiveness of the models, we compute absolute error and rank correlation. The strongest systems predict the five tastes within a macro RMSE of 0.134; on held-out real music their error is less than half a single rater's deviation from the consensus (RMSE 0.13 vs. 0.28), so the model tracks the group consensus more closely than an average human rater, and well below the previous state of the art baseline (0.219). On absolute error the encoders are statistically flat, with a single VGGish matching the best fusion, but gated late-fusion's advantage is confined to rank correlation (macro Pearson r 0.724 vs. 0.666). Operationalised as a content-based retrieval index, the predicted taste space ranks a 309-item pool far more faithfully than a CLAP-text baseline, which sits at chance; ridge probes and an audio-bandstop knockout read the strongest representations against documented sound-taste correspondences.",
+    "categories": [
+      "cs.SD",
+      "cs.IR",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "published": "2026-07-03",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2607.03296",
+    "pdf_url": "https://arxiv.org/pdf/2607.03296.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文属于多模态感知与内容检索的基础研究，虽涉及检索任务但聚焦于心理学味觉映射而非推荐系统核心场景（如电商、信息流），且无明确 RecSys 业务应用，故评分较低；因来自中国公司额外加 1 分。",
+    "translation": "基于音频嵌入的味觉感知音乐检索",
+    "summary_zh": "本文提出一种利用冻结音频编码器预测音乐味觉属性的跨模态检索方法，通过门控晚期融合构建味觉空间索引以优化基于内容的音乐排序。",
+    "key_points": [
+      "本文提出一种利用冻结音频编码器预测音乐味觉属性的跨模态检索方法，通过门控晚期融合构建味觉空间索引以优化基于内容的音乐排序"
+    ]
+  },
+  {
+    "arxiv_id": "2607.03028",
+    "title": "HETERQA: Benchmarking Record Retrieval over Multiple Heterogeneous Sources",
+    "authors": [
+      "Yaodong Su",
+      "Hanchang Li",
+      "Quanqing Xu",
+      "Chuanhui Yang",
+      "Yixiang Fang"
+    ],
+    "summary": "In emerging systems (e.g., social media and e-commerce platforms), data records are often drawn from heterogeneous sources, such as relational tables, text documents, image repositories, spatial databases, and knowledge graphs. Accordingly, retrieving target records for question-answering (QA) tasks requires us to jointly exploit these heterogeneous sources. However, most existing benchmarks are constructed from individual sources, and only a very few recent benchmarks have considered two or three sources. To alleviate this issue, we introduce HETERQA, a comprehensive benchmark with 857 QA pairs for record retrieval over five heterogeneous sources. HETERQA instantiates this setting with Yelp business records, each of which is grounded by multiple sources. We build HETERQA in an answer-driven manner: candidate records are first initialized with record-field constraints, then enriched through heterogeneous sources, and finally cross-verified across required sources before the natural-language question is retained. We validate the benchmark through contradiction detection and human validation, and further evaluate sparse, dense, hybrid, late-interaction, and agentic retrievers under the same metrics. The results show that HETERQA is challenging: hybrid retrieval achieves the strongest Recall@10, Self-RAG achieves the best MRR@10, and all evaluated methods remain far from saturating the benchmark. These findings indicate that HETERQA provides an effective testbed for record retrieval over heterogeneous sources and leaves substantial room for future retrieval methods. The benchmark dataset and source code are publicly available at https://huggingface.co/datasets/hanchang02/HeterQA and https://github.com/hanchang02/HeterQA, respectively.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-03",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2607.03028",
+    "pdf_url": "https://arxiv.org/pdf/2607.03028.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "affiliation_lines": [
+      "availableathttps://huggingface.co/datasets/hanchang02/HeterQAand"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注通用问答（QA）场景下的多源记录检索基准构建，属于纯 NLP/检索研究，未明确针对推荐系统或搜索引擎的核心业务场景（如排序、个性化）。",
+    "translation": "HETERQA：跨多种异构源的记录检索基准测试",
+    "summary_zh": "提出 HETERQA 基准，旨在通过答案驱动的方式构建包含五种异构数据源的复杂记录检索任务，以评估和推动跨源联合检索技术的发展。",
+    "key_points": [
+      "提出 HETERQA 基准，旨在通过答案驱动的方式构建包含五种异构数据源的复杂记录检索任务，以评估和推动跨源联合检索技术的发展"
+    ]
+  },
+  {
+    "arxiv_id": "2607.02915",
+    "title": "Bootstrap Flow-Map Tree Sampling Enables Online Feedback Driven Search",
+    "authors": [
+      "Binglin Ji",
+      "Anindya Sarkar",
+      "Hengchang Lu",
+      "Jens Sjölund",
+      "Yevgeniy Vorobeychik"
+    ],
+    "summary": "In many scientific and engineering domains, maximizing discovery within a limited sampling budget demands strategic, observation-guided exploration. While generative models have enabled training-free reward alignment, current methods typically excel in local searches within narrow regions of the underlying distribution. These approaches struggle when preferences are unknown a priori and only revealed through sequential feedback-a scenario demanding broad exploration to uncover high-utility regions. To address this, we introduce Bootstrap Flow-Map-Tree (a.k.a BFMT), a novel computationally efficient sampling framework designed for history-aware global search and alignment under sampling budget constraints. BFMT enables full tree-path construction from any tree depth using a single function evaluation, drastically reducing computational overhead while providing critical foresight for sequential sampling. By enabling dynamic transition time steps scheduling, BFMT efficiently allocates its sampling budget, smoothly transitioning from broad global exploration to fine-grained local refinement of high-utility modes discovered through exploration. Extensive experiments and ablations across diverse search and alignment tasks demonstrate that BFMT substantially outperforms baseline approaches.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-07-03",
+    "updated": "2026-07-07",
+    "url": "https://arxiv.org/abs/2607.02915",
+    "pdf_url": "https://arxiv.org/pdf/2607.02915.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于科学发现与工程领域的通用采样优化，属于纯算法研究，未提及任何推荐系统或搜索引擎的具体应用场景。尽管来自中国公司且涉及搜索概念，但缺乏 RecSys/Search 业务相关性，故给予低分（基础分 2+ 中国公司加分 1）。",
+    "translation": "自举流映射树采样实现在线反馈驱动搜索",
+    "summary_zh": "提出一种名为 BFMT 的新型采样框架，通过单次函数评估构建全树路径并动态调度转移时间步，旨在解决预算约束下从全局探索到局部 refine 的高效对齐问题。",
+    "key_points": [
+      "提出一种名为 BFMT 的新型采样框架，通过单次函数评估构建全树路径并动态调度转移时间步，旨在解决预算约束下从全局探索到局部 refine 的高效对齐问题"
+    ]
+  }
+]

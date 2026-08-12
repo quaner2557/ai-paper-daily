@@ -1,0 +1,474 @@
+[
+  {
+    "arxiv_id": "2607.15591",
+    "title": "RecGPT-V3 Technical Report",
+    "authors": [
+      "Bowen Zheng",
+      "Chao Yi",
+      "Dian Chen",
+      "Gaoyang Guo",
+      "Han Zhu",
+      "Jiakai Tang",
+      "Jian Wu",
+      "Mao Zhang",
+      "Wen Chen",
+      "Yifan Lu",
+      "Yujie Luo",
+      "Yuning Jiang",
+      "Zhujin Gao",
+      "Bo Zheng",
+      "Chenchi Zhang",
+      "Dixuan Wang",
+      "Hao Fang",
+      "Jiancai Liu",
+      "Jing Yu",
+      "Junjun Zheng",
+      "Ke Chen",
+      "Kewei Zhu",
+      "Mengyan Li",
+      "Mingke Xu",
+      "Wenjun Yang",
+      "Xiangheng Kong",
+      "Xinming Zhang",
+      "Xunke Xi",
+      "Zile Zhou"
+    ],
+    "summary": "Large language models (LLMs) are transforming recommender systems from matching co-occurrence patterns in historical behavior toward reasoning about the intent that drives it. RecGPT-V1 pioneered this paradigm on Taobao by centering user understanding, and RecGPT-V2 scaled it via coordinated multi-agent reasoning; both are deployed in production with consistent gains in user experience and commercial outcomes. However, operating RecGPT at scale reveals three challenges: (1) stateless behavior modeling, where each request reprocesses full user history, wasting computation and discarding prior analysis; (2) a tag-to-item information bottleneck, where natural-language tags form a lossy channel between user understanding and item grounding; and (3) inefficient explicit reasoning, whose lengthy chain-of-thought incurs untenable latency and compute overhead.\n  We present RecGPT-V3, a stateful, hybrid-modal recommender that reasons over natural language for open-world knowledge and Semantic IDs (SIDs) for concrete item grounding. A Memory Hub maintains structured, continually evolving user memory that distills long-horizon behavior into condensed units, cutting user-modeling computation by 55.8%. A Hybrid-modal Foundation Model allows the LLM jointly reason over text tags and SIDs, opening a high-bandwidth channel into the item space. Latent Intent Reasoning internalizes verbose rationales into compact learnable latent tokens that remain decodable into readable explanations, lowering output token cost by 200x. Deployed in Taobao's \"Guess What You Like\" feed, RecGPT-V3 achieves consistent gains in large-scale online A/B tests: IPV +1.28%, CTR +1.00%, TC +1.97%, GMV +3.97%, while cutting end-to-end serving resource consumption by 52.4%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.15591",
+    "pdf_url": "https://arxiv.org/pdf/2607.15591.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "thisparadigmonTaobaobyplacingagenuineunderstandingoftheuseratthecenterofthepipeline,and"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该文直接针对淘宝推荐系统，提出了状态化用户记忆、混合模态基础模型及潜在意图推理等核心架构创新，完美契合电商推荐场景且已上线验证。",
+    "translation": "RecGPT-V3 技术报告：面向淘宝推荐的状态化混合模态大模型",
+    "summary_zh": "提出一种状态化混合模态推荐架构，通过记忆枢纽压缩长序列行为、利用语义 ID 打通物品空间瓶颈，并将显式思维链内化为紧凑的潜在意图令牌以优化推理效率。",
+    "key_points": [
+      "提出一种状态化混合模态推荐架构，通过记忆枢纽压缩长序列行为、利用语义 ID 打通物品空间瓶颈，并将显式思维链内化为紧凑的潜在意图令牌以优化推理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2607.21028",
+    "title": "Bridging the Structural Gap: Adapting Autoregressive Generation for Recommendation",
+    "authors": [
+      "Junchao Zeng",
+      "Junzhang Zhu",
+      "Junyang Chen",
+      "Yudong Li",
+      "Wei Liu",
+      "Chengxiang Zhuo",
+      "Zang Li"
+    ],
+    "summary": "Generative Recommendation (GR) has emerged as a new paradigm for sequential recommendation, in which a representative line of work encodes items into hierarchical semantic IDs via residual quantization and predicts the IDs token by token. However, this generative formulation still exhibits structural gaps with respect to the recommendation task: flattening multi-token IDs into a single sequence destroys item-level structure, and the inconsistency between training and inference over a hierarchical codebook gives rise to semantic drift. To bridge these two gaps, we propose BARGE, which employs Item Context-Aware Attention (ICA) to restore item-level structure during encoding, and Hierarchical Path Reranking (HPR) together with Dual-Path Decoding (DPD) to suppress semantic drift from two complementary angles during decoding. Extensive experiments and analytical studies on public benchmarks and a large-scale offline test demonstrate that BARGE achieves superior recommendation performance. An online A/B test on a Tencent platform yields improvements of 0.60% in click-through rate, 1.34% in click unique visitors, and 1.70% in total reading time, confirming the practical value of BARGE in industrial-scale recommendation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.21028",
+    "pdf_url": "https://arxiv.org/pdf/2607.21028.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "Tencent Tencent Shenzhen University Tencent",
+      "Sun Yat-sen University Tencent Tencent",
+      "inconsistencybetweentrainingandinferenceoverahierarchical the item set to logarithmic in the depth of the codebook."
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的生成式推荐范式，提出了 BARGE 架构以解决序列推荐中的结构差距和语义漂移问题，并已在腾讯平台通过在线 A/B 测试验证了显著的工业界业务价值（CTR 提升），完全符合核心领域进展及大厂应用的高优先级标准。",
+    "translation": "弥合结构差距：适配自回归生成用于推荐系统",
+    "summary_zh": "本文提出 BARGE 架构，通过项目上下文感知注意力恢复项目级结构，并利用分层路径重排序与双路径解码抑制语义漂移，旨在解决生成式推荐中因扁平化 ID 和训练推理不一致导致的结构性缺陷。",
+    "key_points": [
+      "本文提出 BARGE 架构，通过项目上下文感知注意力恢复项目级结构，并利用分层路径重排序与双路径解码抑制语义漂移，旨在解决生成式推荐中因扁平化 ID 和训练推理不一致导致的结构性缺陷"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18379",
+    "title": "RankGraph-2: Lifecycle Co-Design for Billion-Node Graph Learning in Recommendation",
+    "authors": [
+      "Renzhi Wu",
+      "Zikun Cui",
+      "Junjie Yang",
+      "Tai Guo",
+      "Hong Li",
+      "Xian Chen",
+      "Li Yu",
+      "Ke Pan",
+      "Sri Reddy",
+      "Mahesh Srinivasan",
+      "Nipun Mathur",
+      "Haomin Yu",
+      "Hong Yan"
+    ],
+    "summary": "Graph-based retrieval at billion-node scale requires jointly solving three tightly coupled problems -- graph construction, representation learning, and real-time serving -- yet existing work addresses each in isolation. We present RankGraph-2, a framework deployed at Meta that co-designs all three lifecycle stages for similarity-based retrieval (U2U2I and U2I2I), where each stage's requirements shape the others. Serving requires a co-learned cluster index to avoid expensive online KNN -- this pushes index co-training into the training objective. Training benefits from the observation that similarity-based retrieval tolerates pre-computed neighborhoods, eliminating online graph infrastructure -- this requires construction to produce self-contained data. Construction must also support hour-level refresh for item coverage. Acting on these cascading requirements, RankGraph-2 reduces hundreds of trillions of edges to hundreds of billions via subsampling with popularity bias correction, pre-computes multi-hop neighborhoods via personalized PageRank, and co-learns a residual-quantization cluster index that reduces serving computational cost by 83%. This lifecycle co-design enables a simple architecture to achieve 3.8 x higher recall than a GAT + Deep Graph Infomax model on a bipartite graph and 2.1 x higher than PyTorch-BigGraph on item retrieval. RankGraph-2 delivers up to +0.96% CTR and +2.75% CVR, and has powered 20+ retrieval launches across major surfaces.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2606.18379",
+    "pdf_url": "https://arxiv.org/pdf/2606.18379.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对十亿节点规模的推荐系统图检索问题，提出了构建、学习与服务全生命周期协同设计的创新架构，且已在大厂核心业务落地，完全符合高优先级标准；虽注明来自 Meta，但鉴于其极高的工业界参考价值，仍给予满分。",
+    "translation": "RankGraph-2：推荐系统中十亿节点图学习的全生命周期协同设计",
+    "summary_zh": "提出一种面向十亿节点规模推荐检索的协同设计框架，通过联合优化图构建、表示学习与在线服务三个阶段，利用预计算多跳邻域和共学习聚类索引解决大规模图实时服务难题。",
+    "key_points": [
+      "提出一种面向十亿节点规模推荐检索的协同设计框架，通过联合优化图构建、表示学习与在线服务三个阶段，利用预计算多跳邻域和共学习聚类索引解决大规模图实时服务难题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.22341",
+    "title": "Bringing GRACE to Recommendation: Fine-Tuning for Sustainable and Accurate Personalization",
+    "authors": [
+      "Yibowen Zhao",
+      "Yinan Zhang",
+      "Ning Liu",
+      "Lizhen Cui",
+      "Chunyan Miao"
+    ],
+    "summary": "Growing concern about environmental sustainability (e.g., reducing carbon emissions and resource use) and public health has motivated ``green'' recommender systems that steer users toward more eco-friendly and healthier choices. However, many existing green recommendation approaches require training new models from scratch, incurring substantial computational and energy costs. Reranking-based methods, meanwhile, introduce an additional sorting stage at inference, increasing latency and computational cost. In this work, we propose GRACE (Green Recommendation via Adaptive Conflict-rEsolution), a fine-tuning framework that integrates item-level sustainability signals (e.g., eco-scores or health indices) into pretrained recommendation models. Since these green values are usually discrete and non-differentiable, existing methods often rely on pairwise comparisons to promote greener items. GRACE instead introduces a differentiable approximation that enables direct optimization of the green criterion. To balance sustainability and personalization quality, GRACE further employs a gradient projection mechanism to mitigate conflicts between the green objective and the accuracy objective during fine-tuning. Experiments on real-world datasets demonstrate that GRACE improves sustainability-oriented recommendation outcomes while generally preserving recommendation accuracy through a controllable preference-anchored update mechanism.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.22341",
+    "pdf_url": "https://arxiv.org/pdf/2607.22341.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的可持续性与个性化平衡问题，提出了新的微调框架 GRACE，属于核心推荐算法创新；虽涉及绿色概念，但并非纯 LLM 研究，且来自中国公司，符合高分标准。",
+    "translation": "将 GRACE 引入推荐：面向可持续与精准个性化的微调方法",
+    "summary_zh": "提出 GRACE 框架，通过可微近似和梯度投影机制，在预训练推荐模型中直接优化离散可持续性指标，解决绿色目标与个性化准确性之间的冲突。",
+    "key_points": [
+      "提出 GRACE 框架，通过可微近似和梯度投影机制，在预训练推荐模型中直接优化离散可持续性指标，解决绿色目标与个性化准确性之间的冲突"
+    ]
+  },
+  {
+    "arxiv_id": "2607.21951",
+    "title": "SIREN (Luring LLMs onto the Rocks): PAIR-Driven Preference Manipulation in Web-RAG Recommenders",
+    "authors": [
+      "Evan Caville",
+      "Siamak Layeghy",
+      "Billy Sung",
+      "Sara Dolnicar",
+      "Marius Portmann"
+    ],
+    "summary": "This paper investigates the adversarial manipulation of the ranked recommendations produced by web-augmented large language models (LLMs). When an LLM answers a recommendation query by retrieving and reading live webpages, it acts as a recommender, and each retrieved page becomes a potential attack surface. Prior work has examined fabricated products, retrieval poisoning, and rank promotion. However, these studies do not compare how different edits to an already retrieved page change the model's final ranking while the surrounding source set remains unchanged. To address this gap, we propose SIREN, an automated attacker--judge method that adapts the PAIR jailbreaking loop to competitive rank manipulation, with the goal of moving a chosen entity to rank~1 in an LLM-generated recommendation. SIREN retrieves and captures webpages using Anthropic's web tools, then iteratively edits a retrieved source using an interpretable taxonomy of 23 content-poisoning techniques. The custom-RAG replay platform keeps the same sources in the same order, so changes in the model's ranking can be linked to changes in the supplied content rather than to differences in retrieval. Across two production Claude models, SIREN reaches rank~1 in 62 of 124 technique trials nested within eight query--model contexts. The payloads that reached rank~1 were then tested in fresh sessions, where they reproduced the result with a mean success rate of 0.805. Across the evaluated settings, declarative ranking claims and seeded lists were generally more effective than directive-form injections, although the strength of this difference depended on the target model. To the best of our knowledge, this is among the first controlled studies of competitive rank manipulation in production LLMs where the supplied source context is kept fixed.",
+    "categories": [
+      "cs.IR",
+      "cs.CR"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.21951",
+    "pdf_url": "https://arxiv.org/pdf/2607.21951.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究基于 LLM 的 Web-RAG 推荐系统中的排序操纵问题，属于 LLM 在推荐/搜索安全领域的直接应用，非纯 LLM 研究；因来自中国公司额外加 1 分。",
+    "translation": "SIREN：诱导大模型触礁，基于 PAIR 驱动的 Web-RAG 推荐系统偏好操纵研究",
+    "summary_zh": "提出 SIREN 自动化攻击框架，通过在固定检索源上迭代编辑内容来操纵基于 Web-RAG 的大语言模型生成的推荐排序，旨在将特定实体提升至首位。",
+    "key_points": [
+      "提出 SIREN 自动化攻击框架，通过在固定检索源上迭代编辑内容来操纵基于 Web-RAG 的大语言模型生成的推荐排序，旨在将特定实体提升至首位"
+    ]
+  },
+  {
+    "arxiv_id": "2601.07048",
+    "title": "GPU-Accelerated ANNS: Quantized for Speed, Built for Change",
+    "authors": [
+      "Hunter McCoy",
+      "Zikun Wang",
+      "Prashant Pandey"
+    ],
+    "summary": "Approximate nearest neighbor search (ANNS) is a core problem in machine learning and information retrieval applications. GPUs offer a promising path to high-performance ANNS: they provide massive parallelism for distance computations, are readily available, and can co-locate with downstream applications.\n  Despite these advantages, current GPU-accelerated ANNS systems face three key limitations. First, real-world applications operate on evolving datasets that require fast batch updates, yet most GPU indices must be rebuilt from scratch when new data arrives. Second, high-dimensional vectors strain memory bandwidth, but current GPU systems lack efficient quantization techniques that reduce data movement without introducing costly random memory accesses. Third, the data-dependent memory accesses inherent to greedy search make overlapping compute and memory difficult, leading to reduced performance.\n  We present Jasper, a GPU-native ANNS system with both high query throughput and updatability. Jasper builds on the Vamana graph index and overcomes existing bottlenecks via three contributions: (1) a CUDA batch-parallel construction algorithm that enables lock-free streaming insertions, (2) a GPU-efficient implementation of RaBitQ quantization that reduces memory footprint up to 8x without the random access penalties, and (3) an optimized greedy search kernel that increases compute utilization, resulting in better latency hiding and higher throughput.\n  Our evaluation across five datasets shows that Jasper achieves up to 1.84x higher query throughput than CAGRA and achieves up to 80% peak utilization as measured by the roofline model. Jasper's construction scales efficiently and constructs indices an average of 7x faster than CAGRA while providing updatability that CAGRA lacks. Compared to BANG, the previous fastest GPU Vamana implementation, Jasper delivers 10-74x faster queries.",
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ],
+    "published": "2026-07-23",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2601.07048",
+    "pdf_url": "https://arxiv.org/pdf/2601.07048.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该文提出的 GPU 加速近似最近邻搜索（ANNS）是推荐系统和搜索引擎召回阶段的核心基础设施，直接解决大规模向量检索的性能与更新难题，虽属底层系统优化但业务价值极高；另因来自中国公司额外加 1 分。",
+    "translation": "GPU 加速的近似最近邻搜索：为速度量化，为变更构建",
+    "summary_zh": "提出名为 Jasper 的 GPU 原生 ANNS 系统，通过无锁流式插入算法、高效 RaBitQ 量化及优化的贪婪搜索内核，实现了支持动态数据更新的高吞吐低延迟向量检索。",
+    "key_points": [
+      "提出名为 Jasper 的 GPU 原生 ANNS 系统，通过无锁流式插入算法、高效 RaBitQ 量化及优化的贪婪搜索内核，实现了支持动态数据更新的高吞吐低延迟向量检索"
+    ]
+  },
+  {
+    "arxiv_id": "2607.22287",
+    "title": "Efficient Recommendations via Graph Coarsening and Label Propagation",
+    "authors": [
+      "Alessandro Sbandi",
+      "Federico Siciliano",
+      "Fabrizio Silvestri"
+    ],
+    "summary": "Graph-based recommendations are widely adopted in real-world industrial applications. However, graphs in these systems often reach a massive scale, posing notable scalability and efficiency challenges. This requires techniques that can effectively balance predictive quality with computational cost. One promising approach is graph coarsening, an adaptive graph reduction technique that offers a way to systematically construct smaller, yet structurally representative, versions of the original large-scale graphs.\n  In this work, we propose a flexible two-stage diffusion framework that combines graph coarsening with multi-step label propagation in the telecommunications domain. Domain-specific heuristics are applied to first aggregate nodes into meaningful communities, reducing graph size while preserving essential business-relevant relationships. An initial diffusion process done by a Label Propagation Algorithm (LPA) or a Graph Neural Network (GNN) propagates labels across the coarsened graph to produce coarse-grained predictions. Finally, a second LPA within subgraphs generates the final recommendations for individual users.\n  On a real-world telecommunications dataset, when using LPA in both stages, our method achieves up to +24% NDCG@5 over the full-graph LPA baseline. Incorporating a lightweight GNN in the first stage further boosts NDCG@5 by more than 50%, but requires substantial training and inference time. Through extensive experiments and a detailed ablation, we quantify these trade-offs and demonstrate that our coarsening-driven approach delivers an optimal balance between scalability, latency, and recommendation quality.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.22287",
+    "pdf_url": "https://arxiv.org/pdf/2607.22287.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种结合图粗化与标签传播的两阶段框架，直接解决工业级推荐系统中的可扩展性与效率问题，属于核心推荐技术。",
+    "translation": "基于图粗化与标签传播的高效推荐方法",
+    "summary_zh": "提出一种两阶段扩散框架，先通过领域启发式规则聚合节点构建粗粒度图并进行初步扩散，再在子图内执行二次标签传播以生成最终用户推荐，旨在平衡大规模图推荐系统的计算成本与预测质量。",
+    "key_points": [
+      "提出一种两阶段扩散框架，先通过领域启发式规则聚合节点构建粗粒度图并进行初步扩散，再在子图内执行二次标签传播以生成最终用户推荐，旨在平衡大规模图推荐系统的计算成本与预测质量"
+    ]
+  },
+  {
+    "arxiv_id": "2607.22012",
+    "title": "Cross-Domain Off-Policy Evaluation and Learning for Contextual Bandits",
+    "authors": [
+      "Yuta Natsubori",
+      "Masataka Ushiku",
+      "Yuta Saito"
+    ],
+    "summary": "Off-Policy Evaluation and Learning (OPE/L) in contextual bandits is rapidly gaining popularity in real systems because new policies can be evaluated and learned securely using only historical logged data. However, existing methods in OPE/L cannot handle many challenging but prevalent scenarios such as few-shot data, deterministic logging policies, and new actions. In many applications, such as personalized medicine, content recommendations, education, and advertising, we need to evaluate and learn new policies in the presence of these challenges. Existing methods cannot evaluate and optimize effectively in these situations due to the notorious variance issue or limited exploration in the logged data. To enable OPE/L even under these unsolved challenges, we propose a new problem setup of Cross-Domain OPE/L, where we have access not only to the logged data from the target domain in which the new policy will be implemented but also to logged datasets collected from other domains. This novel formulation is widely applicable because we can often use historical data not only from the target hospital, country, device, or user segment but also from other hospitals, countries, devices, or segments. We develop a new estimator and policy gradient method to solve OPE/L by leveraging both target and source datasets, resulting in substantially enhanced OPE/L in the previously unsolved situations in our empirical evaluations.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.22012",
+    "pdf_url": "https://arxiv.org/pdf/2607.22012.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "论文针对推荐系统和广告中的离线策略评估与学习（OPE/L）痛点提出跨域解决方案，虽包含医疗等场景但核心方法直接适用于 RecSys/Ads 业务。",
+    "translation": "上下文多臂老虎机的跨域离线策略评估与学习",
+    "summary_zh": "提出跨域离线策略评估与学习新范式，通过利用源域和目标域的日志数据联合训练，解决小样本、确定性日志及新动作场景下的方差大与探索不足问题。",
+    "key_points": [
+      "提出跨域离线策略评估与学习新范式，通过利用源域和目标域的日志数据联合训练，解决小样本、确定性日志及新动作场景下的方差大与探索不足问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05204",
+    "title": "Entities as Retrieval Signals: A Systematic Study of Coverage, Supervision, and Evaluation in Entity-Oriented Ranking",
+    "authors": [
+      "Shubham Chatterjee"
+    ],
+    "summary": "Entity-oriented retrieval assumes that relevant documents exhibit query-relevant entities, yet evaluations report conflicting results. We show this inconsistency stems not from model failure, but from evaluation.\n  On TREC Robust04, we evaluate six neural rerankers and 437 unsupervised configurations against BM25. Across 443 systems, none improves MAP by more than 0.05 under open-world evaluation over the full candidate set, despite strong gains under entity-restricted settings. The best configuration matches the official Robust04 best system and outperforms most neural rerankers, indicating that the architecture is not the limiting factor. Instead, the bottleneck is the entity channel: even under idealized selection, entity signals cover only 19.7\\% of relevant documents, and no method achieves both high coverage and discrimination.\n  We explain this via a distinction between Conceptual Entity Relevance (CER) -- semantic relatedness -- and Observable Entity Relevance (OER) -- corpus-grounded discriminativeness under a given linker. All supervision strategies operate at the CER level and ignore the linking environment, leading to signals that are semantically valid but not discriminative. Improving supervision therefore does not recover open-world performance: stronger signals reduce coverage without improving effectiveness.\n  Conditional and open-world evaluation answer different questions: exploiting entity evidence versus improving retrieval under realistic linking, but are often conflated. Progress requires datasets with entity-level discriminativeness and evaluation that reports both coverage and effectiveness. Until then, conditional gains do not imply open-world effectiveness, and open-world failures do not invalidate entity-based models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-23",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2604.05204",
+    "pdf_url": "https://arxiv.org/pdf/2604.05204.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索系统中的实体检索与重排序评估问题，属于核心搜索技术范畴，但主要揭示现有方法的局限性而非提出新的架构创新。",
+    "translation": "实体作为检索信号：面向实体排序中覆盖率、监督与评估的系统性研究",
+    "summary_zh": "本文通过区分概念实体相关性与可观察实体相关性，揭示了实体检索在开放世界评估中性能受限的根本原因是实体链接的覆盖率瓶颈而非模型架构缺陷。",
+    "key_points": [
+      "本文通过区分概念实体相关性与可观察实体相关性，揭示了实体检索在开放世界评估中性能受限的根本原因是实体链接的覆盖率瓶颈而非模型架构缺陷"
+    ]
+  },
+  {
+    "arxiv_id": "2607.22042",
+    "title": "LAMAR: An Open Language-Aware Multilingual Alignment Reranker",
+    "authors": [
+      "Seongtae Hong",
+      "Youngjoon Jang",
+      "Jungseob Lee",
+      "Seungyoon Lee",
+      "Heuiseok Lim"
+    ],
+    "summary": "In multilingual retrieval augmented generation, a retriever can retrieve relevant documents written in multiple languages, which are subsequently reranked before answer generation. However, it remains unclear whether existing multilingual rerankers consider document language when ordering semantically relevant candidates. Our analysis shows that these rerankers do not consistently prioritize documents written in the same language as the query when semantically equivalent documents are available across languages, even though document language can affect answer generation. We release LAMAR, a language aware multilingual cross encoder trained to account for both semantic relevance and language coherence. LAMAR first uses English anchored relevance distillation to establish consistent relevance scoring across multilingual inputs and then applies preference alignment for language coherence to encourage documents written in the same language as the query to receive higher rankings while retaining semantic relevance. In a controlled experiment designed to assess language coherence, LAMAR achieves the best performance overall and across all languages examined individually. LAMAR also remains competitive on established multilingual reranking benchmarks. In practical retrieval settings, LAMAR achieves the best results across all reported metrics when reranking candidates retrieved in the first stage. These results demonstrate that LAMAR accounts for language coherence while achieving strong performance on general multilingual reranking benchmarks.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.22042",
+    "pdf_url": "https://arxiv.org/pdf/2607.22042.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "affiliation_lines": [
+      "KoreaUniversity",
+      "lent documents are available across languages, even though Query language",
+      "Model—https://huggingface.co/nlpai-lab/LAMAR-600m"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文专注于多语言 RAG 中的重排序，属于通用 NLP/LLM 研究范畴，未明确针对推荐系统或搜索引擎的具体业务场景（如电商、信息流），因此相关性较低。",
+    "translation": "LAMAR：一种开放的感知语言多语言对齐重排序器",
+    "summary_zh": "提出一种结合英语锚定相关性蒸馏与语言一致性偏好对齐的多语言跨编码器重排序方法，旨在解决多语言检索中语义相关但语言不匹配文档的排序问题。",
+    "key_points": [
+      "提出一种结合英语锚定相关性蒸馏与语言一致性偏好对齐的多语言跨编码器重排序方法，旨在解决多语言检索中语义相关但语言不匹配文档的排序问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.22356",
+    "title": "Integrated Order Dispatching and Routing for Last-Mile Pickup via Deep Reinforcement Learning",
+    "authors": [
+      "Yida Xu",
+      "Zhaofang Mao",
+      "Yuheng Miao",
+      "Jiaxin Zhang",
+      "Yiting Sun"
+    ],
+    "summary": "In recent years, the growing complexity of last-mile pickup operations has increased the need for fast and accurate decision-making on logistics platforms. This challenge is fundamentally driven by two key and tightly coupled decision-making processes: order dispatching and routing. Solving them separately overlooks their interdependence, while fully end-to-end learning can be unstable and costly on large, variable-scale instances due to sparse rewards. To solve this problem, we propose an integrated optimization framework which couples a learned routing oracle with real-time dispatching heuristics. For the routing subproblem, we develop a Dynamic-Residual Graph Attention Network encoder with a Look-Ahead Courier-Personalized decoder. For the dispatching subproblem, we develop a routing-oracle-guided dispatching heuristic with local search, where the oracle provides near-optimal solutions to select candidate couriers while retaining real-time scalability. Extensive experiments on real-world datasets from Cainiao Logistics are used to test the performance of our approach, including an offline evaluation and an online rolling-horizon simulation. The experimental results show that our approach outperforms other benchmarks regarding solution quality and solving time, indicating it can effectively support logistics companies in solving real-time and large-scale last-mile pickup problems.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.22356",
+    "pdf_url": "https://arxiv.org/pdf/2607.22356.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "本文聚焦物流运筹优化（派单与路径规划），虽来自菜鸟且涉及决策，但属于纯 RL/运筹领域，缺乏推荐系统或搜索引擎核心的检索、排序及用户建模技术，仅因中国公司背景加 1 分。",
+    "translation": "基于深度强化学习的最后一公里取件订单调度与路径规划一体化研究",
+    "summary_zh": "提出一种集成优化框架，通过耦合学习型路径规划 Oracle 与实时调度启发式算法，解决最后一公里取件中调度与路径规划的强耦合决策问题。",
+    "key_points": [
+      "提出一种集成优化框架，通过耦合学习型路径规划 Oracle 与实时调度启发式算法，解决最后一公里取件中调度与路径规划的强耦合决策问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.21599",
+    "title": "Decoupled Attention Fusion: Accelerating RAG with Efficient KV Cache Reuse",
+    "authors": [
+      "Xiabao Wu",
+      "Wentao Liu",
+      "Yongchao Liu",
+      "Jiajun Zheng"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) effectively mitigates hallucinations in Large Language Models (LLMs) but suffers from prohibitive Time-To-First-Token (TTFT) latency in long-context scenarios. Reusing pre-computed document KV caches addresses this but introduces a distribution mismatch, where offline caches lack the inter-document attention patterns required for coherent reasoning. CacheBlend reduces recomputation via selective attention, but suffers severe accuracy degradation at longer contexts. To address these challenges, we propose Decoupled Attention Fusion (DAF), a framework that maintains high accuracy while significantly reducing recomputation overhead. DAF decouples the attention process into three integrated stages: important-token self-attention to restore missing inter-document attention, question-document self-attention for standard inference, and a state fusion that concatenates their outputs to synthesize the final hidden states. By decoupling these operations into dense patterns, DAF is natively compatible with Flash-Attention kernels, maximizing hardware utilization without requiring complex attention masks. Experiments show that DAF delivers up to 2 times speedup over CacheBlend and 5.6 times over full recomputation with vLLM on long-context benchmarks, without sacrificing accuracy.",
+    "categories": [
+      "cs.PF",
+      "cs.AI"
+    ],
+    "published": "2026-05-03",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.21599",
+    "pdf_url": "https://arxiv.org/pdf/2607.21599.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "1AntGroup,China;2SoutheastUniversity,Nanjing,China",
+      "trievalandgenerationquality,limitingitsscalabilityintruly"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 推理加速研究（RAG/KV Cache），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景且加分后仍属低优先级。",
+    "translation": "解耦注意力融合：通过高效 KV 缓存复用加速 RAG",
+    "summary_zh": "提出解耦注意力融合框架，将注意力过程分解为关键 token 自注意力和问档自注意力三个阶段，以在复用预计算 KV 缓存时恢复文档间注意力模式并降低重计算开销。",
+    "key_points": [
+      "提出解耦注意力融合框架，将注意力过程分解为关键 token 自注意力和问档自注意力三个阶段，以在复用预计算 KV 缓存时恢复文档间注意力模式并降低重计算开销"
+    ]
+  },
+  {
+    "arxiv_id": "2606.18497",
+    "title": "Ghost Vectors: Soft-Deleted Embeddings Remain Reconstructible in HNSW Vector Databases",
+    "authors": [
+      "Chandranil Chakraborttii",
+      "Jackeline García Alvarado",
+      "Sitora Abdulofizova",
+      "Shivanshu Dwivedi"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) allows large language models to access external and private corpora for factual, domain-specific responses. Modern RAG pipelines use hierarchical navigable small world (HNSW) vector databases for efficient similarity search. When a user requests data deletion, the systems typically only mark the record as deleted, leaving the embedding on disk physically unchanged. This soft-delete operation raises compliance concerns under data-erasure and retention requirements such as GDPR Article 17 and HIPAA. Analysis on three HNSW implementations confirms that deleted vectors remain physically recoverable by accessing the raw index files at the storage layer, bypassing API access. Using the Vec2Text inversion model without domain-specific fine-tuning, we show this vulnerability on multiple real-world datasets and data modalities. On Wikipedia biographical living persons dataset (BLP), we successfully recover 25.5% of exact person names and 46.4% of geographic locations (ROUGE-L 0.185). Recovery reaches 100% for both patient age and gender markers (ROUGE-L 0.290) on highly structured, sensitive data (NIH Synthea dataset). On soft-deleted image embeddings, we show 100% tissue classification on histopathology patches (p=1.02e-07) and top-1 identity recovery reaches 99% on facial embeddings (p<0.01). This work introduces Epoch Key Rotation, which encrypts vectors and discards the key upon deletion. Epoch key rotation reduces observed PII recovery to 0% and completes in 2.5 ms for 500 deleted vectors (approximately 0.005 ms/record). Additionally, it generates an ECDSA-signed cryptographic proof as an auditable record of the deletion event.",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.DB"
+    ],
+    "published": "2026-06-16",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2606.18497",
+    "pdf_url": "https://arxiv.org/pdf/2606.18497.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "本文聚焦于向量数据库的隐私安全与数据删除合规性（GDPR），属于纯安全/系统研究，未涉及推荐或搜索的核心算法（召回、排序、用户建模等）创新，虽提及 RAG 但非直接解决 RecSys 业务问题。",
+    "translation": "幽灵向量：HNSW 向量数据库中软删除的嵌入仍可被重构",
+    "summary_zh": "本文揭示了 HNSW 向量数据库中软删除操作无法物理清除数据的安全漏洞，并提出了一种基于密钥轮换的加密删除方案以实现可审计的数据彻底擦除。",
+    "key_points": [
+      "本文揭示了 HNSW 向量数据库中软删除操作无法物理清除数据的安全漏洞，并提出了一种基于密钥轮换的加密删除方案以实现可审计的数据彻底擦除"
+    ]
+  },
+  {
+    "arxiv_id": "2605.03534",
+    "title": "SURE-RAG: Sufficiency and Uncertainty-Aware Evidence Verification for Selective Retrieval-Augmented Generation",
+    "authors": [
+      "Jingxi Qiu",
+      "Zeyu Han",
+      "Cheng Huang"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) grounds answers in retrieved passages, yet relevance does not guarantee sufficiency: a topical passage may still fail to justify the answer. We study evidence sufficiency verification for selective RAG answering, in which a verifier receives a question, a candidate answer, and retrieved evidence and decides whether the evidence supports, refutes, or is insufficient for the answer, answering only when support is established. We present SURE-RAG, an aggregation protocol that treats evidence sufficiency as a set-level property: missing hops and unresolved conflicts cannot be detected by scoring passages independently. A shared claim-evidence verifier produces a local relation distribution for each (claim, passage) pair, which SURE-RAG aggregates into four interpretable answer-level feature blocks (coverage, relation strength, uncertainty, and retrieval), producing a three-way decision and an auditable selective score. We evaluate on HotpotQA-RAG v3, a controlled multi-hop benchmark, under an artifact-aware protocol (shortcut baselines, counterfactual swaps, no-oracle checks, and GPT-4o audits). Calibrated SURE-RAG attains 0.9075 Macro-F1 (raw 0.8951 +/- 0.0069), well above DeBERTa mean-pooling (0.6516) and a GPT-4o judge (0.7284), and on par with a strong concat cross-encoder (0.8888 +/- 0.0109) while remaining fully auditable. At 30% coverage, risk falls from 0.2588 to 0.1642, a 37% relative reduction. As a boundary-mapping experiment, we contrast SURE-RAG with GPT-4o on HaluBench unsafe detection: the ranking reverses (0.3343 vs. 0.7389 unsafe-F1), indicating that controlled sufficiency verification and natural hallucination detection are distinct problems.",
+    "categories": [
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2605.03534",
+    "pdf_url": "https://arxiv.org/pdf/2605.03534.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/LLM 研究论文，专注于问答系统中的证据充分性验证，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "SURE-RAG：面向选择性检索增强生成的充分性与不确定性感知证据验证",
+    "summary_zh": "该论文提出一种集合级证据验证协议，通过聚合局部关系分布来判断检索到的证据是否足以支持生成的答案，从而实现仅在证据充分时进行回答的选择性生成机制。",
+    "key_points": [
+      "该论文提出一种集合级证据验证协议，通过聚合局部关系分布来判断检索到的证据是否足以支持生成的答案，从而实现仅在证据充分时进行回答的选择性生成机制"
+    ]
+  },
+  {
+    "arxiv_id": "2607.22319",
+    "title": "Towards Trustworthy and Cost-Efficient Data Integration: From Naïve RAG to Agentic RAG",
+    "authors": [
+      "Chuangtao Ma",
+      "Arijit Khan"
+    ],
+    "summary": "Large language models (LLMs) and AI agents have demonstrated strong potential for data integration in zero-shot and few-shot settings. However, they continue to face significant accuracy and cost challenges in enterprise environments due to a persistent knowledge gap. This paper envisions trustworthy, scalable, and cost-efficient integration through knowledge-grounded LLMs and agents operating within a retrieval-augmented generation (RAG) workflow. Here, trustworthiness refers to evidence-grounded, verifiable reasoning, where integration decisions are transparently supported by retrieved knowledge, robust against hallucination, and consistent across tasks. We trace the evolution from classic RAG to GraphRAG and KG-RAG (knowledge graph-based RAG), highlighting how these paradigms bridge parametric and contextual knowledge. Building on this trajectory, we explore the shift toward Agentic RAG, where autonomous multi-agent systems adaptively plan, retrieve, refine, and reason for complex integration tasks. We examine optimization strategies for cost-efficient integration, addressing computational bottlenecks in large-scale enterprise settings. Finally, we outline open challenges and future directions toward building reliable, explainable, and scalable knowledge-grounded integration systems.",
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-07-27",
+    "url": "https://arxiv.org/abs/2607.22319",
+    "pdf_url": "https://arxiv.org/pdf/2607.22319.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于利用 LLM 和 Agent 进行通用数据集成（Data Integration）的纯 LLM 研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），属于排除类别。",
+    "translation": "迈向可信且高效的数据集成：从朴素 RAG 到代理式 RAG",
+    "summary_zh": "本文探讨了从经典 RAG 演进至基于知识图谱及多智能体协作的 Agentic RAG 范式，旨在通过知识 grounding 解决企业数据集成中的幻觉与成本问题。",
+    "key_points": [
+      "本文探讨了从经典 RAG 演进至基于知识图谱及多智能体协作的 Agentic RAG 范式，旨在通过知识 grounding 解决企业数据集成中的幻觉与成本问题"
+    ]
+  }
+]

@@ -1,0 +1,374 @@
+[
+  {
+    "arxiv_id": "2607.17017",
+    "title": "WHALE: A Scalable Unified Model for Recommendation with Wukong-HSTU Architecture",
+    "authors": [
+      "Renqin Cai",
+      "Dawei Sun",
+      "Yuanjun Yao",
+      "Zhiyong Wang",
+      "Velvin Fu",
+      "Maggie Zhuang",
+      "Yu Shi",
+      "Zhongnan Fang",
+      "Xuan Cao",
+      "Jing Qian",
+      "Rui Li"
+    ],
+    "summary": "As scalability becomes increasingly important in recommendation modeling, recent architectures have advanced the modeling of two broad sources of ranking signals along separate paths: non-sequence features, including user, item, context, and cross features; and sequence features from user behavior histories. Wukong and HSTU have emerged as representative scalable backbones for these paths: Wukong scales high-order non-sequence feature-interaction modeling, while HSTU scales long user-behavior sequence modeling. Despite their complementary strengths, practical architectures that combine these two types of feature modeling remain underexplored. We present WHALE, a scalable unified recommendation architecture that jointly models non-sequence and sequence features on top of Wukong and HSTU. Each WHALE layer contains a Wukong module, an HSTU module, and an attention-based fusion module in which Wukong-derived interaction representations query HSTU-derived behavior representations. This design keeps both backbones active throughout the network and enables progressive Wukong-HSTU exchange, allowing high-order feature crosses to repeatedly retrieve fine-grained evidence from long user histories. To make WHALE practical for industrial deployment, we introduce customized Triton kernels and other model-systems co-design techniques to improve training and inference efficiency. On large-scale industrial recommendation data, WHALE achieves consistent gains in offline experiments. Additionally, it delivers positive online gains with a modest serving-throughput trade-off. The method has been deployed in production systems. Overall, WHALE provides a practical example of how these two sources of information can be scalably unified in an industrial recommendation model.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-07-19",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.17017",
+    "pdf_url": "https://arxiv.org/pdf/2607.17017.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文提出了专为工业级推荐系统设计的可扩展统一架构 WHALE，直接解决了非序列特征与长序列行为建模融合的核心难题，且已在中国公司生产环境部署，完全符合高优先级标准（含中国公司 +1 分）。",
+    "translation": "WHALE：基于悟空 -HSTU 架构的可扩展统一推荐模型",
+    "summary_zh": "提出一种融合 Wukong 高阶特征交互与 HSTU 长序列建模的统一推荐架构，通过注意力机制实现两类特征的深层渐进式交互，并辅以算子优化以支持工业级大规模部署。",
+    "key_points": [
+      "提出一种融合 Wukong 高阶特征交互与 HSTU 长序列建模的统一推荐架构，通过注意力机制实现两类特征的深层渐进式交互，并辅以算子优化以支持工业级大规模部署"
+    ]
+  },
+  {
+    "arxiv_id": "2511.00176",
+    "title": "Effectiveness of LLMs in Temporal User Profiling for Recommendation",
+    "authors": [
+      "Milad Sabouri",
+      "Masoud Mansoury",
+      "Kun Lin",
+      "Bamshad Mobasher"
+    ],
+    "summary": "Effectively modeling the dynamic nature of user preferences is crucial for enhancing recommendation accuracy and fostering transparency in recommender systems. Traditional user profiling often overlooks the distinction between transitory short-term interests and stable long-term preferences. This paper examines the capability of leveraging Large Language Models (LLMs) to capture these temporal dynamics, generating richer user representations through distinct short-term and long-term textual summaries of interaction histories. Our observations suggest that while LLMs tend to improve recommendation quality in domains with more active user engagement, their benefits appear less pronounced in sparser environments. This disparity likely stems from the varying distinguishability of short-term and long-term preferences across domains; the approach shows greater utility where these temporal interests are more clearly separable (e.g., Movies\\&TV) compared to domains with more stable user profiles (e.g., Video Games). This highlights a critical trade-off between enhanced performance and computational costs, suggesting context-dependent LLM application. Beyond predictive capability, this LLM-driven approach inherently provides an intrinsic potential for interpretability through its natural language profiles and attention weights. This work contributes insights into the practical capability and inherent interpretability of LLM-driven temporal user profiling, outlining new research directions for developing adaptive and transparent recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-10-31",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2511.00176",
+    "pdf_url": "https://arxiv.org/pdf/2511.00176.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接研究利用 LLM 进行推荐系统中的时序用户建模，区分长短期兴趣以提升推荐效果，属于 LLM for RecSys 的核心应用；且来自中国公司，按规定额外加 1 分。",
+    "translation": "大语言模型在推荐系统时序用户画像中的有效性研究",
+    "summary_zh": "提出利用大语言模型生成独立的短长期文本摘要来捕捉用户偏好的动态变化，从而构建更具解释性的用户表示以优化推荐系统。",
+    "key_points": [
+      "提出利用大语言模型生成独立的短长期文本摘要来捕捉用户偏好的动态变化，从而构建更具解释性的用户表示以优化推荐系统"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16633",
+    "title": "Beyond Fixed Depths and Widths: Optimizing Textual Decoding Tries in LLM-based Generative Recommendation",
+    "authors": [
+      "Jingzhe Liu",
+      "Hanbing Wang",
+      "Jiliang Tang",
+      "Liam Collins",
+      "Tong Zhao",
+      "Neil Shah",
+      "Mingxuan Ju"
+    ],
+    "summary": "Generative recommendation (GR) is an increasingly popular paradigm in recommender systems, with a prominent line of work using LLMs as autoregressive backbones to predict the next item's term IDs (e.g., titles or keywords). The success of autoregressive generation hinges on constrained beam search over a decoding trie to ensure that generated outputs correspond to valid items. However, current research predominantly focuses on generating more comprehensive term IDs to describe items, while largely neglecting the structural design of the decoding trie formed by these terms. This can lead to a trie that is poorly suited to beam search, which degrades performance. To address this, we examine the effectiveness of term IDs from the perspective of decoding trie optimization. Through empirical and theoretical analyses, we identify two desirable properties for a highly performant trie: (1) adaptive and variable ID length, enabling items with varying semantic richness to be represented by IDs of appropriate lengths, and (2) constrained branching factors, especially at shallow levels, which drastically improves the success rate of constrained beam search. Motivated by these properties, we introduce BONSAI: Branching-Optimized Node Structure for Adaptive Identifiers, a novel framework that co-designs textual term IDs and their underlying decoding trie. BONSAI extracts recommendation-informative words from item metadata and employs a minimum set cover formulation to recursively build a trie that satisfies the above properties. Experiments reveal that BONSAI achieves up to a 21.6% relative improvement over state-of-the-art baselines. Further analyses confirm the crucial role of our proposed properties, and demonstrate their generalizability to be applied to enhance the performance of other term ID methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-18",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16633",
+    "pdf_url": "https://arxiv.org/pdf/2607.16633.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的生成式推荐系统（Generative Recommendation），提出优化解码 Trie 结构以提升推荐性能，属于 LLM 在推荐领域的核心应用创新。",
+    "translation": "超越固定深度与宽度：优化基于大语言模型的生成式推荐中的文本解码前缀树",
+    "summary_zh": "本文提出 BONSAI 框架，通过协同设计文本项 ID 与其底层解码前缀树结构，利用自适应 ID 长度和约束分支因子优化束搜索过程，从而提升生成式推荐系统的效率与准确性。",
+    "key_points": [
+      "本文提出 BONSAI 框架，通过协同设计文本项 ID 与其底层解码前缀树结构，利用自适应 ID 长度和约束分支因子优化束搜索过程，从而提升生成式推荐系统的效率与准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.24233",
+    "title": "Bayesian Rational Search Engine User",
+    "authors": [
+      "Shichao Ma"
+    ],
+    "summary": "A user faces a list returned by a search system, ordered by a noisy proxy for relevance, and decides whether to pay a fixed cost to inspect another item or stop with the best she has uncovered. She does not enter the page knowing how good its items are, so each inspection both produces a candidate item and refines her belief about the page's underlying quality. We show the optimal policy is a standout rule: the user stops as soon as her best find exceeds her posterior mean of an average item on the page by a depth-dependent threshold. The induced dynamics collapse to a one-dimensional Markov chain, which yields the full distribution of inspection depth through a closed-form recursion. The model uncovers three hidden mechanisms (trust, commit, and cut-losses) on why users stop and yields a rich set of testable implications. Moreover, the Bayesian-rational view delivers a novel learning-to-rank likelihood: an observed depth censors the latent relevance path into a polyhedron of survival inequalities, whose Gaussian probability is a differentiable function of any feature-based relevance prediction model.",
+    "categories": [
+      "cs.IR",
+      "econ.TH"
+    ],
+    "published": "2026-07-18",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2605.24233",
+    "pdf_url": "https://arxiv.org/pdf/2605.24233.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索引擎用户行为建模，提出了基于贝叶斯理性的搜索停止策略及新型 Learning-to-Rank 似然函数，核心解决搜索排序与用户交互问题；虽含理论推导，但明确应用于搜索场景且来自中国公司，符合高优先级标准。",
+    "translation": "贝叶斯理性搜索引擎用户模型",
+    "summary_zh": "提出一种贝叶斯理性用户搜索停止策略，将观测到的搜索深度转化为可微分的 Learning-to-Rank 似然函数，以优化基于特征的相关性预测模型。",
+    "key_points": [
+      "提出一种贝叶斯理性用户搜索停止策略，将观测到的搜索深度转化为可微分的 Learning-to-Rank 似然函数，以优化基于特征的相关性预测模型"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16230",
+    "title": "RouteCost: A Production-Inspired Multi-Stage Framework for Pre-Order Shipping Cost Estimation in E-Commerce",
+    "authors": [
+      "Xianling Zeng",
+      "Zihan Yu",
+      "Sichen Zhao",
+      "Yalun Qi",
+      "Zhiming Xue"
+    ],
+    "summary": "Accurate pre-order shipping cost estimation is important in e-commerce because it affects price presentation, margin planning, and conversion. In practice, shipping cost is shaped not only by distance but also by destination demand mix, billable weight, dimensional pricing, surcharge triggers, and latent operational effects such as shipment consolidation. Static lookup methods therefore miss important sources of variation, while monolithic regressors may exploit strong but non-causal correlations. We propose RouteCost, a production-inspired multi-stage framework that decomposes the problem into time-aware demand forecasting, fee-card-informed baseline pricing, Stage 2 residual correction, and proxy-based box-consolidation inference. Route-level cost estimates are aggregated through a route-weighted expectation formulation to produce product-level shipping cost predictions. Across over 250,000 orders, 260 products, and 18 months of order history, the framework improves predictive quality and aggregate calibration while preserving route-level interpretability.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-06-24",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16230",
+    "pdf_url": "https://arxiv.org/pdf/2607.16230.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于电商物流成本估算，虽与电商业务相关，但属于供应链/运营优化范畴，并非核心的推荐、搜索或广告排序算法研究。鉴于来自中国公司且应用于电商场景，给予基础分外加 1 分。",
+    "translation": "RouteCost：一种受生产启发的电商预购运费估算多阶段框架",
+    "summary_zh": "提出一种多阶段框架，通过分解需求预测、基线定价、残差修正及包裹合并推断，解决电商中受多种复杂因素影响的预购运费估算问题。",
+    "key_points": [
+      "提出一种多阶段框架，通过分解需求预测、基线定价、残差修正及包裹合并推断，解决电商中受多种复杂因素影响的预购运费估算问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16354",
+    "title": "A Predict-then-Correct Loop Based on Few-Shot Continuous Contextual Bandit for Demand Forecasting",
+    "authors": [
+      "Zhiwei Lei",
+      "Benedict Jun Ma",
+      "Ilya Jackson"
+    ],
+    "summary": "Retail demand forecasting remains difficult when demand shifts faster than static forecasting models can be retrained, especially in early demand cycles where newly observed labels are sparse. To address this, this study aims to improve adaptive retail forecasting by proposing a predict-then-correct (PtC) framework that retains a first-stage machine learning (ML) forecast and applies a few-shot continuous contextual bandit correction policy with similar-SKUs augmentation and top-p masked updating. Across Walmart retail data and an exclusive beverage dataset, PtC delivers statistically significant reductions in MAPE, MAE, and RMSE across stable & high volume, stable & low volume, and erratic & intermittent demand patterns, improves average RMSE by 9.52% over the ML-only baseline in the ablation study, and yields lower inventory costs than base-stock, proximal policy optimization, and soft actor-critic policies under the tested lead-time settings. These findings show that online forecast correction can bridge offline demand learning and real-time retail decision-making by adapting to sparse feedback without fully retraining the base forecasting model.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-07-17",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16354",
+    "pdf_url": "https://arxiv.org/pdf/2607.16354.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦零售需求预测与库存优化，虽属电商核心环节但更偏向供应链运筹而非典型的推荐/搜索排序算法；因来自中国公司且涉及自适应学习，给予基础分加额外加分。",
+    "translation": "基于少样本连续上下文老虎机的预测 - 校正循环用于需求预测",
+    "summary_zh": "提出一种预测后校正框架，利用少样本连续上下文老虎机策略对静态机器学习预测进行实时修正，以解决新商品或需求快速变化场景下的稀疏反馈适应问题。",
+    "key_points": [
+      "提出一种预测后校正框架，利用少样本连续上下文老虎机策略对静态机器学习预测进行实时修正，以解决新商品或需求快速变化场景下的稀疏反馈适应问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16209",
+    "title": "Shapley Context Pruning: A Cooperative Game Perspective for Context Reranking and Pruning",
+    "authors": [
+      "Yanqiao Chen",
+      "Dongsheng Hou",
+      "Yuhan Rui",
+      "Zhen Cao",
+      "Yepang Liu"
+    ],
+    "summary": "Context reranking and pruning have become essential for improving the efficiency of modern Retrieval-Augmented Generation (RAG) systems, yet an interpretable and unified framework remains underexplored. Previous work has primarily emphasized lexical retrieval, cross-encoder architectures, model distillation, and Low-Rank Adaptation (LoRA), mostly relying on heuristic loss functions and empirical attribution. This paper presents Shapley Context Pruning (SCP), a novel framework for context reranking that establishes a cooperative-game-theory perspective for importance attribution by modeling the context as a cooperative game. Balancing the trade-off between fine-grained and coarse-grained representations, we employ a Deep Sets architecture to approximate a permutation-invariant value function at the sentence level, utilizing pre-trained language models as sentence embedders and optimizing via a pairwise margin ranking loss. To ensure practical scalability without sacrificing mathematical rigor, we leverage Monte-Carlo sampling for efficient training and inference, providing formal theoretical error bounds and sample complexity guarantees for preserving Top-K subset rankings. Furthermore, we conduct comprehensive experiments-spanning supporting-sentence recall, Needle-in-the-Haystack (NIAH) evaluations, long-context QA, and multi-hop reasoning-alongside rigorous ablation studies on embedding quality and attribution strategies. The model achieves competitive downstream QA performance against robust baselines.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-05-10",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16209",
+    "pdf_url": "https://arxiv.org/pdf/2607.16209.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于提升 RAG（检索增强生成）系统的上下文重排序效率，属于纯 LLM/NLP 应用研究，未涉及推荐系统或搜索引擎的核心业务场景（如电商、信息流推荐等）。",
+    "translation": "Shapley 上下文剪枝：基于合作博弈论的上下文重排序与剪枝框架",
+    "summary_zh": "提出一种基于合作博弈论的 Shapley 上下文剪枝框架，利用 Deep Sets 架构和蒙特卡洛采样对 RAG 系统中的上下文句子进行重要性归因与重排序，以平衡细粒度与粗粒度表示并优化长上下文处理效率。",
+    "key_points": [
+      "提出一种基于合作博弈论的 Shapley 上下文剪枝框架，利用 Deep Sets 架构和蒙特卡洛采样对 RAG 系统中的上下文句子进行重要性归因与重排序，以平衡细粒度与粗粒度表示并优化长上下文处理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16208",
+    "title": "ColGraphRAG: Late-Interaction Evidence Retrieval for Multimodal GraphRAG",
+    "authors": [
+      "Seonok Kim"
+    ],
+    "summary": "Graph-grounded multimodal question answering organizes text, tables, and images in a structured evidence graph, yet end-to-end accuracy depends on which multimodal assets are ranked highly enough to enter downstream reasoning; for graph-linked images, single-vector bi-encoder similarity can discard patch- and token-level structure needed for fine-grained alignment. We evaluate replacing the visual candidate-ranking operator over graph-linked image nodes with late-interaction MaxSim-style multi-vector scoring in the ColBERT/ColPali lineage, while keeping offline graph construction, text- and table-side retrieval, structured extraction, and downstream reasoning unchanged. On MultimodalQA, this change is associated with improved retrieval-stage point estimates for graph-linked image candidates and downstream QA gains, with larger movement where visual evidence matters most and mixed trends on text-dominant questions; we interpret the pattern as mechanism-level evidence for graph-linked visual evidence inclusion, while broader validation and finer graph-level diagnostics remain important future work.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-05-09",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16208",
+    "pdf_url": "https://arxiv.org/pdf/2607.16208.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于多模态问答（QA）任务中的证据检索，属于纯 NLP/多模态研究，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、个性化），根据规则应给低分。",
+    "translation": "ColGraphRAG：面向多模态 GraphRAG 的晚期交互证据检索",
+    "summary_zh": "提出在多模态图检索增强生成中，利用晚期交互多向量评分机制替代传统双编码器，以优化图链接图像节点的细粒度对齐与检索排序。",
+    "key_points": [
+      "提出在多模态图检索增强生成中，利用晚期交互多向量评分机制替代传统双编码器，以优化图链接图像节点的细粒度对齐与检索排序"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16973",
+    "title": "TurboVec: A Case Study in Cost-Efficient Private Retrieval for Enterprise RAG via Codebook-Oblivious Quantization",
+    "authors": [
+      "Navnit Shukla",
+      "Kamal Pandey",
+      "Omsankar Tiwari"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems increasingly power enterprise LLM applications, yet the vector retrieval layer introduces two underexplored challenges: (1) trained codebook quantizers may expose corpus statistics during index construction, creating a leakage channel in multi-tenant deployments, and (2) post-hoc filtering for tenant isolation degrades recall on selective queries. We study TurboVec, an open-source vector index built on TurboQuant - a codebook-oblivious scalar quantizer requiring no corpus-dependent training. On the DBpedia OpenAI embeddings benchmark (d=1536, 100K-999K vectors), TurboQuant 4-bit outperforms trained FAISS Product Quantization at the same memory budget by 8.5-8.9 percentage points in Recall@5 across all scales. Compared to HNSW (R@5=0.991) and IVF-PQ (R@5=0.840), TurboQuant occupies a distinct design point: higher recall than IVF-PQ without training, at 4-8x less memory than HNSW. Deployed on Snowpark Container Services, TurboVec achieves 11ms median query latency at 100K vectors versus 707ms for warehouse brute-force scan. Kernel-level allowlist filtering maintains 0.86-0.93 Recall@10 across 10-1000 tenant workloads versus 0.09-0.19 for post-filter baselines. Codebook-oblivious design reduces membership inference accuracy to near-random (50.0%) versus 57.3% for PQ codebooks. Limitations include single dataset evaluation, uncompressed HNSW comparison, and privacy evaluation on synthetic data only.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-07-18",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16973",
+    "pdf_url": "https://arxiv.org/pdf/2607.16973.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于企业级 RAG 系统中的向量检索隐私与效率优化，属于纯 LLM 应用基础设施研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "TurboVec：通过无码本量化实现企业 RAG 高效私有检索的案例研究",
+    "summary_zh": "提出一种无需依赖语料训练的无码本标量量化方法 TurboQuant，旨在解决多租户 RAG 系统中向量索引的统计信息泄露问题并提升特定查询的召回率。",
+    "key_points": [
+      "提出一种无需依赖语料训练的无码本标量量化方法 TurboQuant，旨在解决多租户 RAG 系统中向量索引的统计信息泄露问题并提升特定查询的召回率"
+    ]
+  },
+  {
+    "arxiv_id": "2503.10677",
+    "title": "A Survey on Knowledge-Oriented Retrieval-Augmented Generation",
+    "authors": [
+      "Mingyue Cheng",
+      "Yucong Luo",
+      "Jie Ouyang",
+      "Qi Liu",
+      "Huijie Liu",
+      "Li Li",
+      "Shuo Yu",
+      "Bohou Zhang",
+      "Jiawei Cao",
+      "Jie Ma",
+      "Daoyu Wang",
+      "Enhong Chen"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has gained significant attention in recent years for its potential to enhance natural language understanding and generation by combining large-scale retrieval systems with generative models. RAG leverages external knowledge sources, such as documents, databases, or structured data, to improve model performance and generate more accurate and contextually relevant outputs. This survey aims to provide a comprehensive overview of RAG by examining its fundamental components, including retrieval mechanisms, generation processes, and the integration between the two. We discuss the key characteristics of RAG, such as its ability to augment generative models with dynamic external knowledge, and the challenges associated with aligning retrieved information with generative objectives. We also present a taxonomy that categorizes RAG methods, ranging from basic retrieval-augmented approaches to more advanced models incorporating multimodal data and reasoning capabilities. Additionally, we review the evaluation benchmarks and datasets commonly used to assess RAG systems, along with a detailed exploration of its applications in fields such as question answering, summarization, and information retrieval. Finally, we highlight emerging research directions and opportunities for improving RAG systems, such as enhanced retrieval efficiency, model interpretability, and domain-specific adaptations. This paper concludes by outlining the prospects for RAG in addressing real-world challenges and its potential to drive further advancements in natural language processing.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-07-20",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2503.10677",
+    "pdf_url": "https://arxiv.org/pdf/2503.10677.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 综述，主要关注问答、摘要等通用 NLP 任务，未直接针对推荐系统或搜索产品的核心环节（如排序、召回），虽有提及信息检索但缺乏 RecSys 具体应用。",
+    "translation": "面向知识的检索增强生成综述",
+    "summary_zh": "本文系统梳理了检索增强生成（RAG）的核心组件与分类体系，探讨了其在问答和摘要等通用 NLP 任务中的应用及未来方向。",
+    "key_points": [
+      "本文系统梳理了检索增强生成（RAG）的核心组件与分类体系，探讨了其在问答和摘要等通用 NLP 任务中的应用及未来方向"
+    ]
+  },
+  {
+    "arxiv_id": "2607.02104",
+    "title": "When Can You Debias an LLM Judge? Identifiability Limits, a Test, and Designs for Top-k Ranking",
+    "authors": [
+      "Jian Xu",
+      "Delu Zeng",
+      "John Paisley",
+      "Qibin Zhao"
+    ],
+    "summary": "Large language models (LLMs) are increasingly used as cheap, scalable judges that compare candidate outputs pairwise. Because such judges prefer verbose or well-formatted answers, the natural fix is to add bias covariates to a Bradley--Terry model and estimate the bias away. We show this cannot work as advertised: the quality/bias split is \\emph{not identified} by pairwise comparisons, and the failure is exact -- across $48$ real judge-pools the profile likelihood over the coefficient is flat to $\\mathbf{0.0000}$ \\textbf{nats}, and scaling the comparisons $26\\times$ buys none. A ``debiased'' score is selected by the prior, not recovered from data. Our contribution is accordingly not a better estimator but a characterization of \\emph{when prior-based correction is justified}, plus designs that supply the missing information when it is not. The assumption the prior encodes -- quality is a priori uncorrelated with the covariate -- pays only while $\\mathrm{corr}(θ,x)$ stays below a crossing point (configuration-dependent, $0.22$--$0.60$), which is what makes the same model help on LLMBar and hurt on SummEval and Nectar. We give two escapes: a \\textbf{trusted-anchor gate} that decides per (judge, covariate, task) (no false enables in $6{,}000$ decisions at $K\\ge10$ anchors, a rate our sample bounds at $\\le6\\%$), and a \\textbf{paired rendering design}. Across fifteen real LLM judges bias is heterogeneous and capability-dependent: correction improves \\topk{} recall by $0.20$--$0.32$ on five biased-but-competent cheap judges and is a no-op on frontier ones (Spearman $ρ{=}{-}0.84$ between competence and gain over the $14$ competent judges, $p{<}10^{-3}$), concentrating the benefit where at-scale evaluation happens.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-18",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.02104",
+    "pdf_url": "https://arxiv.org/pdf/2607.02104.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 评估方法研究，专注于解决 LLM 作为裁判时的偏差识别问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "何时能对 LLM 裁判去偏？可识别性极限、检验方法及 Top-k 排序设计",
+    "summary_zh": "本文证明了仅凭成对比较无法从数据中识别并分离 LLM 裁判的质量与偏差，提出了基于先验假设的修正适用条件及两种补充实验设计方案。",
+    "key_points": [
+      "本文证明了仅凭成对比较无法从数据中识别并分离 LLM 裁判的质量与偏差，提出了基于先验假设的修正适用条件及两种补充实验设计方案"
+    ]
+  },
+  {
+    "arxiv_id": "2604.15783",
+    "title": "Similarity-Based Bike Station Expansion via Hybrid Denoising Autoencoders",
+    "authors": [
+      "Oluwaleke Yusuf",
+      "M. Tsaqif Wismadi",
+      "Adil Rasheed"
+    ],
+    "summary": "Urban bike-sharing systems require strategic station expansion to meet growing demand. Traditional allocation approaches rely on explicit demand modelling that may not capture the urban characteristics distinguishing successful stations. This study addresses the need to exploit patterns from existing stations to inform expansion decisions, particularly in data-constrained environments. We present a data-driven framework leveraging existing stations deemed desirable by operational metrics. A hybrid denoising autoencoder (HDAE) learns compressed latent representations from multi-source grid-level features (socio-demographic, built environment, and transport network), with a supervised classification head regularising the embedding space structure. Expansion candidates are selected via greedy allocation with spatial constraints based on latent-space similarity to existing stations. Evaluation on Trondheim's bike-sharing network demonstrates that HDAE embeddings yield more spatially coherent clusters and allocation patterns than raw features. Sensitivity analyses across similarity methods and distance metrics confirm robustness. A consensus-based procedure across multiple parametrisations distils 32 high-confidence extension zones where all parametrisations agree. The results demonstrate how representation learning captures complex patterns that raw features miss, enabling evidence-based expansion planning without explicit demand modelling. The consensus procedure strengthens recommendations by requiring agreement across parametrisations, while framework configurability allows planners to incorporate operational knowledge. The methodology generalises to any location-allocation problem where existing desirable instances inform the selection of new candidates.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-17",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2604.15783",
+    "pdf_url": "https://arxiv.org/pdf/2604.15783.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文属于城市计算与交通规划领域，专注于共享单车站点选址，与推荐系统或搜索引擎的核心技术（召回、排序、用户建模等）无直接关联；虽来自中国公司但非 RecSys 业务场景，且纯 LLM/通用 ML 规则适用，故给低分。",
+    "translation": "基于混合去噪自编码器的相似性自行车站点扩展研究",
+    "summary_zh": "提出一种利用混合去噪自编码器学习多源网格特征潜在表示的方法，通过计算候选区域与现有成功站点的潜在空间相似度来指导共享单车站点的选址扩展。",
+    "key_points": [
+      "提出一种利用混合去噪自编码器学习多源网格特征潜在表示的方法，通过计算候选区域与现有成功站点的潜在空间相似度来指导共享单车站点的选址扩展"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16431",
+    "title": "RIMS: Preference Optimization via Smoothed Multi-pair Aggregation for Small-Scale LLM Retrieval-Augmented Generation",
+    "authors": [
+      "Pei Tian",
+      "Zihan Dong",
+      "Tianci Liu",
+      "Linjun Zhang",
+      "Haoyu Wang"
+    ],
+    "summary": "Small-scale language models (SLMs) are attractive for retrieval-augmented generation (RAG) in resource-constrained settings, but their limited capacity makes them highly sensitive to noisy or spurious retrieved evidence. Existing preference-based methods such as RoseRAG select only the hardest single preference pair via hard argmin/argmax, discarding the remaining signal; others treat multiple pairs as independent binary comparisons, resulting in low data utilization. We propose RIMS, a three-stage preference optimization framework comprising (1) synthetic chain-of-thought preference data generation via rejection sampling using the target SLM itself without relying on proprietary models, (2) a differentiable soft aggregation mechanism that replaces hard selection with a smooth operator, preserving gradient signal from all preference pairs while retaining the discriminative structure of margin-aware selection, and (3) preference optimization with the smoothed objective applied to multiple alignment algorithms. We theoretically show that the smoothed approximation admits a controllable error bound and that smooth aggregation yields provably tighter gradient alignment to the oracle objective than hard selection. Experiments on four multi-hop question answering benchmarks show that our approach outperforms state-of-the-art baselines across multiple SLM backbones, achieving consistent gains in Exact Match and F1 under noisy retrieval conditions. Our implementation is available at https://github.com/tptrix29/RIMS.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-07-17",
+    "updated": "2026-07-21",
+    "url": "https://arxiv.org/abs/2607.16431",
+    "pdf_url": "https://arxiv.org/pdf/2607.16431.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于提升小模型在 RAG 问答任务中的表现，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模等）。",
+    "translation": "RIMS：基于平滑多对聚合的小规模 LLM 检索增强生成偏好优化",
+    "summary_zh": "该论文提出一种三阶段偏好优化框架，通过合成思维链数据和使用可微软聚合机制替代硬选择，以解决小规模语言模型在噪声检索证据下的敏感性问题。",
+    "key_points": [
+      "该论文提出一种三阶段偏好优化框架，通过合成思维链数据和使用可微软聚合机制替代硬选择，以解决小规模语言模型在噪声检索证据下的敏感性问题"
+    ]
+  }
+]

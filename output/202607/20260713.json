@@ -1,0 +1,258 @@
+[
+  {
+    "arxiv_id": "2607.06993",
+    "title": "Large Behavior Model: A Promptable Digital Twin of the Retail Customer",
+    "authors": [
+      "Wachiravit Modecrua",
+      "Krittin Pachtrachai",
+      "Touchapon Kraisingkorn"
+    ],
+    "summary": "Customer behavior modeling underpins recommendation, marketing, and decision support, yet existing approaches either optimize predictive accuracy without explaining decisions or simulate users without grounding them in real behavioral data. We present the Large Behavioral Model (LBM) that learns customer decision making directly from large-scale retail transactions through a unified Person-Environment formulation. Customer state is represented by a behavioral profile derived from historical purchases, while product context is incorporated through retrieval-augmented generation. The model is trained using continued pre-training on verbalized behavioral data, supervised fine-tuning for decision generation, and reinforcement learning with verifiable rewards for evidence-based calibration. We evaluate the proposed framework on purchase prediction, hard-negative discrimination, basket completion, promotion response, and cross-domain voucher redemption. The model consistently outperforms frontier general-purpose language models on in-domain retail tasks while demonstrating strong zero-shot and fine-tuned transfer across retailers and decision domains. Ablation studies show that continued pre-training is the primary driver of behavioral generalization, retrieval is most effective when applied during both training and inference, and reinforcement learning improves reliance on explicit behavioral evidence over generic language-model priors. These results demonstrate that behavioral knowledge encoded in transaction histories can be effectively learned by language models, providing a scalable foundation for customer digital twins and behavior simulation.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2607.06993",
+    "pdf_url": "https://arxiv.org/pdf/2607.06993.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对零售场景下的用户行为建模与推荐任务（购买预测、购物篮补全等），提出了基于 LLM 的大行为模型（LBM），属于核心的 RecSys 用户建模创新，且来自中国公司。",
+    "translation": "大行为模型：可提示的零售客户数字孪生",
+    "summary_zh": "提出一种大行为模型（LBM），通过统一的人 - 环境公式和检索增强生成，直接从大规模零售交易数据中学习客户决策过程，构建可模拟和预测用户行为的数字孪生体。",
+    "key_points": [
+      "提出一种大行为模型（LBM），通过统一的人 - 环境公式和检索增强生成，直接从大规模零售交易数据中学习客户决策过程，构建可模拟和预测用户行为的数字孪生体"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09090",
+    "title": "EXHOLD: Experience-Aware Real-Time Hold Control for Large-Scale Ride-Hailing Matching at DiDi",
+    "authors": [
+      "Xu Liu",
+      "Kai Wan",
+      "Zihao Lu"
+    ],
+    "summary": "In large-scale ride-hailing, hold control is a critical mechanism for improving passenger-driver experience. By selectively delaying certain driver-order pairs, the system waits for better opportunities, reduces cancellations, and mitigates wasted driver effort. However, existing industrial hold strategies often rely on heuristic thresholding over multiple predictive models, which can be brittle under non-stationary traffic and hard to optimize for multi-objective experience signals.\n  We propose EXHOLD, a deployable two-stage framework decoupling experience-aware pair assessment from hold-time execution. In Stage I, we learn a decision model assigning each driver-order pair to discrete, interpretable experience tiers by optimizing a unified objective that aggregates satisfaction signals across the matching funnel. In Stage II, we solve for a monotone hold-time schedule via constrained optimization over empirical quantiles. This explicitly enforces service guardrails bounding the unnecessary holding of promising matches while maximizing overall experience improvement.\n  We evaluate EXHOLD through randomized A/B experiments in DiDi's production system in Brazil. Results show consistent gains in marketplace efficiency and experience: EXHOLD increases trip completion and driver income, significantly reduces passenger cancellations, and improves funnel efficiency. Ablations and behavioral analyses confirm both stages are essential and that the policy makes calibrated decisions under spatiotemporal heterogeneity. EXHOLD is currently deployed, serving production traffic in Brazil.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2607.09090",
+    "pdf_url": "https://arxiv.org/pdf/2607.09090.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接解决滴滴（本地生活）大规模网约车匹配中的核心延迟控制问题，提出了两阶段体验感知框架，属于高优先级的工业界推荐/搜索系统创新，且符合中国公司加分项。",
+    "translation": "EXHOLD：滴滴大规模网约车匹配中基于体验感知的实时延迟控制",
+    "summary_zh": "提出一种解耦的两阶段框架，首先通过统一目标学习将司乘对划分为可解释的体验层级，随后基于经验分位数进行约束优化以生成单调的延迟时间表，从而在保障服务底线的前提下最大化整体匹配体验。",
+    "key_points": [
+      "提出一种解耦的两阶段框架，首先通过统一目标学习将司乘对划分为可解释的体验层级，随后基于经验分位数进行约束优化以生成单调的延迟时间表，从而在保障服务底线的前提下最大化整体匹配体验"
+    ]
+  },
+  {
+    "arxiv_id": "2508.18665",
+    "title": "Membership Inference Attacks on In-Context Examples in LLM-based Recommender Systems",
+    "authors": [
+      "Jiajie He",
+      "Min-Chun Chen",
+      "Xintong Chen",
+      "Xinyang Fang",
+      "Yuechun Gu",
+      "Keke Chen"
+    ],
+    "summary": "Large language models (LLMs) based recommender systems (RecSys) can adapt flexibly across different domains. It uses in-context learning (ICL), i.e., prompts, including sensitive historical user-specific item interactions, to customize the recommendation functions. However, no study has examined whether such private information may be exposed by novel privacy attacks. We design two membership inference attacks (MIAs): \\emph{ItemMem}, and \\emph{RecInertia}, aiming to identify whether system prompts contain the victim's information. We have carefully evaluated them on the latest open-source LLMs and three well-known RecSys datasets. The results confirm that the MIA threat to LLM RecSys is realistic and can be more sophisticated than prompt extraction. They utilize the unique prompt structures in ICL RecSys and cannot be easily mitigated with existing defense methods on prompt extraction.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2508.18665",
+    "pdf_url": "https://arxiv.org/pdf/2508.18665.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统（LLM-based RecSys）中的隐私安全问题，提出了具体的成员推断攻击方法，属于 LLM 在推荐系统中的直接应用与安全评估，非纯 LLM 研究。",
+    "translation": "基于大语言模型的推荐系统中上下文示例的成员推断攻击",
+    "summary_zh": "本文针对利用上下文学习（ICL）进行个性化推荐的 LLM 推荐系统，设计了两种利用提示词结构特征的成员推断攻击方法，以验证用户历史交互数据在系统提示中面临的隐私泄露风险。",
+    "key_points": [
+      "本文针对利用上下文学习（ICL）进行个性化推荐的 LLM 推荐系统，设计了两种利用提示词结构特征的成员推断攻击方法，以验证用户历史交互数据在系统提示中面临的隐私泄露风险"
+    ]
+  },
+  {
+    "arxiv_id": "2607.05734",
+    "title": "SCOReD: Student-Aware CoT Optimization for Recommendation Distillation",
+    "authors": [
+      "Haz Sameen Shahgir",
+      "Yufei Li",
+      "Xiaohan Wei",
+      "Yunchen Pu",
+      "Fei Tian",
+      "Chonglin Sun",
+      "Frank Shyu",
+      "Sandeep Pandey",
+      "Luke Simon",
+      "Yue Dong",
+      "Xi Liu"
+    ],
+    "summary": "Chain-of-thought (CoT) distillation in the recommendation domain is a necessary precursor to RL training, but raw teacher traces are ill-suited to this task. Large teachers approach the recommendation task with unusually high reasoning uncertainty, repeatedly rechecking their answers without revising them; supervised fine-tuning on such traces produces verbose students that never revise their initial guess. Furthermore, due to the novelty of the recommendation domain, the teacher's reasoning traces are highly out-of-distribution for the small student LLM.\n  We propose Student-Aware CoT Optimization for Recommendation Distillation (SCOReD), a CoT optimization framework tailored to recommendation that first parses each teacher trace into typed segments and uses the student LLM's attention to score the importance of each segment. Then SCOReD dynamically selects a per-segment edit (KEEP / REWRITE / FUSE / PRUNE) based on the output length and comparative log probability lift of the answer given the edit as per the student. Therefore, SCOReD prunes redundant sections of the reasoning trace while preserving information-dense sections and adapts raw teacher traces to the student's output distribution. Training on SCOReD-optimized CoTs provides a cleaner learning signal to the student model and improves over baseline SFT by 1.56% NDCG and 1.9% Recall@5, while reducing reasoning length by 27.3%.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2607.05734",
+    "pdf_url": "https://arxiv.org/pdf/2607.05734.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1University of California Riverside, 2Meta AI"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的 LLM 蒸馏问题，提出了优化思维链（CoT）以提升学生模型在推荐任务上的表现，属于 LLM for RecSys 的核心应用。",
+    "translation": "SCOReD：面向推荐蒸馏的学生感知思维链优化",
+    "summary_zh": "提出一种学生感知的思维链优化框架，通过解析教师推理轨迹并利用学生模型注意力动态选择编辑操作，以生成更适合学生分布的高质量推荐推理数据。",
+    "key_points": [
+      "提出一种学生感知的思维链优化框架，通过解析教师推理轨迹并利用学生模型注意力动态选择编辑操作，以生成更适合学生分布的高质量推荐推理数据"
+    ]
+  },
+  {
+    "arxiv_id": "2606.29762",
+    "title": "Do Recommendation Algorithms Work When Users Are LLM Agents? A Case Study on Moltbook",
+    "authors": [
+      "Daming Li",
+      "Simeng Han",
+      "Jialu Zhang"
+    ],
+    "summary": "Large language model (LLM) agents are increasingly populating web platforms, raising a fundamental question for recommender systems: do algorithms designed for human users still work when users are LLM agents that may not have well-defined content consumption preferences? We study this question by formulating a forum recommendation problem on Moltbook, a large-scale social media platform exclusively for autonomous AI agents running on the OpenClaw framework. We evaluate nine recommendation methods spanning simple heuristic rules, matrix factorization, itemand user-based collaborative filtering, graph-based, and sequential models on the task of predicting which forums an agent will engage with next.\n  We find that simple popularity-based rules or item-side collaborative filtering leveraging the platform and item structural information outperform techniques that explicitly learn a user representation. The static agent persona descriptions, the closest analog to a preference profile, fail to add value in predicting engagement. These results suggest that, on Moltbook, recommendation depends more on platform- and item-level structural signals than on user-specific personalization. We present multiple lines of empirical evidence that the observed content consumption patterns on Moltbook differ from well-established findings on human recommendation datasets, providing a new angle for studying agent societies and designing robust recommendation algorithms as agents increasingly populate the web.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2606.29762",
+    "pdf_url": "https://arxiv.org/pdf/2606.29762.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究 LLM Agent 作为用户时的推荐系统有效性，属于'LLM for RecSys'的核心范畴，虽为模拟环境但直击推荐算法在 AI 用户时代的根本问题；基础分 7 分，因来自中国公司（TAL）额外加 1 分。",
+    "translation": "当用户是 LLM 智能体时推荐算法还有效吗？基于 Moltbook 的案例研究",
+    "summary_zh": "本文通过在纯 LLM 智能体社交平台 Moltbook 上的实证研究，发现传统依赖用户画像的个性化推荐失效，而基于平台和物品结构信息的简单规则表现更佳，揭示了面向 AI 用户的推荐新范式。",
+    "key_points": [
+      "本文通过在纯 LLM 智能体社交平台 Moltbook 上的实证研究，发现传统依赖用户画像的个性化推荐失效，而基于平台和物品结构信息的简单规则表现更佳，揭示了面向 AI 用户的推荐新范式"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09264",
+    "title": "Beyond Topicality: A Conceptual Analysis of Societal Relevance and Its Application to Search Results and AI Responses",
+    "authors": [
+      "Dirk Lewandowski"
+    ],
+    "summary": "This paper examines \"societal relevance,\" a concept introduced by Haider and Sundin to address the limitations of traditional relevance models in web search. While topical and user relevance are foundational to information science, they are insufficient for managing harmful content such as misinformation or discrimination found on the uncontrolled web. This study investigates three analytical questions: the definition of societal relevance, its practical application in search systems, and its distinction from information quality measures. By analyzing various combinations of system, user, and societal relevance, the paper explores how search outputs can be optimized for the \"greater good\". Although the concept remains theoretically underdeveloped, it provides a vital framework for developing value-driven search engines that prioritize ethical outcomes and societal interests over mere keyword matching.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2607.09264",
+    "pdf_url": "https://arxiv.org/pdf/2607.09264.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要探讨搜索伦理与社会相关性的理论框架，属于边缘相关的概念分析，缺乏具体的推荐/搜索算法创新或工程落地方案；虽来自 TAL 加 1 分，但纯理论性质限制了其技术参考价值。",
+    "translation": "超越主题性：社会相关性概念分析及其在搜索结果与 AI 响应中的应用",
+    "summary_zh": "本文提出“社会相关性”概念框架，旨在弥补传统主题相关性在应对 misinformation 等有害内容时的不足，主张构建以社会利益和伦理结果为导向的价值观驱动型搜索引擎。",
+    "key_points": [
+      "本文提出“社会相关性”概念框架，旨在弥补传统主题相关性在应对 misinformation 等有害内容时的不足，主张构建以社会利益和伦理结果为导向的价值观驱动型搜索引擎"
+    ]
+  },
+  {
+    "arxiv_id": "2204.12121",
+    "title": "Cross-media Scientific Research Achievements Query based on Ranking Learning",
+    "authors": [
+      "Benzhi Wang",
+      "Meiyu Liang",
+      "Ang Li"
+    ],
+    "summary": "With the advent of the information age, the scale of data on the Internet is getting larger and larger, and it is full of text, images, videos, and other information. Different from social media data and news data, scientific research achievement information has the characteristics of many proper nouns and strong ambiguity. The traditional single-mode query method based on keywords can no longer meet the needs of scientific researchers and managers of the Ministry of Science and Technology. Scientific research project information and scientific research scholar information contain a large amount of valuable scientific research achievement information. Evaluating the output capability of scientific research projects and scientific research teams can effectively assist managers in decision-making. In view of the above background, this paper expounds on the research status from four aspects: characteristic learning of scientific research results, cross-media research results query, ranking learning of scientific research results, and cross-media scientific research achievement query systems.",
+    "categories": [
+      "cs.IR",
+      "cs.DL"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2204.12121",
+    "pdf_url": "https://arxiv.org/pdf/2204.12121.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于科研成果的跨媒体查询系统，属于特定领域的垂直搜索应用，而非通用的推荐/搜索核心算法创新或电商/社交场景，且未涉及 LLM 直接应用，相关性较弱。",
+    "translation": "基于排序学习的跨媒体科研成果查询",
+    "summary_zh": "针对科研成果数据专有名词多、歧义性强的特点，提出一种融合特征学习、跨媒体检索与排序学习的查询系统框架，以支持对科研项目及学者成果的多模态评估与决策辅助。",
+    "key_points": [
+      "针对科研成果数据专有名词多、歧义性强的特点，提出一种融合特征学习、跨媒体检索与排序学习的查询系统框架，以支持对科研项目及学者成果的多模态评估与决策辅助"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09015",
+    "title": "Correlation-Aware Contextual Bandits with Surrogate Rewards for LLM Routing",
+    "authors": [
+      "Ajay Narayanan Sridhar",
+      "Ronak Singh",
+      "Mehrdad Mahdavi",
+      "Vijaykrishnan Narayanan"
+    ],
+    "summary": "We study contextual bandit problems with correlated arms and access to surrogate reward signals produced by a machine learning model, motivated by applications such as large language model (LLM) routing. Unlike classical contextual bandits that rely solely on bandit feedback and assume conditional independence across arms, our setting allows context-dependent inter-arm correlations and auxiliary reward information that may be noisy or misspecified. We propose algorithms that leverage such surrogate rewards through two complementary designs. A coupled reward-mixing approach pools true and surrogate rewards to accelerate learning when surrogate signals are reliable, while a decoupled prediction-mixing approach maintains separate estimators for bandit feedback and surrogate rewards and adaptively combines their predictions. This decoupling yields robustness to surrogate misspecification, recovering regret guarantees comparable to reward-only bandit methods in the worst case, while achieving improved regret when surrogate predictions are sufficiently informative. We provide theoretical regret analyses for both approaches and evaluate them on LLM routing benchmarks under varying accuracy versus cost trade-offs. The results demonstrate improved sample efficiency and consistently better accuracy-cost trade-offs compared to standard contextual bandit baselines and strong static routing methods.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2607.09015",
+    "pdf_url": "https://arxiv.org/pdf/2607.09015.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "affiliation_lines": [
+      "The Pennsylvania State University",
+      "LLM providers exist [38, 23, 51], and thousands more are openly available through repositories such as Hugging"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯强化学习（Contextual Bandits）与 LLM 系统优化研究，专注于 LLM 路由的成本 - 效率权衡，未涉及推荐或搜索核心业务场景。",
+    "translation": "基于代理奖励的相关性感知上下文多臂老虎机用于大语言模型路由",
+    "summary_zh": "提出一种利用相关臂结构和代理奖励信号的上下文多臂老虎机算法，通过耦合或解耦策略融合真实反馈与模型预测，以优化大语言模型路由中的样本效率与成本权衡。",
+    "key_points": [
+      "提出一种利用相关臂结构和代理奖励信号的上下文多臂老虎机算法，通过耦合或解耦策略融合真实反馈与模型预测，以优化大语言模型路由中的样本效率与成本权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09405",
+    "title": "Similarity search generalisation in contrastive learning with InfoNCE loss",
+    "authors": [
+      "Nick Whiteley"
+    ],
+    "summary": "Similarity search is a primary application of embedding models trained by contrastive learning. For one of the most popular contrastive learning loss functions, InfoNCE, we show that the population risk with $k$ negative samples is $O(1/k)$ close to an expected cross-entropy which quantifies deviation between i) a softmax similarity search over unseen data using the learned embedding function, and ii) an idealised softmax search over the same data but using similarity implicitly represented in the positive sample generator. This complements existing interpretations of InfoNCE in the $k\\to\\infty$ limit which are phrased in terms of mutual information, and alignment versus uniformity in embeddings. To quantify generalisation performance, we introduce a new continuity bound for the InfoNCE loss, obtained via Gâteaux differentiation. The bound preserves the structure of averaging over negative samples present in the loss function and features an ``inverse temperature'' parameter which can be tuned to account for the algorithmic temperature. For embedding functions which are Lipschitz in a parameter, this yields a simple demonstration that the averaging effect of $k$ negative samples in the InfoNCE loss carries over to stabilisation of the generalisation error as $k$ grows.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-13",
+    "url": "https://arxiv.org/abs/2607.09405",
+    "pdf_url": "https://arxiv.org/pdf/2607.09405.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯机器学习理论（对比学习泛化界），虽提及相似性搜索但未针对推荐/搜索系统的具体场景或架构提出应用方案，缺乏直接业务关联。",
+    "translation": "InfoNCE 损失下对比学习中相似性搜索的泛化研究",
+    "summary_zh": "本文通过引入新的连续性边界，从理论上证明了 InfoNCE 损失中负样本数量的增加能够稳定泛化误差，从而解释了其在相似性搜索任务中的泛化机制。",
+    "key_points": [
+      "本文通过引入新的连续性边界，从理论上证明了 InfoNCE 损失中负样本数量的增加能够稳定泛化误差，从而解释了其在相似性搜索任务中的泛化机制"
+    ]
+  }
+]

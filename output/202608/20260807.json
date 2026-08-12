@@ -1,0 +1,532 @@
+[
+  {
+    "arxiv_id": "2608.02738",
+    "title": "Knowledge-Geometry Decoupling: Refreshable Pretrained Transfer for Streaming Recommendation",
+    "authors": [
+      "Zixuan Wang",
+      "Yuhong Chen",
+      "Yuxuan Zhu",
+      "Guidong Lei",
+      "Zhiluohan Guo",
+      "Yu Zhao",
+      "Kun Wang",
+      "Bangyang Hong",
+      "Kangle Wu",
+      "Yabo Ni",
+      "Anxiang Zeng",
+      "Cong Fu",
+      "Hui Li"
+    ],
+    "summary": "Industrial recommenders increasingly adopt the pretrain-then-transfer paradigm, yet behavioral distribution drift raises two questions: what to learn from behavior sequences, and how to transfer the learned knowledge while the pretrained model is continually refreshed. To resolve them, we propose Knowledge-Geometry Decoupling (KGD). For what to learn, conventional next-token prediction treats adjacency as dependency and may encode spurious transitions across unrelated sessions. We introduce Behavioral Multi-Token Prediction (BMTP) to retain only collaboratively or semantically related future items as supervision, yielding cleaner and more transferable behavioral knowledge. For how to transfer, pretrained knowledge and task-specific geometry impose conflicting optimization demands on shared parameters. To handle it, KGD assigns them to separate parameter sets: a refreshable encoder owns behavioral knowledge, while a task learner reads contextualized encoder states through read-only cross-attention and writes task-specific geometry through Anchored Calibration Residual (ACR) orthogonal to the pretrained embedding. The decoupled ownership enables continual knowledge refresh without task-gradient interference or invalidating downstream adaptation. KGD improves over strong pretrain-transfer baselines by 4-12% on eight public benchmarks and sustains its advantage over a 90-day production stream where baselines show no gains. KGD has been fully deployed in Shopee. In a live A/B test on Shopee Homepage Search, it increases GMV per user by 1.75% and advertising revenue by 1.53%, demonstrating its high practical value. We provide the core implementation of KGD at https://github.com/FuCongResearchSquad/KGD4REC.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.02738",
+    "pdf_url": "https://arxiv.org/pdf/2608.02738.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对流式推荐系统中的预训练迁移问题，提出了知识 - 几何解耦架构，并已在 Shopee 搜索和推荐场景中落地验证，完全符合核心领域进展标准。",
+    "translation": "知识 - 几何解耦：面向流式推荐的可刷新预训练迁移",
+    "summary_zh": "提出知识 - 几何解耦框架，通过行为多令牌预测提取纯净行为知识，并利用只读交叉注意力与锚定校准残差将通用知识与任务特定几何参数分离，以解决流式推荐中模型持续刷新时的分布漂移与梯度冲突问题。",
+    "key_points": [
+      "提出知识 - 几何解耦框架，通过行为多令牌预测提取纯净行为知识，并利用只读交叉注意力与锚定校准残差将通用知识与任务特定几何参数分离，以解决流式推荐中模型持续刷新时的分布漂移与梯度冲突问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05497",
+    "title": "EXCISE: Query-Side Exclusion for Late-Interaction Retrieval",
+    "authors": [
+      "Mohammed Ali",
+      "Abdelrahman Abdallah",
+      "Adam Jatowt"
+    ],
+    "summary": "Late-interaction retrievers handle exclusion queries poorly. When a user asks for X but not Z, the additive MaxSim score promotes documents covering Z, a problem we call exclusion inversion. We show that no readout of the frozen vectors recovers the constraint, because the difficulty lies in identifying the excluded topic, which depends on the query alone. EXCISE operates at query time and corrects the inversion while leaving the index frozen. Two query-side modules totalling 1.5M parameters identify the topic and re-embed a 100-document shortlist, and a parameter-free rule demotes candidates matching that topic. Across six collections and three backbones, EXCISE is the strongest system in all eighteen backbone-collection cells against that backbone's own frozen and fine-tuned baselines. It raises exclusion success@10 on ExcluIR from 0.058 to 0.691 and raises Boolean NOT accuracy from 0.25-0.29 to 0.90-0.92. Pooled over 1,860 queries, it outperforms every fine-tuned cross-encoder, each of which loses no-harm nDCG@10, whereas EXCISE matches its frozen baseline on its strongest backbone. We release X-BENCH, a tiered benchmark of explicit, implicit, and compound exclusions with no-harm and Boolean controls.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05497",
+    "pdf_url": "https://arxiv.org/pdf/2608.05497.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决搜索系统中的核心检索问题（带排除条件的查询），提出了针对 Late-Interaction 检索器的具体改进架构，属于高优先级的搜索核心技术；虽涉及向量处理但非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "EXCISE：面向晚期交互检索的查询端排除机制",
+    "summary_zh": "针对晚期交互检索器难以处理排除性查询的问题，提出一种仅在查询端运行的轻量级模块，通过识别排除主题并重嵌入候选文档来修正评分倒置，无需更新索引即可显著提升布尔否定检索精度。",
+    "key_points": [
+      "针对晚期交互检索器难以处理排除性查询的问题，提出一种仅在查询端运行的轻量级模块，通过识别排除主题并重嵌入候选文档来修正评分倒置，无需更新索引即可显著提升布尔否定检索精度"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05655",
+    "title": "Is Personalized Modality Weighting Actually Personalized? A Controlled Audit of Per-User Weighting Claims in Multimodal Recommenders",
+    "authors": [
+      "Jingyuan Zheng",
+      "Xin Zhang",
+      "Yang Gu",
+      "Dongjing Wang",
+      "Yuxiang Wang",
+      "Xudong Shen",
+      "Haiping Zhang",
+      "Youhuizi Li",
+      "Dongjin Yu"
+    ],
+    "summary": "Per-user modality weighting is deployed at billion-user scale in multimodal recommenders, through user modality-strength vectors, attention gates, meta-weight hypernetworks, and low-rank guided weights, each claiming a ranking gain from user-specific modality preference. Yet, to our knowledge, prior evaluations do not isolate a genuinely user-specific signal from a global modality weight plus model capacity. We audit this family with a two-contrast audit principle, reducing six implementations onto one shared collaborative backbone and measuring a utility gap (real-GM) against a single global modality weight and an identifiability gap (real-shuf) against an eval-time permutation of the user-weight binding. Across three independent short-video corpora, a single global weight already delivers nearly all of the content gain (+1.9/+3.6/+3.5pp over a no-modality baseline, p < .001). Making the weight per-user adds no consistent utility: no implementation wins on all corpora and metrics, and the few positive gaps are small (<=0.9pp) and flip. The shuffle control is necessary but not sufficient, since real-shuf reaches +128% of the content gain for heads that simultaneously lose to the global weight. We trace this dissociation to gates reading the shared collaborative embedding: decoupling the gate input collapses the inflated real-shuf to near zero while the utility conclusion stands. A monotone signal-implant dose-response (capture AUROC rising from 0.57 to 0.89 and from 0.64 to 1.00) verifies the harness would detect user-specific structure if present, and every finding replicates on a fourth, cross-domain e-commerce corpus. We propose reporting real-GM alongside real-shuf as a minimum evidentiary standard for personalization claims.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05655",
+    "pdf_url": "https://arxiv.org/pdf/2608.05655.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "NetEase"
+    ],
+    "affiliation_lines": [
+      "1SchoolofComputerScienceandTechnology,HangzhouDianziUniversity,Hangzhou,China",
+      "2CollegeofHumanities,HangzhouNormalUniversity,Hangzhou,China",
+      "3FuxiAILab,NetEaseGames,NetEaseInc.,Hangzhou,China",
+      "mentationsontoonesharedcollaborativebackboneandmea-"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态推荐系统中的核心组件（用户个性化模态加权）进行审计和评估，解决了推荐系统实际部署中的关键有效性问题，属于高优先级的 RecSys 核心领域研究。",
+    "translation": "个性化模态加权真的个性化吗？对多模态推荐系统中每用户加权主张的受控审计",
+    "summary_zh": "本文通过对比实验审计发现，现有复杂的多模态推荐用户个性化加权机制并未带来显著的额外收益，单一全局权重即可获取绝大部分内容增益，并提出了新的评估标准以验证个性化声明的真实性。",
+    "key_points": [
+      "本文通过对比实验审计发现，现有复杂的多模态推荐用户个性化加权机制并未带来显著的额外收益，单一全局权重即可获取绝大部分内容增益，并提出了新的评估标准以验证个性化声明的真实性"
+    ]
+  },
+  {
+    "arxiv_id": "2508.04811",
+    "title": "HCRide: Harmonizing Passenger Fairness and Driver Preference for Human-Centered Ride-Hailing",
+    "authors": [
+      "Lin Jiang",
+      "Yu Yang",
+      "Guang Wang"
+    ],
+    "summary": "Order dispatch systems play a vital role in ride-hailing services, which directly influence operator revenue, driver profit, and passenger experience. Most existing work focuses on improving system efficiency in terms of operator revenue, which may cause a bad experience for both passengers and drivers. Hence, in this work, we aim to design a human-centered ride-hailing system by considering both passenger fairness and driver preference without compromising the overall system efficiency. However, it is nontrivial to achieve this target due to the potential conflicts between passenger fairness and driver preference since optimizing one may sacrifice the other. To address this challenge, we design HCRide, a Human-Centered Ride-hailing system based on a novel multi-agent reinforcement learning algorithm called Harmonization-oriented Actor-Bi-Critic (Habic), which includes three major components (i.e., a multi-agent competition mechanism, a dynamic Actor network, and a Bi-Critic network) to optimize system efficiency and passenger fairness with driver preference consideration. We extensively evaluate our HCRide using two real-world ride-hailing datasets from Shenzhen and New York City. Experimental results show our HCRide effectively improves system efficiency by 2.02%, fairness by 5.39%, and driver preference by 10.21% compared to state-of-the-art baselines.",
+    "categories": [
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2508.04811",
+    "pdf_url": "https://arxiv.org/pdf/2508.04811.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文针对网约车（本地生活服务）的订单分发系统，属于搜索/推荐在匹配环节的直接应用，且来自中国公司加 1 分；虽核心为多智能体强化学习而非纯 LLM，但紧密贴合 RecSys 中的匹配与重排序场景。",
+    "translation": "HCRide：协调乘客公平性与司机偏好的以人为本网约车系统",
+    "summary_zh": "提出一种基于多智能体强化学习（Habic 算法）的网约车订单分发框架，通过动态 Actor 网络和双 Critic 网络机制，在不牺牲系统效率的前提下协同优化乘客公平性与司机偏好。",
+    "key_points": [
+      "提出一种基于多智能体强化学习（Habic 算法）的网约车订单分发框架，通过动态 Actor 网络和双 Critic 网络机制，在不牺牲系统效率的前提下协同优化乘客公平性与司机偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2511.17241",
+    "title": "Predicting Social Media User Actions: A Hybrid Approach for Common and Rare Behavior Prediction on Bluesky",
+    "authors": [
+      "Benjamin White",
+      "Anastasia Shimorina"
+    ],
+    "summary": "Understanding and predicting user behavior on social media platforms is crucial for content recommendation and platform design. While existing approaches focus primarily on common actions like retweeting and liking, the prediction of rare but significant behaviors remains largely unexplored. This paper presents a hybrid methodology for social media user behavior prediction that addresses both frequent and infrequent actions across a diverse action vocabulary. We evaluate our approach on a large-scale Bluesky dataset containing 6.4 million conversation threads spanning 12 distinct user actions across 25 persona clusters. Our methodology combines four complementary approaches: (i) a lookup database system based on historical response patterns; (ii) persona-specific LightGBM models with engineered temporal and semantic features for common actions; (iii) a specialized hybrid neural architecture fusing textual and temporal representations for rare action classification; and (iv) generation of text replies. Our persona-specific models achieve an average macro F1-score of 0.64 for common action prediction, while our rare action classifier achieves 0.56 macro F1-score across 10 rare actions. These results demonstrate that effective social media behavior prediction requires tailored modeling strategies recognizing fundamental differences between action types. Our approach achieved first place in the SocialSim: Social-Media Based Personas challenge organized at the Social Simulation with LLMs workshop at the Conference on Language Modeling (COLM 2025).",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2511.17241",
+    "pdf_url": "https://arxiv.org/pdf/2511.17241.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对社交媒体用户行为预测以优化内容推荐，明确解决了推荐系统中的核心用户建模问题；虽包含文本生成组件，但整体架构服务于行为预测而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "预测社交媒体用户行为：一种针对 Bluesky 常见与稀有行为的混合方法",
+    "summary_zh": "提出一种混合架构，结合历史查找、Persona 特异性 LightGBM 及融合文本时序特征的神经网络，分别针对社交场景中的高频与低频用户行为进行差异化建模与预测。",
+    "key_points": [
+      "提出一种混合架构，结合历史查找、Persona 特异性 LightGBM 及融合文本时序特征的神经网络，分别针对社交场景中的高频与低频用户行为进行差异化建模与预测"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05402",
+    "title": "Robustness and User-Perceived Value of Popularity Calibration in Music Recommendation: A User Study",
+    "authors": [
+      "Oleg Lesota",
+      "Gustavo Escobedo",
+      "Bruce Ferwerda",
+      "Simone Kopeinik",
+      "Dominik Kowald",
+      "Elisabeth Lex",
+      "Markus Schedl"
+    ],
+    "summary": "Popularity calibration in recommender systems has been studied both as a form of user-centered personalization and as an indicator of popularity bias. Most existing work evaluates calibration through offline metrics, often assuming that users prefer recommendation lists whose popularity distribution matches their historical consumption profile. However, user studies on calibration remain limited, and existing findings suggest that calibrated recommendations do not necessarily have a strong effect on user experience. Moreover, although prior work has shown that calibration metrics can correlate with users' perceptions of recommendation lists, the robustness of this relation remains unclear under different levels of item familiarity and incomplete user-history information. In this work, we study the perceived value and measurement reliability of popularity calibration in music recommendation. We construct personalized track lists from users' recent listening histories and use a controlled naive recommender to create lists with different popularity compositions: highpop-heavy, lowpop-heavy, and calibrated. We investigate whether users perceive differences between these lists, whether calibrated lists are preferred, how robust JSD-based popularity calibration is under different familiarity and history-availability conditions, and how computational popularity labels align with users' own popularity judgments. Our results show that users perceive differences in popularity composition, but do not clearly prefer calibrated lists. We further find that the relation between JSD and perceived popularity depends on item familiarity, list composition, and available user history, while computational and user-judged popularity labels only weakly align. These findings contribute to a more critical understanding of popularity calibration as both an offline metric and a user-facing construct.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05402",
+    "pdf_url": "https://arxiv.org/pdf/2608.05402.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的流行度校准问题进行用户研究，虽未提出新算法架构，但对评估指标与用户体验关系的深入分析具有高业务参考价值；非纯 LLM 研究。",
+    "translation": "音乐推荐中流行度校准的鲁棒性与用户感知价值：一项用户研究",
+    "summary_zh": "本文通过受控用户实验，探究了音乐推荐中流行度校准列表的用户感知差异、偏好程度及其在不同熟悉度和历史数据条件下的测量鲁棒性。",
+    "key_points": [
+      "本文通过受控用户实验，探究了音乐推荐中流行度校准列表的用户感知差异、偏好程度及其在不同熟悉度和历史数据条件下的测量鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2604.02183",
+    "title": "TRU: Targeted Reverse Update for Efficient Multimodal Recommendation Unlearning",
+    "authors": [
+      "Zhanting Zhou",
+      "KaHou Tam",
+      "Ziqiang Zheng",
+      "Zeyu Ma",
+      "Yang Yang"
+    ],
+    "summary": "Multimodal recommendation systems (MRS) jointly model user-item interaction graphs and rich item content, but this tight coupling makes user data difficult to remove once learned. Approximate machine unlearning offers an efficient alternative to full retraining, yet current MRS unlearning applies reverse updates largely uniformly across model components. We show that this uniform treatment is misaligned with modern MRS: deleted-data influence is distributed unevenly across \\textit{ranking behavior}, \\textit{modality branches}, and \\textit{model modules}. This non-uniformity gives rise to three bottlenecks in MRS unlearning: target-item persistence in the collaborative graph, modality imbalance across feature branches, and concentrated module-level sensitivity in the parameter space. To address this mismatch, we propose \\textbf{targeted reverse update} (TRU), a plug-and-play unlearning framework for MRS. Instead of applying a uniform global reversal, TRU performs three coordinated interventions across the model hierarchy: a ranking fusion gate to suppress residual target-item influence in ranking, branch-wise modality scaling to preserve retained multimodal representations, and capacity-aware parameter-group selection to localize reverse updates to deletion-sensitive modules. Across two backbones, three datasets, and three unlearning regimes, TRU achieves a stronger retain--forget trade-off than MMRecUn in most settings. In two challenging user-level cases, TRU also attains favorable operating points among all evaluated baselines. Security audits report the lowest MIA BalAcc and a tie for the lowest ASR among approximate methods in both audited settings, while wall-clock trajectories show earlier convergence to favorable retain--forget regions.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2604.02183",
+    "pdf_url": "https://arxiv.org/pdf/2604.02183.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态推荐系统（MRS）中的机器遗忘问题，提出了针对性的反向更新框架，属于推荐系统的核心安全与隐私维护技术，非纯 LLM 研究。",
+    "translation": "TRU：面向高效多模态推荐遗忘的定向反向更新",
+    "summary_zh": "针对多模态推荐系统中数据删除难的问题，提出一种定向反向更新框架，通过排序融合门控、分支模态缩放和感知容量的参数组选择，协同解决目标项残留、模态失衡及模块敏感度集中三大瓶颈。",
+    "key_points": [
+      "针对多模态推荐系统中数据删除难的问题，提出一种定向反向更新框架，通过排序融合门控、分支模态缩放和感知容量的参数组选择，协同解决目标项残留、模态失衡及模块敏感度集中三大瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2508.02091",
+    "title": "CRINN: Contrastive Reinforcement Learning for Approximate Nearest Neighbor Search",
+    "authors": [
+      "Xiaoya Li",
+      "Albert Wang",
+      "Guoyin Wang",
+      "Chris Shum",
+      "Jiwei Li"
+    ],
+    "summary": "Approximate nearest-neighbor search (ANNS) algorithms have become increasingly critical for recent AI applications, particularly in retrieval-augmented generation (RAG) and agent-based LLM applications. In this paper, we present CRINN, a new paradigm for ANNS algorithms. CRINN treats ANNS optimization as a reinforcement learning problem where execution speed serves as the reward signal. This approach enables the automatic generation of progressively faster ANNS implementations while maintaining accuracy constraints. Our experimental evaluation demonstrates CRINN's effectiveness across six widely-used NNS benchmark datasets. When compared against state-of-the-art open-source ANNS algorithms, CRINN achieves best performance on three of them (GIST-960-Euclidean, MNIST-784-Euclidean, and GloVe-25-angular), and tied for first place on two of them (SIFT-128-Euclidean and GloVe-25-angular). The implications of CRINN's success reach well beyond ANNS optimization: It validates that LLMs augmented with reinforcement learning can function as an effective tool for automating sophisticated algorithmic optimizations that demand specialized knowledge and labor-intensive manual refinement. Code can be found at https://github.com/ornith-ai/CRINN",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "cs.DB"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2508.02091",
+    "pdf_url": "https://arxiv.org/pdf/2508.02091.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦于通用近似最近邻搜索（ANNS）算法的自动化优化，虽提及 RAG 和 LLM 应用背景，但未直接针对推荐/搜索系统的核心业务场景（如召回、排序策略），属于有潜力的通用底层技术。",
+    "translation": "CRINN：用于近似最近邻搜索的对比强化学习方法",
+    "summary_zh": "该论文提出将 ANNS 优化建模为强化学习问题，利用执行速度作为奖励信号，自动生成了在保持精度约束下 progressively 更快的 ANNS 实现方案。",
+    "key_points": [
+      "该论文提出将 ANNS 优化建模为强化学习问题，利用执行速度作为奖励信号，自动生成了在保持精度约束下 progressively 更快的 ANNS 实现方案"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05441",
+    "title": "Filtered Vector Search in a Disaggregated Lakehouse: Composing Table-Format Pruning with Per-File ANN",
+    "authors": [
+      "Rakesh Jain",
+      "Thomas Griffin",
+      "Syed Zawad"
+    ],
+    "summary": "Approximate nearest-neighbor (ANN) search increasingly runs alongside structured data - \"find the 10 nearest documents where tenant='acme' AND lang='en'\" - yet similarity and filtering are usually bolted together: a specialized vector index for one, a separate filter step for the other. We ask what happens when both live inside an open lakehouse table (Apache Iceberg over Parquet on object storage), where the engine already owns a mature file-pruning stack (partition pruning, zone-maps, a bitmap index). We embed an IVF index in place in each Parquet file's footer and make filtered vector queries fast not with a new filtering algorithm but by composing the table's existing file pruning with per-file ANN: the planner prunes data files by the predicate first, then runs IVF only over the survivors. The index is built distributed and non-destructively - a metadata-only Iceberg replace that every other engine still reads - and a rendezvous-hashed per-file cache keeps object-store read latency from swamping the algorithmic win. The payoff comes entirely from file pruning. On an 11.5M x 768 table, warm IVF search is ~32x faster than brute force at recall@10 >= 0.90, a selective predicate having pruned 355 of 444 data files before ANN runs; on 5M real IBM Granite embeddings, a filter arriving across a join prunes four of five region partitions and runs nearly two orders of magnitude (~94x: 14.7 s -> 157 ms) faster than the query-time join at identical top-k, once the reduction is materialized into a region-partitioned layout. We characterize when the composition pays off - it requires file-level locality on the filter column, and the residual predicate is only safe to push into the search over a provably pure (partitioned) column, not a merely sorted one - and report the failure modes we hit bolting ANN onto a lakehouse engine.",
+    "categories": [
+      "cs.DB",
+      "cs.DC",
+      "cs.ET",
+      "cs.IR"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05441",
+    "pdf_url": "https://arxiv.org/pdf/2608.05441.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "IBMResearch IBMResearch IBMResearch"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于数据湖架构下的向量检索与过滤优化，属于搜索系统的基础设施层改进，虽非核心排序算法创新，但直接服务于大规模检索场景；因来自中国公司额外加 1 分。",
+    "translation": "解耦湖仓中的过滤向量搜索：组合表格式剪枝与每文件近似最近邻",
+    "summary_zh": "提出一种在 Apache Iceberg 湖仓表中嵌入每文件 IVF 索引的方法，通过利用现有的文件剪枝机制先过滤数据文件再执行向量检索，从而高效实现带条件的混合搜索。",
+    "key_points": [
+      "提出一种在 Apache Iceberg 湖仓表中嵌入每文件 IVF 索引的方法，通过利用现有的文件剪枝机制先过滤数据文件再执行向量检索，从而高效实现带条件的混合搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00065",
+    "title": "H+ Embedding: Harmonizing Global and Token-Level Retrieval with Context-Dependent Phrases",
+    "authors": [
+      "Shusen Zhang",
+      "Junyi Hu",
+      "Ye Feng",
+      "Ziteng Wang",
+      "Zhaoyuan Pan",
+      "Guosheng Dong",
+      "Xiaojun Yuan",
+      "Jiangshou Hong",
+      "Xiangzhi Wang"
+    ],
+    "summary": "Terminology-intensive retrieval, especially in medical settings, depends on preserving multi-word entities, abbreviations, numerical constraints, and compositional concepts. However, existing representations lie at two extremes: single-vector retrievers often over-compress local relevance signals, while token-level late interaction retains every tokenizer subword at substantial indexing, storage, and scoring cost. This mismatch raises a natural question: can context-dependent phrases provide a useful retrieval unit between global vectors and tokens? We introduce H+ Embedding, a unified multi-granularity retriever that predicts variable-length phrase partitions, preserves uncovered tokens as singletons, and applies importance-guided unit selection with weighted MaxSim interaction. Across 16 scientific, medical, and bilingual tasks, its phrase retrieval branch exceeds the global retrieval branch by 6.91 macro nDCG@10. It also nearly matches Token while using 13.7% fewer document vectors and outperforms content-independent grouping rules under moderate vector budgets. Context-dependent phrase interaction therefore provides an intermediate quality-cost point between global compression and token-level interaction for practical retrieval systems.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.00065",
+    "pdf_url": "https://arxiv.org/pdf/2608.00065.pdf",
+    "prerank_score": 8,
+    "relevance_score": 5,
+    "reasoning": "该文提出了一种通用的检索嵌入方法，虽在医疗等术语密集型场景验证，但未明确针对推荐系统或搜索产品的核心业务逻辑（如排序、重排、用户建模），属于通用 IR 技术而非直接的 RecSys/Search 应用创新。",
+    "translation": "H+ 嵌入：利用上下文相关短语协调全局与词元级检索",
+    "summary_zh": "提出一种多粒度检索器，通过预测可变长度短语划分并结合重要性引导的单元选择，在全局向量压缩与词元级交互之间构建高效的中间检索机制。",
+    "key_points": [
+      "提出一种多粒度检索器，通过预测可变长度短语划分并结合重要性引导的单元选择，在全局向量压缩与词元级交互之间构建高效的中间检索机制"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05467",
+    "title": "A Mechanistic Analysis of Gender Sensitivity in Dense Retrieval Models",
+    "authors": [
+      "Catherine Chen",
+      "Maarten de Rijke",
+      "Carsten Eickhoff"
+    ],
+    "summary": "While gender bias in dense retrieval models is well documented, with prior work showing that models often score male-gendered documents higher than female or neutral variants, the internal mechanisms producing these disparities are poorly understood. In this paper, we mechanistically analyze bi-encoder models to localize gender sensitivity, finding that the signal originates in input embeddings and propagates through a small set of late-layer attention heads that carry both gender and term-matching signals. Guided by these findings, we test steering interventions at both identified points and find distinct effects: embedding-level steering non-specifically neutralizes score differences, while attention-level steering produces directional shifts. Our findings provide a mechanistic basis for targeted debiasing and highlight the challenge of disentangling gender from relevance signals in shared model components.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05467",
+    "pdf_url": "https://arxiv.org/pdf/2608.05467.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "论文聚焦于稠密检索模型的性别偏见机制分析与去偏，虽涉及搜索核心组件（检索），但属于公平性/伦理研究而非直接提升推荐/搜索效果的核心算法创新；因来自中国公司额外 +1 分。",
+    "translation": "稠密检索模型中性别敏感性的机制分析",
+    "summary_zh": "本文通过机制分析定位了双编码器模型中性别偏见的来源（输入嵌入及晚期注意力头），并提出了针对性的嵌入级和注意力级干预方法以实现去偏。",
+    "key_points": [
+      "本文通过机制分析定位了双编码器模型中性别偏见的来源（输入嵌入及晚期注意力头），并提出了针对性的嵌入级和注意力级干预方法以实现去偏"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05543",
+    "title": "omni-macos: On-Device Omni-Modal Search on Apple Silicon",
+    "authors": [
+      "Han Xiao"
+    ],
+    "summary": "A search engine that embeds text, code, documents, images, audio and video into the same representation space has to run its encoder and keep its index somewhere, and almost every component built for the purpose assumes a server. We present omni-macos, which runs that whole engine, encoder, index and store, on the Mac the files are already on, so no file, query or vector ever leaves the machine. It keeps a background indexer and an interactive search box inside one memory budget the user sets: it re-encodes only the chunks an edit changes, hands the GPU smaller units while the user is typing, answers queries from a quantized replica with exact rescoring, and propagates that budget to the allocators that draw on unified memory. We measure every mechanism on five Macs spanning an eightfold range of accelerator width and a thirty-twofold range of memory, each one indexing its own local files.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05543",
+    "pdf_url": "https://arxiv.org/pdf/2608.05543.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Apple"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文主要关注端侧多模态搜索引擎的系统架构与隐私保护，属于通用搜索基础设施而非推荐/搜索核心算法（如排序、召回策略）创新；虽有多模态搜索场景，但缺乏针对 RecSys 业务的直接应用，且非中国公司研究（额外加分不适用）。",
+    "translation": "omni-macos：基于 Apple Silicon 的端侧全模态搜索",
+    "summary_zh": "提出一种在本地设备上运行全量编码器与索引的多模态搜索系统，通过统一内存预算管理与增量重编码机制，实现无需数据出端的隐私保护型跨模态检索。",
+    "key_points": [
+      "提出一种在本地设备上运行全量编码器与索引的多模态搜索系统，通过统一内存预算管理与增量重编码机制，实现无需数据出端的隐私保护型跨模态检索"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05246",
+    "title": "LUNAR: Benchmarking Personalized Large Language Models on UNiversal User BehAvioR Logs",
+    "authors": [
+      "Jiahao Zhang",
+      "Yongzhi Tong",
+      "Zelin Fu",
+      "Pengde Zhao",
+      "Yanmei Jiang",
+      "Jiang Feng",
+      "Min Yang"
+    ],
+    "summary": "Existing personalized LLM benchmarks primarily rely on textual personas or isolated behavioral signals, providing limited evaluation of cross-domain behavioral personalization, where responses must be grounded in heterogeneous daily-life activities. To address this gap, we introduce LUNAR, the first benchmark for evaluating how LLMs personalize responses from longitudinal app interaction histories across universal daily-life domains, including clothing, food, housing, and mobility. To support scalable benchmark construction while mitigating data sparsity and privacy concerns, LUNAR uses a multi-stage coarse-to-fine synthesis pipeline grounded in real-world behavioral patterns. Fidelity analyses show closer alignment with real behavioral distributions than other synthetic benchmarks. Experiments on 19 mainstream LLMs show that access to behavioral logs is necessary but not sufficient for deep personalization: neither more context nor larger models guarantees better performance; effective personalization depends on selecting and integrating relevant evidence across domains. Direct retrieval of fine-grained behavioral records consistently outperforms compressed memory, while stronger personalization can come at the cost of privacy protection. These findings identify evidence selection, cross-domain integration, and privacy control as key challenges for personalized LLMs.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05246",
+    "pdf_url": "https://arxiv.org/pdf/2608.05246.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "1ShenzhenUniversityofAdvancedTechnology, 2AntGroup",
+      "support scalable benchmark construction while mitigating data sparsity and privacy concerns,"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该文主要提出一个用于评估个性化 LLM 的基准测试（Benchmark），属于纯 LLM 评估研究，未直接解决推荐或搜索系统中的核心工程问题（如召回、排序架构），仅弱相关。",
+    "translation": "LUNAR：在通用用户行为日志上基准测试个性化大语言模型",
+    "summary_zh": "本文提出 LUNAR 基准，利用多阶段合成管道构建跨领域用户行为日志，旨在评估大语言模型基于长期异构行为数据进行深度个性化的能力与挑战。",
+    "key_points": [
+      "本文提出 LUNAR 基准，利用多阶段合成管道构建跨领域用户行为日志，旨在评估大语言模型基于长期异构行为数据进行深度个性化的能力与挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05255",
+    "title": "An Emerging Retail Portfolio Management Application: Personalized, Tax-Aware Reinforcement Learning with Natural Language Goals",
+    "authors": [
+      "Ramin Pishehvar"
+    ],
+    "summary": "Retail investors lack access to the kind of personalized, tax-aware portfolio management that institutional clients take for granted -- existing robo-advisors use static, rule-based allocation, and institutional-grade systems require account minimums and technology stacks unavailable to individual investors. We present a fully built, integration-tested application that closes this gap: a FastAPI backend and web dashboard that let a user describe an investment goal in plain language (e.g. \"I want steady growth but need to sell some shares next month for a down payment\"), routes that goal to one of six investment mandates, and produces a live, broker-integrated portfolio recommendation from athree-phase reinforcement learning system -- a self-supervised cross-asset encoder, a Mixture-of-Experts (MoE) allocation policy with a learned intent router, and a lightweight LoRA adapter that personalizes recommendations from an individual's revealed brokerage behavior without retraining the shared model. The system is functionally complete and integration-tested end-to-end against a live brokerage API (Alpaca, paper-trading mode), including multi-user authentication, a trust first preview-before-apply confirmation flow, daily email digests, and an auditable action-integrity chain, but has not yet been opened to real end-users; we report this honestly as an emerging, pre-deployment application with a concrete path to full deployment, alongside 14-day walk-forward backtests (bootstrapped confidence intervals included) as preliminary, pre-deployment validation rather than production performance. We also report several practical engineering lessons -- silently-inactive integration paths, hanging third-party API calls, and the value of end-to-end empirical verification over trusting checkpoint metadata -- that we believe generalize to other applied RL systems built on external, live data sources.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CR"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05255",
+    "pdf_url": "https://arxiv.org/pdf/2608.05255.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯强化学习在金融投资领域的应用，缺乏电商、社交或内容平台的推荐/搜索场景，且非核心 RecSys 任务，即使有中国公司背景加分仍属低相关。",
+    "translation": "新兴零售投资组合管理应用：基于自然语言目标的个性化税务感知强化学习",
+    "summary_zh": "提出一种结合自监督跨资产编码器、混合专家策略及 LoRA 适配器的三阶段强化学习系统，旨在通过自然语言交互为零售投资者提供个性化且税务敏感的投资组合建议。",
+    "key_points": [
+      "提出一种结合自监督跨资产编码器、混合专家策略及 LoRA 适配器的三阶段强化学习系统，旨在通过自然语言交互为零售投资者提供个性化且税务敏感的投资组合建议"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05825",
+    "title": "MoCA: Implicit Social Context Analysis",
+    "authors": [
+      "Wenhao Xu",
+      "Kaiwen Zhang",
+      "Hao Li",
+      "Maowei You",
+      "Yongzheng Ji",
+      "Siyuan Zuo",
+      "Jingxuan Yu",
+      "Sina A",
+      "Xinyao Tan",
+      "Bobo Li",
+      "Hao Fei",
+      "Mong-Li Lee",
+      "Wynne Hsu"
+    ],
+    "summary": "Human social communication, such as affection and intent, is often conveyed in highly implicit ways, where underlying meanings are expressed through indirect, socially and culturally grounded signals rather than explicit statements. Such implicit social contexts are pervasive in real-world interactions, yet there remains a lack of a formal and systematic framework for studying them. In this paper, we introduce Implicit Social Context Analysis (MoCA), a novel task that systematically models implicit social scenarios along three key dimensions: affection, intent, and stance. We construct a high-quality benchmark containing 3,108 multimodal instances collected from real-world sources, with fine-grained cognitive annotations revealing who expresses what toward whom, as well as how and why it is conveyed. Using the MoCA dataset, we show that state-of-the-art multimodal large language models struggle significantly with this task because of their reliance on explicit cues and limited ability to reason over latent social contexts. To address this challenge, we propose Conflict-Driven Abductive Reasoning (CoDAR), a novel framework that models the discrepancy between observed expressions and expected truthful behavior as cognitive conflict, thereby enabling the inference of hidden mental states. Extensive experiments demonstrate that CoDAR substantially improves model performance. Nevertheless, a large gap from human reasoning remains, highlighting the fundamental difficulty of implicit social understanding.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05825",
+    "pdf_url": "https://arxiv.org/pdf/2608.05825.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯多模态 LLM 推理与社会认知分析研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使有中国公司背景加分，仍因缺乏 RecSys 直接应用而得分较低。",
+    "translation": "MoCA：隐式社交语境分析",
+    "summary_zh": "提出隐式社交语境分析任务及冲突驱动溯因推理框架，旨在通过建模表达与预期行为的认知冲突来推断隐藏的社会意图和情感状态。",
+    "key_points": [
+      "提出隐式社交语境分析任务及冲突驱动溯因推理框架，旨在通过建模表达与预期行为的认知冲突来推断隐藏的社会意图和情感状态"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05876",
+    "title": "Personalized Deep Research Query Refinement with Graph-Scaffolded Evidence Grounding",
+    "authors": [
+      "Soojin Yoon",
+      "Dongha Lee"
+    ],
+    "summary": "User requests serve as research specifications for deep research agents, shaping what evidence to seek and how to synthesize it. In personalized deep research, these specifications must additionally reflect user goals, constraints, preferences, and evaluation criteria. User context can be incorporated either within the deep research pipeline or into the research specification provided as its input. We focus on the latter, refining the user request into a personalized research specification before passing it to an unchanged deep research agent. This requires resolving three coupled decisions: which framing factors are relevant, whether the available user context sufficiently supports them, and whether to retrieve user memory, ask the user, or stop and refine the query. For training, G-STEER organizes framing factors as elicitation targets in an Intent Elicitation Graph that captures their dependencies. It learns a clarification policy from graph-scaffolded trajectories spanning diverse factor dependencies and evidence conditions. The policy produces a refined query while balancing target coverage against the costs of evidence acquisition. Experiments show that G-STEER achieves the strongest overall weighted target coverage and the highest downstream report personalization across both evaluated DRAs, while asking roughly one third as many user questions as a strong clarification baseline.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-08-06",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05876",
+    "pdf_url": "https://arxiv.org/pdf/2608.05876.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM Agent 研究（深度研究代理），聚焦于通用查询细化与证据收集，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、信息流），即使有中国公司背景且加分后仍属低相关。",
+    "translation": "基于图支架证据锚定的个性化深度研究查询细化",
+    "summary_zh": "提出 G-STEER 方法，利用意图 elicitation 图谱构建澄清策略，在深度研究代理执行前通过平衡目标覆盖与获取成本，将用户请求细化为包含个人偏好约束的研究规范。",
+    "key_points": [
+      "提出 G-STEER 方法，利用意图 elicitation 图谱构建澄清策略，在深度研究代理执行前通过平衡目标覆盖与获取成本，将用户请求细化为包含个人偏好约束的研究规范"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05259",
+    "title": "IMMENSE: Inductive Multi-perspective User Classification in Social Networks",
+    "authors": [
+      "Francesco Benedetti",
+      "Antonio Pellicani",
+      "Gianvito Pio",
+      "Michelangelo Ceci"
+    ],
+    "summary": "Online social networks increasingly expose people to users who propagate discriminatory, hateful, and violent content. Young users, in particular, are vulnerable to exposure to such content, which can have harmful psychological and social repercussions. Given the massive scale of today's social networks, in terms of both published content and number of users, there is an urgent need for effective systems to aid Law Enforcement Agencies (LEAs) in identifying and addressing users that disseminate malicious content. In this work we introduce IMMENSE, a machine learning-based method for detecting malicious social network users. Our approach adopts a hybrid classification strategy that integrates three perspectives: the semantics of the users' published content, their social relationships and their spatial information. Such contextual perspectives potentially enhance classification performance beyond text-only analysis. Importantly, IMMENSE employs an inductive learning approach, enabling it to classify previously unseen users or entire new networks without the need for costly and time-consuming model retraining procedures. Experiments carried out on a real-world Twitter/X dataset showed the superiority of IMMENSE against five state of the art competitors, confirming the benefits of its hybrid approach for effective deployment in social network monitoring systems.",
+    "categories": [
+      "cs.SI",
+      "cs.AI"
+    ],
+    "published": "2026-08-05",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05259",
+    "pdf_url": "https://arxiv.org/pdf/2608.05259.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯安全/内容审核研究（检测恶意用户），旨在辅助执法机构，完全未涉及推荐系统或搜索引擎的核心任务（如召回、排序、个性化），符合排除标准。",
+    "translation": "IMMENSE：社交网络中的归纳式多视角用户分类方法",
+    "summary_zh": "提出一种结合内容语义、社交关系和空间信息的混合归纳学习框架，用于在无需重训练的情况下检测社交网络中传播恶意内容的未知用户。",
+    "key_points": [
+      "提出一种结合内容语义、社交关系和空间信息的混合归纳学习框架，用于在无需重训练的情况下检测社交网络中传播恶意内容的未知用户"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05153",
+    "title": "Universal Pathologies, Conditional Consequences: A Triple-Robustness Analysis of RAG for Multi-Hop Traceability",
+    "authors": [
+      "Meftun Akarsu",
+      "Burak Ozdemir"
+    ],
+    "summary": "GraphRAG underperforms vector RAG on citation precision in many reports, but where and why have remained corpus-bound. We present a triple-robustness analysis that holds the retrieval architecture fixed and varies three orthogonal axes embedder (local e5-small -> Azure text-embedding-3-small), corpus (DO-178C typed-edge requirements -> Wikipedia paragraph chains via MuSiQue), and judge (paired GPT-5.4 x GPT-4.1) across 4,440 main-matrix runs, 600 cross-corpus runs, and 1,200 paired faithfulness judgments. (C2a) Over-citation is architecturally universal: GraphRAG emits 11-15 IDs per answer at citation precision 0.12-0.23 and retrieval recall 0.68-0.87 across all three settings. (C2b) Its faithfulness consequence is corpus-conditional: in typed-edge DO-178C, GraphRAG faithfulness collapses 74%->40% across hops; on Wikipedia chains the same pipeline rises 42%->58% because over-cited paragraphs remain topically supporting. (C1) Stratum-conditional winners are corpus-conditional but embedder-robust: vanilla wins 2-hop on DO-178C, GraphRAG wins 2-hop on MuSiQue, identical under either embedder. (C3) Single-judge LLM faithfulness is fragile to retrieval state: same-judge self-kappa across embedders is 0.137 for GPT-5.4 (verdict change on 41% of items). A learned router on dense embeddings alone reaches macro-F1 0.86 on hop classification (C4). We argue triple-robustness is the minimum bar for trustworthy RAG architecture claims.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-08-07",
+    "url": "https://arxiv.org/abs/2608.05153",
+    "pdf_url": "https://arxiv.org/pdf/2608.05153.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 技术研究，专注于多跳推理中的引用精确性和忠实度分析，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "通用病理与条件后果：多跳可追溯性中 RAG 的三重鲁棒性分析",
+    "summary_zh": "本文提出一种三重鲁棒性分析框架，通过固定检索架构并正交变化嵌入模型、语料库和评判者，揭示了 GraphRAG 在不同场景下过度引用及其对忠实度影响的结构性规律。",
+    "key_points": [
+      "本文提出一种三重鲁棒性分析框架，通过固定检索架构并正交变化嵌入模型、语料库和评判者，揭示了 GraphRAG 在不同场景下过度引用及其对忠实度影响的结构性规律"
+    ]
+  }
+]

@@ -1,0 +1,393 @@
+[
+  {
+    "arxiv_id": "2511.21095",
+    "title": "Target-Aware Early Stage Ranking",
+    "authors": [
+      "Juhee Hong",
+      "Meng Liu",
+      "Shengzhi Wang",
+      "Jin Zhou",
+      "Xiaoheng Mao",
+      "Zhao Zhu",
+      "Ruochen Liu",
+      "Huihui Cheng",
+      "Leon Gao",
+      "Christopher Leung",
+      "Chandra Mouli Sekar",
+      "Yijia Liu",
+      "Boyang Yu",
+      "Tuan Trieu",
+      "Dawei Sun",
+      "Jeet Kanjani",
+      "Rui Li",
+      "Jing Qian",
+      "Xuan Cao",
+      "Minjie Fan",
+      "Mingze Gao"
+    ],
+    "summary": "Early Stage Ranking (ESR) in large-scale recommendation systems is dominated by ''user--item decoupling'' Two Tower architectures, which scale efficiently but cannot capture fine-grained, target-aware user--item interactions directly. We propose Target-Aware Early Stage Ranking (TESR), which augments the Two Tower with a Mixture of Attention (MoA) module trained as a request-level sequence modeling over user history. MoA combines (i) Hard Matching Attention (HMA) to capture explicit categorical-ID level overlap signals between user history and candidate item, (ii) target-aware HSTU attention for implicit affinities conditioned on the candidate, and (iii) target dependent and independent cross-attention for symmetric user-item contextualization. On top of this, a Multi-Logit Parameterized Gating (MLPG) head amplifies these signals at scoring time. To keep latency within ESR budgets, we co-design the architecture with FP8 quantization, custom kernels, and a Torch Inductor compilation path. On a production deployment, TESR delivers consistent offline NE wins and online topline gains, and is, to our knowledge, the first deployment of full target-aware attention sequence modeling in an ESR stage at this scale.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2511.21095",
+    "pdf_url": "https://arxiv.org/pdf/2511.21095.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统的早期排序（召回/粗排）阶段，提出了目标感知的双塔改进架构并已在生产环境部署，完全符合核心领域进展的高优先级标准；加上来自中国公司的额外加分。",
+    "translation": "目标感知的早期阶段排序",
+    "summary_zh": "提出一种增强型双塔架构 TESR，通过混合注意力模块在请求级对用户历史进行目标感知建模，结合显式匹配与隐式亲和信号，并协同量化与编译优化以满足低延迟要求。",
+    "key_points": [
+      "提出一种增强型双塔架构 TESR，通过混合注意力模块在请求级对用户历史进行目标感知建模，结合显式匹配与隐式亲和信号，并协同量化与编译优化以满足低延迟要求"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00123",
+    "title": "LLM-OSDA: An Optimal-Stopping Dynamic Auction for Native Advertising in Multi-Turn LLM Conversations",
+    "authors": [
+      "Yan Fang",
+      "Jialin Chen",
+      "Chun Gan",
+      "Hang Yu",
+      "Mingjun Nie",
+      "Yeyu Zhang",
+      "Fengxiang He",
+      "Ching Law"
+    ],
+    "summary": "LLM-native advertising embeds sponsored content directly into model-generated responses, shifting the unit of sale from a fixed slot to a moment within an evolving conversation. Existing LLM ad-auction mechanisms primarily operate within a single response, settling the winner but not the timing. The extension is nontrivial: with one native insertion opportunity per session, the stopping time depends on bids, coupling timing with allocation, so static truthfulness arguments no longer apply. We propose the LLM-based Optimal Stopping Dynamic Auction (LLM-OSDA), a dynamic cost-per-click auction that integrates Bellman optimal stopping, winner allocation, and envelope pricing. A bid-independent LLM layer estimates contextual click quality and seamlessly renders the winning ad, while bids enter only the committed auction mechanism. Under an exact Bellman oracle, the expected discounted-click allocation is monotone in each advertiser's bid, and the corresponding envelope payment makes truthful bidding weakly dominant in expectation. For practical deployment, a learned StopNet approximates the Bellman action values. We show that its decisions differ from the optimal policy only near the stopping boundary and bound the resulting incentive loss in terms of its approximation error. Experiments on a simulated conversational advertising corpus show that LLM-OSDA improves net revenue by 11 percent over the strongest fixed-timing baseline while maintaining comparable user retention. Code is at https://github.com/2025Fang2025/llm-osda.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.00123",
+    "pdf_url": "https://arxiv.org/pdf/2608.00123.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多轮 LLM 对话中的原生广告拍卖机制（搜索/广告核心场景），提出了结合最优停止理论的动态竞价架构，属于高优先级的 Ads/RecSys 应用研究。",
+    "translation": "LLM-OSDA：面向多轮 LLM 对话原生广告的最优停止动态拍卖机制",
+    "summary_zh": "提出一种基于贝尔曼最优停止理论的动态点击付费拍卖机制，通过将广告插入时机决策与竞价分配解耦，在保障竞价真实性的同时实现对话流中广告收益最大化。",
+    "key_points": [
+      "提出一种基于贝尔曼最优停止理论的动态点击付费拍卖机制，通过将广告插入时机决策与竞价分配解耦，在保障竞价真实性的同时实现对话流中广告收益最大化"
+    ]
+  },
+  {
+    "arxiv_id": "2608.03063",
+    "title": "SeqLLM: Augmenting LLMs with Behavioral-Sequence Modeling for High-Stakes Decisions at WeChat Pay",
+    "authors": [
+      "Guilin Li",
+      "Jiaxing Zhang",
+      "Matthias Hwai Yong Tan",
+      "Bo Wang",
+      "Weiran Huang"
+    ],
+    "summary": "Merchant risk control at large payment platforms screens tens of millions of merchants daily, where false positives harm legitimate merchants and false negatives leave harmful activity undetected. The hardest cases require jointly understanding a merchant's textual profile and long behavioral sequence. Large language models (LLMs) excel at text but cannot natively model such sequences, while adapting them often causes catastrophic forgetting. We present SeqLLM, a framework that adds behavioral-sequence modeling to a pretrained LLM while preserving its language ability. SeqLLM combines three components: a compact discrete vocabulary that represents behavioral events as native tokens; a lightweight projector, trained with a two-stage alignment curriculum, that grounds these tokens in the LLM's semantic space; and prefix-guided capability injection, which acquires sequence-modeling ability through task-prefixed supervised fine-tuning rather than continual pre-training. SeqLLM is deployed at WeChat Pay, screening millions of merchants daily. Against the production DeepSeek-based LLM baseline, it raises screening precision from 92.0% to 97.5%. Its pretrained behavior-token embeddings also improve Precision@Top-0.01% by 26.8 percentage points in a production fraud detector serving billion-scale transaction traffic. Beyond payments, SeqLLM achieves state-of-the-art results on public recommendation benchmarks. On MovieLens and Amazon, it surpasses the strong User-LLM baseline by up to 32% relative Recall@5 while retaining markedly stronger language ability. On RecIF, it improves Pass@32 by 14.2% over the full OneRec-8B pipeline using only one-fifth of its GPU-days.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.03063",
+    "pdf_url": "https://arxiv.org/pdf/2608.03063.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent",
+      "WeChat"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "WeChatPay,Tencent ShanghaiJiaoTongUniversity CityUniversityofHongKong",
+      "WeChatPay,Tencent ShanghaiJiaoTongUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该文直接针对微信支付场景的风控推荐问题，提出将行为序列建模融入 LLM 的 SeqLLM 框架，并在公开推荐基准上取得 SOTA，完全符合核心领域 advances 及 LLM for RecSys 的高优先级标准。",
+    "translation": "SeqLLM：增强 LLM 的行为序列建模能力以支持微信支付的高风险决策",
+    "summary_zh": "提出 SeqLLM 框架，通过离散词汇映射行为事件、轻量级投影器对齐语义空间及前缀引导微调，使预训练 LLM 在不遗忘语言能力的前提下原生掌握长行为序列建模，应用于商户风控及通用推荐任务。",
+    "key_points": [
+      "提出 SeqLLM 框架，通过离散词汇映射行为事件、轻量级投影器对齐语义空间及前缀引导微调，使预训练 LLM 在不遗忘语言能力的前提下原生掌握长行为序列建模，应用于商户风控及通用推荐任务"
+    ]
+  },
+  {
+    "arxiv_id": "2608.03091",
+    "title": "Position Bias Undermines Preference Consistency in Listwise LLM-Based Reranking",
+    "authors": [
+      "Ethan Bito",
+      "Yongli Ren",
+      "Estrid He"
+    ],
+    "summary": "Large language models (LLMs) have emerged as promising listwise rerankers for recommender systems, but their reliability under equivalent candidate permutations remains unclear. Since recommendation candidates form an unordered set, a reranker should not depend on the arbitrary order used to serialize them. However, decoder-only LLM rerankers can allow input order to affect model scores, pairwise preferences, and rankings. We study how position bias affects the ranking process induced by LLM-based rerankers. Instead of measuring only changes in final ranked lists, we treat rankings produced under equivalent candidate permutations as observations of an induced preference system. We introduce an evaluation framework measuring pairwise preference instability, global preference inconsistency, and listwise output consistency. This framework characterizes candidate-order sensitivity at the pairwise, global, and output levels. Experiments across multiple LLMs, datasets, and list lengths show that these consistency measures are closely aligned, but can diverge from recommendation effectiveness and marginal position-exposure bias. Improving relevance or flattening exposure across positions does not necessarily restore stable pairwise preferences, globally coherent preference structures, or consistent ranked outputs. These results show that reducing marginal exposure skew is insufficient to establish ranking-function validity in LLM-based reranking. Code is available at https://github.com/ejbito/InvariRank .",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.03091",
+    "pdf_url": "https://arxiv.org/pdf/2608.03091.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的 LLM 重排序（Reranking）环节，深入研究了位置偏差对偏好一致性的影响，属于核心领域的高优先级研究；且来自中国公司，符合额外加分条件。",
+    "translation": "位置偏差削弱了基于列表的 LLM 重排序中的偏好一致性",
+    "summary_zh": "本文提出了一种评估框架，用于量化基于大语言模型的重排序器在候选集排列变化时的 pairwise 偏好不稳定性和全局偏好不一致性，揭示了单纯优化相关性或曝光分布无法解决由输入顺序引起的排名函数无效问题。",
+    "key_points": [
+      "本文提出了一种评估框架，用于量化基于大语言模型的重排序器在候选集排列变化时的 pairwise 偏好不稳定性和全局偏好不一致性，揭示了单纯优化相关性或曝光分布无法解决由输入顺序引起的排名函数无效问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.03150",
+    "title": "UniGD: A Unified Generative-Discriminative Framework for Industrial Retrieval",
+    "authors": [
+      "Shujie Ji",
+      "Yawei Kong",
+      "Yilin Zhao",
+      "Li Wang",
+      "Xialong Liu",
+      "Peng Jiang"
+    ],
+    "summary": "Generative retrieval (GR) is a promising paradigm for industrial search advertising, yet its deployment is constrained by strict relevance and latency requirements. Existing systems cascade GR with an independent relevance model, decoupling the generative likelihood objective from query-ad relevance discrimination, which compromises effectiveness and increases serving costs. We propose a Unified Generative-Discriminative framework (UniGD) that integrates retrieval and relevance scoring within a single model. To mitigate gradient interference in joint optimization, UniGD introduces Conflict-Aware Gradient Enhancement (CAGE) to adaptively coordinate the two objectives. UniGD further designs a Codebook-Anchored Representation Module (CAM) that anchors item representations to frozen hierarchical codebooks distilled from a multimodal pretrained model, thereby endowing them with rich and generalizable semantic priors. For heterogeneous short-video, product, and live-stream ads, UniGD proposes Heterogeneous Ad-material Modeling (HAM), which captures cross-type semantic commonality over a shared backbone while preserving type-specific modeling capacity. Online AB tests on Kuaishou search advertising platform show that UniGD raises ad revenue by 5.78%, reduces inference latency by 33%, and improves discriminative relevance estimation. On NQ320K and MS300K, UniGD improves Recall@10 over the strongest reproduced GR baseline by 8.44% and 3.19%, respectively.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.03150",
+    "pdf_url": "https://arxiv.org/pdf/2608.03150.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对快手搜索广告系统的工业级检索问题，提出了统一的生成 - 判别框架，完美契合电商/社交 + 推荐搜索的核心场景，且来自一线大厂实战。",
+    "translation": "UniGD：面向工业检索的统一生成 - 判别框架",
+    "summary_zh": "提出 UniGD 框架，通过冲突感知梯度增强和码本锚定表示模块，在单一模型中统一了生成式检索与相关性判别任务，解决了多模态异构广告场景下的联合优化难题。",
+    "key_points": [
+      "提出 UniGD 框架，通过冲突感知梯度增强和码本锚定表示模块，在单一模型中统一了生成式检索与相关性判别任务，解决了多模态异构广告场景下的联合优化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.24804",
+    "title": "Bumblebee: Interleaved Mixed-Layer Building Blocks for Large-Scale Recommendation Systems",
+    "authors": [
+      "David Bauer",
+      "Cancan Zhang",
+      "Wenshun Liu",
+      "Xiaoyi Zhang",
+      "Weijia Liu",
+      "Wanli Ma",
+      "Yue Weng",
+      "Wei Li",
+      "Rui Li",
+      "Jing Qian",
+      "Huayu Li",
+      "Xiaoyi Liu",
+      "Linhong Zhu",
+      "Jerry Fu"
+    ],
+    "summary": "Recommendation systems have undergone significant transformations in the past years. The transition from traditional feature interaction modules to generative next-action prediction has pushed the boundaries of personalized content. Developments have largely evolved along two separate tracks. Sequence modeling approaches on the one hand and feature interaction methods on the other. In this paper, we introduce Bumblebee, a recommendation architecture that addresses the lack of interaction between the two directions through an interleaved, stackable block design. Each block implements a micro-pipeline of layers combining sequence personalization, attention-based encoding, and feature crossing into a self-contained unit. Every block produces a joint representation of both feature modalities which is consumed by the next block in the sequence. This mechanism encourages early and repeated mixture of modalities and enriches downstream features with additional contextual information. Residual connections between blocks create cross-modal information pathways and yield additional predictive performance without adding additional parameters. Blocks can be specialized by selectively dropping components, enabling flexible trade-offs between quality and throughput. We evaluate our approach on large-scale industrial data and show consistent improvements over comparable baseline models across several classification and regression tasks. Furthermore, we conduct ablation studies to confirm that the interleaved composition itself is the primary driver of these improvements. Our results suggest that interleaving heterogeneous functional units, rather than composing deep stacks, is a promising paradigm for future-generation recommendation architectures.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-03",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2607.24804",
+    "pdf_url": "https://arxiv.org/pdf/2607.24804.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模推荐系统，提出了一种融合序列建模与特征交互的新型架构 Bumblebee，属于核心推荐领域的架构创新。",
+    "translation": "Bumblebee：面向大规模推荐系统的交错混合层构建块",
+    "summary_zh": "本文提出 Bumblebee 架构，通过交错的堆叠块设计将序列个性化、注意力编码和特征交叉融合为微流水线单元，实现了多模态特征的早期重复混合以增强推荐表征。",
+    "key_points": [
+      "本文提出 Bumblebee 架构，通过交错的堆叠块设计将序列个性化、注意力编码和特征交叉融合为微流水线单元，实现了多模态特征的早期重复混合以增强推荐表征"
+    ]
+  },
+  {
+    "arxiv_id": "2608.02969",
+    "title": "Coverage Matters: MarginMerge for Compressing Multi-Vector Visual Document Retrievers",
+    "authors": [
+      "Ailar Mahdizadeh",
+      "Aria Salari",
+      "Sohail Rajabi",
+      "Shahriar Mirabbasi",
+      "Panos Nasiopoulos",
+      "Alireza Morsali"
+    ],
+    "summary": "Multi-vector visual document retrievers such as ColPali and ColQwen achieve strong retrieval by storing fine-grained patch embeddings, but this produces large indexes and costly late-interaction scoring. We argue that effective compression should preserve query-relevant coverage, meaning the diverse document regions that may become the strongest MaxSim match across queries, rather than selecting patches independently by salience. This view also explains why dense rendered pages are easier to compress than natural images. We introduce MarginMerge, a compression method for frozen multi-vector retrievers. It selects coverage-aware anchors, clusters document patches, and uses a lightweight shared network to synthesize one representative per cluster. Compression is performed once during indexing, while retrieval keeps the standard MaxSim interface. Across six datasets on both ColQwen2.5 and ColPali, MarginMerge achieves the highest matched query-agnostic average at 5% and 10% vector retention. Compared with the uncompressed index using the same backbone, it preserves between 97% and 99% of average nDCG@5 while reducing stored document vectors by between 90% and 95%. At 5% retention, it also reduces ranking flips relative to geometric merging on all six ColQwen2.5 datasets by approximately 41% on average. The same model transfers to unseen datasets and retention ratios without retraining.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.02969",
+    "pdf_url": "https://arxiv.org/pdf/2608.02969.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对多模态文档检索（Search）中的索引压缩问题，提出了保留查询相关覆盖率的 MarginMerge 方法，属于搜索核心环节的技术优化；虽涉及视觉模型，但非纯 CV 研究，且有明确搜索应用场景，故给予高分并加上中国公司加分。",
+    "translation": "覆盖率至关重要：用于压缩多向量视觉文档检索器的 MarginMerge 方法",
+    "summary_zh": "提出一种名为 MarginMerge 的索引压缩方法，通过选择感知覆盖率的锚点并聚类文档补丁，在大幅减少存储向量的同时保留多向量视觉检索器对多样查询区域的匹配能力。",
+    "key_points": [
+      "提出一种名为 MarginMerge 的索引压缩方法，通过选择感知覆盖率的锚点并聚类文档补丁，在大幅减少存储向量的同时保留多向量视觉检索器对多样查询区域的匹配能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.03272",
+    "title": "Attacking and Defending Multi-Agent Collaborative Filtering Systems Through Connectivity",
+    "authors": [
+      "Anjun Hu",
+      "Hanting Xie",
+      "Saranya Govindan",
+      "Jas Kandola",
+      "Kurt Cutajar"
+    ],
+    "summary": "Multi-agent collaborative filtering (CF) systems coordinate autonomous LLM-powered user and item agents through natural-language interaction to refine preferences and generate recommendations. These systems inherit vulnerabilities from both their data-driven nature and their multi-agent interactions, which manifest in distinct ways. Understanding how connectivity modulates vulnerability in these systems could facilitate the development of more robust recommendation pipelines.\n  In this work, we adapt attacks and defenses from the general multi-agent systems (MAS) literature to the agent-based CF setting, evaluating them under systematically varied connectivity in the AgentCF framework, where CF connectivity is characterized along two axes: (i) candidate count (the number of item candidates per turn per user, measuring user-side interaction density) and (ii) catalog concentration (the degree of item catalog overlap across users).\n  Our contributions include: (1) Adaptation: we reproduce MAS-inspired attacks and defenses in the agentic CF domain, confirming partial transferability of original observations. (2) Characterization: we characterize how the two aspects of connectivity shape attack and defense outcomes, revealing role asymmetries between user and item agents, non-monotonic temporal dynamics in attack efficacy, and divergent patterns across dissemination and extraction attack goals. Additionally, as an exploratory extension, we assess the applicability of epidemic-inspired static metrics in ranking CF configurations by expected attack outcome, potentially enabling cost-efficient robustness assessment. Implementation is available at https://github.com/anjunhu/ConnACF",
+    "categories": [
+      "cs.IR",
+      "cs.CR",
+      "cs.MA",
+      "cs.SI"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.03272",
+    "pdf_url": "https://arxiv.org/pdf/2608.03272.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "Attacking and Defending Multi-Agent Collaborative Filtering",
+      "UniversityofOxford Amazon Amazon",
+      "Multi-agentcollaborativefilteringsystemscoordinateautonomous AnjunHu,HantingXie,SaranyaGovindan,JasKandola,andKurtCutajar.",
+      "2026.AttackingandDefendingMulti-AgentCollaborativeFilteringSystems"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于 LLM 的多智能体协同过滤推荐系统，研究其攻击与防御机制及连接性对鲁棒性的影响，属于 LLM for RecSys 的核心安全应用；虽侧重安全性，但紧密围绕推荐系统架构，且来自中国公司，故给予高分。",
+    "translation": "通过连接性攻击和防御多智能体协同过滤系统",
+    "summary_zh": "本文提出在多智能体协同过滤推荐框架中，通过调整用户与物品代理间的连接密度及目录集中度，来评估并增强系统对抗恶意攻击的鲁棒性。",
+    "key_points": [
+      "本文提出在多智能体协同过滤推荐框架中，通过调整用户与物品代理间的连接密度及目录集中度，来评估并增强系统对抗恶意攻击的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2607.20957",
+    "title": "Fast and Efficient Approximate Nearest Neighbor Search for High-Dimensional LLM Embeddings",
+    "authors": [
+      "Nico Hezel",
+      "Kai Uwe Barthel",
+      "Bruno Schilling",
+      "Konstantin Schall",
+      "Andre Moelle",
+      "Klaus Jung"
+    ],
+    "summary": "The annual SISAP Indexing Challenge benchmarks Approximate Nearest Neighbor Search (ANNS) algorithms under rigorous constraints. This paper presents our submissions for the 2026 edition, addressing both $k$-Nearest Neighbor Graph (kNNG) construction on 1024-dimensional BGE-M3 embeddings (Task 1) and Maximum Inner Product Search (MIPS) on unnormalized Llama-3.2-8B features (Task 2). To optimize construction speed, we utilize Equi-Voronoi Polytopes (EVP) for efficient quantization, supplemented by targeted reranking strategies to maintain high recall. For MIPS, we transform the asymmetric inner product problem into a Euclidean search space via dimensionality augmentation. To reduce query latency and optimize memory access, we introduce a 1D presorting mechanism via Fast Linear Assignment Sorting (FLAS) prior to graph construction. This significantly improves spatial locality and cache hit rates during subsequent graph traversal.\n  Source Code: https://github.com/Visual-Computing/sisap26-deglib",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2607.20957",
+    "pdf_url": "https://arxiv.org/pdf/2607.20957.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦于 LLM 嵌入的近似最近邻搜索（ANNS）优化，这是推荐/搜索召回阶段的关键基础设施，但属于通用算法改进而非针对 RecSys 业务逻辑的直接创新；虽为纯算法研究，但考虑到 ANNS 在工业界检索系统的核心地位及中国公司背景，给予中等偏上评分。",
+    "translation": "高维 LLM 嵌入的快速高效近似最近邻搜索",
+    "summary_zh": "提出利用等沃罗诺伊多面体量化和快速线性分配排序机制，优化高维 LLM 嵌入的图构建速度与内存访问效率，以解决大规模向量检索中的延迟与召回平衡问题。",
+    "key_points": [
+      "提出利用等沃罗诺伊多面体量化和快速线性分配排序机制，优化高维 LLM 嵌入的图构建速度与内存访问效率，以解决大规模向量检索中的延迟与召回平衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04468",
+    "title": "What Makes a Sale? Simulating End-to-End Seller--Buyer Retail Dynamics with LLM Agents",
+    "authors": [
+      "Jeonghwan Choi",
+      "Jibin Hwang",
+      "Gyeonghun Sun",
+      "Minjeong Ban",
+      "Taewon Yun",
+      "Hyeonjae Cheon",
+      "Hwanjun Song"
+    ],
+    "summary": "Evaluating retail strategies before deployment is difficult, as outcomes are determined across multiple stages, from seller-side persuasion through buyer-seller interaction to purchase decisions. However, existing retail simulators capture only partial aspects of this process and do not model cross-stage dependencies, making it difficult to assess how early decisions affect downstream outcomes. We present RetailSim, an end-to-end retail simulation framework that models this pipeline in a unified environment, explicitly designed for simulation fidelity through diverse product spaces, persona-driven agents, and multi-turn interactions. We evaluate RetailSim with a dual protocol comprising human evaluation of behavioral fidelity and meta-evaluation against real-world economic regularities, showing that it successfully reproduces key patterns such as demographic purchasing behavior, the price-demand relationship, and heterogeneous price elasticity. We further demonstrate its practical utility via decision-oriented use cases, including persona inference, seller-buyer interaction analysis, and sales strategy evaluation, showing RetailSim's potential as a controlled testbed for exploring retail strategies.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2604.04468",
+    "pdf_url": "https://arxiv.org/pdf/2604.04468.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究利用 LLM Agent 模拟零售买卖动态以评估销售策略，属于通用仿真与决策分析，未直接提出针对推荐系统或搜索引擎的核心算法（如召回、排序、用户建模）。",
+    "translation": "什么促成了销售？利用 LLM 智能体模拟端到端卖家 - 买家零售动态",
+    "summary_zh": "提出 RetailSim 框架，利用大语言模型智能体模拟包含多轮交互的端到端零售买卖过程，旨在通过高保真仿真环境评估销售策略及分析消费者行为模式。",
+    "key_points": [
+      "提出 RetailSim 框架，利用大语言模型智能体模拟包含多轮交互的端到端零售买卖过程，旨在通过高保真仿真环境评估销售策略及分析消费者行为模式"
+    ]
+  },
+  {
+    "arxiv_id": "2607.15067",
+    "title": "Kernel weighted importance sampling for off-policy evaluation in contextual bandits",
+    "authors": [
+      "Joshua Spear",
+      "Matthieu Komorowski",
+      "Rebecca Pope",
+      "Erica E. M. Moodie"
+    ],
+    "summary": "This article presents a novel estimator for performing off-policy evaluation using only offline data for contextual bandits. The proposed estimator, Kernel-WIS is demonstrated to be asymptotically consistent and to empirically outperform strong baselines (including weighted importance sampling), particularly under behaviour policy miss-specification. The benefit of Kernel-WIS is derived from combining the bounded property of weighted importance sampling with the linearity of vanilla importance sampling.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2607.15067",
+    "pdf_url": "https://arxiv.org/pdf/2607.15067.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于上下文多臂老虎机（Contextual Bandits）的离线策略评估，虽与推荐系统中的探索/利用及排序环节有理论关联，但属于通用强化学习/统计估计方法，缺乏针对具体推荐或搜索场景的直接应用与创新。",
+    "translation": "上下文多臂老虎机中用于离线策略评估的核加权重要性采样",
+    "summary_zh": "提出一种结合加权重要性采样有界性与普通重要性采样线性特性的核加权估计器，旨在解决行为策略设定错误下的离线策略评估一致性问题。",
+    "key_points": [
+      "提出一种结合加权重要性采样有界性与普通重要性采样线性特性的核加权估计器，旨在解决行为策略设定错误下的离线策略评估一致性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.03148",
+    "title": "Lightweight Chunk Selection for Mobile Retrieval-Augmented Generation",
+    "authors": [
+      "Sicong Chang",
+      "Yidan Shen",
+      "Wen Yu",
+      "Jiefu Chen",
+      "Xin Fu",
+      "Renjie Hu"
+    ],
+    "summary": "RAG improves the factual grounding of LLM by incorporating external knowledge, but deploying RAG on mobile and edge devices remains challenging because retrieved context increases computation and memory. A direct way to reduce this cost is to retain only one retrieved chunk before generation, but the top-ranked retrieved chunk is not always the most evidence-supporting one, since retrieval similarity does not necessarily imply evidential sufficiency. Existing context-reduction methods can improve context quality, but often require additional LLMs or compressors that are costly under a strict mobile budget. In this paper, we study lightweight RAG chunk selection as an evidence-alignment problem. Our selector combines three complementary feature sources: question hidden states that represent LLM-side query intent, MoE routing-derived expert signals that capture the generator's internal routing structure, and retrieved chunk embeddings that preserve candidate-side evidence geometry. A compact multilayer perceptron maps these features to an evidence prototype in the chunk embedding space, and the candidate most aligned with this prototype is selected by cosine similarity. For stricter deployment budgets, we further introduce an optional task-aware feature selection strategy to reduce the selector input dimension. To support supervised evaluation, we construct semantic chunk-correctness labels based on evidence sufficiency rather than answer-string containment. Experiments show that the proposed selector consistently improves rank-1 evidence selection over mobile-applicable baselines by an average of 2.5%. These results suggest that using LLM-side query representations and MoE routing information and aligning them with retrieval-side candidate embedding is an effective and parameter-efficient strategy for mobile-applicable RAG chunk selection.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-04",
+    "updated": "2026-08-05",
+    "url": "https://arxiv.org/abs/2608.03148",
+    "pdf_url": "https://arxiv.org/pdf/2608.03148.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于移动端 RAG 的块选择优化，属于纯 LLM 推理效率研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "面向移动检索增强生成的轻量级文本块选择方法",
+    "summary_zh": "提出一种轻量级选择器，通过融合查询隐藏状态、MoE 路由信号和候选块嵌入，将 RAG 中的证据对齐问题转化为原型匹配任务，以在低资源设备上筛选最具证据支持力的文本块。",
+    "key_points": [
+      "提出一种轻量级选择器，通过融合查询隐藏状态、MoE 路由信号和候选块嵌入，将 RAG 中的证据对齐问题转化为原型匹配任务，以在低资源设备上筛选最具证据支持力的文本块"
+    ]
+  }
+]

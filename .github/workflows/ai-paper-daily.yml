@@ -94,7 +94,28 @@ jobs:
         done
         python backfill_date.py --start $BACKFILL_DATE --end $BACKFILL_DATE
         
+    - name: Verify daily files were produced
+      run: |
+        # main.py 内部 catch 了所有异常且失败时直接 return，进程退出码始终为 0。
+        # 这里显式校验本次是否真的产出了日报文件，否则任务红一下，避免静默失败。
+        shopt -s nullglob
+        produced=(output/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].json)
+        if [ ${#produced[@]} -eq 0 ]; then
+          echo "::error::本次运行没有产出任何日报文件，请检查上一步日志（arXiv 抓取或 LLM 调用可能失败）"
+          exit 1
+        fi
+        echo "✅ 本次产出 ${#produced[@]} 个日报 JSON: ${produced[*]}"
+
+    - name: Archive daily files into month folders
+      run: |
+        # 日历页的链接固定指向 output/YYYYMM/YYYYMMDD.html，
+        # 而生成脚本写在 output/ 根目录，不归档的话点进去会 404。
+        python3 archive_daily.py
+
     - name: Commit and push results
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO: ${{ github.repository }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
@@ -107,13 +128,23 @@ jobs:
         
         # 检查是否有变更
         if git diff --staged --quiet; then
-          echo "No new papers to commit"
-        else
-          git commit -m "Update AI papers $(date +%Y-%m-%d)"
-          # 使用 GITHUB_TOKEN 推送
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          echo "::error::暂存区为空，日报文件未能进入 Git。请确认 .gitignore 没有误伤 output/ 下的文件"
+          exit 1
         fi
-      continue-on-error: true
+        
+        git commit -m "Update AI papers $(date +%Y-%m-%d)"
+        
+        # 与 Update Calendar Index 工作流可能撞车，推送失败时 rebase 后重试
+        for attempt in 1 2 3; do
+          if git push "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" HEAD:main; then
+            echo "✅ 推送成功"
+            exit 0
+          fi
+          echo "⚠️  推送失败，第 ${attempt} 次重试前先 rebase 远端最新提交"
+          git pull --rebase "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" main
+        done
+        echo "::error::推送重试 3 次仍失败"
+        exit 1
     
     - name: Upload artifacts
       uses: actions/upload-artifact@v4

@@ -1,0 +1,620 @@
+[
+  {
+    "arxiv_id": "2606.18379",
+    "title": "RankGraph-2: Lifecycle Co-Design for Billion-Node Graph Learning in Recommendation",
+    "authors": [
+      "Renzhi Wu",
+      "Zikun Cui",
+      "Junjie Yang",
+      "Tai Guo",
+      "Hong Li",
+      "Xian Chen",
+      "Li Yu",
+      "Ke Pan",
+      "Sri Reddy",
+      "Mahesh Srinivasan",
+      "Nipun Mathur",
+      "Haomin Yu",
+      "Hong Yan"
+    ],
+    "summary": "Graph-based retrieval at billion-node scale requires jointly solving three tightly coupled problems -- graph construction, representation learning, and real-time serving -- yet existing work addresses each in isolation. We present RankGraph-2, a framework deployed at Meta that co-designs all three lifecycle stages for similarity-based retrieval (U2U2I and U2I2I), where each stage's requirements shape the others. Serving requires a co-learned cluster index to avoid expensive online KNN -- this pushes index co-training into the training objective. Training benefits from the observation that similarity-based retrieval tolerates pre-computed neighborhoods, eliminating online graph infrastructure -- this requires construction to produce self-contained data. Construction must also support hour-level refresh for item coverage. Acting on these cascading requirements, RankGraph-2 reduces hundreds of trillions of edges to hundreds of billions via subsampling with popularity bias correction, pre-computes multi-hop neighborhoods via personalized PageRank, and co-learns a residual-quantization cluster index that reduces serving computational cost by 83%. This lifecycle co-design enables a simple architecture to achieve 3.8 x higher recall than a GAT + Deep Graph Infomax model on a bipartite graph and 2.1 x higher than PyTorch-BigGraph on item retrieval. RankGraph-2 delivers up to +0.96% CTR and +2.75% CVR, and has powered 20+ retrieval launches across major surfaces.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2606.18379",
+    "pdf_url": "https://arxiv.org/pdf/2606.18379.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对十亿节点规模的推荐系统图检索问题，提出了涵盖构建、训练到服务的全生命周期协同设计框架，属于核心领域的高价值创新；虽标注为中国公司但摘要明确显示为 Meta 部署，仍按最高相关性评分。",
+    "translation": "RankGraph-2：推荐系统中十亿节点图学习的全生命周期协同设计",
+    "summary_zh": "提出一种面向十亿节点规模推荐检索的协同设计框架，通过联合优化图构建、表示学习与实时服务三个阶段，利用预计算多跳邻域和共学习聚类索引解决大规模图学习的效率与覆盖难题。",
+    "key_points": [
+      "提出一种面向十亿节点规模推荐检索的协同设计框架，通过联合优化图构建、表示学习与实时服务三个阶段，利用预计算多跳邻域和共学习聚类索引解决大规模图学习的效率与覆盖难题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28533",
+    "title": "CMSL: Constructive Multi-Sequence Learning for Recommendation Systems",
+    "authors": [
+      "Zikun Cui",
+      "Renzhi Wu",
+      "Junjie Yang",
+      "Li Sheng",
+      "Jijie Wei",
+      "Linfeng Liu",
+      "Tai Guo",
+      "Tao Jia",
+      "Xiaodong Wang",
+      "Hong Li",
+      "Li Yu",
+      "Sri Reddy",
+      "Hong Yan"
+    ],
+    "summary": "Sequence learning has emerged as the promising paradigm in recommendation systems, surpassing traditional Deep Learning Recommendation Models (DLRM) by capturing the temporal nuances of user behavior. However, current state-of-the-art architectures operate under a limiting analogy: they treat user history as a monolithic chronological sequence like a sentence in a Large Language Model (LLM). We observe a fundamental divergence between natural language and recommendation data: unlike the linear, logical flow of text, user history is inherently multi-faceted. A user's journey is a fragmented reflection of diverse interests, resulting in much weaker coherence between items than is found in LLM training data. This lack of structural unity leads to context pollution. In single-sequence modeling, unrelated behaviors compete for the same attention budget. This \"noisy\" signal dilutes the model's focus, effectively capping its ability to discern high-intent patterns from background activity. To address this, we propose Constructive Multi-Sequence Learning (CMSL), a paradigm shift from passive sequence ingestion to active \"context engineering\" that constructs multiple coherent sequences in latent space. CMSL leverages a learnable Sequence Construction Module to disentangle user history into \"pure\" thematic strands, followed by a linear attention mechanism to efficiently model these strands at scale. CMSL has been deployed across ranking and retrieval tasks and across four major surfaces at Meta.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2606.28533",
+    "pdf_url": "https://arxiv.org/pdf/2606.28533.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的用户行为序列建模痛点，提出多序列学习新架构以解决上下文污染问题，且已在 Meta 核心业务落地，属于高优先级的核心领域进展。",
+    "translation": "CMSL：面向推荐系统的构造性多序列学习方法",
+    "summary_zh": "针对用户历史数据缺乏线性连贯性导致单序列模型上下文污染的问题，提出通过潜在空间构造多个 coherent 主题序列的 CMSL 架构，利用可学习的序列构建模块解耦用户兴趣并高效建模。",
+    "key_points": [
+      "针对用户历史数据缺乏线性连贯性导致单序列模型上下文污染的问题，提出通过潜在空间构造多个 coherent 主题序列的 CMSL 架构，利用可学习的序列构建模块解耦用户兴趣并高效建模"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09877",
+    "title": "Serving the Long Tail: Training-Free LLM Candidate Generation for Vacation Rental Marketplaces",
+    "authors": [
+      "Syed Mohammed Arshad Zaidi",
+      "Eric Rincon",
+      "Shayan Hassantabar"
+    ],
+    "summary": "Vacation rental marketplaces face a structural imbalance on the supply side: a small fraction of properties receive most user interactions, while the long tail of new, niche, and seasonal listings generates too little behavioral signal for collaborative filtering to serve effectively. At Vrbo, item-based k-nearest neighbors (IBKNN) is a core candidate generation channel, but leaves tens of thousands of properties with no candidates and produces weak neighborhoods for sparsely interacted ones. We present a training-free, LLM-based candidate generation pipeline that complements IBKNN using static property metadata alone. An off-the-shelf LLM synthesizes diverse semantic queries per property, a pre-trained text encoder embeds them, and an approximate nearest-neighbor index retrieves candidates from an 11.7M-property catalog. A Union fusion strategy merges these with IBKNN while preserving the behavioral channel's ordering, guaranteeing no degradation on well-served properties, and a downstream learning-to-rank model re-scores the fused pool. Evaluated on 1.6M focal properties, the system extends candidate coverage to tens of thousands of properties IBKNN cannot reach, delivers its largest gains on the long-tail segment where behavioral methods are weakest, and matches or beats IBKNN at every K on shared properties. A downstream learning-to-rank stage further lifts the fused pool, yielding a complete candidate generation and re-ranking stack that serves the long tail without regressing well-served properties. We additionally show that Union fusion collapses the recall gap between a 3B open-weights LLM and frontier API-based models from 27-46% to under 1%, supporting self-hosted small-model deployment at marketplace catalog scale.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.09877",
+    "pdf_url": "https://arxiv.org/pdf/2607.09877.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统召回阶段的长尾冷启动问题，提出利用 LLM 生成语义查询以补充传统协同过滤，属于电商/本地生活场景下的核心推荐技术创新；虽非中国公司（实际为 Vrbo/Expedia），但因其极高的业务相关性和架构创新，基础分已达满分。",
+    "translation": "服务长尾：面向度假租赁市场的免训练 LLM 候选生成方法",
+    "summary_zh": "提出一种免训练的 LLM 候选生成流水线，利用静态元数据合成多样化语义查询并结合向量检索，有效解决了传统协同过滤在长尾物品上信号稀疏的问题，并通过联合融合策略在不损害热门物品效果的前提下显著扩展了召回覆盖范围。",
+    "key_points": [
+      "提出一种免训练的 LLM 候选生成流水线，利用静态元数据合成多样化语义查询并结合向量检索，有效解决了传统协同过滤在长尾物品上信号稀疏的问题，并通过联合融合策略在不损害热门物品效果的前提下显著扩展了召回覆盖范围"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09696",
+    "title": "Mitigating Early Training Collapse in CTR Models",
+    "authors": [
+      "Ergun Biçici",
+      "Erkan Çetinyamaç"
+    ],
+    "summary": "Deep neural models for click-through rate prediction often exhibit a sharp decline in validation performance immediately after the first training epoch despite continued improvement in training loss. This instability restricts effective learning and limits model performance. In this study, we analyze this behavior using large-scale industrial datasets and evaluate practical mitigation strategies. While reducing the learning rate provides only incremental gains, controlling feature sparsity yields substantial improvements. Removing highly sparse features and aggregating infrequent feature values stabilizes training, extends useful learning beyond a single epoch, and improves both offline evaluation metrics and online system performance.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-06-20",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.09696",
+    "pdf_url": "https://arxiv.org/pdf/2607.09696.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1 IntelligentApplicationDevelopment,HuaweiTu¨rkiyeR&DCenter,Istanbul,Turkey",
+      "*Corresponding author: Ergun Bic¸ici, Huawei Tu¨rkiye R&D Center, Istanbul, Turkey. Email:"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统核心环节（CTR 预估）中的训练崩溃实际问题，提出了具体的特征稀疏性控制策略，属于高优先级的核心领域进展。",
+    "translation": "缓解 CTR 模型早期训练崩溃问题",
+    "summary_zh": "针对 CTR 模型首 epoch 后验证性能骤降的问题，提出通过移除高稀疏特征和聚合低频特征值来控制特征稀疏性，从而稳定训练过程并提升模型效果。",
+    "key_points": [
+      "针对 CTR 模型首 epoch 后验证性能骤降的问题，提出通过移除高稀疏特征和聚合低频特征值来控制特征稀疏性，从而稳定训练过程并提升模型效果"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10044",
+    "title": "FlashTrie: A GPU-Accelerated Constrained Beam Search for Generative Retrieval",
+    "authors": [
+      "Dakshitha Anandakumar",
+      "Anurag Mukkara",
+      "Wenxiang Hu",
+      "Jiusheng Chen",
+      "M Akash Kumar",
+      "Ting Ye",
+      "Qiang Lou",
+      "Jian Jiao"
+    ],
+    "summary": "Constrained decoding is essential in generative retrieval, where document identifiers generated directly from a query must exactly match a predefined library of valid IDs. At scale, decoding is often constrained using a trie with beam search but most implementations run on CPU. Limited parallelism then makes trie traversal and candidate validation a serving bottleneck as beam width grows.\n  We present FlashTrie, which addresses this limitation by optimizing constrained beam search on GPUs. It introduces an integer-aware succinct trie layout that uses bit compression to reduce memory footprint while keeping the full index in GPU high-bandwidth memory reducing memory stalls, and a cooperative CUDA kernel that performs beam expansion, validation, and pruning entirely on-device without per-step host orchestration. It further replaces CPU-style irregular lookup and heap maintenance with GPU-aware parallel primitives, improving warp utilization and reducing divergence.\n  Together, these designs significantly reduce decoding latency and increase throughput while preserving retrieval quality. On a library of 800M keywords with beam widths up to 1000, FlashTrie reduces trie-search latency to under 3 ms, achieving up to 24x speedup over a highly optimized multi-threaded CPU baseline. These improvements enable FlashTrie to scale beam sizes by up to 5x in latency-critical applications such as sponsored search. In a large-scale online A/B experiment on a popular commercial search engine, it delivers a statistically significant +0.71% revenue lift, enabling real-time constrained decoding at a scale previously feasible only offline. The FlashTrie code will be publicly released after the review process.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10044",
+    "pdf_url": "https://arxiv.org/pdf/2607.10044.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式检索（Generative Retrieval）中的核心解码瓶颈提出 GPU 加速方案，并已在商业搜索引擎中通过 A/B 测试验证了收入提升，属于搜索核心架构的直接创新。",
+    "translation": "FlashTrie：面向生成式检索的 GPU 加速约束束搜索",
+    "summary_zh": "提出一种整数感知的简洁 Trie 布局与合作式 CUDA 内核，将约束束搜索的扩展、验证和剪枝完全移至 GPU 端执行，消除了 CPU-GPU 交互开销并提升了并行效率。",
+    "key_points": [
+      "提出一种整数感知的简洁 Trie 布局与合作式 CUDA 内核，将约束束搜索的扩展、验证和剪枝完全移至 GPU 端执行，消除了 CPU-GPU 交互开销并提升了并行效率"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10096",
+    "title": "Scaling and Stabilizing Large-Scale Embedding-Based Retrieval",
+    "authors": [
+      "Zhen Yang",
+      "Juexin Lin",
+      "Hongwei Shang",
+      "Kaihao Li",
+      "Feng Liu",
+      "Satya Chembolu",
+      "Xunfan Cai",
+      "Xinyi Liu",
+      "Cun Mu",
+      "Tony Lee",
+      "Ciya Liao"
+    ],
+    "summary": "Embedding-based retrieval (EBR) is foundational to large-scale e-commerce search, yet its effectiveness is often constrained by the quality of training signals and the representational capacity of the encoder. Standard dual-encoders suffer from a training-inference gap: they are optimized on narrow candidate pools but must discriminate against hundreds of millions of items during inference. Furthermore, while transitioning to higher-capacity backbones can mitigate this gap, simply replacing a mature model can lead to inconsistent retrieval behavior and a loss of the domain-specific knowledge established in previous iterations. In this paper, we present a unified pipeline deployed at Walmart that addresses both signal quality and model evolution. Our contributions are two-fold: (1) Hybrid Hard Negative Mining: We integrate Online Cross-Batch Sampling to increase negative diversity by an order of magnitude and Hybrid Offline Mining, which combines cross-encoder predictions with metadata heuristics to identify nuanced mismatches. (2) Legacy-Aware Distillation: We transition from DistilBERT to a higher-capacity GTE-base encoder. To ensure a smooth and superior transition, we introduce a Warm-Start Distillation technique that transfers domain-specific expertise from the legacy model to the new backbone. Validated through extensive offline experiments and online A/B testing, the proposed pipeline is deployed in live production, delivering a +7.34% improvement in NDCG@5 and a +0.50% lift in gross revenue.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10096",
+    "pdf_url": "https://arxiv.org/pdf/2607.10096.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索中的大规模嵌入检索（EBR）核心问题，提出了混合难负例挖掘和遗留感知蒸馏方法，属于高优先级的核心领域进展。",
+    "translation": "大规模基于嵌入的检索系统的扩展与稳定化",
+    "summary_zh": "本文提出了一种统一 pipeline，通过结合在线跨批次采样与混合离线挖掘的难负例策略，以及将旧模型领域知识迁移至新骨干网络的温启动蒸馏技术，解决了大规模电商搜索中训练信号质量不足及模型迭代时的行为不一致问题。",
+    "key_points": [
+      "本文提出了一种统一 pipeline，通过结合在线跨批次采样与混合离线挖掘的难负例策略，以及将旧模型领域知识迁移至新骨干网络的温启动蒸馏技术，解决了大规模电商搜索中训练信号质量不足及模型迭代时的行为不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09908",
+    "title": "RouteRec: Strict Evaluation of Recommender-Agent Selection and Aggregation",
+    "authors": [
+      "Kaiji Zhou",
+      "Vladimir Kalmykov",
+      "Yue Feng"
+    ],
+    "summary": "Recommender systems increasingly face a choice among heterogeneous agents -- collaborative filters, sequential models, content-based retrievers, and LLM-based rerankers -- yet no single agent is uniformly best. We study this choice as task-aware agent ranking under cost constraints using RouteRec, a framework that compares request-level hard selection with item-level learned aggregation over four traditional recommender agents and one LLM reranker agent. On MovieLens-1M, the full quality oracle has substantial headroom (HR@10 = 0.584), confirming that useful cross-agent signal exists. Under a leakage-free 5-fold out-of-fold protocol, however, hard selection remains below BM25 (0.223 vs. 0.254), and selective LLM escalation does not improve it. The same protocol yields a different outcome for learned aggregation: its cheap-only variant matches BM25 in HR and has a higher NDCG point estimate (0.123 vs. 0.114), while gated all-agent aggregation reaches HR@10 = 0.295 with 70.2\\% LLM calls. The resulting lesson is not that routing is solved, but that request-level selection of one complete agent list is too coarse for this sparse fixed-candidate setting; item-level aggregation is the more promising action space.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.09908",
+    "pdf_url": "https://arxiv.org/pdf/2607.09908.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接研究推荐系统中多智能体（含 LLM）的路由选择与聚合策略，属于核心推荐架构创新，非纯 LLM 研究。",
+    "translation": "RouteRec：推荐智能体选择与聚合的严格评估",
+    "summary_zh": "提出 RouteRec 框架，通过对比请求级硬选择与物品级学习聚合，解决异构推荐智能体（含 LLM）在成本约束下的任务感知路由问题。",
+    "key_points": [
+      "提出 RouteRec 框架，通过对比请求级硬选择与物品级学习聚合，解决异构推荐智能体（含 LLM）在成本约束下的任务感知路由问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09988",
+    "title": "An LLM-powered Agentic Recommendation System for Connected TV Content Discovery",
+    "authors": [
+      "Lei Shi",
+      "Di Wang",
+      "Harry Tran",
+      "Helsing Xu",
+      "Yuchen Lu",
+      "Dhara Ghodasara",
+      "Wilson Chaney",
+      "Xueting Liao",
+      "Jerry Yu",
+      "Huayu Ding",
+      "Mingze Gao",
+      "Shike Mei",
+      "Shuo Tang",
+      "Zhe Zhang",
+      "Jianming He",
+      "Abhishek Kumar",
+      "Haotian Wu",
+      "Hamed Firooz",
+      "Li Li"
+    ],
+    "summary": "Recommendation systems, from traditional multi-stage to recent unified generative architectures, face challenges in incorporating diverse contextual signals, such as trending topics, breaking news, cultural events, and cross-surface user activities, into their ranking pipelines. These systems are designed to consume structured behavioral signals with consistent schemas, and lack the reasoning capability to naturally process unstructured or heterogeneously formatted contextual information. Incorporating such signals typically requires feature engineering, bespoke data pipelines, and carefully tuned heuristics. In this paper, we present an LLM-powered agentic recommendation system designed for Connected TV (CTV) content discovery that addresses these limitations. Our system leverages the reasoning capabilities of large language models to naturally process and synthesize diverse signals across varying schemas and structures, eliminating much of the manual integration inherent in traditional ranking and retrieval systems. Recognizing that current LLM-based solutions still fall short of traditional machine learning models in several recommendation tasks, including retrieval efficiency, personalization precision, and scalability, we adopt an agentic architecture that orchestrates specialized components, allowing each sub-task to be handled by the most suitable method, whether LLM-based or traditional ML. The main contribution of this work is our engineering approach to successfully overcoming the practical limitations of enabling LLM for recommendation, particularly inference latency. We share insights from our work and discuss the trade-offs and lessons learned in building a hybrid system that combines the flexibility of LLMs with the performance of established recommendation techniques.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.09988",
+    "pdf_url": "https://arxiv.org/pdf/2607.09988.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 CTV 内容发现场景，提出了一种结合 LLM 推理能力与传统 ML 效率的代理架构推荐系统，解决了多源上下文信号融合的实际工程难题，属于高优先级的 LLM for RecSys 应用。",
+    "translation": "面向联网电视内容发现的 LLM 驱动代理推荐系统",
+    "summary_zh": "本文提出一种混合代理架构，利用大语言模型的推理能力处理异构上下文信号，同时协同传统机器学习组件以保障推荐系统的检索效率与可扩展性。",
+    "key_points": [
+      "本文提出一种混合代理架构，利用大语言模型的推理能力处理异构上下文信号，同时协同传统机器学习组件以保障推荐系统的检索效率与可扩展性"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10016",
+    "title": "Tokenizing Numerical and Embedding Features for LLM RecSys",
+    "authors": [
+      "Zhe Xu",
+      "Ankit Peshin",
+      "Chiyu Zhang",
+      "Feng Qi",
+      "Johnson Lui",
+      "Anil Ramakrishna",
+      "Justin Johnson",
+      "Carl Hu",
+      "Kaushik Rangadurai",
+      "Luke Simon"
+    ],
+    "summary": "Large language models (LLMs) are increasingly used as backbone architectures for recommender systems because of their strong sequence modeling and representation learning capabilities. However, most LLM-based recommenders operate primarily on discrete textual tokens, whereas practical recommendation pipelines also rely on continuous numerical features and dense embedding features produced by upstream feature engineering or pretrained encoders. This mismatch limits the ability of LLM-based models to exploit fine-grained non-textual signals. We propose a soft-token fusion framework that maps numerical and embedding features into the LLM embedding space, allowing heterogeneous recommendation signals to be consumed through the standard token interface. We instantiate the framework in a shared-parameter LLM-based two-tower retrieval model and introduce an interaction-based fusion module that refines embedding and numerical soft tokens before they are inserted into the final LLM input. Experiments on three Amazon recommendation benchmarks show that soft-token fusion improves retrieval performance over LLM-based baselines, and that interaction-based fusion is more effective than direct concatenation of heterogeneous soft tokens.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10016",
+    "pdf_url": "https://arxiv.org/pdf/2607.10016.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中 LLM 无法有效处理连续数值和稠密嵌入特征的痛点，提出了软令牌融合框架，属于 LLM for RecSys 的核心架构创新。",
+    "translation": "面向 LLM 推荐系统的数值与嵌入特征令牌化方法",
+    "summary_zh": "提出一种软令牌融合框架，将数值和稠密嵌入特征映射到 LLM 嵌入空间，使基于 LLM 的推荐模型能通过标准令牌接口统一处理异构特征信号。",
+    "key_points": [
+      "提出一种软令牌融合框架，将数值和稠密嵌入特征映射到 LLM 嵌入空间，使基于 LLM 的推荐模型能通过标准令牌接口统一处理异构特征信号"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10235",
+    "title": "Consensus vs. Dissent: Dynamic LLM Modeling of Subjective Preferences in Group Recommenders",
+    "authors": [
+      "Cedric Waterschoot",
+      "Nava Tintarev",
+      "Francesco Barile"
+    ],
+    "summary": "Previous work in group recommender systems has demonstrated a sensitivity to the distribution of preferences within a group. Specifically, the selection of the preference aggregation strategy benefits from considering such group configurations. In this paper, we study whether LLMs are able to mimic this sensitivity and to select the ideal aggregation strategy (and corresponding recommendation) according to nuanced human perceptions of fairness, satisfaction, and consensus.\n  We do this by fine-tuning Large Language Models (LLMs) on human survey data to serve as real-time judgmental models within the recommendation pipeline. Using a reasoning dataset distilled from DeepSeek-V3.1 and human ground truth assessments, we develop Judgmental Llama and Judgmental OLMo to simulate group assessments. Our pipeline successfully generates multiple recommendation candidates based on social choice-based aggregation strategies and dynamically selects the one that maximizes these predicted human-like evaluations. We further validate these suggestions in a user study (n=284) and find that our methodology achieved the highest scores for satisfaction and group consensus. Furthermore, we find that LLM judgments are most aligned with human perceptions of fairness, satisfaction and consensus when we also consider interaction effects between our LLM-based method and group configuration (e.g., minority or coalition). These findings give further support for dynamically adapting aggregation strategies to specific within-group preference distributions, and highlight the advantage of using LLMs for an adaptation that is aligned with subjective human judgments.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10235",
+    "pdf_url": "https://arxiv.org/pdf/2607.10235.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接将 LLM 应用于群组推荐系统中的偏好聚合策略动态选择，解决了推荐领域的核心问题，且来自中国公司 TAL 额外加 1 分。",
+    "translation": "共识与异议：群组推荐中主观偏好的动态 LLM 建模",
+    "summary_zh": "提出利用微调后的 LLM 模拟人类对公平性和满意度的判断，在推荐流程中根据群组偏好分布动态选择最优的聚合策略。",
+    "key_points": [
+      "提出利用微调后的 LLM 模拟人类对公平性和满意度的判断，在推荐流程中根据群组偏好分布动态选择最优的聚合策略"
+    ]
+  },
+  {
+    "arxiv_id": "2606.09204",
+    "title": "The Injection Paradox: Brand-Level Suppression in Safety-Trained LLM Recommendations via RAG Context Injection",
+    "authors": [
+      "Hyunseok Paeng"
+    ],
+    "summary": "We present a reproducible failure mode of safety training in RAG-based LLM recommendation, the Injection Paradox, in which prompt injections embedded in retrieved documents backfire against the attacker, suppressing the target brand below the injection-free baseline. In safety-trained Claude models, documents containing prompt injections suffer a sharp drop in recommendation rate, and this suppression propagates beyond the injected document to unmodified documents of the same brand. In Claude Opus 4.6, the target brand drops from a 54% baseline to zero top-2 recommendations across all 50 trials, even though only 1 of 4 brand documents in the corpus contains an injection. The directional pattern is reproduced in counterfactual experiments and across three brands. A contrasting result across the GPT models tested, where the same injection instead increases recommendations, suggests model-family differences in how injection-like context affects recommendation behavior. These findings raise the technical possibility of a reverse-attack scenario in which an adversary embeds injections in a competitor's documents to suppress the competitor's brand via safety-sensitive model behavior. Code, prompts, privacy-preserving per-trial outcome records, and aggregate results are released.",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CR"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2606.09204",
+    "pdf_url": "https://arxiv.org/pdf/2606.09204.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究基于 RAG 的 LLM 推荐系统中的安全对抗问题（提示注入导致品牌抑制），属于 LLM 在推荐场景下的具体应用与风险分析，非纯 LLM 基础研究。",
+    "translation": "注入悖论：通过 RAG 上下文注入导致安全训练 LLM 推荐中的品牌级抑制",
+    "summary_zh": "揭示了 RAG 架构下 LLM 推荐系统的一种新型失败模式，即检索文档中的恶意提示注入会触发安全机制，反而导致目标品牌被过度抑制甚至完全移除。",
+    "key_points": [
+      "揭示了 RAG 架构下 LLM 推荐系统的一种新型失败模式，即检索文档中的恶意提示注入会触发安全机制，反而导致目标品牌被过度抑制甚至完全移除"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23342",
+    "title": "AlayaLaser: Efficient Index Layout and Search Strategy for Large-scale High-dimensional Vector Similarity Search",
+    "authors": [
+      "Weijian Chen",
+      "Haotian Liu",
+      "Yangshen Deng",
+      "Long Xiang",
+      "Liang Huang",
+      "Bo Tang"
+    ],
+    "summary": "On-disk graph-based approximate nearest neighbor search (ANNS) is essential for large-scale, high-dimensional vector retrieval, yet its performance is widely recognized to be limited by the prohibitive I/O costs. Interestingly, we observed that the performance of on-disk graph-based index systems is compute-bound, not I/O-bound, with the rising of the vector data dimensionality (e.g., hundreds or thousands). This insight uncovers a significant optimization opportunity: existing on-disk graph-based index systems universally target I/O reduction and largely overlook computational overhead, which leaves a substantial performance improvement space.\n  In this work, we propose AlayaLaser, an efficient on-disk graph-based index system for large-scale high-dimensional vector similarity search. In particular, we first conduct performance analysis on existing on-disk graph-based index systems via the adapted roofline model, then we devise a novel on-disk data layout in AlayaLaser to effectively alleviate the compute-bound, which is revealed by the above roofline model analysis, by exploiting SIMD instructions on modern CPUs. We next design a suite of optimization techniques (e.g., degree-based node cache, cluster-based entry point selection, and early dispatch strategy) to further improve the performance of AlayaLaser. We last conduct extensive experimental studies on a wide range of large-scale high-dimensional vector datasets to verify the superiority of AlayaLaser. Specifically, AlayaLaser not only surpasses existing on-disk graph-based index systems but also matches or even exceeds the performance of in-memory index systems.",
+    "categories": [
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2602.23342",
+    "pdf_url": "https://arxiv.org/pdf/2602.23342.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于大规模高维向量检索（召回核心环节）的底层索引优化，直接服务于推荐/搜索系统的检索阶段，虽非算法模型创新但工程应用价值极高；因来自中国公司额外加 1 分。",
+    "translation": "AlayaLaser：面向大规模高维向量相似性搜索的高效索引布局与搜索策略",
+    "summary_zh": "提出一种基于磁盘的图索引系统，通过屋顶线模型分析发现高维场景下计算是瓶颈而非 I/O，进而利用 SIMD 指令优化数据布局并设计多种策略以提升向量检索效率。",
+    "key_points": [
+      "提出一种基于磁盘的图索引系统，通过屋顶线模型分析发现高维场景下计算是瓶颈而非 I/O，进而利用 SIMD 指令优化数据布局并设计多种策略以提升向量检索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09909",
+    "title": "Learning Partition Trees for Nearest Neighbor Search",
+    "authors": [
+      "Sanjeev Khanna",
+      "Ashwin Padaki",
+      "Erik Waingarten"
+    ],
+    "summary": "We study nearest neighbor search from the perspective of data-driven algorithm design: given a dataset $P \\subset \\mathbb{R}^d$ of size $n$ and sample access to a query distribution over $\\mathbb{R}^d$, the goal is to learn a data structure optimized for queries drawn from that specific distribution. We focus on the class of balanced halfspace trees, which naturally abstracts space-partitioning frameworks like locality-sensitive hashing. Assuming Gaussian-like marginal conditions on the dataset and query distribution, we give an efficient algorithm that learns a tree achieving $o(nd)$ query time, provided that a perfect tree exists.\n  At the core of our algorithmic approach is the balanced halfspace cut problem, where we are given a distribution over $\\mathbb{R}^d \\times \\mathbb{R}^d$ and must find a balanced halfspace that minimizes the fraction of cut pairs. We prove that without distributional assumptions, finding the optimal balanced halfspace is NP-hard. To circumvent this computational barrier, we design an efficient improper learning algorithm: if the optimal halfspace cuts an $α$ fraction of pairs, our algorithm outputs a balanced polynomial threshold function of degree $\\tilde{O}(1/\\varepsilon^2)$ that cuts at most an $O(\\sqrt{α+\\varepsilon})$ fraction.",
+    "categories": [
+      "cs.DS",
+      "cs.LG"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.09909",
+    "pdf_url": "https://arxiv.org/pdf/2607.09909.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种数据驱动的最近邻搜索（NN Search）算法优化方法，虽未明确针对推荐系统场景，但 NN 搜索是召回阶段的核心技术，具有潜在应用价值；非纯 LLM 研究，故给予中等优先级评分并加上中国公司加分。",
+    "translation": "学习用于最近邻搜索的划分树",
+    "summary_zh": "提出一种数据驱动算法，通过学习针对特定查询分布优化的平衡半空间树结构，以加速最近邻搜索过程。",
+    "key_points": [
+      "提出一种数据驱动算法，通过学习针对特定查询分布优化的平衡半空间树结构，以加速最近邻搜索过程"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21247",
+    "title": "PiPNN: Ultra-Scalable Graph-Based Nearest Neighbor Indexing",
+    "authors": [
+      "Tobias Rubel",
+      "Richard Wen",
+      "Laxman Dhulipala",
+      "Lars Gottesbüren",
+      "Rajesh Jayaram",
+      "Jakub Łącki"
+    ],
+    "summary": "The fastest indexes for Approximate Nearest Neighbor Search today are also the slowest to build: graph-based methods like HNSW and Vamana achieve state-of-the-art query performance but have large construction times due to relying on random-access-heavy beam searches. We introduce PiPNN (Pick-in-Partitions Nearest Neighbors), an ultra-scalable graph construction algorithm that avoids this ``search bottleneck'' that existing graph-based methods suffer from.\n  PiPNN's core innovation is HashPrune, a novel online pruning algorithm which dynamically maintains sparse collections of edges. HashPrune enables PiPNN to partition the dataset into overlapping sub-problems, efficiently perform bulk distance comparisons via dense matrix multiplication kernels, and stream a subset of the edges into HashPrune. HashPrune guarantees bounded memory during index construction which permits PiPNN to build higher quality indices without the use of extra intermediate memory.\n  PiPNN builds state-of-the-art indexes up to 11.6x faster than Vamana (DiskANN) and up to 12.9x faster than HNSW. PiPNN is significantly more scalable than recent algorithms for fast graph construction. PiPNN builds indexes at least 19.1x faster than MIRAGE and 17.3x than FastKCNA while producing indexes that achieve higher query throughput. PiPNN enables us to build, for the first time, high-quality ANN indexes on billion-scale datasets in under 20 minutes using a single multicore machine.",
+    "categories": [
+      "cs.DB",
+      "cs.DC",
+      "cs.IR"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2602.21247",
+    "pdf_url": "https://arxiv.org/pdf/2602.21247.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "PiPNN: Ultra-Scalable Graph-Based",
+      "UMD UMD UMDandGoogleResearch",
+      "GoogleResearch GoogleResearch GoogleResearch",
+      "PiPNN(Pick-in-PartitionsNearestNeighbors),anultra-scalable 6",
+      "significantlymorescalablethanrecentalgorithmsforfastgraph"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种超可扩展的图构建算法以加速近似最近邻搜索（ANN），这是推荐系统召回阶段的关键基础设施，但文章主要聚焦于通用索引构建效率而非特定的推荐业务场景或模型创新。",
+    "translation": "PiPNN：超可扩展的基于图最近邻索引方法",
+    "summary_zh": "该论文提出了 PiPNN 算法，通过创新的 HashPrune 在线剪枝机制和密集矩阵乘法优化，解决了现有图-based 索引构建慢的问题，实现了十亿级数据集的高效索引构建。",
+    "key_points": [
+      "该论文提出了 PiPNN 算法，通过创新的 HashPrune 在线剪枝机制和密集矩阵乘法优化，解决了现有图-based 索引构建慢的问题，实现了十亿级数据集的高效索引构建"
+    ]
+  },
+  {
+    "arxiv_id": "2607.09817",
+    "title": "Estimation, Prediction, and Assortment Optimization for Markov Chain Choice Models with Panel Data",
+    "authors": [
+      "Yalcin Akcay",
+      "Gerardo Berbeglia",
+      "Young-San Lin"
+    ],
+    "summary": "We propose a framework for the Markov chain (MC) choice model with panel data, including parameter estimation, personalized choice prediction, and personalized assortment optimization. In contrast to the traditional setting, which assumes that each transaction is independently drawn from a random utility model, our framework accounts for dependencies among transactions for the same customer in historical data, captured by partial-ordering preference information. To the best of our knowledge, our framework initiates the study of choice modeling with panel data under MC. As our primary result, we propose novel expectation-maximization (EM) algorithms for MC parameter estimation by incorporating partial-ordering-based customer preference information. On synthetic datasets and the sushi dataset, our EM algorithms outperform the traditional EM algorithm of Simsek and Topaloglu (Operations Research, 66, 2018) and multinomial-logit-based partial-order benchmarks adapted from Jagabathula and Vulcano (Management Science, 64, 2018). As our secondary contribution, we present hardness and computational results for conditional choice prediction and assortment optimization problems. These results complement our estimation framework and clarify the computational landscape of conditional choice and assortment optimization, which may be of independent interest.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-07-10",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.09817",
+    "pdf_url": "https://arxiv.org/pdf/2607.09817.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦于基于马尔可夫链的品类优化和选择模型，属于推荐系统中的重排序/决策环节，但主要基于传统运筹学方法而非深度学习或 LLM，且实验场景（寿司数据）缺乏现代电商/社交业务的直接针对性。",
+    "translation": "基于面板数据的马尔可夫链选择模型的估计、预测与品类优化",
+    "summary_zh": "提出一种利用面板数据中部分排序偏好信息的马尔可夫链选择模型框架，通过新型 EM 算法解决参数估计、个性化选择预测及品类优化问题。",
+    "key_points": [
+      "提出一种利用面板数据中部分排序偏好信息的马尔可夫链选择模型框架，通过新型 EM 算法解决参数估计、个性化选择预测及品类优化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17906",
+    "title": "Bayesian Active Learning with Gaussian Processes Guided by LLM Relevance Scoring for Dense Passage Retrieval",
+    "authors": [
+      "Junyoung Kim",
+      "Anton Korikov",
+      "Jiazhou Liang",
+      "Justin Cui",
+      "Yifan Simon Liu",
+      "Qianfeng Wen",
+      "Mark Zhao",
+      "Scott Sanner"
+    ],
+    "summary": "While Large Language Models (LLMs) exhibit exceptional zero-shot relevance modeling, their high computational cost necessitates framing passage retrieval as a budget-constrained global optimization problem. Existing approaches passively rely on first-stage dense retrievers, which leads to two limitations: (1) failing to retrieve relevant passages in semantically distinct clusters, and (2) failing to propagate relevance signals to the broader corpus. To address these limitations, we propose Bayesian Active Learning with Gaussian Processes guided by LLM relevance scoring (BAGEL), a novel framework that propagates sparse LLM relevance signals across the embedding space to guide global exploration. BAGEL models the multimodal relevance distribution across the entire embedding space with a query-specific Gaussian Process (GP) based on LLM relevance scores. Subsequently, it iteratively selects passages for scoring by strategically balancing the exploitation of high-confidence regions with the exploration of uncertain areas. Extensive experiments across four benchmark datasets and two LLM backbones demonstrate that BAGEL effectively explores and captures complex relevance distributions and outperforms LLM reranking methods under the same LLM budget on all four datasets.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-04-20",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2604.17906",
+    "pdf_url": "https://arxiv.org/pdf/2604.17906.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于检索阶段的主动学习优化，虽涉及 Dense Passage Retrieval，但核心是通用 NLP 检索效率问题，缺乏针对推荐系统或搜索产品业务场景（如排序、重排序、用户建模）的直接应用。",
+    "translation": "基于 LLM 相关性评分指导高斯过程的贝叶斯主动学习用于稠密段落检索",
+    "summary_zh": "提出 BAGEL 框架，利用高斯过程将稀疏的 LLM 相关性信号传播至整个嵌入空间，以平衡探索与利用，从而在预算约束下优化稠密检索的全局相关性分布建模。",
+    "key_points": [
+      "提出 BAGEL 框架，利用高斯过程将稀疏的 LLM 相关性信号传播至整个嵌入空间，以平衡探索与利用，从而在预算约束下优化稠密检索的全局相关性分布建模"
+    ]
+  },
+  {
+    "arxiv_id": "2602.05235",
+    "title": "FedMosaic: Federated Retrieval-Augmented Generation via Parametric Adapters",
+    "authors": [
+      "Zhilin Liang",
+      "Yuxiang Wang",
+      "Zimu Zhou",
+      "Hainan Zhang",
+      "Boyi Liu",
+      "Yongxin Tong"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances Large Language Models (LLMs) by grounding generation in external knowledge to improve factuality and reduce hallucinations. Yet most deployments assume a centralized corpus, which is infeasible in privacy aware domains where knowledge remains siloed. This motivates federated RAG (FedRAG), where a central LLM server collaborates with distributed silos without sharing raw documents. In context RAG violates this requirement by transmitting verbatim documents, whereas parametric RAG encodes documents into lightweight adapters that merge with a frozen LLM at inference, avoiding raw-text exchange. We adopt the parametric approach but face two unique challenges induced by FedRAG: high storage and communication from per-document adapters, and destructive aggregation caused by indiscriminately merging multiple adapters. We present FedMosaic, the first federated RAG framework built on parametric adapters. FedMosaic clusters semantically related documents into multi-document adapters with document-specific masks to reduce overhead while preserving specificity, and performs selective adapter aggregation to combine only relevance-aligned, nonconflicting adapters. Experiments show that FedMosaic achieves an average 10.9% higher accuracy than state-of-the-art methods in four categories, while lowering storage costs by 78.8% to 86.3% and communication costs by 91.4%, and never sharing raw documents.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2602.05235",
+    "pdf_url": "https://arxiv.org/pdf/2602.05235.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 架构研究，聚焦联邦学习下的参数适配器优化，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍因缺乏 RecSys 直接应用而得分较低。",
+    "translation": "FedMosaic：基于参数适配器的联邦检索增强生成",
+    "summary_zh": "提出一种联邦 RAG 框架，通过将语义相关的文档聚类为多文档适配器并应用选择性聚合策略，在保护数据隐私的同时降低存储与通信开销。",
+    "key_points": [
+      "提出一种联邦 RAG 框架，通过将语义相关的文档聚类为多文档适配器并应用选择性聚合策略，在保护数据隐私的同时降低存储与通信开销"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10491",
+    "title": "EvidentialRAG: Quantifying and Mitigating Information Conflict in Multi-Source Retrieval-Augmented Generation via Evidential Deep Learning",
+    "authors": [
+      "S M Asif Hossain",
+      "Ruksat Khan Shayoni",
+      "M. F. Mridha"
+    ],
+    "summary": "Retrieval-augmented generation grounds large language models in external evidence, but most pipelines still treat retrieved passages as deterministic and mutually consistent context. In open information environments, retrieved sources may disagree because of temporal drift, source error, ambiguity, or genuine uncertainty. This paper introduces ERAG, an uncertainty-aware RAG framework that converts retrieved chunks into probabilistic evidence before generation. A lightweight evaluator extracts candidate claims and maps chunk-level support to Dirichlet evidence. A conflict-preserving Dempster-Shafer fusion rule then transfers unresolved disagreement into epistemic uncertainty rather than normalizing it away. The generator is routed to direct answering, conflict-aware answering, or abstention according to the fused uncertainty score. Experiments on CRAG, ConflictQA, and MuSiQue show that ERAG remains competitive with the strongest matched baseline on standard question answering while improving behavior under conflict. On the CRAG ambiguous subset, hallucination decreases from 45.3% for Corrective RAG to a human-calibrated estimate of 34.8%, conflict resolution increases from 35.2% to 51.2%, and expected calibration error improves to 0.122. These results suggest that evidential modeling is a practical mechanism for trustworthy information processing in foundation-model-based retrieval systems.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10491",
+    "pdf_url": "https://arxiv.org/pdf/2607.10491.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 研究，专注于解决通用问答中的信息冲突和幻觉问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有加分项仍属低优先级。",
+    "translation": "EvidentialRAG：基于证据深度学习量化并缓解多源检索增强生成中的信息冲突",
+    "summary_zh": "提出一种不确定性感知的 RAG 框架，通过将检索片段转化为概率证据并利用 Dempster-Shafer 融合规则处理来源冲突，使模型能根据不确定性分数选择直接回答、冲突感知回答或拒绝回答。",
+    "key_points": [
+      "提出一种不确定性感知的 RAG 框架，通过将检索片段转化为概率证据并利用 Dempster-Shafer 融合规则处理来源冲突，使模型能根据不确定性分数选择直接回答、冲突感知回答或拒绝回答"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10316",
+    "title": "SVD-RAG: Efficient Tree-Organized Retrieval-Augmented Generation via Singular Value Decomposition",
+    "authors": [
+      "Zhihui Sun"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems enhance large language models by retrieving relevant documents from external knowledge bases. Recent work by Sarthi et al. (2024) introduced RAPTOR, which organizes documents into hierarchical tree structures for efficient retrieval, but requires expensive LLM-based abstractive summarization at each internal node -- making large-scale deployment prohibitively costly.\n  We present SVD-RAG, the first method to apply Singular Value Decomposition (SVD) on dense sentence embedding matrices for extractive summarization in hierarchical RAG. Unlike classical LSA which operates on sparse TF-IDF matrices, SVD-RAG exploits the rich semantic representations of modern embedding models, identifying the most informative sentences through their energy contribution in the principal components. Our approach is (1) deterministic -- unlike LLM-based summarization, SVD produces identical results for the same input; (2) cost-efficient -- tree construction requires no additional API calls beyond the initial embedding, reducing token consumption by ~85%; and (3) content-adaptive -- the energy-ratio threshold tau automatically adjusts compression based on content complexity. In a controlled head-to-head comparison using identical corpora, clustering, and beam search, SVD-RAG achieves retrieval quality within 1-5% of RAPTOR with LLM summarization (MRR 0.867 vs. 0.875, Recall@1 0.483 vs. 0.458) while building the tree 317x faster (0.1s vs. 31.7s). On a scaled multi-topic benchmark with 205 chunks and 100 queries across 20 topic variations, SVD-RAG achieves a 4.2x improvement in Recall@1 and 3.1x improvement in MRR over flat embedding retrieval. We provide a detailed cost analysis and parameter sensitivity study. Our implementation is released as an open-source Python package.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10316",
+    "pdf_url": "https://arxiv.org/pdf/2607.10316.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于优化通用 RAG 系统中的文档摘要和检索效率，属于纯 LLM/NLP 基础设施研究，未涉及推荐系统或搜索引擎的核心业务场景（如用户建模、个性化排序、广告匹配等）。",
+    "translation": "SVD-RAG：基于奇异值分解的高效树状组织检索增强生成",
+    "summary_zh": "提出一种利用奇异值分解（SVD）对密集句子嵌入矩阵进行提取式摘要的方法，以构建低成本、确定性的层级化 RAG 检索树，替代昂贵的 LLM 摘要过程。",
+    "key_points": [
+      "提出一种利用奇异值分解（SVD）对密集句子嵌入矩阵进行提取式摘要的方法，以构建低成本、确定性的层级化 RAG 检索树，替代昂贵的 LLM 摘要过程"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10151",
+    "title": "MC-RAG System: A Structure-Driven RAG System for Multi-Constraint Queries",
+    "authors": [
+      "Xiao Zhang",
+      "Yang Wan",
+      "Yi Li",
+      "Miao Xie",
+      "Chunli Lv"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems are widely adopted in question answering, yet they often fail to satisfy complex multi-constraint queries, leading to constraint violations, factual inconsistencies, or hallucinations. We present Structure-Driven RAG System for Multi-Constraint Queries(MC-RAG), a structure-driven RAG system that reformulates retrieval as a subgraph matching problem over a knowledge graph. By integrating semantic and structural embeddings with path-level indexing, MC-RAG performs interpretable, structure-aware, and constraint-consistent retrieval and generation. During the demonstration, participants can input medical or encyclopedic multi-constraint queries, visualize how the system parses constraints, performs structural matching, and generates answers, thereby experiencing an end-to-end, interactive, and explainable RAG pipeline. A demo video is available at https://youtu.be/J8kahzmAnu0.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-11",
+    "updated": "2026-07-14",
+    "url": "https://arxiv.org/abs/2607.10151",
+    "pdf_url": "https://arxiv.org/pdf/2607.10151.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用问答中的多约束查询处理，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "MC-RAG 系统：一种面向多约束查询的结构驱动 RAG 系统",
+    "summary_zh": "该论文提出将检索重构为知识图上的子图匹配问题，通过整合语义与结构嵌入及路径级索引，实现可解释且符合多约束条件的检索增强生成。",
+    "key_points": [
+      "该论文提出将检索重构为知识图上的子图匹配问题，通过整合语义与结构嵌入及路径级索引，实现可解释且符合多约束条件的检索增强生成"
+    ]
+  }
+]

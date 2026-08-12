@@ -1,0 +1,521 @@
+[
+  {
+    "arxiv_id": "2608.00669",
+    "title": "GARDRec: Decision-Level Graph Grounding for Large Language Model Recommendation",
+    "authors": [
+      "Yong Wang",
+      "Hongliang Sun",
+      "Jinlan Liu",
+      "Hua Zhang",
+      "Dianbo Sui",
+      "Dianhui Chu",
+      "Zhiying Tu"
+    ],
+    "summary": "Large language models (LLMs) offer new opportunities for recommendation by interpreting item descriptions, user instructions, and external knowledge through natural-language prompts. However, existing graph-augmented LLM recommenders often use knowledge graphs mainly as prompt-level evidence, leaving ranking decisions weakly constrained by structured user-item relations. This is problematic for next-item recommendation, where the model must compare candidates under the same user context while preserving temporal preference, collaborative signals, and attribute matches. To address this issue, we propose \\emph{GARDRec}, a Graph-grounded Adaptive Reasoning and Decision-aware Recommendation framework for LLM-based next-item ranking. GARDRec constructs semantic-structural item representations from textual node features and graph propagation, derives personalized graph contexts from temporally weighted histories and first-order neighborhoods, and aligns graph-derived representations with a frozen LLM through continuous multimodal prompts. Explicit interaction and matching features are injected through late-stage decision branches, while inter-candidate attention and restricted generative likelihood support final ranking. Experiments on three public benchmarks with multiple LLM backbones show that GARDRec generally improves candidate-ranking performance over representative baselines. Ablation and diagnostic analyses verify the contributions of graph projection, neighborhood retrieval, explicit decision features, ranking loss, and generative calibration.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00669",
+    "pdf_url": "https://arxiv.org/pdf/2608.00669.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统排序问题，提出利用图结构增强决策的新框架，属于核心领域高优先级研究；且来自中国公司，按规定额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "GARDRec：面向大语言模型推荐的决策级图 grounding 方法",
+    "summary_zh": "提出 GARDRec 框架，通过构建语义 - 结构化物品表示并与冻结 LLM 对齐，在决策阶段注入显式交互特征以解决现有图增强 LLM 推荐中排序决策受结构化关系约束不足的问题。",
+    "key_points": [
+      "提出 GARDRec 框架，通过构建语义 - 结构化物品表示并与冻结 LLM 对齐，在决策阶段注入显式交互特征以解决现有图增强 LLM 推荐中排序决策受结构化关系约束不足的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00816",
+    "title": "Exponential Reward Weighting for Fine-Tuning Generative Recommenders under Sparse and Noisy Feedback",
+    "authors": [
+      "Keertana Chidambaram",
+      "Sanath Kumar Krishnamurthy",
+      "Qiuling Xu",
+      "Ko-Jen Hsiao",
+      "Moumita Bhattacharya"
+    ],
+    "summary": "In recommendation systems, users interact with only a small fraction of a vast item catalog, producing feedback that is both sparse and noisy. This challenges post-training generative recommenders: reward models trained from logged interactions often fail to generalize, while directly optimizing imperfect rewards can lead to reward over-optimization. We propose Exponential reward-weighted fine-tuning (Exp-RSFT), where each logged interaction is weighted by $\\exp(r/λ)$, avoids this failure by optimizing directly on the logged rewards, with the temperature $λ$ regularizing against their noise. We theoretically show that Exp-RSFT's suboptimality decomposes into two costs: a coverage cost arising from limitations of the logging policy and a noise cost from imperfect feedback. The temperature $λ$ balances these competing effects, yielding an optimal tradeoff between exploiting high-reward behavior and robustness to noise. Across three public benchmarks and a large-scale industrial dataset, we verify this theoretical prediction: performance follows an inverted-U trend as a function of $λ$, while PPO and DPO often over-optimize unreliable reward models and degrade recommendation quality. Exp-RSFT consistently improves ranking performance without requiring online exploration or preference data.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00816",
+    "pdf_url": "https://arxiv.org/pdf/2608.00816.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "affiliation_lines": [
+      "1DepartmentofManagementScience&Engineering,StanfordUniversity",
+      "3NetflixResearch",
+      "Abstract organic feedback is available at scale through ratings,",
+      "tion of the available items, and item representations are"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统在稀疏噪声反馈下的微调难题提出新算法，属于核心推荐领域的高价值创新；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "指数奖励加权：用于稀疏噪声反馈下生成式推荐系统的微调方法",
+    "summary_zh": "提出指数奖励加权微调方法，通过对数日志交互进行指数加权并引入温度参数平衡利用高奖励行为与抵抗反馈噪声，解决了生成式推荐系统在稀疏噪声数据下的奖励过优化问题。",
+    "key_points": [
+      "提出指数奖励加权微调方法，通过对数日志交互进行指数加权并引入温度参数平衡利用高奖励行为与抵抗反馈噪声，解决了生成式推荐系统在稀疏噪声数据下的奖励过优化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2508.03668",
+    "title": "CTR-Sink: Attention Sink for Language Models in Click-Through Rate Prediction",
+    "authors": [
+      "Zixuan Li",
+      "Binzong Geng",
+      "Jing Xiong",
+      "Yong He",
+      "Yuxuan Hu",
+      "Jian Chen",
+      "Dingwei Chen",
+      "Xiyu Chang",
+      "Ngai Wong",
+      "Liang Zhang",
+      "Linjian Mo",
+      "Chengming Li",
+      "Chuan Yuan",
+      "Zhenan Sun"
+    ],
+    "summary": "Click-Through Rate (CTR) prediction, a core task in recommendation systems, estimates user click likelihood using historical behavioral data. Modeling user behavior sequences as text to leverage Language Models (LMs) for this task has gained traction, owing to LMs' strong semantic understanding and contextual modeling capabilities. However, a critical structural gap exists: user behavior sequences consist of discrete actions connected by semantically empty separators, differing fundamentally from the coherent natural language in LM pre-training. This mismatch causes semantic fragmentation, where LM attention scatters across irrelevant tokens instead of focusing on meaningful behavior boundaries and inter-behavior relationships, degrading prediction performance. To address this, we propose $\\textit{CTR-Sink}$, a novel framework introducing behavior-level attention sinks tailored for recommendation scenarios. Inspired by attention sink theory, it constructs attention focus sinks and dynamically regulates attention aggregation via external information. Specifically, we insert sink tokens between consecutive behaviors, incorporating recommendation-specific signals such as temporal distance to serve as stable attention sinks. To enhance generality, we design a two-stage training strategy that explicitly guides LM attention toward sink tokens and a attention sink mechanism that amplifies inter-sink dependencies to better capture behavioral correlations. Experiments on one industrial dataset and two open-source datasets (MovieLens, Kuairec), alongside visualization results, validate the method's effectiveness across scenarios. The source code of this paper has been made publicly available at https://github.com/UGUESS-lzx/CTR-SINK.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-02",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2508.03668",
+    "pdf_url": "https://arxiv.org/pdf/2508.03668.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "NLPR,InstituteofAutomation, AntGroup TheUniversityofHongKong",
+      "AntGroup CityUniversityofHongKong TheUniversityofHongKong",
+      "SunYat-senUniversity AntGroup TheUniversityofHongKong",
+      "AntGroup AntGroup ShenzhenMSU-BITUniversity",
+      "AntGroup NLPR,InstituteofAutomation,"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心的 CTR 预估任务，提出利用 Attention Sink 机制解决将用户行为序列视为文本时的语义碎片化问题，属于 LLM 在推荐搜索中的直接创新应用。",
+    "translation": "CTR-Sink：面向点击率预测的语言模型注意力汇聚机制",
+    "summary_zh": "本文提出 CTR-Sink 框架，通过在用户行为序列中插入包含时序信息的汇聚 token，引导语言模型注意力聚焦于行为边界与关联，以解决行为序列与自然语言结构不匹配导致的语义碎片化问题。",
+    "key_points": [
+      "本文提出 CTR-Sink 框架，通过在用户行为序列中插入包含时序信息的汇聚 token，引导语言模型注意力聚焦于行为边界与关联，以解决行为序列与自然语言结构不匹配导致的语义碎片化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.25346",
+    "title": "The Case Against Generation for Retrieval: Discriminative Language Models as Effective Retrievers",
+    "authors": [
+      "Zhe Xu",
+      "Prachi Agrawal",
+      "Kavosh Asadi",
+      "Tianyi Chen",
+      "Carl Hu",
+      "Justin Johnson",
+      "Wuwei Lan",
+      "Mingfu Liang",
+      "Xi Liu",
+      "Tik On Lui",
+      "Oladipo Ositelu",
+      "Sandeep Pandey",
+      "Ankit Peshin",
+      "Feng Qi",
+      "Anil Ramakrishna",
+      "Kaushik Rangadurai",
+      "Frank Shyu",
+      "Luke Simon",
+      "Yang Yang",
+      "Chiyu Zhang"
+    ],
+    "summary": "Large Language Models (LLMs) have emerged as powerful assets for recommender systems. However, deploying them as generative recommenders or zero-shot rankers at web-scale remains bottlenecked by prohibitive computational overhead and grounding challenges. In this paper, we revitalize the classic, highly efficient two-tower retrieval architecture by adapting LLMs as semantic representation backbones rather than generative engines. We introduce an LLM-native two-tower framework engineered for high-throughput, large-scale retrieval. Our architecture introduces several key innovations: a shared LLM encoder for joint user-item modeling, End-Of-Sentence (EOS) token pooling for compact sequence embedding, cross-dataset transfer learning, knowledge distillation from powerful cross-encoder teachers, and latent reasoning within the user tower. Extensive evaluation across three public benchmarks demonstrates that cross-encoder architecture outperforms current state-of-the-art (SoTA) models, while the efficient two-tower student achieves SoTA-comparable retrieval performance. Furthermore, experiments on internal large-scale production systems yield substantial topline retrieval improvements along with high resilience to model staleness and superior data scaling. Our findings demonstrate that when augmented with modern representation learning, the traditional two-tower paradigm remains an exceptionally competitive and practical solution for industrial retrieval systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2607.25346",
+    "pdf_url": "https://arxiv.org/pdf/2607.25346.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐/搜索系统中的核心检索环节，提出利用 LLM 作为语义表示骨干而非生成引擎的双塔架构，解决了工业界大规模部署的痛点，属于高优先级的核心领域进展。",
+    "translation": "反对生成式检索：判别式语言模型作为高效检索器",
+    "summary_zh": "本文提出一种原生 LLM 双塔框架，通过将大语言模型适配为共享编码器并结合 EOS 令牌池化等技术，在保持工业级检索效率的同时实现了强大的用户 - 物品联合建模与语义表示。",
+    "key_points": [
+      "本文提出一种原生 LLM 双塔框架，通过将大语言模型适配为共享编码器并结合 EOS 令牌池化等技术，在保持工业级检索效率的同时实现了强大的用户 - 物品联合建模与语义表示"
+    ]
+  },
+  {
+    "arxiv_id": "2607.10016",
+    "title": "Tokenizing Numerical and Embedding Features for LLM RecSys",
+    "authors": [
+      "Zhe Xu",
+      "Ankit Peshin",
+      "Chiyu Zhang",
+      "Feng Qi",
+      "Johnson Lui",
+      "Anil Ramakrishna",
+      "Justin Johnson",
+      "Carl Hu",
+      "Kaushik Rangadurai",
+      "Luke Simon"
+    ],
+    "summary": "Large language models (LLMs) are increasingly used as backbone architectures for recommender systems because of their strong sequence modeling and representation learning capabilities. However, most LLM-based recommenders operate primarily on discrete textual tokens, whereas practical recommendation pipelines also rely on continuous numerical features and dense embedding features produced by upstream feature engineering or pretrained encoders. This mismatch limits the ability of LLM-based models to exploit fine-grained non-textual signals. We propose a soft-token fusion framework that maps numerical and embedding features into the LLM embedding space, allowing heterogeneous recommendation signals to be consumed through the standard token interface. We instantiate the framework in a shared-parameter LLM-based two-tower retrieval model and introduce an interaction-based fusion module that refines embedding and numerical soft tokens before they are inserted into the final LLM input. Experiments on three Amazon recommendation benchmarks show that soft-token fusion improves retrieval performance over LLM-based baselines, and that interaction-based fusion is more effective than direct concatenation of heterogeneous soft tokens.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2607.10016",
+    "pdf_url": "https://arxiv.org/pdf/2607.10016.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决 LLM 在推荐系统中无法有效处理连续数值和稠密嵌入特征的痛点，提出了具体的软 Token 融合架构，属于 LLM for RecSys 的核心应用。",
+    "translation": "面向 LLM 推荐系统的数值与嵌入特征 Token 化方法",
+    "summary_zh": "提出一种软 Token 融合框架，通过将数值和稠密嵌入特征映射到 LLM 嵌入空间并引入交互融合模块，使 LLM 能够直接利用非文本信号进行推荐检索。",
+    "key_points": [
+      "提出一种软 Token 融合框架，通过将数值和稠密嵌入特征映射到 LLM 嵌入空间并引入交互融合模块，使 LLM 能够直接利用非文本信号进行推荐检索"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00750",
+    "title": "Hierarchical Residual Policy Optimization for Generative Recommendations",
+    "authors": [
+      "Kaifeng Guo",
+      "Yiming Yang",
+      "Jingtong Gao",
+      "Guolei Zeng",
+      "Fukang Yang",
+      "Yukang Liang",
+      "Peng Jiang",
+      "Qingpeng Cai",
+      "Xiangyu Zhao"
+    ],
+    "summary": "Generative recommenders select items by autoregressively decoding semantic identifiers (SIDs), whose token positions induce a coarse-to-fine hierarchy over the item space. In practice, SID decoders are trained via supervised next-token prediction, which imitates logged trajectories rather than directly optimizing downstream utility. This motivates post-training with outcome feedback to guide decoding toward higher utility. However, logged feedback is only observed for the final exposed item, causing most post-training methods to operate at the item level and broadcast the same terminal signal across all SID tokens. As a result, token-level credit assignment becomes sparse, high-variance, and layer-dependent. To this end, we propose Hierarchical Residual Policy Optimization (HRPO), a post-training framework that converts item-level outcomes into dense, token-aligned learning signals for conservative token-wise improvement. Specifically, HRPO first estimates SID prefix-level utilities via group-wise reward smoothing over feature-based user clusters. It then decomposes these utilities into residual token credits and accumulates them into credit-to-go signals. Finally, Residual-Return Policy Optimization (RRPO) optimizes the residual credits using clipped updates, group-normalized advantages, and KL regularization to preserve stability. Experiments on a public dataset and an online A/B test in a large-scale commercial system show consistent gains in session-level utility and key business metrics. Source code and the archived artifact are available for reproduction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00750",
+    "pdf_url": "https://arxiv.org/pdf/2608.00750.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "CityUniversityofHongKong KuaishouTechnology CityUniversityofHongKong",
+      "KuaishouTechnology KuaishouTechnology CityUniversityofHongKong"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统，提出了一种利用层级残差策略优化（HRPO）解决 token 级信用分配稀疏问题的后训练框架，属于核心推荐算法创新。",
+    "translation": "用于生成式推荐的层级残差策略优化",
+    "summary_zh": "本文提出层级残差策略优化（HRPO）框架，通过将物品级反馈转化为密集的 token 对齐学习信号，解决了生成式推荐中自回归解码过程的稀疏信用分配问题。",
+    "key_points": [
+      "本文提出层级残差策略优化（HRPO）框架，通过将物品级反馈转化为密集的 token 对齐学习信号，解决了生成式推荐中自回归解码过程的稀疏信用分配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00229",
+    "title": "Hierarchical BM25: Lexical Search at Billion-Document Scale",
+    "authors": [
+      "Umesh Deshpande",
+      "Swaminathan Sundararaman"
+    ],
+    "summary": "A flat BM25 index over one billion documents occupies about 400 GB. Holding it in memory requires DRAM proportional to corpus size. Serving it from disk takes 4-12 seconds per query. Exact top-k lexical retrieval at this scale is therefore impractical within an interactive latency budget.\n  Hierarchical BM25 gives up exact ranking in exchange for fixed bounds on memory and latency. A resident coarse index selects which of ~1K topical, size-balanced document groups a query visits, using two signals: the total frequency of each query term within a group, and, for informative terms spread too thinly across groups for frequency totals to reflect, whether several of them appear together in one document. Selected groups are then searched exhaustively and scored against ~100 KB of global statistics. Every returned score therefore equals the flat index's score, and the approximation is confined to selection alone. The resident footprint is ~4.4 GB, independent of corpus size. Sixteen-term queries over one billion documents return in ~300 ms (4.7x to 5.6x the throughput of a flat multi-threaded index), and a warmed cache sustains ~32 queries per second versus under 3 for flat indexing. At a 500K-document configuration, visiting 5-10% of clusters recovers 0.83-0.92 of the exhaustive result score. Billion-scale recall and a direct comparison against document-reordered BlockMax-WAND remain open.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-31",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00229",
+    "pdf_url": "https://arxiv.org/pdf/2608.00229.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "IBMResearch,SanJose,USA",
+      "tiesotherwiseunavailableatthisscale: aresidentfootprintfixed"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决十亿级文档规模下的搜索引擎核心检索（Retrieval）延迟与内存问题，提出了分层 BM25 架构，属于搜索系统的基础设施创新；虽非 LLM 研究，但完全符合搜索核心领域，且来自 TAL 公司，故给予高分。",
+    "translation": "分层 BM25：十亿级文档规模的词法搜索",
+    "summary_zh": "提出一种分层索引架构，通过常驻内存的粗粒度索引快速筛选相关文档簇，再对选中簇进行精确的 BM25  exhaustive 搜索，从而在保持评分准确性的同时显著降低内存占用并提升查询吞吐量。",
+    "key_points": [
+      "提出一种分层索引架构，通过常驻内存的粗粒度索引快速筛选相关文档簇，再对选中簇进行精确的 BM25  exhaustive 搜索，从而在保持评分准确性的同时显著降低内存占用并提升查询吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2503.11126",
+    "title": "MUSS: Multilevel Subset Selection for Relevance and Diversity",
+    "authors": [
+      "Vu Nguyen",
+      "Andrey Kan"
+    ],
+    "summary": "The problem of relevant and diverse subset selection has a wide range of applications, including recommender systems and retrieval-augmented generation (RAG). For example, in recommender systems, one is interested in selecting relevant items, while providing a diversified recommendation. Constrained subset selection problem is NP-hard, and popular approaches such as Maximum Marginal Relevance (MMR) are based on greedy selection. Many real-world applications involve large data, but the original MMR work did not consider distributed selection. This limitation was later addressed by a method called DGDS which allows for a distributed setting using random data partitioning. Here, we exploit structure in the data to further improve both scalability and performance on the target application. We propose MUSS, a novel method that uses a multilevel approach to relevant and diverse selection. In a recommender system application, our method can not only improve the performance up to $4$ percent points in precision, but is also $20$ to $80$ times faster. Our method is also capable of outperforming baselines on RAG-based question answering accuracy. We present a novel theoretical approach for analyzing this type of problems, and show that our method achieves a constant factor approximation of the optimal objective. Moreover, our analysis also resulted in a $\\times 2$ tighter bound for DGDS compared to previously known bound. Our code is publicly available at https://github.com/amazon-science/muss.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-03",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2503.11126",
+    "pdf_url": "https://arxiv.org/pdf/2503.11126.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的重排序（Re-ranking）环节，提出了解决相关性与多样性平衡的多层级子集选择方法，属于核心领域 advances；虽提及 RAG，但主要贡献明确指向推荐系统应用。",
+    "translation": "MUSS：用于相关性与多样性的多层级子集选择方法",
+    "summary_zh": "提出一种利用数据结构进行多层级划分的 MUSS 方法，以分布式高效地解决推荐系统中兼顾相关性与多样性的 NP-hard 子集选择问题。",
+    "key_points": [
+      "提出一种利用数据结构进行多层级划分的 MUSS 方法，以分布式高效地解决推荐系统中兼顾相关性与多样性的 NP-hard 子集选择问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00452",
+    "title": "CeQe: Grounding Lexical Retrieval in Semantic Evidence",
+    "authors": [
+      "Adam Kahirov",
+      "Umesh Deshpande",
+      "Swaminathan Sundararaman"
+    ],
+    "summary": "Lexical retrieval (BM25) captures exact keyword matches and weights terms by corpus-wide significance, but it is blind to the semantic vocabulary gap: when a relevant document phrases an answer differently from the query, BM25 never retrieves it, and no amount of downstream reranking or fusion can recover a document that was never in the candidate set. We present Cross-Encoder Query Expansion (CE-QE), which reads the per-token relevance attributions of a cross-encoder applied to top semantic search results, selects the terms the cross-encoder treats as decisive, and appends them to the BM25 query. Unlike classical pseudo-relevance feedback, which reuses BM25's own (possibly wrong) top results, CE-QE seeds expansion from the semantic retriever's results, avoiding self-reinforcing query drift. Unlike recent generative query expansion (HyDE, Query2doc), which prompts a large language model to hallucinate text from its parametric knowledge, every CE-QE expansion term is copied verbatim from a retrieved passage, so it cannot introduce vocabulary the corpus does not contain, and its only added cost is attribution extraction on a cross-encoder a hybrid pipeline already runs for reranking. On seven BEIR datasets, CE-QE improves lexical recall substantially where query and answer vocabulary diverge (e.g., NQ Recall@100 from 0.32 to 0.47), and its score-fusion variant (SESF) beats cross-encoder score fusion by 2.5% on Recall@100 and beats SPLADEv2 and ColBERTv2 by 5.3% and 4.6% on nDCG@10, while leaving the underlying BM25 index completely unmodified.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00452",
+    "pdf_url": "https://arxiv.org/pdf/2608.00452.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "IBMResearch"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的核心召回环节（Lexical Retrieval），提出利用 Cross-Encoder 的语义证据来优化查询扩展，解决了词汇不匹配问题，属于明确的搜索技术改进。",
+    "translation": "CeQe：将 lexical 检索建立在语义证据之上",
+    "summary_zh": "提出一种跨编码器查询扩展方法，通过分析语义检索结果中每个 token 的相关性归因，选取决定性术语扩充原始 BM25 查询，从而在不修改索引的前提下弥补词汇语义鸿沟并提升召回率。",
+    "key_points": [
+      "提出一种跨编码器查询扩展方法，通过分析语义检索结果中每个 token 的相关性归因，选取决定性术语扩充原始 BM25 查询，从而在不修改索引的前提下弥补词汇语义鸿沟并提升召回率"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00551",
+    "title": "PHA-Net: Prototype-based Hierarchical Alignment Network for Text-Video Retrieval",
+    "authors": [
+      "Xiaolun Jing",
+      "Kezhao Yin",
+      "Xinxing Yang",
+      "Genke Yang",
+      "Jian Chu"
+    ],
+    "summary": "With the emergence of large-scale image-text pre-training models, e.g., CLIP, text-video retrieval has experienced substantial advances in recent years. Existing best-performing methods involve aligning cross-modal semantics at individual, local, and global levels simultaneously, raising concerns about the intrinsic semantic mismatch between concise texts and rich videos. A canonical approach is to integrate multiple language-video attention modules into the hierarchical framework while this paradigm only optimizes visual representations with prohibitive computational costs. In this paper, we propose a new prototype-based hierarchical alignment network (PHA-Net) to align individual/local/global level representations across modalities. Concretely, we introduce multiple modality-shared prototypes as the bridge to efficiently optimize text and video representations for cross-modal alignment. Then, we argue that the imbalanced semantic distribution in clustered tokens may undermine retrieval performance, as tokens with weak semantics are of little interest. To reduce the impact of these tokens, a proposed prototype-supported token merge module is responsible for enhancing tokens with strong semantics and suppressing others with weak semantics via prototype semantics guidance. Moreover, we devise a prototype contrastive loss to encourage textual and visual prototypes to focus on different semantic information. The idea of this auxiliary loss is to ensure higher similarity between textual and visual prototypes from the same prototype than those from different prototypes. Extensive experiments on four benchmarks confirm the effectiveness of our PHA-Net, which achieves significant improvements in the sum of all recalls on MSR-VTT (8.8%), ActivityNet (19.2%), VATEX (0.7%), and Charades (4.9%). Code is available at https://github.com/JingXiaolun/PHA-Net.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00551",
+    "pdf_url": "https://arxiv.org/pdf/2608.00551.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于通用的文本 - 视频检索算法改进，虽属多模态搜索范畴，但未明确针对推荐系统业务场景或解决 RecSys 特有难题。",
+    "translation": "PHA-Net：基于原型的层级对齐网络用于文本 - 视频检索",
+    "summary_zh": "提出一种基于共享原型的层级对齐网络，通过原型支持的令牌合并模块增强强语义令牌并抑制弱语义令牌，以高效优化跨模态语义对齐。",
+    "key_points": [
+      "提出一种基于共享原型的层级对齐网络，通过原型支持的令牌合并模块增强强语义令牌并抑制弱语义令牌，以高效优化跨模态语义对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00065",
+    "title": "H+ Embedding: Harmonizing Global and Token-Level Retrieval with Context-Dependent Phrases",
+    "authors": [
+      "Shusen Zhang",
+      "Junyi Hu",
+      "Ye Feng",
+      "Ziteng Wang",
+      "Zhaoyuan Pan",
+      "Guosheng Dong",
+      "Xiaojun Yuan",
+      "Jiangshou Hong",
+      "Xiangzhi Wang"
+    ],
+    "summary": "Terminology-intensive retrieval, especially in medical settings, depends on preserving multi-word entities, abbreviations, numerical constraints, and compositional concepts. However, existing representations lie at two extremes: single-vector retrievers often over-compress local relevance signals, while token-level late interaction retains every tokenizer subword at substantial indexing, storage, and scoring cost. This mismatch raises a natural question: can context-dependent phrases provide a useful retrieval unit between global vectors and tokens? We introduce H+ Embedding, a unified multi-granularity retriever that predicts variable-length phrase partitions, preserves uncovered tokens as singletons, and applies importance-guided unit selection with weighted MaxSim interaction. Across 16 scientific, medical, and bilingual tasks, its phrase retrieval branch exceeds the global retrieval branch by 6.91 macro nDCG@10. It also nearly matches Token while using 13.7% fewer document vectors and outperforms content-independent grouping rules under moderate vector budgets. Context-dependent phrase interaction therefore provides an intermediate quality-cost point between global compression and token-level interaction for practical retrieval systems.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-07-29",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00065",
+    "pdf_url": "https://arxiv.org/pdf/2608.00065.pdf",
+    "prerank_score": 8,
+    "relevance_score": 5,
+    "reasoning": "该文提出了一种通用的检索嵌入方法，虽在医疗等术语密集型场景验证，但未明确针对推荐系统或通用搜索产品的核心架构创新，属于有潜力的通用 ML 方法。",
+    "translation": "H+ 嵌入：利用上下文相关短语协调全局与词元级检索",
+    "summary_zh": "提出一种多粒度检索器，通过预测可变长度短语分区并结合加权 MaxSim 交互，在全局向量压缩与词元级延迟交互之间提供兼顾质量与成本的中间方案。",
+    "key_points": [
+      "提出一种多粒度检索器，通过预测可变长度短语分区并结合加权 MaxSim 交互，在全局向量压缩与词元级延迟交互之间提供兼顾质量与成本的中间方案"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00102",
+    "title": "Can LLM Agents Price Competitively? A Dynamic Multi-Attribute Auction Benchmark for Agentic Commerce",
+    "authors": [
+      "Shimaa Ahmed",
+      "Yiwei Cai",
+      "Mohsen Minaei",
+      "Rahul Rachuri"
+    ],
+    "summary": "Agentic commerce is moving from concept to deployed infrastructure: payment networks, retailers, and AI platforms are setting the stage for agents to transact on behalf of merchants and consumers. Yet whether the LLMs behind these agents can price competently in real markets, where customer preferences are hidden, competitors adapt in real time, and demand can shift without warning, has not been systematically tested. We introduce Bazaar, a dynamic sealed-bid benchmark for multi-attribute auction under these conditions. Despite its dynamics, the benchmark is grounded in closed-form customer utilities, enabling exact evaluation. Across 11 frontier LLMs from four providers, the leading agents on customer acquisition (e.g. Gemini 3.1 Pro) are often not the leading agents on profit (e.g. Opus 4.6). The ranking shifts again under demand shocks: agents that learned fastest pre-shock are typically the slowest to revise their beliefs afterwards, while Gemini 3.1 Pro recovers fastest despite not leading on profit. However, even the strongest agent captures less than a third of hindsight-optimal profit, suggesting current LLMs are progressing in agentic commerce but leave substantial headroom.",
+    "categories": [
+      "cs.AI",
+      "cs.MA"
+    ],
+    "published": "2026-07-30",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00102",
+    "pdf_url": "https://arxiv.org/pdf/2608.00102.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究纯 LLM Agent 在动态拍卖中的定价策略，属于通用 Agent 能力评估，缺乏针对推荐/搜索核心环节（如召回、排序）的直接应用。虽涉及电商交易场景且来自中国公司（+1 分），但本质仍偏向纯 LLM 研究而非 RecSys 核心技术。",
+    "translation": "LLM 代理能否竞争性定价？面向代理商务的动态多属性拍卖基准",
+    "summary_zh": "本文提出 Bazaar 基准，用于在动态多属性拍卖环境中评估 LLM 代理的定价与适应能力，揭示其在隐藏偏好和实时竞争下的利润获取局限。",
+    "key_points": [
+      "本文提出 Bazaar 基准，用于在动态多属性拍卖环境中评估 LLM 代理的定价与适应能力，揭示其在隐藏偏好和实时竞争下的利润获取局限"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00183",
+    "title": "Evidence-Unit Fairness and the Limits of Query-Adaptive Sparse-Dense Fusion in Financial Document Retrieval",
+    "authors": [
+      "Chenyu Wu",
+      "You Lin"
+    ],
+    "summary": "Retrieval over financial filings is difficult because queries are short and acronym-heavy while the answer-bearing evidence sits inside long, table-dense documents. We study sparse-dense hybrid retrieval on FinDER, a benchmark of expert-annotated questions over corporate 10-K filings. Our first finding is methodological: if the retrieval unit is larger than the dense encoder's input window, the dense model never sees a large share of the labeled evidence, confounding comparison against a full-text sparse baseline. We measure this directly and remove it by segmenting the corpus into encoder-sized windows. On the corrected corpus, fusing BM25 and a compact dense encoder improves reference-level Hit@10 by roughly 28 percent over either component, and training-free, untuned reciprocal rank fusion exceeds the equal-weight blend in an exploratory comparison. We then ask whether choosing the fusion weight per query helps: an oracle over the interpolation-weight grid shows headroom of 21.8 percent, yet none of the three lightweight adaptive routers (a score-confidence heuristic, a random forest over query features, and a ridge regressor over query embeddings) establishes a statistically reliable improvement over the fixed blend under company-grouped cross-validation with cluster-robust inference. Simple fusion is a strong baseline here, and we discuss why per-query weighting does not capture the available headroom.",
+    "categories": [
+      "cs.CE",
+      "cs.AI"
+    ],
+    "published": "2026-07-31",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00183",
+    "pdf_url": "https://arxiv.org/pdf/2608.00183.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于特定领域（金融文档）的检索技术，属于通用信息检索而非推荐系统或搜索产品的核心进展，且未涉及 LLM 在 RecSys 中的直接应用。",
+    "translation": "证据单元公平性与金融文档检索中查询自适应稀疏 - 稠密融合的局限性",
+    "summary_zh": "本文研究了金融长文档检索中因输入窗口限制导致的评估偏差问题，并提出将文档分段以修正基准，进而分析了固定权重与自适应权重的稀疏 - 稠密融合策略效果。",
+    "key_points": [
+      "本文研究了金融长文档检索中因输入窗口限制导致的评估偏差问题，并提出将文档分段以修正基准，进而分析了固定权重与自适应权重的稀疏 - 稠密融合策略效果"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00623",
+    "title": "Towards Effective Federated Multimodal Graph Learning via Navigating Multifaceted Heterogeneity",
+    "authors": [
+      "Yinlin Zhu",
+      "Di Wu",
+      "Yi Zhang",
+      "Xunkai Li",
+      "Wang Luo",
+      "Wei-Jin Huang",
+      "Miao Hu",
+      "Guocong Quan"
+    ],
+    "summary": "Multimodal-attributed graphs (MAGs), where nodes carry heterogeneous semantic content across multiple modalities while edges encode relational dependencies, have been widely adopted across diverse domains. Federated multimodal graph learning (FMGL) extends federated graph learning (FGL) to MAGs, enabling collaborative optimization across decentralized MAGs without exposing raw data. However, naively applying existing FGL methods to FMGL is insufficient, as they fail to navigate the multifaceted heterogeneity inherent in decentralized MAGs, including task heterogeneity across diverse client objectives, modality heterogeneity from discrepant modality quality and semantic domains, and topology heterogeneity arising from divergent topological patterns with low cross-modality correlation. To address these challenges, we propose Federated multimodal graph learning with Topology-aware Cross-modal Routing (FedTCR), the first systematic algorithm designed for FMGL. To handle task heterogeneity, FedTCR employs a two-stage paradigm that comprises federated task-agnostic pre-training followed by isolated task-oriented fine-tuning. To jointly address modality and topology heterogeneity, FedTCR introduces a topology-aware cross-modal routing mechanism. Concretely, each client distills modality-specific knowledge into compact prototypes via topology-aware importance-weighted aggregation informed by graph structure; the server then evaluates cross-client cross-modal relationships among these structure-informed prototypes and routes informative ones as contrastive references, driving a tri-level cross-modal contrastive learning scheme that jointly aligns cross-client modalities while preserving discrimination. Experiments across 7 domains demonstrate that FedTCR outperforms state-of-the-art baselines on both graph-centric and modality-centric tasks.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00623",
+    "pdf_url": "https://arxiv.org/pdf/2608.00623.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究通用的联邦多模态图学习算法，虽提及多模态但缺乏明确的推荐或搜索业务场景及应用验证，属于边缘相关的通用 ML 方法。",
+    "translation": "通过导航多面异构性实现有效的联邦多模态图学习",
+    "summary_zh": "提出 FedTCR 框架，利用拓扑感知的跨模态路由机制和两阶段训练范式，解决联邦学习中任务、模态及拓扑结构的多面异构性问题。",
+    "key_points": [
+      "提出 FedTCR 框架，利用拓扑感知的跨模态路由机制和两阶段训练范式，解决联邦学习中任务、模态及拓扑结构的多面异构性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00658",
+    "title": "Select-And-Extract: A Lightweight Plugin for Retrieval-Augmented Generation",
+    "authors": [
+      "Chenming Tang",
+      "Jiawei Han"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) for language model (LM) systems fundamentally has two failure modes: retrieval failure and reading failure. The former fails to recall the right pieces of information from the external corpus, and the latter fails to produce the correct answer although the right information is retrieved. Some methods perform structured indexing for retrieval failure, but may suffer from limited generalization of the fixed structures. Some methods perform query-time structuring for reading failure, but typically require a lot of LM calls and rely heavily on the LM's capability. To this end, we propose Select-ANd-Extract (SANE), a simple yet effective plugin for RAG. For the retrieval failure, we retrieve a wide set of candidates with a semantic retriever, and leverage the LM to select the top candidates based on their synopses, which yields better recall than the original retriever. For the reading failure, we perform blueprint-guided query-time evidence extraction, which allows the generator LM to use only compact and structured key information so that it can perform better reasoning. Empirical results confirm that SANE brings solid improvements, while only introducing modest extra overhead. As a lightweight plugin for RAG, SANE offers a simple alternative to heavier approaches, and suggests a high-performance RAG framework need not be overly complex.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00658",
+    "pdf_url": "https://arxiv.org/pdf/2608.00658.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG（检索增强生成）研究，专注于提升通用问答系统的准确性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），因此相关性低。",
+    "translation": "Select-And-Extract：一种用于检索增强生成的轻量级插件",
+    "summary_zh": "提出一种轻量级插件，通过语义检索结合大模型筛选候选内容以解决检索失败，并利用蓝图引导的证据提取优化关键信息结构以解决阅读失败。",
+    "key_points": [
+      "提出一种轻量级插件，通过语义检索结合大模型筛选候选内容以解决检索失败，并利用蓝图引导的证据提取优化关键信息结构以解决阅读失败"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00585",
+    "title": "Verification Without Sufficiency: Per-Chunk Filtering Fails on Multi-Hop RAG, and Decomposition Repairs It",
+    "authors": [
+      "Randhir Kumar"
+    ],
+    "summary": "Verification for retrieval-augmented generation usually scores each retrieved chunk and drops the ones that fail. We show this cannot work for multi-hop questions, and show what does. Per-chunk scoring assumes one chunk is a sufficient premise for the answer. Multi-hop questions are built so that none is, and the paragraph carrying the answer is the one the question does not name. Entailment scoring reaches 0.643, 0.523 and 0.560 AUC on HotpotQA, 2WikiMultihopQA and MuSiQue, against 0.951 on single-hop SQuAD. Seven controls rule out model capacity, premise length, hypothesis template, decision threshold, retriever, answer-matching criterion and prompt. End to end across three datasets, three generator sizes and two prompts, per-chunk gating is significantly worse than not filtering at all in every cell, and its penalty grows with generator capability. The repair is to condition verification on the decomposed sub-question rather than the original query. Using MuSiQue's gold decomposition, entailment on a later hop rises from 0.546, which is chance, to 0.840, a paired lift of +0.355 with a bootstrap interval of [0.331, 0.382]. An off-the-shelf Qwen2.5-7B decomposer, given the question and the top retrieved paragraph, reaches 0.637 and captures 31% of that ceiling; decomposing without retrieval reaches 0.533, below the original question. Iterative retrieval systems already produce such decompositions and discard them before verifying.",
+    "categories": [
+      "cs.CL",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-01",
+    "updated": "2026-08-04",
+    "url": "https://arxiv.org/abs/2608.00585",
+    "pdf_url": "https://arxiv.org/pdf/2608.00585.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于解决多跳问答中的验证问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "验证无需充分性：分块过滤在多跳 RAG 中失效且分解可修复之",
+    "summary_zh": "该论文指出基于单片段评分的验证方法无法处理多跳问答，并提出将验证条件绑定到分解后的子问题而非原始查询以提升推理效果。",
+    "key_points": [
+      "该论文指出基于单片段评分的验证方法无法处理多跳问答，并提出将验证条件绑定到分解后的子问题而非原始查询以提升推理效果"
+    ]
+  }
+]

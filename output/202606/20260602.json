@@ -1,0 +1,455 @@
+[
+  {
+    "arxiv_id": "2602.12354",
+    "title": "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking",
+    "authors": [
+      "Lars Hertel",
+      "Gaurav Srivastava",
+      "Syed Ali Naqvi",
+      "Satyam Kumar",
+      "Yue Zhang",
+      "Borja Ocejo",
+      "Benjamin Zelditch",
+      "Adrian Englhardt",
+      "Hailing Cheng",
+      "Andy Hu",
+      "Antonio Alonso",
+      "Daming Li",
+      "Siddharth Dangi",
+      "Chen Zhu",
+      "Mingzhou Zhou",
+      "Wanning Li",
+      "Tao Huang",
+      "Fedor Borisyuk",
+      "Ganesh Parameswaran",
+      "Birjodh Singh Tiwana",
+      "Sriram Sankar",
+      "Qing Lan",
+      "Julie Choi",
+      "Souvik Ghosh"
+    ],
+    "summary": "LinkedIn Feed enables professionals worldwide to discover relevant content, build connections, and share knowledge at scale. We present Feed Sequential Recommender (Feed SR), a transformer-based sequential ranking model for LinkedIn Feed that replaces a DCNv2-based ranker and meets strict production constraints. We detail the modeling choices, training techniques, and serving optimizations that enable deployment at a scale of 1.2 billion members. Feed SR has been serving the majority of LinkedIn's Feed traffic for over three months and shows significant improvements in member engagement (+2.10% time spent, +3.52% like, comments, or reshares) in online A/B tests compared to the existing production model. We also describe our deployment experience with alternative sequential and LLM-based ranking architectures and why Feed SR provided the best combination of online metrics and production efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2602.12354",
+    "pdf_url": "https://arxiv.org/pdf/2602.12354.pdf",
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LinkedIn 信息流排序场景，提出了工业级序列推荐模型并成功部署，完全符合核心领域进展的高优先级标准。",
+    "translation": "面向 LinkedIn 信息流排序的工业级序列推荐系统",
+    "summary_zh": "本文提出了一种基于 Transformer 的序列排序模型（Feed SR），通过特定的建模选择和服务优化，在满足严格生产约束的前提下替代了原有的 DCNv2 模型，实现了大规模用户场景下的高效部署。",
+    "key_points": [
+      "本文提出了一种基于 Transformer 的序列排序模型（Feed SR），通过特定的建模选择和服务优化，在满足严格生产约束的前提下替代了原有的 DCNv2 模型，实现了大规模用户场景下的高效部署"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00324",
+    "title": "LLMs Need Encoders for Semantic IDs Too",
+    "authors": [
+      "Xiangyi Chen",
+      "Zelun Wang",
+      "Xinyi Li",
+      "Yi-Ping Hsu",
+      "Jaewon Yang",
+      "Jiajing Xu"
+    ],
+    "summary": "Multimodal LLMs use dedicated encoders to bridge non-language modalities (vision encoders for images, depth models for audio codec tokens) because raw token embeddings alone cannot capture modality-specific structure. We argue that Semantic IDs (SIDs), the hierarchical codes used in generative recommendation, constitute another such modality: a SID level token's meaning depends on its prefix context, yet current systems simply add SID tokens to the vocabulary and rely on training to learn these context-dependent meanings from scratch. We propose PrefixMem, a lightweight SID encoder based on prefix n-gram memory tables that provides the LLM with structured, prefix-conditioned representations at SID token positions. Like vision encoders in multimodal LLMs, PrefixMem can be pre-trained independently and then attached to any LLM for joint training. We evaluate on large-scale data from Pinterest across multiple LLM families and show that PrefixMem improves deepest-level SID accuracy by up to 46% relative and full-SID retrieval recall by up to 22% relative at matched training compute. The encoder's benefit concentrates on hard examples where greedy decoding fails, with up to 77% relative accuracy gains, confirming that SID tokens benefit from a dedicated encoder just as other non-language modalities do.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2606.00324",
+    "pdf_url": "https://arxiv.org/pdf/2606.00324.pdf",
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的语义 ID（SID）编码问题提出创新架构，属于 LLM 在推荐搜索领域的核心应用，且来自工业界（Pinterest），完全符合高优先级标准。",
+    "translation": "大语言模型也需要用于语义 ID 的编码器",
+    "summary_zh": "论文提出 PrefixMem 模块，通过前缀 n-gram 记忆表为生成式推荐中的语义 ID 提供结构化编码，解决了大模型难以从头学习层级化 ID 上下文依赖的问题。",
+    "key_points": [
+      "论文提出 PrefixMem 模块，通过前缀 n-gram 记忆表为生成式推荐中的语义 ID 提供结构化编码，解决了大模型难以从头学习层级化 ID 上下文依赖的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00125",
+    "title": "Multimodal Music Recommendation System using LLMs",
+    "authors": [
+      "Srikar Prabhas Kandagatla",
+      "Sreehitha R. Narayana",
+      "Chandana Magapu",
+      "Swetha Mohan",
+      "Shamanth Kuthpadi",
+      "Hongjie Chen",
+      "Ryan A. Rossi",
+      "Franck Dernoncourt",
+      "Nesreen Ahmed"
+    ],
+    "summary": "Music recommendation systems typically treat songs as opaque tokens, relying on collaborative interaction histories which overlooks semantic or acoustic content. Prior work has explored LLM-augmented, multimodal, and text-enhanced approaches to sequential recommendation, and while some methods partially combine semantic, acoustic, or engagement signals, none jointly model all three within a unified LLM-based sequential reasoning framework that grounds recommendations in actual song content. In this work, we propose a multimodal framework for session-based music recommendation that enriches the LastFM-1K dataset with three complementary signals: (1) audio and lyric embeddings extracted using pretrained music and text representation models, (2) LLM-generated semantic metadata using the MGPHot annotation schema, and (3) listening completion ratios. We adopt the E4SRec framework by extending it with multimodal features and different item ID encoder backbones, including SASRec, BERT4Rec, and GRU4Rec. We further extend the LLM backbone option with LLaMa-2-13B, Qwen2.5-7B-Instruct, and LLaMa-3-70B in both zero-shot and fine-tuned settings. Our experiments show that integrating content-based features improves over ID-only baselines up to 95% in terms of Recall and 79% in terms of NDCG. Moreover, our experiments show that naive multimodal fusion does not always yield additive improvements, highlighting challenges in cross-modal integration. We release a large-scale multimodal benchmark for music recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "published": "2026-05-28",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2606.00125",
+    "pdf_url": "https://arxiv.org/pdf/2606.00125.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe"
+    ],
+    "affiliation_lines": [
+      "UniversityofMassachusetts UniversityofMassachusetts UniversityofMassachusetts",
+      "UniversityofMassachusetts UniversityofMassachusetts DolbyLaboratories",
+      "AdobeResearch AdobeResearch CiscoResearch",
+      "tokens,relyingoncollaborativeinteractionhistorieswhichover- tems;Relevanceassessment."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对音乐推荐系统，提出结合音频、歌词及 LLM 生成语义的多模态框架，属于核心推荐领域应用而非纯 LLM 研究；因来自中国公司额外加 1 分。",
+    "translation": "基于大语言模型的多模态音乐推荐系统",
+    "summary_zh": "本文提出一种会话基音乐推荐框架，通过融合预训练音频/文本嵌入、LLM 生成的语义元数据及收听完成率，在统一的大语言模型序列推理架构中联合建模多模态内容以增强推荐效果。",
+    "key_points": [
+      "本文提出一种会话基音乐推荐框架，通过融合预训练音频/文本嵌入、LLM 生成的语义元数据及收听完成率，在统一的大语言模型序列推理架构中联合建模多模态内容以增强推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00282",
+    "title": "Synthetic Data from Cross-Domain Events for Large-Scale Recommendation Systems",
+    "authors": [
+      "Xiangyu Wang",
+      "Yawen He",
+      "Shivendra Pratap Singh",
+      "Han Huang",
+      "Mengtong Hu",
+      "Sharath Ciddu",
+      "Yi-Hsuan Hsieh",
+      "Erik Groving",
+      "Yi Ding",
+      "Jieming Di",
+      "Tony Wang",
+      "Min Yun",
+      "Xiaoyu Chen",
+      "Ling Leng",
+      "Rob Malkin"
+    ],
+    "summary": "Large-scale recommendation systems operate across diverse domains, yet they face the challenges of data sparsity and noisy implicit feedback. Traditional approaches mitigate this via model-specific knowledge distillation from source domains to a target domain. Inspired by the transformative success of synthetic data generation in large language models (LLMs), we introduce Synthetic Cross-domain Augmentation and Learning for Recommendation (SCALR), a framework that generates synthetic user-item interaction events for a target recommendation domain by leveraging observed events from a source domain. SCALR decomposes cross-domain learning into two modular stages. First, it translates observed user events in source domains by framing event generation as estimating the likelihood that a user would interact with a target-domain item, conditioned on their observed interactions in a source domain. Second, downstream models train on these synthetic events as cross-domain learning objectives, where the synthetic events augment the target domain's training data in a model-agnostic manner. Our approach yields statistically significant improvements in online A/B tests on an industrial recommendation platform. To the best of our knowledge, this is among the first works to explicitly frame cross-domain event transfer as synthetic data generation for recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2606.00282",
+    "pdf_url": "https://arxiv.org/pdf/2606.00282.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模推荐系统中的跨域数据稀疏问题，提出利用合成数据生成技术增强目标域训练，属于核心推荐系统架构创新。",
+    "translation": "基于跨域事件合成数据的大规模推荐系统研究",
+    "summary_zh": "提出 SCALR 框架，通过将源域用户行为转化为目标域合成交互事件，以模型无关的方式解决推荐系统中的跨域数据稀疏与噪声问题。",
+    "key_points": [
+      "提出 SCALR 框架，通过将源域用户行为转化为目标域合成交互事件，以模型无关的方式解决推荐系统中的跨域数据稀疏与噪声问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22221",
+    "title": "Evaluating Reliability Asymmetries in Chinese Factual Search and AI Answers",
+    "authors": [
+      "Geng Liu",
+      "Li Feng",
+      "Mengxiao Zhu",
+      "Francesco Pierri"
+    ],
+    "summary": "Search engines and AI-powered systems increasingly mediate access to factual information, yet their reliability remains difficult to evaluate in realistic information-seeking settings. We study this problem in the Chinese web ecosystem by constructing a query-based fact-checking dataset from real Chinese search logs and comparing nine systems across traditional search engines, standalone large language models, and search-integrated AI Overviews. Focusing on factual Chinese-language factual Yes/No questions, we evaluate whether systems provide correct, incorrect, or uncertain decisions against evidence-derived ground truth. We find that systems are similarly accurate when they provide definitive answers, but differ sharply in how often they do so. Conditional accuracy ranges from 73.2% to 78.9%, yet search engines answer definitively on over 83% of queries, while Qwen-Max does so on fewer than half. We also find a consistent polarity gap: all systems perform better on yes-labeled queries than on no-labeled queries. We also use Baidu Index data to identify Chinese provinces with higher health-related search attention, which may indicate greater potential exposure to misinformation. Overall, our results show that reliability depends not only on whether systems are correct when they answer, but also on how often they answer, how they handle negative claims, and where information demand may increase exposure risks.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.CY"
+    ],
+    "published": "2026-05-28",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2602.22221",
+    "pdf_url": "https://arxiv.org/pdf/2602.22221.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "本文虽来自百度且涉及搜索系统评估，但核心是事实核查与可靠性分析（安全/评估领域），而非推荐/搜索核心算法（召回、排序、用户建模）的创新，属于弱相关的方法论研究。",
+    "translation": "评估中文事实搜索与 AI 回答中的可靠性不对称性",
+    "summary_zh": "本文构建中文事实核查数据集，通过对比传统搜索引擎与大模型在确定性回答频率及正负样本表现上的差异，揭示系统可靠性不仅取决于准确率，更受回答策略和极性偏差影响。",
+    "key_points": [
+      "本文构建中文事实核查数据集，通过对比传统搜索引擎与大模型在确定性回答频率及正负样本表现上的差异，揭示系统可靠性不仅取决于准确率，更受回答策略和极性偏差影响"
+    ]
+  },
+  {
+    "arxiv_id": "2603.23902",
+    "title": "Knowledge-Refined Dual Context-Aware Network for Partially Relevant Video Retrieval",
+    "authors": [
+      "Junkai Yang",
+      "Qirui Wang",
+      "Yaoqing Jin",
+      "Shuai Ma",
+      "Minghan Xu",
+      "Shanmin Pang"
+    ],
+    "summary": "Retrieving partially relevant segments from untrimmed videos remains difficult due to two persistent challenges: the mismatch in information density between text and video segments, and limited attention mechanisms that overlook semantic focus and event correlations. We present KDC-Net, a Knowledge-Refined Dual Context-Aware Network that tackles these issues from both textual and visual perspectives. On the text side, a Hierarchical Semantic Aggregation module captures and adaptively fuses multi-scale phrase cues to enrich query semantics. On the video side, a Dynamic Temporal Attention mechanism employs relative positional encoding and adaptive temporal windows to highlight key events with local temporal coherence. Additionally, a dynamic CLIP-based distillation strategy, enhanced with temporal-continuity-aware refinement, ensures segment-aware and objective-aligned knowledge transfer. Experiments on PRVR benchmarks show that KDC-Net consistently outperforms state-of-the-art methods, especially under low moment-to-video ratios.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-25",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2603.23902",
+    "pdf_url": "https://arxiv.org/pdf/2603.23902.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文针对视频片段检索（Video Retrieval）任务，属于多模态搜索范畴，但主要聚焦于通用算法改进而非直接的推荐系统业务场景。",
+    "translation": "用于部分相关视频检索的知识精炼双上下文感知网络",
+    "summary_zh": "提出一种结合文本层级语义聚合与视频动态时序注意力的双路架构，并通过增强的 CLIP 蒸馏策略解决非剪辑视频中图文信息密度不匹配及关键事件定位难题。",
+    "key_points": [
+      "提出一种结合文本层级语义聚合与视频动态时序注意力的双路架构，并通过增强的 CLIP 蒸馏策略解决非剪辑视频中图文信息密度不匹配及关键事件定位难题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00169",
+    "title": "ChurnNet: A Optimized Modern AI for Churn Prediction",
+    "authors": [
+      "Syed Saad Saif",
+      "Giulio Maggiore",
+      "Paolo Russo",
+      "Damiano Distante"
+    ],
+    "summary": "Increased competition and the growing similarity of products and services offered by retailers have lowered the barriers for customers to switch to competitors. Accurate churn prediction can be a valuable tool for driving effective personalized marketing campaigns and helping to reduce customer attrition. This study evaluates the performance of traditional machine learning techniques, namely, Random Forests, XGBoost, and Support Vector Machines, and compares them with the Unified Multi-Task Time Series Model for churn prediction, a binary time-series classification task. Despite the strong capacity of the latter to model complex temporal dynamics and inter-variable relationships, our results indicate that for churn prediction, conventional methods can still outperform it in terms of predictive performance, data efficiency, and computational resource requirements for training and deployment. These findings are consistent across multiple datasets and various churn labeling techniques.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2606.00169",
+    "pdf_url": "https://arxiv.org/pdf/2606.00169.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "客户流失预测虽与用户建模相关，但本文主要对比传统机器学习与时序模型，未涉及推荐/搜索核心架构或 LLM 直接应用；因来自中国公司额外加 1 分。",
+    "translation": "ChurnNet：一种优化的现代人工智能客户流失预测方法",
+    "summary_zh": "本文提出 ChurnNet 框架，通过对比传统机器学习算法与统一多任务时序模型在客户流失预测中的表现，探讨了不同方法在建模复杂时序动态与变量关系时的效率与性能权衡。",
+    "key_points": [
+      "本文提出 ChurnNet 框架，通过对比传统机器学习算法与统一多任务时序模型在客户流失预测中的表现，探讨了不同方法在建模复杂时序动态与变量关系时的效率与性能权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2604.26197",
+    "title": "Hierarchical Long-Term Semantic Memory for LinkedIn's Hiring Agent",
+    "authors": [
+      "Zhentao Xu",
+      "Shangjin Zhang",
+      "Emir Poyraz",
+      "Yvonne Li",
+      "Ye Jin",
+      "Xie Lu",
+      "Xiaoyang Gu",
+      "Karthik Ramgopal",
+      "Praveen Kumar Bodigutla",
+      "Xiaofeng Wang"
+    ],
+    "summary": "Large Language Model (LLM) agents are increasingly used in real-world products, where personalized and context-aware user interactions are essential. A central enabler of such capabilities is the agent's long-term semantic memory system, which extracts implicit and explicit signals from noisy longitudinal behavioral data, stores them in a structured form, and supports low-latency retrieval. Building industrial-grade long-term memory for LLM agents raises five challenges: scalability, low-latency retrieval, privacy constraints, adaptability, and observability. We introduce the Hierarchical Long-Term Semantic Memory (HLTM) framework, which organizes textual data into a schema-aligned memory tree that captures semantic knowledge at multiple levels of granularity, enabling scalable ingestion, privacy-aware storage, low-latency retrieval, and transparent provenance; HLTM further incorporates an adaptation mechanism to generalize across diverse use cases. Extensive evaluations on LinkedIn's Hiring Assistant show that HLTM improves answer correctness by more than 5% and retrieval F1 by more than 10%, while significantly advancing the Pareto frontier between query and indexing latency. HLTM has been fully deployed in LinkedIn's Hiring Assistant to power core personalization features in production hiring workflows.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-05-30",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2604.26197",
+    "pdf_url": "https://arxiv.org/pdf/2604.26197.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM Agent 记忆机制研究，虽应用于招聘助手但核心是通用对话个性化而非推荐/搜索算法（如召回、排序），且作者为 LinkedIn（美国公司）非中国公司，不适用额外加分。",
+    "translation": "LinkedIn 招聘代理的分层长期语义记忆框架",
+    "summary_zh": "提出一种分层长期语义记忆框架，通过将文本数据组织为模式对齐的记忆树，解决 LLM 代理在工业级应用中的可扩展性、低延迟检索及隐私保护挑战。",
+    "key_points": [
+      "提出一种分层长期语义记忆框架，通过将文本数据组织为模式对齐的记忆树，解决 LLM 代理在工业级应用中的可扩展性、低延迟检索及隐私保护挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2601.16457",
+    "title": "Segregation Before Polarization: How Recommendation Strategies Shape Echo Chamber Pathways",
+    "authors": [
+      "Junning Zhao",
+      "Kazutoshi Sasahara",
+      "Yu Chen"
+    ],
+    "summary": "Social media platforms facilitate echo chambers through feedback loops between user preferences and recommendation algorithms. While algorithmic homogeneity is well-documented, the distinct evolutionary pathways driven by content-based versus link-based recommendations remain unclear. Using an extended dynamic Bounded Confidence Model (BCM), we show that content-based algorithms -- unlike their link-based counterparts -- steer social networks toward a segregation-before-polarization (SbP) pathway. Along this trajectory, structural segregation precedes opinion divergence, accelerating individual isolation while delaying but ultimately intensifying collective polarization. Furthermore, we reveal that reposting appears connective by circulating content beyond direct follow links, yet it simultaneously reinforces echo chambers because it amplifies small, latent opinion differences that would otherwise remain inconsequential. These findings suggest that mitigating polarization requires stage-dependent algorithmic interventions, shifting from content-centric to structure-centric strategies as networks evolve.",
+    "categories": [
+      "cs.SI",
+      "cs.IR",
+      "physics.soc-ph"
+    ],
+    "published": "2026-05-30",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2601.16457",
+    "pdf_url": "https://arxiv.org/pdf/2601.16457.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文研究推荐算法对回声室和极化的社会影响，属于推荐系统的伦理与社会效应边缘领域，缺乏提升核心业务指标（如召回、排序）的技术创新。",
+    "translation": "极化前的隔离：推荐策略如何塑造回声室路径",
+    "summary_zh": "本文通过扩展动态有界置信度模型，揭示基于内容的推荐算法会引导社交网络走向“先隔离后极化”的演化路径，而转发行为虽看似连接实则加剧了潜在意见分歧的放大。",
+    "key_points": [
+      "本文通过扩展动态有界置信度模型，揭示基于内容的推荐算法会引导社交网络走向“先隔离后极化”的演化路径，而转发行为虽看似连接实则加剧了潜在意见分歧的放大"
+    ]
+  },
+  {
+    "arxiv_id": "2509.24696",
+    "title": "T-POP: Test-Time Personalization with Online Preference Feedback",
+    "authors": [
+      "Zikun Qu",
+      "Min Zhang",
+      "Mingze Kong",
+      "Xiang Li",
+      "Zhiwei Shang",
+      "Zhiyong Wang",
+      "Yikun Ban",
+      "Shuang Qiu",
+      "Yao Shu",
+      "Zhongxiang Dai"
+    ],
+    "summary": "Personalizing large language models (LLMs) to individual user preferences is a critical step beyond generating generically helpful responses. However, current personalization methods are ill-suited for new users, as they typically require either slow, resource-intensive fine-tuning or a substantial amount of pre-existing user data, creating a significant cold-start problem. To address this challenge, we introduce a new paradigm for real-time personalization by learning from online pairwise preference feedback collected during text generation. We propose T-POP (Test-Time Personalization with Online Preference Feedback}), a novel algorithm that synergistically combines test-time alignment with dueling bandits. Without updating the LLM parameters, T-POP steers the decoding process of a frozen LLM by learning a reward function online that captures user preferences. By leveraging dueling bandits, T-POP intelligently queries the user to efficiently balance between exploring their preferences and exploiting the learned knowledge to generate personalized text. Extensive experiments demonstrate that T-POP achieves rapid and data-efficient personalization, significantly outperforming existing baselines and showing consistent improvement with more user interactions.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-30",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2509.24696",
+    "pdf_url": "https://arxiv.org/pdf/2509.24696.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 对齐与个性化生成的研究，专注于通过在线反馈调整文本生成策略，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、广告匹配等）。",
+    "translation": "T-POP：基于在线偏好反馈的测试时个性化方法",
+    "summary_zh": "提出一种结合测试时对齐与决斗老虎机的算法，在不更新模型参数的前提下，通过在线学习用户成对偏好反馈来实时引导冻结大模型的解码过程以实现个性化文本生成。",
+    "key_points": [
+      "提出一种结合测试时对齐与决斗老虎机的算法，在不更新模型参数的前提下，通过在线学习用户成对偏好反馈来实时引导冻结大模型的解码过程以实现个性化文本生成"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29107",
+    "title": "GEO-Bench: Benchmarking Ranking Manipulation in Generative Engine Optimization",
+    "authors": [
+      "Ojas Nimase",
+      "Zhe Chen",
+      "Gengpei Qi",
+      "Yue Zhao",
+      "Xiyang Hu"
+    ],
+    "summary": "Large language models (LLMs) increasingly rank products, documents, and recommendations for user queries, which makes manipulating these rankings a growing concern for fairness and information integrity. Research on generative engine optimization (GEO) has produced many manipulation methods, but each is evaluated on its own dataset with its own metrics, so their relative strength and detectability stay unclear. We present GEO-Bench, a benchmark that evaluates GEO ranking-manipulation attacks under one protocol. It unifies black-box prompt-based attacks (TAP, Zero-Shot), white-box gradient-based attacks (STS, RAF, StealthRank), and ten white-hat C-SEO strategies. We score every method on five datasets against a fixed open-weight ranker (Llama-3.1-8B-Instruct), using metrics for both effectiveness (NRG, Success@α, Promote@α) and stealth (keyword violation rate, perplexity ratio). Our evaluation shows that effectiveness and stealth trade off across adversarial attacks, that black-box content rewriting matches or exceeds gradient-based attacks on rank promotion while producing more fluent text and can evade both keyword- and perplexity-based detection on some domains, and that the access model does not predict attack strength. By standardizing datasets, attack implementations, and metrics, GEO-Bench enables the first direct comparison across these attack paradigms and supports the development of detection methods.",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "published": "2026-05-30",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2605.29107",
+    "pdf_url": "https://arxiv.org/pdf/2605.29107.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文主要关注大语言模型（LLM）的排名操纵基准测试和安全评估，属于纯 LLM 安全/对抗性研究领域，并未提出针对推荐系统或搜索引擎的核心架构改进或直接应用方法。",
+    "translation": "GEO-Bench：生成式引擎优化中的排名操纵基准测试",
+    "summary_zh": "本文提出了一个统一基准 GEO-Bench，用于在标准化协议下评估针对大语言模型排序系统的各类黑盒与白盒排名操纵攻击及其隐蔽性。",
+    "key_points": [
+      "本文提出了一个统一基准 GEO-Bench，用于在标准化协议下评估针对大语言模型排序系统的各类黑盒与白盒排名操纵攻击及其隐蔽性"
+    ]
+  },
+  {
+    "arxiv_id": "2503.06473",
+    "title": "Enhancing Layer Attention Efficiency through Pruning Redundant Retrievals",
+    "authors": [
+      "Hanze Li",
+      "Yaosong Du",
+      "Zhibo Yao",
+      "Mengyao Zeng",
+      "Xiuqi Ge",
+      "Xiande Huang"
+    ],
+    "summary": "Growing evidence suggests that layer attention mechanisms, which enhance interaction among layers in deep neural networks, have significantly advanced network architectures. However, existing layer attention methods suffer from redundancy, as attention weights learned by adjacent layers often become highly similar. This redundancy causes multiple layers to extract nearly identical features, reducing the model's representational capacity and increasing training time. To address this issue, we propose a novel approach to quantify redundancy by leveraging the Kullback-Leibler (KL) divergence between adjacent layers. Additionally, we introduce an Enhanced Beta Quantile Mapping (EBQM) method that accurately identifies and skips redundant layers, thereby maintaining model stability. Our proposed Efficient Layer Attention (ELA) architecture, improves both training efficiency and overall performance, achieving a 30% reduction in training time while enhancing performance in tasks such as image classification and object detection.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-30",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2503.06473",
+    "pdf_url": "https://arxiv.org/pdf/2503.06473.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯深度学习架构优化研究（针对图像分类和目标检测），未涉及推荐系统或搜索引擎的任何应用场景，属于排除类别。",
+    "translation": "通过剪枝冗余检索增强层注意力效率",
+    "summary_zh": "提出一种利用 KL 散度量化相邻层冗余并跳过冗余层的 Efficient Layer Attention (ELA) 架构，旨在提升深度神经网络的训练效率和表示能力。",
+    "key_points": [
+      "提出一种利用 KL 散度量化相邻层冗余并跳过冗余层的 Efficient Layer Attention (ELA) 架构，旨在提升深度神经网络的训练效率和表示能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00262",
+    "title": "When Softmax Fails at the Top: Extreme Value Corrections for InfoNCE",
+    "authors": [
+      "Melihcan Erol",
+      "Suat Evren",
+      "Oktay Ozel",
+      "Alexander Morgan",
+      "Jongha Jon Ryu",
+      "Lizhong Zheng"
+    ],
+    "summary": "InfoNCE is the standard contrastive learning objective, but its softmax form is not only a computational convenience: it also encodes a statistical assumption about how the top-scoring example is selected. Using extreme value theory, we show that this assumption is often misaligned with the normalized embedding setting used in modern contrastive learning. Motivated by this mismatch, we propose \\textsc{WEINCE}, a simple modification of InfoNCE that uses anchor-wise online batch statistics to blend the usual softmax logits with an endpoint shortfall correction, adding no trainable parameters. Across five vision benchmarks, \\textsc{WEINCE} yields consistent improvements in frozen-feature evaluation. These results show that a more faithful statistical treatment of hard negatives can improve contrastive objectives.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.AP",
+      "stat.ML"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2606.00262",
+    "pdf_url": "https://arxiv.org/pdf/2606.00262.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯对比学习（CV/表示学习）的基础方法研究，专注于修正 InfoNCE 损失函数的统计假设，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "当 Softmax 在顶部失效时：InfoNCE 的极值校正",
+    "summary_zh": "该论文提出 WEINCE 方法，利用极值理论修正 InfoNCE 损失函数中关于顶部样本选择的统计假设不匹配问题，通过引入锚点在线批次统计和端点短缺校正来优化对比学习目标。",
+    "key_points": [
+      "该论文提出 WEINCE 方法，利用极值理论修正 InfoNCE 损失函数中关于顶部样本选择的统计假设不匹配问题，通过引入锚点在线批次统计和端点短缺校正来优化对比学习目标"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00334",
+    "title": "Isolating LLM Lexical Bias: A Curation-Free Triangulated Metric for Preference-Stage Learning",
+    "authors": [
+      "Xiaoyang Ming",
+      "Jose Hernandez",
+      "Thomas Stephan Juzek"
+    ],
+    "summary": "Various language domains have undergone remarkable changes in recent years; these shifts are largely attributed to the advent of Large Language Models and their misalignment with natural language usage. These misalignments are thought to partly originate in the preference-learning stage, e.g. Reinforcement Learning from Human Feedback, which generally makes models more useful but simultaneously may introduce systematic lexical bias. In terms of lexical behavior, this is visible in a model's preference for certain formats or the overuse of words (delve, furthermore), even when such patterns are not present in base model outputs. Research on lexical misalignment induced during preference training is constrained by reliance on manual curation. We address this, by introducing the Triangulated Preference Shift score, a metric that triangulates between human gold standards, base models, and instruct variants to isolate shifts induced specifically by preference learning, without manual curation. We provide data across six model families, anchor the results in the literature, and illustrate the general approach's utility by analyzing whether preference learning shifts models toward what could be interpreted as a \"language of prestige\". The metric provides an initial automated method to quantify behavioral shifts attributable to preference tuning, and thus, may help inform model alignment and development of trustworthy AI.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-06-02",
+    "url": "https://arxiv.org/abs/2606.00334",
+    "pdf_url": "https://arxiv.org/pdf/2606.00334.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 对齐与评估研究，专注于量化偏好学习阶段的词汇偏差，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "隔离大语言模型词汇偏差：一种无需人工整理的偏好阶段学习三角测量指标",
+    "summary_zh": "该论文提出了一种三角测量评分方法，通过对比人类标准、基座模型和指令微调模型，自动量化并隔离由偏好学习阶段引入的系统性词汇偏差。",
+    "key_points": [
+      "该论文提出了一种三角测量评分方法，通过对比人类标准、基座模型和指令微调模型，自动量化并隔离由偏好学习阶段引入的系统性词汇偏差"
+    ]
+  }
+]

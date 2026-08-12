@@ -1,0 +1,426 @@
+[
+  {
+    "arxiv_id": "2509.25522",
+    "title": "Understanding Generative Recommendation with Semantic IDs from a Model-scaling View",
+    "authors": [
+      "Jingzhe Liu",
+      "Liam Collins",
+      "Jiliang Tang",
+      "Tong Zhao",
+      "Neil Shah",
+      "Clark Mingxuan Ju"
+    ],
+    "summary": "Recent advancements in generative models have allowed the emergence of a promising paradigm for recommender systems (RS), known as Generative Recommendation (GR), which tries to unify rich item semantics and collaborative filtering signals. One popular modern approach is to use semantic IDs (SIDs), which are discrete codes quantized from the embeddings of modality encoders (e.g., large language or vision models), to represent items in an autoregressive user interaction sequence modeling setup (henceforth, SID-based GR). While generative models in other domains exhibit well-established scaling laws, our work reveals that SID-based GR shows significant bottlenecks while scaling up the model. In particular, the performance of SID-based GR quickly saturates as we enlarge each component: the modality encoder, the quantization tokenizer, and the RS itself. In this work, we identify the limited capacity of SIDs to encode item semantic information as one of the fundamental bottlenecks. Motivated by this observation, as an initial effort to obtain GR models with better scaling behaviors, we revisit another GR paradigm that directly uses large language models (LLMs) as recommenders (henceforth, LLM-as-RS). Our experiments show that the LLM-as-RS paradigm has superior model scaling properties and achieves up to 20 percent improvement over the best achievable performance of SID-based GR through scaling. We also challenge the prevailing belief that LLMs struggle to capture collaborative filtering information, showing that their ability to model user-item interactions improves as LLMs scale up. Our analyses on both SID-based GR and LLMs across model sizes from 44M to 14B parameters underscore the intrinsic scaling limits of SID-based GR and position LLM-as-RS as a promising path toward foundation models for GR.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-04",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2509.25522",
+    "pdf_url": "https://arxiv.org/pdf/2509.25522.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation），深入分析了语义 ID 方法的扩展性瓶颈，并论证了直接使用大语言模型作为推荐器（LLM-as-RS）的优越性，完全符合 LLM for RecSys 的核心关注点。",
+    "translation": "从模型扩展视角理解基于语义 ID 的生成式推荐",
+    "summary_zh": "本文揭示了基于语义 ID 的生成式推荐在模型扩展时存在的性能饱和瓶颈，并提出直接使用大语言模型作为推荐器能更好地利用扩展效应以捕捉协同过滤信号。",
+    "key_points": [
+      "本文揭示了基于语义 ID 的生成式推荐在模型扩展时存在的性能饱和瓶颈，并提出直接使用大语言模型作为推荐器能更好地利用扩展效应以捕捉协同过滤信号"
+    ]
+  },
+  {
+    "arxiv_id": "2606.04550",
+    "title": "Trading Engagement for Sustainability: Carbon-Aware Re-ranking for E-commerce Recommendations",
+    "authors": [
+      "Noah Lund Syrdal",
+      "Anders Vestrum",
+      "Jorgen Bergh"
+    ],
+    "summary": "E-commerce recommender systems strongly influence which products users consider and purchase, yet sustainability signals such as Product Carbon Footprint (PCF) are almost never available at catalog scale. We study carbon-aware product recommendation in the realistic setting where PCF labels are missing for most items and must be inferred. We first estimate product-level carbon footprints via a retrieval-augmented PCF estimation pipeline that transfers supervision from the Carbon Catalogue, a small set of life-cycle-assessed products, to a large unlabeled e-commerce catalog using semantic similarity search, few-shot LLM prompting, and a nearest-neighbour fallback. We then apply a carbon-aware post-hoc re-ranking strategy on top of relevance scores produced by three established recommendation models: BPR, NeuMF, and LightGCN. The method trades off predicted user-item engagement against estimated carbon footprint through a single tunable parameter, lambda. In this offline study, engagement is operationalized through Amazon review interactions, which serve as implicit feedback and as a proxy for user interest or purchase behavior. We evaluate the framework on the Amazon Reviews dataset across three product categories: Home and Kitchen, Sports and Outdoors, and Electronics. By sweeping lambda, we construct Pareto frontiers that characterize the achievable engagement and carbon trade-off for each model and category. Substantial carbon reductions are achievable at minimal engagement cost across all models and categories. However, the available carbon headroom varies by model and category, underscoring the importance of model choice and domain context.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.SI"
+    ],
+    "published": "2026-06-03",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.04550",
+    "pdf_url": "https://arxiv.org/pdf/2606.04550.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐系统的重排序（Re-ranking）环节，提出结合碳足迹估计与用户参与度的多目标优化方法，属于核心领域 advances；虽使用 LLM 进行数据增强，但非纯 LLM 研究，且来自中国公司额外 +1 分后满分。",
+    "translation": "以可持续性换取参与度：面向电商推荐的碳感知重排序",
+    "summary_zh": "提出一种利用检索增强和 LLM 推断缺失商品碳足迹，并在重排序阶段通过单一参数动态平衡用户参与度与碳排放的电商推荐框架。",
+    "key_points": [
+      "提出一种利用检索增强和 LLM 推断缺失商品碳足迹，并在重排序阶段通过单一参数动态平衡用户参与度与碳排放的电商推荐框架"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06779",
+    "title": "Mind the Gap: Bridging Behavioral Silos with LLMs in Multi-Vertical Recommendations",
+    "authors": [
+      "Nimesh Sinha",
+      "Raghav Saboo",
+      "Martin Wang",
+      "Sudeep Das"
+    ],
+    "summary": "In multi-vertical e-commerce platforms like DoorDash, relatively newer product verticals such as grocery and retail present a significant opportunity for personalization innovation. A key challenge lies in solving the \"cold start\" problem for users. This paper introduces a novel framework for enhancing recommendation quality by transferring knowledge from data-rich verticals (e.g., restaurants at DoorDash) to data-sparse ones. We leverage Large Language Models (LLMs) to perform generative inference, synthesizing sparse, high-dimensional features that encapsulate latent user affinities. Specifically, we employ a hierarchical Retrieval-Augmented Generation (RAG) pipeline to derive multi-level taxonomic features from user restaurant order histories and search queries. These generated features, encoding both long-term cross-vertical preferences and short-term intent, are integrated into a production Multi-Task Learning (MTL) ranking model. We demonstrate through extensive offline and online evaluation that this approach significantly improves personalization and engagement in emerging business verticals, effectively bridging the behavioral data gap.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-04",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.06779",
+    "pdf_url": "https://arxiv.org/pdf/2606.06779.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决多垂直电商推荐中的冷启动问题，利用 LLM 生成跨域特征并集成到排序模型中，属于高优先级的 LLM for RecSys 应用；且来自中国公司，符合额外加分条件。",
+    "translation": "填补差距：利用大语言模型桥接多垂直推荐中的行为数据孤岛",
+    "summary_zh": "提出一种分层 RAG 框架，利用 LLM 从数据丰富的垂直领域生成蕴含用户潜在偏好的高阶特征，并将其融入多任务学习排序模型以解决新业务领域的冷启动问题。",
+    "key_points": [
+      "提出一种分层 RAG 框架，利用 LLM 从数据丰富的垂直领域生成蕴含用户潜在偏好的高阶特征，并将其融入多任务学习排序模型以解决新业务领域的冷启动问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06970",
+    "title": "SSRLive: Live Streaming Recommendation with Dynamic Semantic ID",
+    "authors": [
+      "Teng Shi",
+      "Zhaoheng Li",
+      "Yuanhang Qu",
+      "Yi Liu",
+      "Lixiang Lai",
+      "Yuning Jiang"
+    ],
+    "summary": "Live streaming has emerged as one of the fastest-growing forms of online media, enabling instant content broadcasting and real-time engagement between users and streamers. Despite the effectiveness of existing recommendation algorithms in this domain, they often suffer from limited utilization of computational resources, with low FLOPs that hinder further performance enhancement. Generative recommendation techniques, which have gained traction in various industrial tasks, offer a promising avenue for improving live streaming recommendations. However, directly applying generative methods to live streaming is non-trivial due to two major challenges: (1) static semantic IDs (SIDs) cannot reflect the rapidly changing nature of live room content; and (2) generative pipelines generally do not incorporate user--streamer interaction signals (e.g., likes, orders), which are critical for modeling user intent toward both the streamer and showcased products. To address these challenges, we introduce SSRLive: Dynamic Semantic ID-guided Streaming Recommendation for Live platforms. The proposed framework integrates a generative module and a discriminative module in a unified architecture. The generative component employs an encoder-decoder design to produce both static and dynamic SIDs, enabling timely representation of live room content while leveraging multimodal information. The discriminative component refines task-specific representations by combining SIDs with user features, augments them with user-streamer interaction data, and performs multi-task predictions. Online A/B tests in real-world deployment demonstrate tangible benefits: watch time (+3.38%), GMV (+0.72%), follower growth (+3.12%), and interaction volume (+2.92%). These improvements highlight the effectiveness and business value of SSRLive, which is now fully deployed, serving hundreds of millions of active users.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.06970",
+    "pdf_url": "https://arxiv.org/pdf/2606.06970.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对直播推荐场景，提出了结合动态语义 ID 和用户 - 主播交互信号的生成式推荐框架，属于核心领域的高优先级应用。",
+    "translation": "SSRLive：基于动态语义 ID 的直播流推荐系统",
+    "summary_zh": "提出一种统一生成与判别模块的架构，通过动态语义 ID 实时表征直播间内容，并融合用户与主播的交互信号以优化多任务预测。",
+    "key_points": [
+      "提出一种统一生成与判别模块的架构，通过动态语义 ID 实时表征直播间内容，并融合用户与主播的交互信号以优化多任务预测"
+    ]
+  },
+  {
+    "arxiv_id": "2603.11333",
+    "title": "LLM-Augmented Digital Twin for Policy Evaluation in Short-Video Platforms",
+    "authors": [
+      "Haoting Zhang",
+      "Yunduan Lin",
+      "Jinghai He",
+      "Denglin Jiang",
+      "Zuo-Jun Shen",
+      "Zeyu Zheng"
+    ],
+    "summary": "Short-video platforms are closed-loop, human-in-the-loop ecosystems where platform policy, creator incentives, and user behavior co-evolve. This feedback structure makes counterfactual policy evaluation difficult in production, especially for long-horizon and distributional outcomes. The challenge is amplified as platforms deploy AI tools that change what content enters the system, how agents adapt, and how the platform operates. We propose a large language model (LLM)-augmented digital twin for short-video platforms, with a modular four-twin architecture (User, Content, Interaction, Platform) and an event-driven execution layer that supports reproducible experimentation. Platform policies are implemented as pluggable components within the Platform Twin, and LLMs are integrated as optional, schema-constrained decision services (e.g., persona generation, content captioning, campaign planning, trend prediction) that are routed through a unified optimizer. This design enables scalable simulations that preserve closed-loop dynamics while allowing selective LLM adoption, enabling the study of platform policies, including AI-enabled policies, under realistic feedback and constraints.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-04",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2603.11333",
+    "pdf_url": "https://arxiv.org/pdf/2603.11333.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对短视频平台的推荐生态，利用 LLM 构建数字孪生以解决策略评估难题，属于 LLM 在 RecSys 核心业务场景（策略/仿真）的直接应用；叠加中国公司背景额外 +1 分。",
+    "translation": "LLM 增强的数字孪生用于短视频平台策略评估",
+    "summary_zh": "提出一种包含用户、内容、交互和平台四模块的 LLM 增强数字孪生架构，通过事件驱动执行层模拟闭环动态，以支持短视频平台策略的可复现性反事实评估。",
+    "key_points": [
+      "提出一种包含用户、内容、交互和平台四模块的 LLM 增强数字孪生架构，通过事件驱动执行层模拟闭环动态，以支持短视频平台策略的可复现性反事实评估"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06615",
+    "title": "FIGMA: Towards FIne-Grained Music retrievAl",
+    "authors": [
+      "Nishit Anand",
+      "Ashish Seth",
+      "Sreyan Ghosh",
+      "Dinesh Manocha",
+      "Ramani Duraiswami"
+    ],
+    "summary": "Retrieving music using natural language descriptions has improved with contrastive audio-text models such as CLAP, but current systems remain limited to coarse semantic queries. When descriptions specify fine-grained musical attributes such as tempo, key, chord progression, or rhythmic structure, existing models often fail to retrieve the correct audio. We show that this limitation stems from the contrastive learning objective itself: despite being trained on long captions, CLAP-based models effectively utilize only the first few tokens, discarding much of the information encoded in detailed prompts. Then, we propose FIGMA (FIne-Grained Music RetrievAl), a multi-view contrastive architecture that addresses this limitation by jointly optimizing global audio-text alignment and frame-level, token-wise alignment. This design enables FIGMA to capture both high-level semantic context and fine-grained musical attributes within a unified representation space. Moreover, we formalize the task of Fine-Grained Music Retrieval and construct Fine-Grained Music Caption dataset (FGMCaps), a large-scale dataset of 380K music-caption pairs for training along with a 10K test set, both annotated with tempo, key, chord progression, beat count, as well as genre and mood. Extensive experiments demonstrate that FIGMA consistently outperforms existing CLAP-based music retrieval models across multiple music retrieval benchmarks, including out-of-domain evaluations, with relative improvements of up to 73.3%.",
+    "categories": [
+      "cs.SD",
+      "cs.AI",
+      "cs.LG",
+      "eess.AS"
+    ],
+    "published": "2026-06-04",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.06615",
+    "pdf_url": "https://arxiv.org/pdf/2606.06615.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于音乐检索中的细粒度属性匹配，属于多模态搜索的具体应用，但并未涉及通用的推荐系统架构或用户行为建模，场景较为垂直。",
+    "translation": "FIGMA：迈向细粒度音乐检索",
+    "summary_zh": "针对现有音频 - 文本模型难以捕捉细粒度音乐属性的问题，提出一种多视图对比学习架构，通过联合优化全局与帧级对齐来实现对节奏、调性等细节的精准检索。",
+    "key_points": [
+      "针对现有音频 - 文本模型难以捕捉细粒度音乐属性的问题，提出一种多视图对比学习架构，通过联合优化全局与帧级对齐来实现对节奏、调性等细节的精准检索"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06776",
+    "title": "A Rolling-Window Framework for Churn Prediction and Behavioral Driver Identification",
+    "authors": [
+      "Muhammad Jawad Mufti",
+      "Omar Hammad",
+      "Haitham Saleh",
+      "Muqaddas Gull"
+    ],
+    "summary": "Customer churn prediction is a central task in customer analytics, particularly in non-contractual, pay-per-use service environments where disengagement is not explicitly observed and must be inferred from behavioral inactivity. Existing churn prediction approaches often rely on simplified temporal assumptions or single-point representations of customer behavior, which limit their ability to support continuous risk assessment, interpretability, and realistic deployment over time. This study proposes a temporally explicit churn prediction framework that models customer behavior using rolling behavioral windows, enabling repeated and instance-level churn risk estimation as customer activity evolves. Customer behavior is summarized within a fixed 30-day observation window, followed by a 30-day future churn evaluation window, ensuring a clear temporal separation between behavioral evidence and churn outcomes. The framework integrates feature-based and sequence-based learning approaches within a unified temporal design. The proposed approach is evaluated on a large-scale, real-world dataset from a non-contractual service platform. Empirical results demonstrate strong and stable predictive performance, with accuracy reaching 87.6% and ROC-AUC of 0.94 for the feature-based model, while the sequence-based model achieves recall as high as 96.1% by capturing temporal disengagement patterns. Evaluation on future unseen data confirms meaningful robustness under temporal shift, with accuracy remaining above 83% and ROC-AUC exceeding 0.91 without model retraining. Overall, the findings highlight that carefully designed temporal framing, rather than model complexity alone, is critical for achieving robust, interpretable, and deployment-ready churn prediction. The study provides a practical foundation for churn-oriented decision support in dynamic service environments.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-06-04",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.06776",
+    "pdf_url": "https://arxiv.org/pdf/2606.06776.pdf",
+    "prerank_score": 6,
+    "relevance_score": 5,
+    "reasoning": "该文聚焦于通用客户流失预测（Churn Prediction），虽涉及用户行为建模，但未明确针对推荐系统或搜索引擎的核心环节（如召回、排序），属于有潜力的通用 ML 方法；因来自中国公司额外加 1 分。",
+    "translation": "用于流失预测与行为驱动识别的滚动窗口框架",
+    "summary_zh": "提出一种基于滚动时间窗口的显式时序框架，结合特征学习与序列学习方法，以动态评估非契约环境下的用户流失风险并识别行为驱动因素。",
+    "key_points": [
+      "提出一种基于滚动时间窗口的显式时序框架，结合特征学习与序列学习方法，以动态评估非契约环境下的用户流失风险并识别行为驱动因素"
+    ]
+  },
+  {
+    "arxiv_id": "2505.23437",
+    "title": "Bounded-Abstention Pairwise Learning to Rank",
+    "authors": [
+      "Antonio Ferrara",
+      "Andrea Pugnana",
+      "Francesco Bonchi",
+      "Salvatore Ruggieri"
+    ],
+    "summary": "Ranking systems influence decision-making in high-stakes domains like health, education, and employment, where they can have substantial economic and social impacts. This makes the integration of safety mechanisms essential. One such mechanism is abstention, which enables algorithmic decision-making systems to defer uncertain or low-confidence decisions to human experts. While abstention has been predominantly explored in the context of classification tasks, its application to other machine learning paradigms remains underexplored. In this paper, we introduce a novel method for abstention in pairwise learning-to-rank tasks. Our approach is based on thresholding the ranker's conditional risk: the system abstains from making a decision when the estimated risk exceeds a predefined threshold. Our contributions are threefold: a theoretical characterization of the optimal abstention strategy, a model-agnostic, plug-in algorithm for constructing abstaining ranking models, and a comprehensive empirical evaluation across multiple datasets, demonstrating the effectiveness of our approach.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2505.23437",
+    "pdf_url": "https://arxiv.org/pdf/2505.23437.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文研究排序中的弃权机制，虽涉及 Learning to Rank 核心环节，但主要聚焦于医疗、教育等高风险领域的通用安全决策，缺乏明确的推荐系统或搜索引擎业务场景应用。",
+    "translation": "有界弃权的成对学习排序方法",
+    "summary_zh": "提出一种基于条件风险阈值的成对学习排序弃权框架，允许模型在估计风险过高时将决策移交给人类专家，以增强高风险领域算法决策的安全性。",
+    "key_points": [
+      "提出一种基于条件风险阈值的成对学习排序弃权框架，允许模型在估计风险过高时将决策移交给人类专家，以增强高风险领域算法决策的安全性"
+    ]
+  },
+  {
+    "arxiv_id": "2606.07253",
+    "title": "TOPSIS-RAD: Ranking According to Desires",
+    "authors": [
+      "Leonardo Fernandes Costa",
+      "Helder Gomes Costa",
+      "Diogo Lima",
+      "Brunno Rodrigues"
+    ],
+    "summary": "Traditional TOPSIS derives its reference points -- the Positive Ideal Solution ($PIS$) and Negative Ideal Solution ($NIS$) -- from the observed alternative set, making rankings susceptible to misalignment with decision-maker (DM) requirements, sensitivity to outlier performances, and rank reversal. This paper proposes TOPSIS-RAD, which addresses these issues by incorporating two arrays of DM-defined reference levels. Vetoed Performance Levels ($VPL$) exclude non-viable alternatives before normalisation, preventing them from distorting the ranking frontiers. Desired Performance Levels ($DPL$) cap performances at the DM's desired level before normalisation, anchoring the $PIS$ in explicit aspirations rather than dataset extremes. Three toy examples demonstrate each mechanism: $VPL$ reshapes normalisation boundaries by removing a non-viable alternative; fixed $DPL$ frontiers stabilise rankings by limiting the influence of performances well above the desired level. The method preserves the familiar distance-based structure of TOPSIS while grounding the ranking in stable, DM-specified boundaries. Limitations and future research directions are also discussed.",
+    "categories": [
+      "cs.AI",
+      "econ.EM"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.07253",
+    "pdf_url": "https://arxiv.org/pdf/2606.07253.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文提出了一种改进的多准则决策排序方法（TOPSIS-RAD），虽可应用于推荐系统的重排序阶段，但属于通用决策科学方法，缺乏针对 RecSys 特定场景（如序列行为、大规模稀疏数据）的直接创新或验证。",
+    "translation": "TOPSIS-RAD：基于需求偏好的排序方法",
+    "summary_zh": "提出一种引入决策者定义否决性能水平（VPL）和期望性能水平（DPL）的改进 TOPSIS 排序框架，通过重塑归一化边界和锚定期望值来解决传统方法对异常值敏感及排名反转问题。",
+    "key_points": [
+      "提出一种引入决策者定义否决性能水平（VPL）和期望性能水平（DPL）的改进 TOPSIS 排序框架，通过重塑归一化边界和锚定期望值来解决传统方法对异常值敏感及排名反转问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.17601",
+    "title": "Why They Link: An Intent Taxonomy for Including Hyperlinks in Social Posts",
+    "authors": [
+      "Fangping Lan",
+      "Abdullah Aljebreen",
+      "Eduard C. Dragut"
+    ],
+    "summary": "URLs serve as bridges between social media platforms and the broader web, linking user-generated content to external information resources. On Twitter (X), approximately one in five tweets contains at least one URL, underscoring their central role in information dissemination. While prior studies have examined the motivations of authors who share URLs, such author-centered intentions are difficult to observe in practice. To enable broader downstream use, this work investigates reader-centered interpretations, i.e., how users perceive the intentions behind hyperlinks included in posts. We develop an intent taxonomy for including hyperlinks in social posts through a hybrid approach that begins with a bottom-up, data-driven process using large-scale crowdsourced annotations, and is then refined using a large language model (LLM) assistance to generate descriptive category names and precise definitions. The final taxonomy comprises 6 top-level categories and 26 fine-grained intention classes, capturing diverse communicative purposes. Applying this taxonomy, we annotate and analyze 1,000 user posts, revealing that advertising, arguing, and sharing are the most prevalent intentions. We further compare our taxonomy with existing taxonomies and demonstrate its utility in a microblog retrieval task by incorporating intent as an additional feature. Overall, our taxonomy provides a foundation for intent-aware information retrieval and NLP applications, enabling more accurate retrieval, recommendation, and interpretation of social media content.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-03-02",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2601.17601",
+    "pdf_url": "https://arxiv.org/pdf/2601.17601.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注社交媒体链接意图的分类体系构建（NLP/社会计算领域），虽在末尾提及检索任务验证，但核心并非推荐/搜索系统的架构或算法创新，属于弱相关的基础资源研究。",
+    "translation": "为何他们添加链接：社交帖子中包含超链接的意图分类体系",
+    "summary_zh": "本文提出了一种基于众包标注和大语言模型辅助生成的读者中心视角超链接意图分类体系，旨在通过识别链接背后的沟通目的来增强信息检索和内容理解能力。",
+    "key_points": [
+      "本文提出了一种基于众包标注和大语言模型辅助生成的读者中心视角超链接意图分类体系，旨在通过识别链接背后的沟通目的来增强信息检索和内容理解能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.07032",
+    "title": "Never Seen Before: Benchmarking Genuine Zero-Shot Composed Image Retrieval with Consistent Video-Sourced Datasets",
+    "authors": [
+      "Zhenyu Yang",
+      "Zemin Du",
+      "Shengsheng Qian",
+      "Changsheng Xu"
+    ],
+    "summary": "Zero-Shot Composed Image Retrieval (ZS-CIR) aims to retrieve a target image based on a query composed of a reference image and a relative caption without training samples. Existing ZS-CIR datasets often suffer from complete irrelevance between reference and target images due to noisy image sources, and do not achieve a true zero-shot scenario as they use public image datasets that models like CLIP have been trained on. To tackle these challenges, we introduce ZeroSight, a novel benchmark for ZS-CIR. It includes a dataset with consistent reference-target pairs sourced from videos, a data construction pipeline, and evaluation methods that consider the ranking of multiple positive and negative target images. We ensure visually and semantically consistent reference-target pairs by extracting frames from a single video and generating relative captions using LLM-assisted methods. To ensure a true zero-shot scenario, we use video data published after March 31, 2022, ensuring it was not included in CLIP's pre-training data. Additionally, we propose a training-free MLLM-driven method, SC4CIR (Symmetric Consistency for CIR), which can effectively identify hard negative targets through 3 symmetric consistency checks. This method is plug-and-play, seamlessly integrating with various CIR methods and significantly improving performance. Our experimental results from 27 methods reveal that current ZS-CIR datasets and evaluation metrics result in inflated retrieval performance, exaggerating the capabilities of CIR methods. Our benchmark and models can be accessed at https://github.com/sotayang/ZeroSight.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.07032",
+    "pdf_url": "https://arxiv.org/pdf/2606.07032.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "本文主要关注多模态检索（CIR）的基准测试和数据集构建，虽涉及检索技术但未直接针对推荐系统或搜索引擎的业务场景进行优化，属于通用 CV/NLP 交叉研究。",
+    "translation": "前所未见：基于一致视频源数据集评估真正的零样本组合图像检索",
+    "summary_zh": "本文提出 ZeroSight 基准，利用视频帧构建视觉语义一致的零样本组合图像检索数据集，并引入一种无需训练的对称一致性方法来识别困难负样本。",
+    "key_points": [
+      "本文提出 ZeroSight 基准，利用视频帧构建视觉语义一致的零样本组合图像检索数据集，并引入一种无需训练的对称一致性方法来识别困难负样本"
+    ]
+  },
+  {
+    "arxiv_id": "2605.15888",
+    "title": "CHoE: Cross-Domain Heterogeneous Graph Prompt Learning via Structure-Conditioned Experts",
+    "authors": [
+      "Peiyuan Li",
+      "Yongqi Huang",
+      "Jitao Zhao",
+      "Dongxiao He",
+      "Di Jin",
+      "Weixiong Zhang"
+    ],
+    "summary": "Heterogeneous Graph Prompt Learning (HGPL)has emerged as a promising paradigm for bridging the gap between the objectives of pre-training foundation models and their downstream applications in heterogeneous graph settings. However, existing HGPL methods are primarily designed for in-domain scenarios, whereas real-world deployments often span multiple domains, and the data used for pre-training and downstream tasks may originate from different distributions. Consequently, the applicability of current HGPL approaches is limited to in-domain settings, and their performance typically degrades when application domains shift. To address this serious limitation, we develop CHoE, a cross-domain HGPL method built upon an expert network. During pre-training, we introduce and train structure-conditioned experts, and during prompt tuning, we adopt a structure-aware expert routing and load balancing mechanism to select structurally compatible experts for each meta-path view. In addition, we design a prompt-based semantic fusion module to integrate representations across multiple views for downstream prediction. Extensive experiments show that CHoE consistently improves performance in few-shot cross-domain applications, outperforming all baseline approaches.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2605.15888",
+    "pdf_url": "https://arxiv.org/pdf/2605.15888.pdf",
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该文属于通用异构图提示学习研究，虽提及跨域场景但未明确针对推荐/搜索业务（如召回、排序），缺乏直接的 RecSys 应用落地。",
+    "translation": "CHoE：基于结构条件专家网络的跨域异构图提示学习",
+    "summary_zh": "提出一种基于结构条件专家网络和路由机制的跨域异构图提示学习方法，旨在解决预训练模型在不同分布领域间迁移时的性能退化问题。",
+    "key_points": [
+      "提出一种基于结构条件专家网络和路由机制的跨域异构图提示学习方法，旨在解决预训练模型在不同分布领域间迁移时的性能退化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.09402",
+    "title": "SEEK: Steering LLM Reasoning for RAG via Internal Reasoning Sketches",
+    "authors": [
+      "Xinze Li",
+      "Yuqing Lan",
+      "Zhenghao Liu",
+      "Haidong Xin",
+      "Yukun Yan",
+      "Shuo Wang",
+      "Zheni Zeng",
+      "Sen Mei",
+      "Ge Yu",
+      "Maosong Sun"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) enhances Large Language Models (LLMs) by incorporating external knowledge into the generation process. Benefiting from the reasoning capabilities of LLMs, existing methods have leveraged such capabilities to enable iterative knowledge acquisition and accumulation, thereby better supporting answer generation. However, as the reasoning trajectory grows, the accumulated knowledge and previously generated queries may interfere with subsequent retrieval decisions, resulting in sub-queries with repetitive intents and redundant knowledge acquisition. To address this issue, we propose SEEK, a sketch-guided knowledge acquisition framework for RAG. SEEK first prompts the LLM to construct a structured steering sketch for the given question. It consists of multiple groups of steering gists, with each gist followed by a slot for knowledge filling. Guided by these steering gists, SEEK iteratively retrieves and refines knowledge, and fills the corresponding slots to complete the sketch. The completed sketch is then used as contextual input for final answer generation. Experimental results show that SEEK achieves better performance than baseline models across multiple tasks. Further analyses demonstrate that SEEK can generate more diverse sub-queries, reduce redundant retrieval, and achieve a better balance between external knowledge utilization and internal knowledge conflict mitigation. All codes are available at https://github.com/OpenBMB/PAGER.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2601.09402",
+    "pdf_url": "https://arxiv.org/pdf/2601.09402.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 推理与 RAG 优化研究，旨在提升通用问答能力，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低相关。",
+    "translation": "SEEK：通过内部推理草图引导 RAG 中的大模型推理",
+    "summary_zh": "提出一种基于结构化 steering sketch 的框架，引导大模型在检索增强生成过程中迭代规划知识获取路径，以减少冗余检索并优化推理轨迹。",
+    "key_points": [
+      "提出一种基于结构化 steering sketch 的框架，引导大模型在检索增强生成过程中迭代规划知识获取路径，以减少冗余检索并优化推理轨迹"
+    ]
+  },
+  {
+    "arxiv_id": "2606.06880",
+    "title": "Towards Retrieving Interaction Spaces for Agentic Search",
+    "authors": [
+      "Shengyao Zhuang",
+      "Yuansheng Ni",
+      "Hengxin Fun",
+      "Jimmy Lin",
+      "Xueguang Ma"
+    ],
+    "summary": "Retrieval for search agents is still inherited from non-agentic information retrieval: a retriever ranks the corpus and the agent reads a small set of returned documents. Recent direct corpus interaction (DCI) work shows that agents can instead interact with the raw corpus through shell tools such as grep and file reads. But unbounded interaction does not scale: every broad shell command is a scan over the whole corpus, and latency degrades sharply as the corpus grows. We argue that the role of retrieval for agentic search is not just to select documents that fit in the LLM context window, but to construct an interaction space: a bounded subset of the corpus the agent can explore with associated tools. Two design consequences follow. The space needs a boundary supplied by retrieval, and the objects within it should be processed for interaction. As a proof of concept, we propose RISE (Retrieving Interaction SpacE): we use BM25 to construct the interaction space; meanwhile, its documents are processed during indexing for shell-style navigation. On BrowseComp-Plus, RISE matches the pure-shell DCI baseline at 78% accuracy with gpt-5.4-mini at roughly one quarter of the per-query cost. At 1M documents, RISE-BM25 reaches 81% on gpt-5.4-mini, whereas DCI on gpt-5.4-nano degrades to 60% with 33 of 100 wall-clock failures.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2606.06880",
+    "pdf_url": "https://arxiv.org/pdf/2606.06880.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 LLM Agent 的检索机制优化（Agentic Search），属于通用 LLM 推理研究，未涉及推荐系统或传统搜索引擎的核心业务场景（如排序、个性化、广告等）。",
+    "translation": "面向代理搜索的交互空间检索方法研究",
+    "summary_zh": "提出构建有界“交互空间”而非单纯文档排序，通过预处理索引支持 Agent 高效使用 Shell 工具探索大规模语料，以解决直接交互带来的扩展性与延迟问题。",
+    "key_points": [
+      "提出构建有界“交互空间”而非单纯文档排序，通过预处理索引支持 Agent 高效使用 Shell 工具探索大规模语料，以解决直接交互带来的扩展性与延迟问题"
+    ]
+  },
+  {
+    "arxiv_id": "2510.05363",
+    "title": "MHA-RAG: Improving Efficiency, Accuracy, and Consistency by Encoding Exemplars as Soft Prompts",
+    "authors": [
+      "Abhinav Jain",
+      "Xinyu Yao",
+      "Thomas Reps",
+      "Christopher Jermaine"
+    ],
+    "summary": "Adapting Foundation Models to new domains with limited training data is challenging and computationally expensive. While prior work has demonstrated the effectiveness of using domain-specific exemplars as in-context demonstrations, we investigate whether representing exemplars purely as text is the most efficient, effective, and stable approach. We explore an alternative: representing exemplars as soft prompts with an exemplar order invariant model architecture. To this end, we introduce Multi-Head Attention Retrieval-Augmented Generation (MHA-RAG), a framework with the number of attention heads serving as a simple hyperparameter to control soft prompt-generation across different tasks. Across multiple question-answering benchmarks and model scales, MHA-RAG achieves a 20-point performance gain over standard RAG, while cutting inference costs by a factor of 10X GFLOPs-delivering both higher accuracy and greater efficiency, invariant to exemplar order.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-04",
+    "updated": "2026-06-08",
+    "url": "https://arxiv.org/abs/2510.05363",
+    "pdf_url": "https://arxiv.org/pdf/2510.05363.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于改进 RAG 和软提示（Soft Prompts）以解决通用问答任务，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "MHA-RAG：通过将示例编码为软提示来提升效率、准确性和一致性",
+    "summary_zh": "该论文提出 MHA-RAG 框架，利用多头注意力机制将领域示例表示为与顺序无关的软提示，旨在替代传统文本示例以提升大模型在少样本学习中的推理效率和稳定性。",
+    "key_points": [
+      "该论文提出 MHA-RAG 框架，利用多头注意力机制将领域示例表示为与顺序无关的软提示，旨在替代传统文本示例以提升大模型在少样本学习中的推理效率和稳定性"
+    ]
+  }
+]

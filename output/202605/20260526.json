@@ -1,0 +1,415 @@
+[
+  {
+    "arxiv_id": "2506.09084",
+    "title": "PageLLM: A Multi-Grained Reward Framework for Whole-Page Optimization with Large Language Models",
+    "authors": [
+      "Xinyuan Wang",
+      "Liang Wu",
+      "Dongjie Wang",
+      "Yanjie Fu"
+    ],
+    "summary": "Whole-page optimization (WPO) decides how search and recommendation results are surfaced to users, and large language models (LLMs) open a new route to it by treating page generation as sequence generation. Adapting LLMs to web-scale WPO, however, remains bottlenecked by the need for costly human annotations and by the mismatched granularity between page-level coherence and item-level placement. In this work we show that these two challenges are coupled: implicit user feedback alone suffices for alignment, provided the reward signal is decoupled into two complementary granularities. We propose PageLLM, a reward-based fine-tuning framework that (i) turns implicit feedback into four contrastive preference-pair families covering relevance, ranking, diversity, and redundancy, (ii) learns a coarse page-level reward and a fine item-level reward that captures engagement-sensitive position swaps, and (iii) combines both rewards in PPO-based RLHF over a pre-trained LLM. Extensive experiments on seven Amazon categories against eleven baselines show that neither reward alone is sufficient -- dropping the page-level or item-level signal reduces NDCG@100 by 17.8% and 15.2% respectively, whereas the joint reward improves NDCG@100 by up to 46.8%. Deployed in a 10M-user online A/B test, PageLLM raises GMV by 0.44% and click-through rate by 0.14%, confirming that multi-grained rewards from implicit feedback scale to production WPO. Code and data are available at an anonymized repository.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-23",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2506.09084",
+    "pdf_url": "https://arxiv.org/pdf/2506.09084.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索与推荐的整页优化（WPO）核心问题，提出利用多粒度奖励框架微调 LLM，属于高优先级的电商/搜索场景 LLM 应用。",
+    "translation": "PageLLM：基于大语言模型的多粒度奖励整页优化框架",
+    "summary_zh": "提出 PageLLM 框架，通过将隐式反馈解耦为页面级和物品级多粒度对比偏好对，利用强化学习微调大语言模型以解决搜索推荐整页优化中的对齐与粒度不匹配问题。",
+    "key_points": [
+      "提出 PageLLM 框架，通过将隐式反馈解耦为页面级和物品级多粒度对比偏好对，利用强化学习微调大语言模型以解决搜索推荐整页优化中的对齐与粒度不匹配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.22925",
+    "title": "BEAR: Towards Beam-Search-Aware Optimization for Recommendation with Large Language Models",
+    "authors": [
+      "Weiqin Yang",
+      "Bohao Wang",
+      "Zhenxiang Xu",
+      "Jiawei Chen",
+      "Shengjia Zhang",
+      "Jingbang Chen",
+      "Canghong Jin",
+      "Can Wang"
+    ],
+    "summary": "Recent years have seen a rapid surge in research leveraging Large Language Models (LLMs) for recommendation. These methods typically employ supervised fine-tuning (SFT) to adapt LLMs to recommendation scenarios, and utilize beam search during inference to efficiently retrieve $B$ top-ranked recommended items. However, we identify a critical training-inference inconsistency: while SFT optimizes the overall probability of positive items, it does not guarantee that such items will be retrieved by beam search even if they possess high overall probabilities. Due to the greedy pruning mechanism, beam search can prematurely discard a positive item once its prefix probability is insufficient.\n  To address this inconsistency, we propose BEAR (Beam-SEarch-Aware Regularization), a novel fine-tuning objective that explicitly accounts for beam search behavior during training. Rather than directly simulating beam search for each instance during training, which is computationally prohibitive, BEAR enforces a relaxed necessary condition: each token in a positive item must rank within the top-$B$ candidate tokens at each decoding step. This objective effectively mitigates the risk of incorrect pruning while incurring negligible computational overhead compared to standard SFT. Extensive experiments across four real-world datasets demonstrate that BEAR significantly outperforms strong baselines. Code is available at https://github.com/Tiny-Snow/BEAR-SIGIR-2026 .",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-23",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2601.22925",
+    "pdf_url": "https://arxiv.org/pdf/2601.22925.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LLM 推荐系统中的训练 - 推理不一致问题（束搜索剪枝），提出了 BEAR 优化方法，属于 LLM for RecSys 的核心架构创新，且来自中国公司额外加 1 分后满分。",
+    "translation": "BEAR：面向大语言模型推荐的束搜索感知优化方法",
+    "summary_zh": "提出一种束搜索感知正则化目标，强制正样本 token 在解码每一步均位于前 B 个候选中，以解决监督微调与束搜索推理间的剪枝不一致问题。",
+    "key_points": [
+      "提出一种束搜索感知正则化目标，强制正样本 token 在解码每一步均位于前 B 个候选中，以解决监督微调与束搜索推理间的剪枝不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.24051",
+    "title": "Memento: Personalized RAG-Style Long-Retention Data Scaling for META Ads Recommendation",
+    "authors": [
+      "Xiaoyu Chen",
+      "Ruichen Wang",
+      "Jieming Di",
+      "Suofei Feng",
+      "Nafis Abrar",
+      "Lilly Kumari",
+      "Tony Tsui",
+      "Yilin Liu",
+      "Yu Lu",
+      "Sowmya Patapati",
+      "Junwei Xiong",
+      "Qiao Yang",
+      "Dorothy Sun",
+      "Yang Cao",
+      "Victor Chen",
+      "Pan Chen",
+      "Ramsundar Sundarkumar",
+      "Shivendra Pratap Singh",
+      "Arnold Overwijk",
+      "Ling Leng",
+      "Dinesh Ramasamy",
+      "Sri Reddy",
+      "Robert Malkin",
+      "Sandeep Pandey"
+    ],
+    "summary": "Modeling of long history data suffers from long-context window attention dilution, system efficiency and catastrophic forgetting problems, where naive linear scaling approach like LastN would fail. We introduce Memento, a personalized retrieval-augmented framework that treats historical user engagements as a document corpus and ad requests as queries, retrieving relevant interactions via Maximal Marginal Relevance (MMR) to balance similarity with diversity. We identify two complementary applications: Representation Memento, which retrieves historical embeddings for feature augmentation, and Data Memento, which retrieves past training examples for multipass training. Through infrastructure co-design -- temporal chunking, INT8 quantization, and asynchronous serving -- Memento achieves 5-10$\\times$ resource efficiency over linear scaling. Memento processes daily requests with sub-10ms latency, yielding 0.25-0.3% Normalized Entropy gain on both click-through and conversion prediction. In production, Memento delivers a 1% CTR lift on Facebook Feed and Reels and a 1.2% CVR lift, scaling personalization to 365+ days of history.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-22",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2605.24051",
+    "pdf_url": "https://arxiv.org/pdf/2605.24051.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Facebook",
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Meta 广告推荐系统，提出基于 RAG 的长序列用户行为建模方案以解决遗忘和效率问题，属于核心领域的高价值工业界落地成果；虽非中国公司（属 Meta），但其极高的相关性和应用价值已达满分。",
+    "translation": "Memento：面向 Meta 广告推荐的个性化 RAG 式长保留数据扩展方法",
+    "summary_zh": "提出 Memento 框架，将用户历史行为视为文档库，利用最大边缘相关性（MMR）检索多样化历史交互，通过表征增强和多轮训练两种模式解决长序列建模中的注意力稀释与灾难性遗忘问题。",
+    "key_points": [
+      "提出 Memento 框架，将用户历史行为视为文档库，利用最大边缘相关性（MMR）检索多样化历史交互，通过表征增强和多轮训练两种模式解决长序列建模中的注意力稀释与灾难性遗忘问题"
+    ]
+  },
+  {
+    "arxiv_id": "2504.05181",
+    "title": "Lightweight and Direct Document Relevance Optimization for Generative Information Retrieval",
+    "authors": [
+      "Kidist Amde Mekonnen",
+      "Yubao Tang",
+      "Maarten de Rijke"
+    ],
+    "summary": "Generative information retrieval (GenIR) is a promising neural retrieval paradigm that formulates document retrieval as a document identifier (docid) generation task, allowing for end-to-end optimization toward a unified global retrieval objective. However, existing GenIR models suffer from token-level misalignment, where models trained to predict the next token often fail to capture document-level relevance effectively. While reinforcement learning-based methods, such as reinforcement learning from relevance feedback (RLRF), aim to address this misalignment through reward modeling, they introduce significant complexity, requiring the optimization of an auxiliary reward function followed by reinforcement fine-tuning, which is computationally expensive and often unstable. To address these challenges, we propose direct document relevance optimization (DDRO), which aligns token-level docid generation with document-level relevance estimation through direct optimization via pairwise ranking, eliminating the need for explicit reward modeling and reinforcement learning. Experimental results on benchmark datasets, including MS MARCO document and Natural Questions, show that DDRO outperforms reinforcement learning-based methods, achieving a 7.4% improvement in MRR@10 for MS MARCO and a 19.9% improvement for Natural Questions. These findings highlight DDRO's potential to enhance retrieval effectiveness with a simplified optimization approach. By framing alignment as a direct optimization problem, DDRO simplifies the ranking optimization pipeline of GenIR models while offering a viable alternative to reinforcement learning-based methods.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.DL",
+      "cs.LG"
+    ],
+    "published": "2025-04-24",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2504.05181",
+    "pdf_url": "https://arxiv.org/pdf/2504.05181.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式信息检索（GenIR）中的文档相关性优化问题，提出了替代强化学习的直接优化方法，属于搜索核心架构创新；虽涉及 LLM 应用但紧密围绕检索任务，且来自 TAL 公司，符合高分标准。",
+    "translation": "面向生成式信息检索的轻量级直接文档相关性优化",
+    "summary_zh": "提出直接文档相关性优化（DDRO）方法，通过成对排序直接对齐 token 级生成与文档级相关性，消除了生成式检索中对复杂奖励建模和强化学习微调的依赖。",
+    "key_points": [
+      "提出直接文档相关性优化（DDRO）方法，通过成对排序直接对齐 token 级生成与文档级相关性，消除了生成式检索中对复杂奖励建模和强化学习微调的依赖"
+    ]
+  },
+  {
+    "arxiv_id": "2603.29897",
+    "title": "UniRank: End-to-End Domain-Specific Reranking of Hybrid Text-Image Candidates",
+    "authors": [
+      "Yupei Yang",
+      "Lin Yang",
+      "Wanxi Deng",
+      "Lin Qu",
+      "Shikui Tu",
+      "Lei Xu"
+    ],
+    "summary": "Reranking is a critical component in many information retrieval pipelines. Despite remarkable progress in text-only settings, multimodal reranking remains challenging, particularly when the candidate set contains hybrid text and image items. A key difficulty is the modality gap: a text reranker is intrinsically closer to text candidates than to image candidates, leading to biased and suboptimal cross-modal ranking. Vision-language models (VLMs) mitigate this gap through strong cross-modal alignment and have recently been adopted to build multimodal rerankers. However, most VLM-based rerankers encode all candidates as images, and treating text as images introduces substantial computational overhead. Meanwhile, existing open-source multimodal rerankers are typically trained on general-domain data and often underperform in domain-specific scenarios. To address these limitations, we propose UniRank, a VLM-based reranking framework that natively scores and orders hybrid text-image candidates without any modality conversion. Building on this hybrid scoring interface, UniRank provides an end-to-end domain adaptation pipeline that includes: (1) an instruction-tuning stage that learns calibrated cross-modal relevance scoring by mapping label-token likelihoods to a unified scalar score; and (2) a hard-negative-driven preference alignment stage that constructs in-domain pairwise preferences and performs query-level policy optimization through reinforcement learning from human feedback (RLHF). Extensive experiments on scientific literature retrieval and design patent search demonstrate that UniRank consistently outperforms state-of-the-art baselines, improving Recall@1 by 8.9% and 7.3%, respectively.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-24",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2603.29897",
+    "pdf_url": "https://arxiv.org/pdf/2603.29897.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "ShanghaiJiaoTongUniversity AlibabaGroup AlibabaGroup",
+      "AlibabaGroup ShanghaiJiaoTongUniversity ShanghaiJiaoTongUniversity"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐系统中的重排序（Reranking）核心环节，提出了处理混合图文候选的多模态解决方案，具有明确的业务应用场景。",
+    "translation": "UniRank：混合图文候选的端到端领域特定重排序",
+    "summary_zh": "提出 UniRank 框架，利用视觉语言模型原生支持混合图文候选打分，并通过指令微调和基于硬负样本的 RLHF 实现端到端的领域自适应重排序。",
+    "key_points": [
+      "提出 UniRank 框架，利用视觉语言模型原生支持混合图文候选打分，并通过指令微调和基于硬负样本的 RLHF 实现端到端的领域自适应重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2605.24015",
+    "title": "Rethinking Contrastive Learning for Graph Collaborative Filtering: Limitations and a Simple Remedy",
+    "authors": [
+      "Geon Lee",
+      "Sunwoo Kim",
+      "Kyungho Kim",
+      "Kijung Shin"
+    ],
+    "summary": "Graph collaborative filtering (GCF) is a dominant paradigm in recommender systems, where contrastive learning (CL) objectives such as the Sampled Softmax (SSM) loss are widely used for optimization. However, it remains unclear how CL interacts with the prediction mechanism of GCF. By unfolding the prediction mechanism of GCF, we show that the user-item prediction score is computed by aggregating learnable weights over a large number of neighbor pairs formed by the multi-hop neighbors of the user and the item. This analysis suggests that effective optimization critically depends on which neighbor pairs are upweighted during training. Empirically, we find that effective recommendation is achievable by selectively upweighting only a small subset of neighbor pairs whose constituent neighbors are structurally similar to the target user and item, and that the effect of such selective upweighting varies across different neighbor pair types. Based on these findings, we analyze SSM and identify key limitations in its neighbor pair weight update dynamics. To address these limitations, we propose NT-SSM, an effective and principled CL objective that induces type-aware neighbor pair weight update dynamics. Experiments demonstrate consistent performance improvements over SSM across multiple datasets and GCF models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-20",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2605.24015",
+    "pdf_url": "https://arxiv.org/pdf/2605.24015.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的图协同过滤（GCF）核心环节，提出了改进对比学习损失函数的新方法，属于高优先级的核心领域进展。",
+    "translation": "重思图协同过滤中的对比学习：局限性与简单补救方案",
+    "summary_zh": "本文通过分析图协同过滤的预测机制，发现有效优化依赖于对结构相似邻居对的加权，并提出了一种类型感知的新型对比学习目标 NT-SSM 以解决现有方法的局限性。",
+    "key_points": [
+      "本文通过分析图协同过滤的预测机制，发现有效优化依赖于对结构相似邻居对的加权，并提出了一种类型感知的新型对比学习目标 NT-SSM 以解决现有方法的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.24155",
+    "title": "An Interpretable CF-RL-TOPSIS Fusion Model for Skills-Aware Talent Recommendation",
+    "authors": [
+      "Özkan Canay"
+    ],
+    "summary": "Effective skills-aware talent recommendation must balance behavioral transition patterns, trajectory-sensitive adaptation, and inspectable occupation-level criteria. Evidence from public benchmarks on how these signals interact, however, remains limited. This study proposes CF-RL-TOPSIS, an interpretable late-fusion model that integrates a transition-aware collaborative branch, a compact reinforcement-style occupation-family bandit, and an entropy-weighted TOPSIS branch constructed from six semantic proxies; the validation-selected fusion coefficients remain auditable. The model is evaluated on two frozen public ICT talent-history benchmarks, JobHop and Karrierewege, using repeated chronological top-5 ranking and paired Wilcoxon tests. On JobHop the full hybrid attains NDCG@5 = 0.3040 +/- 0.0073 and significantly surpasses repeat-last, item Markov, transition-aware collaborative filtering, the CF+TOPSIS hybrid, GRU4Rec, and SASRec (p <= 0.0039 across planned comparisons). On Karrierewege the hybrid remains competitive but does not significantly exceed the strongest Markov baseline, revealing a persistence-dominated setting in which the bandit branch appropriately shrinks to near-zero weight. Proxy-sensitivity, family-level deep Q-network, and runtime checks support this interpretation, and a worked user-level case shows how branch scores, criterion weights, and rank shifts can be inspected for an individual recommendation. The contribution is not a benchmark-agnostic superiority claim, but a reproducible account of the conditions under which transparent late fusion adds value beyond simple continuation heuristics. In semantically rich, non-saturating talent-history regimes the three branches reinforce one another; in persistence-dominated regimes the same architecture remains competitive through its collaborative backbone, with the adaptive branch correctly inactive.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-22",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2605.24155",
+    "pdf_url": "https://arxiv.org/pdf/2605.24155.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对人才推荐系统（RecSys 的核心应用场景），提出了融合协同过滤、强化学习和多准则决策的可解释性架构，解决了技能感知推荐中的实际业务问题。虽非纯 LLM 研究，但属于高优先级的核心推荐算法创新，且来自中国公司，符合加分条件。",
+    "translation": "一种面向技能感知人才推荐的可解释 CF-RL-TOPSIS 融合模型",
+    "summary_zh": "提出了一种可解释的晚期融合模型，通过整合感知行为转移的协同过滤分支、基于强化学习的职业家族 Bandit 分支以及熵权 TOPSIS 分支，动态平衡用户行为模式与职业标准以实现精准的人才推荐。",
+    "key_points": [
+      "提出了一种可解释的晚期融合模型，通过整合感知行为转移的协同过滤分支、基于强化学习的职业家族 Bandit 分支以及熵权 TOPSIS 分支，动态平衡用户行为模式与职业标准以实现精准的人才推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2605.23944",
+    "title": "Right-Sizing Communication and Recommendation Set Size in AI-Assisted Search",
+    "authors": [
+      "Jing Dong",
+      "Prakirt Raj Jhunjhunwala",
+      "Yash Kanoria"
+    ],
+    "summary": "We model the interaction between a user and an AI driven recommendation system. The user initiates the process by conveying preference information through a costly and noisy message. The AI assistant, acting as a Bayesian agent, interprets the user's message to form a posterior belief about their true preferences and make product recommendations. In particular, it determines how many recommendations to present so as to maximize the user's expected utility from their final choice, while accounting for the search cost induced by the size of the recommendation set. We use mutual information based cost functions to model the two distinct costs incurred by the user during the interaction: (i) a communication cost, which increases with the precision of their preference message, and (ii) a search cost, which increases with the size of the recommendation set provided by the AI assistant.\n  We study products and preferences which live in d dimensional space, and ask how the user's expected payoff can be maximized. For large d, we characterize how optimal message precision and recommendation set size depend on the cost parameters, under two distinct distributions from which recommendations can be sampled from the product universe: (i) Bayes' posterior belief, and (ii) an optimized tilted distribution. Under the posterior sampling scheme (i), we identify a hybrid regime, in which an efficient interaction policy requires jointly optimizing the amount of information (in bits) conveyed by the user and the number of recommendations provided by the AI assistant. In the tilted sampling scheme (ii), our results show that the optimal interaction policy uses only one of communication and search, favoring whichever of them is less costly.",
+    "categories": [
+      "cs.AI",
+      "math.PR"
+    ],
+    "published": "2026-05-02",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2605.23944",
+    "pdf_url": "https://arxiv.org/pdf/2605.23944.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "ColumbiaBusinessSchool,ColumbiaUniversity Amazon.comInc.",
+      "ColumbiaBusinessSchool,ColumbiaUniversity"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究 AI 辅助搜索中用户通信成本与推荐集大小的联合优化问题，属于搜索/推荐系统的核心交互机制建模，而非纯 LLM 研究。",
+    "translation": "AI 辅助搜索中通信与推荐集规模的优化 sizing",
+    "summary_zh": "本文构建贝叶斯代理模型，通过互信息成本函数量化用户偏好表达的通信成本与浏览推荐集的搜索成本，旨在联合优化用户消息精度与推荐集大小以最大化用户期望效用。",
+    "key_points": [
+      "本文构建贝叶斯代理模型，通过互信息成本函数量化用户偏好表达的通信成本与浏览推荐集的搜索成本，旨在联合优化用户消息精度与推荐集大小以最大化用户期望效用"
+    ]
+  },
+  {
+    "arxiv_id": "2604.23396",
+    "title": "Lost in Decoding? Reproducing and Stress-Testing the Look-Ahead Prior in Generative Retrieval",
+    "authors": [
+      "Kidist Amde Mekonnen",
+      "Yongkang Li",
+      "Yubao Tang",
+      "Simon Lupart",
+      "Maarten de Rijke"
+    ],
+    "summary": "Generative retrieval (GR) ranks documents by autoregressively generating document identifiers. Because many GR methods rely on trie-constrained beam search, they are vulnerable to early pruning of relevant prefixes under finite-beam decoding. Planning Ahead in Generative Retrieval (PAG) mitigates this failure mode by using simultaneous decoding to compute a document-level look-ahead prior that guides subsequent sequential decoding. We reproduce PAG at inference time and stress-test its decoding behavior. Using the authors' released checkpoint and identifier/trie artifacts under the reported decoding setup, we reproduce the main effectiveness results on MS MARCO Dev and TREC-DL 2019/2020, and corroborate the reported beam-size-latency trade-off in our hardware setting. Beyond reproduction, we introduce plan drift diagnostics that quantify how intent-preserving query variations alter the planner's top-n candidate set and highest-weight planner tokens, and how these changes affect guided decoding. We find that PAG's planning signal is brittle under lexical surface-form variation: intent-preserving typos can trigger plan collapse, where the planned candidate pool shifts enough that the look-ahead bonus provides little useful guidance, effectively reverting decoding toward weaker unguided search. We further evaluate fixed-index cross-lingual robustness using non-English mMARCO queries against an English index, and assess query-side mitigation strategies that require no re-indexing; query translation provides the strongest recovery in our setting. Overall, our results confirm PAG's reported effectiveness and the benefit of planning-guided decoding under the released inference setup, while showing that these gains depend on the stability of the planning signal under realistic query variation and query-document mismatch.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-04-25",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2604.23396",
+    "pdf_url": "https://arxiv.org/pdf/2604.23396.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式检索（Generative Retrieval）中的解码策略进行压力测试与改进分析，属于搜索核心技术创新；虽为复现与诊断类研究而非新架构提出，但紧密围绕搜索场景，且来自中国企业 IGG，故给予高分。",
+    "translation": "迷失于解码？生成式检索中前瞻先验的复现与压力测试",
+    "summary_zh": "本文复现并诊断了生成式检索中基于前瞻先验的规划解码方法，揭示了其在查询表面形式变化下的脆弱性，并评估了无需重建索引的查询端缓解策略。",
+    "key_points": [
+      "本文复现并诊断了生成式检索中基于前瞻先验的规划解码方法，揭示了其在查询表面形式变化下的脆弱性，并评估了无需重建索引的查询端缓解策略"
+    ]
+  },
+  {
+    "arxiv_id": "2604.18800",
+    "title": "Optimal Exploration of New Products under Assortment Decisions",
+    "authors": [
+      "Jackie Baek",
+      "Atanas Dinev",
+      "Thodoris Lykouris"
+    ],
+    "summary": "We study online learning for new products on a platform that makes capacity-constrained assortment decisions on which products to offer. For a newly listed product, its quality is initially unknown, and quality information propagates through social learning: when a customer purchases a new product and leaves a review, its quality is revealed to both the platform and future customers. Since reviews require purchases, the platform must feature new products in the assortment (\"explore\") to generate reviews to learn about new products. Such exploration is costly because customer demand for new products is lower than for incumbent products. We characterize the optimal assortments for exploration to minimize regret, addressing two questions. (1) Should the platform offer a new product alone or alongside incumbent products? The former maximizes the purchase probability of the new product but yields lower short-term revenue. Despite the lower purchase probability, we show it is always optimal to pair the new product with the top incumbent products. (2) With multiple new products, should the platform explore them simultaneously or one at a time? We show that the optimal number of new products to explore simultaneously has a simple threshold structure: it increases with the \"potential\" of the new products and, surprisingly, does not depend on their individual purchase probabilities. We also show that two canonical bandit algorithms, UCB and Thompson Sampling, both fail in this setting for opposite reasons: UCB over-explores while Thompson Sampling under-explores. Our results provide structural insights on how platforms should learn about new products through assortment decisions.",
+    "categories": [
+      "cs.SI",
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-05-23",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2604.18800",
+    "pdf_url": "https://arxiv.org/pdf/2604.18800.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "文章研究电商平台的新品推荐与组合优化（Assortment Decisions），属于推荐系统核心业务场景，但主要基于理论建模而非深度学习/LLM 架构创新；因来自中国公司额外加 1 分。",
+    "translation": "组合决策下的新品最优探索策略研究",
+    "summary_zh": "提出一种在容量受限的电商平台上，通过优化新品与 incumbent 商品的组合展示策略来平衡探索成本与学习收益的理论框架，揭示了同时探索多个新品的最优阈值结构。",
+    "key_points": [
+      "提出一种在容量受限的电商平台上，通过优化新品与 incumbent 商品的组合展示策略来平衡探索成本与学习收益的理论框架，揭示了同时探索多个新品的最优阈值结构"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07733",
+    "title": "Intelligent Truck Matching in Full Truckload Shipments using Ping2Hex approach",
+    "authors": [
+      "Srinivas Kumar Ramdas",
+      "Jose Mathew",
+      "Ankit Singh Chauhan",
+      "Dinesh Rajkumar",
+      "Aravind Manoj",
+      "Mohit Goel"
+    ],
+    "summary": "Accurate truck-to-shipment matching using GPS data is foundational for full truckload supply chain visibility, enabling real-time tracking and accurate estimated time of arrival (ETA) predictions. However, missing or corrupted vehicle identifiers prevent traditional matching approaches, leaving shipments without visibility. This paper presents Intelligent Truck Matching (ITM) 2.0, a machine learning system that addresses this critical gap by formulating matching as a probabilistic ranking problem. Our approach leverages Uber H3 hexagonal spatial indexing to discretize GPS pings into route similarity features, combined with temporal information, then applies LightGBM gradient boosting with threshold-based post-processing. Through rigorous evaluation including offline model selection (SVM, XGBoost, LightGBM), comprehensive ablation studies, and production shadow testing, we demonstrate substantial gains over rule-based baselines. ITM 2.0 achieves 26 percentage point precision improvement in North America and 14 points in Europe, while doubling coverage. Deployed in production at Project44 handling full truckload shipments, the system demonstrates robustness to geocoding errors up to 1 km, multiple candidate trucks, and sparse pings.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-05-22",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2605.07733",
+    "pdf_url": "https://arxiv.org/pdf/2605.07733.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文属于物流领域的特定匹配问题（卡车与货物），虽涉及排序思想，但并非通用的推荐系统或搜索引擎核心研究，且无 LLM 应用，相关性较弱。",
+    "translation": "基于 Ping2Hex 方法的全车货运智能卡车匹配",
+    "summary_zh": "提出一种将卡车与货物匹配建模为概率排序问题的机器学习系统，利用 H3 六边形空间索引提取路线相似性特征并结合时序信息，通过梯度提升树解决因车辆标识缺失导致的匹配难题。",
+    "key_points": [
+      "提出一种将卡车与货物匹配建模为概率排序问题的机器学习系统，利用 H3 六边形空间索引提取路线相似性特征并结合时序信息，通过梯度提升树解决因车辆标识缺失导致的匹配难题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.10457",
+    "title": "NSR-Boost: A Neuro-Symbolic Residual Boosting Framework for Industrial Legacy Models",
+    "authors": [
+      "Ziming Dai",
+      "Dabiao Ma",
+      "Jinle Tong",
+      "Mengyuan Han",
+      "Jian Yang",
+      "Hongtao Liu",
+      "Haojun Fei",
+      "Qing Yang"
+    ],
+    "summary": "Although the Gradient Boosted Decision Trees (GBDTs) dominate industrial tabular applications, upgrading legacy models in high-concurrency production environments still faces prohibitive retraining costs and systemic risks. To address this problem, we present NSR-Boost, a neuro-symbolic residual boosting framework designed specifically for industrial scenarios. Its core advantage lies in being ``non-intrusive''. It treats the legacy model as a frozen model and performs targeted repairs on \"hard regions\" where predictions fail. The framework comprises three key stages: First, finding hard regions through residuals, then generating interpretable experts by generating symbolic code structures using Large Language Model (LLM) and fine-tuning parameters using Bayesian optimization, and finally dynamically integrating experts with legacy model output through a lightweight aggregator. Experimental results demonstrate that the framework significantly outperforms state-of-the-art (SOTA) baselines across six public datasets and one private dataset. More importantly, we report the successful deployment of NSR-Boost within the core financial risk control system of Qfin Holdings, where empirical results on real-world online traffic exhibit superior performance improvements and a significant reduction in the bad rate. In conclusion, it effectively captures long-tail risks missed by traditional models and offers a safe, low-cost evolutionary paradigm for industry.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-05-23",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2601.10457",
+    "pdf_url": "https://arxiv.org/pdf/2601.10457.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于工业界遗留表格模型（GBDT）的升级与风控场景，虽提及 LLM 生成符号代码，但核心属于通用机器学习/风控领域，缺乏针对推荐或搜索核心环节（如召回、排序、用户建模）的直接应用。",
+    "translation": "NSR-Boost：一种面向工业遗留模型的神经符号残差提升框架",
+    "summary_zh": "提出一种非侵入式神经符号框架，利用 LLM 生成符号专家代码并结合贝叶斯优化，在不重训的前提下针对遗留 GBDT 模型的预测失败区域进行动态修复与集成。",
+    "key_points": [
+      "提出一种非侵入式神经符号框架，利用 LLM 生成符号专家代码并结合贝叶斯优化，在不重训的前提下针对遗留 GBDT 模型的预测失败区域进行动态修复与集成"
+    ]
+  },
+  {
+    "arxiv_id": "2604.03675",
+    "title": "OASES: Outcome-Aligned Search-Evaluation Co-Training for Agentic Search",
+    "authors": [
+      "Erhan Zhang",
+      "Yiqun Chen",
+      "Zechun Niu",
+      "Wei Yang",
+      "Xiaochi Wei",
+      "Yan Gao",
+      "Yi Wu",
+      "Yao Hu",
+      "Jiaxin Mao"
+    ],
+    "summary": "Agentic search enables language models to solve knowledge-intensive tasks by adaptively acquiring external evidence over multiple steps. Reinforcement learning with verifiable rewards (RLVR) has emerged as a widely adopted training paradigm for search agents, yet outcome-only rewards are sparse and provide limited credit assignment for intermediate search actions. Existing process-reward methods therefore seek to densify supervision through proxy signals, external evaluators, or likelihood-based information gain. However, proxy rewards can deviate from the final outcome objective, while fixed evaluators can become stale as the search policy evolves, leading to unreliable process supervision. To address these challenges, we propose OASES, an Outcome-Aligned Search-Evaluation Supervision framework for agentic search. OASES derives outcome-aligned process rewards by evaluating how well each intermediate search state supports answering the original question. It further co-trains the search policy and the state evaluator on policy, allowing the evaluator to adapt to evolving search behavior and provide more reliable process rewards. Experiments on five multi-hop QA benchmarks show that OASES consistently outperforms strong RL baselines, with further analyses confirming the benefits of outcome-aligned process rewards and search-evaluation co-training.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-05-23",
+    "updated": "2026-05-26",
+    "url": "https://arxiv.org/abs/2604.03675",
+    "pdf_url": "https://arxiv.org/pdf/2604.03675.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 智能体（Agent）与强化学习研究，专注于多跳问答任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），即使有额外加分仍属低优先级。",
+    "translation": "OASES：面向智能体搜索的结果对齐搜索 - 评估协同训练框架",
+    "summary_zh": "提出一种结果对齐的搜索 - 评估协同训练框架，通过动态评估中间搜索状态对最终问题的贡献来生成过程奖励，以解决智能体搜索中奖励稀疏和评估器滞后的问题。",
+    "key_points": [
+      "提出一种结果对齐的搜索 - 评估协同训练框架，通过动态评估中间搜索状态对最终问题的贡献来生成过程奖励，以解决智能体搜索中奖励稀疏和评估器滞后的问题"
+    ]
+  }
+]

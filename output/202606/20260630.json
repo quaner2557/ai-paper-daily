@@ -1,0 +1,630 @@
+[
+  {
+    "arxiv_id": "2606.28359",
+    "title": "The Voronoi Bottleneck: Capacity-Aware Dense Retrieval for Product Search",
+    "authors": [
+      "Charith Chandra Sai Balne",
+      "Rithwik Maramraju",
+      "Siddharth Pratap Singh",
+      "Rohit Upadhyay",
+      "Aditya Singh",
+      "Chittaranjan Tripathy",
+      "Yogananda Domlur Seetharama"
+    ],
+    "summary": "Dense embedding retrieval compresses all relevance information into a single inner product, imposing a fundamental geometric limit -- the Voronoi Bottleneck -- on the number of query-document relevance patterns expressible at fixed embedding dimension (d). We make three contributions. (1) Unified capacity theory. We prove that Voronoi complexity and sign-rank are equivalent for top-1 retrieval, yielding tight dimension bounds and a computable diagnostic, the Capacity Utilization Score (CUS), that predicts per-query retrieval failure with AUC (> 0.8) without relevance labels. (2) Diagnosis. CUS identifies two capacity regimes -- moderate ((δ\\gtrsim 1)), where density-aware training yields measurable gains, and vacuous ((δ\\ll 1)), where it does not -- giving practitioners an a priori check before investing in retraining. (3) DART training. We introduce AT-DW-InfoNCE, an Adaptive-Temperature Density-Weighted contrastive objective with formally derived optimal weighting (α^* = 2.0). On a 100K-query synthetic product-search corpus with controlled relevance structure, DART improves +1.9 Recall@100 over a same-data InfoNCE baseline ((84.9 \\pm 0.0) vs. (83.0 \\pm 0.3); 8 seeds, (p < 0.001)), outperforming focal loss and temperature-schedule alternatives. DART requires zero inference-time overhead -- it is a drop-in training objective that improves any dual-encoder system.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-06-09",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28359",
+    "pdf_url": "https://arxiv.org/pdf/2606.28359.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对产品搜索中的稠密检索瓶颈提出新理论（Voronoi Bottleneck）和训练方法（DART），属于核心搜索技术突破，且来自 TAL 公司，符合最高优先级标准。",
+    "translation": "Voronoi 瓶颈：面向产品搜索的容量感知稠密检索",
+    "summary_zh": "本文揭示了稠密嵌入检索中因几何限制导致的",
+    "key_points": [
+      "本文揭示了稠密嵌入检索中因几何限制导致的"
+    ]
+  },
+  {
+    "arxiv_id": "2512.11529",
+    "title": "xGR: Efficient Generative Recommendation Serving at Scale",
+    "authors": [
+      "Qingxiao Sun",
+      "Tongxuan Liu",
+      "Shen Zhang",
+      "Siyu Wu",
+      "Peijun Yang",
+      "Haotian Liang",
+      "Menxin Li",
+      "Xiaolong Ma",
+      "Zhiwei Liang",
+      "Ziyi Ren",
+      "Minchao Zhang",
+      "Yifan Wang",
+      "Xinyu Liu",
+      "Ke Zhang",
+      "Hailong Yang",
+      "Depei Qian"
+    ],
+    "summary": "Recommendation system delivers substantial economic benefits by providing personalized predictions. Generative recommendation (GR) integrates LLMs to enhance the understanding of long user-item sequences. Despite employing attention-based architectures, GR's workload differs markedly from that of LLM serving. GR typically processes long prompt while producing short, fixed-length outputs, yet the computational cost of each decode phase is especially high due to the large beam width. Furthermore, since the beam search involves a vast item space, the sorting overhead becomes particularly time-consuming. We propose xGR, a GR-oriented serving system that meets strict low-latency requirements under high-concurrency scenarios. First, xGR unifies the processing of prefill and decode phases through staged computation and separated KV cache. Second, xGR enables early sorting termination and mask-based item filtering with data structure reuse. Third, xGR reconstructs the overall pipeline to exploit multi-level overlap and multi-stream parallelism. The experiments on real-world datasets demonstrate that xGR achieves at least 2.89x throughput compared to the state-of-the-art baseline under strict latency constraints.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-06-27",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2512.11529",
+    "pdf_url": "https://arxiv.org/pdf/2512.11529.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "JD",
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1 BeihangUniversity 2 JDCompany 3 UniversityofScienceandTechnologyBeijing 4 Huawei"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统（GR）的服务架构进行优化，解决了 LLM 在推荐场景中特有的长序列处理和大规模物品空间排序延迟问题，属于核心的推荐系统工程创新。",
+    "translation": "xGR：大规模高效生成式推荐服务系统",
+    "summary_zh": "提出 xGR 服务系统，通过分阶段计算与分离 KV 缓存统一处理流程，利用早期排序终止、掩码过滤及多级流水线并行技术，解决生成式推荐在高并发下的低延迟服务难题。",
+    "key_points": [
+      "提出 xGR 服务系统，通过分阶段计算与分离 KV 缓存统一处理流程，利用早期排序终止、掩码过滤及多级流水线并行技术，解决生成式推荐在高并发下的低延迟服务难题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28357",
+    "title": "ReasonRec: A Reasoning-Augmented Multimodal Agent for Unified Recommendation",
+    "authors": [
+      "Yihua Zhang",
+      "Mingfu Liang",
+      "Jiyan Yang",
+      "Rong Jin",
+      "Wen-Yen Chen",
+      "Yiping Han",
+      "Huayu Li",
+      "Buyun Zhang",
+      "Liang Luo",
+      "Frank Shyu",
+      "Luke Simon",
+      "Sijia Liu",
+      "Tianlong Chen",
+      "Xi Liu"
+    ],
+    "summary": "Recent advances in multimodal recommenders excel at feature fusion but remain opaque and inefficient decision-makers, lacking explicit reasoning and self-awareness of uncertainty. We introduce ReasonRec, a reasoning-augmented multimodal agent structured around a three-stage explicit reasoning pipeline. Specifically, we propose a reasoning-aware visual instruction tuning strategy that systematically transforms diverse recommendation tasks into unified CoT prompts, enabling the VLM to explicitly articulate intermediate decision steps. Additionally, our evidence-horizon curriculum progressively enhances the reasoning complexity to better handle cold-start and long-tail user scenarios, significantly boosting model generalization. Furthermore, the uncertainty-guided delegation mechanism empowers the agent to assess its own confidence, strategically allocating computational resources to optimize both recommendation accuracy and inference efficiency. Comprehensive experiments on four standard recommendation tasks across five real-world datasets demonstrate that ReasonRec achieves over 30% relative improvement in key ranking metrics compared to state-of-the-art multimodal recommenders. Crucially, ReasonRec substantially reduces inference latency by dynamically delegating up to 35% of queries to efficient sub-models without compromising accuracy. Extensive ablation studies further confirm that each proposed reasoning and planning mechanism individually contributes substantially to ReasonRec's overall effectiveness. Collectively, our results illustrate a clear pathway towards interpretable, adaptive, and efficient multimodal recommendation through explicit reasoning and agentic design.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-08",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28357",
+    "pdf_url": "https://arxiv.org/pdf/2606.28357.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta AI, 2Michigan State University, 3The University of North Carolina at Chapel Hill"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态推荐系统，提出基于显式推理和智能体架构的解决方案，解决了推荐中的可解释性和效率问题，属于 LLM 在推荐领域的直接高价值应用。",
+    "translation": "ReasonRec：用于统一推荐的推理增强多模态智能体",
+    "summary_zh": "该论文提出一种三阶段显式推理管道，通过视觉指令微调将推荐任务转化为思维链提示，并利用不确定性引导的委托机制动态分配计算资源以优化推荐效果与效率。",
+    "key_points": [
+      "该论文提出一种三阶段显式推理管道，通过视觉指令微调将推荐任务转化为思维链提示，并利用不确定性引导的委托机制动态分配计算资源以优化推荐效果与效率"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28368",
+    "title": "EvoRec: Self Evolving Agentic Recommender Systems",
+    "authors": [
+      "Lingyu Mu",
+      "Hao Deng",
+      "Haibo Xing",
+      "Jinxin Hu",
+      "Yu Zhang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Optimizing modern recommender systems still relies heavily on engineers iterating by hand, which is slow and bounded by individual expertise. LLM-based agents open a path toward automating this loop, yet two issues remain. First, the agent is used only as a code translator and accumulates no methodology across iterations. Second, the optimization space is confined to a predefined range and rarely introduces structurally new ideas. To address these problems, we propose EvoRec, a multi-agent framework that co-evolves the recommendation model and the optimization methodology driving it. Four collaborating agents carry out a dual-track loop: the Research Agent and Code Agent iterate the model each round, while the Skill Evolver periodically distills reusable methodology from a persistent Memory of past experiments. Experiments on two public benchmarks and one large-scale industrial dataset show that EvoRec improves offline metrics by up to 5.54% over the strongest baseline, and an online A/B test delivers a 1.85% revenue lift and a 1.02% CTR gain.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-15",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28368",
+    "pdf_url": "https://arxiv.org/pdf/2606.28368.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统，提出利用多智能体框架自动迭代优化推荐模型架构与策略，解决了传统人工调优的瓶颈，属于 LLM 在 RecSys 中的核心应用。",
+    "translation": "EvoRec：自演进的智能体推荐系统",
+    "summary_zh": "提出一种多智能体协同框架，通过研究、代码及技能演化智能体的双轨循环，实现推荐模型结构与优化方法论的自动共同演进。",
+    "key_points": [
+      "提出一种多智能体协同框架，通过研究、代码及技能演化智能体的双轨循环，实现推荐模型结构与优化方法论的自动共同演进"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28350",
+    "title": "UniCA: Bi-directional Cross-Attention with Positive Similarity Loss for Robust Multi-Modal Retrieval",
+    "authors": [
+      "Yini Huang",
+      "Wenlong Zhang"
+    ],
+    "summary": "Multi-modal retrieval has become increasingly critical for handling the growing volume of integrated visual-textual data in real-world applications, but existing frameworks rely on implicit fusion via text encoder self-attention, limiting explicit cross-modal semantic alignment. To address this gap, this paper proposes UniCA (Unified Cross-Attention Encoder), a multi-modal retrieval model with four key innovations: 1) a bi-directional cross-attention (Bi-CA) block that enables active semantic exchange between visual and textual tokens prior to concatenation, capturing inter-modal correlations more efficiently. 2) a Positive Similarity Loss that optimizes absolute semantic proximity between query and positive candidate embeddings. 3) a streamlined dataset UMR-S10 (Universal Multimodal Retrieval Sample 10%) to reduce computational costs while retaining semantic diversity and task representativeness. 4) an experimental validation on the WebQA benchmark demonstrates that UniCA outperforms the baseline model across Hybrid and Image-Text tasks, achieving improvements of up to 4.09% in Recall@5, 3.28% in Recall@10, and 3.96% in MRR@1 for the hybrid task. UniCA provides an efficient and robust solution for multi-modal retrieval, lowering deployment barriers through its lightweight dataset and enhanced fusion mechanism.",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2026-06-03",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28350",
+    "pdf_url": "https://arxiv.org/pdf/2606.28350.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态检索（RecSys/Search 核心环节）提出新架构，解决了跨模态语义对齐问题，且来自中国公司 TAL 额外加 1 分。",
+    "translation": "UniCA：用于鲁棒多模态检索的双向交叉注意力与正样本相似度损失",
+    "summary_zh": "提出 UniCA 模型，通过双向交叉注意力模块实现视觉与文本 token 间的主动语义交换，并利用正样本相似度损失优化查询与候选项的绝对语义接近度，以增强多模态检索的显式对齐能力。",
+    "key_points": [
+      "提出 UniCA 模型，通过双向交叉注意力模块实现视觉与文本 token 间的主动语义交换，并利用正样本相似度损失优化查询与候选项的绝对语义接近度，以增强多模态检索的显式对齐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2402.06158",
+    "title": "Assortment Planning with Sponsored Products",
+    "authors": [
+      "Shaojie Tang",
+      "Shuzhang Cai",
+      "Jing Yuan",
+      "Kai Han"
+    ],
+    "summary": "In the rapidly evolving landscape of retail, assortment planning plays a crucial role in determining the success of a business. With the rise of sponsored products and their increasing prominence in online marketplaces, retailers face new challenges in effectively managing their product assortment in the presence of sponsored products. Remarkably, previous research in assortment planning largely overlooks the existence of sponsored products and their potential impact on overall recommendation effectiveness. Instead, they commonly make the simplifying assumption that all products are either organic or non-sponsored. This research gap underscores the necessity for a more thorough investigation of the assortment planning challenge when sponsored products are in play. We formulate the assortment planning problem in the presence of sponsored products as a combinatorial optimization task. The ultimate objective is to compute an assortment plan that optimizes expected revenue while considering the specific requirements of placing sponsored products strategically.",
+    "categories": [
+      "cs.DS",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-06-28",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2402.06158",
+    "pdf_url": "https://arxiv.org/pdf/2402.06158.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对电商推荐系统中的“商品组合规划”与“赞助商品（广告）”协同优化问题，属于搜索/推荐核心业务场景中的重排序与商业化平衡研究。",
+    "translation": "包含赞助商品的组合规划研究",
+    "summary_zh": "本文提出一种组合优化方法，旨在解决电商场景中同时存在自然推荐商品与赞助广告商品时的选品规划问题，以在满足广告展示约束的前提下最大化预期收益。",
+    "key_points": [
+      "本文提出一种组合优化方法，旨在解决电商场景中同时存在自然推荐商品与赞助广告商品时的选品规划问题，以在满足广告展示约束的前提下最大化预期收益"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28355",
+    "title": "DBpedia-Enriched Company Representation for B2B Lead Recommendation",
+    "authors": [
+      "Yuyan Qian",
+      "Claude Montacie",
+      "Milan Stankovic",
+      "Victoria Eyharabide"
+    ],
+    "summary": "Selecting which companies to approach is a central challenge in business-to-business (B2B) sales, where decisions are often based on manual research and fragmented information sources. Modern B2B sales platforms centralize company records and use learned company embeddings to support tasks such as recommending and prioritizing potential clients. In this study, we investigate whether enriching these company embeddings with Semantic knowledge from DBpedia improves downstream interaction-prediction performance, within a pipeline that integrates structured company attributes and text embeddings deployed on a real B2B platform. We evaluate the learned embeddings on a downstream interaction prediction task using real user feedback data from the platform. Results show that DBpedia enrichment improves downstream performance, with gains observed on ranking and discrimination metrics.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-06-08",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28355",
+    "pdf_url": "https://arxiv.org/pdf/2606.28355.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对 B2B 销售场景中的线索推荐（Lead Recommendation）问题，利用外部知识图谱增强公司表征以提升排序效果，属于明确的推荐系统应用。",
+    "translation": "基于 DBpedia 增强的公司表征用于 B2B 线索推荐",
+    "summary_zh": "提出一种融合 DBpedia 语义知识与结构化属性的公司嵌入方法，旨在优化 B2B 平台中潜在客户的推荐与优先级排序。",
+    "key_points": [
+      "提出一种融合 DBpedia 语义知识与结构化属性的公司嵌入方法，旨在优化 B2B 平台中潜在客户的推荐与优先级排序"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28326",
+    "title": "ADEPT: An Entropy-Driven Dual-Strategy Agent for Interactive Video Retrieval",
+    "authors": [
+      "Ke Chen",
+      "Shengyuan Han",
+      "Yongfeng Huang",
+      "Yujin Zhu",
+      "Jingwei Xiong",
+      "Liang Xu",
+      "Jundong Liu"
+    ],
+    "summary": "This research aims to solve the challenge of video retrieval from massive datasets, caused by ambiguous user queries. Prevailing single-round retrieval paradigms face a performance bottleneck, as they lack effective feedback mechanisms to handle complex search intentions. The root cause is the \"Intent-Query Gap\", where users' intent cannot be captured by a simple text query. To solve this, we propose the ADEPT framework: a training-free agent that pioneers an entropy-driven decision engine to efficiently guide dialogue by dynamically selecting between ASK and REFINE strategies. Experiments on two challenging datasets demonstrate that ADEPT significantly outperforms all non-interactive, heuristic, and Video-LLM baselines. The core contribution of this work is an efficient and interpretable entropy-driven interactive strategy that sets a new performance benchmark for the field of interactive video retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-07",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28326",
+    "pdf_url": "https://arxiv.org/pdf/2606.28326.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对交互式视频检索（搜索核心场景），提出基于熵驱动的双策略代理来解决意图 - 查询差距，属于多模态搜索的直接应用。",
+    "translation": "ADEPT：用于交互式视频检索的熵驱动双策略智能体",
+    "summary_zh": "提出一种无需训练的熵驱动决策引擎，通过动态选择“提问”或“细化”策略来引导多轮对话，以解决模糊查询下的视频检索意图对齐问题。",
+    "key_points": [
+      "提出一种无需训练的熵驱动决策引擎，通过动态选择“提问”或“细化”策略来引导多轮对话，以解决模糊查询下的视频检索意图对齐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28340",
+    "title": "Rethinking Fairness in LLM-Based Recommender Systems: A Survey",
+    "authors": [
+      "Song-Duo Ma",
+      "Chu-Yun Chen",
+      "Bang-An Li",
+      "Pin-Yu Chen",
+      "Shau-Yung Hsu",
+      "Yun-Nung Chen"
+    ],
+    "summary": "Large Language Models (LLMs) are reshaping recommender systems by enabling more semantic, generative, and interactive recommendation pipelines. However, this shift also introduces new fairness challenges, as biases may arise from pretrained knowledge, prompts, generated explanations, decoding strategies, and feedback loops. This survey provides a systematic review of fairness in LLM-based recommender systems (LLM4Rec), organizing existing studies through a two-dimensional view of bias mechanisms and fairness targets, together with a structured overview of the evaluation landscape and mitigation strategies. We further connect fairness with broader trustworthy concerns, including explainability, privacy, robustness, and controllability. To the best of our knowledge, this is the first survey specifically focused on fairness in LLM4Rec, aiming to provide a structured foundation for future research on comprehensive and reliable fairness evaluation in LLM4Rec.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-31",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28340",
+    "pdf_url": "https://arxiv.org/pdf/2606.28340.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于 LLM 推荐系统中公平性的综述，虽直接关联 RecSys 领域，但属于宏观调研而非提出解决具体推荐问题的新架构或核心算法创新。",
+    "translation": "重思基于大语言模型的推荐系统公平性：一项综述",
+    "summary_zh": "本文系统梳理了基于大语言模型的推荐系统中的公平性挑战，从偏差机制与公平目标两个维度构建分类体系，并概述了评估方法与缓解策略。",
+    "key_points": [
+      "本文系统梳理了基于大语言模型的推荐系统中的公平性挑战，从偏差机制与公平目标两个维度构建分类体系，并概述了评估方法与缓解策略"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28365",
+    "title": "CAMI: Cost-Aware Agent-Guided Multi-Indexing for Semantic Retrieval",
+    "authors": [
+      "Adnan Qidwai",
+      "Anand Eswaran",
+      "Sonam Mishra",
+      "Jaydeep Sen",
+      "Sachindra Joshi"
+    ],
+    "summary": "RAG ingestion pipelines frequently augment search corpus index with semantic enrichment indices (e.g., synthetic queries or summaries generated from corpus chunks) that are subsequently queried alongside the base index to improve retrieval via better alignment between document representations and user intent. While these supplementary representations substantially improve retrieval quality, they introduce a computational bottleneck: the configuration space of enrichment types and generator models is combinatorial, and the cost of exhaustive index-time evaluation scales linearly with corpus size. We introduce CAMI (Cost-Aware Multi-Indexing), a framework that formalizes multi-index construction as a budgeted, multi-objective portfolio selection problem. CAMI targets the upstream decision of which enrichment views to generate and materialize before the retrieval backend is applied. CAMI incorporates three primary mechanisms: (i) an agentic discovery phase that proposes corpus-specific representation templates; (ii) an atomic-unit search procedure that evaluates individual enrichment-model pairs and recombines them via fidelity-local closure to identify synergistic portfolios; and (iii) a confidence-aware promotion schedule that prunes unpromising configurations early, decoupling optimization spend from total corpus size. We evaluate CAMI across diverse retrieval corpora. Our findings reveal that the framework systematically isolates high-recall portfolios under strict budget constraints, outperforming standard content-only baselines in challenging settings by up to 9.4% recall@10. Further, CAMI is able to systematically identify these high-recall portfolios using up to 5x less budget compared to random search baselines, making our approach practical in real production scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-14",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28365",
+    "pdf_url": "https://arxiv.org/pdf/2606.28365.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "IBMSoftwareInnovationLab IBMSoftwareInnovationLab IBMSoftwareInnovationLab",
+      "IBMSoftwareInnovationLab IBMSoftwareInnovationLab",
+      "thecost-awaresearchengine.Toavoidexpensivefull-corpusevaluations,CAMItestsatomicunits(EDR–modelpairs)onsmall,"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于 RAG 检索前的索引构建优化，虽涉及检索增强但属于通用 NLP/LLM 基础设施研究，缺乏针对推荐系统或搜索业务场景（如用户建模、排序）的直接应用。",
+    "translation": "CAMI：面向语义检索的成本感知代理引导多索引方法",
+    "summary_zh": "提出一种成本感知的多索引构建框架，将索引增强视图的选择形式化为预算约束下的组合优化问题，通过代理发现与剪枝策略在有限计算资源下自动筛选最优的语义索引组合。",
+    "key_points": [
+      "提出一种成本感知的多索引构建框架，将索引增强视图的选择形式化为预算约束下的组合优化问题，通过代理发现与剪枝策略在有限计算资源下自动筛选最优的语义索引组合"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28356",
+    "title": "SafeGEO: Understanding Generative Engine Optimization Risks in Recommendation Agents",
+    "authors": [
+      "Qianfeng Wen",
+      "Yifan Simon Liu",
+      "Xin Liu",
+      "Difan Jiao",
+      "Blair Yang",
+      "Junda Wu",
+      "Zhenwei Tang"
+    ],
+    "summary": "Generative Engine Optimization (GEO) lets content owners rewrite web content to increase their visibility in generative systems. In recommendation agents, this creates a risk that seller-controlled sources make flawed products appear better supported than they are. We study this risk by asking whether recommendation agents preserve utility-aligned decisions when seller-controlled sources are rewritten for GEO. To make this question measurable, we construct SafeGEO, an evaluation suite with 22 GEO attack variants across 600 recommendation cases. We empirically show that GEO attacks can promote flawed target products. On average, they increase the rate at which such flawed products enter the recommendation set by up to 83.2%. We further study whether agent-side design choices can mitigate this risk and show that simple defenses, including defensive prompting and structured evidence checks, reduce harmful target promotion by up to 39.2%. These gains are substantial but do not restore the no-GEO performance, showing that GEO remains a serious risk despite developer-side mitigation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-08",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28356",
+    "pdf_url": "https://arxiv.org/pdf/2606.28356.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究生成式引擎优化（GEO）对推荐代理的安全风险与防御，属于 RecSys 中的安全/伦理边缘领域，且核心侧重于攻击评估而非推荐算法本身的创新；虽涉及推荐场景，但根据指南安全类通常低分，仅因明确针对推荐代理及中国公司背景给予少量加分。",
+    "translation": "SafeGEO：理解推荐代理中生成式引擎优化的风险",
+    "summary_zh": "本文构建了 SafeGEO 评估套件，量化分析了内容所有者通过生成式引擎优化（GEO）操纵推荐代理导致缺陷产品被推荐的風險，并验证了提示词防御和结构化证据检查等代理端缓解措施的有效性。",
+    "key_points": [
+      "本文构建了 SafeGEO 评估套件，量化分析了内容所有者通过生成式引擎优化（GEO）操纵推荐代理导致缺陷产品被推荐的風險，并验证了提示词防御和结构化证据检查等代理端缓解措施的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28330",
+    "title": "High-Dimensional Concentration and Retrieval Instability in Embedding Spaces: Implications for Retrieval-Augmented Generation",
+    "authors": [
+      "Ernesto Lopez Fune"
+    ],
+    "summary": "Embedding-based retrieval systems rely on the assumption that geometric proximity in highdimensional representation spaces reflects semantic relevance. However, high-dimensional geometry induces concentration phenomena that can reduce the discriminative power of similarity measures and can destabilize nearest-neighbor retrieval. This work studies distance concentration, cosine concentration, contrast collapse, hubness, and retrieval instability through controlled numerical experiments across multiple synthetic distributions. The results show that similarity signals progressively lose contrast as dimension increases, leading to unstable retrieval behavior and structural bias in nearest-neighbor selection. A simplified Retrieval-Augmented Generation experiment further suggests that these effects can degrade grounding reliability upstream of generation. These findings motivate geometry-aware diagnostics and robustness-oriented retrieval strategies for embedding-based AI systems. The experiments are intentionally synthetic in order to isolate intrinsic geometric effects. High-dimensional embedding space Distance and cosine concentration Score-gap collapse and hubness Retrieval instability under perturbations Weak or incomplete retrieved context Potential degradation of grounding 1.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-05-19",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28330",
+    "pdf_url": "https://arxiv.org/pdf/2606.28330.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究高维嵌入空间的几何特性及其对 RAG 的影响，属于通用检索理论分析，缺乏针对推荐系统或搜索产品的具体应用架构与业务场景创新。",
+    "translation": "嵌入空间中的高维集中与检索不稳定性：对检索增强生成的启示",
+    "summary_zh": "本文通过数值实验揭示了高维嵌入空间中距离集中和余弦集中现象导致相似度信号对比度降低，进而引发基于嵌入的检索系统出现不稳定性及结构偏差的核心机制。",
+    "key_points": [
+      "本文通过数值实验揭示了高维嵌入空间中距离集中和余弦集中现象导致相似度信号对比度降低，进而引发基于嵌入的检索系统出现不稳定性及结构偏差的核心机制"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28943",
+    "title": "A3M: Adaptive, Adversarial and Multi-Objective Learning for Strategic Bidding in Repeated Auctions",
+    "authors": [
+      "Junhan Li",
+      "Yuxin Zhang",
+      "Haoran Wang",
+      "Minghao Chen"
+    ],
+    "summary": "Learning to bid in repeated multi-unit auctions with bandit feedback poses a fundamental challenge. Existing methods often rely on rigid explore-then-exploit schedules, assume stationary adversaries, and optimize solely for bidder utility, thereby limiting adaptability and strategic robustness. To address these limitations, we introduce the A3M framework, which integrates adaptive deep reinforcement learning (DRL), explicit adversarial reasoning, and principled multi-objective reward design for online auction strategy optimization. A3M employs an actor-critic DRL backbone to dynamically balance exploration and exploitation, an opponent model for fictitious play against non-stationary adversaries, and a composite reward function to jointly maximize utility, auctioneer revenue, and fairness. We provide the first comprehensive empirical evaluation of this integrated approach against established baselines in both discriminatory and uniform price auctions. Results show that A3M reduces final regret by 30--40\\% in standard settings, maintains robust performance against adversarial strategy shifts, scales favorably with the number of units $K$, and enables tunable multi-objective trade-offs. An extensive ablation study confirms the necessity of each core component. Our work establishes A3M as a powerful and flexible framework for learning in complex auction environments.",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-06-27",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28943",
+    "pdf_url": "https://arxiv.org/pdf/2606.28943.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于广告竞价策略（Ads Bidding），属于搜索/推荐系统的变现环节，但核心方法是纯强化学习（RL）在拍卖机制中的应用，缺乏对召回、排序或用户建模等核心推荐技术的直接贡献，且非 LLM 应用。",
+    "translation": "A3M：面向重复拍卖中战略竞价的自适应、对抗性与多目标学习框架",
+    "summary_zh": "提出 A3M 框架，结合自适应深度强化学习、显式对手建模和多目标奖励设计，以解决重复多单位拍卖中非平稳环境下的动态竞价策略优化问题。",
+    "key_points": [
+      "提出 A3M 框架，结合自适应深度强化学习、显式对手建模和多目标奖励设计，以解决重复多单位拍卖中非平稳环境下的动态竞价策略优化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28367",
+    "title": "Beyond the Reranker: Do RAG Retrieval Enhancements Help Once a Strong Reranker Is Present?",
+    "authors": [
+      "Sadanand Singh",
+      "Allam Reddy",
+      "Manan Chopra"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) is routinely extended with methods meant to improve retrieval: query expansion, hierarchical and cross-document summarization, graph-based expansion, per-query routing, rank fusion, and corrective re-retrieval. The benefits reported for these methods come almost exclusively from homogeneous corpora, predominantly Wikipedia prose. Whether they hold on the mixed-format collections common in practice, where code, markdown, tables, scientific PDFs, and prose are interleaved within one corpus, has not been measured. To study this directly, we build \\textbf{HetDocQA}, a heterogeneous benchmark with \\emph{chunker-agnostic} span-overlap relevance labels and collection-disjoint splits, and pair it with MuSiQue and QASPER as homogeneous controls. We evaluate eight methods on a shared backbone, with bootstrap confidence intervals and multiple-comparison correction. A strong cross-encoder reranker accounts for most of the pipeline's quality; beyond it, only two methods yield reliable gains: query expansion and SSCC. SSCC, a per-source calibrated corrector introduced here, sets a separate acceptance threshold for each score source and helps only on heterogeneous data. The remaining reranking and pool-expansion methods in common use, among them hierarchical summarization, graph expansion, routing, and rank fusion, give no reliable gain once that reranker is present.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-14",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28367",
+    "pdf_url": "https://arxiv.org/pdf/2606.28367.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/RAG 研究，专注于通用问答场景下的检索增强，未涉及推荐系统或搜索引擎的核心业务场景（如个性化、广告、电商召回排序等）。",
+    "translation": "超越重排序器：强重排序器存在时，RAG 检索增强是否有效？",
+    "summary_zh": "本文提出异构文档问答基准 HetDocQA，研究发现强交叉编码器重排序器可解释大部分效果增益，而在混合格式数据中仅查询扩展和源校准修正器能带来额外收益。",
+    "key_points": [
+      "本文提出异构文档问答基准 HetDocQA，研究发现强交叉编码器重排序器可解释大部分效果增益，而在混合格式数据中仅查询扩展和源校准修正器能带来额外收益"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28352",
+    "title": "Sifei at SemEval-2026 Task 8: Hybrid Retrieval and Query Rewriting for Multi-Turn RAG",
+    "authors": [
+      "Sifei Meng",
+      "Dmitry Ilvovsky"
+    ],
+    "summary": "Multi-turn retrieval-augmented generation (RAG) is challenging due to evolving user intent, conversational noise, and strict context limits. We propose a training-free hybrid retrieval pipeline for SemEval-2026 Task 8 that combines dense and sparse retrieval with controlled query rewriting and cross-encoder reranking. On the official test set of Task A, our system achieves 0.5453 nDCG@5, ranking third among 38 teams and outperforming the strongest baseline score of 0.4795. For Task C, we reuse the documents retrieved for Task A and apply a lightweight generation pipeline guided by the official prompt, achieving 0.5312 as the harmonic mean of relevance and faithfulness and ranking 15th among 29 teams. All retrieval components are open-source, while query rewriting and answer generation rely on LLM APIs.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-06-05",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28352",
+    "pdf_url": "https://arxiv.org/pdf/2606.28352.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于多轮 RAG 和问答任务（SemEval），属于纯 NLP/LLM 应用研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "Sifei 在 SemEval-2026 任务 8 中的表现：面向多轮 RAG 的混合检索与查询重写",
+    "summary_zh": "提出一种无需训练的混合检索流水线，结合稠密与稀疏检索、受控查询重写及交叉编码器重排序，以解决多轮对话中用户意图演变和上下文限制问题。",
+    "key_points": [
+      "提出一种无需训练的混合检索流水线，结合稠密与稀疏检索、受控查询重写及交叉编码器重排序，以解决多轮对话中用户意图演变和上下文限制问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28387",
+    "title": "Schema-First Retrieval: Embedding Catalogs for Natural Language Analytics",
+    "authors": [
+      "Adarsh Agrawal",
+      "Shashank Indukuri"
+    ],
+    "summary": "Enterprise text-to-SQL systems often fail before SQL is generated: the model receives the wrong schema context. Modern warehouses contain thousands of tables, abbreviated columns, informal metrics, hidden join conventions, and permission boundaries that are not captured by raw table names. We introduce Schema-First Retrieval, a retrieval layer that embeds catalog metadata rather than warehouse rows. The system indexes five typed catalog objects, tables, columns, metrics, relationships, and query history, using object-specific text templates. At query time, it combines parallel vector search, lineage expansion, cross-encoder reranking, workload memory, and deterministic access-control gates before SQL generation. On CRUSH4SQL (1,534 questions), Schema-First Retrieval reaches 96.4% table recall@20 and cross-encoder reranking adds +11.1 points at column recall@10; against an equally-templated BM25 baseline, semantic retrieval is +32.8 points at table recall@5. On SEDE (857 questions), query history raises table recall@5 from 52.1% to 92.3%. On BIRD (96 questions), schema-first context reduces SQL execution errors from 15.6% to 6.2%, a 2.5x reduction. These results show that catalog selection is a first-class retrieval problem for natural language analytics, not a prompt formatting detail.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-23",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28387",
+    "pdf_url": "https://arxiv.org/pdf/2606.28387.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文专注于企业级 Text-to-SQL 和数据仓库元数据检索，属于纯 NLP/数据库领域研究，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍因缺乏 RecSys 直接应用而得分较低。",
+    "translation": "模式优先检索：用于自然语言分析的嵌入目录",
+    "summary_zh": "提出一种“模式优先检索”架构，通过嵌入数据仓库的元数据对象（表、列、指标等）并结合血缘扩展与重排序，解决大模型在生成 SQL 前获取错误上下文的问题。",
+    "key_points": [
+      "提出一种“模式优先检索”架构，通过嵌入数据仓库的元数据对象（表、列、指标等）并结合血缘扩展与重排序，解决大模型在生成 SQL 前获取错误上下文的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28361",
+    "title": "ConCise: Training-Free Conclusion-Chain State Compression for Cost-Efficient Multi-Step RAG Services",
+    "authors": [
+      "Kuan Yan",
+      "Zhiqing Tang",
+      "Tian Wang",
+      "Weijia Jia"
+    ],
+    "summary": "Multi-step retrieval-augmented generation (RAG) has been widely deployed as LLM-powered web services for complex question answering, where iterative retrieval-reasoning rounds deliver strong multi-hop accuracy. However, this paradigm causes historical documents and reasoning traces to accumulate across rounds, inflating cumulative input tokens approximately as $O(N^2)$ with progressively increasing noise density. In API-based service architectures, such growth directly amplifies per-request billing cost, network payload, and response latency. Existing compression approaches rely on pretrained modules or GPU-level KV cache access, introducing model hosting overhead incompatible with API-native, Serverless, and edge-side deployments. To address this issue, this paper proposes ConCise, a training-free state-layer protocol that restructures cross-round context transmission for multi-step RAG services. Specifically, ConCise replaces raw-text accumulation with an append-only chain of structured conclusions, compressing cumulative context growth from $O(N^2)$ to approximately $O(N)$. Furthermore, a fused generation mechanism is introduced to jointly emit reasoning and conclusions in a single API call, eliminating repeated input billing from serial dual-invocation overhead. Extensive experiments across twelve paired configurations spanning three models, two datasets, and two representative frameworks demonstrate that ConCise achieves 64.63\\% average token savings while maintaining acceptable accuracy, providing a plug-and-play, deployment-friendly solution for cost-efficient multi-step RAG service optimization.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.IT",
+      "math.IT"
+    ],
+    "published": "2026-06-13",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28361",
+    "pdf_url": "https://arxiv.org/pdf/2606.28361.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 推理优化（RAG）研究，旨在降低多步问答的 Token 成本，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低相关。",
+    "translation": "ConCise：面向低成本多步 RAG 服务的无训练结论链状态压缩方法",
+    "summary_zh": "提出一种无训练的状态层协议，通过将累积的原始文本替换为结构化结论链，将多步 RAG 的上下文增长从 O(N^2) 降至 O(N)，并结合融合生成机制以降低 API 调用成本。",
+    "key_points": [
+      "提出一种无训练的状态层协议，通过将累积的原始文本替换为结构化结论链，将多步 RAG 的上下文增长从 O(N^2) 降至 O(N)，并结合融合生成机制以降低 API 调用成本"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28370",
+    "title": "Conversational Query Engine for Mixed-Modality Heterogeneous Enterprise Data Sources",
+    "authors": [
+      "Darshita Rathore",
+      "Vineet Kumar",
+      "Vaibhav Singal",
+      "Ankur Vivek Singh",
+      "Anindya Moitra"
+    ],
+    "summary": "Enterprise business intelligence queries span structured warehouses and unstructured document repositories -- modalities with fundamentally different access methods, cost profiles, and correctness semantics. Existing AI-enabled interfaces force users to select the right tool: NL2SQL systems cannot reason over slide decks, and RAG pipelines lack access to live warehouse tables.\n  We present COGNI, a production conversational BI system that treats natural-language analytics as a heterogeneous query processing problem, organized as four architectural layers. First, an indexing layer implements slide-adaptive chunking -- recursive chunking for plain-text slides, hierarchical chunking for structured content such as tables, charts, and key-value blocks - achieving $88.3\\%$ on our internal enterprise benchmark. Second, a routing layer built on a LoRA fine-tuned Qwen-2.5-1.5B-Instruct model that produces a dual output - modality decision and complexity assessment at $93.8\\%$ accuracy and approximately $7\\times$ lower cost than frontier-model. Third, a retrieval layer executes complexity-adaptive pipelines: a self-correcting NL2SQL agent at $93.9\\%$ G-Eval, and Recursive Language Models reaching $91.0\\%$ on multi-hop synthesis queries. Finally, a caching layer validates query equivalence across multiple dimensions beyond embedding similarity, achieving zero false cache hits and $8.4\\times$ latency reduction.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-15",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28370",
+    "pdf_url": "https://arxiv.org/pdf/2606.28370.pdf",
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 应用研究（企业 BI/问答系统），聚焦 NL2SQL 和 RAG 架构，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使有中国公司背景加分，仍因领域不匹配属于低优先级。",
+    "translation": "面向混合模态异构企业数据源的对话式查询引擎",
+    "summary_zh": "提出一种分层架构的对话式 BI 系统，通过模态自适应索引、基于 LoRA 的路由决策及复杂度自适应检索管道，统一处理结构化仓库与非结构化文档的混合自然语言分析请求。",
+    "key_points": [
+      "提出一种分层架构的对话式 BI 系统，通过模态自适应索引、基于 LoRA 的路由决策及复杂度自适应检索管道，统一处理结构化仓库与非结构化文档的混合自然语言分析请求"
+    ]
+  },
+  {
+    "arxiv_id": "2506.05121",
+    "title": "The NTNU System at the S&I Challenge 2025 SLA Open Track",
+    "authors": [
+      "Hong-Yun Lin",
+      "Tien-Hong Lo",
+      "Yu-Hsuan Fang",
+      "Jhen-Ke Lin",
+      "Chung-Chun Wang",
+      "Hao-Chien Lu",
+      "Berlin Chen"
+    ],
+    "summary": "A recent line of research on spoken language assessment (SLA) employs neural models such as BERT and wav2vec 2.0 (W2V) to evaluate speaking proficiency across linguistic and acoustic modalities. Although both models effectively capture features relevant to oral competence, each exhibits modality-specific limitations. BERT-based methods rely on ASR transcripts, which often fail to capture prosodic and phonetic cues for SLA. In contrast, W2V-based methods excel at modeling acoustic features but lack semantic interpretability. To overcome these limitations, we propose a system that integrates W2V with Phi-4 multimodal large language model (MLLM) through a score fusion strategy. The proposed system achieves a root mean square error (RMSE) of 0.375 on the official test set of the Speak & Improve Challenge 2025, securing second place in the competition. For comparison, the RMSEs of the top-ranked, third-ranked, and official baseline systems are 0.364, 0.384, and 0.444, respectively.",
+    "categories": [
+      "cs.CL",
+      "cs.SD",
+      "eess.AS"
+    ],
+    "published": "2026-06-27",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2506.05121",
+    "pdf_url": "https://arxiv.org/pdf/2506.05121.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/语音评估研究，专注于口语能力评分，与推荐系统或搜索引擎无直接关联。",
+    "translation": "NTNU 系统在 2025 年 S&I 挑战赛 SLA 开放赛道中的表现",
+    "summary_zh": "该论文提出了一种融合 wav2vec 2.0 声学特征与 Phi-4 多模态大语言模型语义信息的系统，旨在通过分数融合策略解决单一模态在口语能力评估中的局限性。",
+    "key_points": [
+      "该论文提出了一种融合 wav2vec 2",
+      "0 声学特征与 Phi-4 多模态大语言模型语义信息的系统，旨在通过分数融合策略解决单一模态在口语能力评估中的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28351",
+    "title": "HyperSU: Corpus-Driven Semantic-Unit Hypergraph for Retrieval-Augmented Generation",
+    "authors": [
+      "Jiate Liu",
+      "Liuyi Chen",
+      "Zhengyi Yang",
+      "Chuan He",
+      "Mingchen Ju",
+      "Bocheng Han",
+      "Ruyi Liu",
+      "Xu Zhou"
+    ],
+    "summary": "Recent Hypergraph-based retrieval-augmented generation (HyperRAG) methods use hyperedges to connect multiple entities simultaneously, enabling more efficient multi-entity evidence organization than pairwise graph structures. However, existing HyperRAG methods often rely on LLM-generated summaries to construct hyperedges, which can introduce hallucinations while also incurring high indexing costs. In addition, during retrieval, existing methods typically rely on either one-hop neighbor expansion or PageRank diffusion. The former may miss useful multi-hop evidence, while the latter can suffer from uncontrolled propagation over excessive hub nodes, leading to semantic drift and noisy reasoning chains. To address these challenges, we propose HyperSU, a novel hypergraph-based RAG framework featuring semantic-unit hyperedges and clue-guided bidirectional retrieval. During construction, HyperSU formulates hyperedge construction as an entity-aware minimum-description-length (MDL) optimization problem, inducing source-grounded semantic-unit hyperedges that balance sentence-level semantic coherence and entity compactness. It then constructs a hypergraph by modeling each semantic unit as a hyperedge over its co-mentioned entities. During retrieval, HyperSU performs clue-guided bidirectional expansion over the semantic-unit hypergraph, enabling both multi-hop evidence discovery and answer-aware noise reduction. Experiments show that HyperSU consistently improves answer accuracy over standard, graph-based, and hypergraph-based RAG baselines, achieving up to a 14.7% relative accuracy improvement on GraphRAG-Bench, with larger gains on reasoning-intensive tasks.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-03",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28351",
+    "pdf_url": "https://arxiv.org/pdf/2606.28351.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG（检索增强生成）研究，专注于通用问答和推理任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "HyperSU：面向检索增强生成的语料驱动语义单元超图",
+    "summary_zh": "提出一种基于语义单元超图的 RAG 框架，通过实体感知的最小描述长度优化构建超边，并利用线索引导的双向检索机制实现多跳证据发现与噪声抑制。",
+    "key_points": [
+      "提出一种基于语义单元超图的 RAG 框架，通过实体感知的最小描述长度优化构建超边，并利用线索引导的双向检索机制实现多跳证据发现与噪声抑制"
+    ]
+  },
+  {
+    "arxiv_id": "2606.28737",
+    "title": "5ting at SemEval-2026 Task 8: Strong End-to-End Multi-Turn RAG via LLM-Based Reranking and Faithfulness Control",
+    "authors": [
+      "Thien-Qua-T-Nguyen",
+      "Chi Hoang",
+      "Nguyen Tran",
+      "Tri Le",
+      "Khanh Truong",
+      "Chinh Trong Nguyen"
+    ],
+    "summary": "We introduce 5ting, our system for the SemEval2026 Task 8 (MTRAGEval), which evaluates multi-turn Retrieval Augmented Generation (RAG) systems. Multi turn RAG involves context drift, under specification, and hallucination risk. Our system combines BGE-M3 dense retrieval with FAISS indexing, dual-query merged retrieval, and LLM based reranking, followed by role separated generation constrained to retrieved evidence. The retriever achieved nDCG@5 = 0.4719 in Task A, while the end to end system ranked in Task C with a harmonic score of 0.5597 and RL_F = 0.7692.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-06-27",
+    "updated": "2026-06-30",
+    "url": "https://arxiv.org/abs/2606.28737",
+    "pdf_url": "https://arxiv.org/pdf/2606.28737.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 NLP/RAG 研究论文，专注于多轮对话生成的忠实度控制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "5ting：基于 LLM 重排序与忠实度控制的强端到端多轮 RAG 系统",
+    "summary_zh": "该论文提出一种结合密集检索、LLM 重排序及角色分离生成约束的多轮检索增强生成系统，旨在解决上下文漂移和幻觉问题。",
+    "key_points": [
+      "该论文提出一种结合密集检索、LLM 重排序及角色分离生成约束的多轮检索增强生成系统，旨在解决上下文漂移和幻觉问题"
+    ]
+  }
+]

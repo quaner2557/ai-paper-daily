@@ -1,0 +1,492 @@
+[
+  {
+    "arxiv_id": "2512.24787",
+    "title": "HiGR: Industrial-Scale Hierarchical Generative Slate Recommendation Framework in Tencent",
+    "authors": [
+      "Yunsheng Pang",
+      "Zijian Liu",
+      "Yudong Li",
+      "Shaojie Zhu",
+      "Zijian Luo",
+      "Chenyun Yu",
+      "Sikai Wu",
+      "Shichen Shen",
+      "Cong Xu",
+      "Bin Wang",
+      "Kai Jiang",
+      "Chengxiang Zhuo",
+      "Zang Li"
+    ],
+    "summary": "Slate recommendation, which presents users with a ranked item list in a single display, is ubiquitous across mainstream online platforms. While recent generative recommendation methods have shown strong potential in modeling item sequences with semantic IDs, directly applying them to industrial-scale slate recommendation faces a fundamental disconnect: entangled SID spaces confound high-level list planning, fine-grained autoregressive decoding over long sequences limits semantic planning efficiency, and token-level objectives misalign with holistic slate quality. In this paper, we propose HiGR, an industrial-scale hierarchical generative framework for slate recommendation that bridges this disconnect through a co-designed pipeline. First, HiGR learns structured SIDs via a Prefix-Contrastive Residual Quantized VAE (PCRQ-VAE). By enforcing high-level prefixes to capture shared semantics, PCRQ-VAE creates a controllable discrete space that acts as a prerequisite for efficient planning. Leveraging this structured space, our Hierarchical Slate Decoder (HSD) shifts autoregressive modeling from entangled token-level decoding to coarse-grained preference embeddings. This design significantly reduces inference latency while allowing explicit global slate structure planning. Finally, this stable planning space enables an ORPO-based listwise alignment mechanism to optimize triple-objective implicit feedback-ranking fidelity, genuine user interest, and diversity. Extensive offline experiments show that HiGR outperforms state-of-the-art baselines by over 10% in offline recommendation quality while achieving a $5\\times$ inference speedup. Online A/B tests on Tencent platforms further improve watch time by 1.22% and video plays by 1.73%. HiGR has been deployed on multiple Tencent platform surfaces, serving hundreds of millions of users and proving its industrial-scale applicability.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2512.24787",
+    "pdf_url": "https://arxiv.org/pdf/2512.24787.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "prerank_score": 10,
+    "affiliation_lines": [
+      "PlatformandContentGroup,Tencent SunYat-senUniversity SunYat-senUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该文直接针对腾讯工业级列表推荐场景，提出了分层生成式框架 HiGR，完美契合电商/社交 + 推荐搜索 + 深度学习/LLM 的高优先级标准，且来自头部大厂落地应用。",
+    "translation": "HiGR：腾讯工业级分层生成式列表推荐框架",
+    "summary_zh": "提出一种分层生成式推荐框架，通过前缀对比残差量化 VAE 构建结构化语义 ID 空间，并利用分层解码器将细粒度自回归建模转化为粗粒度偏好嵌入规划，以解决工业级列表推荐中的效率与全局规划难题。",
+    "key_points": [
+      "提出一种分层生成式推荐框架，通过前缀对比残差量化 VAE 构建结构化语义 ID 空间，并利用分层解码器将细粒度自回归建模转化为粗粒度偏好嵌入规划，以解决工业级列表推荐中的效率与全局规划难题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.24806",
+    "title": "Versioned Late Materialization for Ultra-Long Sequence Training in Recommendation Systems at Scale",
+    "authors": [
+      "Liang Guo",
+      "Ge Song",
+      "Litao Deng",
+      "Jianhui Sun",
+      "Chufeng Hu",
+      "Lu Zhang",
+      "Zhen Ma",
+      "Shouwei Chen",
+      "Weiran Liu",
+      "Sarang Masti Sreeshylan",
+      "Xiaoxuan Meng",
+      "Yanzun Huang"
+    ],
+    "summary": "Modern Deep Learning Recommendation Models (DLRMs) follow scaling laws with sequence length, driving the frontier toward ultra-long User Interaction History (UIH). However, the industry-standard \"Fat Row\" paradigm, which pre-materializes these sequences into every training example, creates a storage and I/O wall where data infrastructure usage exceeds GPU training capacity due to data redundancy that is amplified in multi-tenant environments where models with vastly different sequence length requirements share a union dataset. We present a \\emph{versioned late materialization} paradigm that eliminates this redundancy by storing UIH once in a normalized, immutable tier and reconstructing sequences just-in-time during training via lightweight versioned pointers. The system ensures Online-to-Offline (O2O) consistency through a bifurcated protocol that prevents future leakage across both streaming and batch training, while a read-optimized immutable storage layer provides multi-dimensional projection pushdown for heterogeneous model tenants. Disaggregated data preprocessing with pipelined I/O prefetching and data-affinity optimizations masks the latency of training-time sequence reconstruction, keeping training throughput compute-bound by GPUs. Deployed on production DLRMs, the system reduces training data infrastructure resource usage while enabling aggressive sequence length scaling that delivers significant model quality gains, serving as the foundational data infrastructure for modern recommendation model architectures, including HSTU and ULTRA-HSTU.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.DB"
+    ],
+    "published": "2026-06-10",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2604.24806",
+    "pdf_url": "https://arxiv.org/pdf/2604.24806.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中超长序列训练的数据存储与 I/O 瓶颈问题，提出了具体的架构创新（版本化延迟物化），属于核心领域的高优先级进展；且来自中国公司，按规则额外加 1 分（基础分 9+ 额外 1=10）。",
+    "translation": "推荐系统大规模超长序列训练的版本化延迟物化方法",
+    "summary_zh": "提出一种版本化延迟物化范式，通过归一化不可变存储和即时序列重构消除数据冗余，在保障在线离线一致性的同时突破超长用户行为序列训练的存储与 I/O 瓶颈。",
+    "key_points": [
+      "提出一种版本化延迟物化范式，通过归一化不可变存储和即时序列重构消除数据冗余，在保障在线离线一致性的同时突破超长用户行为序列训练的存储与 I/O 瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2605.25583",
+    "title": "LENS: A Staged Design for Interaction Granularity in Sequential CTR Prediction",
+    "authors": [
+      "Yuan Wang",
+      "Yue Liu",
+      "Jun Zhang",
+      "Jie Jiang"
+    ],
+    "summary": "In sequential CTR prediction, a central design question is at what granularity the target should interact with the user behaviour sequence. Existing models mainly follow two routes. Raw-item architectures such as DIN let the target score each item in the sequence directly. This relies on well-trained item embeddings and becomes brittle for sparse items. Latent-query architectures such as HyFormer, MixFormer, and OneTrans build query representations by combining the target with other information. This is more robust across item-density regimes but blunter: target-specific control is diluted. We propose LENS to restore target-specific control within these coarser bottlenecks. LENS has two modules: a Target-Conditioned Query Gate (TCQG) for query activation and a Target-Conditioned Position Bias (TCPB) for history retrieval. We further introduce Query-Specific Position Bias (QueryPos), a simple static position-aware reference for latent-query backbones. Across three representative latent-query backbones and four datasets, the combined QueryPos+LENS design achieves positive total-gain point estimates in all twelve evaluated backbone--dataset cells. We also identify a density-dependent conditioning rule: as item density decreases, the optimal condition source shifts from item-only to item-plus-sequence.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2605.25583",
+    "pdf_url": "https://arxiv.org/pdf/2605.25583.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心的序列 CTR 预测问题，提出了改进交互粒度的新架构 LENS，属于高优先级的核心领域进展，且来自中国公司额外加 1 分后满分。",
+    "translation": "LENS：一种用于序列 CTR 预测中交互粒度的阶段性设计",
+    "summary_zh": "针对序列 CTR 预测中目标与行为序列交互粒度的问题，提出 LENS 架构，通过目标条件查询门控和位置偏差模块，在潜在查询架构中恢复细粒度的目标特定控制能力。",
+    "key_points": [
+      "针对序列 CTR 预测中目标与行为序列交互粒度的问题，提出 LENS 架构，通过目标条件查询门控和位置偏差模块，在潜在查询架构中恢复细粒度的目标特定控制能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12924",
+    "title": "Iterating Toward Better Search: A Two-Agent Simulation Framework for Evaluating Agentic Search Architectures in E-Commerce",
+    "authors": [
+      "Jetlir Duraj",
+      "Jayanth Yetukuri",
+      "Shuang Zhou",
+      "Dhruv Varma",
+      "Rui Kong",
+      "Ishita Khan",
+      "Qunzhi Zhou"
+    ],
+    "summary": "We present a modular two-agent simulation framework for evaluating conversational shopping assistant architectures. An independent buyer agent, configured with personas, missions, and patience levels, is paired with an interchangeable responder that integrates with a real e-commerce search API. Holding the buyer constant across experiments enables controlled comparison of responder designs on identical scenarios. Using 2011 conversations across 14 persona buckets, we establish four empirical findings. First, rolling-window memory outperforms intent-extraction memory on all quality metrics while being 35% faster per query. Second, illustrating rapid evidence-driven iteration, a systematic failure analysis of a responder version enables targeted fixes that reduce failure and near-failure rates by 62% across the full dataset. Third, swapping the responder LLM backbone from Gemini~2.5 to Llama~3.3~70B costs 0.16--0.45 points despite identical architecture. Finally, we document systematic philosophical disagreement between frontier LLM judges: Gemini rewards process correctness while Claude demands concrete outcomes, despite using the same evaluation prompt.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12924",
+    "pdf_url": "https://arxiv.org/pdf/2606.12924.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索场景，提出了评估代理式搜索架构的双智能体仿真框架，属于核心领域的高优先级应用；虽涉及 LLM 但非纯理论研究，且符合中国公司背景加分项。",
+    "translation": "迭代优化搜索：用于评估电商代理式搜索架构的双智能体仿真框架",
+    "summary_zh": "提出一种模块化双智能体仿真框架，通过固定买家智能体 persona 与可变响应者交互，在受控环境下系统性评估和迭代电商对话搜索助理的架构设计与记忆机制。",
+    "key_points": [
+      "提出一种模块化双智能体仿真框架，通过固定买家智能体 persona 与可变响应者交互，在受控环境下系统性评估和迭代电商对话搜索助理的架构设计与记忆机制"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12984",
+    "title": "SkillChain: Closing the Loop on Skill Evolution for Image-Based E-Commerce AI Assistants",
+    "authors": [
+      "Yimin Hu",
+      "Mengtao Xu",
+      "Hao Guo",
+      "Yuheng Song",
+      "Xiaoyong Zhu",
+      "Bo Zheng"
+    ],
+    "summary": "Image-based AI assistants are now deployed at production scale on e-commerce platforms, where a single uploaded image can trigger fundamentally different user intents: product search, style recommendation, visual encyclopedia, or utility tool calls, each demanding its own response format, tool invocation, and domain knowledge. Without per-intent behavioral constraints, LLM-based systems conflate these heterogeneous modes and fall short of domain quality standards, while the breadth and dynamism of the intent space render manual engineering infeasible. To address this, we present SkillChain, which closes the production feedback loop on Skill evolution, automating the lifecycle of Skills through three stages: Skill Creator for bootstrapping from task specs and trajectories, Route Optimizer for routing alignment, and Body Refiner for iterative Skill Body refinement via dual-path LLM-Judge evaluation. Deployed on a production-scale e-commerce image assistant, SkillChain substantially improves aggregate response quality, with the strongest gains on structural compliance and content quality; a one-week online A/B experiment further confirms significant gains in user engagement, content consumption, and long-term retention.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12984",
+    "pdf_url": "https://arxiv.org/pdf/2606.12984.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商平台的图像搜索与推荐助手，利用 LLM 解决多意图路由和技能演化问题，属于核心的",
+    "translation": "[待翻译] SkillChain: Closing the Loop on Skill Evolution for Image-Based E-Commerce AI Assistants",
+    "summary_zh": "Image-based AI assistants are now deployed at production scale on e-commerce platforms, where a single uploaded image can trigger fundamentally different user intents: product search, style recommenda",
+    "key_points": [
+      "Image-based AI assistants are now deployed at production scale on e-commerce platforms, where a single uploaded image can trigger fundamentally different user intents: product search, style recommenda"
+    ]
+  },
+  {
+    "arxiv_id": "2606.13145",
+    "title": "The Clustering Strikes Back: Building Cost-Effective and High-Performance ANNS at Scale with Helmsman",
+    "authors": [
+      "Yuchen Huang",
+      "Baiteng Ma",
+      "Yiping Sun",
+      "Yang Shi",
+      "Xiao Chen",
+      "Xiaocheng Zhong",
+      "Zhiyong Wang",
+      "Yao Hu",
+      "Erci Xu",
+      "Chuliang Weng"
+    ],
+    "summary": "RedNote (a.k.a., Xiaohongshu, a global-scale social network platform) widely adopts approximate nearest neighbor search (ANNS) to power its search, recommendation, and advertising services. Due to the demanding Service Level Agreements (SLAs), we have to rely on in-memory graph-based ANNS (i.e., HNSW) to provide high throughput and low latency.\n  However, the ever-growing user base and content volume have led to an explosive increase in memory footprint and consequently huge CapEx and OpEx. After exploring various alternatives, we find that building a clustering-based ANNS on top of all-flash servers can be promising. Yet, we still experience severe overheads from the kernel I/O stack, a fixed pruning strategy, and slow index construction.\n  We present HELMSMAN, a high-performance and cost-effective clustering-based ANNS system, which combines an ANNS-oriented userspace storage stack, a leveling-learned pruning module, and GPU-accelerated pipelines of construction. HELMSMAN saves over 90% of hardware costs and enables billion-scale index (re)builds within hours. In the current production deployment, operating stably for several months, 40 machines now host ANNS workloads that previously required about 35,000 cores and 0.35 PB DRAM.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.13145",
+    "pdf_url": "https://arxiv.org/pdf/2606.13145.pdf",
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "该文直接解决小红书搜索/推荐系统中的核心召回（ANNS）工程难题，提出了基于聚类的低成本高性能架构，属于典型的电商/社交 + 推荐搜索 + 系统优化高优先级场景。",
+    "translation": "聚类反击：利用 Helmsman 构建大规模高性价比高性能近似最近邻搜索系统",
+    "summary_zh": "针对小红书海量数据下的内存瓶颈，提出 Helmsman 系统，通过用户态存储栈、分层学习剪枝模块及 GPU 加速构建流程，实现了基于全闪存服务器的十亿级聚类 ANNS 索引。",
+    "key_points": [
+      "针对小红书海量数据下的内存瓶颈，提出 Helmsman 系统，通过用户态存储栈、分层学习剪枝模块及 GPU 加速构建流程，实现了基于全闪存服务器的十亿级聚类 ANNS 索引"
+    ]
+  },
+  {
+    "arxiv_id": "2606.13001",
+    "title": "CFALR: Collaborative Filtering-Augmented Large Language Model for Personalized Fashion Outfit Recommendation",
+    "authors": [
+      "Yujuan Ding",
+      "Junrong Liao",
+      "Yunshan Ma",
+      "Yi Bin",
+      "Wenqi Fan",
+      "Tat-Seng Chua",
+      "Qing Li"
+    ],
+    "summary": "Personalized outfit recommendation poses a significant challenge in e-commerce and social media platforms, requiring systems that balance user preferences with aesthetic compatibility. Collaborative filtering (CF) provides a traditional solution for this, but it struggles with data-sparse scenarios and complex user-item-outfit relationships. Meanwhile, existing template-based approaches are constrained by rigid pre-designed structures. To bridge these research gaps, we introduce CFALR (Collaborative Filtering-Augmented Large Language Model for Recommendation), a novel framework that synergizes collaborative filtering with large language models for personalized outfit recommendation. Specifically, CFALR describes user-outfit interactions in natural language and leverages LLMs to capture fashion semantics while employing CF-enhanced embeddings to bridge the semantic space and the collaborative interaction spaces. Our technical contributions include: (1) the first LLM-based architecture specifically designed for personalized outfit recommendation, (2) a CF-augmented generative mechanism that efficiently navigates the extensive combination space of outfit items, and (3) trainable projection layers that optimally integrate relational and content features. Experiments on Polyvore and IQON benchmarks demonstrate CFALR's superior performance over both traditional CF-based and LLM-based methods in personalized fill-in-the-blank and personalized outfit generation tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.13001",
+    "pdf_url": "https://arxiv.org/pdf/2606.13001.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商场景下的个性化穿搭推荐问题，提出了结合协同过滤与 LLM 的新架构，属于核心的 RecSys 应用研究。",
+    "translation": "CFALR：用于个性化时尚穿搭推荐的协同过滤增强大语言模型",
+    "summary_zh": "提出一种融合协同过滤嵌入与大语言模型语义理解能力的框架，通过自然语言描述用户交互并利用可训练投影层对齐特征空间，以解决稀疏数据下的个性化穿搭生成难题。",
+    "key_points": [
+      "提出一种融合协同过滤嵌入与大语言模型语义理解能力的框架，通过自然语言描述用户交互并利用可训练投影层对齐特征空间，以解决稀疏数据下的个性化穿搭生成难题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12942",
+    "title": "PRISMR: Overcoming Parse Collapse in Multimodal Listwise Ranking via Parameterized Representation Internalization",
+    "authors": [
+      "Hao Jiang",
+      "Xin Li",
+      "Annan Wang",
+      "Zhi Yang",
+      "Haoxiang Zhang",
+      "Yichi Zhang",
+      "Weisi Lin"
+    ],
+    "summary": "Generative listwise ranking with Large Multimodal Models (LMMs) aims to capture global list context in a single forward pass, but\n  its effectiveness degrades in long-context multimodal scenarios. We identify a recurring failure mode, parse collapse, where the\n  autoregressive decoder produces fluent yet incomplete rankings by silently omitting candidates and terminating early. This\n  failure stems from limited context utilization rather than simple formatting mistakes, making prompt engineering and constrained\n  decoding insufficient. We propose PRISMR (Parameterized Representation Internalization for Semantic Multimodal Ranking), a\n  framework that replaces transient in-context list processing with parametric structural conditioning. PRISMR uses a lightweight\n  hypernetwork to encode multimodal candidates in parallel and generate item-specific LoRA weights, which are synthesized into an\n  instance-specific adapter for a LMM. This paradigm enables more robust internalization of list structure while preserving the\n  base model. We further introduce a large-scale multimodal review-ranking benchmark for evaluation. Experiments demonstrate that\n  PRISMR substantially reduces parse collapse, improves listwise ranking performance, and transfers effectively across domains and\n  instruction-tuned backbones.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12942",
+    "pdf_url": "https://arxiv.org/pdf/2606.12942.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态列表排序（Listwise Ranking）中的解析崩溃问题提出新架构，属于搜索/推荐核心排序环节的直接创新。",
+    "translation": "PRISMR：通过参数化表示内化克服多模态列表排序中的解析崩溃",
+    "summary_zh": "提出 PRISMR 框架，利用轻量级超网络生成特定于候选项的 LoRA 权重并合成为实例适配器，以参数化结构条件替代瞬态上下文处理，从而解决大模型在多模态列表排序中因上下文利用不足导致的解析崩溃问题。",
+    "key_points": [
+      "提出 PRISMR 框架，利用轻量级超网络生成特定于候选项的 LoRA 权重并合成为实例适配器，以参数化结构条件替代瞬态上下文处理，从而解决大模型在多模态列表排序中因上下文利用不足导致的解析崩溃问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.13204",
+    "title": "CoDeR: Local Constraint-Compatible Retrieval Beyond Semantic Similarity",
+    "authors": [
+      "Xingkun Yin",
+      "Xuebin Tang",
+      "Hongyang Du"
+    ],
+    "summary": "Information retrieval systems have long treated semantic similarity as a proxy for relevance. For constraint-sensitive queries, this proxy can fail when a document is topically close to the query but supports the opposite constraint direction, such as satisfying an attribute that should be excluded or affirming a relation that should be negated. We study this failure as constraint-violating evidence exposure and propose CoDeR, a local constraint-compatible dense retrieval method that separates topical relevance from constraint compatibility. CoDeR keeps a standard topical encoder for candidate coverage and adds a compatibility scorer, implemented as a bi-encoder, trained with lexical-polarity supervision over contrastive satisfying and violating evidences. The compatibility signal can be used to rescore topical candidates or to retrieve an auxiliary compatibility-oriented candidate set, producing a ranked document list without external Large Language Model~(LLM) calls at inference time. We evaluate CoDeR on controlled diagnostics and public negative-constraint retrieval benchmarks. Across three controlled diagnostic sets targeting antonymy, negation, and exclusion, CoDeR reduces V@2 by 20.59, 23.53, and 5.77 points relative to the strongest non-CoDeR baselines, and improves FVR by pushing the first violating document deeper in the ranking.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.13204",
+    "pdf_url": "https://arxiv.org/pdf/2606.13204.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/检索系统中的约束敏感查询问题，提出了一种无需调用外部大模型的稠密检索新方法，显著提升了搜索结果对否定和排除约束的处理能力；虽非纯推荐场景，但属于搜索核心检索环节的重大改进，且来自中国公司 OPPO，故给予高分。",
+    "translation": "CoDeR：超越语义相似性的局部约束兼容检索方法",
+    "summary_zh": "提出 CoDeR 方法，通过分离主题相关性与约束兼容性，利用词汇极性监督训练兼容性评分器，以解决检索系统中因语义相似性导致的约束违反证据暴露问题。",
+    "key_points": [
+      "提出 CoDeR 方法，通过分离主题相关性与约束兼容性，利用词汇极性监督训练兼容性评分器，以解决检索系统中因语义相似性导致的约束违反证据暴露问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12608",
+    "title": "Shopping Reasoning Bench: An Expert-Authored Benchmark for Multi-Turn Conversational Shopping Assistants",
+    "authors": [
+      "Shuxian Fan",
+      "Seonwoo Min",
+      "Youna Hu",
+      "Botao Xia",
+      "Jayakrishnan Unnikrishnan",
+      "Rowan Musselmann",
+      "Yifan Gao",
+      "Qingyu Yin",
+      "Priyanka Nigam",
+      "Bing Yin"
+    ],
+    "summary": "Conversational shopping assistants now serve hundreds of millions of customers, yet no existing benchmark jointly evaluates the open-ended multi-turn reasoning, domain expertise, and criterion-level quality that real shopping conversations demand. Shopping reasoning is unique among language model applications. Unlike factual question answering or verifiable code generation, it requires balancing subjective preferences, budget constraints, and cross-product trade-offs across multi-turn dialogue, capabilities absent from previous e-commerce and general-purpose benchmarks. We introduce the Shopping Reasoning Bench, an expert-authored benchmark of 525 missions (232 single-turn, 293 multi-turn) with 10863 importance-weighted binary rubrics authored by retail domain experts. These criteria are organized under a taxonomy of five reasoning categories and fifteen subcategories covering diverse demands such as preference refinement, trade-off analysis, and compatibility assessment. An evaluation of nine models across three families (GPT, Claude, Gemini) shows that pass rates reach only 57--77% overall. On multi-turn missions, all models score 13--29 points lower on optional above-and-beyond criteria than on required ones, and performance degrades 4--18 points as conversations progress. These gaps show that current models handle basic shopping assistance but fall short of expert-level advice, making Shopping Reasoning Bench a challenging testbed for future shopping assistant development.",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-06-10",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12608",
+    "pdf_url": "https://arxiv.org/pdf/2606.12608.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了针对电商购物助手的多轮推理基准，直接服务于推荐/搜索场景中的对话式交互，虽侧重评估而非新模型架构，但具有明确的业务应用价值；结合中国公司背景额外加 1 分。",
+    "translation": "购物推理基准：用于多轮对话式购物助手的专家构建基准测试",
+    "summary_zh": "本文提出了一个由零售领域专家构建的基准测试，旨在评估大模型在电商场景中处理多轮对话、主观偏好平衡及复杂权衡推理的能力。",
+    "key_points": [
+      "本文提出了一个由零售领域专家构建的基准测试，旨在评估大模型在电商场景中处理多轮对话、主观偏好平衡及复杂权衡推理的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12871",
+    "title": "DailyReport: An Open-ended Benchmark for Evaluating Search Agents on Daily Search Tasks",
+    "authors": [
+      "Jingxuan Han",
+      "Wei Liu",
+      "Mingyang Zhu",
+      "Youpeng Wang",
+      "Ziwen Wang",
+      "Lin Qiu",
+      "Xuezhi Cao",
+      "Xunliang Cai",
+      "Zheren Fu",
+      "Licheng Zhang",
+      "Zhendong Mao"
+    ],
+    "summary": "Search Agents (SAs) typically leverage large language models (LLMs) to support complex information-seeking tasks by autonomously exploring web sources and synthesizing information into comprehensive responses. For SAs evaluation, prior benchmarks mainly focus on specialized tasks that are unlikely to arise in real-world user scenarios. Moreover, their reliance on coarse task-level rubrics often limits evaluation interpretability. To bridge this gap, we introduce DailyReport, an open-ended benchmark to evaluate SA capabilities on daily search tasks. It contains 150 open-ended tasks with 3,546 associated rubrics, capturing widely discussed and timely information demands of real-world users. Each task is decomposed into subtasks and evaluated with cascade rubrics across disentangled dimensions. Through cascade performance attribution and user-centric aggregation, we derive highly interpretable scores for each dimension, along with a user preference score. Our results on 17 agentic systems show that current systems still fall short of users' expectations. To facilitate future research, our dataset and code are made publicly available at https://github.com/AGI-Eval-Official/DailyReport.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12871",
+    "pdf_url": "https://arxiv.org/pdf/2606.12871.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注通用搜索代理（Search Agents）的评估基准，属于 LLM Agent 和通用搜索研究，缺乏针对推荐系统或商业化搜索引擎核心环节（如召回、排序、个性化）的直接应用与创新。",
+    "translation": "DailyReport：评估日常搜索任务中搜索代理的开放式基准",
+    "summary_zh": "提出 DailyReport 基准，通过分解日常搜索任务为子任务并采用级联评分规则，旨在解决现有评估方法在真实用户场景覆盖度和结果可解释性上的不足。",
+    "key_points": [
+      "提出 DailyReport 基准，通过分解日常搜索任务为子任务并采用级联评分规则，旨在解决现有评估方法在真实用户场景覆盖度和结果可解释性上的不足"
+    ]
+  },
+  {
+    "arxiv_id": "2601.11004",
+    "title": "NOVA: NOise-aware Verbal Confidence CAlibration for Robust Large Language Models in RAG Systems",
+    "authors": [
+      "Jiayu Liu",
+      "Rui Wang",
+      "Qing Zong",
+      "Yumeng Wang",
+      "Cheng Qian",
+      "Qingcheng Zeng",
+      "Tianshi Zheng",
+      "Haochen Shi",
+      "Dadi Guo",
+      "Baixuan Xu",
+      "Chunyang Li",
+      "Yangqiu Song"
+    ],
+    "summary": "Accurately assessing model confidence is essential for deploying large language models (LLMs) in mission-critical factual domains. While retrieval-augmented generation (RAG) is widely adopted to improve grounding, confidence calibration in RAG settings remains poorly understood. We conduct a systematic study across four benchmarks, revealing that LLMs exhibit poor calibration performance especially when noisy contexts are retrieved. Specifically, contradictory or irrelevant evidence tends to exacerbate the model's overconfidence issue. To address this, we propose NOVA Rules (NOise-Aware Verbal Confidence CAlibration Rules) to provide a principled foundation for resolving overconfidence under noise. We further design NOVA, a noise-aware calibration framework that synthesizes supervision from ~2K HotpotQA examples guided by these rules. By performing supervised fine-tuning (SFT) with this data, NOVA equips models with intrinsic noise awareness without relying on stronger teacher models. Empirical results show that NOVA yields substantial gains, improving ECE scores by 10.9% in-domain and 8.0% out-of-domain. By bridging the gap between retrieval noise and verbal calibration, NOVA paves the way for both accurate and epistemically reliable LLMs.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2601.11004",
+    "pdf_url": "https://arxiv.org/pdf/2601.11004.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 研究（RAG 系统中的置信度校准），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等），虽来自中国企业但相关性极低。",
+    "translation": "NOVA：面向 RAG 系统鲁棒大模型的噪声感知语言置信度校准",
+    "summary_zh": "提出一种噪声感知的置信度校准框架，通过合成数据微调使大模型在检索增强生成中识别并缓解由噪声上下文引发的过度自信问题。",
+    "key_points": [
+      "提出一种噪声感知的置信度校准框架，通过合成数据微调使大模型在检索增强生成中识别并缓解由噪声上下文引发的过度自信问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12687",
+    "title": "Forecasting Is Not Attribution: Localizing Decoder Bypass in Graph-Based Neural Marketing Mix Models",
+    "authors": [
+      "Yunbo Wang",
+      "Bolbi Liu"
+    ],
+    "summary": "Marketing mix models are used to forecast business outcomes and to attribute those outcomes to marketing channels, but these goals are not equivalent. We study a failure mode in graph-based neural MMM called attribution bypass: a high-capacity decoder can obtain low forecasting error through target autoregression, dense communication, co-movement, context, or latent memory while failing to route counterfactual sensitivity through the graph used as the attribution object. We introduce DICE-MMM as a bounded diagnostic and training framework. We do not claim that observational neural MMM identifies causal effects. Instead, DICE separates three questions often conflated in graph-based MMM: graph recovery, forecasting accuracy, and whether the trained decoder's perturbation-induced influence is graph aligned. Stage 1 trains a graph encoder with a restricted graph-mediated decoder. Stage 2 freezes the selected encoder and trains a graph-safe latent decoder whose cross-node communication must pass through the supplied graph. Decoder use is evaluated with CIG, AR-CIG, and graph-swap tests. Across controlled R/d/T swaps and an external multi-graph rawlog stress test, DICE improves stable graph recovery over CausalMMM. The experiments show that forecasting accuracy is not an attribution certificate: in a sparse-target benchmark, no-graph and full-graph decoders achieve MSE@7 around 0.004 while AR-CIG nAUPRC remains near or below zero, whereas an oracle graph reaches 0.807 +/- 0.129 at comparable MSE. Frozen graph-swap localizes the bottleneck: the same DICE-hard-trained decoder moves from nAUPRC -0.044 +/- 0.006 under learned graph inputs to 0.894 +/- 0.027 with the oracle graph. The contribution is a stress test and failure-localization framework showing that low MSE can hide attribution bypass and that the unresolved bottleneck is graph-support selection, not forecasting or decoder capacity.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-06-10",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12687",
+    "pdf_url": "https://arxiv.org/pdf/2606.12687.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于营销组合模型（MMM）中的归因与预测解耦，属于宏观营销分析领域，而非推荐系统或搜索引擎的核心技术（如召回、排序、用户建模）。",
+    "translation": "预测并非归因：定位基于图神经营销混合模型中的解码器绕过问题",
+    "summary_zh": "提出 DICE-MMM 框架，通过分阶段训练和解码器约束，解决图神经网络在营销归因中因过度依赖自回归预测而忽略图结构因果路径的问题。",
+    "key_points": [
+      "提出 DICE-MMM 框架，通过分阶段训练和解码器约束，解决图神经网络在营销归因中因过度依赖自回归预测而忽略图结构因果路径的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2604.07590",
+    "title": "DCD: Domain-Oriented Design for Controlled Retrieval-Augmented Generation",
+    "authors": [
+      "Valerii Kovalskii",
+      "Nikita Belov",
+      "Nikita Miteyko",
+      "Igor Reshetnikov",
+      "Maksim Maksimov"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is widely used to ground large language models in external knowledge sources. However, when applied to heterogeneous corpora and multi-step queries, Naive RAG pipelines often degrade in quality due to flat knowledge representations and the absence of explicit workflows. In this work, we introduce DCD (Domain-Collection-Document), a domain-oriented design to structure knowledge and control query processing in RAG systems without modifying the underlying language model. The proposed approach relies on a hierarchical decomposition of the information space and multi-stage routing based on structured model outputs, enabling progressive restriction of both retrieval and generation scopes. The architecture is complemented by smart chunking, hybrid retrieval, and integrated validation and generation guardrail mechanisms. We describe the DCD architecture and workflow and discuss evaluation results on synthetic evaluation dataset, highlighting their impact on robustness, factual accuracy, and answer relevance in applied RAG scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2604.07590",
+    "pdf_url": "https://arxiv.org/pdf/2604.07590.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 架构优化的研究，旨在提升通用问答的准确性和鲁棒性，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于低优先级的边缘相关。",
+    "translation": "DCD：面向可控检索增强生成的领域导向设计",
+    "summary_zh": "提出一种名为 DCD 的分层知识结构与多阶段路由机制，通过限制检索和生成范围来优化 RAG 系统在复杂查询下的事实准确性与相关性，无需修改底层大模型。",
+    "key_points": [
+      "提出一种名为 DCD 的分层知识结构与多阶段路由机制，通过限制检索和生成范围来优化 RAG 系统在复杂查询下的事实准确性与相关性，无需修改底层大模型"
+    ]
+  },
+  {
+    "arxiv_id": "2606.12790",
+    "title": "GENIE: A Fine-Grained Measure for Novelty",
+    "authors": [
+      "Ramya Namuduri",
+      "Manya Wadhwa",
+      "Anshun Asher Zheng",
+      "Greg Durrett",
+      "Junyi Jessy Li"
+    ],
+    "summary": "Large Language Models have consistently demonstrated a lack of creativity and diversity across tasks. Prior work has focused on addressing whether models are capable of generating creative outputs. Here, we aim to consider novelty and investigate what makes model-generated content novel or not novel in a task-specific manner. We propose a fine-grained evaluation metric GENIE to measure the novelty of responses along task-specific features with respect to a population of responses. We show that unlike GENIE, holistic metrics struggle to capture the high-dimensionality of novelty and do not provide insight on which properties they target. Finally, we use GENIE to measure the effectiveness of mitigation methods that address creativity to better understand where these methods can improve novelty.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.12790",
+    "pdf_url": "https://arxiv.org/pdf/2606.12790.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究，专注于评估大模型生成内容的新颖性和创造力，未涉及推荐系统或搜索引擎的任何核心环节（如召回、排序、用户建模等）。",
+    "translation": "GENIE：一种细粒度的新颖性度量方法",
+    "summary_zh": "提出了一种名为 GENIE 的细粒度评估指标，旨在针对特定任务特征量化大语言模型生成回复的新颖性，以解决现有整体性指标无法捕捉高维新颖性特征的问题。",
+    "key_points": [
+      "提出了一种名为 GENIE 的细粒度评估指标，旨在针对特定任务特征量化大语言模型生成回复的新颖性，以解决现有整体性指标无法捕捉高维新颖性特征的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.07218",
+    "title": "HKVM-RAG: Key-Value-Separated Hypergraph Evidence Organization for Multi-Hop RAG",
+    "authors": [
+      "Mingyu Zhang",
+      "Ying Ma"
+    ],
+    "summary": "Multi-hop RAG poses a data-engineering problem beyond passage matching: under fixed retrieval budgets, a system must organize retrieved text into evidence units that expose answer chains. Dense retrievers score passages independently, while graph-based memories make associations explicit but often rely on pairwise or entity-centered keys that fragment multi-hop evidence. We present HKVM-RAG, a key-value-separated evidence-organization layer. It assembles answer-path hyperedges from cached passage-level LLM evidence tuples and uses them as retrieval keys, while retaining passage text as answer values. To isolate key-space design, our fixed-substrate protocol holds the tuple cache, candidate passages, reader, and evaluation budget constant across pairwise graph and hypergraph variants. Weighted hypergraph key-value retrieval improves over KG-PPR by +3.426 F1 on 2WikiMultiHopQA and +3.592 F1 on MuSiQue; HotpotQA shows that higher structured support coverage need not yield standalone answer-F1 gains. We therefore study WHG-KV as an evidence-control signal rather than a dense-retrieval replacement. Oracle and train-to-dev analyses identify support selection as repairable, and a dense-aware controller combines frozen ColBERTv2 and HKVM rank/score features using out-of-fold HKVM predictions. It reaches 88.846, 65.073, and 85.810 F1 on the three benchmarks, improving over ColBERTv2 by +11.084, +6.763, and +5.966 F1. Source-level ablations show that matched non-WHG structured signals do not match the WHG-KV gains. These results provide bounded evidence that key-value-separated hypergraph organization can serve as a reusable evidence-control mechanism for multi-hop RAG.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-06-11",
+    "updated": "2026-06-12",
+    "url": "https://arxiv.org/abs/2606.07218",
+    "pdf_url": "https://arxiv.org/pdf/2606.07218.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究论文，专注于多跳问答中的证据组织，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），属于排除类别。",
+    "translation": "HKVM-RAG：用于多跳 RAG 的键值分离超图证据组织方法",
+    "summary_zh": "提出一种键值分离的超图证据组织层，通过将缓存的 LLM 证据元组组装为超边作为检索键，以优化多跳检索中的证据链暴露与控制。",
+    "key_points": [
+      "提出一种键值分离的超图证据组织层，通过将缓存的 LLM 证据元组组装为超边作为检索键，以优化多跳检索中的证据链暴露与控制"
+    ]
+  }
+]

@@ -23,10 +23,14 @@ jobs:
       with:
         python-version: '3.11'
         
-    - name: Run calendar update scripts
+    - name: Run calendar update script
+      # 注意：只跑 update_calendar_index.py。它生成的是数据内嵌、
+      # 点击链接为 `${monthDir}/${dateStr}.html` 的完整自包含页面。
+      # 原来后面还跑 update_html_template.py，会把脚本整段覆盖成
+      # 依赖 fetch、且点击链接写死为 `${dateStr}.html`（丢了月份目录）的版本，
+      # 导致日历上每一天点进去都是 404。该脚本已废弃，不再调用。
       run: |
         python3 update_calendar_index.py
-        python3 update_html_template.py
       
     - name: Commit and push if changed
       run: |

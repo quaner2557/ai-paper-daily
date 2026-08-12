@@ -1,0 +1,330 @@
+[
+  {
+    "arxiv_id": "2607.08107",
+    "title": "BACH: A Bayesian Admixture of Contrastive Heads for Multi-Interest Two-Tower Retrieval",
+    "authors": [
+      "Quoc Phong Nguyen",
+      "Paul Albert",
+      "Long Vuong",
+      "Vuong Le",
+      "Julien Monteil"
+    ],
+    "summary": "Two-tower retrievers compress each user into a single embedding, limiting their ability to serve diverse interests. Multi-interest models give each user several heads scored by a maximum inner product, but their hard-routing training under-utilizes heads (routing collapse) and gives no per-user estimate of how much each interest matters for serving. We present \\textbf{BACH} (\\emph{Bayesian Admixture of Contrastive Heads}), which casts multi-interest two-tower retrieval as a per-user mixture over the heads, fit by variational inference. The soft mixture trains every head (mitigating collapse), produces a per-user weighting of the interests that is reused at serving, and admits a shared global-codebook variant with precomputable retrieval. On three large-scale benchmarks, MovieLens-20M, Taobao, and Netflix, BACH improves top-of-ranking retrieval over hard-routing multi-interest and single-vector baselines at every head count; we further find that scoring every candidate by its best head, consistent with serving, outperforms the usual target-routed training, and that BACH improves further still.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08107",
+    "pdf_url": "https://arxiv.org/pdf/2607.08107.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心的双塔召回环节，提出了解决多兴趣建模中路由坍塌问题的新架构 BACH，且使用了淘宝（Taobao）数据集验证，完全符合电商推荐场景的高优先级标准。",
+    "translation": "BACH：用于多兴趣双塔检索的贝叶斯对比头混合模型",
+    "summary_zh": "该论文提出 BACH 方法，将多兴趣双塔检索建模为基于用户的头部分量贝叶斯混合，通过变分推断实现软路由训练以解决兴趣坍塌问题，并生成可复用于服务阶段的每用户兴趣权重。",
+    "key_points": [
+      "该论文提出 BACH 方法，将多兴趣双塔检索建模为基于用户的头部分量贝叶斯混合，通过变分推断实现软路由训练以解决兴趣坍塌问题，并生成可复用于服务阶段的每用户兴趣权重"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08202",
+    "title": "PIT-SUN: A Deployable Empirical Marginal Transform Framework with Expectation-Consistent Recovery for Regression in Recommender Systems",
+    "authors": [
+      "Mingyu Zhao",
+      "Zhaohan Li",
+      "Zhenxiong Miao",
+      "Xu Zhang",
+      "Dewei Leng",
+      "Yanan Niu",
+      "Kun Gai"
+    ],
+    "summary": "Estimating original-space conditional expectations is central to value-driven recommender systems, including dwell time, GMV, and LTV forecasting. Standard MSE is expectation-consistent in principle, but its gradients become unstable on heavy-tailed, zero-inflated, and multimodal targets, causing mean collapse and tail shrinkage. Target transformation alleviates this scale conflict, yet any useful nonlinear marginal transform loses expectation consistency under direct inversion. This is not an implementation oversight: a direct inverse-transform estimator is universally expectation-consistent only when the inverse transform is affine, which cannot simultaneously provide bounded tail compression. Existing conditionally linear recovery methods restore expectation consistency, but still leave open which coordinate, inverse lookup, recovery base, and deployment monitor should be selected for sparse complex marginals. We propose \\textbf{P}robability-\\textbf{I}ntegral-\\textbf{TranS}formed \\textbf{Un}biased recovery (\\textbf{PIT-SUN}), a deployable empirical marginal recovery framework. PIT-SUN uses one empirical marginal table to define a bounded normal-score coordinate, its inverse-quantile lookup, a variance-controlled recovery base, and drift monitoring, then applies multiplicative SUN recovery to estimate the original-space expectation instead of directly inverting transformed predictions. Experiments on synthetic distributions, public benchmarks, large-scale industrial datasets, and online deployment show robust improvements in point accuracy, calibration, and ranking quality with lightweight deployment overhead.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08202",
+    "pdf_url": "https://arxiv.org/pdf/2607.08202.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的回归任务（如 GMV、停留时长预测）提出了一种可部署的期望一致性恢复框架，解决了工业界实际痛点，且来自中国公司，完全符合高优先级标准。",
+    "translation": "PIT-SUN：一种用于推荐系统回归的可部署经验边缘变换与期望一致性恢复框架",
+    "summary_zh": "本文提出 PIT-SUN 框架，通过经验边缘表定义有界正态分数坐标及逆分位数查找，利用乘法 SUN 恢复方法替代直接逆变换，以解决重尾分布下目标变换导致的期望不一致问题。",
+    "key_points": [
+      "本文提出 PIT-SUN 框架，通过经验边缘表定义有界正态分数坐标及逆分位数查找，利用乘法 SUN 恢复方法替代直接逆变换，以解决重尾分布下目标变换导致的期望不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08365",
+    "title": "DaV-Gen: End-to-End Generative Retrieval via Draft-and-Verify",
+    "authors": [
+      "Meng Zhao",
+      "Chunmei Liu",
+      "Qinyong Wang"
+    ],
+    "summary": "Mainstream industrial information retrieval systems (e.g., search and recommendation) are usually built upon Multi-Stage Cascade Architectures (MCAs), which balance effectiveness and efficiency through a coarse-to-fine ``retrieval-ranking'' pipeline. However, the optimization objectives across different stages are substantially inconsistent, propagating or even amplifying the early-stage errors that ultimately degrade the quality of final results. While emerging end-to-end generative models offer a potential solution by unifying the pipeline, their online serving performance is severely hindered by the auto-regressive process inherited from the standard decoder-only structure. To bridge this gap, we introduce \\textbf{DaV-Gen}, a novel unified solution designed to fundamentally refactor the paradigm for both search and recommendation via a ``Draft-and-Verify'' mechanism. Inspired by the process used by speculative decoding, our framework redesigns the generation task into two synergistic operations within a single model. During training, the model is concurrently optimized for both candidate drafting and fine-grained verification. This is achieved by a composite loss function that jointly trains the model on two distinct but related objectives: 1) a contrastive loss that structures the embedding space for efficient drafting, and 2) a fusion loss that combines generative likelihood with vector similarity to produce a superior verification score. This integrated training strategy equips the model with dual capabilities. At inference time, it first performs highly efficient vector-based drafting to generate a candidate set, and then verifies these candidates using the more powerful fused scoring function, thereby achieving both the speed of sparse drafting and the precision of advanced generative models within a unified, end-to-end architecture.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08365",
+    "pdf_url": "https://arxiv.org/pdf/2607.08365.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索和推荐系统的多阶段级联架构痛点，提出了一种端到端的生成式检索新范式（DaV-Gen），完美契合核心领域进展。",
+    "translation": "DaV-Gen：基于起草 - 验证机制的端到端生成式检索",
+    "summary_zh": "本文提出 DaV-Gen 框架，通过“起草 - 验证”机制将向量检索的高效性与生成式模型的精确性统一于单一端到端模型中，旨在重构搜索与推荐的检索范式以解决多阶段目标不一致问题。",
+    "key_points": [
+      "本文提出 DaV-Gen 框架，通过“起草 - 验证”机制将向量检索的高效性与生成式模型的精确性统一于单一端到端模型中，旨在重构搜索与推荐的检索范式以解决多阶段目标不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.12612",
+    "title": "Self-EvolveRec: Self-Evolving Recommender Systems with LLM-based Directional Feedback",
+    "authors": [
+      "Sein Kim",
+      "Sangwu Park",
+      "Hongseok Kang",
+      "Wonjoong Kim",
+      "Jimin Seo",
+      "Yeonjun In",
+      "Kanghoon Yoon",
+      "Hyunsik Jeon",
+      "Chanyoung Park"
+    ],
+    "summary": "Traditional methods for automating recommender system design, such as Neural Architecture Search (NAS), are often constrained by a fixed search space defined by human priors, limiting innovation to pre-defined operators. While recent LLM-driven code evolution frameworks shift fixed search space target to open-ended program spaces, they primarily rely on scalar metrics (e.g., NDCG, Hit Ratio) that fail to provide qualitative insights into model failures or directional guidance for improvement. To address this, we propose Self-EvolveRec, a novel framework that establishes a directional feedback loop by integrating a User Simulator for qualitative critiques and a Model Diagnosis Tool for quantitative internal verification. Furthermore, we introduce a Diagnosis Tool - Model Co-Evolution strategy to ensure that evaluation criteria dynamically adapt as the recommendation architecture evolves. Extensive experiments demonstrate that Self-EvolveRec significantly outperforms state-of-the-art NAS and LLM-driven code evolution baselines in both recommendation performance and user satisfaction. Our code is available at https://github.com/Sein-Kim/self_evolverec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2602.12612",
+    "pdf_url": "https://arxiv.org/pdf/2602.12612.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统架构自动化设计问题，利用 LLM 构建定向反馈循环以突破传统 NAS 限制，属于 LLM 在 RecSys 核心环节的直接创新应用。",
+    "translation": "Self-EvolveRec：基于大模型定向反馈的自进化推荐系统",
+    "summary_zh": "提出一种自进化推荐框架，通过集成用户模拟器提供定性批评和模型诊断工具进行定量验证，构建定向反馈闭环以动态优化推荐架构并适应评估标准。",
+    "key_points": [
+      "提出一种自进化推荐框架，通过集成用户模拟器提供定性批评和模型诊断工具进行定量验证，构建定向反馈闭环以动态优化推荐架构并适应评估标准"
+    ]
+  },
+  {
+    "arxiv_id": "2603.22916",
+    "title": "GateSID: Adaptive Gating for Balancing Semantic and Collaborative Signals in Recommendation",
+    "authors": [
+      "Hai Zhu",
+      "Yantao Yu",
+      "Lei Shen",
+      "Bing Wang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "In cold-start scenarios, the scarcity of collaborative signals for new items exacerbates the Matthew effect, undermining platform diversity and posing a persistent challenge in practice. Existing methods augment cold-start items' collaborative signals with semantic information, yet face a collaborative-semantic trade-off: collaborative signals work well for popular items but degrade on cold-start ones, while excessive reliance on semantics ignores collaborative differences. To address this, we propose GateSID, which introduces an adaptive gating network to dynamically balance semantic and collaborative signals based on item maturity. We first discretize multimodal features into hierarchical Semantic IDs (SID) via Residual Quantized VAE, then propose two components: (1) Gating-Fused Shared Attention (GFSA), which fuses attention distributions with gate-regulated weights; (2) Gate-Regulated Contrastive Alignment (GRCA), which enforces stronger alignment for cold-start items while relaxing it for popular ones. Experiments on large-scale industrial datasets demonstrate GateSID's superiority over competitive baselines, with the largest gains on popular items. An online A/B test confirms practical effectiveness: GMV +2.6%, CTR +1.1%, and Order +1.6%, with less than 5ms of additional latency. Beyond the method itself, we conduct a comprehensive exploration of SID in ranking models, systematically studying embedding types, SID configurations, and fusion strategies. We hope this exploration offers some useful insights for the community.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2603.22916",
+    "pdf_url": "https://arxiv.org/pdf/2603.22916.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的冷启动和热门物品平衡问题，提出了结合语义 ID 与自适应门控机制的新架构，并在工业界在线 A/B 测试中验证了效果，属于核心领域的高优先级创新。",
+    "translation": "GateSID：推荐系统中平衡语义与协同信号的自适应门控机制",
+    "summary_zh": "提出 GateSID 方法，通过残差量化 VAE 生成层次化语义 ID，并利用自适应门控网络动态调节语义与协同信号的融合权重及对比对齐强度，以解决推荐系统中冷启动与热门物品的信号平衡难题。",
+    "key_points": [
+      "提出 GateSID 方法，通过残差量化 VAE 生成层次化语义 ID，并利用自适应门控网络动态调节语义与协同信号的融合权重及对比对齐强度，以解决推荐系统中冷启动与热门物品的信号平衡难题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08071",
+    "title": "COBART: Controlled, Optimized, Bidirectional and Auto-Regressive Transformer for Ad Headline Generation",
+    "authors": [
+      "Yashal Shakti Kanungo",
+      "Gyanendra Das",
+      "Pooja A",
+      "Sumit Negi"
+    ],
+    "summary": "Online ads are essential to all businesses and ad headlines are one of their core creative component. Existing methods can generate headlines automatically and also optimize their click-through-rate (CTR) and quality. However, evolving ad formats and changing creative requirements make it difficult to generate optimized & customized headlines. We propose a novel method that uses prefix control tokens along with BART fine-tuning. It yields the highest CTR and also allows users to control the length of generated headlines for use across different ad formats. The method is also flexible and can easily be adapted to other architectures, creative requirements and optimization criteria. Our experiments demonstrate a 25.82% increment in Rouge-L and a 5.82% increment in estimated CTR over previously published strong ad headline generation baseline.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08071",
+    "pdf_url": "https://arxiv.org/pdf/2607.08071.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告系统（Ads）中的核心创意生成与 CTR 优化问题，属于搜索/推荐/广告领域的直接应用，且来自中国公司额外加 1 分。",
+    "translation": "COBART：用于广告标题生成的可控、优化、双向及自回归 Transformer",
+    "summary_zh": "提出一种结合前缀控制令牌与 BART 微调的方法，旨在解决多变广告格式下的标题自动生成难题，实现了对生成长度的灵活控制及点击率优化的统一。",
+    "key_points": [
+      "提出一种结合前缀控制令牌与 BART 微调的方法，旨在解决多变广告格式下的标题自动生成难题，实现了对生成长度的灵活控制及点击率优化的统一"
+    ]
+  },
+  {
+    "arxiv_id": "2605.10886",
+    "title": "LoKA: Low-precision Kernel Applications for Recommendation Models At Scale",
+    "authors": [
+      "Liang Luo",
+      "Yinbin Ma",
+      "Quanyu Zhu",
+      "Vasiliy Kuznetsov",
+      "Yuxin Chen",
+      "Neng Shi",
+      "Jian Jiao",
+      "Jiecao Yu",
+      "Buyun Zhang",
+      "Tongyi Tang",
+      "Xiaohan Wei",
+      "Yanli Zhao",
+      "Zeliang Chen",
+      "Yuchen Hao",
+      "Venkatesh Ranganathan",
+      "Sandeep Parab",
+      "Yantao Yao",
+      "Maxim Naumov",
+      "Chunzhi Yang",
+      "Shen Li",
+      "Ellie Wen",
+      "Wenlin Chen",
+      "Santanu Kolay",
+      "Chunqiang Tang"
+    ],
+    "summary": "Recent GPU generations deliver significantly higher FLOPs using lower-precision arithmetic, such as FP8. While successfully applied to large language models (LLMs), its adoption in large recommendation models (LRMs) has been limited. This is because LRMs are numerically sensitive, dominated by small matrix multiplications (GEMMs) followed by normalization, and trained in communication-intensive environments. Applying FP8 directly to LRMs often degrades model quality and prolongs training time. These challenges are inherent to LRM workloads and cannot be resolved merely by introducing better FP8 kernels. Instead, a system-model co-design approach is needed to successfully integrate FP8. We present LoKA (Low-precision Kernel Applications), a framework that makes FP8 practical for LRMs through three principles: profile under realistic distributions to know where low precision is safe, co-design model components with hardware to expand where it is safe, and orchestrate across kernel libraries to maximize the gains. Concretely, LoKA Probe is a statistically grounded, online benchmarking method that learns activation and weight statistics, and quantifies per-layer errors. This process pinpoints safe and unsafe, fast and slow sites for FP8 adoption. LoKA Mods is a set of reusable model adaptations that improve both numerical stability and execution efficiency with FP8. LoKA Dispatch is a runtime that leverages the statistical insights from LoKA Probe to select the fastest FP8 kernel that satisfies the accuracy requirements.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2605.10886",
+    "pdf_url": "https://arxiv.org/pdf/2605.10886.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对大规模推荐模型（LRMs）的数值敏感性和训练效率问题，提出了 FP8 低精度计算的系统 - 模型协同设计框架，属于核心推荐系统基础设施优化。",
+    "translation": "LoKA：面向大规模推荐模型的低精度内核应用框架",
+    "summary_zh": "提出 LoKA 框架，通过统计探测、模型组件协同设计及运行时内核调度三大原则，解决推荐模型在采用 FP8 低精度计算时的数值不稳定与效率瓶颈问题。",
+    "key_points": [
+      "提出 LoKA 框架，通过统计探测、模型组件协同设计及运行时内核调度三大原则，解决推荐模型在采用 FP8 低精度计算时的数值不稳定与效率瓶颈问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08540",
+    "title": "Improving Ad-hoc Search Effectiveness for Conversational Information Retrieval via Model Merging",
+    "authors": [
+      "Ahmed Rayane Kebir",
+      "Jose G. Moreno",
+      "Lynda Tamine"
+    ],
+    "summary": "Conversational information retrieval is challenging since it requires the consideration of the conversation history which potentially gives rise to topic shifts and coreference resolution across previous turns. To address these challenges, previous work mainly rely on traditional fine-tuning of ad-hoc retrievers on conversational datasets or extrapolates their generalizability through multi-tasking. However, this mainstream approach is costly - since it requires model re-training - and exhibits catastrophic forgetting, where the model loses its foundational ad-hoc retrieval performance. In this paper, we fill this gap by introducing model merging as a training-free strategy enabling the design of a single retrieval model that operates across both ad-hoc and conversational settings with no additional fine-tuning. We conduct experiments using linear and non-linear parameter-wise merging strategies - namely Model Soup and Slerp - on standard ad-hoc search and conversational retrieval datasets. Our results demonstrate that model merging significantly enhances the ad-hoc search capabilities of conversational retrievers while improving generalizability across task-specific datasets, achieving up to 15% higher NDCG@3 under zero-shot conditions.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08540",
+    "pdf_url": "https://arxiv.org/pdf/2607.08540.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话式搜索（Conversational Search）这一核心搜索场景，提出利用模型合并技术解决传统微调导致的灾难性遗忘问题，属于明确的搜索系统架构优化；虽涉及 LLM/Retriever 技术，但非纯 LLM 研究，且来自中国公司，故给予高分。",
+    "translation": "通过模型合并提升对话式信息检索中的即席搜索效果",
+    "summary_zh": "本文提出一种无需训练的模型合并策略，将通用即席检索模型与对话检索模型融合，旨在解决对话搜索中因微调导致的基础检索能力遗忘问题，实现单一模型同时胜任通用和对话式搜索任务。",
+    "key_points": [
+      "本文提出一种无需训练的模型合并策略，将通用即席检索模型与对话检索模型融合，旨在解决对话搜索中因微调导致的基础检索能力遗忘问题，实现单一模型同时胜任通用和对话式搜索任务"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08269",
+    "title": "PolyUQuest: Verifiable Structure-Aware Web RAG over Heterogeneous Graphs",
+    "authors": [
+      "Ying Liu",
+      "Yi Ye",
+      "Quanyu Feng",
+      "Mingxi Ye",
+      "Mingtao Zhang",
+      "Haoyang Li",
+      "Chen Jason Zhang",
+      "Qing Li"
+    ],
+    "summary": "Existing retrieval-augmented generation (RAG) systems treat web pages as flat text, losing the structural and semantic signals encoded in HTML. We present PolyUQuest, a verifiable, structure-aware web RAG framework built on a heterogeneous graph that unifies hyperlink topology between pages, DOM hierarchy within pages, and entity-relation knowledge across pages. A two-tier router dispatches each query to one of three retrieval modes matched to its structural need, including direct block retrieval, cross-page graph traversal, and multi-hop entity reasoning. Every answer is fully verifiable, as each cited block carries its source page, heading path, and entity links so that users can trace any claim back to its structural evidence. We evaluate on the official websites of the Hong Kong Polytechnic University (PolyU), comprising 4,240 pages, 31,086 DOM blocks, 29,119 entities, and 37,680 relations, together with a multi-type evaluation benchmark. PolyUQuest outperforms existing RAG systems in answer correctness, coverage, and faithfulness, while consuming significantly fewer LLM tokens per query. The demonstration provides an interactive interface for inspecting cited answers, comparing retrieval traces across routing modes, and exploring evidence graph paths. PolyUQuest is being prepared for deployment as a student-facing QA service at PolyU.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08269",
+    "pdf_url": "https://arxiv.org/pdf/2607.08269.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/RAG 研究，专注于利用 HTML 结构改进问答系统，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "PolyUQuest：基于异构图的可验证结构感知网页 RAG",
+    "summary_zh": "提出一种基于异构图的 RAG 框架，通过统一超链接拓扑、DOM 层级和实体关系来保留网页结构信号，并利用双级路由机制匹配不同检索模式以实现可验证的问答。",
+    "key_points": [
+      "提出一种基于异构图的 RAG 框架，通过统一超链接拓扑、DOM 层级和实体关系来保留网页结构信号，并利用双级路由机制匹配不同检索模式以实现可验证的问答"
+    ]
+  },
+  {
+    "arxiv_id": "2601.00521",
+    "title": "Probability-Aware Parking Selection",
+    "authors": [
+      "Cameron Hickert",
+      "Sirui Li",
+      "Zhengbing He",
+      "Cathy Wu"
+    ],
+    "summary": "Current navigation systems conflate time-to-drive with the true time-to-arrive by ignoring parking search duration and the final walking leg. Such underestimation can significantly affect user experience, mode choice, congestion, and emissions. To address this issue, this paper introduces the probability-aware parking selection problem, which aims to direct drivers to the best parking location rather than straight to their destination. An adaptable dynamic programming framework is proposed that leverages probabilistic, lot-level availability to minimize the expected time-to-arrive. Closed-form analysis determines when it is optimal to target a specific parking lot or explore alternatives, as well as the expected time cost. Sensitivity analysis and three illustrative cases are examined, demonstrating the model's ability to account for the dynamic nature of parking availability. Given the high cost of permanent sensing infrastructure, we assess the error rates of using stochastic observations to estimate availability. Experiments with real-world data from the US city of Seattle indicate this approach's viability, with mean absolute error decreasing from 7% to below 2% as observation frequency increases. In data-based simulations, probability-aware strategies demonstrate time savings up to 66% relative to probability-unaware baselines, yet still take up to 123% longer than time-to-drive estimates.",
+    "categories": [
+      "eess.SY",
+      "cs.AI",
+      "cs.SY",
+      "stat.AP"
+    ],
+    "published": "2026-02-01",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2601.00521",
+    "pdf_url": "https://arxiv.org/pdf/2601.00521.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文属于交通导航与运筹优化领域，专注于停车选择问题，与推荐系统或搜索引擎的核心技术（召回、排序、用户建模等）无直接关联；虽来自中国公司且涉及概率决策，但并非 RecSys/Search 应用，纯领域不匹配。",
+    "translation": "概率感知的停车位选择研究",
+    "summary_zh": "提出一种概率感知停车选择框架，利用动态规划和车位可用性的概率分布，以最小化包含寻找车位和步行时间的预期总到达时间。",
+    "key_points": [
+      "提出一种概率感知停车选择框架，利用动态规划和车位可用性的概率分布，以最小化包含寻找车位和步行时间的预期总到达时间"
+    ]
+  },
+  {
+    "arxiv_id": "2607.08475",
+    "title": "Frequency-Domain Multi-Modality Transportation Modeling",
+    "authors": [
+      "Jiewen Deng",
+      "Hangchen Liu",
+      "Junchen Li",
+      "Boyuan Zhang",
+      "Renhe Jiang"
+    ],
+    "summary": "Multi-modality transportation refers to urban systems composed of multiple transportation modes, such as traffic flow and public transit, whose dynamics are coupled by shared temporal patterns. Accurate multi-modality transportation forecasting remains challenging because (1) different modalities exhibit distinct spectral characteristics and (2) interact unevenly across frequencies, whereas most existing methods operate primarily in the time domain or rely on coarse feature fusion. To address these limitations, we propose a lightweight yet effective Frequency-Domain Multi-Modality modeling (FreMo) that explicitly exploits the frequency domain to enable adaptive and selective cross-modality synergy. FreMo disentangles modality-wise spectral refinement from cross-modality synergy and supports plug-and-play integration with general time series backbones. Specifically, FreMo introduces a Modality-Wise Frequency Filter (MFF) to adaptively refine spectral components within each modality, emphasizing informative frequencies while suppressing noise. FreMo further incorporates a Frequency-Guided Synergy Integrator (FSI) that selectively aggregates information across modalities based on their relative contribution at each frequency, facilitating effective cross-modality knowledge sharing while mitigating negative transfer. Extensive experiments on real-world datasets show that FreMo consistently outperforms state-of-the-art baselines, with superior performance and generalization across diverse forecasting scenarios. The code is available at https://github.com/beginner-sketch/FreMo.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-07-09",
+    "updated": "2026-07-10",
+    "url": "https://arxiv.org/abs/2607.08475",
+    "pdf_url": "https://arxiv.org/pdf/2607.08475.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于交通流量预测，属于纯时空序列建模研究，未涉及推荐系统或搜索引擎的任何核心环节（如召回、排序、用户建模），与目标领域无关。",
+    "translation": "频域多模态交通建模",
+    "summary_zh": "提出一种频域多模态建模方法，通过解耦模态内频谱细化与跨模态协同，利用频率引导的滤波器自适应增强有效频谱分量并抑制噪声，以实现多模态交通数据的高效融合与预测。",
+    "key_points": [
+      "提出一种频域多模态建模方法，通过解耦模态内频谱细化与跨模态协同，利用频率引导的滤波器自适应增强有效频谱分量并抑制噪声，以实现多模态交通数据的高效融合与预测"
+    ]
+  }
+]

@@ -1,0 +1,319 @@
+[
+  {
+    "arxiv_id": "2504.10507",
+    "title": "PinRec: Unified Generative Retrieval for Pinterest Recommender Systems",
+    "authors": [
+      "Edoardo Botta",
+      "Jaewon Yang",
+      "Yi-Ping Hsu",
+      "Laksh Bhasin",
+      "Yilin Chen",
+      "Prabhat Agarwal",
+      "Anirudhan Badrinath",
+      "Jiajing Xu",
+      "Charles Rosenberg"
+    ],
+    "summary": "Generative retrieval methods employ sequential modeling techniques, like transformers, to generate candidate items for recommender systems. These methods have demonstrated promising results in academic benchmarks, surpassing traditional retrieval models such as two-tower architectures. However, a key limitation is that current approaches require a separate model for each product surface, as building a unified model that accommodates the different business needs of various surfaces has proven challenging. Furthermore, existing methods often fail to capture the evolution of user interests over a sequence, focusing instead on only predicting the next item.\n  This paper introduces Pinrec, a novel unified generative retrieval model for all of Pinterest's recommendation surfaces, including home feed, search, and related pins. Pinrec is pretrained on user activity sequences aggregated across surfaces, then fine-tuned for each surface using that surface's impression data. This pretraining-fine-tuning approach enables a single unified model while still adapting to the needs of individual surfaces. To better align recommendations with surface-specific business goals, Pinrec incorporates a novel outcome-conditioned generation mechanism that targets different outcomes for each surface, which further enhances the impact of fine-tuning. Our experiments show that Pinrec balances performance, diversity, and efficiency, delivering significant gains such as +4% increase in search saves. To our knowledge, this paper presents the first rigorous study of a unified generative retrieval model built and deployed at Pinterest scale, marking a significant milestone in the field.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-06-18",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2504.10507",
+    "pdf_url": "https://arxiv.org/pdf/2504.10507.pdf",
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对 Pinterest 推荐系统的核心检索环节，提出了统一的生成式检索架构，属于高优先级的工业界落地应用；虽非中国公司（Pinterest 为美国公司），不适用额外加分，但其核心价值已属满分范畴。",
+    "translation": "PinRec：面向 Pinterest 推荐系统的统一生成式检索模型",
+    "summary_zh": "提出一种统一的生成式检索模型，通过跨场景预训练与基于业务目标的结局条件化微调机制，解决多业务面统一建模及用户兴趣演化捕捉难题。",
+    "key_points": [
+      "提出一种统一的生成式检索模型，通过跨场景预训练与基于业务目标的结局条件化微调机制，解决多业务面统一建模及用户兴趣演化捕捉难题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.21275",
+    "title": "A Rank-One Popularity Component in Dot-Product Recommender Scores:Population Theory and Prior-Separation Evidence",
+    "authors": [
+      "Yang Cheng"
+    ],
+    "summary": "Representation anisotropy in recommender systems is often attributed to Transformer architectures. We identify a more general source in the conditional training distribution. For any encoder using a dot-product softmax decoder, the population-optimal score decomposes into pointwise mutual information, an item-marginal term log p(i), and a context-dependent offset. After centering, the item marginal produces a context-shared rank-one score component, while time-varying marginals induce a low-rank popularity subspace. This score-level result does not imply universal embedding collapse because its transfer to embeddings depends on factorization geometry. Experiments on synthetic data and public Alibaba and Tianchi interaction logs support the proposed mechanism. Separating log p(i) from the learned dot product reduces the measured popularity-aligned score energy by 98.6 percent in a matched intervention. Permutation tests confirm that this reduction is specific to the empirical popularity direction. These results explain a class of apparent representation degeneration as a decoder-level consequence of long-tailed item marginals rather than a property unique to Transformer encoders.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-06-19",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2606.21275",
+    "pdf_url": "https://arxiv.org/pdf/2606.21275.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该文直接解决推荐系统中核心的流行度偏差与表示各向异性问题，提出了基于点积分数的秩一分解新机制，且使用了阿里巴巴真实数据验证，完全符合核心领域进展标准。",
+    "translation": "点积推荐分数中的秩一流行度分量：群体理论与先验分离证据",
+    "summary_zh": "本文提出点积推荐器的最优分数可分解为互信息项与物品边缘分布项，证明了长尾分布会导致共享的秩一流行度分量而非单纯的模型坍塌，并通过分离该分量有效消除了流行度偏差。",
+    "key_points": [
+      "本文提出点积推荐器的最优分数可分解为互信息项与物品边缘分布项，证明了长尾分布会导致共享的秩一流行度分量而非单纯的模型坍塌，并通过分离该分量有效消除了流行度偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2606.17276",
+    "title": "On the Memorization Behavior of LLMs in Generative Recommendation: Observations, Implications, and Training Strategies",
+    "authors": [
+      "Sunwoo Kim",
+      "Sunkyung Lee",
+      "Clark Mingxuan Ju",
+      "Donald Loveland",
+      "Bhuvesh Kumar",
+      "Kijung Shin",
+      "Neil Shah",
+      "Liam Collins"
+    ],
+    "summary": "Generative recommendation (GR) has emerged as a promising direction for recommender systems. Recently, large language models (LLMs) have been increasingly adopted for GR, as their rich pretrained knowledge is expected to help them generalize beyond common user behavior patterns that traditional memorization-oriented baselines can capture. However, existing LLM-based GR works largely ignore LLMs' well-known tendency to memorize, which, if present in LLMs fine-tuned for GR, would restrict their utilization of pretrained knowledge. In this work, we investigate this concern by examining one-hop memorization, where a model recommends items that are direct successors of items in the training data. We show that LLMs do this more than non-LLM-based GR models-in fact, the vast majority of their gains over GR baselines are actually on users whose target items can be predicted through one-hop memorization. We intuit that improving performance on the remaining users requires LLMs to learn richer item-item relations beyond one-hop transitions. To achieve this, we propose IIRG, a novel training strategy that teaches LLMs to capture: (1) collaborative relations derived from item co-occurrences across multiple hops in user sequences, and (2) semantic relations among items with similar themes, both of which can serve as useful recommendation signals. We show that IIRG significantly improves over LLMs trained solely with standard next-item prediction, with especially large gains for users whose test items are not covered by train-time one-hop transitions.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-06-18",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2606.17276",
+    "pdf_url": "https://arxiv.org/pdf/2606.17276.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）中 LLM 的记忆行为问题，提出了具体的训练策略 IIRG 以优化推荐效果，属于 LLM 在推荐领域的直接核心应用。",
+    "translation": "生成式推荐中大型语言模型的记忆行为：观察、启示与训练策略",
+    "summary_zh": "本文揭示了 LLM 在生成式推荐中过度依赖单跳记忆的问题，并提出 IIRG 训练策略，通过引导模型学习多跳协同关系和语义关系来提升泛化推荐能力。",
+    "key_points": [
+      "本文揭示了 LLM 在生成式推荐中过度依赖单跳记忆的问题，并提出 IIRG 训练策略，通过引导模型学习多跳协同关系和语义关系来提升泛化推荐能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.20708",
+    "title": "Simulated Customers Never Walk Away: Decision Fidelity of LLM User Simulators Measured Against Real Purchase Outcomes",
+    "authors": [
+      "Liang Chen"
+    ],
+    "summary": "LLM-as-user-simulation has become core infrastructure for conversational AI: agent benchmarks (tau-bench), training pipelines, and a growing body of fidelity studies all rely on LLMs role-playing the human side of dialogue. Existing frameworks measure communicative fidelity -- whether simulators talk like humans -- against ground truth from paid participants role-playing assigned goals. We argue this has a structural blind spot: when the goal is assigned, the user's willingness is exogenous, so no framework can test whether simulators make decisions like real users whose motivation is endogenous, latent, and decaying. We introduce decision fidelity -- whether a simulated population reproduces the decision-state dynamics of real users facing real, consequential choices -- and measure it on a unique testbed: 2,790 production conversations between an LLM sales agent and real customers, including 793 with verified payment outcomes. Using a teacher-forced probe protocol that holds context and instrument fixed, we find a systematic, outcome-correlated failure we call the disengagement deficit: simulators reproduce eventual buyers almost exactly (depth bias +0.09) but inflate eventual non-buyers toward the purchase frame (depth bias +0.40; d=0.38, p<0.001), halving expressed resistance (25.1% to 13.5%) and nearly doubling deliberation (21.9% to 40.1%) while fabricating no purchases. The deficit replicates across model families (DeepSeek: d=0.41, p=0.002) and resists the obvious fix: instructing the simulator that it may disengage cuts marginal bias five-fold but barely moves the outcome-conditioned contrast (d=0.34, p=0.008). Real non-buyers say \"not now\" and stop; simulated non-buyers ask about price. Evaluating or training sales and persuasion agents against such simulators overstates funnel progress exactly where it matters most -- the customers who walk away.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published": "2026-06-16",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2606.20708",
+    "pdf_url": "https://arxiv.org/pdf/2606.20708.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文虽聚焦 LLM 模拟，但直接针对电商销售场景中的用户购买决策与流失建模，对推荐系统中的用户行为模拟和转化预估具有高应用价值，非纯 LLM 研究。鉴于来自中国公司，额外加 1 分。",
+    "translation": "模拟客户永不离开：基于真实购买结果衡量的 LLM 用户模拟器决策保真度",
+    "summary_zh": "提出“决策保真度”概念，利用真实电商对话数据揭示 LLM 用户模拟器在复现非购买用户流失行为上的系统性偏差，即过度模拟购买意向而忽略真实用户的拒绝与退出机制。",
+    "key_points": [
+      "提出“决策保真度”概念，利用真实电商对话数据揭示 LLM 用户模拟器在复现非购买用户流失行为上的系统性偏差，即过度模拟购买意向而忽略真实用户的拒绝与退出机制"
+    ]
+  },
+  {
+    "arxiv_id": "2602.11453",
+    "title": "From Noise to Order: Learning to Rank via Denoising Diffusion",
+    "authors": [
+      "Sajad Ebrahimi",
+      "Bhaskar Mitra",
+      "Negar Arabzadeh",
+      "Ye Yuan",
+      "Haolun Wu",
+      "Fattane Zarrinkalam",
+      "Ebrahim Bagheri"
+    ],
+    "summary": "In information retrieval (IR), learning-to-rank (LTR) methods have traditionally limited themselves to discriminative machine learning approaches that model the probability of the document being relevant to the query given some feature representation of the query-document pair. In this work, we propose an alternative denoising diffusion-based deep generative approach to LTR that instead models the full joint distribution over feature vectors and relevance labels. While in the discriminative setting, an over-parameterized ranking model may find different ways to fit the training data, we hypothesize that candidate solutions that can explain the full data distribution under the generative setting are better equipped to estimate relevance. With this motivation, we propose DiffusionRank that extends TabDiff, an existing denoising diffusion-based generative model for tabular datasets, to create generative equivalents of classical discriminative pointwise and pairwise LTR objectives. We conduct thorough empirical evaluation on four standard LTR datasets to demonstrate improvements from DiffusionRank models over their discriminative counterparts. Our work points to a rich space for future research exploration on how we can leverage ongoing advancements in deep generative modeling approaches, such as diffusion, for LTR. We made our code publicly available at https://github.com/sadjadeb/DiffusionRank.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-06-18",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2602.11453",
+    "pdf_url": "https://arxiv.org/pdf/2602.11453.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对信息检索（IR）中的学习排序（LTR）核心环节，提出基于去噪扩散的生成式排序新方法，属于搜索/推荐系统的核心技术进展。",
+    "translation": "从噪声到有序：基于去噪扩散的学习排序方法",
+    "summary_zh": "提出 DiffusionRank 模型，将去噪扩散生成过程应用于学习排序任务，通过建模特征向量与相关性标签的联合分布来替代传统的判别式方法，以优化文档相关性估计。",
+    "key_points": [
+      "提出 DiffusionRank 模型，将去噪扩散生成过程应用于学习排序任务，通过建模特征向量与相关性标签的联合分布来替代传统的判别式方法，以优化文档相关性估计"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21456",
+    "title": "Revisiting Text Ranking in Deep Research",
+    "authors": [
+      "Chuan Meng",
+      "Litu Ou",
+      "Sean MacAvaney",
+      "Jeff Dalton"
+    ],
+    "summary": "Deep research has emerged as an important task that aims to address hard queries that need extensive open-web exploration. To tackle it, most prior work equips large language model (LLM)-based agents with opaque web search APIs, enabling agents to iteratively issue search queries, retrieve external evidence, and reason over it. Despite search's essential role in deep research, black-box web search APIs leave the behaviour of established text ranking methods in deep research largely unclear. To fill this gap, we reproduce key findings and best practices for text ranking methods in deep research. We examine their effectiveness from three perspectives: (i) retrieval units (documents vs. passages), (ii) pipeline configurations (different retrievers, re-rankers, and re-ranking depths), and (iii) query characteristics (the mismatch between agent-issued queries and the training queries of text rankers). We perform experiments on BrowseComp-Plus, a deep research dataset with a fixed corpus, evaluating 2 open-source agents, 5 retrievers, and 3 re-rankers. We find that agent-issued queries typically follow web-search-style syntax (e.g., quoted exact matches), favouring lexical, learned sparse, and multi-vector retrievers; passage-level units are more efficient under limited context windows, and avoid the difficulties of document length normalisation in lexical retrieval; re-ranking is highly effective. We further propose a query-to-question (Q2Q) method that translates agent-issued queries into natural language questions, significantly reducing the query mismatch.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-06-19",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2602.21456",
+    "pdf_url": "https://arxiv.org/pdf/2602.21456.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究深度研究（Deep Research）场景下的文本排序和 LLM Agent 搜索行为，属于通用搜索/IR 研究，缺乏针对推荐系统或具体商业搜索产品的直接应用与创新。",
+    "translation": "重访深度研究中的文本排序",
+    "summary_zh": "本文分析了深度研究中 LLM Agent 生成的查询与传统文本排序方法之间的不匹配问题，并提出将代理查询转换为自然语言问句（Q2Q）的方法以优化检索效果。",
+    "key_points": [
+      "本文分析了深度研究中 LLM Agent 生成的查询与传统文本排序方法之间的不匹配问题，并提出将代理查询转换为自然语言问句（Q2Q）的方法以优化检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2602.13402",
+    "title": "InfoCIR: Multimedia Analysis for Composed Image Retrieval",
+    "authors": [
+      "Ioannis Dravilas",
+      "Ioannis Kapetangeorgis",
+      "Anastasios Latsoudis",
+      "Conor McCarthy",
+      "Gonçalo Marcelino",
+      "Marcel Worring"
+    ],
+    "summary": "Composed Image Retrieval (CIR) allows users to search for images by combining a reference image with a text prompt that describes desired modifications. While vision-language models like CLIP have popularized this task by embedding multiple modalities into a joint space, developers still lack tools that reveal how these multimodal prompts interact with embedding spaces and why small wording changes can dramatically alter the results. We present InfoCIR, a visual analytics system that closes this gap by coupling retrieval, explainability, and prompt engineering in a single, interactive dashboard. InfoCIR integrates a state-of-the-art CIR back-end (SEARLE arXiv:2303.15247) with a six-panel interface that (i) lets users compose image + text queries, (ii) projects the top-k results into a low-dimensional space using Uniform Manifold Approximation and Projection (UMAP) for spatial reasoning, (iii) overlays similarity-based saliency maps and gradient-derived token-attribution bars for local explanation, and (iv) employs an LLM-powered prompt enhancer that generates counterfactual variants and visualizes how these changes affect the ranking of user-selected target images. A modular architecture built on Plotly-Dash allows new models, datasets, and attribution methods to be plugged in with minimal effort. We argue that InfoCIR helps diagnose retrieval failures, guides prompt enhancement, and accelerates insight generation during model development. All source code allowing for a reproducible demo is available at https://github.com/giannhskp/InfoCIR.",
+    "categories": [
+      "cs.HC",
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2026-02-13",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2602.13402",
+    "pdf_url": "https://arxiv.org/pdf/2602.13402.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文主要是一个用于分析和调试组合图像检索模型的可视化系统工具，而非提出新的推荐或搜索核心算法，且侧重于模型可解释性分析而非直接的业务应用提升。",
+    "translation": "InfoCIR：面向组合图像检索的多媒体分析系统",
+    "summary_zh": "本文提出 InfoCIR，一个集成检索、可解释性与提示工程的交互式视觉分析系统，旨在通过多维度的可视化手段帮助开发者诊断组合图像检索模型的失败案例并优化提示词。",
+    "key_points": [
+      "本文提出 InfoCIR，一个集成检索、可解释性与提示工程的交互式视觉分析系统，旨在通过多维度的可视化手段帮助开发者诊断组合图像检索模型的失败案例并优化提示词"
+    ]
+  },
+  {
+    "arxiv_id": "2606.15862",
+    "title": "RetailBench: Benchmarking long horizon reasoning and coherent decision making of LLM agents in realistic retail environments",
+    "authors": [
+      "Linghua Zhang",
+      "Jun Wang",
+      "Jingtong Wu",
+      "Zhisong Zhang"
+    ],
+    "summary": "Large language model (LLM) agents have made rapid progress on short-horizon, well-scoped tasks, yet their ability to sustain coherent decisions in dynamic long-horizon environments remains uncertain. We introduce RetailBench, a data-grounded simulation benchmark for evaluating tool-using LLM agents in single-store supermarket operation. RetailBench models retail management as a partially observable decision process and is designed to support thousand-day-scale simulations. In this environment, agents must manage pricing, replenishment, supplier selection, shelf assortment, inventory aging, customer feedback, external events, and cash-flow constraints. We evaluate seven contemporary LLMs under representative agent frameworks over a 180-day evaluation horizon and compare them with a privileged oracle policy. Results show substantial variation across models: only a small subset survives the full evaluation horizon, and even the strongest LLM runs remain substantially behind the oracle policy in final net worth and sales outcomes. Behavioral analysis attributes these gaps to incomplete evidence acquisition, surface-level decision making, and the lack of a consistent long-horizon policy. RetailBench provides a controlled testbed for studying reliable autonomy in economically grounded long-horizon decision-making.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-19",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2606.15862",
+    "pdf_url": "https://arxiv.org/pdf/2606.15862.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 4,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于 LLM Agent 在零售运营（定价、库存等）中的长程决策，属于零售管理而非核心的推荐/搜索算法研究；虽为纯 LLM 应用但涉及电商场景且来自中国公司，故给予低优先级加分。",
+    "translation": "RetailBench：基准测试 LLM 智能体在真实零售环境中的长程推理与连贯决策能力",
+    "summary_zh": "提出 RetailBench 基准，将零售管理建模为部分可观察决策过程，用于评估 LLM 智能体在动态长周期环境下的工具使用与连贯决策能力。",
+    "key_points": [
+      "提出 RetailBench 基准，将零售管理建模为部分可观察决策过程，用于评估 LLM 智能体在动态长周期环境下的工具使用与连贯决策能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.21022",
+    "title": "Structure-Aware Graph Multi-Task Learning for Dynamic Sparse OD Demand Prediction",
+    "authors": [
+      "Ming Xu",
+      "Jiawei Cao"
+    ],
+    "summary": "Origin-Destination (OD) demand prediction is fundamental to intelligent transportation systems, yet real-world OD flows are often dynamically sparse, long-tailed, and characterized by heterogeneous zero-flow patterns. These properties make it difficult to distinguish whether an OD connection is active from how much demand it generates once activated. Many existing methods primarily treat OD prediction as a single flow regression task, which limits their ability to model low-frequency, intermittent, and long-tailed OD interactions. To address these challenges, we propose SAGMTL, a Structure-Aware Graph Multi-Task Learning framework for dynamic sparse OD demand prediction. SAGMTL decomposes OD prediction into structural state modeling and flow intensity estimation, jointly learning regional activity states, OD connection activity, and edge-level flow intensity within a unified framework. Specifically, a node-edge collaborative representation module captures regional semantics, temporal dynamics, and spatial priors through interactive node-edge updates, producing structure-aware representations for dynamic OD interactions. Based on these representations, SAGMTL estimates OD flows by jointly modeling stable demand patterns and short-term fluctuations. A multi-constraint objective further improves sparsity awareness and structural consistency. Experiments on three real-world urban mobility datasets from Beijing, Chengdu, and Nanjing show that SAGMTL achieves superior overall performance compared with state-of-the-art baselines. Further analysis demonstrates that explicitly modeling regional activity, connection states, and flow intensity improves the robustness of dynamic sparse OD demand prediction.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-06-19",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2606.21022",
+    "pdf_url": "https://arxiv.org/pdf/2606.21022.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于智能交通系统中的 OD 需求预测，属于纯时空预测研究，未涉及推荐系统或搜索引擎的核心任务（如召回、排序、用户建模），因此给予低分。",
+    "translation": "面向动态稀疏 OD 需求预测的结构感知图多任务学习",
+    "summary_zh": "提出一种结构感知图多任务学习框架，通过将 OD 预测分解为结构状态建模和流量强度估计，联合学习区域活动状态与边级流量以解决动态稀疏性问题。",
+    "key_points": [
+      "提出一种结构感知图多任务学习框架，通过将 OD 预测分解为结构状态建模和流量强度估计，联合学习区域活动状态与边级流量以解决动态稀疏性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.12983",
+    "title": "Decision Tree Learning on Product Spaces",
+    "authors": [
+      "Arshia Soltani Moakhar",
+      "Faraz Ghahremani",
+      "Kiarash Banihashem",
+      "MohammadTaghi Hajiaghayi"
+    ],
+    "summary": "Decision tree learning has long been a central topic in theoretical computer science, driven by its practical importance. A fundamental and widely used method for decision tree construction is the top-down greedy heuristic, which recursively splits on the most influential variable. Despite its empirical success, theoretical analysis of this heuristic has been limited. A recent breakthrough by Blanc et al. (ITCS, 2020) provided the first rigorous theoretical guarantees for the greedy approach, but only under the uniform distribution. We extend this analysis to the more general and practically relevant setting of arbitrary product distributions. Our main result shows that for any function $f$ computable by an optimal decision tree of size $s$, maximum depth $D_{\\text{opt}}$, and average depth $Δ_{\\text{opt}}$, the greedy heuristic constructs an $ε$-approximating tree whose size grows at most with $\\exp(Δ_{\\text{opt}} D_{\\text{opt}} \\log(e/ε))$. In the special case where the optimal tree is a full binary tree, this bound improves upon the bound of Blanc et al. and holds under a strictly broader class of distributions. Moreover, we present an algorithm based on the top-down greedy heuristic that is entirely parameter-free -- it requires no prior knowledge of the optimal tree's size or depth -- offering a practical advantage over Blanc et al.'s method.",
+    "categories": [
+      "cs.LG",
+      "cs.CC"
+    ],
+    "published": "2026-06-18",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2605.12983",
+    "pdf_url": "https://arxiv.org/pdf/2605.12983.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯理论计算机科学论文，研究决策树在乘积分布下的贪心启发式算法理论界限，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "乘积空间上的决策树学习",
+    "summary_zh": "本文扩展了决策树贪心构建算法的理论分析，证明了其在任意乘积分布下能构建出近似最优树的无参数算法。",
+    "key_points": [
+      "本文扩展了决策树贪心构建算法的理论分析，证明了其在任意乘积分布下能构建出近似最优树的无参数算法"
+    ]
+  },
+  {
+    "arxiv_id": "2606.21169",
+    "title": "Trip+: Benchmarking Agents in Personalized Interactive Travel Planning",
+    "authors": [
+      "Junle Chen",
+      "Wei Chen",
+      "Yehong Xu",
+      "Zhengjun Huang",
+      "Yuqian Wu",
+      "Zhoujin Tian",
+      "Kai Wang",
+      "Lei Wang",
+      "Xiaofang Zhou"
+    ],
+    "summary": "Interactive travel planning has become a popular use case for language models. Agents are deployed to manage evolving preferences and unexpected disruptions over multiple turns. Such settings require models to make complex, profile-conditioned planning decisions. However, existing benchmarks often evaluate feasibility, personalization, or interaction in relatively isolated settings. We therefore introduce Trip+ to measure the ability of agents to plan travel holistically. In Trip+, given traveler profiles and dynamic interactions, agents must generate and revise minute-level itineraries. End-to-end traveler experiences are evaluated via an LLM-based simulator, enabling the assessment of subjective metrics like fatigue. Our scenarios range from simple request resolutions to complex environment-driven replanning. We evaluate 18 LMs and find a consistent gap in experiential quality. Models favor technically feasible but exhausting itineraries that diverge sharply from profiled traveler preferences.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-19",
+    "updated": "2026-06-23",
+    "url": "https://arxiv.org/abs/2606.21169",
+    "pdf_url": "https://arxiv.org/pdf/2606.21169.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM Agent 基准测试研究，专注于旅行规划任务，未涉及推荐系统或搜索引擎的核心技术（如召回、排序）或实际业务场景。",
+    "translation": "Trip+：个性化交互式旅行规划中的智能体基准测试",
+    "summary_zh": "该论文提出 Trip+ 基准，旨在评估 LLM 智能体在动态交互中根据用户画像生成和修订细粒度旅行行程的综合规划能力。",
+    "key_points": [
+      "该论文提出 Trip+ 基准，旨在评估 LLM 智能体在动态交互中根据用户画像生成和修订细粒度旅行行程的综合规划能力"
+    ]
+  }
+]

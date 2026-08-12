@@ -6,6 +6,15 @@ on:
       - main
     paths:
       - 'output/**'
+  # 说明：日报/日历工作流使用 secrets.GITHUB_TOKEN 推送，
+  # GitHub 为防止工作流互相触发死循环，这类推送不会触发上面的 push 事件。
+  # 因此必须额外监听那两个工作流的完成事件，否则 Pages 永远不会刷新。
+  workflow_run:
+    workflows:
+      - "AI Paper Daily"
+      - "Update Calendar Index"
+    types:
+      - completed
   workflow_dispatch:
 
 permissions:
@@ -19,6 +28,10 @@ concurrency:
 
 jobs:
   deploy:
+    # workflow_run 触发时，只有上游成功才发布，避免把失败中间态推上线
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -26,15 +39,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+        with:
+          ref: main
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './output'
-      
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,731 @@
+[
+  {
+    "arxiv_id": "2608.10257",
+    "title": "GenRec: An LLM-Backed Recommendation Ranker at Netflix",
+    "authors": [
+      "Ying Li",
+      "Shradha Sehgal",
+      "Arjun Rao",
+      "Rein Houthooft",
+      "Yaochen Zhu",
+      "Ashish Rastogi"
+    ],
+    "summary": "Large language models (LLMs) are reshaping recommender systems by enabling richer modeling of users, content, and context directly in natural language. At Netflix, we are exploring this direction through GenRec, an LLM-backed recommendation ranker built on top of an in-house foundational LLM. GenRec follows a two-phase framework: Phase 1 adapts an open-source LLM to Netflix data, developing deep understanding of the catalog and member behavior while balancing capabilities such as content understanding and instruction following. Phase 2 post-trains this foundation model with recommendation-ranking specific data, labels, and reward signals, aiming to align the ranker with business requirements and long-term member satisfaction.\n  This paper focuses on Phase 2 and the transition from a traditional discriminative ranker with thousands of engineered features to an LLM-backed ranker driven by verbalized user histories and context. We describe our design for input verbalization and context engineering, post-training data construction, reward integration, model architecture, and a cost-constrained serving design based on a prefill-only inference approach. We report results from a large-scale A/B test comparing GenRec against the current production ranker model, where we show that a GenRec model trained with substantially fewer Phase-2 labeled training examples and input signals can achieve statistically significant gains in offline and online metrics. We discuss how LLM-backed recommenders could shift the recommendation paradigm: from feature engineering to context engineering, and from bespoke architectures to shared foundation backbones. We also outline practical lessons for serving such systems under real-world resource constraints.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10257",
+    "pdf_url": "https://arxiv.org/pdf/2608.10257.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该文直接讲述 Netflix 将 LLM 应用于推荐排序核心环节的工程实践，属于高优先级的工业界落地案例；虽非中国公司（Netflix），但因其极高的相关性和核心价值，基础分已达满分。",
+    "translation": "GenRec：Netflix 基于大语言模型的推荐排序器",
+    "summary_zh": "提出一种两阶段框架，通过将用户历史与上下文转化为自然语言提示，并利用奖励信号对基础大模型进行后训练，从而构建出替代传统特征工程的端到端 LLM 推荐排序系统。",
+    "key_points": [
+      "提出一种两阶段框架，通过将用户历史与上下文转化为自然语言提示，并利用奖励信号对基础大模型进行后训练，从而构建出替代传统特征工程的端到端 LLM 推荐排序系统"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20199",
+    "title": "MERGE: Next-Generation Item Indexing Paradigm for Large-Scale Streaming Recommendation",
+    "authors": [
+      "Jing Yan",
+      "Yimeng Bai",
+      "Zongyu Liu",
+      "Yahui Liu",
+      "Junwei Wang",
+      "Jingze Huang",
+      "Haoda Li",
+      "Sihao Ding",
+      "Shaohui Ruan",
+      "Yang Zhang"
+    ],
+    "summary": "Item indexing, which maps a large corpus of items into compact discrete representations, is critical for both discriminative and generative recommender systems, yet existing Vector Quantization (VQ)-based approaches struggle with the highly skewed and non-stationary item distributions common in industrial streaming recommenders, leading to poor assignment accuracy, imbalanced cluster occupancy, and insufficient cluster separation. To address these challenges, we propose MERGE, a next-generation item indexing paradigm that adaptively constructs clusters from scratch, dynamically monitors cluster occupancy, and forms hierarchical index structures via fine-to-coarse merging. Extensive experiments demonstrate that MERGE significantly improves assignment accuracy, cluster uniformity, and cluster separation compared with existing indexing methods, while online A/B tests show substantial gains in key business metrics, highlighting its potential as a foundational indexing approach for large-scale recommendation. Codes are available at https://github.com/baiyimeng/MERGE.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2601.20199",
+    "pdf_url": "https://arxiv.org/pdf/2601.20199.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模流式推荐系统中的核心物品索引问题，提出了 MERGE 新范式以解决工业界分布倾斜和非平稳性挑战，属于电商/社交推荐的核心架构创新。",
+    "translation": "MERGE：面向大规模流式推荐的下一代物品索引范式",
+    "summary_zh": "本文提出 MERGE 方法，通过从头自适应构建簇、动态监控簇占用率及细到粗的合并策略，构建分层索引结构，以解决流式推荐中物品分布倾斜和非平稳导致的索引失效问题。",
+    "key_points": [
+      "本文提出 MERGE 方法，通过从头自适应构建簇、动态监控簇占用率及细到粗的合并策略，构建分层索引结构，以解决流式推荐中物品分布倾斜和非平稳导致的索引失效问题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.24226",
+    "title": "UniScale: Synergistic Entire Space Data and Model Scaling for Search Ranking",
+    "authors": [
+      "Liren Yu",
+      "Caiyuan Li",
+      "Feiyi Dong",
+      "Tao Zhang",
+      "Zhixuan Zhang",
+      "Dan Ou",
+      "Haihong Tang",
+      "Bo Zheng"
+    ],
+    "summary": "Recent advances in Large Language Models (LLMs) have inspired a surge of scaling research in industrial search, advertising, and recommendation systems. However, existing approaches focus mainly on architectural improvements, overlooking the critical synergy between data and architecture design. We observe that scaling model parameters alone exhibits diminishing returns, and that the performance degradation caused by complex heterogeneous data distributions is often irrecoverable through model design alone. In this paper, we propose UniScale, a novel co-design framework that jointly optimizes data and architecture to unlock the full potential of model scaling. UniScale includes two core parts: (1) ES$^3$ (Entire-Space Sample System), a high-quality data scaling system that expands the training signal beyond conventional sampling strategies through intra-domain expansion with hierarchical label attribution and cross-domain searchification; and (2) HHSFT (Heterogeneous Hierarchical Sample Fusion Transformer), a novel architecture that effectively models the complex heterogeneous distribution of scaled data via Heterogeneous Hierarchical Feature Interaction and Entire Space User Interest Fusion, thereby surpassing the performance ceiling of structure-only model tuning. Extensive experiments on large-scale industrial datasets demonstrate that UniScale achieves significant improvements and exhibits clear scaling trends. Online A/B tests on a real-world E-commerce search platform confirm that UniScale consistently outperforms strong production baselines, achieving 1.70% and 2.04% increases in user purchase and Gross Merchandise Value (GMV).",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2603.24226",
+    "pdf_url": "https://arxiv.org/pdf/2603.24226.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索排序场景，提出了数据与模型协同扩展的框架 UniScale，并在真实工业平台验证了效果，完全符合核心领域进展的高优先级标准。",
+    "translation": "UniScale：搜索排序中全域数据与模型协同扩展研究",
+    "summary_zh": "提出 UniScale 框架，通过全域采样系统（ES$^3$）扩展高质量训练信号，并结合异构分层样本融合 Transformer（HHSFT）架构，联合优化数据分布与模型结构以突破单一模型扩展的性能瓶颈。",
+    "key_points": [
+      "提出 UniScale 框架，通过全域采样系统（ES$^3$）扩展高质量训练信号，并结合异构分层样本融合 Transformer（HHSFT）架构，联合优化数据分布与模型结构以突破单一模型扩展的性能瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10182",
+    "title": "From Prediction to Incrementality: Causal Optimization for Large-Scale Targeting and Recommendation",
+    "authors": [
+      "Changshuai Wei",
+      "John Bencina",
+      "Phuc Nguyen",
+      "Andre Assuncao Silva T Ribeiro",
+      "Benjamin Zelditch"
+    ],
+    "summary": "Large-scale targeting and recommendation systems are typically built around predictive scores fed into heuristic or local allocation. When the business goal is incremental impact, as in marketing campaigns, incentives, and notifications, this paradigm systematically misallocates resources toward users who would have acted anyway. We present a decision-centric framework that instead optimizes causal effects under global constraints, aligning three components under a single objective: a causal neural network with a Transformer backbone for individual treatment-effect estimation, a Bayesian neural-bandit layer for uncertainty-aware exploration, and a dual-based large-scale linear-programming layer for constrained allocation. The framework also supports sequential context and multi-outcome, attribute-conditioned scoring through a Transformer encoder and outcome embeddings. We evaluate it with offline simulations on a public bandit dataset, targeted architectural ablations, and an online A/B test on LinkedIn Feed marketing traffic. We also distill production lessons on causal training-data construction and cost and delivery control, which were critical to successful deployment. The end-to-end treatment policy delivered a statistically significant $+7.20\\%$ lift in the primary long-term-value metric, demonstrating the feasibility of production-scale causal optimization under business constraints.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10182",
+    "pdf_url": "https://arxiv.org/pdf/2608.10182.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐与定向系统中的因果增量优化问题，提出了结合 Transformer 与线性规划的决策框架，并在 LinkedIn 信息流营销场景中验证，属于核心推荐系统进阶研究；虽非中国公司（实为 LinkedIn/Microsoft），但因其极高的业务相关性与架构创新，仍给满分。",
+    "translation": "从预测到增量：面向大规模定向与推荐的因果优化",
+    "summary_zh": "提出一种以决策为中心的框架，通过整合因果神经网络、贝叶斯神经 bandit 层和基于对偶的大规模线性规划层，直接在全局约束下优化因果效应以解决推荐系统中的资源错配问题。",
+    "key_points": [
+      "提出一种以决策为中心的框架，通过整合因果神经网络、贝叶斯神经 bandit 层和基于对偶的大规模线性规划层，直接在全局约束下优化因果效应以解决推荐系统中的资源错配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10187",
+    "title": "ConnectionMind: Leveraging Social Networks and Large Language Models for Personalized Recommendation at Meta",
+    "authors": [
+      "Haoyu Han",
+      "Yuming Liu",
+      "Lei Huang",
+      "Lizhu Zhang",
+      "Jiliang Tang",
+      "Xiangjun Fan"
+    ],
+    "summary": "Modern recommendation systems on social media platforms such as Meta must model complex social relationships, including friendships, group memberships, and creator interactions, alongside massive and heterogeneous content such as text and video. Traditional recommendation models, however, often omit these signals or treat them independently, lacking the reasoning capability to integrate multi-relational context for fine-grained personalization. We present ConnectionMind, a production-ready recommendation framework that tightly integrates the social network structure with large language models (LLMs) to enable scalable, interpretable, and reasoning-aware personalization in Meta. ConnectionMind constructs a heterogeneous graph connecting users, items, friends, groups, and creator pages, and formulates recommendation as a graph reasoning problem: discovering personalized paths from users to candidate items. An LLM-based policy is employed to reason over these graph structures and guide recommendation decisions. To train the system at scale, ConnectionMind adopts a two-stage learning strategy. We first perform supervised fine-tuning (SFT) on large-scale user-item interaction trajectories to initialize the reasoning policy, followed by end-to-end reinforcement learning (RL) to refine the model's ability to reason over social graphs for personalized recommendation. Extensive experiments on multiple real-world datasets demonstrate the effectiveness of ConnectionMind compared to representative baselines. More importantly, ConnectionMind has been deployed in Meta's large-scale recommendation pipeline and has been evaluated through online A/B tests, achieving a 0.43% improvement in video watch time. These results demonstrate measurable real-world impact in a production recommendation system.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10187",
+    "pdf_url": "https://arxiv.org/pdf/2608.10187.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "MichiganStateUniversity MetaPlatforms,Inc. MetaPlatforms,Inc.",
+      "MetaPlatforms,Inc. MichiganStateUniversity MetaPlatforms,Inc.",
+      "tegratemulti-relationalcontextforfine-grainedpersonalization. 15],suchascollaborativefilteringanddeepneuralrecommendation",
+      "withlargelanguagemodels(LLMs)toenablescalable,interpretable, 31]haveincorporatedrichsideinformation,includingtext,images,"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Meta 社交平台的推荐系统，创新性地结合社交网络图结构与 LLM 进行个性化推理，完全符合核心领域 advances 及 LLM for RecSys 的高优先级标准。",
+    "translation": "ConnectionMind：在 Meta 利用社交网络与大语言模型实现个性化推荐",
+    "summary_zh": "提出 ConnectionMind 框架，通过构建异构图连接用户、物品及社交关系，将推荐建模为图推理问题，并利用经监督微调与强化学习训练的 LLM 策略在图上发现个性化路径以生成推荐。",
+    "key_points": [
+      "提出 ConnectionMind 框架，通过构建异构图连接用户、物品及社交关系，将推荐建模为图推理问题，并利用经监督微调与强化学习训练的 LLM 策略在图上发现个性化路径以生成推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10240",
+    "title": "Sequential Modality Dropout for Robust Multi-Modal Sequential Recommendation",
+    "authors": [
+      "Guanqun Yang",
+      "Wenlong Zhang"
+    ],
+    "summary": "Multi-modal sequential recommenders assume every item carries every modality, but real product catalogs often miss images or text, and a model trained on complete data loses much of its recommendation accuracy when a modality is unavailable at serving time. We propose Sequential Modality Dropout (SMD): during training, each modality stream (image and text) is independently erased with probability p for an entire user interaction history, so the model learns to predict the next item without relying on any single modality. We measure robustness by retention, the fraction of a model's full-modality accuracy (HR@10) that survives when a modality is removed at test time. Across four backbones (MM-SASRec, IISAN, MISSRec, and fMRLRec) on four Amazon domains, SMD raises text retention by 1.0 to 3.2x at essentially no cost to full-modality accuracy; under an extreme 95% per-item missing rate, it retains 61% of HR@10 versus 22% without (a 2.8x improvement). An optional cross-modal reconstruction loss further lifts retention from 90% to 98% on a simple additive backbone under severe text missingness. SMD is a four-line, architecture-agnostic change that makes multi-modal sequential recommenders robust to the missing modalities they actually encounter in deployment.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "cs.MM"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10240",
+    "pdf_url": "https://arxiv.org/pdf/2608.10240.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决多模态序列推荐中模态缺失的实际部署问题，提出了架构无关的鲁棒性训练方法，完全符合核心领域进展标准；且来自中国公司，按规则额外加分后达到满分。",
+    "translation": "用于鲁棒多模态序列推荐的序列模态 Dropout 方法",
+    "summary_zh": "提出序列模态 Dropout 策略，通过在训练期间随机丢弃整个用户交互历史中的特定模态流，迫使模型学习不依赖单一模态的表示，从而显著提升多模态序列推荐系统在推理阶段面对模态缺失时的鲁棒性。",
+    "key_points": [
+      "提出序列模态 Dropout 策略，通过在训练期间随机丢弃整个用户交互历史中的特定模态流，迫使模型学习不依赖单一模态的表示，从而显著提升多模态序列推荐系统在推理阶段面对模态缺失时的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2602.11410",
+    "title": "CADET: Context-Conditioned Ads CTR Prediction With a Decoder-Only Transformer",
+    "authors": [
+      "David Pardoe",
+      "Neil Daftary",
+      "Miro Furtado",
+      "Aditya Aiyer",
+      "Yu Wang",
+      "Liuqing Li",
+      "Tao Song",
+      "Lars Hertel",
+      "Young Jin Yun",
+      "Senthil Radhakrishnan",
+      "Zhiwei Wang",
+      "Tommy Li",
+      "Khai Tran",
+      "Ananth Nagarajan",
+      "Ali Naqvi",
+      "Yue Zhang",
+      "Renpeng Fang",
+      "Avi Romascanu",
+      "Arjun Kulothungun",
+      "Deepak Kumar",
+      "Praneeth Boda",
+      "Fedor Borisyuk",
+      "Ruoyan Wang"
+    ],
+    "summary": "Click-through rate (CTR) prediction is fundamental to online advertising systems. While Deep Learning Recommendation Models (DLRMs) with explicit feature interactions have long dominated this domain, recent advances in generative recommenders have shown promising results in content recommendation. However, adapting these transformer-based architectures to ads CTR prediction still presents unique challenges, including handling post-scoring contextual signals, maintaining offline-online consistency, and scaling to industrial workloads. We present CADET (Context-Conditioned Ads Decoder-Only Transformer), an end-to-end decoder-only transformer for ads CTR prediction deployed at LinkedIn. Our approach introduces several key innovations: (1) a context-conditioned decoding architecture with multi-tower prediction heads that explicitly model post-scoring signals such as ad position, resolving the chicken-and-egg problem between predicted CTR and ranking; (2) a self-gated attention mechanism that stabilizes training by adaptively regulating information flow at both representation and interaction levels; (3) a timestamp-based variant of Rotary Position Embedding (RoPE) that captures temporal relationships across timescales from seconds to months; (4) session masking strategies that prevent the model from learning dependencies on unavailable in-session events, addressing train-serve skew; and (5) production engineering techniques including tensor packing, sequence chunking, and custom Flash Attention kernels that enable efficient training and serving at scale. In online A/B testing, CADET achieves a 11.04\\% CTR lift compared to the production LiRank baseline model, a hybrid ensemble of DCNv2 and sequential encoders. The system has been successfully deployed on LinkedIn's advertising platform, serving the main traffic for homefeed sponsored updates.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2602.11410",
+    "pdf_url": "https://arxiv.org/pdf/2602.11410.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告 CTR 预测这一核心推荐/搜索任务，提出了基于 Decoder-only Transformer 的工业级解决方案并已在 LinkedIn 部署，完全符合高优先级标准；虽非中国公司（属 LinkedIn/Microsoft），但其极高的相关性和工业落地价值使其获得满分。",
+    "translation": "CADET：基于仅解码器 Transformer 的上下文条件化广告 CTR 预测",
+    "summary_zh": "提出一种端到端的仅解码器 Transformer 架构，通过上下文条件化解码、自门控注意力机制及时间戳旋转位置编码，显式建模广告位等后排序信号以解决训练服务偏差和循环依赖问题。",
+    "key_points": [
+      "提出一种端到端的仅解码器 Transformer 架构，通过上下文条件化解码、自门控注意力机制及时间戳旋转位置编码，显式建模广告位等后排序信号以解决训练服务偏差和循环依赖问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10474",
+    "title": "Stay or Stray - A Dynamical Systems Viewpoint of Popularity Bias",
+    "authors": [
+      "Sarvesh Shashidhar",
+      "Lankireddy Prabhat",
+      "Arpit Agarwal",
+      "D. Manjunath",
+      "Karan Bhukar",
+      "Tanmay Khandelwal"
+    ],
+    "summary": "Popularity bias in recommendation systems arises when a majority user class generates disproportionate interaction data, causing the system to increasingly favour it while degrading recommendation quality for niche users. While extensive empirical evidence of popularity bias exists, the dynamics leading to its emergence are not well understood. In this work, we study the coupled evolution of recommender model updates and user engagement through the lens of dynamical systems. We formulate a stochastic process and analyse its asymptotic behaviour through an ordinary differential equation (ODE) framework grounded in two-time-scale stochastic approximation. We characterise the equilibrium points of this dynamical system, and derive conditions under which popularity bias is provably emergent, as well as conditions under which symmetric retention of all user classes is possible. We conduct experiments on synthetic data and real-world production logs derived from a large-scale commercial music recommendation platform to validate our theoretical results.",
+    "categories": [
+      "cs.HC",
+      "cs.LG"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10474",
+    "pdf_url": "https://arxiv.org/pdf/2608.10474.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的核心问题（流行度偏差）进行动力学建模与理论分析，并基于真实音乐推荐平台数据验证，属于高优先级的核心领域进展；叠加中国公司背景额外 +1 分（基础分 9+1）。",
+    "translation": "去留之间：推荐系统流行度偏差的动力学系统视角",
+    "summary_zh": "本文通过动力学系统和随机近似理论，建模推荐模型更新与用户参与的耦合演化过程，揭示了流行度偏差涌现的均衡点条件及维持用户类对称保留的机制。",
+    "key_points": [
+      "本文通过动力学系统和随机近似理论，建模推荐模型更新与用户参与的耦合演化过程，揭示了流行度偏差涌现的均衡点条件及维持用户类对称保留的机制"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10562",
+    "title": "MARCO: Click-Intent Decomposition for Calibrated Ads Conversion Prediction",
+    "authors": [
+      "Shiwen Shen",
+      "Xiru Huang",
+      "Liang Luo",
+      "Jianbo Sun",
+      "He Lyu",
+      "Zihang Fu",
+      "Ivonne Xu",
+      "Zhizhuo Li",
+      "Zhengyu Zhang",
+      "Pei-Ju Sung",
+      "Yunmiao Wang",
+      "Zixuan Wang",
+      "Zhengli Zhao",
+      "Qiang Jin",
+      "Mike Jermann",
+      "Mingda Li",
+      "Yang Xiao",
+      "Bhavana Challa",
+      "Brooke Bian",
+      "Yang Li",
+      "Ashish Chamoli",
+      "Bibek Bhusal",
+      "Danning Di",
+      "Yuan Jin",
+      "Meet Raval",
+      "Zhiwen Chen",
+      "Boyao Sun",
+      "Shuguang Wang",
+      "Yunlong He",
+      "Yantao Yao",
+      "Sagar Chordia",
+      "Wenlin Chen",
+      "Santanu Kolay",
+      "Qin Huang",
+      "Ellie Wen"
+    ],
+    "summary": "Not all clicks are equal. Industrial ads ranking decouples conversion probability into click-through rate (CTR) and post-click conversion rate (CVR), yet treats every click as the same event. In reality, users provide a free, self-generated signal of intent through their physical UI interactions. Different click types on the same ad exhibit a 4-fold difference in actual conversion rates. By conflating these signals, the standard CVR model under-predicts high-intent clicks and over-predicts low-intent ones, which is a bias masked by near-perfect aggregate calibration. We propose MARCO (Multi-intent Ads Ranking Composition Optimization), a framework that resolves this bias by decomposing each click by intent. Using the logged click type as a free behavioral label, MARCO trains per-intent CVR heads on homogeneous populations, and at serving time composes their per-intent CVR estimates under a predicted distribution over intents. Theoretically, we prove that decomposition never raises population risk, give the exact headroom under squared loss and non-negativity under the deployed loss, and show through a routing-efficiency dial how much of it reaches serving. Because the population-optimal score is unchanged, any gain is a finite-capacity estimation and calibration effect that we validated both offline and online. For deployment at scale, we further cast multi-impression, multi-click attribution as credit assignment with a bias-variance tradeoff analogous to RL return estimation, showing last-impression, first-click attribution is the low-bias, low-variance, deterministic choice under production constraints, and derive three consistency conditions enforced end-to-end at scale. Deployed at binary intent granularity, MARCO corrects per-intent calibration to approximately 100%, lifts conversions per click by +2.80%, and drives +0.98% cumulative improvement in topline metrics.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10562",
+    "pdf_url": "https://arxiv.org/pdf/2608.10562.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业界广告排序系统中的核心痛点（点击意图偏差），提出了具体的分解与校准框架，属于高优先级的电商/广告推荐搜索核心技术创新。",
+    "translation": "MARCO：基于点击意图分解的校准广告转化预测",
+    "summary_zh": "本文提出 MARCO 框架，通过将点击按用户交互意图分解并训练独立的转化率头，解决了传统广告排序模型因混淆不同意图点击而导致的预测偏差与校准失效问题。",
+    "key_points": [
+      "本文提出 MARCO 框架，通过将点击按用户交互意图分解并训练独立的转化率头，解决了传统广告排序模型因混淆不同意图点击而导致的预测偏差与校准失效问题"
+    ]
+  },
+  {
+    "arxiv_id": "2409.14872",
+    "title": "FedSlate:A Federated Deep Reinforcement Learning Recommender System",
+    "authors": [
+      "Yongxin Deng",
+      "Xihe Qiu",
+      "Xiaoyu Tan",
+      "Yaochu Jin"
+    ],
+    "summary": "Reinforcement learning methods have been used to optimize long-term user engagement in recommendation systems. However, existing reinforcement learning-based recommendation systems do not fully exploit the relevance of individual user behavior across different platforms. One potential solution is to aggregate data from various platforms in a centralized location and use the aggregated data for training. However, this approach raises economic and legal concerns, including increased communication costs and potential threats to user privacy. To address these challenges, we propose \\textbf{FedSlate}, a federated reinforcement learning recommendation algorithm that effectively utilizes information that is prohibited from being shared at a legal level. We employ the SlateQ algorithm to assist FedSlate in learning users' long-term behavior and evaluating the value of recommended content. We extend the existing application scope of recommendation systems from single-user single-platform to single-user multi-platform and address cross-platform learning challenges by introducing federated learning. We use RecSim to construct a simulation environment for evaluating FedSlate and compare its performance with state-of-the-art benchmark recommendation models. Experimental results demonstrate the superior effects of FedSlate over baseline methods in various environmental settings, and FedSlate facilitates the learning of recommendation strategies in scenarios where baseline methods are completely inapplicable. Code is available at \\textit{https://github.com/TianYaDY/FedSlate}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-04-28",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2409.14872",
+    "pdf_url": "https://arxiv.org/pdf/2409.14872.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的跨平台长周期优化问题，提出结合联邦学习与深度强化学习（SlateQ）的架构，属于核心推荐技术且解决了隐私与数据孤岛的实际痛点；虽涉及 RL 和 FL，但应用场景严格限定于 RecSys，符合高优先级标准，加之来自中国公司额外 +1 分。",
+    "translation": "FedSlate：一种联邦深度强化学习推荐系统",
+    "summary_zh": "提出 FedSlate 框架，通过联邦学习聚合多平台用户行为数据以解决隐私与法律限制，并利用 SlateQ 算法优化跨平台场景下的长期用户参与度推荐策略。",
+    "key_points": [
+      "提出 FedSlate 框架，通过联邦学习聚合多平台用户行为数据以解决隐私与法律限制，并利用 SlateQ 算法优化跨平台场景下的长期用户参与度推荐策略"
+    ]
+  },
+  {
+    "arxiv_id": "2508.07595",
+    "title": "Towards Comprehensible Recommendation with Large Language Model Fine-tuning",
+    "authors": [
+      "Yunze Luo",
+      "Yinjie Jiang",
+      "Gaode Chen",
+      "Xinghua Zhang",
+      "Kaigui Bian"
+    ],
+    "summary": "Recommender systems have become increasingly ubiquitous in daily life. While traditional recommendation approaches primarily rely on ID-based representations or item-side content features, they often fall short in capturing the underlying semantics aligned with user preferences (e.g., recommendation reasons for items), leading to a semantic-collaborative gap. Recently emerged LLM-based feature extraction approaches also face a key challenge: how to ensure that LLMs possess recommendation-aligned reasoning capabilities and can generate accurate, personalized reasons to mitigate the semantic-collaborative gap. To address these issues, we propose a novel Content Understanding from a Collaborative Perspective framework (CURec), which generates collaborative-aligned content features for more comprehensive recommendations. CURec first adapts the LLM with recommendation objectives through post-training, equipping it with instruction-following and chain-of-thought reasoning capabilities. Next, we use the LLM-generated features to train the recommender model. Then, we treat the user-item prediction scores produced by the trained recommender model as reward signals to guide RL-based refinement of the LLM, thereby improving the quality of generated reasons and pattern. The corrected reasons are directly integrated into the recommender model to enhance comprehensibility and recommendation performance. Extensive experiments on public benchmarks demonstrate the superiority of CURec over existing methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2508.07595",
+    "pdf_url": "https://arxiv.org/pdf/2508.07595.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "SchoolofCS,PekingUniversity KuaishouTechnology KuaishouTechnology",
+      "IndependentResearcher SchoolofCS,PekingUniversity",
+      "leadingtoasemantic-collaborativegap.RecentlyemergedLLM- Genre",
+      "mitigatethesemantic-collaborativegap.Toaddresstheseissues, Director or Actor",
+      "weproposeanovelContentUnderstandingfromaCollaborative",
+      "Perspectiveframework(CURec),whichgeneratescollaborative- Figure1:Forthesamemovie,differentuserswithdistinct"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的语义 - 协作差距问题，提出利用 LLM 微调生成可解释的推荐理由并优化推荐模型，属于 LLM 在 RecSys 中的核心应用。",
+    "translation": "面向可理解推荐的大语言模型微调研究",
+    "summary_zh": "提出 CURec 框架，通过指令微调和基于推荐反馈的强化学习，使 LLM 生成符合协同过滤逻辑的内容特征与推荐理由，以增强推荐系统的可解释性和性能。",
+    "key_points": [
+      "提出 CURec 框架，通过指令微调和基于推荐反馈的强化学习，使 LLM 生成符合协同过滤逻辑的内容特征与推荐理由，以增强推荐系统的可解释性和性能"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10247",
+    "title": "DualSpectralCF: Training-Free Sign-Aware Spectral Collaborative Filtering",
+    "authors": [
+      "Guanqun Yang",
+      "Tong Qi",
+      "Xiaoxue Han"
+    ],
+    "summary": "Real-world recommendation platforms routinely collect explicit negative feedback such as 1-star reviews, hate-button clicks, distrust between users, and very-low watch-ratio videos. Learned sign-aware recommenders exploit this signal for clear accuracy gains, but only at the cost of gradient-based training. In parallel, a line of training-free spectral collaborative filtering methods matches or beats learned graph recommenders at a fraction of the cost, yet operates on positive interactions alone. We bridge these two lines with DualSpectralCF, a training-free framework of two components that attach to any spectral backbone of the form $\\hat{\\mathbf{r}}_u = F(\\mathbf{M}) \\mathbf{r}_u$: a signed input signal $\\mathbf{r}_u^{\\pm}$ that encodes the user's explicit dislikes, and a signed item-item operator $\\mathbf{M}^{\\pm}$ that blends like-together and dislike-together similarity. The framework is backbone-agnostic and adds just two scalar hyperparameters. We instantiate DualSpectralCF on ChebyCF, GF-CF, and Turbo-CF, and evaluate on five sign-aware benchmarks: every instance matches or beats its unsigned backbone on all 5 datasets, with Recall@20 lifts up to +32.6% with backbone-specific $(γ, κ)$ tuning and +1.9% to +16.0% for DualSpectralCF-Cheby at the fixed default $(γ= -0.5, κ= 0.1)$, and the family runs 7.7 to 155.3$\\times$ faster than SIGformer while reaching 70.7% to 90.7% of its accuracy. Sign-awareness helps most for cold-start users, with up to +29.2% Recall@20 on Epinions users with 1 to 5 training items.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10247",
+    "pdf_url": "https://arxiv.org/pdf/2608.10247.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "DualSpectralCF: Training-Free Sign-Aware Spectral Collaborative",
+      "StevensInstituteofTechnology UniversityofMaryland,CollegePark StevensInstituteofTechnology",
+      "oftraining-freespectralcollaborativefilteringmethodsmatches Amazon reviews [12], hate-button clicks in KuaiRand [6], user-"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的协同过滤环节，提出了一种无需训练的符号感知谱方法，有效利用显式负反馈信号提升推荐效果，属于核心推荐技术进展。",
+    "translation": "DualSpectralCF：一种无需训练的符号感知谱协同过滤方法",
+    "summary_zh": "提出 DualSpectralCF 框架，通过引入编码用户显式厌恶的符号输入信号和融合正负相似性的符号算子，在无需梯度训练的情况下将负反馈信号整合到任意谱协同过滤骨干网络中。",
+    "key_points": [
+      "提出 DualSpectralCF 框架，通过引入编码用户显式厌恶的符号输入信号和融合正负相似性的符号算子，在无需梯度训练的情况下将负反馈信号整合到任意谱协同过滤骨干网络中"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10535",
+    "title": "Multi Interests for Joint Search-Recommendation Modeling",
+    "authors": [
+      "Xiangchen Pan",
+      "Wei Wei",
+      "Huakang Niu",
+      "Zhicong Cheng"
+    ],
+    "summary": "Search and recommendation are crucial for understanding user preferences. More and more studies are attempting to jointly model search behavior and recommendation behavior, by integrating user active search and passive recommendation behavior data to better mine user preferences. However, although existing cross-domain unified modeling frameworks can effectively compensate for the differences in behavior between domains, they overlook the expression of interests in different scenarios under mixed sequences. In this study, we propose a multi-interest-based mixed sequential modeling framework MIJSR, which performs multi-interest mining and adaptive integration on search recommendation mixed sequences from both structural and semantic perspectives. Specifically, our model can be roughly divided into three modules: cross-domain behavior fusion, multi-interest mining, and multi-task prediction. Firstly, we align the representations of query and item through contrastive learning training. Then, we extract the multi interests of the mixed behavior sequence from both structural and semantic perspectives. Structurally, we extract search interests, recommendation interests, and cross interests through subsequence partitioning and mask settings; In terms of semantics, we use the semantic information of queries for clustering and perform semantic segmentation on mixed sequences to construct semantic multi interests. Finally, the adaptive fusion of multiple interests is combined with other side information to use a progressive layered extraction model for multi-task prediction. Extensive experiments on two open-source datasets have shown that our model can further enhance its accuracy in search and recommendation by extracting users' multi interests at a fine-grained level. Codes are available at https://github.com/pxcstart/MIJSR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10535",
+    "pdf_url": "https://arxiv.org/pdf/2608.10535.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索与推荐的联合建模问题，提出了多兴趣挖掘框架以解决混合序列中的用户偏好表达，属于核心领域进展。",
+    "translation": "面向联合搜索 - 推荐建模的多兴趣方法",
+    "summary_zh": "提出一种基于多兴趣的混合序列建模框架，通过结构和语义双视角挖掘搜索与推荐混合行为中的细粒度用户兴趣，并进行自适应融合以优化联合预测。",
+    "key_points": [
+      "提出一种基于多兴趣的混合序列建模框架，通过结构和语义双视角挖掘搜索与推荐混合行为中的细粒度用户兴趣，并进行自适应融合以优化联合预测"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10297",
+    "title": "Neural Tree Collaborative Filtering: Rethinking Graph Collaborative Filtering as Tree Collaborative Filtering with Curvature-Aware Propagation Depth",
+    "authors": [
+      "Jinfeng Xu",
+      "Zheyu Chen",
+      "Ziyue Peng",
+      "Shuo Yang",
+      "Jinze Li",
+      "Wenhao Yuan",
+      "Jian Chen",
+      "Edith C. H. Ngai"
+    ],
+    "summary": "Graph Collaborative Filtering (GCF) has become the dominant paradigm in modern recommender systems by modeling user-item interactions as a bipartite graph and propagating embeddings through a fixed number of message-passing layers. However, applying a uniform propagation depth to every node ignores a fundamental property of real interaction graphs: nodes differ substantially in their local connectivity, so peripheral nodes quickly suffer from over-smoothing while hub-like nodes remain under-explored beyond their immediate neighborhood. In this paper, we revisit GCF from a tree-structured perspective and propose Neural Tree Collaborative Filtering (NTCF), a framework that re-interprets each node's local neighborhood as a rooted tree and assigns a node-specific propagation depth based on a closed-form local-degree-imbalance score that serves as a discrete Ricci-curvature proxy. We provide a theoretical analysis showing that (i) NTCF strictly generalizes NGCF, degenerating to NGCF when all curvature-induced depth adjustments vanish (a lower bound on its representation power), and (ii) the curvature-aware schedule retains strictly more discriminative information at deep layers on positively-curved (peripheral) nodes than uniform-depth propagation. NTCF can achieve higher performance than most widely used GCF backbone models and can be integrated into existing advanced self-supervised models as a backbone, replacing their original backbone to achieve enhanced performance. Extensive experiments on three public datasets demonstrate the superiority of NTCF.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10297",
+    "pdf_url": "https://arxiv.org/pdf/2608.10297.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该文提出了一种针对推荐系统核心环节（图协同过滤）的新架构，通过曲率感知的动态传播深度解决了过平滑问题，直接应用于召回/匹配场景；虽非 LLM 研究，但属于核心领域重大创新且来自中国企业，符合高分标准。",
+    "translation": "神经树协同过滤：基于曲率感知传播深度将图协同过滤重构为树协同过滤",
+    "summary_zh": "该论文提出神经树协同过滤框架，将用户 - 物品交互图重构为根树结构，并利用局部度不平衡分数作为离散 Ricci 曲率代理，为不同节点分配自适应的传播深度以解决过平滑和欠探索问题。",
+    "key_points": [
+      "该论文提出神经树协同过滤框架，将用户 - 物品交互图重构为根树结构，并利用局部度不平衡分数作为离散 Ricci 曲率代理，为不同节点分配自适应的传播深度以解决过平滑和欠探索问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.12727",
+    "title": "Training Dense Retrievers with Multiple Positive Passages",
+    "authors": [
+      "Benben Wang",
+      "Minghao Tang",
+      "Hengran Zhang",
+      "Jiafeng Guo",
+      "Keping Bi"
+    ],
+    "summary": "Modern knowledge-intensive systems, such as retrieval-augmented generation (RAG), rely on effective retrievers to establish the performance ceiling for downstream modules. However, retriever training has been bottlenecked by sparse, single-positive annotations, which lead to false-negative noise and suboptimal supervision. While the advent of large language models (LLMs) makes it feasible to collect comprehensive multi-positive relevance labels at scale, the optimal strategy for incorporating these dense signals into training remains poorly understood. In this paper, we present a systematic study of multi-positive optimization objectives for retriever training. We unify representative objectives, including Joint Likelihood (JointLH), Summed Marginal Likelihood (SumMargLH), and Log-Sum-Exp Pairwise (LSEPair) loss, under a shared contrastive learning framework. Our theoretical analysis characterizes their distinct gradient behaviors, revealing how each allocates probability mass across positive document sets. Empirically, we conduct extensive evaluations on Natural Questions, MS MARCO, and the BEIR benchmark across two realistic regimes: homogeneous LLM-annotated data and heterogeneous mixtures of human and LLM labels. Our results show that LSEPair consistently achieves superior robustness and performance across settings, while JointLH and SumMargLH exhibit high sensitivity to the quality of positives. Furthermore, we find that the simple strategy of random sampling (Rand1LH) serves as a reliable baseline. By aligning theoretical insights with empirical findings, we provide practical design principles for leveraging dense, LLM-augmented supervision to enhance retriever effectiveness.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2602.12727",
+    "pdf_url": "https://arxiv.org/pdf/2602.12727.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文专注于密集检索器（Dense Retrievers）的训练优化，这是搜索和 RAG 系统的核心组件，直接解决了检索阶段的监督信号问题；虽利用 LLM 生成数据，但核心贡献在于检索模型本身而非纯 LLM 研究。",
+    "translation": "利用多正样本段落训练密集检索器",
+    "summary_zh": "本文提出了一种统一的对比学习框架，系统研究了如何利用 LLM 生成的多正样本标注来优化密集检索器的训练目标，以解决稀疏标注导致的噪声问题并提升检索鲁棒性。",
+    "key_points": [
+      "本文提出了一种统一的对比学习框架，系统研究了如何利用 LLM 生成的多正样本标注来优化密集检索器的训练目标，以解决稀疏标注导致的噪声问题并提升检索鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10008",
+    "title": "Do LLM Recommenders Know When They're Hallucinating? Auditing Confidence Calibration in Catalog Faithfulness",
+    "authors": [
+      "Srijith Ravikumar"
+    ],
+    "summary": "LLM recommenders for top-$K$ item suggestion regularly emit titles outside the target catalog. Prior audits measure this as a binary out-of-domain rate; none ask whether the model knew it was hallucinating. We jointly audit hallucination rate (OOD@10) and verbalized-confidence calibration (ECE, Brier, reliability) for four zero-shot LLM recommenders from four independent vendors (Mistral Large, Llama-3.3-70B, GPT-OSS-120B, Claude Sonnet 4.6), not grounded or fine-tuned systems, across three catalogs (MovieLens-25M, Amazon Reviews 2023 Toys, Yelp Open Dataset), stratified by item popularity. Hallucination is catalog-dependent (0--0.2\\% on MovieLens, 4.5--8.3\\% on Amazon, 2.2--8.4\\% on Yelp), but verbalized confidence is materially miscalibrated even when hallucination is zero (ECE up to 0.223 on MovieLens despite 0\\% OOD). All four LLMs are systematically \\emph{under}-confident across all twelve cells, verbalizing a mean of 67--86 on items they recommend with 92--100\\% accuracy. This is the opposite of the over-confidence usually emphasized in LLM-hallucination work. The under-confidence is best read as an \\emph{elicitation mismatch}: ``Just Ask'' elicits a generic recommendation-quality rating, not a catalog-membership probability. A conformal abstention threshold over verbalized confidence reduces hallucination by at most 0.7\\,pp across $α\\in \\{.05, .10, .15, .20\\}$, at 4--21\\,pp of coverage cost: the under-confident channel cannot separate correct items from hallucinations, so the threshold mostly removes correct items. We recommend that audits of LLM recommenders report calibration alongside OOD, and use catalog-anchored elicitation rather than generic confidence prompts.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-08-07",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10008",
+    "pdf_url": "https://arxiv.org/pdf/2608.10008.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对 LLM 推荐系统中的幻觉（Hallucination）和置信度校准问题，属于 LLM for RecSys 的核心应用研究；虽无特定中国业务场景，但鉴于作者来自中国公司且解决了推荐系统落地的关键信任问题，给予高分。",
+    "translation": "LLM 推荐器是否知晓自身幻觉？审计目录忠实度中的置信度校准",
+    "summary_zh": "本文通过联合审计幻觉率与言语化置信度，发现主流 LLM 推荐器存在系统性低置信度现象，揭示了通用提示词导致的 elicitation mismatch 问题，并提出了基于目录锚定的 elicitation 改进方案以提升推荐可靠性。",
+    "key_points": [
+      "本文通过联合审计幻觉率与言语化置信度，发现主流 LLM 推荐器存在系统性低置信度现象，揭示了通用提示词导致的 elicitation mismatch 问题，并提出了基于目录锚定的 elicitation 改进方案以提升推荐可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10447",
+    "title": "Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging",
+    "authors": [
+      "Linh Dieu Le",
+      "Tong Chen",
+      "Shazia Sadiq",
+      "Hongzhi Yin",
+      "Ming Jin",
+      "Junliang Yu"
+    ],
+    "summary": "Large language model-based recommender systems are increasingly adopting slow-thinking models that generate step-by-step reasoning before making predictions, often achieving higher accuracy than fast-thinking models that predict directly. However, their reasoning traces are often unnecessarily verbose, increasing inference costs without commensurate accuracy gains. Existing training-based approaches to reasoning compression often incur substantial adaptation costs, while inference-time methods are brittle and difficult to scale. These limitations motivate model merging as a promising training-free direction for transferring specialised behaviours between models in a shared parameter space. In particular, merging a slow-thinking model with a fast-thinking counterpart provides a natural mechanism for balancing recommendation accuracy and reasoning conciseness. To this end, we propose, to our knowledge, the first model merging framework for reasoning compression in recommender systems. Unlike conventional merging methods that apply uniform merge coefficients across model components, our method performs fine-grained merging at the level of individual attention heads, capturing heterogeneous patterns in recommendation reasoning. Each attention head is assigned a distinct merge coefficient according to its contribution to critical reasoning evidence and its sensitivity to parameter change, enabling selective injection of the concise behaviour of the fast-thinking model into the slow-thinking model and reducing reasoning verbosity without compromising recommendation quality. Experiments on three benchmark datasets show that our method reduces reasoning length by up to 24.3% while outperforming competitive model merging baselines in maintaining recommendation accuracy. The code is available at https://github.com/linhledieu/REAM.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10447",
+    "pdf_url": "https://arxiv.org/pdf/2608.10447.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统中的推理效率问题，提出了一种无需训练的模型合并框架来压缩推理过程，属于 LLM 在推荐系统中的具体应用优化。",
+    "translation": "通过模型合并实现基于大语言模型的推荐系统高效推理",
+    "summary_zh": "本文提出一种细粒度注意力头级别的模型合并框架，将“快思考”模型的简洁行为注入“慢思考”推荐模型中，旨在降低推理成本的同时保持推荐准确性。",
+    "key_points": [
+      "本文提出一种细粒度注意力头级别的模型合并框架，将“快思考”模型的简洁行为注入“慢思考”推荐模型中，旨在降低推理成本的同时保持推荐准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10385",
+    "title": "Persona Conditioning as an Assessor-Sensitivity Probe for LLM-Based IR Evaluation",
+    "authors": [
+      "Samaneh Mohtadi",
+      "Pietro Bernardelle",
+      "Joel Mackenzie",
+      "Gianluca Demartini"
+    ],
+    "summary": "Large language models (LLMs) are increasingly used as relevance assessors in information retrieval (IR) evaluation, raising questions about how assessor framing affects judgment reliability and downstream system comparison. We study persona conditioning as a diagnostic mechanism for exposing LLM assessor sensitivity. Using task-oriented personas drawn from two complementary sources (PersonaHub and NVIDIA Nemotron-Personas-USA), we instantiate five assessor roles emphasizing intent interpretation, domain expertise, contrastive judgment, evidence verification, and global search-quality assessment, compared with a standard UMBRELA baseline. Across six LLM backbones on TREC DL20 and RAG24, our analyses reveal structured rather than uniform assessor sensitivity. Judgments usually remain close to the baseline while shifting assessment strictness, evidential threshold, or interpretation emphasis rather than producing widespread relevance reversals. At the system level, high-capacity models preserve system-ranking agreement, while smaller models amplify persona-induced instability. Local rank-displacement analysis shows sensitivity concentrates on particular retrieval systems and system types, especially neural ranking/reranking systems on DL20 and RAG-oriented pipelines on RAG24. Persona source matters less than assessor role and model capacity. These findings position persona-conditioned judging as a controlled sensitivity probe for stress-testing LLM-based IR evaluation pipelines and identifying systems whose evaluation outcomes are sensitive to assessor framing.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10385",
+    "pdf_url": "https://arxiv.org/pdf/2608.10385.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "NVIDIA"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于利用 LLM 进行信息检索（IR）系统的评估与诊断，属于搜索系统的基础设施研究，而非直接的排序或召回算法创新；虽非纯 LLM 研究但偏向评估方法论，基础分为 5 分，因来自中国公司额外加 1 分。",
+    "translation": "作为评估器敏感性探针的人物角色条件化用于基于 LLM 的 IR 评估",
+    "summary_zh": "提出通过人物角色条件化（Persona Conditioning）作为诊断机制，探测大语言模型在信息检索评估中作为评判者时的敏感性与稳定性，以识别受评估者 framing 影响的检索系统。",
+    "key_points": [
+      "提出通过人物角色条件化（Persona Conditioning）作为诊断机制，探测大语言模型在信息检索评估中作为评判者时的敏感性与稳定性，以识别受评估者 framing 影响的检索系统"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10524",
+    "title": "Rethinking Text-Based Image Retrieval in Specific Domain",
+    "authors": [
+      "Jingyang Tan",
+      "Sheng Yang",
+      "Yuanpeng Chen",
+      "Jian Wang",
+      "Nianjin Ye",
+      "Chen Xing",
+      "Lanpeng Jia"
+    ],
+    "summary": "Driven by the rapid advancement of vision-language representation learning, Text-based Image Retrieval (TBIR) has made notable progress. However, existing benchmarks are predominantly constructed on an exclusive single-match assumption between query and images. While effective in general scenarios, this assumption fails to reflect practical system performance in specific domains (e.g., surveillance), where a single query often corresponds to multiple relevant candidate images. To address this limitation, we design a Domain-Specific Multi-Match Text-based Image Retrieval (DSMM-TBIR) data engine. Leveraging this engine, we construct Security Multi-Match TBIR (SecMM-TBIR), a benchmark comprising 50k surveillance images with 200 comprehensive queries. Furthermore, we observe that vanilla contrastive learning in specific domains suffers from severe false negatives, forcing the model to push apart semantically similar pairs and thus degrading retrieval performance. We propose the Semantic-Aware Fine-Tuning (SAFT) framework to address semantic compression in specific domains, which incorporates Semantic-Aware Soft-Label Supervision (SASS) and Intra-modal Structural Distillation (ISD) to establish a promising paradigm for domain-specific TBIR tasks. Experiments across diverse CLIP-like models demonstrate that SAFT yields an average mAP@20 gain of 7.8 points on SecMM-TBIR over standard image-text contrastive (ITC) fine-tuning, while also improving general-domain performance. The entire benchmark will be released to facilitate further research.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10524",
+    "pdf_url": "https://arxiv.org/pdf/2608.10524.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦特定领域（安防监控）的图文检索基准与算法优化，虽属多模态搜索范畴，但缺乏通用电商/社交推荐场景的直接应用，且主要贡献在于数据集构建而非核心推荐架构创新。",
+    "translation": "重思考特定领域的基于文本图像检索",
+    "summary_zh": "针对特定领域中单查询对应多匹配图像的特性，提出包含语义感知软标签监督与模态内结构蒸馏的语义感知微调框架，以解决对比学习中的假阴性问题并提升检索性能。",
+    "key_points": [
+      "针对特定领域中单查询对应多匹配图像的特性，提出包含语义感知软标签监督与模态内结构蒸馏的语义感知微调框架，以解决对比学习中的假阴性问题并提升检索性能"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10176",
+    "title": "TRACE: Trustworthy Retrieval-Augmented Conversational Engine",
+    "authors": [
+      "Touseef Hasan",
+      "Laila Cure",
+      "Souvika Sarkar"
+    ],
+    "summary": "Public service chatbots are expected to deliver recommendations from an underlying public service directory, while also making sure that the recommendations respect explicit user constraints. In practice, public service directories are noisy and inconsistent, and general-purpose large language model (LLM) or AI-based chatbots frequently generate unreliable recommendations, citing unverified sources from the web. We investigate the impact of retrieval quality on constraint-aware recommendation in public service conversational systems built over noisy and heterogeneous service directories. We propose TRACE (Trustworthy Retrieval-Augmented Conversational Engine), a retrieval-based, constraint-aware framework that parses input user queries into structural and semantic constraints for downstream retrieval, with the help of a dual data representation schema. Using a curated statewide pantry directory and a synthetic query benchmark, we evaluate multiple knowledge-representation variants with and without knowledge graphs (KGs). We experiment with several open-source LLMs and a proprietary model, showing that strengthening retrieval substantially improves user constraint satisfaction while reducing hallucinated recommendations. Performance differences across LLMs narrowed in our experiments as retrieval quality improved, making results less sensitive to model size. These findings suggest that the quality of retrieval is key for robust public service conversational systems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10176",
+    "pdf_url": "https://arxiv.org/pdf/2608.10176.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于公共服务聊天机器人的约束感知推荐，属于特定领域的对话系统应用，而非通用的电商/社交推荐或搜索核心架构创新，且主要依赖现有 LLM 能力，相关性较弱。",
+    "translation": "TRACE：可信的检索增强型对话引擎",
+    "summary_zh": "提出一种基于检索的约束感知框架，通过将用户查询解析为结构和语义约束并结合双重数据表示模式，以在噪声数据源上生成可靠且符合用户限制的公共服务推荐。",
+    "key_points": [
+      "提出一种基于检索的约束感知框架，通过将用户查询解析为结构和语义约束并结合双重数据表示模式，以在噪声数据源上生成可靠且符合用户限制的公共服务推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2608.06128",
+    "title": "Contextual Information Policy Optimization for Search Agents",
+    "authors": [
+      "Xingyu Guo",
+      "Wei Chen",
+      "Linlin Yang",
+      "Baochang Zhang"
+    ],
+    "summary": "Search agents extend large language models beyond static parametric memory by enabling them to acquire and use external evidence during multi-step reasoning. For knowledge-intensive tasks involving complex or evolving information, their reliability depends not only on retrieving relevant evidence but also on using it to guide subsequent reasoning. However, existing methods primarily reward final-answer correctness or intermediate progress, without directly assessing whether post-retrieval actions are grounded in the retrieved evidence. This misalignment encourages prior-driven reasoning: agents form conclusions based on internal knowledge and use retrieval mainly to confirm them, resulting in confirmation bias and inefficient evidence use. To address this issue, we propose Contextual Information Policy Optimization (CIPO), an evidence-oriented reinforcement learning framework that explicitly aligns policy optimization with external evidence use. CIPO assigns dense, turn-level credit to reasoning actions influenced by retrieved information, while combining this evidence-use signal with a global outcome reward to preserve answer correctness. With this manner, CIPO discourages evidence-detached guesses and promotes reasoning trajectories in which retrieved facts can guide or revise subsequent reasoning. Importantly, CIPO requires neither human process annotations nor an additional reward model. Extensive experiments on seven in-domain and out-of-domain benchmarks show that CIPO reduces the prevalence of prior-driven reasoning and achieves excellent performance on most tasks.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-11",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.06128",
+    "pdf_url": "https://arxiv.org/pdf/2608.06128.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM Agent 推理优化研究，旨在解决通用知识密集型任务中的确认偏差问题，并未针对推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）提出直接应用方案。",
+    "translation": "搜索代理的上下文信息策略优化",
+    "summary_zh": "提出一种面向证据的强化学习框架 CIPO，通过在推理过程中对依赖检索信息的动作分配细粒度奖励，显式对齐策略优化与外部证据使用，以抑制基于内部先验的确认偏差并引导多步推理轨迹。",
+    "key_points": [
+      "提出一种面向证据的强化学习框架 CIPO，通过在推理过程中对依赖检索信息的动作分配细粒度奖励，显式对齐策略优化与外部证据使用，以抑制基于内部先验的确认偏差并引导多步推理轨迹"
+    ]
+  },
+  {
+    "arxiv_id": "2606.31087",
+    "title": "When Reranking Hurts: Uncertainty-Based Gating for Few-Shot Reranking",
+    "authors": [
+      "Orian Dabod",
+      "Amir DN Cohen",
+      "Gabriel Stanovsky"
+    ],
+    "summary": "Few-shot selection typically assumes that reranking retrieved examples always improves performance. We challenge this view by identifying that the expensive reranking step can in fact degrade performance. Instead, we propose \\emph{Training-Free Gated Reranking}, which decides whether to rerank the few-shot examples based on the model's uncertainty. Extensive experiments across 8 LLMs, covering 7 NLU datasets and 18 MT domain-direction combinations, demonstrate that our approach reduces average computational costs by approximately 20\\% for MT and 54\\% for NLU at a calibrated operating point, while matching the performance of full reranking. These findings indicate that higher computational cost does not guarantee better performance, and that reranking is most beneficial when targeted at high-uncertainty instances.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2606.31087",
+    "pdf_url": "https://arxiv.org/pdf/2606.31087.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/LLM 研究，专注于少样本学习中的重排序优化，未涉及推荐系统或搜索引擎的核心业务场景。",
+    "translation": "重排序何时有害：基于不确定性的少样本重排序门控机制",
+    "summary_zh": "提出一种无需训练的门控重排序方法，通过模型不确定性判断是否执行重排序，以避免在低价值样本上浪费计算资源并防止性能下降。",
+    "key_points": [
+      "提出一种无需训练的门控重排序方法，通过模型不确定性判断是否执行重排序，以避免在低价值样本上浪费计算资源并防止性能下降"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10154",
+    "title": "Multimodal Item Parameter Estimation using Simulated Response Probabilitie",
+    "authors": [
+      "Christopher Ormerod",
+      "YoungKoung Kim"
+    ],
+    "summary": "We present results from reconstructing multiple-choice model (MCM) and three-parameter logistic (3PL) model curves using a fine-tuned multimodal large language model (LLM) based on Qwen3.5. The model is prompted and fine-tuned to replicate choice probabilities across a large training corpus of multiple-choice items containing both image and text stimuli, conditioned on a labeled set of student ability levels. By learning to reproduce the systematic error patterns of students across a discrete range of abilities, the LLM implicitly captures the underlying response probabilities encoded in the 3PL and MCM curves. This allows us to accurately approximate item difficulty on a held-out test set directly from the model's predicted option probabilities.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-08-10",
+    "updated": "2026-08-12",
+    "url": "https://arxiv.org/abs/2608.10154",
+    "pdf_url": "https://arxiv.org/pdf/2608.10154.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯教育测量学（Psychometrics）研究，利用多模态 LLM 模拟学生答题行为以估计题目参数，与推荐系统或搜索引擎无直接关联。",
+    "translation": "基于模拟响应概率的多模态题目参数估计",
+    "summary_zh": "该方法通过微调多模态大语言模型来复现不同能力水平学生在图文选择题上的系统性错误模式，从而隐式捕捉项目反应理论曲线并直接从预测概率中估算题目难度参数。",
+    "key_points": [
+      "该方法通过微调多模态大语言模型来复现不同能力水平学生在图文选择题上的系统性错误模式，从而隐式捕捉项目反应理论曲线并直接从预测概率中估算题目难度参数"
+    ]
+  }
+]

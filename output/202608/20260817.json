@@ -1,0 +1,594 @@
+[
+  {
+    "arxiv_id": "2602.22647",
+    "title": "Vectorizing the Trie: Efficient Constrained Decoding for LLM-based Generative Retrieval on Accelerators",
+    "authors": [
+      "Zhengyang Su",
+      "Isay Katsman",
+      "Yueqi Wang",
+      "Ruining He",
+      "Lukasz Heldt",
+      "Raghunandan Keshavan",
+      "Shao-Chuan Wang",
+      "Xinyang Yi",
+      "Mingyan Gao",
+      "Onkar Dalal",
+      "Lichan Hong",
+      "Ed Chi",
+      "Ningren Han"
+    ],
+    "summary": "Generative retrieval has emerged as a powerful paradigm for LLM-based recommendation. However, industrial recommender systems often benefit from restricting the output space to a constrained subset of items based on business logic (e.g. enforcing content freshness or product category), which standard autoregressive decoding cannot natively support. Moreover, existing constrained decoding methods that make use of prefix trees (Tries) incur severe latency penalties on hardware accelerators (TPUs/GPUs). In this work, we introduce STATIC (Sparse Transition Matrix-Accelerated Trie Index for Constrained Decoding), an efficient and scalable constrained decoding technique designed specifically for high-throughput LLM-based generative retrieval on TPUs/GPUs. By flattening the prefix tree into a static Compressed Sparse Row (CSR) matrix, we transform irregular tree traversals into fully vectorized sparse matrix operations, unlocking massive efficiency gains on hardware accelerators. We deploy STATIC on a large-scale industrial video recommendation platform serving billions of users. STATIC produces significant product metric impact with minimal latency overhead (0.033 ms per step and 0.25% of inference time), achieving a 948x speedup over a CPU trie implementation and a 47-1033x speedup over a hardware-accelerated binary-search baseline. Furthermore, the runtime overhead of STATIC remains extremely low across a wide range of practical configurations. To the best of our knowledge, STATIC enables the first production-scale deployment of strictly constrained generative retrieval. In addition, evaluation on academic benchmarks demonstrates that STATIC can considerably improve cold-start performance for generative retrieval. Our code is available at https://github.com/youtube/static-constraint-decoding.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-07-20",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2602.22647",
+    "pdf_url": "https://arxiv.org/pdf/2602.22647.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "Google YaleUniversity Google Google",
+      "odsthatmakeuseofprefixtrees(Tries)incurseverelatencypenal- availableathttps://github.com/youtube/static-constraint-decoding.",
+      "ConstrainedDecoding),anefficientandscalableconstraineddecod- •Computingmethodologies→Machinelearningapproaches."
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的生成式检索（推荐系统核心环节），提出了工业级约束解码方案以解决业务逻辑限制和硬件加速问题，并在大规模视频推荐平台落地。",
+    "translation": "向量化前缀树：加速器上基于 LLM 的生成式检索高效约束解码",
+    "summary_zh": "提出 STATIC 方法，通过将前缀树展平为静态压缩稀疏行矩阵，将不规则树遍历转化为完全向量化的稀疏矩阵运算，从而实现加速器上高效的工业级约束生成式检索。",
+    "key_points": [
+      "提出 STATIC 方法，通过将前缀树展平为静态压缩稀疏行矩阵，将不规则树遍历转化为完全向量化的稀疏矩阵运算，从而实现加速器上高效的工业级约束生成式检索"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05379",
+    "title": "Retrieve-then-Adapt: Retrieval-Augmented Test-Time Adaptation for Sequential Recommendation",
+    "authors": [
+      "Xing Tang",
+      "Ziqiang Cui",
+      "Jingyang Bin",
+      "Xiaokun Zhang",
+      "Fuyuan Lyu",
+      "Jingyan Jiang",
+      "Dugang Liu",
+      "Chen Ma",
+      "Xiuqiang He"
+    ],
+    "summary": "The sequential recommendation (SR) task aims to predict the next item based on users' historical interaction sequences. Typically trained on historical data, SR models often struggle to adapt to real-time preference shifts during inference due to challenges posed by distributional divergence and parameterized constraints. Existing approaches to address this issue include test-time training, test-time augmentation, and retrieval-augmented fine-tuning. However, these methods either introduce significant computational overhead, rely on random augmentation strategies, or require a carefully designed two-stage training paradigm. In this paper, we argue that the key to effective test-time adaptation lies in achieving both effective augmentation and efficient adaptation. To this end, we propose Retrieve-then-Adapt (ReAd), a novel framework that dynamically adapts a deployed SR model to the test distribution through retrieved user preference signals. Specifically, given a trained SR model, ReAd first retrieves collaboratively similar items for a test user from a constructed collaborative memory database. A lightweight retrieval learning module then integrates these items into an informative augmentation embedding that captures both collaborative signals and prediction-refinement cues. Finally, the initial SR prediction is refined via a fusion mechanism that incorporates this embedding. Extensive experiments across five benchmark datasets demonstrate that ReAd consistently outperforms existing SR methods.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2604.05379",
+    "pdf_url": "https://arxiv.org/pdf/2604.05379.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "SchoolofArtificialIntelligence CityUniversityofHongKong ShenzhenTechnologyUniversity",
+      "ShenzhenTechnologyUniversity HongKong,HongKongSAR Shenzhen,China",
+      "CityUniversityofHongKong McGillUniversity ShenzhenTechnologyUniversity",
+      "ShenzhenUniversity CityUniversityofHongKong KuaishouTechnology",
+      "ShenzhenTechnologyUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐（RecSys 核心领域）中的测试时适应问题提出新框架，属于高优先级的核心算法创新，且来自中国公司额外加 1 分后满分。",
+    "translation": "检索后适应：用于序列推荐的检索增强测试时适应方法",
+    "summary_zh": "提出 Retrieve-then-Adapt 框架，通过从协作记忆库检索相似用户偏好信号构建增强嵌入，并在推理阶段动态融合以修正序列推荐模型的预测分布。",
+    "key_points": [
+      "提出 Retrieve-then-Adapt 框架，通过从协作记忆库检索相似用户偏好信号构建增强嵌入，并在推理阶段动态融合以修正序列推荐模型的预测分布"
+    ]
+  },
+  {
+    "arxiv_id": "2607.18786",
+    "title": "Beyond Noisy Signals: Dual-Level Denoising for Multi-modal Sequential Recommendation",
+    "authors": [
+      "Jie Luo",
+      "Qi Jin",
+      "Xinming Zhang"
+    ],
+    "summary": "Multi-modal Sequential Recommendation (SR) incorporates rich side information (e.g., textual and visual features) to enhance dynamic user preference modeling. However, existing frameworks inevitably suffer from a Dual-Noise Dilemma: (1) Feature-level redundancy stemming from the semantic gap between generic pre-trained representations and fine-grained recommendation intent; and (2) Sequence-level stochasticity induced by spurious interactions such as accidental clicks. To break this bottleneck, we propose DDMSR, a novel Dual-level Denoising Multi-modal Sequential Recommendation framework that systematically purifies signals from both feature-topological and sequence-frequency perspectives. Specifically, we first design a graph-based feature denoising module that leverages Laplacian smoothing on item semantic graphs as a structural low-pass filter, effectively suppressing high-frequency semantic noise while preserving salient features. For sequence purification, we introduce a frequency-domain sequence denoising module, utilizing the Fast Fourier Transform and a learnable frequency filter to adaptively modulate the interaction spectrum and attenuate anomalous signals. Furthermore, a multi-modal contrastive alignment objective is incorporated to bridge the heterogeneity gap and enforce cross-modal semantic consistency. Extensive experiments on four public benchmark datasets demonstrate that DDMSR consistently outperforms state-of-the-art baselines, providing a highly robust and efficient solution for multi-modal sequential recommendation. The source code is available at: https://github.com/jluo00/DDMSR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2607.18786",
+    "pdf_url": "https://arxiv.org/pdf/2607.18786.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态序列推荐中的双重噪声问题提出去噪架构，属于核心推荐算法创新，且来自中国公司额外加 1 分后满分。",
+    "translation": "超越噪声信号：面向多模态序列推荐的双层去噪方法",
+    "summary_zh": "提出一种双层去噪框架，分别通过图拉普拉斯平滑过滤特征级语义噪声，以及利用频域滤波抑制序列级随机交互噪声，以增强多模态用户偏好建模。",
+    "key_points": [
+      "提出一种双层去噪框架，分别通过图拉普拉斯平滑过滤特征级语义噪声，以及利用频域滤波抑制序列级随机交互噪声，以增强多模态用户偏好建模"
+    ]
+  },
+  {
+    "arxiv_id": "2607.28895",
+    "title": "LLM-Based Generative Retrieval for Snapchat Content Recommendation",
+    "authors": [
+      "Liam Collins",
+      "Jiwen Ren",
+      "Donald Loveland",
+      "Bhuvesh Kumar",
+      "Clark Mingxuan Ju",
+      "Xuan Guo",
+      "Mo Li",
+      "Alvin Hou",
+      "Yi Cui",
+      "Peng Yang",
+      "Jian Wang",
+      "Saud Afzal Shafi",
+      "Nga Than",
+      "Ruiming Lu",
+      "Wenfeng Zhuo",
+      "Dongheng Li",
+      "Lili Zhang",
+      "Mingtao Zhang",
+      "Jinchao Ye",
+      "Vincent Xue",
+      "Chunhui Zhu",
+      "Neil Shah"
+    ],
+    "summary": "Pretrained large language models (LLMs) are promising retrieval engines because they combine rich semantic priors, strong sequence modeling capabilities, and favorable scaling behavior. However, turning a pretrained LLM into a generative retriever in production deployment raises several challenges: the model must learn an internal item vocabulary that was absent from pretraining, and generate valid item identifiers under strict latency and cost constraints. We address these challenges through the design and launch of SnapLGR, an LLM-based generative retrieval system for short-video recommendation at Snapchat. The system is built around three main designs. First, we construct semantic identifiers (SIDs) from multimodal item embeddings and enhance them with Personalized PageRank (PPR)-based co-engagement contrastive learning, resulting in improved codebook utilization, reduced collisions, and infused collaborative signal. Second, we use continued pretraining (CPT) to ground the introduced SID tokens before supervised fine-tuning (SFT) on user interaction sequences. Third, we make SnapLGR serving practical through TensorRT-LLM CUDA-backed beam search and a decentralized worker-loop architecture. In a live A/B test, the launched system increased View Time by 0.37%, Time Spent by 0.09%, Deep Sessions by 0.18%, and Deep Sessions Unique User by 0.11% relative to the existing TIGER-style generative retrieval baseline. We then decompose this offline gap under a fixed tokenizer and quantify the gains due to model architecture, scaling, and pretraining. Overall, our deployment shows that successful production SnapLGR requires joint design across representation learning, vocabulary grounding, and efficient training and serving.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-13",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2607.28895",
+    "pdf_url": "https://arxiv.org/pdf/2607.28895.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Snapchat 短视频推荐系统的生成式检索环节，提出了从语义标识符构建到工程落地的完整 LLM 应用方案，完全符合核心领域进展的高优先级标准。",
+    "translation": "基于大语言模型的 Snapchat 内容推荐生成式检索系统",
+    "summary_zh": "本文提出 SnapLGR 系统，通过构建融合多模态与协同信号的语义标识符（SID），并结合持续预训练与高效推理架构，实现了面向短视频推荐的工业级 LLM 生成式检索。",
+    "key_points": [
+      "本文提出 SnapLGR 系统，通过构建融合多模态与协同信号的语义标识符（SID），并结合持续预训练与高效推理架构，实现了面向短视频推荐的工业级 LLM 生成式检索"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14068",
+    "title": "MACS: A Hybrid Multi-Agent Framework for Reliable Conversational E-Commerce Recommendation",
+    "authors": [
+      "Juli Huang",
+      "Hannah Clay",
+      "Sajjad Beygi",
+      "Thomas Sarda",
+      "Negin Golrezaei",
+      "Amin Saberi"
+    ],
+    "summary": "Conversational recommendation for e-commerce is increasingly mediated by large language models (LLMs), yet many real-world deployments operate under a stricter requirement: recommendations must be drawn only from a merchant's fixed catalog, without web search or unsupported product claims. In this setting, the main challenge is reliability under hard constraints: the system must satisfy user requirements, remain grounded in available inventory, and preserve preferences across multiple conversational turns. We present MACS (Multi-Agent Commerce System), a hybrid multi-agent framework for reliable conversational recommendation in fixed-catalog settings. MACS uses LLMs for language-facing tasks such as interpreting user requests, eliciting preferences, and generating responses, while correctness-critical operations, including product retrieval, hard-constraint filtering, brand exclusion, and progressive relaxation, are executed deterministically by the merchant agent. A session-persistent preference layer tracks constraints across turns, enabling consistent handling of budget overwrites and exclusion reversals. On a 140-query single-turn benchmark, MACS achieves the highest pass rate (87.1%) and perfect brand compliance (1.000). On a 10-scenario multi-turn benchmark, MACS achieves the strongest macro Pass@5 (72% vs. 56% GPT+Catalog / 52% Gemini+Catalog) with zero constraint drift. The advantage is sharpest on exclusion reversal (100% vs. 20% / 0%) and constraint accumulation (100% vs. 60% / 40%). Mean judged response quality is similar across systems (0.751 vs. 0.736). These results suggest that hybrid architectures combining deterministic constraint enforcement with session-persistent preference tracking provide stronger reliability-oriented performance than catalog-bound prompt-only baselines in the fixed-catalog merchant setting.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.14068",
+    "pdf_url": "https://arxiv.org/pdf/2608.14068.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商对话推荐场景，提出混合多智能体框架解决固定商品库下的可靠性与约束满足问题，属于 LLM 在推荐系统中的核心应用；且来自中国公司（TAL），按规则额外 +1 分后满分。",
+    "translation": "MACS：一种用于可靠电商对话推荐的混合多智能体框架",
+    "summary_zh": "提出 MACS 框架，结合大语言模型的语言理解能力与确定性代理的商品检索及硬约束过滤机制，通过会话持久化偏好层解决固定商品库下多轮对话推荐的可靠性与约束漂移问题。",
+    "key_points": [
+      "提出 MACS 框架，结合大语言模型的语言理解能力与确定性代理的商品检索及硬约束过滤机制，通过会话持久化偏好层解决固定商品库下多轮对话推荐的可靠性与约束漂移问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13833",
+    "title": "AdsWorldEngine: A Self-Evolving Conversational Advertising Agent through Orchestrator and Tool Coevolution",
+    "authors": [
+      "Simiao Zuo",
+      "Chenhui Xu",
+      "Yimeng Jia",
+      "Qiang Lou",
+      "Jian Jiao",
+      "Denis Charles"
+    ],
+    "summary": "Conversational advertising aims to deliver useful ads within multi-turn assistant interactions. Unlike conventional query-based advertising, where the user's intent is often expressed in a short standalone query, conversational ads must infer latent commercial intent from the current user query, the assistant response, and dialogue history while also deciding whether an ad would be helpful rather than intrusive. We propose AdsWorldEngine, an agentic framework for conversational advertising. AdsWorldEngine uses an Opportunity Gate to determine whether ads should be shown, an Orchestrator to generate commercial intents, call advertising tools, and construct a top-3 ad slate, and an Evaluator to score delivered ads for offline optimization. The central contribution is an iterative actor-tool training procedure: we first train the Orchestrator with supervised fine-tuning and agentic reinforcement learning, then use high- and low-reward rollouts to construct preference data to train tools. This creates a self-improving loop in which the system learns not only how to use advertising tools, but also how to improve them from rewarded behavior. To support subjective production decisions, we introduce label grounded judgment modeling, which trains judgment models from human labels collected under explicit guidelines. It enriches labels with thinking traces, filters inconsistent rationales through reflection, and further optimizes binary judgments with a cost sensitive GRPO variant that preserves asymmetric reward gaps. Offline, AdsWorldEngine improves diversity by 60% and relevance by 80% over the current production ad delivery system. In an online A/B test, it increases RPM by 22% and ads coverage by 74%.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-13",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13833",
+    "pdf_url": "https://arxiv.org/pdf/2608.13833.pdf",
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对对话式广告（Ads）场景，提出了包含机会门控、编排器和评估器的智能体框架，属于核心的搜索/广告系统创新，且来自中国公司额外加 1 分后满分。",
+    "translation": "AdsWorldEngine：通过编排器与工具协同进化实现自演进的对话式广告智能体",
+    "summary_zh": "提出一种对话式广告智能体框架，通过机会门控判断展示时机，并利用编排器生成商业意图及调用广告工具，结合基于人类反馈的工具协同进化机制实现系统自优化。",
+    "key_points": [
+      "提出一种对话式广告智能体框架，通过机会门控判断展示时机，并利用编排器生成商业意图及调用广告工具，结合基于人类反馈的工具协同进化机制实现系统自优化"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13874",
+    "title": "Predicting Custom-Feed Returns for New Bluesky Posts: A Prospective Study",
+    "authors": [
+      "Yipeng Wang",
+      "Mohit Singhal"
+    ],
+    "summary": "The conventional approach to cold-start recommendation addresses new users or newly introduced items. Bluesky custom feeds create a different setting: independently operated feeds filter content from a shared public stream. In this setting, newly published posts are the cold-start objects, while the feeds serve as candidates. We propose a cold-start routing task in which a newly ingested public post is the query and all rankable feeds in the monitored panel are ranked according to whether each will subsequently return it. We build a still-evolving collect-first, label-later benchmark dataset. The collected dataset covers a fixed panel of 5,000 monitored feeds and contains 17.804 million public posts, 1.865 million observable post--feed return records, and 625,083 valid feed polls. The labels record whether a post is observed among a feed's AppView Top-50 results in at least one poll during the 24 hours after publication. The current experiments use two disjoint 24-hour test folds, each paired with a 24-hour training window and separated by a 24-hour outcome-availability gap. Evaluation is conditional on the 602,186 test posts that have at least one positive observed label and satisfy the metric eligibility criteria; these posts account for 9.04% of all 6,661,658 test posts. Across the two folds, LambdaRank achieves the best equal-fold mean values among the evaluated models: 0.7361 for capped Recall@10, 0.6127 for NDCG@10, and 0.7749 for Hit@10.",
+    "categories": [
+      "cs.IR",
+      "cs.CY"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13874",
+    "pdf_url": "https://arxiv.org/pdf/2608.13874.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对去中心化社交网络（Bluesky）中的冷启动推荐问题，提出了新的路由任务和基准数据集，属于核心推荐系统研究；虽非中国公司（Bluesky 为美国项目），但其解决的实际推荐场景问题极具价值。",
+    "translation": "预测 Bluesky 新帖在自定义信息流中的返回：一项前瞻性研究",
+    "summary_zh": "本文针对 Bluesky 平台特有的“新帖子冷启动”场景，提出将新发布帖子作为查询、自定义信息流作为候选的冷启动路由任务，并构建了大规模动态基准数据集以评估信息流对新内容的召回能力。",
+    "key_points": [
+      "本文针对 Bluesky 平台特有的“新帖子冷启动”场景，提出将新发布帖子作为查询、自定义信息流作为候选的冷启动路由任务，并构建了大规模动态基准数据集以评估信息流对新内容的召回能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13990",
+    "title": "Content Depth Matters in Short-Video Recommendation: Rethinking the Attention Economy",
+    "authors": [
+      "Liwei Deng",
+      "Jing Jiang",
+      "Zhiwei Li",
+      "Yang Wang",
+      "Guodong Long"
+    ],
+    "summary": "Driven by the attention economy, short-video Recommender Systems (RSs) are primarily optimized to maximize user engagement by promoting videos that capture attention within seconds. These systems inherently favor shallow-content videos that are effective at attracting immediate attention. However, growing evidence suggests that prolonged exposure to such content may negatively affect users' cognitive engagement and mental well-being, raising concerns about the long-term societal impact of the short-video platform. To tackle this challenge, this paper introduces a new metric, the \\textbf{Content Depth Score (CDS)}, to quantify the content depth of short videos. CDS measures the extent to which a video is expected to stimulate higher-order cognitive processes, using a seven-level scale grounded in established theories of cognitive psychology and learning. As an initial step toward this vision, we present \\textbf{SCOPE-Bench}, the first benchmark for content-depth evaluation in short-video recommendation. Built upon a large-scale open-source short-video dataset, SCOPE-Bench provides CDS annotations for 150K videos, enabling systematic evaluation of RSs from a cognitive-content perspective. Leveraging SCOPE-Bench, we evaluate 13 representative RSs and reveal a consistent preference for shallow-content videos. Moreover, we find that these algorithms recommending cognitively deep content are only marginally better than random selection, highlighting a previously overlooked limitation of existing recommendation objectives. Our code and datasets are available at https://liweidengdavid.github.io/SCOPE-Bench/.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13990",
+    "pdf_url": "https://arxiv.org/pdf/2608.13990.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对短视频推荐系统的核心目标函数缺陷（过度追求浅层互动），提出了新的内容深度评估指标与基准，属于推荐系统价值观对齐与多目标优化的核心研究；虽涉及认知心理学理论，但紧密围绕 RecSys 应用场景，且来自 TAL 公司，符合加分条件。",
+    "translation": "短视频推荐中内容深度的重要性：重思注意力经济",
+    "summary_zh": "本文提出内容深度评分（CDS）指标及 SCOPE-Bench 基准，旨在量化短视频的认知激发程度，以解决现有推荐系统过度偏好浅层内容而忽视用户长期认知 engagement 的问题。",
+    "key_points": [
+      "本文提出内容深度评分（CDS）指标及 SCOPE-Bench 基准，旨在量化短视频的认知激发程度，以解决现有推荐系统过度偏好浅层内容而忽视用户长期认知 engagement 的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14011",
+    "title": "EchoRec: Multi-Item Prediction-Empowered Generative Recommendation via Cycle-Consistent Preference Alignment",
+    "authors": [
+      "Haokai Ma",
+      "Aoqi Hu",
+      "Yueao Xing",
+      "Ruobing Xie",
+      "Yonghui Yang",
+      "Teng Tu",
+      "Lei Meng",
+      "Tat-Seng Chua"
+    ],
+    "summary": "Generative recommendation autoregressively generates the semantic IDs of the target item, unifying preference modeling and index retrieval within the shared token space. Recent attempts have introduced Multi-Token Prediction (MTP) into this field, yet they primarily inherit its efficiency merit, leaving its potential as dense supervision unexplored. Unlocking this potential hinges on whether future behaviors qualify as informative supervision. Our analysis reveals that future behaviors carry a semantic echo of the current one far above that of random pairs, which nevertheless decays along horizons under intent transitions, making them informative yet order-dependent signals. Motivated by this, we propose EchoRec, which empowers MTP with cycle-consistent holistic preference alignment across multi-horizon for generative recommendation. It comprises two synergistic modules. Horizon-aware Preference Generation (HPG) sequentially chains lightweight auxiliary branches upon the base recommender, where each branch conditions on its predecessor to respect preference evolution. Verifiable Holistic-Preference Alignment (VHA) further consolidates them into the holistic preference and echoes it back through cycle-consistent projectors to suppress spurious alignment, with theoretical guarantees that exclude the rank-collapse form of spurious alignment under an invertible transport, enabling the holistic preference to be retained in the decoding representation. All auxiliary components serve as disposable scaffolding discarded at inference, introducing negligible online serving overhead. Extensive experiments on three datasets demonstrate the superiority of our EchoRec, together with its naturally acquired multi-item generation ability. Our code and datasets will be available upon acceptance.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.14011",
+    "pdf_url": "https://arxiv.org/pdf/2608.14011.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "NationalUniversityofSingapore NationalUniversityofSingapore BeijingUniversityofPostsand",
+      "Tencent NationalUniversityofSingapore NationalUniversityofSingapore",
+      "ShandongUniversity NationalUniversityofSingapore",
+      "retrievalwithinthesharedtokenspace.Recentattemptshavein- willbeavailableuponacceptance."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统，提出利用多步预测和循环一致性偏好对齐来解决序列推荐中的核心建模问题，属于 RecSys 核心领域的高优先级创新。",
+    "translation": "EchoRec：基于循环一致偏好对齐的多物品预测增强生成式推荐",
+    "summary_zh": "本文提出 EchoRec 框架，通过地平线感知偏好生成模块捕捉用户意图演变，并利用可验证的整体偏好对齐模块结合循环一致性投影，将多步未来行为转化为稠密监督信号以优化生成式推荐模型。",
+    "key_points": [
+      "本文提出 EchoRec 框架，通过地平线感知偏好生成模块捕捉用户意图演变，并利用可验证的整体偏好对齐模块结合循环一致性投影，将多步未来行为转化为稠密监督信号以优化生成式推荐模型"
+    ]
+  },
+  {
+    "arxiv_id": "2506.03369",
+    "title": "Impact of Rankings and Personalized Recommendations in Marketplaces",
+    "authors": [
+      "Omar Besbes",
+      "Yash Kanoria",
+      "Akshit Kumar"
+    ],
+    "summary": "Decision-making often requires individuals to navigate large sets of options with incomplete information and imperfectly formed preferences. Information provisioning tools, such as public rankings and personalized recommendations, have become central to guiding these choices, yet their welfare implications across different market environments remain poorly understood. This paper studies a stylized large-market model to quantify the aggregate value of these tools under uncapacitated supply and capacitated supply. Agent utility is a weighted combination of a common term (population-level quality) and an idiosyncratic term (individual-specific fit). Agents observe noisy signals of these components: public rankings improve estimates of common quality, while personalized recommendations additionally reveal idiosyncratic fit. In uncapacitated settings, both tools improve welfare through better selection. Their relative value is governed by preference heterogeneity: rankings are highly effective when preferences are relatively homogeneous, whereas the marginal value of personalization grows as heterogeneity increases. In stark contrast, under capacity constraints, a strict conservation logic applies: learning common quality primarily reshuffles assignments without increasing aggregate average agent welfare. However, revealing idiosyncratic fit generates substantial welfare gains by mitigating congestion on overdemanded items and unlocking match-specific value. We demonstrate that these core insights are robust across model extensions including alternative extreme-value tail distributions and heterogeneous supply-side priorities. Finally, introducing strategic supply-side pricing reveals a stark distributional dichotomy: while information expands total surplus, the newly generated value is ultimately extracted by the short side of the market.",
+    "categories": [
+      "econ.TH",
+      "cs.CY",
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2506.03369",
+    "pdf_url": "https://arxiv.org/pdf/2506.03369.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文深入研究了排名和个性化推荐在市场环境中的福利影响及机制，直接关联推荐系统的核心业务逻辑与策略设计；虽偏重理论建模而非具体深度学习架构，但对理解推荐系统价值有重要指导意义，且来自中国企业额外加 1 分。",
+    "translation": "市场环境中排名与个性化推荐的影响研究",
+    "summary_zh": "本文通过大市场模型量化了公共排名与个性化推荐在不同供需约束下的聚合价值，揭示了偏好异质性与容量限制如何决定两者对整体福利的贡献机制。",
+    "key_points": [
+      "本文通过大市场模型量化了公共排名与个性化推荐在不同供需约束下的聚合价值，揭示了偏好异质性与容量限制如何决定两者对整体福利的贡献机制"
+    ]
+  },
+  {
+    "arxiv_id": "2608.12831",
+    "title": "Fast A/B/n Testing: Exact Multi-Policy Comparison via Tree-Coupled Feedback Sharing",
+    "authors": [
+      "Yuxiao Wen"
+    ],
+    "summary": "Online platforms increasingly compare many adaptive decision policies---ranking systems, recommendation algorithms, pricing rules, and language-model agents---while each reward-bearing interaction can be costly or risky. A direct A/B/n design gives each of $J\\ge 2$ policies its own horizon-$T$ trajectory and therefore uses $JT$ outcomes. We introduce Tree-Coupled A/B Testing (\\TCAB), an exact feedback-sharing design for arbitrary history-dependent contextual-bandit policies. At each round, a predictable tree connects the current policy histories; every parent--child context--action law is maximally coupled, and one reward is shared within each component of matched tree edges. Every policy retains exactly its standalone finite-horizon trajectory law, even though the policies are deliberately dependent. If $D_{e,t}$ records a mismatch on tree edge $e$ at round $t$, the number of reward queries satisfies the pathwise identity $N(T)=T+\\sum_{t,e}D_{e,t}$ and hence equals $T$ plus cumulative tree-edge total variation in expectation. This cost is conditionally optimal among exact edge-local designs on the selected tree, and a current-round minimum-spanning tree is myopically optimal among tree designs. For fixed $J$, sublinear pseudo-regret of every policy and almost-sure uniqueness of the oracle action imply $\\mathbb{E}[N(T)]=T+o(T)$, versus $JT$ for independent runs. We also obtain finite-sample variance bounds for pairwise policy contrasts. Experiments on reward-model evaluation, multiple-choice language-model evaluation, and adaptive search policies demonstrate substantial improvements in the cost--precision frontier.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.12831",
+    "pdf_url": "https://arxiv.org/pdf/2608.12831.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "论文提出了一种用于在线平台（明确包含推荐系统和搜索策略）的高效 A/B/n 测试方法，虽属评估框架而非核心排序模型创新，但直接解决推荐/搜索业务中的多策略对比痛点，且来自中国企业额外加 1 分。",
+    "translation": "快速 A/B/n 测试：通过树耦合反馈共享实现精确的多策略对比",
+    "summary_zh": "提出树耦合 A/B 测试框架，通过在历史依赖的策略间构建最大耦合树来共享反馈奖励，从而在保持各策略轨迹分布精确性的同时，显著降低多策略并行评估所需的样本成本。",
+    "key_points": [
+      "提出树耦合 A/B 测试框架，通过在历史依赖的策略间构建最大耦合树来共享反馈奖励，从而在保持各策略轨迹分布精确性的同时，显著降低多策略并行评估所需的样本成本"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14021",
+    "title": "Residual Dominance as a Structural Account of Last-Item Reliance in Causal Self-Attention Recommenders",
+    "authors": [
+      "Keito Kozaki",
+      "Keigo Sakurai",
+      "Ren Togo",
+      "Takahiro Ogawa",
+      "Miki Haseyama"
+    ],
+    "summary": "Transformer-based sequential recommenders with causal self-attention often rely heavily on the most recent interaction at inference time, but how this behavior is structurally expressed in the representation used for prediction remains unclear. We combine prediction-time diagnostics with norm-based analysis of the full attention block. First, we show that SASRec-style models exhibit highly localized last-item reliance. We then find that, although self-attention aggregates contextual information, residual addition sharply shifts the full-block representation toward same-position contributions, which we term residual dominance. To probe this interpretation, we use inference-time residual scaling as a controlled diagnostic intervention. Changing the residual strength induces a monotonic trade-off between structural mixing and last-item reliance, while reducing residual strength recovers a subset of final-position misses for which representations at non-final positions already rank the ground-truth item correctly. Our results provide a structural account linking extreme last-item reliance to residual dominance at inference time. The code is publicly available.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.14021",
+    "pdf_url": "https://arxiv.org/pdf/2608.14021.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文深入分析了序列推荐模型（SASRec）中因果自注意力机制的结构特性，直接解决了推荐系统中常见的“最后项依赖”问题，属于核心用户建模与架构分析。",
+    "translation": "残差主导作为因果自注意力推荐器中最后项依赖的结构性解释",
+    "summary_zh": "本文提出“残差主导”概念，揭示了 Transformer 序列推荐模型中残差连接导致预测表示过度偏向最近交互项的结构性原因，并通过调整残差强度平衡上下文混合与最后项依赖。",
+    "key_points": [
+      "本文提出“残差主导”概念，揭示了 Transformer 序列推荐模型中残差连接导致预测表示过度偏向最近交互项的结构性原因，并通过调整残差强度平衡上下文混合与最后项依赖"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14107",
+    "title": "Retrieval Grounding Latent Reasoning for Dense Retrieval",
+    "authors": [
+      "Gang Zhou",
+      "Xiongxi Yu",
+      "Hu Tian",
+      "Yang Wei",
+      "Lu Pan",
+      "Ke Zeng",
+      "Shibiao Xu",
+      "Xiaolong Zheng"
+    ],
+    "summary": "Reasoning-intensive retrieval requires text representations to capture not only semantic similarity, but also the reasoning needed to determine relevance under a given retrieval instruction. Existing reasoning-enhanced embedding models improve retrieval by incorporating reasoning information into dense representations, yet their supervision is typically dominated by the final retrieval objective. As a result, latent reasoning trajectories may learn shortcut reasoning patterns that preserve retrieval performance without producing meaningful incremental retrieval gains. We propose Retrieval Grounding Latent Reasoning (RGLT), a latent reasoning framework for dense retrieval that explicitly connects intermediate latent transitions with retrieval improvements. RGLT performs non-autoregressive reasoning in hidden space through an instruction-conditioned latent reasoning trajectory constructed from silent tokens. It combines process-supervised explicit-to-implicit distillation with retrieval-grounded supervision, using stage-wise CoT reconstruction to shape intermediate latent states and retrieval-effect credit to optimize incremental retrieval gains across the latent reasoning trajectories. Experiments on reasoning-intensive retrieval benchmarks show that RGLT consistently outperforms strong baselines while preserving efficient embedding inference.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.14107",
+    "pdf_url": "https://arxiv.org/pdf/2608.14107.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对密集检索（Dense Retrieval）中的推理增强问题，提出了新的潜在推理框架以解决短路推理模式，属于搜索核心技术的明确改进；虽涉及 LLM 推理机制，但紧密围绕检索任务本身，非纯 LLM 研究。",
+    "translation": "检索 grounding 的潜在推理用于密集检索",
+    "summary_zh": "提出一种检索 grounding 的潜在推理框架，通过在隐空间构建指令条件的非自回归推理轨迹，并结合过程监督蒸馏与检索效果信用分配，显式优化中间 latent 状态以提升推理密集型检索的相关性判断能力。",
+    "key_points": [
+      "提出一种检索 grounding 的潜在推理框架，通过在隐空间构建指令条件的非自回归推理轨迹，并结合过程监督蒸馏与检索效果信用分配，显式优化中间 latent 状态以提升推理密集型检索的相关性判断能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13879",
+    "title": "Whose Posts Get Ranked: Identical-Text Exposure Gaps in Bluesky Custom Feeds",
+    "authors": [
+      "Yipeng Wang",
+      "Mohit Singhal"
+    ],
+    "summary": "Bluesky lets users deploy custom feeds, independently operated recommendation algorithms that the platform serves alongside thousands of others. This paper investigates how evenly these feeds treat posts with the same text. To measure this, we take repeated snapshots of the Top-50 lists that 1,366 public feeds return, and we group posts with identical text, from different authors, that were created before the same list response and closely matched in age. Exposure diverges widely inside these matched sets, which span 250 feeds: in 33% of sets, one copy appears on the list while another does not. Fixed-effects regressions show that this divergence is associated with the author's history on the specific feed. Authors new to a feed receive less exposure for the same text (-0.061 in reciprocal-rank weight), while authors whose posts the feed has returned before receive more. A new author with more followers than the competing author still loses 74\\% of head-to-head comparisons. Media and post-type features show no detectable association after multiple-comparison correction. These results are early evidence that access to many independent feeds is not enough to give identical texts equal exposure.",
+    "categories": [
+      "cs.SI",
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13879",
+    "pdf_url": "https://arxiv.org/pdf/2608.13879.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该论文研究推荐系统中的曝光公平性与作者偏差问题，属于 RecSys 核心议题，但侧重于社会计算与现象分析而非提出新的深度学习架构或算法模型；因涉及中国公司背景额外加 1 分。",
+    "translation": "谁的帖子被排名：Bluesky 自定义信息流中的相同文本曝光差距",
+    "summary_zh": "本文通过分析 Bluesky 平台数据，揭示了自定义推荐算法在处理相同文本内容时存在的显著曝光差异，并证实这种差异主要源于作者的历史行为特征而非内容本身。",
+    "key_points": [
+      "本文通过分析 Bluesky 平台数据，揭示了自定义推荐算法在处理相同文本内容时存在的显著曝光差异，并证实这种差异主要源于作者的历史行为特征而非内容本身"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13200",
+    "title": "GEM: A Generative Embedding Model Bridging Reasoning and Retrieval",
+    "authors": [
+      "Zhili Shen",
+      "Craig Macdonald"
+    ],
+    "summary": "Modern LLMs excel at reasoning and instruction following, enabling users to express complex and diverse information needs. However, conventional retrievers largely rely on surface-level matching between queries and documents, resulting in a growing gap between how users express their needs and how retrievers interpret them. In this paper, we present GEM, a generative embedding model that augments retrieval through its own knowledge by explicitly reasoning about user intent and relevance criteria. GEM unifies generation and embedding within a single model: it first reasons over the query, then appends an embedding token to encode the enriched context for retrieval. Evaluated on reasoning-intensive and instruction-following retrieval tasks, GEM demonstrates the effectiveness of its reasoning-augmented retrieval, outperforming its non-reasoning variant and matching baselines using substantially larger models. Furthermore, GEM's generative nature allows test-time compute scaling via prompting to further enhance retrieval performance. Our code is available at: https://anonymous.4open.science/r/GEM.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13200",
+    "pdf_url": "https://arxiv.org/pdf/2608.13200.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种结合推理与检索的生成式嵌入模型，虽明确应用于检索任务（Search 核心环节），但更偏向通用检索架构创新而非特定推荐系统业务场景。",
+    "translation": "GEM： bridging 推理与检索的生成式嵌入模型",
+    "summary_zh": "提出 GEM 模型，通过在单一模型中统一生成与嵌入机制，先对查询进行显式推理以增强用户意图理解，再编码上下文用于检索，从而缩小复杂需求表达与传统表面匹配之间的差距。",
+    "key_points": [
+      "提出 GEM 模型，通过在单一模型中统一生成与嵌入机制，先对查询进行显式推理以增强用户意图理解，再编码上下文用于检索，从而缩小复杂需求表达与传统表面匹配之间的差距"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13888",
+    "title": "Fashion Outfit Generation via Unified Sequential Composition Models",
+    "authors": [
+      "Kaicheng Pang",
+      "Xingxing Zou",
+      "Ruohan Xu",
+      "Waikeung Wong"
+    ],
+    "summary": "The task of synthesizing stylistically coherent fashion outfits from massive item libraries, known as fashion outfit generation, remains a non-trivial challenge, primarily due to the non-monotonic and implicit nature of aesthetic compatibility, coupled with the exponentially large combinatorial search space. In this paper, we formalize this task as Constrained Ensemble Generation (CEG) and model it as a finite-horizon deterministic Markov Decision Process. To address CEG in fashion, we propose the Unified Sequential Composition Model (USCM), which jointly models set-level compatibility and latent composition intents. Guided by USCM's learned priors, a Latent Expansion Monte Carlo Tree Search (LE-MCTS) mechanism is proposed to handle item retrieval during composition, balancing local aesthetic synergy with global structural balance. Extensive experiments on the Polyvore Outfits dataset, along with zero-shot evaluations on the iFashion and PolyvoreU datasets, demonstrate that our framework achieves state-of-the-art performance across independent human preference evaluations, automated aesthetic proxies, and structural validity metrics for constrained fashion outfit generation.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13888",
+    "pdf_url": "https://arxiv.org/pdf/2608.13888.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文属于多模态推荐/搜索中的时尚搭配生成场景，提出了基于 MDP 和 MCTS 的组合生成方法，但侧重于特定垂直领域的生成任务而非通用推荐排序架构。",
+    "translation": "基于统一序列组合模型的时尚穿搭生成",
+    "summary_zh": "本文将时尚穿搭生成形式化为约束集合生成问题，提出统一序列组合模型联合建模集合兼容性与潜在组合意图，并利用潜变量扩展蒙特卡洛树搜索平衡局部美学协同与全局结构平衡。",
+    "key_points": [
+      "本文将时尚穿搭生成形式化为约束集合生成问题，提出统一序列组合模型联合建模集合兼容性与潜在组合意图，并利用潜变量扩展蒙特卡洛树搜索平衡局部美学协同与全局结构平衡"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05246",
+    "title": "LUNAR: Benchmarking Personalized Large Language Models on UNiversal User BehAvioR Logs",
+    "authors": [
+      "Jiahao Zhang",
+      "Yongzhi Tong",
+      "Zelin Fu",
+      "Pengde Zhao",
+      "Yanmei Jiang",
+      "Feng Jiang",
+      "Min Yang"
+    ],
+    "summary": "Existing personalized LLM benchmarks primarily rely on textual personas or isolated behavioral signals, providing limited evaluation of cross-domain behavioral personalization, where responses must be grounded in heterogeneous daily-life activities. To address this gap, we introduce LUNAR, the first benchmark for evaluating how LLMs personalize responses from longitudinal app interaction histories across universal daily-life domains, including clothing, food, housing, and mobility. To support scalable benchmark construction while mitigating data sparsity and privacy concerns, LUNAR uses a multi-stage coarse-to-fine synthesis pipeline grounded in real-world behavioral patterns. Fidelity analyses show closer alignment with real behavioral distributions than other synthetic benchmarks. Experiments on 19 mainstream LLMs show that access to behavioral logs is necessary but not sufficient for deep personalization: neither more context nor larger models guarantees better performance; effective personalization depends on selecting and integrating relevant evidence across domains. Direct retrieval of fine-grained behavioral records consistently outperforms compressed memory, while stronger personalization can come at the cost of privacy protection. These findings identify evidence selection, cross-domain integration, and privacy control as key challenges for personalized LLMs.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.05246",
+    "pdf_url": "https://arxiv.org/pdf/2608.05246.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "1ShenzhenUniversityofAdvancedTechnology, 2AntGroup",
+      "support scalable benchmark construction while mitigating data sparsity and privacy concerns,"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该文主要提出一个用于评估个性化 LLM 的基准（Benchmark），属于纯 LLM 评估研究，未直接解决推荐/搜索系统中的召回、排序等核心工程问题，虽涉及用户行为但缺乏直接的 RecSys 应用架构。",
+    "translation": "LUNAR：在通用用户行为日志上基准测试个性化大语言模型",
+    "summary_zh": "本文提出了 LUNAR 基准，旨在通过合成跨域日常生活应用交互历史，评估大语言模型基于长期行为日志进行深度个性化的能力与挑战。",
+    "key_points": [
+      "本文提出了 LUNAR 基准，旨在通过合成跨域日常生活应用交互历史，评估大语言模型基于长期行为日志进行深度个性化的能力与挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14198",
+    "title": "MINT: A Universal Zero-Shot Predictor for Transaction Data",
+    "authors": [
+      "Parameswaran Kamalaruban",
+      "Viktor Drobnyi",
+      "Maeve Madigan",
+      "Julia Rozanova",
+      "David Sutton",
+      "Stuart Burrell"
+    ],
+    "summary": "Banks analyse sequential financial transaction data to perform many tasks, including fraud prevention, credit risk assessment and offer personalization. To improve the predictive accuracy of these tasks, Payments Foundation Models encode transaction sequence data as rich contextual embeddings, which can then be provided to task-specific models as features. However, these Foundation Models are not designed for flexible zero-shot reasoning across novel downstream prediction tasks, limiting their adaptability and utility. Existing LLM-based approaches to zero-shot prediction often fail to fully exploit the predictive signal within transaction data, while relying on costly text serialization or task-specific architectures that scale poorly. To address these limitations, we present the Multimodal Instruction Network for Transactions (MINT), a framework that connects a pretrained transaction sequence encoder to a decoder-only LLM through lightweight embedding injection, transaction-language alignment, and instruction tuning. We find that MINT achieves state-of-the-art predictive question-answering performance in both in-distribution and out-of-distribution questions, while substantially reducing input tokens, latency, and memory consumption compared to text-serialization baselines. Through comprehensive analyses of representations, alignment strategies, training data, and history length, we establish that compact transaction embeddings are a superior approach to transaction representation than text serialization for multimodal reasoning and zero-shot prediction tasks.",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.14198",
+    "pdf_url": "https://arxiv.org/pdf/2608.14198.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦金融风控与信用评估，虽提及“优惠个性化”但核心并非通用推荐/搜索系统架构；属于特定领域（金融）的 LLM 应用，且主要解决零样本预测问题，对主流电商/社交 RecSys 直接参考价值有限。",
+    "translation": "MINT：一种通用的交易数据零样本预测器",
+    "summary_zh": "提出 MINT 框架，通过轻量级嵌入注入和指令微调将预训练交易序列编码器与大语言模型连接，利用紧凑的交易嵌入替代文本序列化以实现高效的多模态零样本预测。",
+    "key_points": [
+      "提出 MINT 框架，通过轻量级嵌入注入和指令微调将预训练交易序列编码器与大语言模型连接，利用紧凑的交易嵌入替代文本序列化以实现高效的多模态零样本预测"
+    ]
+  },
+  {
+    "arxiv_id": "2608.13956",
+    "title": "How retriever redundancy and diversity impact RAG effectiveness",
+    "authors": [
+      "Jonathan J Ross",
+      "Bevan Koopman",
+      "Anton van der Vegt",
+      "Guido Zuccon"
+    ],
+    "summary": "In RAG, while the retriever typically ranks documents by their individual relevance to the query, the generator instead produces an answer based on the retrieved documents as a whole. This paper investigates how redundancy and diversity from the retrieved document set impact the generator in terms of answer correctness.\n  Previous work has provided a mix of findings: some showing that redundancy improves generation by reinforcing relevant information, others that LLM-based paraphrasing of the same content may be beneficial. Many of these studies did not control for confounding factors like whether the documents contained the exact answer or not, and if parametric knowledge plays a role. We conduct a carefully controlled experiment investigating three key scenarios of retrieved document sets: 1) Duplicate (exact copies of the same document), 2) Paraphrased (LLM rephrased versions of one document) and 3) Diverse (documents from different genres each containing relevant information in different forms). We control for which documents contain the answer in exact match or rephrased form.\n  Evaluation is done with FictionalQA, a synthetic, fictional question-answer dataset that ensures the LLM generator prior knowledge cannot answer the question; the answer must come from retrieved documents. We show that duplicate redundancy and LLM paraphrasing does not significantly improve answer correctness. However, providing diverse documents is highly beneficial, improving answer correctness by 17%-47%. We further show this improvement is driven by diverse forms of document genre (news, blogs, etc.) alone and not a consequence of more relevant answer being available to generator. Our findings help to direct more attention to how new retrieval methods might improve RAG by catering to the generator preference for diversity in retrieval results.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-17",
+    "url": "https://arxiv.org/abs/2608.13956",
+    "pdf_url": "https://arxiv.org/pdf/2608.13956.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于检索文档的冗余性与多样性对生成答案正确性的影响，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "检索冗余度与多样性如何影响 RAG 效果",
+    "summary_zh": "本文通过控制实验探究了检索文档集中的重复、改写及多样性特征对大模型生成答案正确性的具体影响机制。",
+    "key_points": [
+      "本文通过控制实验探究了检索文档集中的重复、改写及多样性特征对大模型生成答案正确性的具体影响机制"
+    ]
+  }
+]

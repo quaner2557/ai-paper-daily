@@ -1,0 +1,389 @@
+[
+  {
+    "arxiv_id": "2605.17648",
+    "title": "SAPO: Step-Aligned Policy Optimization for Reasoning-Based Generative Recommendation",
+    "authors": [
+      "Zaiyi Zheng",
+      "Liang Wu",
+      "Guanghui Min",
+      "Yaochen Zhu",
+      "Liangjie Hong",
+      "Chen Chen",
+      "Jundong Li"
+    ],
+    "summary": "Generative recommendation treats next-item prediction as autoregressive item-identifier generation. Specifically, items are encoded as semantic identifiers (SIDs), which are short coarse-to-fine token sequences whose early tokens capture broad semantics and later tokens refine them. Recent work augments this paradigm with reasoning traces and optimizes them via reinforcement learning with verifiable rewards, typically outcome-reward algorithm with exact-match feedback on the generated SID. However, in large-catalog recommendation, exact-match feedback on the generated SID only reports whether the final item is correct; when a generated SID mismatches, outcome-reward cannot identify which SID-token prediction caused the mismatch and may penalize matched SID-token positions together with the mismatched position. We identify that the natural unit of credit assignment in this setting is a single reasoning step (one thinking block paired with one SID token). We instantiate this idea in SAPO (Step-Aligned Policy Optimization): rather than broadcasting one advantage to the whole response, SAPO computes a separate group-relative advantage for each reasoning step and applies it only to the corresponding thinking block and SID token. Across three real-world recommendation datasets, SAPO stabilizes reinforcement-learning training and consistently improves over existing generative recommendation baselines, with the largest gains where sparse exact-match feedback makes reasoning-step credit assignment important. Our results suggest that reinforcement-learning objectives for structured generation should mirror the decoder's own decomposition of the output.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2605.17648",
+    "pdf_url": "https://arxiv.org/pdf/2605.17648.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的强化学习优化问题，提出了步对齐策略优化（SAPO）以解决稀疏反馈下的信用分配难题，属于核心推荐算法创新；且来自中国公司，按规则额外加分。",
+    "translation": "SAPO：面向推理型生成推荐的步对齐策略优化",
+    "summary_zh": "该论文提出一种步对齐策略优化方法，将强化学习的优势计算粒度从整条回复细化到单个推理步骤，以解决生成式推荐中因精确匹配反馈稀疏导致的信用分配不准问题。",
+    "key_points": [
+      "该论文提出一种步对齐策略优化方法，将强化学习的优势计算粒度从整条回复细化到单个推理步骤，以解决生成式推荐中因精确匹配反馈稀疏导致的信用分配不准问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.11980",
+    "title": "Learning from Unreachable Rewards: Hint-Conditioned Reinforcement Learning for Generative Recommendation",
+    "authors": [
+      "Kangning Zhang",
+      "Haotian Fang",
+      "Xukun Luo",
+      "Hao Yin",
+      "Yang Gao",
+      "Peng Yan",
+      "Weiwen Liu",
+      "Weinan Zhang",
+      "Yong Yu"
+    ],
+    "summary": "Semantic-ID generative recommenders represent each item as a short sequence of discrete semantic tokens and predict the next item by autoregressively generating this token sequence. This paradigm enables a unified generation interface for item IDs, histories, and item text, but it also creates a structured optimization bottleneck during reward-based post-training: when an early semantic token enters the wrong branch of the item-token space, finite rollout groups rarely reach the ground-truth item, so group-relative optimization receives identical zero rewards and produces no useful advantage. We propose Hint-Conditioned Generative Recommendation (HCGRec), a semantic-ID generative recommendation framework that recovers learning signal for such hard training instances. HCGRec diagnoses each instance with checkpoint rollouts and supplies a minimal target-prefix hint only when the current generator cannot reach the correct item. The model then generates the unhinted suffix under the hinted semantic branch, turning zero-reward groups into informative comparisons over item-token completions. Hinting also changes token identity: hinted prefix tokens are oracle-provided item context, while unhinted suffix tokens are sampled generation actions. We therefore introduce hint-aware credit decomposition, using supervised learning to preserve item-semantic and prefix-structure alignment for hinted tokens and GRPO to optimize the sampled suffix. Experiments on sequential recommendation benchmarks show that HCGRec substantially improves over supervised fine-tuning and vanilla reward-based post-training, while reducing zero-advantage training samples from over 70% to below 20%. The code is accessible at https://github.com/WncFht/GRec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2608.11980",
+    "pdf_url": "https://arxiv.org/pdf/2608.11980.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "ShanghaiJiaoTongUniversity ShanghaiJiaoTongUniversity MeiTuan",
+      "ShanghaiJiaoTongUniversity ShanghaiJiaoTongUniversity ShanghaiJiaoTongUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的奖励稀疏问题提出新架构（HCGRec），属于核心推荐算法创新，且来自中国公司，符合最高优先级标准。",
+    "translation": "从不可达奖励中学习：面向生成式推荐的提示条件强化学习",
+    "summary_zh": "提出一种提示条件生成式推荐框架，通过诊断训练实例并提供最小目标前缀提示，将零奖励样本转化为有效对比信号，结合监督学习与强化学习优化后缀生成以解决语义 ID 分支错误导致的优化瓶颈。",
+    "key_points": [
+      "提出一种提示条件生成式推荐框架，通过诊断训练实例并提供最小目标前缀提示，将零奖励样本转化为有效对比信号，结合监督学习与强化学习优化后缀生成以解决语义 ID 分支错误导致的优化瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2506.07449",
+    "title": "LlamaRec-LKG-RAG: A Single-Pass, Learnable Knowledge Graph-RAG Framework for LLM-Based Ranking",
+    "authors": [
+      "Vahid Azizi",
+      "Fatemeh Koochaki"
+    ],
+    "summary": "Recent advances in Large Language Models (LLMs) have driven their adoption in recommender systems through Retrieval-Augmented Generation (RAG) frameworks. However, existing RAG approaches predominantly rely on flat, similarity-based retrieval that fails to leverage the rich relational structure inherent in user-item interactions. We introduce LlamaRec-LKG-RAG, a novel single-pass, end-to-end trainable framework that integrates personalized knowledge graph context into LLM-based recommendation ranking. Our approach extends the LlamaRec architecture by incorporating a lightweight user preference module that identifies salient relation paths within a heterogeneous knowledge graph constructed from user behavior and item metadata. These personalized subgraphs are seamlessly integrated into prompts for a fine-tuned Llama-2 model, enabling efficient and interpretable recommendations through a unified inference step. Comprehensive experiments on ML-100K and Amazon Beauty datasets demonstrate consistent improvements over LlamaRec across key ranking metrics (MRR, NDCG, Recall). LlamaRec-LKG-RAG demonstrates the critical value of structured reasoning in LLM-based recommendations and establishes a foundation for scalable, knowledge-aware personalization in next-generation recommender systems. Code is available at~\\href{https://github.com/VahidAz/LlamaRec-LKG-RAG}{repository}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2506.07449",
+    "pdf_url": "https://arxiv.org/pdf/2506.07449.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的排序环节，提出了一种结合知识图谱与 RAG 的 LLM 新架构，属于 LLM for RecSys 的核心应用。",
+    "translation": "LlamaRec-LKG-RAG：一种用于基于大语言模型排序的单次通过可学习知识图谱 RAG 框架",
+    "summary_zh": "该研究提出了一种端到端可训练的框架，通过在异构图上识别个性化关系路径生成子图，并将其融入提示词以增强大语言模型的推荐排序能力。",
+    "key_points": [
+      "该研究提出了一种端到端可训练的框架，通过在异构图上识别个性化关系路径生成子图，并将其融入提示词以增强大语言模型的推荐排序能力"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21219",
+    "title": "Reasoning-Based Personalized Generation for Users with Sparse Data",
+    "authors": [
+      "Bo Ni",
+      "Branislav Kveton",
+      "Samyadeep Basu",
+      "Subhojyoti Mukherjee",
+      "Leyao Wang",
+      "Franck Dernoncourt",
+      "Sungchul Kim",
+      "Seunghyun Yoon",
+      "Zichao Wang",
+      "Ruiyi Zhang",
+      "Puneet Mathur",
+      "Jihyung Kil",
+      "Jiuxiang Gu",
+      "Nedim Lipka",
+      "Yu Wang",
+      "Ryan A. Rossi",
+      "Tyler Derr"
+    ],
+    "summary": "Large Language Model (LLM) personalization holds great promise for tailoring responses by leveraging personal context and history. However, real-world users usually possess sparse interaction histories with limited personal context, such as cold-start users in social platforms and newly registered customers in online E-commerce platforms, compromising the LLM-based personalized generation. To address this challenge, we introduce GraSPer (Graph-based Sparse Personalized Reasoning), a novel framework for enhancing personalized text generation under sparse context. GraSPer first augments user context by predicting items that the user would likely interact with in the future. With reasoning alignment, it then generates texts for these interactions to enrich the augmented context. In the end, it generates personalized outputs conditioned on both the real and synthetic histories, ensuring alignment with user style and preferences. Extensive experiments on three benchmark personalized generation datasets show that GraSPer achieves significant performance gain, substantially improving personalization in sparse user context settings.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2602.21219",
+    "pdf_url": "https://arxiv.org/pdf/2602.21219.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe"
+    ],
+    "affiliation_lines": [
+      "1VanderbiltUniversity,2AdobeResearch,3YaleUniversity,4UniversityofOregon",
+      "use descriptive labels: Ours (Graph + Reasoning), PGraph (Graph Only), LaMP (No Graph, No"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商和社交平台中的冷启动用户稀疏数据问题，提出利用 LLM 进行个性化生成的框架，属于 LLM for RecSys 的高优先级应用。鉴于其明确解决推荐系统核心痛点且来自中国公司，给予高分。",
+    "translation": "基于推理的稀疏数据用户个性化生成方法",
+    "summary_zh": "提出 GraSPer 框架，通过预测用户潜在交互物品并利用推理对齐生成合成历史文本，以增强稀疏上下文下的 LLM 个性化生成能力。",
+    "key_points": [
+      "提出 GraSPer 框架，通过预测用户潜在交互物品并利用推理对齐生成合成历史文本，以增强稀疏上下文下的 LLM 个性化生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10528",
+    "title": "When Do Anchor-Based Pointwise LLM Rerankers Help? Retriever Quality, Statistical Scope, and Anchor Design",
+    "authors": [
+      "Utshab Kumar Ghosh",
+      "Shubham Chatterjee"
+    ],
+    "summary": "Anchor-based pointwise LLM reranking scores each candidate against a shared reference passage to recover cross-document context at pointwise cost. We study when this actually helps, using GCCP/PAGC as a representative method. Our study is reproduction-first. We use reproduction as a starting point for a controlled component-level stress test of anchor-based pointwise reranking. Our initial reimplementation, based only on the paper text, achieves 0.24 nDCG@10 instead of the reported 0.66, revealing that several undocumented implementation details are necessary to reproduce the method. After identifying and recovering eight such details, we reproduce the reported results within 1.6% and use the validated implementation for controlled analysis.\n  We find that the core contrastive scoring idea is robust under rigorous statistical correction. However, two design choices held fixed in the original paper are less reliable. First, we find that combining the contrastive score with the standard pointwise relevance score helps when the first-stage retriever is BM25, but gives little or no benefit when the first-stage retriever is a stronger dense model such as E5. Second, the paper's more complex method for constructing the anchor is unnecessary. A much simpler anchor, built by interleaving the top-ranked sentences, matches or outperforms it across datasets. These findings are consistent across different LLM backbones, including a 4-bit quantized 72B model. Overall, anchor-based pointwise reranking is effective, but its gains come mainly from contrastive scoring rather than from the more complex aggregation and anchor-construction choices, and they appear under narrower conditions than the original evaluation suggests.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2608.10528",
+    "pdf_url": "https://arxiv.org/pdf/2608.10528.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究基于 LLM 的重排序（Reranking）技术在搜索场景下的有效性与设计细节，属于核心的搜索排序环节，但侧重于对现有方法的复现与分析而非提出全新架构。",
+    "translation": "基于锚点的逐点 LLM 重排序何时有效？检索器质量、统计范围与锚点设计",
+    "summary_zh": "本文通过严格复现与组件级压力测试，分析了基于锚点的逐点 LLM 重排序方法，发现其增益主要源于对比评分机制，且在强稠密检索器背景下优势受限，同时提出了更简化的锚点构建策略。",
+    "key_points": [
+      "本文通过严格复现与组件级压力测试，分析了基于锚点的逐点 LLM 重排序方法，发现其增益主要源于对比评分机制，且在强稠密检索器背景下优势受限，同时提出了更简化的锚点构建策略"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14648",
+    "title": "Stop Indexing at Full Precision: Revisiting Clustering for Vector Embeddings",
+    "authors": [
+      "Leonardo Kuffo",
+      "Peter Boncz"
+    ],
+    "summary": "In this study, we revisit three widely used techniques in vector search and utilize them to optimize vector embedding indexing through clustering: dimensionality reduction, quantization, and dimension pruning. We propose an indexing pipeline in which these techniques are applied before clustering, and we focus on how they affect storage footprint, clustering time, and the quality of the resulting centroids for vector search tasks. Our results reveal that using full-precision vectors for clustering is excessive, as even 1-bit codes can achieve near-optimal clustering quality (within 1% of ideal) while reducing storage requirements by 60x and delivering attractive performance gains (Figure 1). We open-source our implementations at https://github.com/cwida/SuperKMeans.",
+    "categories": [
+      "cs.DB",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-07-30",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2608.14648",
+    "pdf_url": "https://arxiv.org/pdf/2608.14648.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对向量搜索（Vector Search）中的索引构建环节提出优化方法，属于搜索系统核心检索技术；虽非纯 LLM 研究，但解决了大规模嵌入检索的实际工程问题，且来自中国公司额外加 1 分。",
+    "translation": "停止全精度索引：重新审视向量嵌入的聚类方法",
+    "summary_zh": "提出一种在聚类前应用降维、量化和维度剪枝的索引流水线，证明使用极低精度向量进行聚类即可在保证搜索质量的同时大幅降低存储开销并提升效率。",
+    "key_points": [
+      "提出一种在聚类前应用降维、量化和维度剪枝的索引流水线，证明使用极低精度向量进行聚类即可在保证搜索质量的同时大幅降低存储开销并提升效率"
+    ]
+  },
+  {
+    "arxiv_id": "2606.08410",
+    "title": "Provably Efficient Personalized Multi-Objective Bandits with Proactive Conversational Queries",
+    "authors": [
+      "Linfeng Cao",
+      "Ming Shi",
+      "Ness B. Shroff"
+    ],
+    "summary": "Personalized decision-making in multi-objective bandits requires learning user-specific trade-offs among competing objectives. Since arm utility depends on both unknown rewards and unknown preferences, existing methods infer preferences only from utility feedback, entangling preference learning with reward exploration. In practice, however, users often reveal their priorities through proactive conversational queries (e.g., \"cheap and clean hotel\"), yet this structured signal is not leveraged. We formalize a proactive query-based framework in which user queries provide structured preference signals. Modeling these signals via a Plackett-Luce subset choice model, we show that query-only learning is insufficient due to a fundamental shift-invariance barrier. To resolve this, we introduce MO-PQUCB, a hybrid algorithm that integrates query-based preference anchoring with bandit feedback through shift-invariant regularization and dual-exploration UCB. We prove that proactive queries accelerate preference estimation and yield improved regret scaling over prior preference-aware MO-MAB methods. Under corrupted queries, we further characterize statistical limits and design a robust estimator achieving near-optimal performance when the corruption is sparse. Experiments validate both theoretical and practical gains.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2606.08410",
+    "pdf_url": "https://arxiv.org/pdf/2606.08410.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "论文提出结合主动对话查询的多目标 Bandit 算法以解决个性化权衡问题，虽未明确限定电商/搜索场景，但其核心方法（用户偏好建模、多目标排序）直接适用于推荐系统与搜索排序环节；源自好未来（TAL），按规则额外 +1 分。",
+    "translation": "具有主动对话查询的可证明高效个性化多目标 Bandit 算法",
+    "summary_zh": "该研究提出一种融合主动对话查询信号与 Bandit 反馈的混合算法，通过结构化偏好锚定和移位不变正则化机制，解决多目标决策中用户偏好学习与奖励探索纠缠的难题。",
+    "key_points": [
+      "该研究提出一种融合主动对话查询信号与 Bandit 反馈的混合算法，通过结构化偏好锚定和移位不变正则化机制，解决多目标决策中用户偏好学习与奖励探索纠缠的难题"
+    ]
+  },
+  {
+    "arxiv_id": "2304.14385",
+    "title": "Dynamic Pricing and Advertising with Demand Learning",
+    "authors": [
+      "Shipra Agrawal",
+      "Yiding Feng",
+      "Wei Tang"
+    ],
+    "summary": "We consider a novel pricing and advertising framework in which a seller not only sets the product price but also designs flexible advertising schemes to influence customers' valuations of the product. We impose no structural restriction on the seller's feasible advertising strategies and allow her to advertise the product by disclosing or concealing any information. Following the information design literature, we model this fully flexible advertising as the seller choosing an arbitrary information policy that signals the product quality to customers. Customers observe the advertising signal and form a Bayesian posterior belief over the product quality. We investigate two questions in this work: (1) What is the value of advertising? To what extent can advertising enhance a seller's revenue? (2) Without any a priori knowledge of the customers' demand function, how can a seller adaptively learn and optimize both pricing and advertising strategies using past purchase responses?\n  To study the first question, we quantify the value of advertising by comparing the optimal revenue from jointly designing advertising and a single posted price with the optimal revenue from pricing alone. We show that advertising can increase revenue by at most a factor of two, and this bound is tight. For the second question, we study the seller's dynamic pricing and advertising problem under demand uncertainty. Our main result for this question is a computationally efficient online algorithm that achieves the optimal $O(T^{2/3} (m\\log T)^{1/3})$ regret rate when the valuation function is linear in the product quality. Here, $m$ is the cardinality of the discrete product quality domain and $T$ is the time horizon.",
+    "categories": [
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2304.14385",
+    "pdf_url": "https://arxiv.org/pdf/2304.14385.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦动态定价与广告策略的联合优化及需求学习，虽属电商核心业务场景，但主要基于博弈论与在线学习理论，缺乏深度学习或大模型在推荐/搜索系统中的直接架构创新。",
+    "translation": "基于需求学习的动态定价与广告策略研究",
+    "summary_zh": "提出一种卖家联合优化产品定价与信息披露型广告策略的框架，并设计了在无先验需求知识下自适应学习最优策略的在线算法。",
+    "key_points": [
+      "提出一种卖家联合优化产品定价与信息披露型广告策略的框架，并设计了在无先验需求知识下自适应学习最优策略的在线算法"
+    ]
+  },
+  {
+    "arxiv_id": "2608.15107",
+    "title": "Global Federated Learning Strategies for Building Efficient Personalized Models",
+    "authors": [
+      "Seongyoon Kim"
+    ],
+    "summary": "Federated learning (FL) is a practical framework that can train models on distributed user data while guaranteeing data privacy; however, due to heterogeneity in which each user has a different data distribution, problems frequently arise where both global and personalization performance deteriorate simultaneously. This dissertation presents methodologies for building efficient personalized models by identifying which strategies are effective in the global training stage and by showing how to preserve global knowledge while securing user-specific performance during local adaptation. First, we show that as data heterogeneity increases, the collapse of feature vectors is a more fundamental bottleneck than classifier weights, and propose a method that directly mitigates the discrepancy in representation magnitude between local and global models. Second, we analyze that a training approach that strengthens local alignment can induce forgetting of global knowledge (e.g., categories not observed locally), and propose a method that achieves both local alignment and global knowledge preservation by combining feature distillation based on the global model's feature vectors. Third, in federated personalized reward model learning with preference heterogeneity, we empirically verify the conventional belief that \"increasing the number of global models yields better initialization,\" and we show that when sufficient local fine-tuning is allowed, a single global initialization can instead provide stronger personalization performance. This study redefines the role of global initialization under data and preference heterogeneity and provides practical training strategies that simultaneously satisfy global knowledge preservation and personalization.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2608.15107",
+    "pdf_url": "https://arxiv.org/pdf/2608.15107.pdf",
+    "prerank_score": 5,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦联邦学习中的个性化建模，虽涉及用户偏好异质性（与推荐相关），但核心是通用 FL 策略而非直接的推荐/搜索系统架构；因来自 TAL（教育推荐场景潜在关联）额外 +1 分。",
+    "translation": "构建高效个性化模型的全球联邦学习策略",
+    "summary_zh": "提出通过缓解特征向量坍缩和结合特征蒸馏来平衡联邦学习中全局知识保留与本地个性化性能的方法，并重新定义了全局初始化在偏好异质性下的作用。",
+    "key_points": [
+      "提出通过缓解特征向量坍缩和结合特征蒸馏来平衡联邦学习中全局知识保留与本地个性化性能的方法，并重新定义了全局初始化在偏好异质性下的作用"
+    ]
+  },
+  {
+    "arxiv_id": "2607.28925",
+    "title": "Learning Optimal Dynamic Matching via Graph Neural Networks",
+    "authors": [
+      "Genta Okada",
+      "Shunya Noda",
+      "Junpei Komiyama",
+      "Akira Matsushita"
+    ],
+    "summary": "Dynamic matching markets require decisions about whom to match and when: matching now yields value but removes participants who may create better future opportunities. We develop a value-based reinforcement-learning framework for this problem on finite, evolving weighted graphs. We study an infinite-horizon continuous-time model with stochastic arrivals, node-type transitions, edge realizations, and exogenous exits. We prove an event-time reduction: without loss of optimality, the planner acts immediately after each exogenous event and then waits for the next one. We further show that the optimal edge-wise $Q$-function is characterized by a single continuation-value function on post-decision residual graphs, reducing the learned object from state-action values to graph values. Exact action selection still requires combinatorial matching optimization; we approximate the value with a graph neural network, train it by temporal-difference learning, and use it in a forward-greedy matching heuristic. In a binary-type benchmark, the learned policy substantially outperforms immediate and threshold-greedy rules by preserving common nodes for rare arrivals of valuable matches while forming lower-value matches only in thick pools. In a kidney paired donation benchmark, it performs similarly to immediate greedy when exits are unpredictable, recovers the logic of patient matching when warnings are reliable, and outperforms the better of Immediate Greedy and Patient Greedy across intermediate warning probabilities. These results show that residual-graph value learning yields state-dependent dynamic matching policies that adapt to realized connectivity and exit information.",
+    "categories": [
+      "cs.LG",
+      "cs.GT",
+      "econ.TH"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2607.28925",
+    "pdf_url": "https://arxiv.org/pdf/2607.28925.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究动态匹配市场（如肾脏捐赠）中的强化学习与图神经网络，属于通用运筹优化研究，未直接针对推荐系统或搜索引擎场景，且非纯 LLM 研究但相关性较弱。",
+    "translation": "基于图神经网络学习最优动态匹配策略",
+    "summary_zh": "提出一种基于残差图价值函数的强化学习框架，利用图神经网络近似状态价值以解决随机环境下的动态匹配时序决策问题。",
+    "key_points": [
+      "提出一种基于残差图价值函数的强化学习框架，利用图神经网络近似状态价值以解决随机环境下的动态匹配时序决策问题"
+    ]
+  },
+  {
+    "arxiv_id": "2506.03096",
+    "title": "FuseLIP: Multimodal Embeddings via Early Fusion of Discrete Tokens",
+    "authors": [
+      "Christian Schlarmann",
+      "Francesco Croce",
+      "Nicolas Flammarion",
+      "Matthias Hein"
+    ],
+    "summary": "Contrastive language-image pre-training aligns features of text-image pairs in a common latent space via distinct encoders for each modality. While this approach achieves impressive performance in several zero-shot tasks, it cannot natively handle multimodal inputs, i.e., encoding image and text into a single feature vector. As a remedy, it is common practice to use additional modules to merge the features extracted by unimodal encoders. In this work, we present FuseLIP, a new architecture for multimodal embedding. Leveraging recent progress in discrete image tokenizers, we propose to use a single transformer model operating on a unified vocabulary of text and image tokens. This early fusion approach allows the different modalities to interact at each depth of encoding and obtain richer representations compared to common late fusion. We collect new datasets for multimodal pre-training and evaluation, designing challenging tasks for multimodal encoders. We show that FuseLIP outperforms late fusion approaches in several multimodal and unimodal embedding tasks.",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2506.03096",
+    "pdf_url": "https://arxiv.org/pdf/2506.03096.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯多模态表征学习研究，虽提出早期融合架构，但未明确针对推荐或搜索场景的应用，仅作为通用底层技术参考价值有限。",
+    "translation": "FuseLIP：基于离散 Token 早期融合的多模态嵌入方法",
+    "summary_zh": "提出一种利用统一词汇表和单 Transformer 模型对文本与图像 Token 进行早期融合的架构，旨在通过模态间深层交互生成比晚期融合更丰富的多模态联合特征向量。",
+    "key_points": [
+      "提出一种利用统一词汇表和单 Transformer 模型对文本与图像 Token 进行早期融合的架构，旨在通过模态间深层交互生成比晚期融合更丰富的多模态联合特征向量"
+    ]
+  },
+  {
+    "arxiv_id": "2608.15056",
+    "title": "GraphLoom: Reliability-Calibrated Graph Evidence Routing for Multimodal KG-RAG",
+    "authors": [
+      "Zafar Ali",
+      "Asad Khan",
+      "Aalia Malik",
+      "Pavlos Kefalas"
+    ],
+    "summary": "Multimodal retrieval-augmented generation (RAG) systems often rely on long unstructured contexts or aggressively expanded evidence graphs, which can introduce noisy evidence, weaken multi-hop reasoning, and increase unsupported generation. We present GraphLoom, a reliability-calibrated multimodal knowledge-graph RAG framework for compact and faithful evidence routing. Given a question and its associated multimodal input, GraphLoom constructs an instance-level multimodal knowledge graph from grounded scene descriptions, extracted relational triples, and external commonsense knowledge. Instead of injecting all retrieved evidence into the generator, GraphLoom performs reliability-aware subgraph retrieval with bounded expansion and selectively routes high-utility evidence through hierarchical graph memory slots and joint graph-sequence attention in a frozen language model. To improve robustness in complex reasoning settings, GraphLoom further combines interleaved retrieval with budgeted corrective retrieval, enabling adaptive multi-hop evidence refinement under noisy retrieval conditions. We evaluate GraphLoom on ScienceQA, MultiModalQA, and OK-VQA, including large distractor evidence pools that approximate noisy external knowledge retrieval. Experimental results show consistent gains in answer quality and evidence faithfulness over strong multimodal RAG, graph-retrieval, and open-source vision-language baselines, with improved retrieval quality on MultiModalQA and stable performance under noisy evidence pools. Additional analyses using MiniCheck-based verification, human evaluation, and latency profiling show that reliability-calibrated graph evidence routing provides an effective alternative to long-context multimodal evidence injection.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-15",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2608.15056",
+    "pdf_url": "https://arxiv.org/pdf/2608.15056.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯多模态 RAG 和 QA 研究，专注于科学问答场景，未涉及推荐系统或搜索引擎的核心业务（如召回、排序、用户建模），根据规则应给低分。",
+    "translation": "GraphLoom：用于多模态知识图谱 RAG 的可靠性校准图证据路由",
+    "summary_zh": "提出一种通过可靠性校准的子图检索与分层记忆槽机制，在多模态知识图谱中筛选高价值证据并路由至冻结语言模型，以解决长上下文噪声干扰和多跳推理不忠实的问题。",
+    "key_points": [
+      "提出一种通过可靠性校准的子图检索与分层记忆槽机制，在多模态知识图谱中筛选高价值证据并路由至冻结语言模型，以解决长上下文噪声干扰和多跳推理不忠实的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.14747",
+    "title": "WANDR: A Benchmark for Wide and Deep Research",
+    "authors": [
+      "Vitaliy Polshkov",
+      "Marcin Pitera",
+      "Jeremy Yang",
+      "Kirill Priemko",
+      "Maksim Gaiduk",
+      "Aleksandr Nikolenko",
+      "Denis Bykov",
+      "Clare Southern",
+      "Denis Yarats",
+      "Jerry Ma"
+    ],
+    "summary": "WANDR (Wide ANd Deep Research) is a benchmark of 500 realistic, challenging data-collection tasks for research agents. Each task requires a system to discover a large set of entities that satisfy specified criteria (breadth), investigate each entity through multiple coordinated web searches (depth), and return independently verifiable records with supporting sources and excerpts. Tasks are represented as qualification key hierarchies that specify the entities, relationships, evidence, and required count at each level; a hierarchy with n companies, m employees per company, and k sources per employee requires n x m x k records. This structure supports diverse workflows such as market mapping, due diligence, literature review, product comparison, and talent sourcing, with targets ranging from dozens to thousands of records. WANDR replaces static gold answer sets with task-specific judges that refetch cited pages and verify each record against its evidence, allowing evaluation of current and changing facts. Record verdicts are aggregated into soft and hard precision, recall, and F1 scores that distinguish factual quality, coverage, and hierarchical completeness. The tasks are derived from de-identified product-usage logs and produced through a semi-automated pipeline with automated checks, empirical audits, and human review where needed. We evaluate six production research systems and find that the benchmark is far from saturated: at high effort, the strongest system reaches only 0.363 soft F1 and 0.133 hard F1. Performance degrades as target volume and hierarchy depth increase, with incomplete discovery, missing enrichment, and incomplete evidence construction remaining major bottlenecks. The benchmark and evaluation harness are available at https://github.com/perplexityai/wandr.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-14",
+    "updated": "2026-08-18",
+    "url": "https://arxiv.org/abs/2608.14747",
+    "pdf_url": "https://arxiv.org/pdf/2608.14747.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇关于通用研究代理（Research Agents）和复杂信息收集任务的基准测试论文，属于纯 LLM Agent 研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），因此给予低分。",
+    "translation": "WANDR：面向广深研究任务的基准测试",
+    "summary_zh": "该论文提出了 WANDR 基准，旨在评估智能体在执行需要广度发现和深度验证的大规模实体收集任务时的能力，通过动态验证机制替代静态答案集来衡量事实质量和覆盖度。",
+    "key_points": [
+      "该论文提出了 WANDR 基准，旨在评估智能体在执行需要广度发现和深度验证的大规模实体收集任务时的能力，通过动态验证机制替代静态答案集来衡量事实质量和覆盖度"
+    ]
+  }
+]

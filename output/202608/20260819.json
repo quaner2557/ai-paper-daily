@@ -1,0 +1,531 @@
+[
+  {
+    "arxiv_id": "2604.12372",
+    "title": "Is Sliding Window All You Need? An Open Framework for Long-Sequence Recommendation",
+    "authors": [
+      "Sayak Chakrabarty",
+      "Souradip Pal"
+    ],
+    "summary": "Long interaction histories are central to modern recommender systems, yet training with long sequences is often dismissed as impractical under realistic memory and latency budgets. This work demonstrates that it is not only practical but also effective-at academic scale. We release a complete, end-to-end framework that implements industrial-style long-sequence training with sliding windows, including all data processing, training, and evaluation scripts. Beyond reproducing prior gains, we contribute two capabilities missing from earlier reports: (i) a runtime-aware ablation study that quantifies the accuracy-compute frontier across windowing regimes and strides, and (ii) a novel k-shift embedding layer that enables million-scale vocabularies on commodity GPUs with negligible accuracy loss. Our implementation trains reliably on modest university clusters while delivering competitive retrieval quality (e.g., up to +6.04% MRR and +6.34% Recall@10 on Retailrocket) with $\\sim 4 \\times $ training-time overheads. By packaging a robust pipeline, reporting training time costs, and introducing an embedding mechanism tailored for low-resource settings, we transform long-sequence training from a closed, industrial technique into a practical, open, and extensible methodology for the community.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-04-14",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2604.12372",
+    "pdf_url": "https://arxiv.org/pdf/2604.12372.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的长序列建模核心难题，提出了滑动窗口训练框架及新型嵌入层，属于高优先级的核心领域进展；且来自中国公司，按规则额外加分后达到满分。",
+    "translation": "滑动窗口是否足矣？一个用于长序列推荐的开放框架",
+    "summary_zh": "本文提出了一种基于滑动窗口的端到端长序列推荐训练框架，并引入新型 k-shift 嵌入层以在有限资源下支持百万级词汇表，旨在将工业级长序列训练技术转化为社区可用的开放方法。",
+    "key_points": [
+      "本文提出了一种基于滑动窗口的端到端长序列推荐训练框架，并引入新型 k-shift 嵌入层以在有限资源下支持百万级词汇表，旨在将工业级长序列训练技术转化为社区可用的开放方法"
+    ]
+  },
+  {
+    "arxiv_id": "2608.02148",
+    "title": "Douyin Multimodal Embedding Model Technical Report",
+    "authors": [
+      "Haonan Chen",
+      "Chu Li",
+      "Zhicheng Wang",
+      "Yuanwei Liu",
+      "Yuanjiang Wang",
+      "Shaohua Jiang",
+      "Zhicheng Dou"
+    ],
+    "summary": "Multimodal representation learning is a cornerstone of modern AI. By encoding multimodal queries and targets into vectors, it powers industrial search and recommendation and underpins modern agents. Real-world platforms with complex modalities and massive-scale content, such as Douyin, Xiaohongshu, and YouTube, demand both efficiency under billion-scale indexing and fine-grained discrimination for hard matching. Existing MLLM embedding models rarely satisfy both. Contrastive models are efficient but rely on pair-level supervision too coarse for fine-grained distinctions, while CoT-based models improve discrimination through explicit generation impractical to serve online. We present Douyin Multimodal Embedding (DME), a model trained in two stages to combine both strengths. Stage 1 performs large-scale contrastive pre-training that establishes a unified multimodal embedding space with broad modality and task coverage. Stage 2 supplements semantic sufficiency, the property that an embedding is grounded in retrieval-relevant evidence and preserves fine-grained counterpart-side semantics, via two mechanisms. Evidence-Grounded Typed Latent Reasoning organizes retrieval evidence through hidden-space latent reasoning, and Cross-Conditional Reconstruction enforces counterpart-side semantics through cross-directional autoregressive reconstruction. Both act only during training and add only marginal query-side overhead, so DME serves as efficiently as a standard contrastive encoder. On MMEB-v2, DME reaches state-of-the-art results at comparable scales for its 2B and 9B variants (74.8 and 78.4), with especially strong video and visual-document tasks. In production, DME delivers a 2.92% relative gain on Douyin's in-house offline evaluation set, is deployed across Douyin scenarios such as generative, image, and AI search, and yields a 0.1% Lifetime (LT) gain in online A/B testing on Douyin search.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.02148",
+    "pdf_url": "https://arxiv.org/pdf/2608.02148.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance"
+    ],
+    "affiliation_lines": [
+      "ByteDanceDouyinSearchMultimodalTeam RenminUniversityofChinaGSAI"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接来自抖音（Douyin），提出了专为工业级搜索和推荐系统设计的双阶段多模态嵌入模型，完美契合核心领域进展与电商/社交场景加分项。",
+    "translation": "抖音多模态嵌入模型技术报告",
+    "summary_zh": "提出一种双阶段训练的多模态嵌入模型，通过对比预训练构建统一空间，并利用隐空间推理和跨条件重建机制增强细粒度语义区分能力，同时保持在线服务的高效性。",
+    "key_points": [
+      "提出一种双阶段训练的多模态嵌入模型，通过对比预训练构建统一空间，并利用隐空间推理和跨条件重建机制增强细粒度语义区分能力，同时保持在线服务的高效性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16919",
+    "title": "CARA: Cognitive Adaptive Recommendation Agent",
+    "authors": [
+      "Weijun Gao",
+      "Jinyang Dong",
+      "Chuanru Ren",
+      "Hengxiao Li"
+    ],
+    "summary": "Recent advances in large language models and agent-based recommendation frameworks have introduced new opportunities for more flexible and context-aware recommendation. However, existing methods still largely rely on semantic matching, end-to-end generation, or loosely structured agent workflows, without explicitly modeling how user preferences are processed and translated into final decisions. To address this limitation, we propose CARA, a cognitively inspired recommendation framework that formulates recommendation as a structured decision-making process. The core intuition of CARA is that user decisions are jointly shaped by two complementary mechanisms: intuitive affective preference and deliberate rational evaluation. Accordingly, CARA organizes recommendation into two coordinated stages: candidate filtering, which narrows the search space based on coarse-grained preference constraints, and dual-perspective decision modeling, which captures recommendation decisions through affective and rational judgment. We further introduce a boundary-aware KTO strategy that prioritizes instructions the model can solve occasionally but not consistently, thereby increasing the density of informative preference signals. Extensive experiments on three Amazon Reviews domains show that CARA achieves the best performance on most evaluation metrics, with relative improvements of up to 10.15% over the baseline.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-02",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.16919",
+    "pdf_url": "https://arxiv.org/pdf/2608.16919.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统提出基于 LLM Agent 的新架构（CARA），明确解决了用户偏好建模和决策过程的核心问题，且来自工业界（OPPO），完全符合高优先级标准。",
+    "translation": "CARA：认知自适应推荐智能体",
+    "summary_zh": "提出一种受认知科学启发的推荐框架，将推荐建模为包含直觉情感偏好和 deliberate 理性评估的双阶段结构化决策过程，并引入边界感知 KTO 策略优化偏好信号学习。",
+    "key_points": [
+      "提出一种受认知科学启发的推荐框架，将推荐建模为包含直觉情感偏好和 deliberate 理性评估的双阶段结构化决策过程，并引入边界感知 KTO 策略优化偏好信号学习"
+    ]
+  },
+  {
+    "arxiv_id": "2608.17138",
+    "title": "Overview of the TREC 2025 Product Search and Recommendation Track",
+    "authors": [
+      "Dean E. Alvarez",
+      "Surya Kallumadi",
+      "Daniel Campos",
+      "ChengXiang Zhai",
+      "Alessandro Magnani",
+      "Rikiya Takehi",
+      "Michael D. Ekstrand"
+    ],
+    "summary": "In the past few years, consumers have moved the bulk of their product exploration and purchasing efforts online seeking speed, convenience, and price comparison with ease unimaginable for in-person shopping. As product catalogs have grown in diversity and size product search and recommendation have become a cornerstone for e-commerce sites.\n  Despite the widespread usage of search engines in e-commerce, there is no high-quality dataset designed to evaluate end-to-end retrieval quality. In 2025, we ran a revised and continued version of the Product Search track previously run at TREC 2023 and TREC 2024. The 2025 product search track had two tasks: query expansion and related-product recommendation. The related-product recommendation task is particularly novel, providing an annotated data set of product relationships that distinguishes between complementary and related products. We anticipate the data from this track will enable better recommendation and search applications that reflect user needs, as a building block for conversational product discovery experiences.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.17138",
+    "pdf_url": "https://arxiv.org/pdf/2608.17138.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商产品搜索与推荐系统，提出了查询扩展和相关商品推荐的具体任务及数据集，完全符合核心领域进展的高优先级标准；虽为赛道概述而非纯算法创新，但结合中国公司背景加分，给予满分。",
+    "translation": "TREC 2025 产品搜索与推荐赛道综述",
+    "summary_zh": "本文介绍了 TREC 2025 产品搜索与推荐赛道的设置，重点阐述了包含查询扩展和区分互补/相关商品的新型推荐任务，旨在通过高质量数据集推动端到端检索质量评估及对话式商品发现技术的发展。",
+    "key_points": [
+      "本文介绍了 TREC 2025 产品搜索与推荐赛道的设置，重点阐述了包含查询扩展和区分互补/相关商品的新型推荐任务，旨在通过高质量数据集推动端到端检索质量评估及对话式商品发现技术的发展"
+    ]
+  },
+  {
+    "arxiv_id": "2608.17613",
+    "title": "Once Generated, Ranked: End-to-End Generative Slate Recommendation with Unified Semantic-Collaborative IDs",
+    "authors": [
+      "Yang Hu",
+      "Jiayi Guo",
+      "Jingui Ma",
+      "Ning Li",
+      "Jiangling Qin",
+      "Yanming Li",
+      "Yang Deng",
+      "Xiaoshuang Chen",
+      "Kaiqiao Zhan"
+    ],
+    "summary": "Slate recommendation treats a slate rather than an individual item as the recommendation unit, requiring joint optimization of item interactions and slate utility. Existing approaches typically separate candidate generation from ranking and restrict optimization to retrieved candidates. Generative recommendation with Semantic IDs (SIDs) offers a path to end-to-end recommendation, but existing SID construction often lacks recommendation-aware semantics and effective local collaborative signals, while next-token prediction is misaligned with slate-level objectives. We propose OGR, an end-to-end framework that directly generates ordered slates-\"Once Generated, Ranked.\" OGR first introduces TUSID, which adaptively fuses item-specific semantic and local collaborative information into hierarchical SIDs. It then uses list-wise preference planning and pipelined position-wise SID decoding to model global preferences and inter-item dependencies while generating ordered slates. We further propose SPA, a reward-guided conservative policy optimization method that aligns generated slates with user preferences beyond likelihood imitation. Offline experiments show that OGR outperforms representative baselines, with 48.2% and 27.2% relative NDCG@5 gains on industrial and public datasets, respectively. Online A/B testing on Kuaishou further yields a 1.120% improvement in Effective Views.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.17613",
+    "pdf_url": "https://arxiv.org/pdf/2608.17613.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的核心列表生成（Slate Recommendation）问题，提出了端到端的生成式框架，且来自快手并有在线 A/B 测试验证，完全符合高优先级标准。",
+    "translation": "一次生成即排序：基于统一语义协作 ID 的端到端生成式列表推荐",
+    "summary_zh": "提出 OGR 框架，通过融合语义与局部协作信息的层级化 ID 构建及列表级偏好规划，实现直接生成有序推荐列表的端到端生成式推荐方法。",
+    "key_points": [
+      "提出 OGR 框架，通过融合语义与局部协作信息的层级化 ID 构建及列表级偏好规划，实现直接生成有序推荐列表的端到端生成式推荐方法"
+    ]
+  },
+  {
+    "arxiv_id": "2507.00479",
+    "title": "On Mitigating Data Sparsity in Conversational Recommender Systems",
+    "authors": [
+      "Sixiao Zhang",
+      "Mingrui Liu",
+      "Wei Yuan",
+      "Hongzhi Yin",
+      "Cheng Long"
+    ],
+    "summary": "Conversational recommender systems (CRSs) infer user preferences from dialogue contexts, but they suffer from severe data sparsity in both dialogue and entity spaces. Dialogue data are linguistically diverse and open-ended, making it difficult to generalize across varied expressions. Meanwhile, existing CRS models often rely on large knowledge graphs, where only a small fraction of entities receive effective supervision during training, leaving the majority under-trained or entirely unseen at inference time. To address these challenges, we propose DACRS, a novel CRS framework consisting of three modules: Dialogue Augmentation, Knowledge-Guided Entity Modeling, and Dialogue-Entity Matching. The Dialogue Augmentation module adopts a two-stage augmentation pipeline to enrich dialogue contexts and improve robustness to linguistic variation. The Knowledge-Guided Entity Modeling module leverages knowledge graphs through entity substitution and an entity similarity constraint to enhance representation learning for sparsely supervised and unseen entities. Finally, the Dialogue-Entity Matching module integrates dialogue representations with mentioned entity embeddings via dialogue-guided attention aggregation, yielding user representations that capture both explicit and implicit preferences. Extensive experiments on two public benchmark datasets demonstrate that DACRS consistently outperforms state-of-the-art conversational recommender systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2507.00479",
+    "pdf_url": "https://arxiv.org/pdf/2507.00479.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话推荐系统（CRS）中的数据稀疏核心问题提出新框架，属于推荐系统领域的具体应用创新，非纯 LLM 研究。",
+    "translation": "缓解对话推荐系统中数据稀疏问题的研究",
+    "summary_zh": "提出 DACRS 框架，通过对话增强、知识引导的实体建模及对话 - 实体匹配三个模块，解决对话推荐系统在语言多样性和实体监督稀疏方面的数据稀疏难题。",
+    "key_points": [
+      "提出 DACRS 框架，通过对话增强、知识引导的实体建模及对话 - 实体匹配三个模块，解决对话推荐系统在语言多样性和实体监督稀疏方面的数据稀疏难题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.06458",
+    "title": "PixRec: Leveraging Visual Context for Next-Item Prediction in Sequential Recommendation",
+    "authors": [
+      "Sayak Chakrabarty",
+      "Souradip Pal"
+    ],
+    "summary": "Large Language Models (LLMs) have recently shown strong potential for usage in sequential recommendation tasks through text-only models, which combine advanced prompt design, contrastive alignment, and fine-tuning on downstream domain-specific data. While effective, these approaches overlook the rich visual information present in many real-world recommendation scenarios, particularly in e-commerce. This paper proposes PixRec - a vision-language framework that incorporates both textual attributes and product images into the recommendation pipeline. Our architecture leverages a vision-language model backbone capable of jointly processing image-text sequences, maintaining a dual-tower structure and mixed training objective while aligning multi-modal feature projections for both item-item and user-item interactions. Using the Amazon Reviews dataset augmented with product images, our experiments demonstrate $3\\times$ and 40% improvements in top-rank and top-10 rank accuracy over text-only recommenders respectively, indicating that visual features can help distinguish items with similar textual descriptions. Our work outlines future directions for scaling multi-modal recommenders training, enhancing visual-text feature fusion, and evaluating inference-time performance. This work takes a step toward building software systems utilizing visual information in sequential recommendation for real-world applications like e-commerce.",
+    "categories": [
+      "cs.IR",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-01-10",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2601.06458",
+    "pdf_url": "https://arxiv.org/pdf/2601.06458.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商场景下的序列推荐问题，提出融合视觉上下文的多模态框架，属于核心推荐系统架构创新。",
+    "translation": "PixRec：利用视觉上下文进行序列推荐中的下一项预测",
+    "summary_zh": "提出 PixRec 框架，通过视觉 - 语言模型骨干网联合处理图文序列，将商品图像特征融入序列推荐流程以解决纯文本模型忽略视觉信息的问题。",
+    "key_points": [
+      "提出 PixRec 框架，通过视觉 - 语言模型骨干网联合处理图文序列，将商品图像特征融入序列推荐流程以解决纯文本模型忽略视觉信息的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.17316",
+    "title": "Empowering Compact LLMs with Fusion of Layer-wise Exits for Recommendation",
+    "authors": [
+      "Xurong Liang",
+      "Tong Chen",
+      "Quoc Viet Hung Nguyen",
+      "Jianxin Li",
+      "Xiangliang Zhang",
+      "Hongzhi Yin"
+    ],
+    "summary": "Large language model-based recommender systems (LLM-RSs) have demonstrated remarkable capabilities, but are computationally unsustainable for many real-world applications. Compact LLMs offer a practical alternative, yet their reduced capacity often requires reasoning or knowledge distillation methods that increase latency or depend on larger models. Combined with autoregressive generation, these approaches face severe scalability bottlenecks. In contrast, discriminative LLM-RSs enable efficient full-corpus ranking through embedding similarity, but compact backbones remain limited in expressiveness and structural adaptivity. We propose the Fusion of Layer-wise Exits for Sequential Recommendation (FLEXRec), a discriminative framework that enhances compact LLMs while retaining scalable full-corpus ranking. FLEXRec inserts prediction heads (i.e., exits) at multiple transformer layers and adaptively fuses their score distributions. An adaptive continuous router (AC-Router) dynamically selects both the number and identity of exits for each user sequence, while a novel target-k hinge loss regulates routing sparsity. Experiments on three real-world datasets with Qwen 3 1.7B and Llama 3.2 3B show that FLEXRec achieves state-of-the-art accuracy among compact-backbone methods while remaining highly efficient. Code: https://github.com/xurong-liang/FLEXRec",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.17316",
+    "pdf_url": "https://arxiv.org/pdf/2608.17316.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统场景，提出了一种利用分层退出机制增强紧凑型 LLM 效率与表达力的新架构，解决了 LLM 在推荐落地中的计算瓶颈问题。",
+    "translation": "融合分层退出机制赋能紧凑型大语言模型用于推荐系统",
+    "summary_zh": "提出 FLEXRec 框架，通过在 Transformer 多层插入预测头并利用自适应路由器动态融合多層输出，旨在提升紧凑型 LLM 在序列推荐中的表达能力与全库排序效率。",
+    "key_points": [
+      "提出 FLEXRec 框架，通过在 Transformer 多层插入预测头并利用自适应路由器动态融合多層输出，旨在提升紧凑型 LLM 在序列推荐中的表达能力与全库排序效率"
+    ]
+  },
+  {
+    "arxiv_id": "2411.15455",
+    "title": "M3TR: Temporal Retrieval Enhanced Multi-Modal Micro-video Popularity Prediction",
+    "authors": [
+      "Jiacheng Lu",
+      "Weijian Wang",
+      "Mingyuan Xiao",
+      "Yang Hua",
+      "Tao Song",
+      "Bo Peng",
+      "Cheng Hua",
+      "Haibing Guan"
+    ],
+    "summary": "Accurately predicting the popularity of micro-videos is a critical but challenging task, characterized by volatile, `rollercoaster-like' engagement dynamics. Existing methods often fail to capture these complex temporal patterns, leading to inaccurate long-term forecasts. This failure stems from two fundamental limitations: \\ding{172} a superficial understanding of user feedback dynamics, which overlooks the mutually exciting and decaying nature of interactions such as likes, comments, and shares; and~\\ding{173} retrieval mechanisms that rely solely on static content similarity, ignoring the crucial patterns of how a video's popularity evolves over time. To address these limitations, we propose \\textbf{M$^3$TR}, a \\textbf{T}emporal \\textbf{R}etrieval enhanced \\textbf{M}ulti-\\textbf{M}odal framework that uniquely synergizes fine-grained temporal modeling with a novel temporal-aware retrieval process for \\textbf{M}icro-video popularity prediction. At its core, M$^3$TR introduces a Mamba-Hawkes Process (MHP) module to explicitly model user feedback as a sequence of self-exciting events, capturing the intricate, long-range dependencies within user interactions (for \\textbf{limitation} \\ding{172}). This rich temporal representation then powers a temporal-aware retrieval engine that identifies historically relevant videos based on a combined similarity of both their multi-modal content (visual, audio, text) and their popularity trajectories (for \\textbf{limitation} \\ding{173}). By augmenting the target video's features with this retrieved knowledge, M$^3$TR achieves a comprehensive understanding of prediction. Extensive experiments on two real-world datasets demonstrate the superiority of our framework. M$^3$TR achieves state-of-the-art performance, outperforming previous methods by up to \\textbf{19.3}\\% in nMSE and showing significant gains in addressing long-term prediction challenges.",
+    "categories": [
+      "cs.MM",
+      "cs.AI"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2411.15455",
+    "pdf_url": "https://arxiv.org/pdf/2411.15455.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对短视频平台的热门度预测（推荐系统核心环节），提出了结合多模态内容与时间演化轨迹的检索增强框架，具有明确的业务应用场景；且来自中国公司，按规则额外加 1 分。",
+    "translation": "M3TR：基于时序检索增强的多模态微视频热门度预测",
+    "summary_zh": "提出 M3TR 框架，利用 Mamba-Hawkes 过程建模用户反馈的自激发时序动态，并结合多模态内容与热度轨迹进行时序感知检索，以解决微视频长期热门度预测难题。",
+    "key_points": [
+      "提出 M3TR 框架，利用 Mamba-Hawkes 过程建模用户反馈的自激发时序动态，并结合多模态内容与热度轨迹进行时序感知检索，以解决微视频长期热门度预测难题"
+    ]
+  },
+  {
+    "arxiv_id": "2603.19626",
+    "title": "The Prosocial Ranking Challenge: Reducing Polarization on Social Media without Sacrificing Engagement",
+    "authors": [
+      "Jonathan Stray",
+      "Ian Baker",
+      "George Beknazar-Yuzbashev",
+      "Ceren Budak",
+      "Julia Kamin",
+      "Kylan Rutherford",
+      "Mateusz Stalinski",
+      "Tin Acosta",
+      "Chris Bail",
+      "Michael Bernstein",
+      "Mark Brandt",
+      "Amy Bruckman",
+      "Anshuman Chhabra",
+      "Soham De",
+      "Kayla Duskin",
+      "Sara Fish",
+      "Beth Goldberg",
+      "Andy Guess",
+      "Dylan Hadfield-Menell",
+      "Muhammed Haroon",
+      "Safwan Hossain",
+      "Michael Inzlicht",
+      "Gauri Jain",
+      "Zaria Jalan",
+      "Yanchen Jiang",
+      "Alexander P. Landry",
+      "Yph Lelkes",
+      "Hongfan Lu",
+      "Peter Mason",
+      "Jennifer McCoy",
+      "Smitha Milli",
+      "Paul Resnick",
+      "Emily Saltz",
+      "Martin Saveski",
+      "Lisa Schirch",
+      "Max Spohn",
+      "Siddarth Srinivasan",
+      "Alexis Tatore",
+      "Luke Thorburn",
+      "Joshua A. Tucker",
+      "Robb Willer",
+      "Magdalena Wojcieszak",
+      "Manuel Wüthrich",
+      "Sylvan Zheng"
+    ],
+    "summary": "We report the first direct comparisons of multiple alternative social media algorithms on multiple platforms on outcomes of societal interest. We used a browser extension to modify which posts were shown to desktop social media users, randomly assigning 9,386 users to a control group or one of five alternative ranking algorithms which simultaneously altered content across three platforms for six months during the US 2024 presidential election. This reduced our preregistered index of affective polarization by an average of 0.03 standard deviations (p < 0.05), including a 1.5 degree decrease in differences between the 100 point inparty and outparty feeling thermometers. We saw reductions in active use time for Facebook (-0.37 min/day) and Reddit (-0.2 min/day), but an increase of 0.32 min/day (p < 0.01) for X/Twitter. We saw an increase in reports of negative social media experiences but found no effects on well-being, news knowledge, outgroup empathy, perceptions of and support for partisan violence. This implies that bridging content can improve some societal outcomes without necessarily conflicting with the engagement-driven business model of social media.",
+    "categories": [
+      "cs.SI",
+      "cs.IR"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2603.19626",
+    "pdf_url": "https://arxiv.org/pdf/2603.19626.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Facebook"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究社交媒体平台的排序算法（Ranking）对社会极化和用户参与度的影响，属于核心推荐/搜索业务场景中的重排序与社会价值平衡问题；虽非纯深度学习模型创新，但提供了直接的算法干预实证，且来自相关机构，故给予高分。",
+    "translation": "亲社会排序挑战：在不牺牲参与度的情况下减少社交媒体极化",
+    "summary_zh": "本文提出并实证了一种通过修改社交媒体排序算法来展示“桥梁性内容”的方法，旨在降低用户情感极化的同时维持甚至提升平台参与度。",
+    "key_points": [
+      "本文提出并实证了一种通过修改社交媒体排序算法来展示“桥梁性内容”的方法，旨在降低用户情感极化的同时维持甚至提升平台参与度"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07304",
+    "title": "Latent Order Bandits",
+    "authors": [
+      "Emil Carlsson",
+      "Newton Mwai",
+      "Fredrik D. Johansson"
+    ],
+    "summary": "Bandit algorithms solve diverse sequential decision-making problems, but are often too sample-inefficient for from-scratch personalization. To substantially reduce exploration times, latent bandit algorithms exploit cross-instance structure implied by discrete latent states, provided that the posterior distribution of rewards and latent states is known and accurate. However, obtaining an accurate model of this structure is difficult, and a small number of latent states may be insufficient to characterize the reward distributions in all problem instances. We propose latent order bandits (LOB), relaxing the assumptions of latent bandits to require only prior knowledge of a \\emph{partial order} of action preferences in each state. This allows instances of the same state to vary in reward distributions, as long as the partial order of actions is shared. For example, groups of users on a streaming service may agree on which movie genres are the best but rate experiences on different scales. We give an upper-confidence bound procedure for the LOB problem, applicable to both total and partial latent orders, and give an upper bound on its regret. To improve empirical performance, we propose a posterior-sampling algorithm and show, in a suite of experiments, that both are competitive with full-prior latent bandits when same-state instances share reward parameters, and preferable to them when reward scales differ between instances with the same latent state.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2605.07304",
+    "pdf_url": "https://arxiv.org/pdf/2605.07304.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "论文提出潜在序老虎机（LOB）算法，直接解决推荐系统中冷启动和个人化探索效率低的问题，属于核心排序与用户建模技术；虽为通用强化学习方法，但明确针对流媒体用户场景且来自中国公司，故给予高分。",
+    "translation": "潜在序老虎机：利用动作偏好偏序关系提升个性化探索效率",
+    "summary_zh": "该研究提出一种放松了潜在状态假设的老虎机算法，仅利用动作偏好的偏序关系而非具体奖励分布，以解决不同用户在相同潜在状态下奖励尺度不一致的个性化探索难题。",
+    "key_points": [
+      "该研究提出一种放松了潜在状态假设的老虎机算法，仅利用动作偏好的偏序关系而非具体奖励分布，以解决不同用户在相同潜在状态下奖励尺度不一致的个性化探索难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16922",
+    "title": "Towards welfare-oriented recommendations in activity-travel behavior",
+    "authors": [
+      "Ekin Ugurel",
+      "Takahiro Yabe"
+    ],
+    "summary": "While mainstream recommender systems (RS) rely on diverse heuristics to rank alternatives, they generally lack a principled account of user welfare (i.e., whether accepting the recommendation will leave the user better off than other alternatives). The problem is particularly acute in activity-based travel behavior, where users incur costs they cannot recoup (i.e., energy, time) regardless of eventual satisfaction. As a result, existing systems may recommend options based on popularity or collaborative filtering, but may still leave users worse off than nearby or self-selected alternatives. We address this gap by introducing a welfare-oriented framework for activity recommendation that evaluates suggestions in terms of net utility, defined as experienced benefit minus travel costs. Specifically, we formalize two operational decision criteria: Positive Utility Probability (PUP) recommends only when the probability of non-negative net utility exceeds a threshold, while Regret Minimization (RM) recommends only when expected regret relative to the user's best organic alternative falls below a tolerance level. To evaluate these criteria, we develop an agent-based simulation in which heterogeneous synthetic travelers interact with multiple RS over time in a spatial environment with realistic travel costs, congestion, and behavioral feedback loops. This framework enables controlled counterfactual evaluations, and offers a practical foundation for designing RS that treat user welfare as a primary objective rather than an incidental byproduct.",
+    "categories": [
+      "cs.IR",
+      "cs.CY"
+    ],
+    "published": "2026-08-03",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.16922",
+    "pdf_url": "https://arxiv.org/pdf/2608.16922.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "论文提出面向用户福利的推荐框架并应用于出行行为场景，属于特定领域的推荐系统研究，但非主流电商/社交核心场景且方法偏向理论准则定义。",
+    "translation": "面向活动 - 出行行为的福利导向推荐研究",
+    "summary_zh": "本文提出一种福利导向推荐框架，通过定义正效用概率和最小化后悔两个决策准则，在考虑出行成本的基础上评估推荐净效用以优化用户福利。",
+    "key_points": [
+      "本文提出一种福利导向推荐框架，通过定义正效用概率和最小化后悔两个决策准则，在考虑出行成本的基础上评估推荐净效用以优化用户福利"
+    ]
+  },
+  {
+    "arxiv_id": "2606.31222",
+    "title": "Thinking Before Retrieving: Robust Zero-Shot Composed Image Retrieval via Strategic Planning and Self-Criticism",
+    "authors": [
+      "Gunho Jung",
+      "Jeong-Woo Park",
+      "Seon Bin Kim",
+      "Seong-Whan Lee"
+    ],
+    "summary": "Composed image retrieval requires identifying a target image from a gallery by integrating a reference image with a textual modification instruction. In a training-free zero-shot setting, this task relies on constructing a retrieval-oriented textual query within a frozen vision--language embedding space at inference time. Existing approaches predominantly rely on a single-pass generation strategy that fuses the reference context and modification text into a unified description. This strategy makes it difficult to detect or correct semantic distortions and omissions during generation. Consequently, the preservation of reference attributes and the integration of textual requirements interfere with each other, which degrades retrieval precision. To address these challenges, we introduce PEC-CIR, a training-free framework that structures query construction as a multi-stage reasoning pipeline. The framework operates through a Planner--Executor--Critic architecture where the Planner extracts explicit constraints, the Executor generates multiple candidate target descriptions, and the Critic evaluates these candidates based on constraint compliance. By reframing query construction as a staged inference process instead of a single-pass output, PEC-CIR reduces the propagation of generative errors by explicitly evaluating candidate queries before retrieval, thereby improving retrieval stability.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2606.31222",
+    "pdf_url": "https://arxiv.org/pdf/2606.31222.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于多模态检索（CIR）中的查询生成优化，属于搜索核心环节，但主要贡献在于纯 CV/NLP 交叉领域的推理策略，缺乏明确的推荐系统业务场景或直接应用。",
+    "translation": "先思后检：基于战略规划与自我批评的鲁棒零样本组合图像检索",
+    "summary_zh": "提出一种无需训练的 PEC-CIR 框架，通过将查询构建重构为“规划 - 执行 - 批评”的多阶段推理流水线，利用显式约束提取和候选评估机制来纠正生成错误，从而提升组合图像检索的稳定性。",
+    "key_points": [
+      "提出一种无需训练的 PEC-CIR 框架，通过将查询构建重构为“规划 - 执行 - 批评”的多阶段推理流水线，利用显式约束提取和候选评估机制来纠正生成错误，从而提升组合图像检索的稳定性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.17203",
+    "title": "Expressivity In Multimodal Contrastive Learning",
+    "authors": [
+      "Andrew Stuart",
+      "Florian Wolf"
+    ],
+    "summary": "Contrastive learning has become a cornerstone of modern representation learning, powering CLIP-style models that underpin text-to-image generation, vision-language models, and retrieval across a rapidly growing range of modalities. Despite this empirical success, the expressive power of these architectures remains poorly understood. To gain insight, we study expressivity by adopting a population-level, density-estimation viewpoint: each architecture comprises a parameterized set of densities whose parameters may be chosen to approximate the joint distribution of the modalities. This isolates a question of pure representational capacity: which joint distributions can a given contrastive family of parameterizations approximate to arbitrary accuracy? We show that expressivity is sharply architecture-dependent. For two modalities, the simple two-tower CLIP architecture is a universal approximator. A natural generalization of CLIP, widely used in practice when three or more modalities are present, is based on a loss found by summing over all pairwise similarities. This provably cannot represent arbitrary joint distributions, although we prove that it remains expressive enough to match all pairwise conditionals. Motivated by this gap, we propose Hadamard-CLIP, which adds a single learned weight vector on top of the existing encoders and restores universal approximation of the joint for any number of modalities while preserving CLIP's fast, precomputable-embedding retrieval.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "math.ST",
+      "stat.TH"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.17203",
+    "pdf_url": "https://arxiv.org/pdf/2608.17203.pdf",
+    "prerank_score": 5,
+    "relevance_score": 5,
+    "reasoning": "该文属于纯多模态表征学习理论研究，虽提及检索但未针对推荐/搜索系统提出具体应用架构或解决业务问题；因来自中国公司额外加 1 分，否则为 4 分。",
+    "translation": "多模态对比学习中的表达能力研究",
+    "summary_zh": "本文从密度估计视角分析对比学习架构的表达能力，证明多模态下成对求和损失的局限性，并提出 Hadamard-CLIP 方法以恢复对任意数量模态联合分布的通用近似能力。",
+    "key_points": [
+      "本文从密度估计视角分析对比学习架构的表达能力，证明多模态下成对求和损失的局限性，并提出 Hadamard-CLIP 方法以恢复对任意数量模态联合分布的通用近似能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16185",
+    "title": "LENS: In-Context Search via Latent Evidence Exploration over Dynamic Raw Documents",
+    "authors": [
+      "Xingjun Wang",
+      "Gongsheng Li",
+      "Qi Fan",
+      "Yunlin Mao",
+      "Luyan Su",
+      "Yingda Chen"
+    ],
+    "summary": "LLM agents increasingly answer questions over dynamic raw-document collections, where files may change before preprocessing, and relevant evidence (spans, sections, pages, or tables) is query-dependent. Existing retrieval-augmented approaches pre-materialize evidence via fixed chunking, embeddings, or persistent indexes: effective for lookup, yet costly, stale-prone, and committed to a granularity before the query is known.\n  We formulate in-context search as Budgeted Evidence Localization over a latent evidence space induced by dynamic raw documents and propose LENS (Latent Evidence Exploration and Search), an index-free framework. Instead of pre-materializing the evidence space, LENS maintains a query-conditioned belief over candidate units, iteratively selecting candidates via complementary lexical, local, and exploratory proposal policies, updating the belief via an LLM relevance oracle, and narrowing toward high-posterior regions under a controllable budget. Evidence is consolidated into compact, source-grounded regions of interest and compressed into self-organizing knowledge clusters reused across related queries.\n  On a controlled 500-question evaluation with matched corpus snapshots, LENS reaches 62.4% exact match and 84.8% evidence recall vs. 65.2% exact match but 50.4% evidence recall for a ReAct-style baseline. Across scales, LENS gives the strongest supporting-fact localization and answer grounding. On a fixed 150-question fullwiki subset over the raw Wikipedia dump with zero indexing, LENS and ReAct are nearly tied in official answer quality (43.3% vs. 42.7% EM), with LENS grounding more answers in retrieved evidence (84.0% vs. 70.7%). A no-retrieval Closed-Book reference highlights the contribution of model memory. LENS is query-ready after corpus changes, needs no preprocessing or persistent index, and preserves source-grounded evidence localization throughout.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.16185",
+    "pdf_url": "https://arxiv.org/pdf/2608.16185.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 检索增强生成（RAG）研究，聚焦于动态文档的问答证据定位，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），虽有中国公司背景加分，但核心领域不匹配。",
+    "translation": "LENS：基于动态原始文档潜在证据探索的上下文搜索",
+    "summary_zh": "提出一种无索引框架 LENS，通过在动态原始文档上维护查询条件的信念分布，利用 LLM 作为相关性预言机迭代选择候选单元，以在有限预算内定位证据并生成 grounded 答案。",
+    "key_points": [
+      "提出一种无索引框架 LENS，通过在动态原始文档上维护查询条件的信念分布，利用 LLM 作为相关性预言机迭代选择候选单元，以在有限预算内定位证据并生成 grounded 答案"
+    ]
+  },
+  {
+    "arxiv_id": "2608.17171",
+    "title": "Polaris: Learning to Generate Table Descriptions from Retrieval Feedback",
+    "authors": [
+      "Ting Cai",
+      "Tuan Minh Phan",
+      "AnHai Doan"
+    ],
+    "summary": "Many table-centric NLP tasks such as NL2SQL first retrieve relevant tables from large collections using keyword search. Recent work uses LLMs to generate natural-language table descriptions to improve retrieval, but they are typically optimized for fluency rather than retrieval effectiveness. We present Polaris, a system that trains an LLM to generate table descriptions directly from retrieval feedback. Our key insight is that existing table retrieval benchmarks already contain the supervision needed for this task: given query-table relevance judgments, we generate multiple candidate descriptions for each table, rank them by their BM25 retrieval effectiveness, and use the resulting preference pairs to fine-tune the LLM with Direct Preference Optimization (DPO). Polaris further expands abbreviated table and column names before generation to reduce vocabulary mismatch. Extensive experiments show that Polaris outperforms the state-of-the-art AutoDDG solution, often by a significant margin. More broadly, our results demonstrate that retrieval benchmarks can be repurposed as supervision for training LLMs to generate retrieval-oriented metadata.",
+    "categories": [
+      "cs.CL",
+      "cs.DB"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.17171",
+    "pdf_url": "https://arxiv.org/pdf/2608.17171.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/LLM 研究（针对 NL2SQL 任务中的表检索优化），未涉及推荐系统或通用搜索引擎的核心业务场景（如电商、社交信息流、广告等），不符合 RecSys/Search 直接应用的高分标准。",
+    "translation": "Polaris：基于检索反馈学习生成表格描述",
+    "summary_zh": "提出 Polaris 系统，利用检索基准中的相关性判断构建偏好对，通过直接偏好优化（DPO）微调 LLM，使其生成能显著提升关键词检索效果的表格自然语言描述。",
+    "key_points": [
+      "提出 Polaris 系统，利用检索基准中的相关性判断构建偏好对，通过直接偏好优化（DPO）微调 LLM，使其生成能显著提升关键词检索效果的表格自然语言描述"
+    ]
+  },
+  {
+    "arxiv_id": "2606.15315",
+    "title": "ChatPlanner: A Large Language Model Framework for Personalized Public Transit Routing",
+    "authors": [
+      "Tingting Yang",
+      "Chenhao Xue",
+      "Jun Chen"
+    ],
+    "summary": "Personalized public transit routing in public transit systems remains challenging due to the difficulty of capturing and integrating diverse user preferences into routing algorithms. This paper presents ChatPlanner, a novel framework that leverages Large Language Models (LLMs) to enable preference-aware public transit routing. Our approach employs fine-tuned LLMs with Retrieval-Augmented Generation (RAG) to extract routing parameters and interpret conversationally expressed preferences from natural language queries as preference scores, subsequently integrating these preferences into the objective function of a public transit routing algorithm. This study designs preference-aware datasets incorporating eight personas and five contexts to establish scoring standards for both fine-tuning and RAG. This work conducted four experiments to validate the solutions' feasibility, extraction of routing information and preferences, solution set quality and completeness, and latency and computational tractability. Results demonstrate that ChatPlanner generates feasible solutions reliably. Fine-tuning enforces the required output structure and learns general preference patterns, while RAG provides query-specific context to resolve imprecise or conversational expressions and calibrate continuous scores. The combination of both achieves the highest accuracy in routing information extraction and rubric-consistent user preference interpretation. Results based on selected case studies show that by capturing user conversationally expressed preferences, ChatPlanner identifies preference-relevant solutions across different dimensions that existing route planners overlook, generating more route alternatives. The latency evaluation confirms that the framework is computationally tractable. This research establishes a new paradigm for integrating natural language understanding into transportation optimization.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-19",
+    "url": "https://arxiv.org/abs/2606.15315",
+    "pdf_url": "https://arxiv.org/pdf/2606.15315.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该论文属于纯 LLM 应用在交通规划领域，完全未涉及推荐系统或搜索引擎的核心技术（如召回、排序、信息流），不符合 RecSys/Search 范畴。",
+    "translation": "ChatPlanner：一种用于个性化公共交通路径规划的大型语言模型框架",
+    "summary_zh": "提出利用微调大模型结合检索增强生成（RAG）技术，从自然语言对话中提取用户偏好并转化为路由参数，以解决公共交通路径规划中的个性化需求问题。",
+    "key_points": [
+      "提出利用微调大模型结合检索增强生成（RAG）技术，从自然语言对话中提取用户偏好并转化为路由参数，以解决公共交通路径规划中的个性化需求问题"
+    ]
+  }
+]

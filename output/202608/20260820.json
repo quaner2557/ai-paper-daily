@@ -1,0 +1,713 @@
+[
+  {
+    "arxiv_id": "2604.05329",
+    "title": "Semantic Trimming and Auxiliary Multi-step Prediction for Generative Recommendation",
+    "authors": [
+      "Tianyu Zhan",
+      "Kairui Fu",
+      "Chengfei Lv",
+      "Zheqi Lv",
+      "Shengyu Zhang"
+    ],
+    "summary": "Generative Recommendation (GR) has recently transitioned from atomic item-indexing to Semantic ID (SID)-based frameworks to capture intrinsic item relationships and enhance generalization. However, the adoption of high-granularity SIDs leads to two critical challenges: prohibitive training overhead due to sequence expansion and unstable performance reliability characterized by non-monotonic accuracy fluctuations. We identify that these disparate issues are fundamentally rooted in the Semantic Dilution Effect, where redundant tokens waste massive computation and dilute the already sparse learning signals in recommendation. To counteract this, we propose STAMP (Semantic Trimming and Auxiliary Multi-step Prediction), a framework utilizing a dual-end optimization strategy. We argue that effective SID learning requires simultaneously addressing low input information density and sparse output supervision. On the input side, Semantic Adaptive Pruning (SAP) dynamically filters redundancy during the forward pass, converting noise-laden sequences into compact, information-rich representations. On the output side, Multi-step Auxiliary Prediction (MAP) employs a multi-token objective to densify feedback, strengthening long-range dependency capture and ensuring robust learning signals despite compressed inputs. Unifying input purification and signal amplification, STAMP enhances both training efficiency and representation capability. Experiments on public Amazon and large-scale industrial datasets show STAMP achieves 1.23--1.38$\\times$ speedup and 17.2\\%--54.7\\% VRAM reduction while maintaining or improving performance across multiple architectures.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2604.05329",
+    "pdf_url": "https://arxiv.org/pdf/2604.05329.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "Alibaba"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "ZhejiangUniversity ZhejiangUniversity Alibaba",
+      "ZhejiangUniversity ZhejiangUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统（Generative Recommendation）中的语义 ID 训练效率与稳定性问题提出新架构 STAMP，属于核心推荐领域创新；且来自中国公司（TAL），按规定额外 +1 分后满分。",
+    "translation": "面向生成式推荐的语义剪枝与辅助多步预测方法",
+    "summary_zh": "针对生成式推荐中语义 ID 导致的计算冗余与信号稀疏问题，提出通过输入端动态剪枝去除噪声令牌、输出端多步辅助预测增强监督信号的双端优化框架，以提升训练效率与表征能力。",
+    "key_points": [
+      "针对生成式推荐中语义 ID 导致的计算冗余与信号稀疏问题，提出通过输入端动态剪枝去除噪声令牌、输出端多步辅助预测增强监督信号的双端优化框架，以提升训练效率与表征能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16073",
+    "title": "GOD: Enhancing Generalization via Deep Grafting for Sequential Recommendation",
+    "authors": [
+      "WooJoo Kim",
+      "JunYoung Kim",
+      "JaeHyung Lim",
+      "HwanJo Yu"
+    ],
+    "summary": "Sequential recommenders often struggle with sparse and noisy histories, limiting generalization to unseen interactions. Knowledge distillation mitigates this by transferring dense supervision from a teacher to a student. However, most distillation methods run teacher and student independently, then match student outputs or representations to the teacher. Such supervision entangles student-component effects, blurring whether weak generalization stems from unreliable embeddings, overfitted encoding, or co-adaptation to sparse histories. In this paper, we propose Graft-Oriented Distillation (GOD), a component-level distillation framework for improved generalization through grafting. Grafting denotes replacing selected frozen-teacher components with trainable student counterparts to build hybrid source models. GOD uses these hybrid models to evaluate student embeddings with the teacher encoder and the student encoder with teacher embeddings, providing component-level feedback. At inference, GOD uses only the student, incurring no additional cost. Across three real-world datasets, GOD outperforms state-of-the-art baselines by up to 13.92%.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.16073",
+    "pdf_url": "https://arxiv.org/pdf/2608.16073.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的泛化问题提出新的蒸馏框架，属于核心推荐算法创新，且来自中国公司，符合最高优先级标准。",
+    "translation": "GOD：通过深度嫁接增强序列推荐的泛化能力",
+    "summary_zh": "提出一种面向组件的嫁接蒸馏框架，通过构建混合模型解耦评估学生网络的嵌入与编码组件，以解决稀疏历史下的泛化难题。",
+    "key_points": [
+      "提出一种面向组件的嫁接蒸馏框架，通过构建混合模型解耦评估学生网络的嵌入与编码组件，以解决稀疏历史下的泛化难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16075",
+    "title": "TRACER: Balancing Stability-Plasticity-Cognitivity Trilemma for LLM Enhanced Continual Recommendation",
+    "authors": [
+      "WooJoo Kim",
+      "HyunSik Yoo",
+      "JunYoung Kim",
+      "JaeHyung Lim",
+      "SeongKu Kang",
+      "HwanJo Yu"
+    ],
+    "summary": "Continual recommendation aims to capture evolving user interests from streaming data but struggles with sparsity. LLM enhancers mitigate this with semantic knowledge, but naive integration creates a new conflict. We identify this as the Stability-Plasticity-Cognitivity (SPC) Trilemma, where generalized LLM semantic priors (Cognitivity) conflict with retaining personalized historical preferences (Stability) and adapting to individual interest shifts (Plasticity). To address this, we propose Trilemma-Responsive Adaptive Continual Enhancement for Recommendation (TRACER). TRACER synergistically combines three specialized modules, each targeting stability, plasticity, or cognitivity, while preventing any single lemma from dominating. This holistic design enables semantic knowledge to support history retention and adaptation to evolving interests without disrupting continual learning. Across five real-world datasets, TRACER effectively harmonizes the SPC trilemma and outperforms state-of-the-art baselines by up to 14.38%. Our code is available at https://github.com/woo-joo/TRACER_CIKM26.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.16075",
+    "pdf_url": "https://arxiv.org/pdf/2608.16075.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对持续推荐系统中的核心难题，提出利用 LLM 解决稳定性 - 可塑性 - 认知性三难困境，属于 LLM 在推荐领域的深度创新应用；且来自中国公司，符合额外加分条件。",
+    "translation": "TRACER：平衡 LLM 增强持续推荐中的稳定性 - 可塑性 - 认知性三难困境",
+    "summary_zh": "本文提出 TRACER 框架，通过三个专用模块协同解决 LLM 语义先验与用户历史偏好保留及兴趣适应之间的冲突，实现持续推荐中通用知识与个性化演进的平衡。",
+    "key_points": [
+      "本文提出 TRACER 框架，通过三个专用模块协同解决 LLM 语义先验与用户历史偏好保留及兴趣适应之间的冲突，实现持续推荐中通用知识与个性化演进的平衡"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18322",
+    "title": "Multimedia Asset Personalization via Multimodal Embeddings at Netflix",
+    "authors": [
+      "Emma Yanyang Kong",
+      "Aditya Deshpande",
+      "Bowei Yan",
+      "Asad Abbasi",
+      "Santiago Castro",
+      "Avneesh Saluja",
+      "David Fagnan",
+      "Ashish Rastogi"
+    ],
+    "summary": "Personalized promotional assets, namely artwork images and video preview clips, are critical to content discovery on Netflix. Traditional models for asset selection rely on ID-based interaction history, leaving them blind to asset content and unable to serve newly launched titles and assets. We describe how multimodal embeddings reshaped production systems at Netflix and report transferable lessons for practitioners adopting foundation-model embeddings into recommender systems. First, pretrained image embeddings unlock cross-title, cross-canvas knowledge transfer. Augmenting a two-tower model with CLIP image embeddings lets a single model serve all five Netflix artwork canvas types, replacing five separately trained per-canvas models and substantially improving cold-start performance. A lightweight extension reuses CLIP's joint text-image space to make artwork personalization query-aware in search. Second, multimodality decisively beats any single modality for video preview personalization. We describe MediaFM, our in-house tri-modal foundation model trained on a large-scale corpus of shots from the Netflix show catalog, fusing visual (SeqCLIP), audio (wav2vec 2.0), and timed-text signals; adopted for video preview personalization, it outperforms strong visual-only baselines both offline and in online A/B tests. Third, a simple offline proxy task whose performance correlates with online outcomes can accelerate the experimentation and productization cycle. Predicting the popularity-based winner from embeddings alone ranks embedding models and versions, pruning the choice space before any end-to-end integration or A/B test; it now gates every new MediaFM checkpoint. We also share the production engineering decisions (shared embedding infrastructure, low-latency serving, cheap screening) that made these deployments viable, along with the design tradeoffs and failure modes we encountered.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18322",
+    "pdf_url": "https://arxiv.org/pdf/2608.18322.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接讲述 Netflix 利用多模态 Embedding（CLIP, MediaFM）解决推荐系统中的冷启动、素材个性化及搜索查询感知问题，属于核心领域的高价值工业实践。虽非中国公司（系 Netflix），但因其极高的相关性和应用价值，仍给满分。",
+    "translation": "Netflix 基于多模态嵌入的媒体资产个性化实践",
+    "summary_zh": "本文提出利用预训练图像嵌入实现跨画布知识迁移以解决冷启动，并构建融合视音频及时序文本的三模态基础模型 MediaFM，显著提升了视频预览素材的个性化推荐与搜索效果。",
+    "key_points": [
+      "本文提出利用预训练图像嵌入实现跨画布知识迁移以解决冷启动，并构建融合视音频及时序文本的三模态基础模型 MediaFM，显著提升了视频预览素材的个性化推荐与搜索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18855",
+    "title": "Think-to-Personalize: Unifying Reasoning and Retrieval for User-Centric Personalized Dense Retrieval",
+    "authors": [
+      "Angqing Jiang",
+      "Gaoming Zhang",
+      "Jianchun Song",
+      "Kena Qi",
+      "Dayao Chen",
+      "Wei Lin",
+      "Defu Lian"
+    ],
+    "summary": "Dense retrieval has become a cornerstone of modern local-lifestyle e-commerce search by encoding queries and items into semantic embedding spaces. While recent advancements have transitioned from BERT-based embedding models to Large Language Models (LLMs), most approaches still treat LLMs as static text encoders, neglecting their inherent reasoning capabilities. Furthermore, standard dense retrieval models remain query-centric, which is insufficient in e-commerce scenarios where sparse and ambiguous queries create an intent gap that can only be bridged by the rich context of user history. Meanwhile, existing personalized retrieval methods typically rely on implicit embedding interactions, which lack the reasoning capability to effectively disambiguate user intent from noisy historical behaviors. To address these challenges, we propose Think-to-Personalize (TTP), a novel framework that unifies explicit user-centric intent reasoning with dense retrieval. By reasoning over the user's historical purchase sequence, TTP explicitly deduces latent personalized needs and generates an intent-enhanced query, which is then encoded into a unified dense embedding. Specifically, we design a two-stage training paradigm: (1) a Supervised Fine-Tuning (SFT) stage that establishes cold-start capabilities; and (2) a Reinforcement Learning (RL) stage that aligns the reasoning process with retrieval utility using Group Relative Policy Optimization (GRPO). Extensive experiments on both proprietary and public benchmarks demonstrate that TTP significantly outperforms state-of-the-art baselines. Furthermore, in online A/B tests, it achieved a +0.46% lift in order volume, validating its practical effectiveness and establishing a new paradigm for reasoning-driven personalized dense retrieval.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18855",
+    "pdf_url": "https://arxiv.org/pdf/2608.18855.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "UniversityofScienceandTechnology UniversityofScienceandTechnology Meituan",
+      "UniversityofScienceandTechnology"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索场景，提出利用 LLM 的推理能力结合用户历史行为进行个性化稠密检索，完美契合核心领域 advances 及 LLM for Search 的高优先级标准；且来自中国公司（STO），按规则额外 +1 分（基础 9 分 + 额外 1 分，上限 10 分）。",
+    "translation": "Think-to-Personalize：统一推理与检索以实现以用户为中心的个性化稠密检索",
+    "summary_zh": "提出 Think-to-Personalize 框架，通过两阶段训练范式让 LLM 显式推理用户历史购买序列以消除意图歧义，生成意图增强的查询嵌入，从而统一显式意图推理与稠密检索。",
+    "key_points": [
+      "提出 Think-to-Personalize 框架，通过两阶段训练范式让 LLM 显式推理用户历史购买序列以消除意图歧义，生成意图增强的查询嵌入，从而统一显式意图推理与稠密检索"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18543",
+    "title": "Bridging Search and CRM: Productionizing AI Product Research Agents for Customer Re-Engagement",
+    "authors": [
+      "Mandar Kulkarni",
+      "Pooja A.",
+      "Samir Shah"
+    ],
+    "summary": "Modern e-commerce platforms often operate search, recommendation, personalization, and CRM systems independently, limiting opportunities for proactive customer re-engagement. This is particularly challenging for exploratory intents such as best smartphones or latest 5G phones, where users may leave the platform for external research before purchasing. We present a scalable, production-deployed framework that bridges search and CRM workflows through AI-powered Product Research Agents. The system identifies users with exploratory purchase intent and low engagement, conducts grounded multi-agent product research using behavioral signals, external knowledge, and enterprise catalog data, and delivers personalized recommendations through WhatsApp. We evaluate the framework in a 23-day production deployment involving approximately 15K WhatsApp notifications for mobile product discovery. The campaign achieved substantial CTR improvements over traditional WhatsApp recommendation campaigns, with evidence of secondary engagement through message forwarding and sharing. The deployment also generated downstream purchases and GMV impact, demonstrating the practical effectiveness of AI Product Research Agents for proactive customer re-engagement and end-to-end customer journey optimization.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18543",
+    "pdf_url": "https://arxiv.org/pdf/2608.18543.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商场景，提出将搜索意图识别与 CRM 系统结合的生产级框架，利用 AI Agent 进行主动用户召回和个性化推荐，完全符合核心领域 advances 及高优先级标准。",
+    "translation": "bridging 搜索与 CRM：面向客户再互动的 AI 产品研究代理生产化实践",
+    "summary_zh": "本文提出一种生产级框架，通过 AI 产品研究代理桥接搜索与 CRM 系统，利用行为信号和外部知识识别探索性购买意图用户，并经由 WhatsApp 交付个性化推荐以实现主动再互动。",
+    "key_points": [
+      "本文提出一种生产级框架，通过 AI 产品研究代理桥接搜索与 CRM 系统，利用行为信号和外部知识识别探索性购买意图用户，并经由 WhatsApp 交付个性化推荐以实现主动再互动"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18531",
+    "title": "Pairwise Ranking Outperforms Single-Action RL for Offline Explanation Selection: A Practical Lesson",
+    "authors": [
+      "Tanay Chowdhury",
+      "Saeideh Shahrokh Esfahani"
+    ],
+    "summary": "Industrial explainable-recommendation systems built on LLMs incur a substantial serving cost: each request triggers an LLM generation, with latency in the hundreds of milliseconds and cost that scales linearly with traffic. We separate generation from selection: explanations are produced ahead of time as a frozen candidate pool (six prompt styles, two commodity LLMs), and a small CPU-resident selector picks one at request time. The stack needs no GPU and returns in under 100 ms.\n  Our primary benchmark is a 2,958-pair XRec Google Local subset, evaluating six offline-pool selectors (LambdaRank, PPO, GRPO, DPO, teacher-student distillation) and three KG-path selectors (random walks, edge-disjoint enumeration, MMR-reranked paths). A 300-pair MovieLens-1M split with Claude-Sonnet-4.5 references serves as an internal cross-dataset check, since no public benchmark exists for this setting. All variants use the same BERTScore-F1 protocol as XRec and G-Refer, averaged across five seeds.\n  LambdaRank reaches F1 = 0.500 on Google Local, exceeding both G-Refer and XRec, and F1 = 0.329 on the MovieLens-1M check. With seed variance below 0.003 F1, the ordering is reliable: pairwise learning-to-rank outperforms single-action RL (PPO, GRPO, DPO), which use only one labelled candidate per rollout, leaving K-1 labels unused.\n  The KG-path family targets a different objective: all three variants reach USR = 1.000 on Google Local and 0.997-1.000 on MovieLens-1M, since per-request path grounding yields a unique output per query, avoiding template-collapse failures affecting cached-LLM outputs.\n  A generator-pool study comparing Claude 3 Haiku and Claude Haiku 4.5 shows small F1 shifts (0.001-0.006) while preserving selector ranking: selector and generator can be evaluated independently, though absolute F1 depends on the generator. End-to-end build cost is near $15 on commodity hardware.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18531",
+    "pdf_url": "https://arxiv.org/pdf/2608.18531.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决工业界 LLM 推荐系统中的高延迟和高成本痛点，提出了一种将生成与选择解耦的实用架构，属于核心的推荐系统工程优化。",
+    "translation": "成对排序优于单动作强化学习用于离线解释选择：一个实践教训",
+    "summary_zh": "本文提出一种将 LLM 解释生成预计算为候选池、再由轻量级选择器实时挑选的解耦架构，以显著降低推荐系统的服务延迟和成本。",
+    "key_points": [
+      "本文提出一种将 LLM 解释生成预计算为候选池、再由轻量级选择器实时挑选的解耦架构，以显著降低推荐系统的服务延迟和成本"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18300",
+    "title": "The Lifecycle of LLM-as-a-Judge for Large-Scale Recommendation Explanations",
+    "authors": [
+      "Emma Yanyang Kong",
+      "JJ Tan",
+      "Ishan Gupta",
+      "Lars Olds",
+      "Claire Campbell",
+      "David Fagnan",
+      "Veli Balin",
+      "Rohan Gosain",
+      "Louis Garcia",
+      "Minsu Jang"
+    ],
+    "summary": "LLM-as-a-Judge, which leverages a large language model to evaluate natural language generated by another AI application or model, has become a standard, scalable approach for accelerating and extending costly human evaluation. However, most work treats a judge as a static artifact, evaluating it once at construction or against a fixed benchmark. In contrast, we argue that an LLM judge running in a production system is better understood as having a lifecycle: it must be built, trained, deployed, and continuously maintained as the surrounding data evolves, and each phase poses distinct technical and operational challenges.\n  We present such a lifecycle for the LLM judges that evaluate user-facing recommendation explanations at Netflix, where our pipeline generates and the judges assess hundreds of thousands of distinct show-level explanations per week, served across the mobile experience to millions of members. Our framework has four phases: (I) Birth, defining multiple evaluation criteria and building curated benchmark datasets with human labels and rationales; (II) Training, refining the judges' rubrics via Reasoning-Aligned Rubric Tuning (RART), a rubric-tuning procedure that uses a meta-judge over reasoning output as the learning signal; (III) Deployment, in which one judge serves two production roles: quality gating and reflective generation; and (IV) Monitoring, a continuous Human-in-the-Loop alignment process that detects drift and triggers re-tuning behind a human review gate. We report post-launch results from a five-week A/B test over tens of millions of members, in which the judge-aligned explanations shifted member viewing toward novel content (previously unwatched) and increased successful browse-to-play sessions relative to a no-explanation control, with no quality-related takedowns.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18300",
+    "pdf_url": "https://arxiv.org/pdf/2608.18300.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 Netflix 推荐系统中的解释生成环节，提出了 LLM-as-a-Judge 的全生命周期管理框架，属于 LLM 在推荐系统核心场景的直接落地应用。虽来自中国公司（IGG, STO）的备注与论文实际来源（Netflix）不符，但鉴于其极高的推荐系统业务相关性，基础分已足够高。",
+    "translation": "大规模推荐解释中 LLM 即裁判的全生命周期管理",
+    "summary_zh": "本文提出了一种用于评估推荐解释的 LLM 裁判全生命周期框架，涵盖从基准构建、基于推理对齐的规则微调训练，到生产环境中的质量 gating 及持续人机协同监控四个阶段。",
+    "key_points": [
+      "本文提出了一种用于评估推荐解释的 LLM 裁判全生命周期框架，涵盖从基准构建、基于推理对齐的规则微调训练，到生产环境中的质量 gating 及持续人机协同监控四个阶段"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18779",
+    "title": "SIDScope: A Diagnostic Resource for Semantic-ID Interfaces in Generative Recommendation",
+    "authors": [
+      "Jiandong Ding",
+      "Huijie Qin",
+      "Tiandeng Wu",
+      "Yi Cao"
+    ],
+    "summary": "Semantic-ID mappings are reusable interfaces between item tokenizers and generative recommenders, yet released mappings rarely state whether they are coherent, what structure they expose, how generated paths resolve, or what must be revalidated after a refresh. SIDScope is a source-traced diagnostic resource for these decisions. It normalizes item-to-code artifacts, verifies provenance and joins, profiles mapping structure, compares paired revisions, and accounts for path-to-item outcomes in generated traces. Across nine source-traced tokenizer exports from seven families on Amazon and Yelp data - eight executable routes plus one auditable snapshot - SIDScope reveals that interface health is multi-signal rather than scalar. Its central finding is mechanism-conditional: prefix alignment strongly tracks held-out candidate exposure when retrieval consumes SID prefixes, then weakens as scoring becomes prefix-independent. Trained trace accounting exposes a second hidden gap: a valid target path can survive without uniquely retrieving the target item by 1.2-3.0 percentage points. A refresh case establishes a third: repairing the mapping does not by itself restore an inherited generator; model reuse requires a separate handoff check. The package provides frozen evidence summaries, conformance reports, trace labels, table builders, and CPU-only verifiers. It supports decisions about artifact readiness, interface risks, and revalidation before model reuse.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18779",
+    "pdf_url": "https://arxiv.org/pdf/2608.18779.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心组件（Semantic-ID 接口）进行诊断和优化，解决了推荐系统实际落地中的映射一致性和模型复用问题，属于高优先级的核心领域进展；虽为诊断资源而非新架构，但结合中国公司背景加分。",
+    "translation": "SIDScope：生成式推荐中语义 ID 接口的诊断资源",
+    "summary_zh": "本文提出 SIDScope 诊断框架，用于评估生成式推荐系统中语义 ID 映射的结构一致性、来源追溯及刷新后的有效性，揭示了前缀对齐与候选暴露之间的机制依赖关系。",
+    "key_points": [
+      "本文提出 SIDScope 诊断框架，用于评估生成式推荐系统中语义 ID 映射的结构一致性、来源追溯及刷新后的有效性，揭示了前缀对齐与候选暴露之间的机制依赖关系"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18469",
+    "title": "ERASE: EaRly bAckpropagation SchEdule for Faster Training of Modern Recommendation Systems",
+    "authors": [
+      "Ergan Shang",
+      "Flavio Sales Truzzi"
+    ],
+    "summary": "Lightweight proxy models enable rapid experimentation without repeatedly training frontier-scale systems, but their small kernels often leave modern accelerators underutilized. Conventional training compounds this inefficiency by scheduling the forward and backward passes as disjoint phases, so spare capacity in one cannot be filled by work from the other. We reinterpret the detachment mechanism of Forward-Forward (FF) as a scheduling primitive: given a local objective, detaching a block's output removes downstream gradient dependencies, making its backward pass ready when its forward pass finishes. ERASE launches each detached subgraph's backward pass early on a separate CUDA stream, overlapping it with subsequent forward work. Execution trace on a lightweight transformer demonstrates this overlap and its limit: a kernel that saturates the device leaves no capacity for concurrency. On a large-scale click-through-rate model, detaching six dense subarchitectures improves training throughput by up to $9.51\\%$ while keeping normalized entropy close to the baseline.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18469",
+    "pdf_url": "https://arxiv.org/pdf/2608.18469.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "CarnegieMellonUniversity MetaInc."
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统（CTR 模型）的训练效率问题，提出了一种具体的早期反向传播调度方法，属于核心推荐技术优化。",
+    "translation": "ERASE：面向现代推荐系统更快训练的早期反向传播调度",
+    "summary_zh": "该文提出 ERASE 方法，通过将前向传播中的子图输出分离并提前在独立流中启动反向传播，实现前后向计算重叠以提升推荐模型训练吞吐量。",
+    "key_points": [
+      "该文提出 ERASE 方法，通过将前向传播中的子图输出分离并提前在独立流中启动反向传播，实现前后向计算重叠以提升推荐模型训练吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18504",
+    "title": "UMER: Unifying Embedding and Ranking via Pair-Aware Discriminative Reasoning for Universal Multimodal Retrieval",
+    "authors": [
+      "Libiao Chen",
+      "Xiyang Liu",
+      "Yanheng Wei",
+      "Tao Wang",
+      "Zhenyu Tang"
+    ],
+    "summary": "Universal multimodal retrieval aims to support diverse instruction-aware retrieval tasks, demanding both efficient corpus-scale matching and fine-grained semantic reasoning. Recent MLLM-based embedding methods typically derive representations from hidden states, while Chain-of-Thought (CoT) reasoning is emerging as a promising strategy for embedding enhancement by encoding intermediate semantic evidence into the representation space. However, existing CoT methods typically use item-wise reasoning over queries and candidates in isolation, providing no explicit evidence to distinguish a positive from a semantically confusable hard negative. Moreover, contrastive embeddings capture global similarity but struggle with meta-tasks requiring answer verification, category judgment or fine-grained reasoning. In this paper, we propose UMER, a Unified Multimodal Embedding and Ranking framework for universal multimodal retrieval. UMER replaces item-wise reflection with Pair-Aware Discriminative Reasoning, which compares query--candidate pairs to identify instruction-relevant matching and discrepancy evidence. UMER jointly learns contrastive embeddings for efficient global matching and discriminative ranking for explicit pairwise relevance judgment within a single MLLM. A complementary mutual distillation strategy further transfers reliable pairwise preferences between the embedding and ranking functions. On the MMEB-V2 benchmark, UMER achieves state-of-the-art performance under comparable experimental settings while supporting budget-adjustable inference.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18504",
+    "pdf_url": "https://arxiv.org/pdf/2608.18504.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种直接用于多模态检索（搜索核心环节）的统一嵌入与排序框架，虽基于 MLLM 但紧密围绕检索任务中的判别性推理问题，非纯 LLM 研究；加上中国公司背景额外 +1 分。",
+    "translation": "UMER：通过感知配对的判别式推理统一嵌入与排序以实现通用多模态检索",
+    "summary_zh": "本文提出 UMER 框架，利用感知配对的判别式推理替代独立的逐项推理，在单个多模态大模型中联合学习对比嵌入以进行高效全局匹配和判别式排序以进行细粒度相关性判断。",
+    "key_points": [
+      "本文提出 UMER 框架，利用感知配对的判别式推理替代独立的逐项推理，在单个多模态大模型中联合学习对比嵌入以进行高效全局匹配和判别式排序以进行细粒度相关性判断"
+    ]
+  },
+  {
+    "arxiv_id": "2601.01684",
+    "title": "LACONIC: Dense-Level Effectiveness for Scalable Sparse Retrieval via a Two-Phase Training Curriculum",
+    "authors": [
+      "Zhichao Xu",
+      "Shengyao Zhuang",
+      "Crystina Zhang",
+      "Xueguang Ma",
+      "Yijun Tian",
+      "Maitrey Mehta",
+      "Jimmy Lin",
+      "Vivek Srikumar"
+    ],
+    "summary": "While dense retrieval models have been the standard for state-of-the-art information retrieval, their deployment is often constrained by high memory requirements and reliance on GPU accelerators for vector similarity search at scale. Learned sparse retrieval offers a compelling alternative by enabling efficient search via inverted indices, yet it has historically received less attention than dense approaches. In this paper, we introduce LACONIC, a family of learned sparse retrievers based on the Llama3 architecture (1B, 3B, and 8B). We propose a streamlined two-phase training curriculum consisting of (1) weakly supervised pre-finetuning to adapt causal LLMs for bidirectional contextualization and (2) high-signal finetuning using curated hard negatives. Our results demonstrate that LACONIC effectively bridges the performance gap with dense models: the 8B variant achieves a state-of-the-art 60.2 nDCG@10 on the MTEB Retrieval benchmark, ranking 15th on the leaderboard as of February 5th, 2026, while utilizing 74% less index memory than an equivalent dense model. By delivering high retrieval effectiveness on commodity CPU hardware with a fraction of the compute budget required by competing models, LACONIC provides a scalable and efficient solution for real-world search applications. We fully open source our code implementation and trained checkpoints to facilitate reproducibility.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2601.01684",
+    "pdf_url": "https://arxiv.org/pdf/2601.01684.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种基于 LLM 的稀疏检索方法，直接解决了大规模搜索系统中的效率和内存瓶颈问题，属于搜索核心技术的创新；虽涉及 LLM 架构，但聚焦于搜索场景而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "LACONIC：通过两阶段训练课程实现可扩展稀疏检索的稠密级效果",
+    "summary_zh": "提出一种基于 Llama3 架构的两阶段训练课程，将因果语言模型适配为双向上下文感知的学习型稀疏检索器，旨在以更低内存和 CPU 算力实现媲美稠密模型的搜索效果。",
+    "key_points": [
+      "提出一种基于 Llama3 架构的两阶段训练课程，将因果语言模型适配为双向上下文感知的学习型稀疏检索器，旨在以更低内存和 CPU 算力实现媲美稠密模型的搜索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2607.11465",
+    "title": "Score-Only Distillation for Compact Dense Retrieval",
+    "authors": [
+      "Kirill Dubovikov",
+      "Martin Takac",
+      "Salem Lahlou"
+    ],
+    "summary": "Large embedding models improve retrieval quality, but serving large encoders online is expensive. We study whether a compact retriever can learn teacher ranking behavior from score vectors without access to teacher hidden states. The student trains on rows built from ground-truth positives and negative candidates produced by our data generation pipeline; we evaluate student-teacher hard-negative mining separately as an extension. We use a row-centered score-vector objective, a memory-efficient implementation of uniform all-pairs PairMSE loss. On a fixed eight-task evaluation panel, our distillation protocol recovers up to 50% of the base-to-teacher gap. The distilled 0.6B student is 4.7 times faster for query encoding and 9.7 times faster for document encoding than sequential online teacher fusion. External-transfer performance after distillation remains mixed, so our evidence supports compression of teacher rankings under matched retrieval protocols.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2607.11465",
+    "pdf_url": "https://arxiv.org/pdf/2607.11465.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对稠密检索（Dense Retrieval）中的模型压缩问题，提出了仅基于分数的蒸馏方法以解决在线服务成本高的问题，属于搜索核心环节的关键技术优化。",
+    "translation": "面向紧凑稠密检索的仅分数蒸馏方法",
+    "summary_zh": "本文提出一种仅利用教师模型输出分数向量而非隐藏状态的蒸馏协议，通过行中心化的成对均方误差损失，使紧凑学生模型能够学习教师模型的排序行为以降低在线推理成本。",
+    "key_points": [
+      "本文提出一种仅利用教师模型输出分数向量而非隐藏状态的蒸馏协议，通过行中心化的成对均方误差损失，使紧凑学生模型能够学习教师模型的排序行为以降低在线推理成本"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18352",
+    "title": "AI in Search Reduces Publisher Referrals Without Improving User Experience: Experimental Evidence",
+    "authors": [
+      "Stephanie T. Wang",
+      "Jeffrey Gleason",
+      "Yakov Bart",
+      "Christo Wilson",
+      "Danaé Metaxa"
+    ],
+    "summary": "The integration of generative AI into web search delivers synthesized answers to user queries, changing how people navigate and assess information, while raising concerns about the downstream impacts on publishers who supply the underlying content. We conduct a preregistered field experiment (N=1,100) on Google Search, the dominant online search platform, to estimate the causal effects of AI Overviews and AI Mode on user behavior, perceptions, and publisher traffic. We show that removing AI Overviews and AI Mode increases click-through rates to publishers, while an AI Mode-only experience reduces click-through rates and erodes user experience and trust in information found on Google. These findings show that integrating generative AI into web search reshapes online attention, with economic consequences for the online publishers that sustain both search platforms and the overall information ecosystem.",
+    "categories": [
+      "cs.IR",
+      "cs.CY",
+      "cs.HC"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18352",
+    "pdf_url": "https://arxiv.org/pdf/2608.18352.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文通过实地实验直接评估了生成式 AI（AI Overviews）对搜索引擎用户行为和发布者流量的因果影响，属于搜索生态与产品体验的核心研究；虽非算法模型创新，但紧密关联搜索业务场景，且来自中国公司，故给予高分。",
+    "translation": "搜索中的人工智能在未改善用户体验的情况下减少了发布者引荐流量：实验证据",
+    "summary_zh": "本文通过在 Google 搜索上的预注册实地实验，量化分析了生成式 AI 概述及 AI 模式对用户点击行为、信任度及发布者流量的因果影响，揭示了 AI 介入搜索对信息生态经济后果的重塑作用。",
+    "key_points": [
+      "本文通过在 Google 搜索上的预注册实地实验，量化分析了生成式 AI 概述及 AI 模式对用户点击行为、信任度及发布者流量的因果影响，揭示了 AI 介入搜索对信息生态经济后果的重塑作用"
+    ]
+  },
+  {
+    "arxiv_id": "2605.26902",
+    "title": "ICICLE: Expanding Retrieval with In-Context Documents",
+    "authors": [
+      "Yu-Chen Den",
+      "Yung-Yu Shih",
+      "Zhi Rui Tam",
+      "Kuan-Yu Chen",
+      "Pu-Jen Cheng",
+      "Yun-Nung Chen",
+      "Eugene Yang"
+    ],
+    "summary": "Generative retrieval (GR) maps queries directly to document identifiers (docids) using parametric knowledge, However, this design makes corpus expansion costly: adding new documents requires updating model parameters to encode new document-docid associations incurs repeated training and catastrophic forgetting of previously indexed documents. In this work, we revisit incremental GR as an in-context retrieval problem, where newly added documents are supplied as inference-time document-docid evidence. We propose ICICLE, an in-context indexing framework that performs source-aware docid generation over both parametric memory and context-provided document-docid pairs. ICICLE combines a `[COPY]`-based routing mechanism, preference-based calibration, and large context adaptation to distinguish context-grounded retrieval from parametric retrieval. Experiments on MS MARCO and NQ320K show that ICICLE improves retrieval of newly introduced documents while preserving seen-document retention without corpus-specific retraining. Our analysis further shows that high-shot degradation is mainly caused by routing failure, highlighting source-selection calibration as a key bottleneck for scaling in-context generative retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2605.26902",
+    "pdf_url": "https://arxiv.org/pdf/2605.26902.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文针对生成式检索（Generative Retrieval）中的语料库增量更新难题提出了解决方案，属于搜索核心架构创新；虽基于 LLM 技术，但直接解决搜索系统实际痛点，且来自 TAL 公司，故给予高分。",
+    "translation": "ICICLE：利用上下文文档扩展检索能力",
+    "summary_zh": "提出一种基于上下文的索引框架 ICICLE，通过将新增文档作为推理时证据而非重训练参数，解决了生成式检索在语料库动态扩展时的成本高昂与灾难性遗忘问题。",
+    "key_points": [
+      "提出一种基于上下文的索引框架 ICICLE，通过将新增文档作为推理时证据而非重训练参数，解决了生成式检索在语料库动态扩展时的成本高昂与灾难性遗忘问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18723",
+    "title": "Budget-First Tariff Recommendation (BFTR): A Complete Algorithmic Framework for Telecom Plan Recommendation without Overcharging",
+    "authors": [
+      "Ghislain Dorian Tchuente Mondjo"
+    ],
+    "summary": "Telecom operators traditionally offer predefined tariff grids, forcing users to choose from a limited set of plans. This paper proposes BFTR (Budget-First Tariff Recommendation), a complete algorithmic framework integrating eight Budget-First strategies, including two original hybrid approaches: Recursive Hybrid (conditional interpolation) and Knapsack-First Hybrid (priority knapsack). Unlike existing approaches that adjust prices upward to guarantee a minimum margin, BFTR guarantees the absence of overcharging by systematically aligning the final price with the catalog reference price. We mathematically formalize each strategy, prove the existence of an offer for any positive budget, and prove that the price deviation (surcharge) is zero for all strategies that do not use interpolation with correction. A detailed comparative analysis confronts BFTR to ten main existing tariff models on ten dimensions. Experiments on a dataset of 974 customers inspired by the Nigerian MTN market show that: (i) Recursive Hybrid is optimal for the customer (100% budget used, 29.9 GB volume, utility 0.946, 0% overcharging), (ii) Piecewise offers the highest volume (39.7 GB) with 0% overcharging, (iii) Power Law provides an excellent compromise (99.9% budget, 38.1 GB, 0% overcharging). All strategies achieve a zero surcharge, confirming the theoretical guarantees. A sensitivity analysis on the weighting parameter alpha (0.2 - volume priority, 0.5 - balance, 0.8 - budget priority) shows that utility rankings evolve logically. Execution times (< 10 ms) and very low failure rates (0% for robust strategies) confirm the operational viability of the system. The formal proof of the absence of overcharging constitutes a major theoretical contribution.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18723",
+    "pdf_url": "https://arxiv.org/pdf/2608.18723.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该文针对电信套餐推荐场景提出了具体的算法框架，属于垂直领域的推荐系统应用，但缺乏通用的深度学习或大模型技术创新，且非电商/社交核心场景。",
+    "translation": "预算优先资费推荐：一种避免超额收费的电信套餐推荐完整算法框架",
+    "summary_zh": "本文提出了一种预算优先的电信套餐推荐框架，通过混合策略和数学证明确保在用户预算内生成最优套餐方案且杜绝超额收费。",
+    "key_points": [
+      "本文提出了一种预算优先的电信套餐推荐框架，通过混合策略和数学证明确保在用户预算内生成最优套餐方案且杜绝超额收费"
+    ]
+  },
+  {
+    "arxiv_id": "2607.16230",
+    "title": "RouteCost: A Production-Inspired Multi-Stage Framework for Pre-Order Shipping Cost Estimation in E-Commerce",
+    "authors": [
+      "Xianling Zeng",
+      "Zihan Yu",
+      "Sichen Zhao",
+      "Yalun Qi",
+      "Zhiming Xue"
+    ],
+    "summary": "Accurate pre-order shipping cost estimation is important in e-commerce because it affects price presentation, margin planning, and conversion. In practice, shipping cost is shaped not only by distance but also by destination demand mix, billable weight, dimensional pricing, surcharge triggers, and latent operational effects such as shipment consolidation. Static lookup methods therefore miss important sources of variation, while monolithic regressors may exploit strong but non-causal correlations. We propose RouteCost, a production-inspired multi-stage framework that decomposes the problem into time-aware demand forecasting, fee-card-informed baseline pricing, Stage 2 residual correction, and proxy-based box-consolidation inference. Route-level cost estimates are aggregated through a route-weighted expectation formulation to produce product-level shipping cost predictions. Across over 250,000 orders, 260 products, and 18 months of order history, the framework improves predictive quality and aggregate calibration while preserving route-level interpretability.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2607.16230",
+    "pdf_url": "https://arxiv.org/pdf/2607.16230.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文针对电商场景下的运费预估问题，虽属于电商核心业务逻辑（影响转化和定价），但主要侧重于运筹优化与回归预测，而非典型的推荐系统或搜索引擎核心技术（如召回、排序、用户建模）。鉴于其明确的电商应用背景及中国公司来源，给予中等优先级评分。",
+    "translation": "RouteCost：一种受生产启发的电商预购运费估算多阶段框架",
+    "summary_zh": "提出一种多阶段框架，通过分解需求预测、基线定价、残差修正及包裹合并推断，解决电商中因距离、重量及运营因素导致的复杂运费估算问题。",
+    "key_points": [
+      "提出一种多阶段框架，通过分解需求预测、基线定价、残差修正及包裹合并推断，解决电商中因距离、重量及运营因素导致的复杂运费估算问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.31517",
+    "title": "Unsupervised Data-Efficient Cross-Modal Retrieval with Global-Neighborhood Alignment Hashing",
+    "authors": [
+      "Runhao Li",
+      "Xiaoxu Ma",
+      "Zhenyu Weng",
+      "Yue Zhang",
+      "Guibo Luo",
+      "Huiping Zhuang",
+      "Zhiping Lin",
+      "Yap-Peng Tan"
+    ],
+    "summary": "Compared to supervised cross-modal hashing (CMH), unsupervised CMH reduces the reliance on manual labeling by learning binary codes from unlabeled image-text pairs. However, existing unsupervised CMH methods often rely on large-scale image-text pairs, which are costly to collect. To address this limitation, we propose Global-Neighborhood Alignment Hashing (GNAH), a novel approach that preserves the semantic structure of vision-language foundation models within a compact binary Hamming space using only a limited number of image-text pairs. Specifically, GNAH captures global structural information from the continuous latent space and transfers it into the binary Hamming space through a Prototype-Anchored Global Alignment module. In addition, GNAH extends conventional pairwise contrastive learning by modeling stochastic neighborhood relationships via a Contrastive Stochastic Neighborhood Alignment module, thereby alleviating overfitting to sparse pairwise correlations. Extensive experiments demonstrate that GNAH consistently outperforms existing unsupervised cross-modal retrieval methods under data-constrained settings, offering a practical solution for real-world CMH applications.",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2026-06-30",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2606.31517",
+    "pdf_url": "https://arxiv.org/pdf/2606.31517.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种用于跨模态检索的哈希方法，属于搜索系统中的多模态召回技术，但主要聚焦于通用算法改进而非特定推荐/搜索业务场景的直接创新；虽为纯算法研究，但符合多模态搜索方向，且来自中国公司，故给予中等偏上评分。",
+    "translation": "基于全局 - 邻域对齐哈希的无监督数据高效跨模态检索",
+    "summary_zh": "提出全局 - 邻域对齐哈希（GNAH）方法，通过原型锚定全局对齐和对比随机邻域对齐模块，在少量无标注图文对下将视觉语言基础模型的语义结构保留至紧凑二进制空间，以解决数据受限下的跨模态检索过拟合问题。",
+    "key_points": [
+      "提出全局 - 邻域对齐哈希（GNAH）方法，通过原型锚定全局对齐和对比随机邻域对齐模块，在少量无标注图文对下将视觉语言基础模型的语义结构保留至紧凑二进制空间，以解决数据受限下的跨模态检索过拟合问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18174",
+    "title": "Seasonal false alarms in customer churn and decline early-warning systems: adjacent-window labels confound seasonality with decline, and a year-over-year correction",
+    "authors": [
+      "Md Rezwanul Islam",
+      "Wael Mohammed"
+    ],
+    "summary": "Customer decline early-warning systems feed account-manager action lists, and every flagged account consumes intervention capacity. In a deployed business-to-business marketplace system, one action-list slot in three went to flags that dissolve under a seasonally aligned label. The standard target in non-contractual churn prediction compares an entity's next k months of activity with its trailing k months. The two windows cover different calendar months, so for seasonal entities the threshold-ratio construction confounds seasonality with decline, and the event rate depends on the label's anchor calendar month. We formalize the mechanism and measure it on three public panels and the production panel (the public arms pre-specified). Of the adjacent-window decay events, 37--69% on the public panels and 28--50% in production have no counterpart under a seasonally aligned definition. Pooling anchors, the standard remedy, balances the training mixture but corrects no individual label. Measured alternatives repair the curve only partially or change the detection horizon. Aligning the baseline to the same k calendar months one year prior -- advice practitioners already state, here formalized, measured, and costed -- flattens the curve at the source. With the classifier held fixed, production holdout ROC-AUC rises from 0.767 to 0.864 for decline (different targets; the gap closes on synthetic ground truth and a production hindsight referee). The served action list shrinks by a third, 119 to 79 accounts. The measured price is extra history, a blind spot to decline-then-stabilization, and a stricter cut under sustained growth.",
+    "categories": [
+      "stat.AP",
+      "cs.LG",
+      "stat.ME"
+    ],
+    "published": "2026-08-17",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18174",
+    "pdf_url": "https://arxiv.org/pdf/2608.18174.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦 B2B 场景下的客户流失预警与标签构建方法，虽涉及用户行为建模但非典型推荐/搜索核心环节（召回、排序等），且无 LLM 应用；鉴于来自中国公司额外加 1 分。",
+    "translation": "客户流失与衰退预警系统中的季节性误报：相邻窗口标签混淆季节性与衰退及逐年修正方法",
+    "summary_zh": "本文提出一种逐年对齐的标签构建方法，通过对比相同日历月份的历史数据来消除季节性干扰，从而解决传统相邻窗口法在客户衰退预警中产生的高误报问题。",
+    "key_points": [
+      "本文提出一种逐年对齐的标签构建方法，通过对比相同日历月份的历史数据来消除季节性干扰，从而解决传统相邻窗口法在客户衰退预警中产生的高误报问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18694",
+    "title": "Composed Historical Image Retrieval by Modeling Temporal Representations",
+    "authors": [
+      "Adrià Molina Rodríguez",
+      "Oriol Ramos Terrades",
+      "Josep Lladós Canet"
+    ],
+    "summary": "While time evolves linearly, the geometry of neural embedding spaces is inherently multi-dimensional, often chaotic, and difficult to interpret. In principle, one could constrain an embedding space to a single temporal dimension; however, such a reduction would sacrifice performance on downstream tasks, as one-dimensional embeddings cannot retain sufficient expressive capacity. This paper asks whether it is possible to learn representations that preserve temporal structure while remaining effective for image and object retrieval, and answers this question by building the mathematical foundations of such a system. We propose Temporally Decomposable Image Representations (TDIR), a representation learning algorithm that decomposes historical photographs into separate date and content components through orthogonal subspaces. We define and prove the conditions under which such a decomposition is achievable, characterize the error incurred when those conditions are only partially met, and show that orthogonality between temporal and categorical subspaces emerges naturally from the joint optimization, without requiring it to be imposed explicitly. Beyond its geometric properties, TDIR enables a class of transitive operations on embedding spaces: the temporal information of one image can be extracted and injected into the representation of another, with no label supervision required. All theoretical properties are grounded and validated in the real-world problem of Composed Image Retrieval on historical photographs, where a query simultaneously specifies object content and a target time period, either through labels or through example images. This in-the-wild setting serves as a concrete backing for the propositions we derive, offering an intuitive and interpretable way to navigate photographic archives while maintaining competitive performance in both date estimation and object retrieval.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18694",
+    "pdf_url": "https://arxiv.org/pdf/2608.18694.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯计算机视觉（CV）领域的图像检索研究，专注于历史照片的时间建模，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交信息流），且非 LLM 应用，故评分较低。",
+    "translation": "通过建模时间表示进行组合式历史图像检索",
+    "summary_zh": "提出一种时间可分解图像表示（TDIR）方法，将历史照片正交分解为日期和内容子空间，以支持同时指定物体内容和目标时间段的组合图像检索任务。",
+    "key_points": [
+      "提出一种时间可分解图像表示（TDIR）方法，将历史照片正交分解为日期和内容子空间，以支持同时指定物体内容和目标时间段的组合图像检索任务"
+    ]
+  },
+  {
+    "arxiv_id": "2510.15483",
+    "title": "Fast Best-in-Class Regret for Contextual Bandits",
+    "authors": [
+      "Samuel Girard",
+      "Aurelien Bibaut",
+      "Arthur Gretton",
+      "Nathan Kallus",
+      "Houssam Zenati"
+    ],
+    "summary": "We study the problem of stochastic contextual bandits in the agnostic setting, where the goal is to compete with the best policy in a given class without assuming realizability or imposing model restrictions on losses or rewards. In this work, we establish the first fast rate for regret relative to the best-in-class policy. Our proposed algorithm updates the policy at every round by minimizing a pessimistic objective, defined as a clipped inverse-propensity estimate of the policy value plus a variance penalty. By leveraging entropy assumptions on the policy class and a Hölderian error-bound condition (a generalization of the margin condition), we achieve fast best-in-class regret rates, including polylogarithmic rates in the parametric case. The analysis is driven by a sequential self-normalized maximal inequality for bounded martingale empirical processes, which yields uniform variance-adaptive confidence bounds and guarantees pessimism under adaptive data collection.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2510.15483",
+    "pdf_url": "https://arxiv.org/pdf/2510.15483.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文研究通用上下文多臂老虎机（Contextual Bandits）理论，虽为推荐系统排序层的底层算法基础，但缺乏针对 RecSys/Search 的具体应用或场景验证，属于通用 ML 方法；因来自中国公司额外加 1 分。",
+    "translation": "上下文多臂老虎机的快速最佳类遗憾界研究",
+    "summary_zh": "提出一种基于悲观目标最小化的新算法，通过结合截断逆倾向估计与方差惩罚项，在无 realizability 假设下实现了相对于最佳策略类的快速遗憾收敛率。",
+    "key_points": [
+      "提出一种基于悲观目标最小化的新算法，通过结合截断逆倾向估计与方差惩罚项，在无 realizability 假设下实现了相对于最佳策略类的快速遗憾收敛率"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18448",
+    "title": "More Context, Same Budget: Dual-Bounded Relational Recall Beyond Top-K Retrieval",
+    "authors": [
+      "Thomson D. Nguy"
+    ],
+    "summary": "More context does not require a larger retrieval budget. Under the same ceiling, a retrieval system can recover more of the evidence a question requires by following relationships between evidence that flat top-k ranking leaves behind. We test that proposition with Dual-Bounded Relational Recall (DBRR), which allocates a fixed retrieval budget between relevance-selected seeds and bounded graph-adjacent context, against matched flat top-k retrieval using the same relevance-ranking stage and the same maximum number of retrieval units and tokens. The outcome is complete recovery of the official HotpotQA supporting-evidence set for each question.\n  Across 7,405 FullWiki questions, the Primary DBRR allocation increased complete supporting-evidence recovery by 23.8 percentage points over its matched flat baseline (paired risk difference 0.2377; question-level bootstrap 95% interval 0.2269 to 0.2489). It improved 1,952 questions, tied on 5,261, and harmed 192. Bridge questions drove the effect, with a 28.7-point increase; comparison questions showed a smaller 4.2-point difference. In a prespecified, evaluation-only diagnostic population, real relationships also outperformed random-neighbor and degree-preserving shuffled-graph controls.\n  The result is straightforward: under the same context budget, complete-evidence retrieval depends not only on which items rank highest, but on how context is allocated around them. Relational allocation recovered complete evidence sets that flat top-k retrieval left incomplete.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18448",
+    "pdf_url": "https://arxiv.org/pdf/2608.18448.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 NLP/检索增强生成（RAG）研究，专注于问答任务中的证据检索，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低相关。",
+    "translation": "更多上下文，相同预算：超越 Top-K 检索的双边界关系召回",
+    "summary_zh": "提出双边界关系召回（DBRR）方法，在固定检索预算下，通过在相关性种子周围分配图相邻上下文而非仅依赖扁平化 Top-K 排序，以更完整地恢复问题所需的证据链。",
+    "key_points": [
+      "提出双边界关系召回（DBRR）方法，在固定检索预算下，通过在相关性种子周围分配图相邻上下文而非仅依赖扁平化 Top-K 排序，以更完整地恢复问题所需的证据链"
+    ]
+  },
+  {
+    "arxiv_id": "2608.18846",
+    "title": "ORBITER: Conflict-Aware Decision-Making for Agentic Last-Mile Delivery",
+    "authors": [
+      "Mingzhao Li",
+      "Chenxi Liu",
+      "Yan Zhao",
+      "Hao Miao"
+    ],
+    "summary": "Last-mile delivery aims to handle dynamically arriving orders with couriers while modeling complex spatial and temporal correlations. Recent learning-based methods model spatiotemporal dependencies among orders to predict courier service sequences, but leave next-order decision making unexplained. Describing the current delivery state in language allows LLMs to reason explicitly about the spatial, temporal, and behavioral cues behind an individual decision. As direct predictors, however, LLMs remain sensitive to task presentation and often produce unreliable decisions. To address these challenges, we introduce ORBITER, an agentic Order Arbiter for next-order decision-making in last-mile delivery. ORBITER models courier service through decision points, each containing the courier's spatiotemporal state and visible orders and exposing local trade-offs for modeling and verification. Fixed proposers rank the candidates, and a structured report identifies where their rankings disagree. The LLM uses task-specific tools to gather evidence on the leading alternatives, while an independent critic checks the resulting decision against that evidence. We conduct extensive evaluations on data in four cities, where ORBITER outperforms existing state-of-the-art baselines by up to 9.2% on average showing its effectiveness.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.18846",
+    "pdf_url": "https://arxiv.org/pdf/2608.18846.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯物流运筹优化与 Agent 研究，虽使用 LLM 但未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），且非电商/社交平台的推荐业务。",
+    "translation": "ORBITER：面向代理最后一公里配送的冲突感知决策",
+    "summary_zh": "提出一种结合固定提议者与 LLM 批评机制的代理框架，通过结构化报告识别排序分歧并利用工具收集证据，以解决最后一公里配送中的动态订单决策问题。",
+    "key_points": [
+      "提出一种结合固定提议者与 LLM 批评机制的代理框架，通过结构化报告识别排序分歧并利用工具收集证据，以解决最后一公里配送中的动态订单决策问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.01324",
+    "title": "G-ReAct: Graph-Guided Deep Search via Structure-State Co-Evolution",
+    "authors": [
+      "Shaoxiong Yang",
+      "Mengyuan Zhang",
+      "Shaojun Lin",
+      "Chao Li",
+      "Wei Liu",
+      "Kun Shao",
+      "Jian Luan"
+    ],
+    "summary": "Deep search has become a fundamental capability of large language models (LLMs) for solving open-domain complex tasks. However, existing approaches typically rely on linear sequential reasoning for both trajectory generation and inference, making it difficult to consistently preserve intermediate states and constraints throughout long-horizon multi-hop search. Consequently, they often suffer from context forgetting, search drift, and inefficient exploration. To address these limitations, we propose $\\textbf{G-ReAct}$, a reasoning framework for deep search that organizes reasoning as $\\textbf{state evolution over a fixed-topology query graph}$. The evolving graph state explicitly tracks search progress and guides subsequent decisions, transforming exploratory search driven by textual history into graph-guided reasoning under explicit constraints. G-ReAct supports both training and inference: it generates high-quality deep-search trajectories for supervised fine-tuning and provides structured guidance for inference-time search without additional fine-tuning. Experiments demonstrate that with only 1.9K generated trajectories for fine-tuning, Qwen3-30B-A3B-Thinking-2507 achieves $52.6\\%$ accuracy on BrowseComp-ZH and $79.0\\%$ on XBench, outperforming comparable open-source methods trained on substantially larger datasets, including RL-enhanced methods. Furthermore, when applied at inference time, G-ReAct consistently improves the performance of existing strong LLMs on deep-search tasks. We will publicly release all code and model weights.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-08-20",
+    "url": "https://arxiv.org/abs/2608.01324",
+    "pdf_url": "https://arxiv.org/pdf/2608.01324.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Xiaomi"
+    ],
+    "affiliation_lines": [
+      "1XiaomiInc. 2HuazhongUniversityofScienceandTechnology"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理与 Agent 研究，专注于解决通用复杂任务中的深度搜索问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），属于排除类别。尽管有中国公司背景加分，但因缺乏 RecSys/Search 直接应用，基础分极低。",
+    "translation": "G-ReAct：基于结构 - 状态协同演化的图引导深度搜索",
+    "summary_zh": "提出一种将推理组织为固定拓扑查询图上状态演化的框架，通过显式跟踪搜索进度和约束来指导 LLM 进行结构化深度搜索，以解决长程多跳任务中的上下文遗忘和搜索漂移问题。",
+    "key_points": [
+      "提出一种将推理组织为固定拓扑查询图上状态演化的框架，通过显式跟踪搜索进度和约束来指导 LLM 进行结构化深度搜索，以解决长程多跳任务中的上下文遗忘和搜索漂移问题"
+    ]
+  }
+]

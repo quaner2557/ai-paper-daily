@@ -1,0 +1,742 @@
+[
+  {
+    "arxiv_id": "2608.10257",
+    "title": "GenRec: An LLM-Backed Recommendation Ranker at Netflix",
+    "authors": [
+      "Ying Li",
+      "Shradha Sehgal",
+      "Arjun Rao",
+      "Rein Houthooft",
+      "Yaochen Zhu",
+      "Ashish Rastogi"
+    ],
+    "summary": "Large language models (LLMs) are reshaping recommender systems by enabling richer modeling of users, content, and context directly in natural language. At Netflix, we are exploring this direction through GenRec, an LLM-backed recommendation ranker built on top of an in-house foundational LLM. GenRec follows a two-phase framework: Phase 1 adapts an open-source LLM to Netflix data, developing deep understanding of the catalog and member behavior while balancing capabilities such as content understanding and instruction following. Phase 2 post-trains this foundation model with recommendation-ranking specific data, labels, and reward signals, aiming to align the ranker with business requirements and long-term member satisfaction.\n  This paper focuses on Phase 2 and the transition from a traditional discriminative ranker with thousands of engineered features to an LLM-backed ranker driven by verbalized user histories and context. We describe our design for input verbalization and context engineering, post-training data construction, reward integration, model architecture, and a cost-constrained serving design based on a prefill-only inference approach. We report results from a large-scale A/B test comparing GenRec against the current production ranker model, where we show that a GenRec model trained with substantially fewer Phase-2 labeled training examples and input signals can achieve statistically significant gains in offline and online metrics. We discuss how LLM-backed recommenders could shift the recommendation paradigm: from feature engineering to context engineering, and from bespoke architectures to shared foundation backbones. We also outline practical lessons for serving such systems under real-world resource constraints.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.10257",
+    "pdf_url": "https://arxiv.org/pdf/2608.10257.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该文是 Netflix 直接将 LLM 应用于推荐排序核心环节的工业界实践，完全符合高优先级标准；虽非中国公司论文无法额外加分，但其本身价值已属满分。",
+    "translation": "GenRec：Netflix 基于大语言模型的推荐排序器",
+    "summary_zh": "提出一种两阶段框架，将基础大语言模型通过特定排序数据和奖励信号进行后训练，构建出直接利用自然语言用户历史和上下文进行推荐排序的生成式模型，实现了从特征工程到上下文工程的范式转变。",
+    "key_points": [
+      "提出一种两阶段框架，将基础大语言模型通过特定排序数据和奖励信号进行后训练，构建出直接利用自然语言用户历史和上下文进行推荐排序的生成式模型，实现了从特征工程到上下文工程的范式转变"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21939",
+    "title": "Enhancing Group Recommendation with Memory-Augmented Reasoning in LLM Agent",
+    "authors": [
+      "Qimeng Niu",
+      "Bowen Hao",
+      "Zixuan Zhang",
+      "Shuyu Qu",
+      "Hongzhi Yin"
+    ],
+    "summary": "The core challenge in group recommendation lies in modeling the dynamic evolution of user preferences and explain?ing the consensus formation process. Existing Large Language Model (LLM)-based methods, despite improved interpretability, treat interaction history as fixed text, ignoring the natural evolution of group/user preferences over time, and lacking explicit modeling of the complex group decision-making process. To address these issues, we propose AGR, a LLM-based agent, which consists of a Memory Module and a Reasoning Module. The Memory Module employs a token-based hash table to dynamically manage the historical interactions of groups and users. This design supports fundamental operations including insertion, updating, retrieval, forgetting of irrelevant records, and summarization of evolving group and user profiles for efficiently tracking. Based on these retrieved dynamic profiles, the Reason?ing Module then performs a multi-step reasoning process includ?ing Group Interests Collection, Group Consensus Refinement, Multi-dimensional Evaluation and Explainable Recommendation Generation, thereby moving beyond black-box inference to de?liver fully interpretable recommendations. In practice, we adopt the Reinforcement Fine-Tuning (RFT) paradigm, where we first use Supervised Fine-Tuning (SFT) to equip the model with basic capabilities for invoking the Memory and Reasoning modules, and then employ Group Relative Policy Optimization (GRPO) to enhance its autonomous ability to coordinate these modules. Experiments on LastFM and Douban datasets demonstrate that AGR significantly outperforms existing state-of-the-art methods in both recommendation accuracy and explainability. Our model is open-sourced at https://huggingface.co/niuqimeng/AGR.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21939",
+    "pdf_url": "https://arxiv.org/pdf/2608.21939.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对群组推荐任务，利用 LLM Agent 结合记忆模块解决用户偏好动态演化和共识形成问题，属于 LLM 在推荐系统中的核心应用，且来自中国公司。",
+    "translation": "基于记忆增强推理的 LLM 智能体增强群组推荐",
+    "summary_zh": "提出一种包含记忆模块和推理模块的 LLM 智能体架构，通过动态管理交互历史和执行多步推理过程，显式建模群组偏好演化与共识形成机制以实现可解释的群组推荐。",
+    "key_points": [
+      "提出一种包含记忆模块和推理模块的 LLM 智能体架构，通过动态管理交互历史和执行多步推理过程，显式建模群组偏好演化与共识形成机制以实现可解释的群组推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2608.22022",
+    "title": "From Click Modeling to Offline and Off-Policy Evaluation in Carousel Recommendation",
+    "authors": [
+      "Jingwei Kang"
+    ],
+    "summary": "Carousel interfaces are widely used in modern recommendation systems. Unlike traditional interfaces that present a single ranked list, carousels simultaneously present several ranked lists to the user, as horizontally swipeable rows stacked on top of each other. In this design, the rankings are closely tied to the two-dimensional layout. Consequently, user behavior is shaped not only by item preference, but also by row organization, viewport constraints, and item context. This tight coupling between ranking and presentation complicates the interpretation of user feedback, introducing new challenges for recommendation evaluation.\n  My PhD research aims to address these challenges by rethinking how carousel clicks are modeled and how carousel recommendation policies can be evaluated from logged interaction data. So far, I have studied how users interact with carousel interfaces and developed a click model design framework that prioritizes mathematical relationships between observed variables over latent behavioral assumptions. Building on these results, my ongoing work includes a project using discrete choice models to represent clicks as choices, alongside a project that develops carousel-specific offline metrics. As a next step, I plan to develop off-policy evaluation methods that estimate the performance of recommendation policies from logged interactions. Taken together, the expected contribution of my thesis is a connected body of work that links carousel click modeling with offline and off-policy evaluation, so that carousel recommendation policies can be improved more reliably.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.22022",
+    "pdf_url": "https://arxiv.org/pdf/2608.22022.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的轮播（Carousel）界面进行点击建模与离线评估研究，解决了核心业务场景下的评估难题，且来自工业界应用背景。",
+    "translation": "从点击建模到轮播推荐中的离线与离策略评估",
+    "summary_zh": "本文提出了一套连接轮播界面点击建模与离线/离策略评估的框架，旨在通过重构用户反馈解释机制来可靠地优化轮播推荐策略。",
+    "key_points": [
+      "本文提出了一套连接轮播界面点击建模与离线/离策略评估的框架，旨在通过重构用户反馈解释机制来可靠地优化轮播推荐策略"
+    ]
+  },
+  {
+    "arxiv_id": "2508.05206",
+    "title": "Bidding-Aware Retrieval for Multi-Stage Consistency in Online Advertising",
+    "authors": [
+      "Bin Liu",
+      "Yunfei Liu",
+      "Ziru Xu",
+      "Zhi Kou",
+      "Yeqiu Yang",
+      "Han Zhu",
+      "Jian Xu"
+    ],
+    "summary": "Online advertising systems typically use a cascaded architecture to manage massive requests and candidate volumes, where the ranking stages allocate traffic based on eCPM (predicted CTR $\\times$ Bid). With the increasing popularity of auto-bidding strategies, the inconsistency between the computationally sensitive retrieval stage and the ranking stages becomes more pronounced, as the former cannot access precise, real-time bids for the vast ad corpus. This discrepancy leads to sub-optimal platform revenue and advertiser outcomes. To tackle this problem, we propose Bidding-Aware Retrieval (BAR), a model-based retrieval framework that addresses multi-stage inconsistency by incorporating ad bid value into the retrieval scoring function. The core innovation is Bidding-Aware Modeling, incorporating bid signals through monotonicity-constrained learning and multi-task distillation to ensure economically coherent representations, while Asynchronous Near-Line Inference enables real-time updates to the embedding for market responsiveness. Furthermore, the Task-Attentive Refinement module selectively enhances feature interactions to disentangle user interest and commercial value signals. Extensive offline experiments and full-scale deployment across Alibaba's display advertising platform validated BAR's efficacy: 4.32% platform revenue increase with 22.2% impression lift for positively-operated advertisements.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2508.05206",
+    "pdf_url": "https://arxiv.org/pdf/2508.05206.pdf",
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "本文直接解决阿里广告系统中召回与排序阶段因竞价信息不一致导致的收益问题，属于核心电商广告场景下的架构创新，且来自阿里巴巴，符合最高优先级标准。",
+    "translation": "面向多阶段一致性的在线广告竞价感知检索",
+    "summary_zh": "提出一种竞价感知检索框架，通过单调性约束学习和多任务蒸馏将广告竞价信号融入召回评分函数，并利用异步近线推理和任务注意力细化模块解决多阶段不一致问题。",
+    "key_points": [
+      "提出一种竞价感知检索框架，通过单调性约束学习和多任务蒸馏将广告竞价信号融入召回评分函数，并利用异步近线推理和任务注意力细化模块解决多阶段不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.14192",
+    "title": "Long-term User Engagement Optimization through Model-agnostic Downstream Rewards Learning",
+    "authors": [
+      "Dingsu Wang",
+      "Filip Ryzner",
+      "Kelly He",
+      "Armando Ordorica",
+      "David Woo",
+      "Aditya Mantha",
+      "Liyao Lu",
+      "Usha Amrutha Nookala",
+      "Haoran Guo",
+      "Jiacong He",
+      "Olafur Gudmundsson",
+      "Matt Chun",
+      "Krystal Benitez",
+      "Haibin Xie",
+      "Alekhya Pyla",
+      "Sameer Jain",
+      "Zhongjian Jiang",
+      "Shruthi Hariharan",
+      "Dhruvil Deven Badani",
+      "Yijie Dylan Wang"
+    ],
+    "summary": "As recommender systems mature in the past few years, their optimization objectives have evolved from a primary focusing on short-term behavioral signals to a broader emphasis on long-term user engagement and retention. However, directly optimizing retention is difficult because return signals are sparse, delayed, and only partially attributable to earlier recommendations. Prior work has addressed this challenge with sequential modeling and reinforcement learning, but these approaches typically require task specific reward engineering, substantial computational overhead, and surface specific implementations that are difficult to generalize. In this paper, we present a unified, model-agnostic downstream reward framework for optimizing long-term user value in large-scale recommendation systems. First, we formulate the downstream reward learning problem and develop an offline screening framework to identify session level behaviors that are both observable early and predictive of future retention. We then propose several model-agnostic downstream rewards signals derived from observed user action patterns across multiple sources. We further discuss the engineering effort to productionize the proposed rewards derivations and challenges we faced when adding them to our ranking models. Online A/B experiments demonstrate consistent improvements in engagement and retention-related metrics, and the framework has been deployed across multiple Pinterest surfaces, including Homefeed, Related Pins, Search, and Notifications.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2607.14192",
+    "pdf_url": "https://arxiv.org/pdf/2607.14192.pdf",
+    "prerank_score": 6,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的长期用户留存优化难题，提出了模型无关的下游奖励学习框架，并已在 Pinterest 的推荐和搜索场景中落地应用，完全符合核心领域进展的高优先级标准。",
+    "translation": "通过模型无关的下游奖励学习优化长期用户参与度",
+    "summary_zh": "本文提出一种统一且模型无关的下游奖励框架，通过离线筛选早期可观测的用户行为信号来预测长期留存，从而在不依赖特定强化学习架构的情况下优化推荐系统的长期用户价值。",
+    "key_points": [
+      "本文提出一种统一且模型无关的下游奖励框架，通过离线筛选早期可观测的用户行为信号来预测长期留存，从而在不依赖特定强化学习架构的情况下优化推荐系统的长期用户价值"
+    ]
+  },
+  {
+    "arxiv_id": "2606.23291",
+    "title": "URecJPQ: Memory-efficient Multimodal Recommendation Models through RecJPQ in Large-Scale Scenarios",
+    "authors": [
+      "Giuseppe Spillo",
+      "Zixuan Yi",
+      "Aleksandr Petrov",
+      "Cataldo Musto",
+      "Craig Macdonald",
+      "Iadh Ounis"
+    ],
+    "summary": "Training state-of-the-art recommendation models on large-scale industrial datasets can be a challenging task due to the high number of users and items which are typically represented through ID embeddings. Such embeddings typically require a large amount of memory resources, which are not always available. This problem is further exacerbated in multimodal recommendation, in which multimodal item features generally improve recommendation performance, but require more resources to encode. In this paper, we introduce URecJPQ, a Joint Product Quantization method specifically designed for large-scale and multimodal top-k recommendation tasks, in which the vast number of users and items, combined with the available modalities, further increases the memory demands for the computation. The core idea is to represent each user/item not as a fully learned, unique embedding, but rather as a concatenation of shared learned sub-embeddings, thereby significantly reducing the total number of trainable parameters. Our experiments on three widely-used datasets across different domains (movies, baby and sports products) show that URecJPQ can be effectively applied to multimodal recommendation settings. In large scale scenarios, we observe a substantial reduction in checkpoint sizes and the number of trainable parameters (ranging from 86% to 98%, and 98% to 99%, respectively), with only a marginal decrease in accuracy (8.5% on recall and 16% on NDCG, on average), and, in some cases, even performance improvements (up to 85%), as in the baby products domain. Our codebase is available at https://github.com/giuspillo/urecjpq.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2606.23291",
+    "pdf_url": "https://arxiv.org/pdf/2606.23291.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模多模态推荐系统中的显存瓶颈问题，提出了一种基于联合乘积量化的 ID 嵌入压缩新架构，属于核心推荐技术突破；虽非中国公司（实为意大利研究团队），但其解决工业界实际痛点的能力极强，故给予高分。",
+    "translation": "URecJPQ：通过 RecJPQ 实现大规模场景下的高效多模态推荐模型",
+    "summary_zh": "提出一种联合乘积量化方法，将用户和物品表示为共享子嵌入的拼接而非独立学习的全量嵌入，从而在保留多模态特征的同时大幅降低大规模推荐系统的参数量与显存占用。",
+    "key_points": [
+      "提出一种联合乘积量化方法，将用户和物品表示为共享子嵌入的拼接而非独立学习的全量嵌入，从而在保留多模态特征的同时大幅降低大规模推荐系统的参数量与显存占用"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21381",
+    "title": "PersonaMem-v3: Toward Omni-Platform Personal Intelligence for Holistic User Understanding, Recommendation, and Agentic Tasks",
+    "authors": [
+      "Bowen Jiang",
+      "Yuan Yuan",
+      "Zhuoqun Hao",
+      "Yuchen Liu",
+      "Maohao Shen",
+      "Sihao Chen",
+      "Gregory Wornell",
+      "Chris Callison-Burch",
+      "Lyle Ungar",
+      "Dan Roth",
+      "Qi Guo",
+      "Xiangjun Fan",
+      "Camillo J. Taylor",
+      "Hanchao Yu"
+    ],
+    "summary": "Personal intelligence is becoming a central frontier for user-facing AI agents. To be helpful in everyday life, agents must understand users across the digital contexts where their preferences, intents, habits, social relationships, and needs unfold over time. Today's systems can personalize within individual apps or tasks, but personal intelligence as a whole remains under-measured: how agents build cross-context user understanding, support steerable recommendation systems, act proactively across platforms, and avoid over-personalization. We introduce PersonaMem-v3, a real-world-grounded benchmark and evaluation harness for omni-platform personal intelligence. PersonaMem-v3 is seeded from more than one million anonymized real-world engagement histories, most of which are implicit signals, and uses them to construct time-indexed user digital worlds across social media, chatbot, calendar, and AI-companion with preference evolvement over time. The benchmark brings personalization, LLM-powered recommendation, proactiveness, agentic tool use, and geo-temporal reasoning into one framework, anchored in psychology, social-linguistics, and user-behavior theories. It evaluates whether AI agents can infer holistic user understanding from cross-platform evidence, personalize responses, rerank recommendations on social media, follow user steering through natural language, and hold back when personalization would be inappropriate, repetitive, outdated, or unnecessary. PersonaMem-v3 points toward LLM-powered personal intelligent agents that work with existing scalable recommendation infrastructure while making personalization more interactive, agentic, and aligned with how real users experience their digital lives.",
+    "categories": [
+      "cs.CY",
+      "cs.CL"
+    ],
+    "published": "2026-07-16",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21381",
+    "pdf_url": "https://arxiv.org/pdf/2608.21381.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta Recommendation Systems, 2University of Pennsylvania, 3MIT",
+      "scalable recommendation infrastructure while maki"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨平台推荐系统和用户建模，提出了评估 LLM 在推荐重排序及个性化中应用的基准，虽侧重评估但紧密贴合 RecSys 核心场景；作为中国公司成果额外加 1 分。",
+    "translation": "PersonaMem-v3：面向全平台个人智能的整体用户理解、推荐与代理任务",
+    "summary_zh": "提出基于百万级真实交互数据的跨平台个人智能基准，旨在评估 LLM 代理在整合多源行为数据、执行动态推荐重排序及实现可 steering 个性化方面的 holistic 用户理解能力。",
+    "key_points": [
+      "提出基于百万级真实交互数据的跨平台个人智能基准，旨在评估 LLM 代理在整合多源行为数据、执行动态推荐重排序及实现可 steering 个性化方面的 holistic 用户理解能力"
+    ]
+  },
+  {
+    "arxiv_id": "2508.02609",
+    "title": "Entity Representation Learning Through Onsite-Offsite Graph for Pinterest Ads",
+    "authors": [
+      "Jiayin Jin",
+      "Erika Sun",
+      "Zhimeng Pan",
+      "Yang Tang",
+      "Jiarui Feng",
+      "Kungang Li",
+      "Chongyuan Xiang",
+      "Jiacheng Li",
+      "Runze Su",
+      "Siping Ji",
+      "Han Sun",
+      "Ling Leng",
+      "Prathibha Deshikachar"
+    ],
+    "summary": "Graph Neural Networks (GNN) have been extensively applied to industry recommendation systems, as seen in models like GraphSage\\cite{GraphSage}, TwHIM\\cite{TwHIM}, LiGNN\\cite{LiGNN} etc. In these works, graphs were constructed based on users' activities on the platforms, and various graph models were developed to effectively learn node embeddings. In addition to users' onsite activities, their offsite conversions are crucial for Ads models to capture their shopping interest. To better leverage offsite conversion data and explore the connection between onsite and offsite activities, we constructed a large-scale heterogeneous graph based on users' onsite ad interactions and opt-in offsite conversion activities. Furthermore, we introduced TransRA (TransR\\cite{TransR} with Anchors), a novel Knowledge Graph Embedding (KGE) model, to more efficiently integrate graph embeddings into Ads ranking models. However, our Ads ranking models initially struggled to directly incorporate Knowledge Graph Embeddings (KGE), and only modest gains were observed during offline experiments. To address this challenge, we employed the Large ID Embedding Table technique and innovated an attention based KGE finetuning approach within the Ads ranking models. As a result, we observed a significant AUC lift in Click-Through Rate (CTR) and Conversion Rate (CVR) prediction models. Moreover, this framework has been deployed in Pinterest's Ads Engagement Model and contributed to $2.69\\%$ CTR lift and $1.34\\%$ CPC reduction. We believe the techniques presented in this paper can be leveraged by other large-scale industrial models.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.SE"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2508.02609",
+    "pdf_url": "https://arxiv.org/pdf/2508.02609.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 Pinterest 广告系统的核心排序问题，提出了结合站内站外数据的异构图构建方法及 TransRA 嵌入微调技术，属于高优先级的工业界推荐/广告实战创新。",
+    "translation": "基于站内 - 站外图的 Pinterest 广告实体表示学习",
+    "summary_zh": "提出一种融合用户站内交互与站外转化数据的异构图构建方法，并设计 TransRA 知识图谱嵌入模型及基于注意力的微调机制，以解决大图嵌入在广告排序模型中的高效集成难题。",
+    "key_points": [
+      "提出一种融合用户站内交互与站外转化数据的异构图构建方法，并设计 TransRA 知识图谱嵌入模型及基于注意力的微调机制，以解决大图嵌入在广告排序模型中的高效集成难题"
+    ]
+  },
+  {
+    "arxiv_id": "2307.09295",
+    "title": "Learning to Select and Rank from Choice-Based Feedback: A Simple Nested Approach",
+    "authors": [
+      "Junwen Yang",
+      "Yifan Feng"
+    ],
+    "summary": "We study a ranking and selection problem of learning from choice-based feedback with dynamic assortments. In this problem, a company sequentially displays a set of items to a population of customers and collects their choices as feedback. The only information available about the underlying choice model is that the choice probabilities are consistent with some unknown true strict ranking over the items. The objective is to identify, with the fewest samples, the most preferred item or the full ranking over the items at a high confidence level. We propose novel and simple algorithms for both learning goals through a nested approach. For best-item identification, we introduce Nested Elimination (NE), and for full-ranking identification, we introduce Nested Partition (NP). Both algorithms are fast to run and admit instance-specific, non-asymptotic sample-complexity guarantees. By comparing these guarantees with information-theoretic lower bounds, we establish that both algorithms are asymptotically worst-case optimal. Our analysis is based on an analytical framework that characterizes the system dynamics through analyzing a sequence of multi-dimensional random walks. We further extend the problem to incorporate capacity-constrained displays. Numerical experiments on synthetic and real data corroborate our theory.",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2307.09295",
+    "pdf_url": "https://arxiv.org/pdf/2307.09295.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "论文聚焦于基于选择反馈的排序与优选问题，直接对应推荐系统中的重排序（Re-ranking）和动态选品场景，虽偏理论但应用目标明确；作为中国公司研究额外加 1 分。",
+    "translation": "基于选择反馈的学习优选与排序：一种简单的嵌套方法",
+    "summary_zh": "提出一种嵌套消除与嵌套划分算法，旨在通过动态组合展示下的用户选择反馈，以最少样本高效识别最优物品或完整偏好排序。",
+    "key_points": [
+      "提出一种嵌套消除与嵌套划分算法，旨在通过动态组合展示下的用户选择反馈，以最少样本高效识别最优物品或完整偏好排序"
+    ]
+  },
+  {
+    "arxiv_id": "2605.25330",
+    "title": "Faithful Evaluation of Semantic-ID Tokenizers for Generative Recommendation",
+    "authors": [
+      "Qian Zhang",
+      "Lech Szymanski",
+      "Haibo Zhang",
+      "Jeremiah D. Deng"
+    ],
+    "summary": "Generative recommendation based on Semantic IDs (SIDs) represents each item as a discrete sequence of SIDs and is conventionally evaluated by matching the generated SID sequence against the target item's SID sequence. This evaluation is faithful only when each SID sequence uniquely identifies one item. In practice, SID collisions violate this condition: across the evaluated SID tokenizers and datasets, collision rates reach 30.52%, and SID-level Hit@10 is inflated by up to 103.36% relative to item-level Hit@10. To address this evaluation gap, we introduce Collision-Corrected Evaluation (CCE), which defines collision-aware item-level metrics (ItemHit@K, ItemNDCG@K) computed from generated SID sequences, and Zero-Collision Reassignment (ZCR), which constructs zero-collision SID assignments for existing tokenizers via minimum-cost reassignment. Applying these methods to four datasets and five representative SID tokenizers, we find that metric inflation scales with collision rate and is large enough to flip pairwise tokenizer comparisons under item-level re-evaluation. This finding calls into question the reliability of SID-level rankings reported in prior work and indicates that faithful tokenizer evaluation requires item-level correction or zero-collision SID assignments.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2605.25330",
+    "pdf_url": "https://arxiv.org/pdf/2605.25330.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式推荐系统中的语义 ID（SID）评估缺陷提出修正方法，属于推荐系统核心评价体系的改进，并非纯 LLM 研究。",
+    "translation": "生成式推荐中语义 ID 分词器的忠实评估",
+    "summary_zh": "针对生成式推荐中语义 ID 碰撞导致评估失真的问题，提出了碰撞校正评估框架和零碰撞重分配方法以重建可靠的物品级评价指标。",
+    "key_points": [
+      "针对生成式推荐中语义 ID 碰撞导致评估失真的问题，提出了碰撞校正评估框架和零碰撞重分配方法以重建可靠的物品级评价指标"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10008",
+    "title": "Do LLM Recommenders Know When They're Hallucinating? Auditing Confidence Calibration in Catalog Faithfulness",
+    "authors": [
+      "Srijith Ravikumar"
+    ],
+    "summary": "LLM recommenders for top-K item suggestion regularly emit titles outside the target catalog. Prior audits report a binary out-of-domain rate; none ask whether the model knew. We jointly audit hallucination rate (OOD@10) and verbalized-confidence calibration (ECE, Brier, reliability) for four zero-shot LLM recommenders from four independent vendors (Mistral Large, Llama-3.3-70B, GPT-OSS-120B, Claude Sonnet 4.6), not grounded or fine-tuned systems, across three catalogs (MovieLens-25M, Amazon Reviews 2023 Toys, Yelp Open Dataset), stratified by item popularity. Measuring catalog membership is itself the hard part: on identical outputs the reported rate moves by an order of magnitude with the string matcher used, and F1 cannot separate the candidates. We validate the instrument against 201 human judgments and select on net bias, where the adopted one is off by -0.040 against +0.144 for the common fuzzy rule. Hallucination is then strongly catalog-dependent (0.6-2.7% on MovieLens, 11.6-38.7% on Yelp, 49.3-61.0% on Amazon Toys). Each model holds a near-constant confidence level barely responsive to the catalog, while the catalog-hit rate swings 60 points, so the sign of the error is set by where a model's constant lands against a catalog's accuracy: 7 of the twelve cells are under-confident and 5 over-confident, all four under-confident on MovieLens, all four over-confident on Amazon Toys. We read this as an elicitation mismatch: \"Just Ask\" elicits a generic quality rating, not a catalog-membership probability. A conformal abstention threshold over verbalized confidence changes hallucination by at most 1.65 pp across four alpha levels, because the channel cannot separate correct items from hallucinations. We recommend that audits report calibration alongside OOD, validate the matcher producing the OOD number, and use catalog-anchored elicitation.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.10008",
+    "pdf_url": "https://arxiv.org/pdf/2608.10008.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "论文直接针对 LLM 推荐系统中的幻觉（Hallucination）和置信度校准问题，属于 LLM for RecSys 的核心应用研究；虽未提出新架构，但对解决推荐系统实际落地中的可信度问题有重要价值，且来自中国企业额外加 1 分。",
+    "translation": "LLM 推荐器是否知晓自身幻觉？审计目录忠实度中的置信度校准",
+    "summary_zh": "本文通过联合审计幻觉率与言语置信度校准，揭示了现有 LLM 推荐器在生成非目录物品时存在置信度与准确率脱节的“ elicitation mismatch",
+    "key_points": [
+      "本文通过联合审计幻觉率与言语置信度校准，揭示了现有 LLM 推荐器在生成非目录物品时存在置信度与准确率脱节的“ elicitation mismatch"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21877",
+    "title": "Revisiting N2DCG: An Empirically Grounded Reformulation of Carousel Recommendation Evaluation",
+    "authors": [
+      "Jingwei Kang",
+      "Santiago de Leon-Martinez",
+      "Maarten de Rijke",
+      "Harrie Oosterhuis"
+    ],
+    "summary": "Carousel interfaces have been widely used in video and music streaming services, yet it remains unclear how to properly evaluate recommender systems in these two-dimensional layouts. N2DCG has been proposed to address this gap by adapting NDCG to carousel-based recommendation, but it relies on unverified assumptions borrowed from the single-list web-search setting that do not transfer well to two-dimensional carousel layouts.\n  We identify two substantial limitations of N2DCG: its ideal ranking, used for normalization, violates carousel constraints, and its discount function does not reflect user browsing behavior observed in empirical data. To address both limitations, we propose a reformulation of N2DCG that normalizes appropriately by respecting constraints and uses an empirically grounded discount function. We validate the proposed metric, showing that it better reflects users' empirical behavior on real-world eye-tracking data and better predicts the comparison results of carousel layouts simulated based on empirical examination patterns.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21877",
+    "pdf_url": "https://arxiv.org/pdf/2608.21877.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的轮播（Carousel）界面评估问题，提出了改进的评估指标 N2DCG，属于核心推荐技术中的评估与度量环节，具有明确的业务场景（视频/音乐流媒体）。",
+    "translation": "重访 N2DCG：基于实证数据的轮播推荐评估重构",
+    "summary_zh": "本文针对视频和音乐流媒体中广泛使用的轮播推荐界面，指出了现有评估指标 N2DCG 在理想排序归一化和折扣函数上的缺陷，并提出了一种尊重轮播约束且基于用户眼动实证数据的重构评估方法。",
+    "key_points": [
+      "本文针对视频和音乐流媒体中广泛使用的轮播推荐界面，指出了现有评估指标 N2DCG 在理想排序归一化和折扣函数上的缺陷，并提出了一种尊重轮播约束且基于用户眼动实证数据的重构评估方法"
+    ]
+  },
+  {
+    "arxiv_id": "2507.09924",
+    "title": "MixLoRA-DSI: Dynamically Expandable Mixture-of-LoRA Experts for Rehearsal-Free Generative Retrieval over Dynamic Corpora",
+    "authors": [
+      "Tuan-Luc Huynh",
+      "Thuy-Trang Vu",
+      "Weiqing Wang",
+      "Trung Le",
+      "Dragan Gašević",
+      "Yuan-Fang Li",
+      "Thanh-Toan Do"
+    ],
+    "summary": "Continually updating model-based indexes in generative retrieval with new documents remains challenging, as full retraining is computationally expensive and impractical under resource constraints. We propose MixLoRA-DSI, a novel framework that combines an expandable mixture of Low-Rank Adaptation experts with a layer-wise out-of-distribution (OOD)-driven expansion strategy. Instead of allocating new experts for each new corpus, our proposed expansion strategy enables sublinear parameter growth by selectively introducing new experts only when significant number of OOD documents are detected. Experiments on NQ320k and MS MARCO Passage demonstrate that MixLoRA-DSI outperforms full-model update baselines, with minimal parameter overhead and substantially lower training costs.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2507.09924",
+    "pdf_url": "https://arxiv.org/pdf/2507.09924.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式检索（Generative Retrieval）这一搜索核心领域，提出了在动态语料库下无需重训练的索引更新方法，具有明确的搜索系统应用价值。",
+    "translation": "MixLoRA-DSI：面向动态语料库无复练生成式检索的动态可扩展 LoRA 专家混合框架",
+    "summary_zh": "提出一种结合可扩展 LoRA 专家混合与层间分布外驱动策略的框架，通过仅在检测到显著新文档时选择性引入新专家，实现生成式检索索引的低成本动态更新。",
+    "key_points": [
+      "提出一种结合可扩展 LoRA 专家混合与层间分布外驱动策略的框架，通过仅在检测到显著新文档时选择性引入新专家，实现生成式检索索引的低成本动态更新"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21662",
+    "title": "Why This, Not That? Mining User Profiles for Pair-wise Counterfactuals",
+    "authors": [
+      "Meysam Varasteh",
+      "Veronika Bogina",
+      "Noam Koenigstein",
+      "Robin Burke"
+    ],
+    "summary": "The topic of explanation in recommender systems has seen steady research attention since the earliest days of the field. With some exceptions, this work has focused on the explanation of single items in a recommendation list and, especially recently, has emphasized approaches that are decoupled from the logic of the recommendation algorithm itself. Based on findings in the psychology of interpersonal communication, we propose a new task, pairwise interpretation of item rankings, asking the comparative question ``Why is item A ranked higher than item B?''. An effective solution to this task, we argue, is inherently grounded in the operation of the recommendation algorithm. We propose a class of techniques based on counterfactual learning to uncover the items in a user's profile that have contributed to the relative ranking of items. Using multiple datasets, we show that it is possible to identify such items as potential basis for comparative explanation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21662",
+    "pdf_url": "https://arxiv.org/pdf/2608.21662.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的排序解释问题，提出基于反事实学习的成对比较方法，属于核心推荐技术而非纯 LLM 研究。",
+    "translation": "为何选此非彼：挖掘用户画像以生成成对反事实解释",
+    "summary_zh": "提出一种基于反事实学习的新任务与方法，通过挖掘用户画像中导致物品 A 排名高于物品 B 的关键行为，为推荐排序提供成对比较解释。",
+    "key_points": [
+      "提出一种基于反事实学习的新任务与方法，通过挖掘用户画像中导致物品 A 排名高于物品 B 的关键行为，为推荐排序提供成对比较解释"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21979",
+    "title": "Beyond Similarity: Heterogeneous Graph Learning for Multi-Objective Food Substitution in Charitable Food Agencies",
+    "authors": [
+      "Naimur Rahman Chowdhury",
+      "Limon Bin Hossain"
+    ],
+    "summary": "Charitable food agencies play an important role in alleviating food insecurity by distributing donated food to people in need. However, they rely on ad hoc in-kind donations and often face shortages of specific foods, so they offer substitutes. A good food substitution requires matching household preferences, nutritional needs, and item similarity. Agencies have limited direct records of consumption behavior due to resource constraints, making it challenging to make an appropriate substitution decision that meets multiple criteria. In this study, we propose a heterogeneous graph neural network (HeteroGNN), a source-grounded recommendation framework for food substitution in charitable food agencies. We first build a unified relational graph from large-scale public data sources, combining household behavior on food consumption and food nutrient information in the United States (US) context. We treat the substitution recommendation as a multi-objective ranking problem with three targets, including behavior affinity, health suitability, and substitution similarity. We train and validate the proposed framework under standard graph relationship and adverse cold-start settings by removing relational edges from the graph. Our results show that the proposed framework leverages relational information beyond node features in predicting consumption behavior. Additionally, the proposed framework remains robust with sparsity when the model receives incomplete information about behavior and nutrient features. Finally, we show the weak correlation among different objectives, thereby justifying the multi-objective framing as a replacement for an aggregated decision. The proposed framework can help downstream charitable agency decision-makers make contextspecific substitution recommendations with limited information available.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21979",
+    "pdf_url": "https://arxiv.org/pdf/2608.21979.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "The work was done prior to joining Amazon. Department of Industrial and Production Engineering",
+      "Department of Industrial and Systems Engineering Bangladesh University of Engineering and Technology",
+      "North Carolina State University Dhaka, Bangladesh"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种基于异构图神经网络的推荐框架用于食品替代，属于明确的 RecSys 应用（多目标排序），但场景局限于慈善机构而非主流电商/社交产品，且方法创新性中等。",
+    "translation": "超越相似性：慈善食品机构中多目标食品替代的异构图学习",
+    "summary_zh": "本文提出一种基于异构图的源数据驱动推荐框架，将食品替代建模为兼顾行为偏好、营养健康与物品相似性的多目标排序问题，以解决数据稀疏下的决策难题。",
+    "key_points": [
+      "本文提出一种基于异构图的源数据驱动推荐框架，将食品替代建模为兼顾行为偏好、营养健康与物品相似性的多目标排序问题，以解决数据稀疏下的决策难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.22056",
+    "title": "Personalized and Aspiration-Oriented Career Path Recommendation",
+    "authors": [
+      "Kuleshwar Sahu",
+      "Girish Keshav Palshikar",
+      "Rajiv Srivastava"
+    ],
+    "summary": "Fulfilling career aspirations is important for growth of employee and organization. We propose a data driven methodology to recommend personalized career path for a given aspirant's career path and aspirations. The pro-posed method uses the career path similarity (CPS) between aspirant's career and candidate career path, and 'aspirational similarity' (AS) between aspiration and candidate career paths to find suitable career path. CPS ensures personalized recommendation while AS ensures aspiration fulfillment. We defined two methods to compute the CPS between career paths which are (a) domain knowledge driven (DKD) and, (b) unsupervised representation learning and alignment (URLA) based, along with different AS measures. The DKD based similarity is defined in the terms of features extracted and summarized over career paths. In the URLA, we use the sequence of event names present in the career paths of the employees to learn the embedding for each event name. In URLA we use learned embedding vector of the career path event names and as-sociated event attributes (skill cluster and domain) to find the best alignment between two career paths. We hypothesized that relative position of event names in the sequence represents semantics of event name and that can be learned. We use LSTM neural network to learn the embedding vector of each career event name. We also define the matching method to compute the AS be-tween aspiration and career path in both proposed methods. We combine CPS and AS to rank available 'candidate career paths' of employees to find the suitable one. We get better DCG value in URLA as compare to DKD. We also showed that ranking are coherent using both the methods. URLA method is better since it does not require domain knowledge to model the similarity and includes temporal aspect by optimal Levenshtein alignment using weighted cosine distance.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.22056",
+    "pdf_url": "https://arxiv.org/pdf/2608.22056.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文属于特定垂直领域（人力资源/职业规划）的推荐系统应用，采用了序列建模（LSTM）和相似度匹配技术，虽非通用电商或内容推荐，但核心逻辑符合个性化序列推荐范式。",
+    "translation": "个性化与志向导向的职业路径推荐",
+    "summary_zh": "提出一种结合职业路径相似度与志向相似度的双路推荐框架，利用 LSTM 学习职业事件序列嵌入并通过最优对齐算法实现个性化职业路径排序。",
+    "key_points": [
+      "提出一种结合职业路径相似度与志向相似度的双路推荐框架，利用 LSTM 学习职业事件序列嵌入并通过最优对齐算法实现个性化职业路径排序"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21365",
+    "title": "KSE-Web: An Analysis of Hybrid Retrieval and LLM-Assisted Query Expansion for Low-Resource Khmer Semantic Search",
+    "authors": [
+      "Nimol Thuon"
+    ],
+    "summary": "As a low-resource language, Khmer presents several retrieval challenges, including limited annotated data, ambiguous word boundaries, weak support in multilingual embedding models, and frequent mixed Khmer-English usage. This paper presents KSE-Web, an analysis of hybrid retrieval and LLM-assisted query expansion for Khmer semantic search. We construct the dataset from approximately 17K candidate Khmer titles and retain 3K cleaned full-text Khmer documents after filtering, normalization, deduplication, and document-length control. The dataset includes 300 manually reviewed user-style Khmer search queries and silver relevance labels with partial human verification. We evaluate character n-gram BM25, multilingual dense retrieval, hybrid BM25+dense retrieval, and LLM-assisted query expansion using Qwen2.5 models. Experimental results show that BM25 achieves the strongest overall performance, reaching 0.943 Recall and 0.876 nDCG. Hybrid BM25+dense retrieval performs comparably, achieving 0.929 Recall and 0.871 nDCG, while dense retrieval alone performs lower. LLM-assisted query expansion does not outperform non-expanded retrieval; however, Qwen2.5-3B produces substantially stronger expanded-query results than Qwen2.5-0.5B, suggesting that LLM size and expansion quality matter for low-resource Khmer retrieval. Our analysis further shows that direct LLM expansion can introduce topic drift, generic terms, and noisy reformulations, while simple filtering may remove useful semantic cues. These findings highlight both the potential and limitations of LLM-assisted retrieval for Khmer semantic search and provide a foundation for future Khmer retrieval datasets with stronger human-verified annotations and Khmer-aware retrieval models. The dataset and documentation will be made available at github.com/back-kh/KhmerSemantic-Search.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-06-17",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21365",
+    "pdf_url": "https://arxiv.org/pdf/2608.21365.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "本文聚焦低资源语言（高棉语）的通用语义搜索分析，虽涉及检索技术但缺乏主流推荐/搜索业务场景，且核心结论显示 LLM 查询扩展效果不佳，属于特定领域的 NLP 研究而非通用 RecSys 核心进展。",
+    "translation": "KSE-Web：低资源高棉语语义搜索中混合检索与 LLM 辅助查询扩展的分析",
+    "summary_zh": "本文提出 KSE-Web 框架，通过构建高棉语数据集，系统分析了混合检索策略及不同规模 LLM 辅助查询扩展在低资源语言语义搜索中的有效性与局限性。",
+    "key_points": [
+      "本文提出 KSE-Web 框架，通过构建高棉语数据集，系统分析了混合检索策略及不同规模 LLM 辅助查询扩展在低资源语言语义搜索中的有效性与局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2606.00984",
+    "title": "Practical and Optimal Algorithm for Linear Contextual Bandits with Rare Parameter Updates",
+    "authors": [
+      "Sanghoon Yu",
+      "Min-hwan Oh"
+    ],
+    "summary": "We study linear contextual bandits under rare parameter updates: the learner may incorporate reward feedback into its parameter estimate only at a small number of update times, while still observing contexts online and selecting actions sequentially. This viewpoint clarifies a practical distinction that is often blurred in the literature: many \"strictly batched\" methods additionally restrict within-interval context adaptivity, meaning that the action rule inside an interval cannot depend on the sequence of realized contexts/actions in that interval (beyond the current round's context). For linear contextual bandits, we propose two practical algorithms with only $O(\\log\\log T)$ parameter updates. Our first algorithm BLCE-G attains minimax-optimal regret (up to polylogarithmic factors in $T$) simultaneously in both the small-$K$ and large-$K$ regimes under a static schedule. Our second algorithm BLCE removes the near G-optimal design step -- a dominant computational bottleneck in prior strictly batched static-grid methods -- yet preserves minimax-optimal regret and achieves the lowest known runtime complexity among optimal algorithms. We further extend these rare-update and computational principles to generalized linear contextual bandits. Overall, our results yield minimax-optimal algorithms for linear contextual bandits and a near-optimal generalized-linear extension under $O(\\log\\log T)$ parameter updates, while remaining computationally efficient in practice.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2606.00984",
+    "pdf_url": "https://arxiv.org/pdf/2606.00984.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文研究线性上下文多臂老虎机（Contextual Bandits）的稀疏更新算法，虽与推荐系统中的探索利用问题有理论关联，但属于纯强化学习/优化理论研究，未直接针对具体 RecSys/Search 业务场景或架构提出应用方案，且非 LLM 相关研究。",
+    "translation": "一种具有稀有参数更新的线性上下文多臂老虎机的实用最优算法",
+    "summary_zh": "提出两种仅需对数对数级参数更新的线性上下文多臂老虎机算法，在保持最小最大遗憾最优性的同时显著降低计算复杂度，并推广至广义线性模型。",
+    "key_points": [
+      "提出两种仅需对数对数级参数更新的线性上下文多臂老虎机算法，在保持最小最大遗憾最优性的同时显著降低计算复杂度，并推广至广义线性模型"
+    ]
+  },
+  {
+    "arxiv_id": "2606.17443",
+    "title": "Incumbent Advantage: Brand Bias and Cognitive Manipulation Dynamics in LLM Recommendation Systems",
+    "authors": [
+      "Xi Chu",
+      "Yupeng Hou"
+    ],
+    "summary": "Large language models (LLMs) are becoming a major way for consumers to find products, but we do not yet understand how brands compete in this new channel. We study brand dynamics in LLM recommendations using skincare products -- a category where consumers cannot easily judge quality before buying and must rely on brand reputation -- across three commercial LLMs (GPT-4o-mini, Claude Sonnet, Gemini 3 Flash), with a robustness check on search goods. In three experiments, we find: (1) a Conditional Monopoly where well-known brands get recommended 100% of the time (IAI = 10.0) when all products have the same specifications, but this dominance disappears with less than a +0.1-star rating advantage for a competitor; (2) authority-style marketing language, including fabricated clinical-evidence claims, breaks this monopoly at a Bias Surplus Value equal to +0.17 rating points, with each model responding differently; and (3) a social dilemma in multi-brand GEO competition: when all brands adopt the same optimization strategy, individual payoff falls from +0.802 to +0.007 in our payoff proxy, and non-participating brands receive zero recommendations in our tests. Our results suggest that generative engine optimization (GEO) should be studied not only as a security risk, but also as an emerging marketing practice that shapes market competition.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CY"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2606.17443",
+    "pdf_url": "https://arxiv.org/pdf/2606.17443.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文主要研究 LLM 推荐中的品牌偏见、认知操纵及营销博弈，属于对 LLM 行为的社会学与市场营销分析，而非针对推荐系统核心算法（如召回、排序、用户建模）的技术改进。",
+    "translation": "在位者优势：LLM 推荐系统中的品牌偏见与认知操纵动态",
+    "summary_zh": "本文揭示了大型语言模型在产品推荐中存在的“条件垄断”现象，即知名品牌在无差异规格下占据绝对优势，并分析了权威式营销语言如何打破这种偏见以及多品牌竞争下的博弈困境。",
+    "key_points": [
+      "本文揭示了大型语言模型在产品推荐中存在的“条件垄断”现象，即知名品牌在无差异规格下占据绝对优势，并分析了权威式营销语言如何打破这种偏见以及多品牌竞争下的博弈困境"
+    ]
+  },
+  {
+    "arxiv_id": "2606.16661",
+    "title": "SCAR: Semantic Continuity-Aware Retrieval for Efficient Context Expansion in RAG",
+    "authors": [
+      "Nathanaël Langlois"
+    ],
+    "summary": "Fixed-length chunking in Retrieval-Augmented Generation (RAG) often leads to boundary fragmentation, where critical evidence is split across segments, degrading retrieval recall. While static windowing and parent retrieval improve recall, they introduce significant token overhead. We propose SCAR (Semantic Continuity-Aware Retrieval), an adaptive retrieval policy that selectively expands neighboring chunks by weighing query-neighbor relevance against a structural continuity penalty. SCAR uses a relative expansion threshold tied to each retrieved chunk's own query-relevance, yielding an approximately scale-invariant decision rule that transfers across embedding models without recalibration. Across four diverse corpora (RFC, GDPR, a 10-K report, and a Merger agreement; N=320 queries; 160 boundary-fragmented), SCAR achieves 92.8% recall on boundary-fragmented queries with only 7.84 chunks, a 22.9% reduction compared to static windowing (10.16 chunks). Paired bootstrap tests (B=10,000) confirm the chunk reduction is highly significant (p<0.0001, Cohen's d=-1.49, large effect), with a small recall difference (Cohen's d=-0.33). The policy transfers across three embedding models (text-embedding-3-large, BGE-large-en-v1.5, zembed-1) using the same single hyperparameter setting, and downstream RAGAS evaluation on the 10-K corpus confirms SCAR preserves generation faithfulness while reducing context tokens by 27.1%.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2606.16661",
+    "pdf_url": "https://arxiv.org/pdf/2606.16661.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 RAG/LLM 检索优化研究，未涉及推荐系统或搜索引擎的核心业务场景（如电商、社交信息流），即使有中国公司背景加分，仍不符合核心领域要求。",
+    "translation": "SCAR：用于 RAG 高效上下文扩展的语义连续性感知检索",
+    "summary_zh": "提出一种自适应检索策略 SCAR，通过权衡查询相关性与结构连续性惩罚，动态扩展相邻文本块以解决 RAG 中的边界碎片化问题。",
+    "key_points": [
+      "提出一种自适应检索策略 SCAR，通过权衡查询相关性与结构连续性惩罚，动态扩展相邻文本块以解决 RAG 中的边界碎片化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21656",
+    "title": "Mitigating Database Leakage in RAG Systems with Keyword-Grounded Fact Substitution",
+    "authors": [
+      "Ziliang Zhang",
+      "Yubo Zhu",
+      "Wei Tong",
+      "Jingyu Hua",
+      "Zijian Wang",
+      "Yuan Zhang",
+      "Sheng Zhong"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) has emerged as a powerful paradigm for combining large language models (LLMs) with external knowledge sources. However, RAG systems remain vulnerable to prompt injection attacks, which may mislead the retriever or generator to expose sensitive database contents. To address this issue, we propose KFS-RAG, a defense that mitigates information leakage by reformulating the retrieved context. Specifically, our method first identifies a small set of influential keywords from the retrieved context via an attention rollout plus a causal perturbation mechanism. These keywords are then used to guide an auxiliary LLM to generate a compact set of keyword-grounded facts from the retrieved passages. Finally, the original context is substituted with these curated facts, ensuring that the generator operates on sanitized evidence rather than the raw retrieved text. Experimental evaluations demonstrate that KFS-RAG significantly reduces the risk of database leakage under injection attacks while maintaining response accuracy and relevance. This work highlights a practical pathway toward building secure and trustworthy RAG systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21656",
+    "pdf_url": "https://arxiv.org/pdf/2608.21656.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM/RAG 安全研究（防御提示注入和数据泄露），未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有加分项也仅为弱相关。",
+    "translation": "基于关键词事实替换缓解 RAG 系统中的数据库泄露问题",
+    "summary_zh": "提出一种通过识别关键影响词并生成 sanitized 事实来替换原始检索上下文的防御机制，旨在防止 RAG 系统遭受提示注入攻击导致敏感数据泄露。",
+    "key_points": [
+      "提出一种通过识别关键影响词并生成 sanitized 事实来替换原始检索上下文的防御机制，旨在防止 RAG 系统遭受提示注入攻击导致敏感数据泄露"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21702",
+    "title": "From Association to Causation: Improving Retrieval Precision of Retrieval-Augmented Generation via Causal Relations and an Attention Mechanism",
+    "authors": [
+      "Jing Liu",
+      "Yongxing Qi",
+      "Muchen Jiang",
+      "Chengnan Hu",
+      "Qingqing Peng",
+      "Haoming Wang",
+      "Yuqing Wang",
+      "Yang Yu",
+      "Xu Zhang",
+      "Ting Wu"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) grounds LLM generation on retrieved documents, but the standard terminal retrieval stage--dense-vector similarity, optionally followed by reranking--often returns documents that share keywords with the query without containing the needed information, a failure mode that grows with the knowledge base. We trace it to a conceptual gap: similarity captures only associational relations, whereas the documents that matter are linked to the query causally. We model the terminal retrieval stage with a causal graph grounded in Reichenbach's common cause principle: the keywords shared by the query and a retrieved document form a latent common cause A, and the document's residual keywords form a latent set B linking the document to the ideal output. Since a retrieved document is a collider (A -> d <- B), retrieval itself opens an associational path between the query and B, which licenses a training-free, attention-style re-scoring rule: the cosine similarity between the query embedding and the weighted centroid embedding of B. Unlike causality-enhanced RAG variants that model causal relations inside the knowledge content, our graph models the causal structure of the retrieval process itself. On a real 471-document enterprise knowledge base, the method promotes a relevant guideline from rank 6 to the top 3; on a controlled diagnostic corpus reproducing the keyword-stuffing regime, it improves the mean target rank from 2.88 to 1.25, while a trained cross-encoder reranker barely helps (2.63). Conversely, on three BEIR benchmarks the score underperforms the similarity baseline, delineating the applicability boundary: the method guards the keyword-stuffing regime of growing proprietary knowledge bases and complements neural rerankers; a corpus-level calibration gate selects the correct regime with >= 95% reliability. A fully local testbed demonstrates deployability.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21702",
+    "pdf_url": "https://arxiv.org/pdf/2608.21702.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于解决生成阶段的检索噪声问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "从关联到因果：利用因果关系与注意力机制提升检索增强生成的检索精度",
+    "summary_zh": "该论文提出一种基于因果图的无训练重评分方法，通过区分查询与文档间的关联性与因果性，解决 RAG 系统中因关键词堆砌导致的检索不精准问题。",
+    "key_points": [
+      "该论文提出一种基于因果图的无训练重评分方法，通过区分查询与文档间的关联性与因果性，解决 RAG 系统中因关键词堆砌导致的检索不精准问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.06507",
+    "title": "DynaKRAG: A Unified Framework for Learnable Evidence Control in Multi-Hop Retrieval-Augmented Generation",
+    "authors": [
+      "Chenyu Zhou",
+      "Yaqi Wu",
+      "Xiaolei Guo",
+      "Jiaqi Huang",
+      "Xianfa Zhang",
+      "Junxu Zhang",
+      "Zhuo Yu",
+      "Zhubo Shi",
+      "Jianghao Lin",
+      "Dongdong Ge"
+    ],
+    "summary": "Multi-hop retrieval-augmented generation (RAG) acquires evidence sequentially, with each document contributing supporting facts, bridge entities, query refinements, or sufficient evidence for answering. Evidence acquisition can involve iterative retrieval, query reformulation, evidence assessment, and sufficiency checking. We introduce DynaKRAG, a unified evidence-action framework that learns a shared state-conditioned policy for coordinating these operations. At each step, a deterministic validity layer constructs the executable action set, a learned continuation gate selects between answer generation and further evidence acquisition, and a learned advantage scorer ranks feasible evidence operations by their predicted gain relative to immediate answer generation. The selected operation updates the shared state and may enable additional operations. Across HotpotQA, 2Wiki, and MuSiQue with Qwen2.5-7B, GPT-4o-mini, and Llama-3.1-8B, DynaKRAG ranks first among the compared methods in both EM and F1 for all nine dataset--backbone pairs. Relative to matched-backbone baseline method, DynaKRAG improves F1 in every pair while achieving total-token efficiency gains of 10.1--34.3\\% and retrieval-call efficiency gains of 15.1--43.4\\%, establishing Pareto dominance under these measures. With Qwen2.5-7B, terminal evidence compression further improves answer quality across all three datasets while reducing the context passed to final answer generation by 54.4\\%--71.5\\%. These results demonstrate that unified, state-conditioned evidence control supports strong answer quality, efficient retrieval, and compact answer-generation contexts.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-08-22",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2607.06507",
+    "pdf_url": "https://arxiv.org/pdf/2607.06507.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM/RAG（检索增强生成）研究，专注于多跳问答任务，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有 +1 分加分仍属低相关。",
+    "translation": "DynaKRAG：多跳检索增强生成中可学习证据控制的统一框架",
+    "summary_zh": "提出一种基于状态条件的统一证据 - 动作框架，通过动态策略协调迭代检索、查询重构与答案生成的决策过程，以优化多跳问答中的证据获取效率。",
+    "key_points": [
+      "提出一种基于状态条件的统一证据 - 动作框架，通过动态策略协调迭代检索、查询重构与答案生成的决策过程，以优化多跳问答中的证据获取效率"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21610",
+    "title": "Semantic Compression Trees: Multi-Resolution Knowledge Retrieval via Hierarchical Semantic Residuals",
+    "authors": [
+      "Junaid Farooq"
+    ],
+    "summary": "Retrieval-augmented generation relies mostly on flat, fixed-granularity indexes: documents are cut into uniform chunks and retrieved by similarity, discarding the hierarchical structure of the source. We introduce Semantic Compression Trees (SCT), a hierarchical index in which each node stores only its semantic residual -- the information it adds beyond its parent -- and retrieval proceeds by progressive descent from the root, so that per-query cost is governed by tree depth rather than collection size.\n  We evaluate on QASPER (50 papers, 173 questions) under two protocols differing only in whether the benchmark supplies the relevant document, with bootstrap confidence intervals and paired significance tests throughout. The results are mixed and we report them as such. When the document is given, SCT with a zero-LLM extractive compressor matches dense retrieval on answer quality (0.274 vs. 0.277 F1, $p = 0.37$) using 30% fewer context tokens and no LLM calls to build the index, and residual storage beats storing full summaries at each node (0.274 vs. 0.205, $p < 0.001$). Increasing the collection fifty-fold multiplies flat retrieval's per-query scoring work by 48.9x and SCT's by 6.4x.\n  Progressive descent itself is not supported. Retrieving the same residuals without the tree performs identically when the document is given ($p = 0.27$), and descent is substantially worse when the system must select the document (0.122 vs. 0.165, $p < 0.001$). Routing accuracy localises the cause: descent selects the correct paper 20.2% of the time against 39.3% for flat retrieval, because that choice is made from the root residual, the most compressed node in the tree. We conclude that the residual representation is worth keeping and top-down routing is not.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2608.21610",
+    "pdf_url": "https://arxiv.org/pdf/2608.21610.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 索引结构研究，专注于通用文档问答而非推荐/搜索系统的核心环节（如召回、排序、用户建模），且未涉及电商或社交场景，即使有中国公司背景加分仍属低相关。",
+    "translation": "语义压缩树：基于分层语义残差的多分辨率知识检索",
+    "summary_zh": "提出一种分层索引结构，通过存储节点的语义残差信息而非完整内容，实现从根节点向下的渐进式检索以降低上下文成本。",
+    "key_points": [
+      "提出一种分层索引结构，通过存储节点的语义残差信息而非完整内容，实现从根节点向下的渐进式检索以降低上下文成本"
+    ]
+  },
+  {
+    "arxiv_id": "2605.16532",
+    "title": "Boundedly Rational Meta-Learning in Sequential Consumer Choice",
+    "authors": [
+      "Mehrzad Khosravi",
+      "Max Kleiman-Weiner",
+      "Hema Yoganarasimhan"
+    ],
+    "summary": "Many consumer decisions involve repeated choices under uncertainty, where experience in one context may inform decisions in another. For example, experience with a brand in one market or usage context may shape beliefs about that brand in a new context. We study whether such cross-context transfer takes the form of meta-learning, in which experience across contexts updates higher-order beliefs that guide learning in a new context. In a hierarchical laboratory task, participants choose among airlines across routes and observe noisy binary outcomes. Participants improve both within and across routes, indicating cross-route knowledge transfer. We compare human choices with no-transfer, fully integrated meta-learning, and boundedly rational meta dynamic programming policies, BRMDP(D), where D is the number of hyper-posterior draws used to approximate integration. Trial-by-trial likelihood comparisons show that low-D policies, especially BRMDP(1), best predict participant choices. The results suggest that consumers transfer information across contexts using coarse representations of higher-order uncertainty.",
+    "categories": [
+      "cs.LG",
+      "econ.GN",
+      "q-fin.EC"
+    ],
+    "published": "2026-08-21",
+    "updated": "2026-08-25",
+    "url": "https://arxiv.org/abs/2605.16532",
+    "pdf_url": "https://arxiv.org/pdf/2605.16532.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS",
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯消费者行为学和认知科学的实验室研究，未提出任何用于推荐系统或搜索引擎的算法模型，属于排除类。",
+    "translation": "序列消费者选择中的有限理性元学习",
+    "summary_zh": "该研究通过实验室任务发现，消费者在跨情境决策中利用低维高阶不确定性表征进行有限的知识迁移，而非完全整合的元学习。",
+    "key_points": [
+      "该研究通过实验室任务发现，消费者在跨情境决策中利用低维高阶不确定性表征进行有限的知识迁移，而非完全整合的元学习"
+    ]
+  }
+]

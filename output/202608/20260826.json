@@ -1,0 +1,666 @@
+[
+  {
+    "arxiv_id": "2603.04946",
+    "title": "LocalSUG: City-Preference-Enhanced LLM for Query Suggestion in Local-Life Services",
+    "authors": [
+      "Jinwen Chen",
+      "Shiwen Zhang",
+      "Shuai Gong",
+      "Zheng Zhang",
+      "Yachao Zhao",
+      "Lingxiang Wang",
+      "Haibo Zhou",
+      "Wei Lin",
+      "Hainan Zhang"
+    ],
+    "summary": "In local-life service platforms, query suggestion reduces user effort by generating candidate queries from input prefixes. Traditional multi-stage systems rely heavily on historical popular queries, limiting their ability to capture long-tail and emerging demand. Although LLMs provide strong semantic generalization, their deployment in local-life services faces three challenges: insufficient city-preference awareness, exposure bias in preference optimization, and strict online latency constraints. We propose LocalSUG, an LLM-based query suggestion framework for local-life services. LocalSUG mines city-preference-enhanced candidates from term co-occurrence and injects them into prompts as dynamic references rather than fusing them into model parameters. This allows the model to adapt to changing city preferences, such as merchant openings or closures, while reducing stale or locally invalid suggestions. We further introduce a beam-search-driven GRPO algorithm to align training with inference-time decoding and optimize relevance together with business-oriented rewards. Finally, quality-aware beam acceleration and vocabulary pruning reduce online latency while preserving generation quality. Offline evaluations and large-scale online A/B testing show that LocalSUG improves CTR by +0.35% and reduces the no-result rate by 3.98%, demonstrating its effectiveness in real-world deployment.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2603.04946",
+    "pdf_url": "https://arxiv.org/pdf/2603.04946.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对本地生活服务（如美团）的搜索查询建议场景，利用 LLM 解决城市偏好感知和延迟约束等核心工程问题，属于高优先级的工业界搜索应用。",
+    "translation": "LocalSUG：面向本地生活服务的城市偏好增强型 LLM 查询建议框架",
+    "summary_zh": "提出一种将动态挖掘的城市偏好候选词作为提示参考而非参数融合的 LLM 架构，并结合对齐推理的 GRPO 算法与延迟优化策略，以解决本地搜索中的长尾需求捕捉与实时性问题。",
+    "key_points": [
+      "提出一种将动态挖掘的城市偏好候选词作为提示参考而非参数融合的 LLM 架构，并结合对齐推理的 GRPO 算法与延迟优化策略，以解决本地搜索中的长尾需求捕捉与实时性问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16073",
+    "title": "GOD: Enhancing Generalization via Deep Grafting for Sequential Recommendation",
+    "authors": [
+      "WooJoo Kim",
+      "JunYoung Kim",
+      "JaeHyung Lim",
+      "HwanJo Yu"
+    ],
+    "summary": "Sequential recommenders often struggle with sparse and noisy histories, limiting generalization to unseen interactions. Knowledge distillation mitigates this by transferring dense supervision from a teacher to a student. However, most distillation methods run teacher and student independently, then match student outputs or representations to the teacher. Such supervision entangles student-component effects, blurring whether weak generalization stems from unreliable embeddings, overfitted encoding, or co-adaptation to sparse histories. In this paper, we propose Graft-Oriented Distillation (GOD), a component-level distillation framework for improved generalization through grafting. Grafting denotes replacing selected frozen-teacher components with trainable student counterparts to build hybrid source models. GOD uses these hybrid models to evaluate student embeddings with the teacher encoder and the student encoder with teacher embeddings, providing component-level feedback. At inference, GOD uses only the student, incurring no additional cost. Across three real-world datasets, GOD outperforms state-of-the-art baselines by up to 13.92%.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.16073",
+    "pdf_url": "https://arxiv.org/pdf/2608.16073.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的泛化问题提出新架构（GOD），属于核心推荐算法创新，且来自中国公司，符合最高优先级标准。",
+    "translation": "GOD：通过深度嫁接增强序列推荐的泛化能力",
+    "summary_zh": "提出一种面向组件的知识蒸馏框架，通过将冻结教师模型的组件与可训练学生模型进行混合嫁接，解耦并优化嵌入与编码器的学习效果，从而提升序列推荐在稀疏数据下的泛化能力。",
+    "key_points": [
+      "提出一种面向组件的知识蒸馏框架，通过将冻结教师模型的组件与可训练学生模型进行混合嫁接，解耦并优化嵌入与编码器的学习效果，从而提升序列推荐在稀疏数据下的泛化能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.16075",
+    "title": "TRACER: Balancing Stability-Plasticity-Cognitivity Trilemma for LLM Enhanced Continual Recommendation",
+    "authors": [
+      "WooJoo Kim",
+      "HyunSik Yoo",
+      "JunYoung Kim",
+      "JaeHyung Lim",
+      "SeongKu Kang",
+      "HwanJo Yu"
+    ],
+    "summary": "Continual recommendation aims to capture evolving user interests from streaming data but struggles with sparsity. LLM enhancers mitigate this with semantic knowledge, but naive integration creates a new conflict. We identify this as the Stability-Plasticity-Cognitivity (SPC) Trilemma, where generalized LLM semantic priors (Cognitivity) conflict with retaining personalized historical preferences (Stability) and adapting to individual interest shifts (Plasticity). To address this, we propose Trilemma-Responsive Adaptive Continual Enhancement for Recommendation (TRACER). TRACER synergistically combines three specialized modules, each targeting stability, plasticity, or cognitivity, while preventing any single lemma from dominating. This holistic design enables semantic knowledge to support history retention and adaptation to evolving interests without disrupting continual learning. Across five real-world datasets, TRACER effectively harmonizes the SPC trilemma and outperforms state-of-the-art baselines by up to 14.38%. Our code is available at https://github.com/woo-joo/TRACER_CIKM26.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.16075",
+    "pdf_url": "https://arxiv.org/pdf/2608.16075.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对持续推荐系统中的核心难题，提出利用 LLM 解决稳定性、可塑性与认知性的三难困境，属于 LLM 在推荐领域的深度创新应用，且来自中国公司额外加 1 分后满分。",
+    "translation": "TRACER：平衡 LLM 增强型持续推荐中的稳定性 - 可塑性 - 认知性三难困境",
+    "summary_zh": "本文提出 TRACER 框架，通过协同三个专用模块来解决 LLM 增强持续推荐中通用语义先验与个性化历史保留及兴趣适应之间的冲突，从而平衡稳定性、可塑性与认知性。",
+    "key_points": [
+      "本文提出 TRACER 框架，通过协同三个专用模块来解决 LLM 增强持续推荐中通用语义先验与个性化历史保留及兴趣适应之间的冲突，从而平衡稳定性、可塑性与认知性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.22979",
+    "title": "SA-RSQ: A Versatile Sparse Representation Framework for Multi-modal Recommender Systems",
+    "authors": [
+      "Xiang Wang",
+      "Shigang Quan",
+      "Tingzhen Chang",
+      "Kang Yang",
+      "Sitong Chen",
+      "Yabo Fan",
+      "Xingxing Wang",
+      "Zhaodian He"
+    ],
+    "summary": "Deploying high-dimensional multimodal features in industrial recommender systems incurs substantial storage and latency overhead. Hard quantization is compact but introduces boundary distortion, whereas dense soft quantization couples representation quality to the limited storage budget. We propose Sparse Activation-based Residual Soft Quantization (SA-RSQ), which uses Top-K sparse routing and softmax weights to store compact (Index, Probability) tuples. The stored tuples decouple per-item storage from codebook dimensionality; for a fixed selected support, gradients propagate through the routing weights and weighted reconstruction without relying on a straight-through estimator. Experiments on a proprietary food-delivery advertising dataset show favorable reconstruction-performance and CTR trade-offs across storage budgets of 8-48 bytes per item. A preliminary Next-Distribution Prediction study and a one-week online A/B test further demonstrate the practical potential of SA-RSQ, with relative lifts of +2.51% in CTR and +3.66% in CPM.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.22979",
+    "pdf_url": "https://arxiv.org/pdf/2608.22979.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "affiliation_lines": [
+      "TianjinUniversity Meituan Meituan",
+      "Meituan InstituteofSoftwareChinese"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决工业级多模态推荐系统中的存储与延迟瓶颈，提出了具体的稀疏量化架构并在外卖广告场景验证，完全符合核心领域进展标准；叠加中国公司背景额外加分。",
+    "translation": "SA-RSQ：面向多模态推荐系统的通用稀疏表示框架",
+    "summary_zh": "提出基于稀疏激活的残差软量化方法，通过 Top-K 路由与软权重存储紧凑元组，解耦物品存储与码本维度以优化多模态特征效率。",
+    "key_points": [
+      "提出基于稀疏激活的残差软量化方法，通过 Top-K 路由与软权重存储紧凑元组，解耦物品存储与码本维度以优化多模态特征效率"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24034",
+    "title": "TAGR: Temporally Adaptive Generative Recommendation for Industrial Live-Streaming Advertising",
+    "authors": [
+      "Wencai Ye",
+      "Guangyi Liu",
+      "Chaoyi Wang",
+      "Wenbin Luo",
+      "Shengyu Wang",
+      "Mingjie Sun",
+      "Peng Wang",
+      "Quanming Yao",
+      "Wenjin Wu",
+      "Peng Jiang"
+    ],
+    "summary": "Live-streaming advertising is an important monetization channel on short-video and e-commerce platforms, where rapidly changing live content, promoted products, and user feedback impose strong freshness requirements on recommendation models. Existing generative recommenders designed for static domains fail at three levels: static semantic IDs (SID) cannot track evolving live ads; single-scale behavior modeling misses shifting intent; preference optimization conflicts between fresh on-policy feedback and training stability. We propose TAGR, a generative recommendation framework with temporal adaptation at three levels: live-ad tokenization, user intent modeling, and preference alignment. At the token level, Live Semantic-Collaborative ID (LSID) periodically refreshes each active ad's SID based on its current live scene and promoted products, while retaining a stable hierarchical token vocabulary for autoregressive generation. At the intent level, Intent-Aware Generation (IAG) models live-room entry histories at multiple temporal granularities as the primary intent sequence, keeps auxiliary behaviors as separate inputs, and weights next-token prediction (NTP) using post-request intent evidence and business value. At the alignment level, Intermittent On-Policy Preference Optimization (IOPO) periodically samples fresh candidate groups from the current policy and performs behavior- and value-aligned preference updates interleaved with supervised NTP maintenance to preserve learned behavior distribution. Deployed on a large-scale e-commerce live-stream advertising platform, TAGR improves live-room entry and shopping-cart click rates by 8.5% and 7.4%, respectively, and achieves a 16.1% revenue lift over the production baseline. These results demonstrate the effectiveness and industrial viability of temporally adaptive generative recommendation for live-stream advertising.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24034",
+    "pdf_url": "https://arxiv.org/pdf/2608.24034.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "1KuaishouTechnology,Beijing,China 2TsinghuaUniversity,Beijing,China",
+      "level,LiveSemantic-CollaborativeID(LSID)periodicallyup-"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商直播广告推荐场景，提出了包含动态 Token 化、多粒度意图建模及在线偏好对齐的生成式推荐框架，完美契合核心领域进展与工业落地标准，且来自中国公司额外加 1 分后满分。",
+    "translation": "TAGR：面向工业直播广告的时序自适应生成式推荐",
+    "summary_zh": "提出一种时序自适应生成式推荐框架，通过动态刷新直播广告语义 ID、多粒度用户意图建模以及间歇性在线策略偏好优化，解决直播场景中内容快速变化与用户意图漂移的推荐难题。",
+    "key_points": [
+      "提出一种时序自适应生成式推荐框架，通过动态刷新直播广告语义 ID、多粒度用户意图建模以及间歇性在线策略偏好优化，解决直播场景中内容快速变化与用户意图漂移的推荐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24132",
+    "title": "From Gradient-Boosted Trees to Deep Recommenders: Practical Lessons from Migrating a Production Customer Support Recommender",
+    "authors": [
+      "Sonia Sharma",
+      "Jeyendran Balakrishnan",
+      "Shreya Rajpal",
+      "Swapnil Parekh",
+      "Nagaraj Janardhana",
+      "Andrew Mattarella-Micke"
+    ],
+    "summary": "Product catalogs in fast-moving service businesses are shifting from static, independently priced SKUs toward dynamically bundled, discount-coupled offerings--a shift that strains the tree-based classifiers traditionally preferred for sparse and highly imbalanced data. These classifiers assume a fixed, slowly changing label space and struggle to incorporate multimodal signals such as tabular data and transcripts. We present the migration of a live, production conversational recommendation system from a gradient-boosted multiclass model to a pairwise-binary deep recommender. Because this system is critical to ecosystem growth initiatives and downstream features like dynamic pitching--surfacing the most relevant pitch text to a support agent in real time during a live customer conversation--maintaining live recommendation quality was a non-negotiable constraint. We detail the techniques that made this migration successful--reformulating recommendation as pairwise binary prediction to learn jointly from user and item features, and enhancing learned representations via negative sampling and noise injection. To efficiently incorporate long, live conversation context, we apply attention pooling over transcript chunks and benchmark it against TF-IDF and sentence-embedding baselines. Finally, we explore multiple architectures (including two-tower models, DeepFM, and their variants) and loss functions such as contrastive loss. Evaluating against a CatBoost baseline across all conversational stages, we demonstrate that our approach achieves parity at conversation beginning and outperforms at later conversational stages.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24132",
+    "pdf_url": "https://arxiv.org/pdf/2608.24132.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文详细阐述了生产级客服推荐系统从 GBT 迁移到深度模型的实战经验，直接解决推荐系统中的多模态融合与长文本上下文建模问题，且来自中国公司，完全符合高优先级标准。",
+    "translation": "从梯度提升树到深度推荐系统：迁移生产级客服推荐器的实战经验",
+    "summary_zh": "提出将推荐重构为成对二元预测以联合学习用户与物品特征，并利用注意力池化机制高效整合实时对话长文本上下文，从而完成从树模型到深度推荐架构的生产级迁移。",
+    "key_points": [
+      "提出将推荐重构为成对二元预测以联合学习用户与物品特征，并利用注意力池化机制高效整合实时对话长文本上下文，从而完成从树模型到深度推荐架构的生产级迁移"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24176",
+    "title": "Tlow: Flow-based Item Tokenizer for Recommendation",
+    "authors": [
+      "Nian Li",
+      "Chonggang Song",
+      "Jingtao Ding",
+      "Lingling Yi",
+      "Yong Li",
+      "Qingmin Liao"
+    ],
+    "summary": "Item tokenizer encodes semantic embeddings into token IDs to replace the randomly assigned item IDs used in traditional recommendation models, fundamentally addressing the problems of excessive parameters and cold starts. However, the most common tokenizer, RQ-VAE, suffers from low decoding efficiency due to the inherent dependencies among its codebooks. Meanwhile, efficient independent tokenizers such as optimized product quantization (OPQ) still struggle with dimensional correlations and distribution complexity of semantic embeddings. In this work, we propose a f\\underline{low}-based item \\underline{T}okenizer (Tlow) to transform raw semantic embeddings into a latent space where embeddings conform to a unified standard normal distribution, achieving dual advantages of dimensional independence and distributional simplicity. Independent tokenization performed on these latent embeddings yields semantically clear token IDs. Additionally, we introduce a novel codebook guidance to align the codebook space with the token embedding space, further aiding the learning of more semantically distinct token embeddings. Offline experiments on four public datasets demonstrate that Tlow's tokenization and codebook guidance significantly improve recommendation performance. The improvement on cross-domain and multi-modal recommendations also proves the effectiveness of item tokenization in a simplified embedding space. Online experiments for a multi-modal retrieval task on China's largest social media platform WeChat validate Tlow's powerful distribution transformation capability. The retrieval model based on token IDs improves user CTR by 10.32\\% globally and by 11.64\\% for new items. Our codes are available at https://github.com/wjjln/Tlow.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24176",
+    "pdf_url": "https://arxiv.org/pdf/2608.24176.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "WeChat",
+      "Tencent"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "TsinghuaUniversity TencentInc. TsinghuaUniversity",
+      "TencentInc. TsinghuaUniversity ShenzhenInternationalGraduate",
+      "Shenzhen,China Beijing,China School,TsinghuaUniversity"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文提出基于流的物品分词器（Tlow）以解决推荐系统中的冷启动和参数过多问题，并在微信社交平台进行了在线实验验证，属于核心推荐技术且来自一线大厂，完全符合高优先级标准。",
+    "translation": "Tlow：用于推荐系统的基于流式物品分词器",
+    "summary_zh": "提出一种基于流模型的分词器，将语义嵌入转换为独立且分布简单的潜在空间以生成高质量 Token ID，并引入码本引导机制对齐空间以提升推荐效果。",
+    "key_points": [
+      "提出一种基于流模型的分词器，将语义嵌入转换为独立且分布简单的潜在空间以生成高质量 Token ID，并引入码本引导机制对齐空间以提升推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24053",
+    "title": "WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report",
+    "authors": [
+      "Junjie Zhou",
+      "Ke Mei",
+      "Lei Li",
+      "Tianyi Wang",
+      "Fengyun Rao",
+      "Jing Lyu"
+    ],
+    "summary": "Universal multimodal embeddings are becoming a core component of modern AI systems, enabling heterogeneous content to be represented in a shared space for applications such as retrieval, recommendation, classification, and agentic systems. In this report, we present WeMM-Embedding, a family of universal multimodal embedding models supporting text, images, videos, visual documents, and arbitrarily interleaved multimodal inputs with flexible output dimensions. The family comprises 2B, 4B, and 9B variants and is trained in two stages: a large-scale multimodal alignment stage, followed by a refinement stage using curated data, fine-grained relevance supervision, and cross-scale knowledge transfer. Across extensive evaluations, WeMM-Embedding achieves leading performance on multiple public benchmarks. Notably, the 2B variant already surpasses the previously leading 8B open-source baseline on MMEB-v2, while the 9B variant further achieves a new state-of-the-art overall score of 80.6. WeMM-Embedding also demonstrates strong practical performance across WeChat applications, with substantial gains on a 26-task in-house benchmark and consistent improvements across 14 online A/B tests. It has been deployed at scale across recommendation and search applications, including WeChat Channels, Official Accounts, Moments, and e-commerce services. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Embedding.",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24053",
+    "pdf_url": "https://arxiv.org/pdf/2608.24053.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "WeChat",
+      "Tencent"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对微信生态的推荐与搜索场景，提出了多模态 Embedding 方案并已在业务中大规模部署，完全符合核心领域 advances 标准，且来自腾讯系加 2 分后满分。",
+    "translation": "WeMM-Embedding：微信多模态嵌入技术报告",
+    "summary_zh": "提出一种支持文本、图像、视频及交错多模态输入的通用嵌入模型家族，通过两阶段训练策略实现异构内容在共享空间的统一表征，专门服务于检索、推荐及分类等下游任务。",
+    "key_points": [
+      "提出一种支持文本、图像、视频及交错多模态输入的通用嵌入模型家族，通过两阶段训练策略实现异构内容在共享空间的统一表征，专门服务于检索、推荐及分类等下游任务"
+    ]
+  },
+  {
+    "arxiv_id": "2604.04038",
+    "title": "FLAME: Condensing Ensemble Diversity into a Single Network for Efficient Sequential Recommendation",
+    "authors": [
+      "WooJoo Kim",
+      "JunYoung Kim",
+      "JaeHyung Lim",
+      "SeongJin Choi",
+      "SeongKu Kang",
+      "HwanJo Yu"
+    ],
+    "summary": "Sequential recommendation requires capturing diverse user behaviors, which a single network often fails to capture. While ensemble methods mitigate this, training multiple networks from scratch incurs high computational cost and instability from noisy mutual supervision. We propose Frozen and Learnable networks with Aligned Modular Ensemble (FLAME), a novel framework that condenses ensemble-level diversity into a single network for efficient sequential recommendation. During training, FLAME simulates exponential diversity using only two networks via modular ensemble, which dynamically combines sub-modules (e.g., layers) of each network to generate a rich space of diverse representation patterns. To stabilize training, FLAME pretrains and freezes one network as a semantic anchor and employs guided mutual learning to align diverse representations into the space of remaining learnable network. At inference, FLAME utilizes only the learnable network, achieving ensemble-level performance with zero overhead compared to a single network. Experiments on six datasets show that FLAME outperforms state-of-the-art baselines, achieving up to 7.69x faster convergence and 9.70% improvement in NDCG@20. Our code is available at https://github.com/woo-joo/FLAME_SIGIR26.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2604.04038",
+    "pdf_url": "https://arxiv.org/pdf/2604.04038.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出了一种将集成多样性压缩到单一网络的高效架构 FLAME，属于推荐系统核心算法创新。",
+    "translation": "FLAME：将集成多样性压缩至单一网络以实现高效序列推荐",
+    "summary_zh": "提出 FLAME 框架，通过模块化集成动态组合子模块模拟多样性，并利用冻结网络作为语义锚点引导学习，从而在推理零开销下实现集成级别的序列推荐性能。",
+    "key_points": [
+      "提出 FLAME 框架，通过模块化集成动态组合子模块模拟多样性，并利用冻结网络作为语义锚点引导学习，从而在推理零开销下实现集成级别的序列推荐性能"
+    ]
+  },
+  {
+    "arxiv_id": "2608.23862",
+    "title": "AdaWidth: Query-Adaptive Embedding Width for Dense Retrieval",
+    "authors": [
+      "Shubing Yang",
+      "Dongfang Zhao"
+    ],
+    "summary": "High-dimensional embeddings are central to dense retrieval, but not all of these dimensions need to be evaluated at retrieval time. Existing methods reduce dimensions in two ways: truncating the same leading dimensions for every query, or masking a different subset for each query while still storing and accessing the full embedding. Yet queries within a single task differ widely in the number of dimensions they need for their rankings to stabilize.\n  We introduce AdaWidth, which adapts the number of evaluated dimensions to each query within a shared prefix representation. An orthogonal prefix adapter applies a single learned rotation to queries and documents alike, concentrating discriminative signal in leading coordinates while leaving every full width inner product unchanged. A lightweight router then reads order statistics off the ranking a query has already produced, and evaluates more dimensions only for the queries whose top results would change. We further derive a prefix sufficiency analysis showing that the required number of dimensions is set by the competing documents at the retrieval cutoff: it grows logarithmically with corpus size, decreases logarithmically with retrieval depth, and remains heavy-tailed across queries. Across six retrieval tasks and five frozen encoders, AdaWidth matches the NDCG@10 of state-of-the-art dimensionality reduction using 55% to 84% fewer dimensions per query.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-24",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.23862",
+    "pdf_url": "https://arxiv.org/pdf/2608.23862.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对稠密检索（Dense Retrieval）核心环节提出自适应嵌入宽度方法，显著提升搜索效率，属于搜索系统核心技术创新；虽非纯 LLM 研究，但紧密服务于搜索场景，且来自中国公司，故给予高分。",
+    "translation": "AdaWidth：面向稠密检索的查询自适应嵌入宽度",
+    "summary_zh": "提出一种查询自适应机制，通过正交前缀适配器集中判别信号，并根据排序稳定性动态调整每个查询所需的嵌入维度数量，从而在不改变全量内积结果的前提下大幅降低检索计算成本。",
+    "key_points": [
+      "提出一种查询自适应机制，通过正交前缀适配器集中判别信号，并根据排序稳定性动态调整每个查询所需的嵌入维度数量，从而在不改变全量内积结果的前提下大幅降低检索计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24091",
+    "title": "Native Multimodal Representation Learning for Click-Through Rate Prediction in E-Commerce Scenarios",
+    "authors": [
+      "Chao Yi",
+      "Feifan Yang",
+      "Jiawei Feng",
+      "Sishuo Chen",
+      "Zhangming Chan",
+      "Xiang-Rong Sheng",
+      "Han Zhu"
+    ],
+    "summary": "Multimodal representations have been widely adopted in industrial e-commerce recommendation systems. Due to their strong semantic understanding and generalization capabilities, they enhance the performance of traditional sparse ID-based Click-Through Rate (CTR) prediction models. Current multimodal application frameworks in the CTR prediction task typically follow a two-stage paradigm: first, pre-training a multimodal encoder on data from specific recommendation scenarios; second, extracting items' multimodal representations using this pre-trained multimodal encoder and integrating them into the CTR prediction model. However, the training objectives and data distribution of multimodal pre-training tasks often differ from those of the CTR prediction task, which limits the effectiveness of multimodal representation on downstream tasks. In this paper, we focus on how to learn Native Multimodal Representation for the CTR prediction task. One intuitive solution is to jointly train the multimodal encoder and CTR model end-to-end on the CTR task, with the expectation that the encoder can automatically learn downstream-relevant knowledge. However, we find that the end-to-end training does not bring performance improvements to existing multimodal application paradigms. Our analysis reveals that user behaviors in raw CTR data are driven by both multimodal semantics and non-multimodal factors, leading to ambiguous supervision and inconsistent encoder updates. To address this, we propose a Mine-Then-Train method that mines high-quality, multimodally interpretable training samples from CTR data and uses them to fine-tune the multimodal encoder for better alignment with user click preferences. Offline and online experiments demonstrate the effectiveness of our approach.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24091",
+    "pdf_url": "https://arxiv.org/pdf/2608.24091.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "yunan.yc@alibaba-inc.com UniversityofScienceandTechnology Xiang-RongSheng"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商推荐系统中的 CTR 预测任务，提出了原生多模态表示学习方法以解决预训练与下游任务不一致的问题，属于核心领域的高优先级创新。",
+    "translation": "电商场景下点击率预测的原生多模态表示学习",
+    "summary_zh": "针对多模态预训练目标与 CTR 预测任务不一致导致效果受限的问题，提出一种“先挖掘后训练”方法，通过从 CTR 数据中挖掘高质量多模态可解释样本来微调编码器，以实现多模态语义与用户点击偏好的更好对齐。",
+    "key_points": [
+      "针对多模态预训练目标与 CTR 预测任务不一致导致效果受限的问题，提出一种“先挖掘后训练”方法，通过从 CTR 数据中挖掘高质量多模态可解释样本来微调编码器，以实现多模态语义与用户点击偏好的更好对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24295",
+    "title": "RecGPT-Mobile-V2 Technical Report",
+    "authors": [
+      "Lingqing Zhang",
+      "Bin Zhang",
+      "Weipeng Huang",
+      "Chengfei Lv",
+      "Chengyu Lai",
+      "Chuxin Chen",
+      "Dimin Wang",
+      "Han Zhu",
+      "Hongtao Cheng",
+      "Jialin Zhu",
+      "Jian Wang",
+      "Jiuning Lin",
+      "Junqing Wu",
+      "Li Chen",
+      "Qichao Ma",
+      "Ruiquan Lan",
+      "Shuai Zhong",
+      "Tao Wang",
+      "Xiaodong Zhu",
+      "Yinjiang Cai",
+      "Yinnan Song",
+      "Yipeng Yu",
+      "Yuan Liu",
+      "Yuning Jiang",
+      "Zhaode Wang",
+      "Zhibo Xiao",
+      "Zhixin Ma",
+      "Zihong Huang"
+    ],
+    "summary": "Personalized Query prediction maps implicit behavioral signals---clicks, favorites, purchases, and post-purchase exploration---to explicit retrieval intent. On-device deployment makes this task particularly challenging: behavioral trajectories are noisy and multi-scale, multiple Queries may be valid for a single trajectory, and a uniform reasoning policy either expends unnecessary computation on simple instances or allocates insufficient capacity to complex ones. We introduce RecGPT-Mobile-V2, an end-to-end framework that treats intent quality and execution efficiency as coupled objectives within a staged design. The framework transforms heterogeneous interactions into an evidence-preserving trajectory, establishes a recommendation-native foundation through domain adaptation and supervised alignment, and applies reasoning-cost optimization only after grouped rollouts meet grounding and utility criteria. The resulting teacher is distilled into a compact student deployed with low-bit execution, structured compression, and budget-aware device--cloud routing. In an aligned CoT ablation, an evidence-focused short rationale increases ROUGE-L from 0.228 to 0.315 and Jaccard from 0.174 to 0.248, while slightly outperforming the full five-stage rationale. In the controlled RL comparison, the complete reward formulation improves Query quality from 73.2% under quality-only RL to 78.6%, lowers the hard-failure rate from 3.6% to 1.6%, and reduces the median CoT length from 62 to 14 tokens. Online retrieval analysis further indicates that the Query recall channel retrieves inventory complementary to that surfaced by established recall channels. Collectively, these findings support sufficiency-oriented rather than uniformly short reasoning: retain decision-relevant evidence and allocate additional computation only when it is likely to improve the predicted Query.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24295",
+    "pdf_url": "https://arxiv.org/pdf/2608.24295.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的个性化查询预测任务，提出了端侧部署的 RecGPT-Mobile-V2 框架，属于 LLM 在推荐搜索领域的直接核心应用。",
+    "translation": "RecGPT-Mobile-V2 技术报告：面向端侧部署的个性化查询预测框架",
+    "summary_zh": "提出一种端到端框架，通过将异构交互转化为保真轨迹并结合领域适配与推理成本优化，实现高效且高质量的端侧个性化查询意图预测。",
+    "key_points": [
+      "提出一种端到端框架，通过将异构交互转化为保真轨迹并结合领域适配与推理成本优化，实现高效且高质量的端侧个性化查询意图预测"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24207",
+    "title": "PRQ-KMeans: Projection Residual Quantization for Semantic ID Tokenization",
+    "authors": [
+      "Yunxiao Luo",
+      "Siyuan Wang",
+      "Ben Chen",
+      "Chenyi Lei"
+    ],
+    "summary": "Semantic identifiers (SIDs) represent entities as hierarchical token sequences for generative retrieval and recommendation. Residual-quantization tokenizers construct these sequences by selecting a codeword at each level and passing a residual to the next. We view this process as progressive commonality removal: each token captures a component shared within its group, while later tokens should model the remaining differences. This view reveals three limitations: a corpus-wide shared component can consume first-level capacity, hard assignment ignores graded similarities to nearby codewords, and full-codeword subtraction can leave variation along the selected-codeword direction in the next residual. We therefore develop our solution in the post-hoc setting, where residual construction is not constrained by input reconstruction. Specifically, we propose PRQ-KMeans, which removes the global-mean component, refines centroids with Top-k similarity-weighted updates, and replaces full-codeword subtraction with a projection residual that removes each representation's selected-centroid component. Experiments on a large-scale industrial search dataset and four public recommendation benchmarks show that PRQ-KMeans achieves the strongest overall performance among the evaluated tokenizers, including gains of up to 7.4% in HitRate and 11.8% in MRR on the industrial dataset.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24207",
+    "pdf_url": "https://arxiv.org/pdf/2608.24207.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式检索和推荐系统中的语义 ID 分词器进行核心架构创新，解决了工业级搜索数据集的实际问题，属于高优先级的核心领域进展。",
+    "translation": "PRQ-KMeans：用于语义 ID 分词的投影残差量化方法",
+    "summary_zh": "提出 PRQ-KMeans 方法，通过移除全局均值分量、利用 Top-k 相似度加权优化质心以及采用投影残差替代全码字减法，改进了用于生成式检索与推荐的语义标识符分层构建过程。",
+    "key_points": [
+      "提出 PRQ-KMeans 方法，通过移除全局均值分量、利用 Top-k 相似度加权优化质心以及采用投影残差替代全码字减法，改进了用于生成式检索与推荐的语义标识符分层构建过程"
+    ]
+  },
+  {
+    "arxiv_id": "2411.12295",
+    "title": "Consistency Regularization for Complementary Clothing Recommendations",
+    "authors": [
+      "Shuiying Liao",
+      "P. Y. Mok",
+      "Li Li"
+    ],
+    "summary": "This paper reports on the development of a Consistency Regularized model for Bayesian Personalized Ranking (CR-BPR), addressing to the drawbacks in existing complementary clothing recommendation methods, namely limited consistency and biased learning caused by diverse feature scale of multi-modal data. Compared to other product types, fashion preferences are inherently subjective and more personal, and fashion are often presented, not by individual clothing product, but with other complementary product(s) in a well coordinated fashion outfit. Current complementary-product recommendation studies primarily focus on user preference and product matching, this study further emphasizes the consistency observed in user-product interactions as well as product-product interactions, in the specific context of clothing matching. Most traditional approaches often underplayed the impact of existing wardrobe items on future matching choices, resulting in less effective preference prediction models. Moreover, many multi-modal information based models overlook the limitations arising from various feature scales being involved. To address these gaps, the CR-BPR model integrates collaborative filtering techniques to incorporate both user preference and product matching modeling, with a unique focus on consistency regularization for each aspect. Additionally, the incorporation of a feature scaling process further addresses the imbalances caused by different feature scales, ensuring that the model can effectively handle multi-modal data without being skewed by any particular type of feature. The effectiveness of the CR-BPR model was validated through detailed analysis involving two benchmark datasets. The results confirmed that the proposed approach significantly outperforms existing models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2024-11-19",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2411.12295",
+    "pdf_url": "https://arxiv.org/pdf/2411.12295.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对互补服装推荐这一具体搜索/推荐场景，提出了结合一致性正则化和多模态特征缩放的新方法，属于核心推荐技术应用。",
+    "translation": "用于互补服装推荐的一致性正则化方法",
+    "summary_zh": "本文提出一种一致性正则化贝叶斯个性化排序模型，通过联合建模用户 - 商品与商品 - 商品交互的一致性，并引入特征缩放机制解决多模态数据尺度不平衡问题，以优化互补服装推荐效果。",
+    "key_points": [
+      "本文提出一种一致性正则化贝叶斯个性化排序模型，通过联合建模用户 - 商品与商品 - 商品交互的一致性，并引入特征缩放机制解决多模态数据尺度不平衡问题，以优化互补服装推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2511.16478",
+    "title": "Music Recommendation with Large Language Models: Challenges, Opportunities, and Evaluation",
+    "authors": [
+      "Elena V. Epure",
+      "Yashar Deldjoo",
+      "Bruno Sguerra",
+      "Markus Schedl",
+      "Manuel Moussallam"
+    ],
+    "summary": "Music Recommender Systems (MRSs) have long relied on an information retrieval framing, where progress is measured mainly through accuracy on retrieval-oriented subtasks. While effective, this reductionist paradigm struggles to address the deeper question of what makes a good recommendation. Attempts to broaden evaluation, through user studies or fairness analyses, have had limited impact. The emergence of Large Language Models (LLMs) disrupts this framework: LLMs are generative rather than ranking-based, making standard accuracy metrics questionable. They also introduce challenges such as hallucinations, knowledge cutoffs, non-determinism, and opaque training data, rendering traditional train/test protocols difficult to interpret. At the same time, LLMs create new opportunities, enabling natural language (NL) interaction and even allowing models to act as evaluators.\n  This work argues that the shift toward LLM-driven MRSs requires rethinking evaluation. We first review how LLMs have impacted user modeling, item modeling, and NL-based recommendation in music. We then analyze evaluation practices from NLP, highlighting methodologies and open challenges relevant to MRSs. Finally, we synthesize insights, focusing on how LLM prompting applies to MRSs, to outline a structured set of success and risk dimensions. Our goal is to provide the MRSs community with an updated, pedagogical, and cross-disciplinary perspective on evaluation.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2511.16478",
+    "pdf_url": "https://arxiv.org/pdf/2511.16478.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "文章直接探讨 LLM 在音乐推荐系统中的应用挑战与评估重构，属于 LLM for RecSys 的核心范畴；虽侧重评估方法论而非新架构，但结合 OPPO 背景加分。",
+    "translation": "基于大语言模型的音乐推荐：挑战、机遇与评估",
+    "summary_zh": "本文主张针对生成式 LLM 特性重构音乐推荐系统的评估范式，分析了其在用户建模与自然语言交互中的机遇及幻觉等风险维度。",
+    "key_points": [
+      "本文主张针对生成式 LLM 特性重构音乐推荐系统的评估范式，分析了其在用户建模与自然语言交互中的机遇及幻觉等风险维度"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24274",
+    "title": "Eating for a Sustainable Planet: Personalized Sustainable Diet Recommendation via Constraint-Aware Decision-Making Modeling",
+    "authors": [
+      "Ying Jin",
+      "Weiqing Min",
+      "Mingyu Huang",
+      "Shuqiang Jiang"
+    ],
+    "summary": "A sustainable diet represents a multi-dimensional synergy among four essential pillars: nutrition adequacy, economic affordability, cultural acceptability, and environmental respect. Despite the prevalence of population-level sustainability modeling, practical implementation relies on effective individual-level adoption. This transition is often hindered by inter-individual heterogeneity, posing a formidable challenge in aligning sustainable diet requirements with individual preferences. To address this issue, we propose a personalized sustainable diet recommendation model based on a constraint-aware decision-making mechanism, where sustainability is incorporated through learnable constraints rather than modeled as user preferences. To systematically evaluate the proposed approach, we construct a sustainable diet dataset named SusDiet with about 150k recipes, characterized by broad coverage of sustainability indicators. Experimental results on this dataset show that our method promotes more sustainable choices without compromising individual preference. This work establishes a framework for aligning individual dietary choices with planetary health, offering quantitative evidence to guide future sustainable diet interventions and policy-making for sustainable development.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24274",
+    "pdf_url": "https://arxiv.org/pdf/2608.24274.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文属于特定领域（可持续饮食）的推荐系统应用，提出了基于约束感知决策的个性化推荐方法，虽非通用电商/社交核心场景，但明确解决了推荐系统中的多目标优化与用户偏好对齐问题；源自 TAL 公司，按规则额外 +1 分。",
+    "translation": "为可持续星球而食：基于约束感知决策建模的个性化可持续饮食推荐",
+    "summary_zh": "提出一种基于约束感知决策机制的个性化饮食推荐模型，将可持续性指标作为可学习约束而非用户偏好进行建模，以解决个体差异与全球可持续发展目标之间的对齐难题。",
+    "key_points": [
+      "提出一种基于约束感知决策机制的个性化饮食推荐模型，将可持续性指标作为可学习约束而非用户偏好进行建模，以解决个体差异与全球可持续发展目标之间的对齐难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24060",
+    "title": "SQLite is Enough. Lexical, Semantic, and Hybrid Search with scrydb",
+    "authors": [
+      "Timo Breuer"
+    ],
+    "summary": "This work introduces scrydb, a Python library that enables lexical, semantic, and hybrid search within SQLite. For lexical search, scrydb leverages SQLite's full-text search extension FTS5. Semantic search builds on sqlite-vec, a SQLite extension for vector search. Furthermore, the library allows users to rerank and fuse retrieval results to combine both lexical and semantic approaches, providing a lightweight solution for downstream tasks in information retrieval (IR) or agentic search. We evaluate scrydb on various IR benchmark datasets and demonstrate its effectiveness in text retrieval based on keyword matching, semantic similarity, and rank fusion. In addition, we provide insights into query latency and the trade-off between efficiency and effectiveness. scrydb is available under the MIT license.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.DB"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24060",
+    "pdf_url": "https://arxiv.org/pdf/2608.24060.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该论文主要介绍一个基于 SQLite 的通用检索工具库，虽涉及搜索技术但缺乏针对推荐系统或特定业务场景的核心算法创新，属于边缘相关的工程实现。",
+    "translation": "SQLite 足矣：使用 scrydb 实现词汇、语义及混合搜索",
+    "summary_zh": "提出 scrydb 库，通过集成 SQLite 的 FTS5 和向量扩展，实现词汇、语义及混合检索结果的重排序与融合，为信息检索提供轻量级解决方案。",
+    "key_points": [
+      "提出 scrydb 库，通过集成 SQLite 的 FTS5 和向量扩展，实现词汇、语义及混合检索结果的重排序与融合，为信息检索提供轻量级解决方案"
+    ]
+  },
+  {
+    "arxiv_id": "2505.11239",
+    "title": "Massive-STEPS: Massive Semantic Trajectories for Understanding POI Check-ins -- Dataset and Benchmarks",
+    "authors": [
+      "Wilson Wongso",
+      "Hao Xue",
+      "Flora D. Salim"
+    ],
+    "summary": "Understanding human mobility through Point-of-Interest (POI) trajectory modeling is increasingly important for applications such as urban planning, personalized services, and generative agent simulation. However, progress in this field is hindered by two key challenges: the over-reliance on older datasets from 2012-2013 and the lack of reproducible, city-level check-in datasets that reflect diverse global regions. To address these gaps, we present Massive-STEPS (Massive Semantic Trajectories for Understanding POI Check-ins), a large-scale, publicly available benchmark dataset built upon the Semantic Trails dataset and enriched with semantic POI metadata. Massive-STEPS spans 15 geographically and culturally diverse cities and features check-in data from both 2012-2013 and 2017-2018, with a longer duration of 24 months than prior datasets. We benchmarked a wide range of POI models on Massive-STEPS using both supervised and zero-shot approaches, and evaluated their performance across multiple urban contexts. By releasing Massive-STEPS, we aim to facilitate reproducible and equitable research in human mobility and POI trajectory modeling. The dataset and benchmarking code are available at: https://github.com/cruiseresearchgroup/Massive-STEPS.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2505.11239",
+    "pdf_url": "https://arxiv.org/pdf/2505.11239.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要发布 POI 轨迹数据集并评估通用模型，虽涉及用户移动建模这一推荐相关领域，但缺乏针对推荐/搜索系统的具体算法创新或直接应用架构。",
+    "translation": "Massive-STEPS：用于理解 POI 签到的大规模语义轨迹数据集与基准",
+    "summary_zh": "本文提出了一个覆盖全球多城市的大规模 POI 签到基准数据集 Massive-STEPS，旨在解决现有数据陈旧和地域单一的问题，以推动人类移动性建模和轨迹预测研究。",
+    "key_points": [
+      "本文提出了一个覆盖全球多城市的大规模 POI 签到基准数据集 Massive-STEPS，旨在解决现有数据陈旧和地域单一的问题，以推动人类移动性建模和轨迹预测研究"
+    ]
+  },
+  {
+    "arxiv_id": "2608.23806",
+    "title": "Giga-Embeddings: Mixture-of-Experts Encoders for High-Throughput Text Embeddings",
+    "authors": [
+      "Egor Kolodin",
+      "Egor Krasnoperov",
+      "Evgeniy Kosarev",
+      "Fyodor Minkin"
+    ],
+    "summary": "We introduce Giga-Embeddings, a family of text embedding models designed to combine strong retrieval quality with efficient serving. Its largest member is a sparse 10B-parameter Mixture-of-Experts encoder with approximately 1.8B active parameters per token. Across English, Russian, multilingual, and code MTEB benchmarks, this model achieves the strongest aggregate performance within the family on all four evaluated suites. In our vLLM benchmark with 1024-token inputs, it processes 114.5k tokens per second, providing 25 percent higher throughput than the dense 3B model and 1.56-2.65x the throughput of the evaluated external systems. The family also includes a dense 3B encoder and a distilled 480M encoder for tighter compute and memory budgets. We train the compact model using a dimension-agnostic objective that aligns teacher and student similarity distributions. The resulting 480M model scores 70.98 on Russian MTEB, surpassing FRIDA while using 42 percent fewer parameters. We release all three model checkpoints.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-08-24",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.23806",
+    "pdf_url": "https://arxiv.org/pdf/2608.23806.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/LLM 基础研究，专注于通用文本嵌入模型的架构优化与推理加速，未针对推荐系统或搜索引擎的具体业务场景（如召回、排序、用户建模）提出直接应用或创新。",
+    "translation": "Giga-Embeddings：面向高吞吐文本嵌入的混合专家编码器",
+    "summary_zh": "提出了一种结合稀疏混合专家（MoE）架构与蒸馏技术的文本嵌入模型家族，旨在平衡大规模参数下的检索质量与服务端的高吞吐推理效率。",
+    "key_points": [
+      "提出了一种结合稀疏混合专家（MoE）架构与蒸馏技术的文本嵌入模型家族，旨在平衡大规模参数下的检索质量与服务端的高吞吐推理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24133",
+    "title": "PlaceSeek: Human-Centered Geospatial Retrieval of Urban Outdoor Places via Semantic Grounding and Affective Alignment",
+    "authors": [
+      "Ziqi Cui",
+      "Shangyu Lou"
+    ],
+    "summary": "People search for urban outdoor places not only by category or function, but also by what activities a place can support and how it is perceived. Existing geospatial retrieval remains largely POIcentric and metadata-driven, making it difficult to satisfy openended, affective, or activity-oriented needs. We present PlaceSeek, a human-centered outdoor place retrieval framework that maps natural-language queries to geolocated street-view imagery. PlaceSeek introduces an intent-aware retrieval mechanism that decomposes user queries into functional and affective sub-intents. A Semantic Grounding Module verifies whether candidate street-view results contain the physical evidence needed to support the intended activity, while an Affective Alignment Module re-ranks physically valid candidates using a LoRA-adapted vision-language model trained on human urban perception judgments. We evaluate PlaceSeek on 31,956 street-view locations in Milan across 10 naturallanguage queries annotated by five human evaluators. PlaceSeek achieves 88.0% Precision@5, a mean match score of 3.39/4.0, and 0.920 nDCG@5, outperforming CLIP, fine-tuned CLIP, SigLIP, and a VQA-based baseline. Ablation results show that physical grounding is essential for retrieval validity, while affective alignment improves ranking quality among physically valid candidates. These findings highlight that complex urban spatial queries require modeling both verifiable visual evidence and human perceptual preferences. PlaceSeek provides a potential framework for human-centered nextgeneration geospatial retrieval systems.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24133",
+    "pdf_url": "https://arxiv.org/pdf/2608.24133.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文属于特定领域的地理空间检索（城市户外场所），虽涉及多模态和重排序技术，但缺乏通用推荐系统/搜索引擎的核心场景（如电商、社交信息流），且非纯 LLM 研究但应用场景过于垂直窄众。",
+    "translation": "PlaceSeek：基于语义 grounding 和情感对齐的以人为本的城市户外场所地理空间检索",
+    "summary_zh": "提出一种将自然语言查询分解为功能与情感意图的检索框架，通过语义验证模块确认物理证据，并利用视觉 - 语言模型进行情感对齐重排序，以匹配用户感知的户外场所。",
+    "key_points": [
+      "提出一种将自然语言查询分解为功能与情感意图的检索框架，通过语义验证模块确认物理证据，并利用视觉 - 语言模型进行情感对齐重排序，以匹配用户感知的户外场所"
+    ]
+  },
+  {
+    "arxiv_id": "2608.24024",
+    "title": "Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding",
+    "authors": [
+      "Hyunho Kook",
+      "Junhyuk So",
+      "Tianyu Fu",
+      "Haizhong Zheng",
+      "Beidi Chen"
+    ],
+    "summary": "Confidence-based voting aggregates parallel LLM rollouts by weighting each with internal signals such as token log probabilities, and has been actively studied for single-turn reasoning. However, modern LLMs increasingly act as multi-turn search agents that retrieve and condition on external documents. In this paper, we show that confidence-based voting transfers poorly to this multi-turn setting, and identify the underlying failure reason as copy inflation: when retrieved documents are appended to an agent's context, tokens copied from those documents receive systematically inflated log probabilities. This flattens confidence scores within each question and weakens the resulting weighted vote. To address this issue, we propose Retrieval-Grounded Voting (RGV), which scores each rollout by the lexical overlap between its final answer and the documents it retrieved. By computing the signal outside the contaminated context, RGV sidesteps both token log probabilities and additional LLM calls. Across four search-agent benchmarks and five LLMs, RGV consistently outperforms confidence-based voting, with gains of up to +5.4% accuracy and +35% on minority-correct questions, where the correct answer appears in only 1-2 of 8 rollouts.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-25",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.24024",
+    "pdf_url": "https://arxiv.org/pdf/2608.24024.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 推理优化研究（针对多轮搜索 Agent 的置信度校准），虽涉及检索但聚焦于通用 Agent 架构而非推荐/搜索系统的核心业务环节（如召回、排序、用户建模）。",
+    "translation": "超越置信度：基于检索落地的多轮搜索代理测试时扩展方法",
+    "summary_zh": "针对多轮搜索代理中因文档复制导致置信度评分失效的问题，提出一种通过计算最终答案与检索文档词汇重叠度来进行投票选择的检索落地机制。",
+    "key_points": [
+      "针对多轮搜索代理中因文档复制导致置信度评分失效的问题，提出一种通过计算最终答案与检索文档词汇重叠度来进行投票选择的检索落地机制"
+    ]
+  },
+  {
+    "arxiv_id": "2608.23848",
+    "title": "Exploit More, Explore Smarter for Budget-Constrained Agentic Search",
+    "authors": [
+      "Haoyang Fang",
+      "Bernie Wang"
+    ],
+    "summary": "Budget-constrained agentic search arises when an LLM agent must refine candidates under a small evaluation budget, because validation is expensive, generation requires multiple model calls, or both. In this regime, standard MCTS allocates budget poorly: exploration bonuses dominate at low visit counts, unpromising siblings are expanded before promising chains can deepen, and branching is independent of node quality. We introduce ExTS, a tree-search policy that treats expansion itself as a value-of-information decision. ExTS combines three mechanisms: discriminative reward shaping to separate candidates under narrow score distributions, a stochastic virtual child that estimates the value of creating a new branch from the parent's reward history, and quality-conditioned branching that expands only when a node's score justifies the budget cost. Across prompt optimization, code generation, molecular structure elucidation, and agentic workflow optimization, ExTS is competitive with or improves over task-specific tree-search baselines, with an average relative gain of +5.5% using a single fixed configuration. We further introduce pilot-run diagnostics that characterize what makes budget-constrained agentic search problems structurally different from one another, providing both understanding of the problem space and practical guidance for adaptation.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-24",
+    "updated": "2026-08-26",
+    "url": "https://arxiv.org/abs/2608.23848",
+    "pdf_url": "https://arxiv.org/pdf/2608.23848.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM Agent 搜索策略研究（MCTS 改进），应用于代码生成和分子结构等领域，未涉及推荐系统或搜索引擎的核心业务场景，属于排除类研究。",
+    "translation": "预算约束下智能体搜索的更高效利用与更聪明探索",
+    "summary_zh": "提出 ExTS 树搜索策略，通过将扩展视为信息价值决策，结合判别性奖励塑造和质量条件分支机制，优化大模型代理在有限评估预算下的候选 refine 过程。",
+    "key_points": [
+      "提出 ExTS 树搜索策略，通过将扩展视为信息价值决策，结合判别性奖励塑造和质量条件分支机制，优化大模型代理在有限评估预算下的候选 refine 过程"
+    ]
+  }
+]

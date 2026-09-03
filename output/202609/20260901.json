@@ -1,0 +1,602 @@
+[
+  {
+    "arxiv_id": "2608.28905",
+    "title": "Off-Policy Evaluation for Semantic ID Recommenders: Does the Model's Own Code Hierarchy Help?",
+    "authors": [
+      "Artem Betlei"
+    ],
+    "summary": "Generative recommenders increasingly emit semantic IDs (SIDs): each item is a short sequence of hierarchical discrete codes from a residual quantizer, decoded autoregressively. Before spending scarce A/B-test, a team may decide offline which decoder or reranking variants are worth testing - a job for off-policy evaluation (OPE). We ask a simple question: can the model's own SID tree serve as the action abstraction for that OPE? Our answer has three parts. (i) Under the near-argmax logging real recommenders use, per-item OPE is hopeless - as item-level effective sample size is usually small on production logs - but marginalizing items to code-prefix clusters restores estimable support and cuts error. (ii) This gain is thanks to coarsening, not to the hierarchy specifically; but the SID tree is what makes coarsening feasible in a generative system - each cluster's mass is exactly and cheaply returned by the decoder, whereas flat clustering requires enumerating item/leaf masses that a code-only decoder does not directly expose. (iii) Resolution depth is the operative knob - coarser under scarce support - and a conditional bias bound links the coarsening bias to the quantizer's worst-case reconstruction residual and the target-logging divergence.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-08-28",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28905",
+    "pdf_url": "https://arxiv.org/pdf/2608.28905.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决生成式推荐系统（Semantic ID Recommenders）中的离线策略评估（OPE）核心难题，利用模型自身的语义 ID 层级结构优化评估效率，属于推荐系统核心架构创新；且来自中国公司，符合加分条件。",
+    "translation": "语义 ID 推荐系统的离线策略评估：模型自身的代码层级是否有帮助？",
+    "summary_zh": "提出利用生成式推荐模型输出的语义 ID 树状层级作为动作抽象进行离线策略评估，通过将物品聚合到代码前缀簇来解决稀疏日志下的评估偏差问题。",
+    "key_points": [
+      "提出利用生成式推荐模型输出的语义 ID 树状层级作为动作抽象进行离线策略评估，通过将物品聚合到代码前缀簇来解决稀疏日志下的评估偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.29179",
+    "title": "TAAL: Mitigating Early Beam Pruning in Generative Recommendation via Temporal Autoregressive Alignment",
+    "authors": [
+      "Lianjie Li",
+      "Zhiying Tu",
+      "Dianhui Chu",
+      "Hongliang Sun"
+    ],
+    "summary": "Generative recommendation encodes items as hierarchical semantic identifiers (SIDs) and retrieves the next item through autoregressive decoding. Standard next-token prediction, however, does not explicitly cover the multimodal transitions present in interaction sequences, leaving the ground-truth SID vulnerable to irreversible pruning at early beam-search branches. Across three public benchmarks, we find that 91.9\\%--96.6\\% of retrieval failures occur within the first two decoding steps. We therefore propose Temporal Autoregressive Alignment (TAAL). During training, TAAL constructs a joint $(c_1,c_2)$ soft target from historical transitions and aligns the early-prefix distribution with a forward KL objective. During inference, it calibrates candidate scores with pointwise mutual information (PMI) to reduce the influence of globally frequent prefixes. On Amazon Beauty, Instruments, and Yelp, TAAL improves NDCG@10 over the standard baseline by 39.5\\%, 6.7\\%, and 28.6\\%, respectively, while increasing full-SID survival by 3.9\\%--16.6\\%. Beam-width analysis further shows that the relative survival gain grows as the beam narrows, reaching 39.4\\% at $B=5$.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.29179",
+    "pdf_url": "https://arxiv.org/pdf/2608.29179.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的束搜索剪枝问题提出新架构，属于核心推荐技术突破，且来自中国公司额外加分。",
+    "translation": "TAAL：通过时间自回归对齐缓解生成式推荐中的早期束剪枝",
+    "summary_zh": "提出时间自回归对齐（TAAL）方法，通过构建联合软目标对齐早期前缀分布并利用点互信息校准推理分数，解决生成式推荐中因多模态转换导致的真实项在束搜索早期被不可逆剪枝的问题。",
+    "key_points": [
+      "提出时间自回归对齐（TAAL）方法，通过构建联合软目标对齐早期前缀分布并利用点互信息校准推理分数，解决生成式推荐中因多模态转换导致的真实项在束搜索早期被不可逆剪枝的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.28968",
+    "title": "Efficient GPU Retrieval for Semantic Search",
+    "authors": [
+      "Dhritiman Das",
+      "Chujie Zheng",
+      "Ronak Kaoshik",
+      "Pratik Dixit",
+      "Vishal Shah",
+      "Yanbo Li",
+      "Jiahao Xu",
+      "Manika Agarwal",
+      "Chinmay Naik",
+      "Lingyu Zhang",
+      "Chetan Bhole",
+      "Chirag Bhanuprasad Mehta",
+      "Meng Zheng",
+      "Puneet Singh Ahluwalia",
+      "Shirisha Singh",
+      "Ping Jin",
+      "Manas Apte",
+      "Gokulraj Mohanasundaram",
+      "Tugrul Bingol",
+      "Raghavan Muthuregunathan",
+      "Fedor Borisyuk"
+    ],
+    "summary": "Semantic Search on LinkedIn must retrieve relevant profiles from a corpus of hundreds of millions in response to natural-language queries such as \"a fintech founder in Berlin who worked in payments.\" The deployed relevance policy is bottleneck-oriented: every active non-negotiable facet must be satisfied, and a pre-existing LLM Graded Relevance (GR) judge operationalizes this through a fixed min/median aggregation over facet grades. Cosine similarity instead averages evidence, letting a strong match on one facet mask failure on another, capping the recall of the first-stage (L0) retriever.\n  We present a policy-aligned retrieval framework: embeddings are partitioned into eight category-supervised segments whose scores follow the same min/median rule at serving time; for multi-vector retrieval, this segment score is computed independently per tagged document slot and maximized across slots. A lightweight single-slot Stage-1 scorer generates high-recall candidates, while scale-invariant relative-norm gating keeps category activation consistent across training, evaluation, and serving. On 21K held-out queries, this representation improves offline relevance over a matched-capacity baseline, with gains broadly distributed across facet combinations.\n  We serve this framework with a two-stage GPU architecture: an FP8 coarse ranker scores the full corpus, increasing per-shard capacity by 71% and Stage-1 matmul throughput by 36%, then an FP16 stage exactly re-ranks an oversampled candidate set, recovering 99.6-99.8% of full-FP16 recall at over 500 QPS per shard replica. In a member-randomized A/B test, exploratory-query Precision@10 under the unchanged GR judge rises from 63.7% to 79.0% and navigational Precision@1 from 65.5% to 74.7%, with a blinded human evaluation independently confirming the Precision@10 gain.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28968",
+    "pdf_url": "https://arxiv.org/pdf/2608.28968.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LinkedIn 搜索系统的核心检索瓶颈，提出了与业务策略（min/median 聚合）对齐的多向量检索架构及 GPU 服务优化，是典型的工业界搜索系统核心创新。",
+    "translation": "面向语义搜索的高效 GPU 检索技术",
+    "summary_zh": "提出一种策略对齐的检索框架，通过将嵌入分片并采用最小值/中位数聚合规则替代余弦相似度，以解决多约束 facet 搜索中的召回短板问题，并结合两阶段 GPU 架构实现高吞吐服务。",
+    "key_points": [
+      "提出一种策略对齐的检索框架，通过将嵌入分片并采用最小值/中位数聚合规则替代余弦相似度，以解决多约束 facet 搜索中的召回短板问题，并结合两阶段 GPU 架构实现高吞吐服务"
+    ]
+  },
+  {
+    "arxiv_id": "2509.15858",
+    "title": "Optimizing Product Deduplication in E-Commerce with Multimodal Embeddings",
+    "authors": [
+      "Aysenur Kulunk",
+      "Berk Taskin",
+      "M. Furkan Eseoglu",
+      "H. Bahadir Sahin"
+    ],
+    "summary": "In large scale e-commerce marketplaces, duplicate product listings frequently cause consumer confusion and operational inefficiencies, degrading trust on the platform and increasing costs. Traditional keyword-based search methodologies falter in accurately identifying duplicates due to their reliance on exact textual matches, neglecting semantic similarities inherent in product titles. To address these challenges, we introduce a scalable, multimodal product deduplication designed specifically for the e-commerce domain. Our approach employs a domain-specific text model grounded in BERT architecture in conjunction with MaskedAutoEncoders for image representations. Both of these architectures are augmented with dimensionality reduction techniques to produce compact 128-dimensional embeddings without significant information loss. Complementing this, we also developed a novel decider model that leverages both text and image vectors. By integrating these feature extraction mechanisms with Milvus, an optimized vector database, our system can facilitate efficient and high-precision similarity searches across extensive product catalogs exceeding 200 million items with just 100GB of system RAM consumption. Empirical evaluations demonstrate that our matching system achieves a macro-average F1 score of 0.90, outperforming third-party solutions which attain an F1 score of 0.83. Our findings show the potential of combining domain-specific adaptations with state-of-the-art machine learning techniques to mitigate duplicate listings in large-scale e-commerce environments.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2025-12-01",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2509.15858",
+    "pdf_url": "https://arxiv.org/pdf/2509.15858.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决电商场景下的商品去重核心问题，属于搜索/推荐系统的基础设施优化，且明确结合了多模态技术与业务场景；虽非纯 LLM 研究，但符合电商 + 搜索 + 多模态的高优先级标准，叠加中国公司背景额外加 1 分。",
+    "translation": "利用多模态嵌入优化电商领域的商品去重",
+    "summary_zh": "提出一种专为电商设计的可扩展多模态去重框架，通过结合领域适配的 BERT 文本模型与 MaskedAutoEncoders 图像模型生成紧凑嵌入，并辅以新型决策模型实现大规模商品库的高效高精度相似性检索。",
+    "key_points": [
+      "提出一种专为电商设计的可扩展多模态去重框架，通过结合领域适配的 BERT 文本模型与 MaskedAutoEncoders 图像模型生成紧凑嵌入，并辅以新型决策模型实现大规模商品库的高效高精度相似性检索"
+    ]
+  },
+  {
+    "arxiv_id": "2605.21812",
+    "title": "CASTLE: Contrastive and Seed-Guided Training for Cold-Start Natural Language Search",
+    "authors": [
+      "Wendy Ran Wei",
+      "Hao Li",
+      "Weiwei Guo",
+      "Xiaowei Liu",
+      "Xueyin Chen",
+      "Chun How Tan",
+      "Malay Haldar",
+      "Soumyadip Banerjee",
+      "Kedar Bellare",
+      "Huiji Gao",
+      "Stephanie Moyerman",
+      "Sanjeev Katariya"
+    ],
+    "summary": "Deploying natural language search systems presents a critical cold-start challenge: no real user queries to learn linguistic patterns, and no relevance labels to train ranking models. We present CASTLE (Contrastive And Seed-guided Training for natural Language sEarch), an LLM-based framework for generating synthetic queries and relevance labels from structured catalog data, powering Airbnb's natural language search across its full lifecycle.\n  CASTLE makes three contributions. First, we generate realistic queries by combining structure-guided prompting with seed queries from user research, using template, few-shot, and attribute-grounded prompt variants together with explicit variety mechanisms to prevent query collapse. Second, we produce relevance labels by construction via contrastive listing pairs derived from booking sessions, achieving near-zero false positives without LLM judgment. Third, CASTLE's structured input design is flexible: incorporating richer signals such as guest reviews and photo captions alongside listing attributes enables generation of niche, long-tail queries that reflect subjective user preferences (e.g., \"cozy cabin with fireplace\") beyond what catalog attributes alone can express.\n  Compared against InPars-style, Promptagator, and contrastive-only baselines, CASTLE achieves KL 1.01 vs. real users -- a 9.2x improvement over the best baseline (9.33) -- and the lowest attribute-type KL divergence (0.08), outperforming even survey seed queries (0.09). A human evaluation on 200 sampled triplets confirms label quality: annotators agree with CASTLE labels at 91-93%. We deploy production pipelines generating synthetic examples daily for embedding-based retrieval and ranking evaluation. Synthetic data remains valuable beyond cold-start: it targets tail queries underrepresented in organic traffic and extends naturally to multi-turn conversational search.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2605.21812",
+    "pdf_url": "https://arxiv.org/pdf/2605.21812.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该文直接解决搜索系统中的冷启动核心难题，利用 LLM 生成合成查询和标签以构建排序模型，属于 LLM 在搜索领域的直接高价值应用；虽非中国公司（实为 Airbnb），但因其解决了搜索业务的关键痛点，基础分极高。",
+    "translation": "CASTLE：面向冷启动自然语言搜索的对比与种子引导训练框架",
+    "summary_zh": "提出一种基于 LLM 的框架，通过结合结构化数据引导提示和种子查询生成逼真的合成用户查询，并利用对比会话数据构造无噪声的相关性标签，从而在无真实用户数据的情况下训练自然语言搜索的召回与排序模型。",
+    "key_points": [
+      "提出一种基于 LLM 的框架，通过结合结构化数据引导提示和种子查询生成逼真的合成用户查询，并利用对比会话数据构造无噪声的相关性标签，从而在无真实用户数据的情况下训练自然语言搜索的召回与排序模型"
+    ]
+  },
+  {
+    "arxiv_id": "2603.03010",
+    "title": "Building Better Encoder-only Cross-Encoders: A Controlled Study of Training Strategies for Neural Re-ranking",
+    "authors": [
+      "Victor Morand",
+      "Mathias Vast",
+      "Basile Van Cooten",
+      "Laure Soulier",
+      "Josiane Mothe",
+      "Benjamin Piwowarski"
+    ],
+    "summary": "Cross-encoders fine-tuned from Transformer backbones remain the standard for second-stage re-ranking, and recent knowledge-distillation strategies have closed much of the gap with LLM re-rankers. However, these strategies have not been compared under controlled conditions. In particular, it remains unclear how distillation from LLM rankers compares to distillation from strong cross-encoder teachers, or to purely supervised objectives. It is also unclear how much newer backbones (RoBERTa, ELECTRA, DeBERTaV3, ModernBERT) contribute compared to the original BERT. We run 162 controlled training runs (9 backbones x 6 objectives x 3 seeds), spanning pointwise, pairwise, and listwise losses with both human labels and two distillation signals, and evaluate on TREC-DL, MSMARCO dev, BEIR, LoTTE, and Robust04. We find that objectives emphasizing relative comparisons - pairwise MarginMSE and listwise InfoNCE - consistently outperform alternative objectives, including more complex listwise LLM distillation, across all backbones, and switching objective yields gains comparable to moving up one backbone size tier. A controlled disentanglement further shows that, once the negative-sampling pool is matched, even a simple pairwise Hinge loss with ColBERTv2 hard negatives matches - and on out of domain beats - listwise LLM distillation, indicating that the quality of the negatives is at least as important as the choice of loss. We release all 162 trained models on HuggingFace (https://huggingface.co/collections/xpmir/reproducing-cross-encoders) and a unified training codebase. (https://github.com/xpmir/cross-encoders)",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-28",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2603.03010",
+    "pdf_url": "https://arxiv.org/pdf/2603.03010.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心重排序（Re-ranking）环节，通过控制实验对比了不同训练策略和骨干网络对 Cross-Encoder 性能的影响，具有极高的工程应用价值。",
+    "translation": "构建更优的仅编码器交叉编码器：神经重排序训练策略的控制研究",
+    "summary_zh": "本文通过大规模控制实验，系统对比了不同骨干网络、损失函数及蒸馏策略对重排序模型的影响，发现强调相对比较的损失函数及高质量负采样比复杂的 LLM 蒸馏更能提升模型效果。",
+    "key_points": [
+      "本文通过大规模控制实验，系统对比了不同骨干网络、损失函数及蒸馏策略对重排序模型的影响，发现强调相对比较的损失函数及高质量负采样比复杂的 LLM 蒸馏更能提升模型效果"
+    ]
+  },
+  {
+    "arxiv_id": "2608.28931",
+    "title": "MERIT: Mitigating Exposure Bias in Generative XMC for User-Interest Propensity Modeling",
+    "authors": [
+      "Abhinav Mahajan",
+      "Arindam Sarkar",
+      "Prakash Mandayam Comar"
+    ],
+    "summary": "Matching users to interest categories at scale is central to personalized shopping, but the task is challenging in large e-commerce platforms, where label spaces continually evolve and user-interest signals are sparse and long-tailed. Autoregressive language models are appealing because their world knowledge and semantic priors over descriptors generalize across extreme label spaces and accommodate multiple valid label assignments. Yet under teacher-forced fine-tuning, inference-time predictions become part of the conditioning context: early errors steer later outputs toward co-occurring labels, over-generating near-correlates and missing unrelated true interests. We present MERIT, a framework for user-interest propensity modeling that mitigates this exposure bias through a self-correction objective. A permutation-invariant multi-target loss over shuffled mixtures of gold and mined hard-negative labels exposes the generator to erroneous prefixes while preserving the efficiency of teacher-forced training. This training objective concentrates supervision at classification positions, yielding propensity-aligned hidden states powering a lightweight scorer for bidirectional retrieval (interests for users and users for interests). On a proprietary e-commerce dataset with 250k+ interest categories, MERIT improves global recall by at least 11.9% and average Hit@k by 6.1%. In production A/B tests, it achieves +0.26% gain in user conversion.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-08-28",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28931",
+    "pdf_url": "https://arxiv.org/pdf/2608.28931.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "CarnegieMellonUniversity Amazon Amazon",
+      "forms, wherelabelspacescontinuallyevolve ning”,“homeorganization”)toentitiesfromtheir",
+      "across extreme label spaces and accommo-",
+      "datemultiplevalidlabelassignments. Yetun-",
+      "wardco-occurringlabels,over-generatingnear- high-trafficcategoriesandprecludingvocabulary",
+      "sity modeling at extreme label scale, based on a"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商场景下的用户兴趣建模与匹配问题，提出利用生成式模型解决长尾标签暴露偏差的具体方法，属于核心推荐系统应用。",
+    "translation": "MERIT：缓解生成式极端多标签分类中的暴露偏差以进行用户兴趣倾向建模",
+    "summary_zh": "本文提出 MERIT 框架，通过排列不变的多目标损失函数让生成模型在训练中接触错误前缀，从而缓解自回归模型在大规模电商用户兴趣匹配中的暴露偏差问题。",
+    "key_points": [
+      "本文提出 MERIT 框架，通过排列不变的多目标损失函数让生成模型在训练中接触错误前缀，从而缓解自回归模型在大规模电商用户兴趣匹配中的暴露偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.19037",
+    "title": "Querit-Reranker: Training Compact Multilingual Rerankers via Efficient Label-Free Distribution Adaptation",
+    "authors": [
+      "Yunfei Zhong",
+      "Jun Yang",
+      "Wei Huang",
+      "Yinqiong Cai",
+      "Haosheng Qian",
+      "Yixing Fan",
+      "Ruqing Zhang",
+      "Lixin Su",
+      "Daiting Shi",
+      "Jiafeng Guo"
+    ],
+    "summary": "A deployable multilingual reranker must not only generalize across languages, domains, and ranking tasks, but also remain efficient to serve as a second-stage reranker in practical systems. However, adapting it to new target distributions typically requires extensive task-specific relevance annotations. We present Querit-Reranker, a family of multilingual rerankers trained with a data-centric pipeline for label-efficient adaptation. We instantiate it as Querit-Reranker-A0.4B, initialized from an in-house MoE backbone with 0.4B activated parameters, and Querit-Reranker-4B, initialized from Qwen3-Embedding-4B. Our pipeline first learns general relevance modeling from large-scale ranking-oriented data, then adapts to target distributions through synthetic-query mining with teacher scores as continuous soft labels. To consolidate complementary task-adapted strengths, we further merge checkpoints via spherical linear interpolation, obtaining a single deployable model without runtime ensembling overhead. Using Qwen3-Embedding-0.6B as the first-stage retriever, Querit-Reranker-A0.4B improves average nDCG@10 from 54.11 to 59.28 on BEIR and from 59.87 to 67.70 on MIRACL. On MTEB Multilingual v2 Reranking, it also shows competitive performance with larger embedding-based models, while Querit-Reranker-4B further achieves state-of-the-art performance among all evaluated models. We release both models on Hugging Face.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2606.19037",
+    "pdf_url": "https://arxiv.org/pdf/2606.19037.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索/推荐系统中的核心重排序（Reranking）环节，提出了一种无需标签的多语言适配方法，具有明确的工程落地价值。",
+    "translation": "Querit-Reranker：通过高效无标签分布适应训练紧凑的多语言重排序模型",
+    "summary_zh": "提出一种数据驱动的流水线，利用合成查询挖掘和教师模型软标签实现多语言重排序模型的无标签分布适应，并通过球面线性插值合并检查点以消除推理时的集成开销。",
+    "key_points": [
+      "提出一种数据驱动的流水线，利用合成查询挖掘和教师模型软标签实现多语言重排序模型的无标签分布适应，并通过球面线性插值合并检查点以消除推理时的集成开销"
+    ]
+  },
+  {
+    "arxiv_id": "2601.20107",
+    "title": "Structural Anchor Pruning: Training-Free Multi-Vector Compression for Visual Document Retrieval",
+    "authors": [
+      "Zhuchenyang Liu",
+      "Ziyu Hu",
+      "Yao Zhang",
+      "Yu Xiao"
+    ],
+    "summary": "Recent Vision-Language Models (e.g., ColPali) enable fine-grained Visual Document Retrieval (VDR) but incur prohibitive multi-vector index storage overhead. Existing training-free pruning methods either rely on heuristic layer choices or degrade sharply under aggressive compression, leading prior work to argue that effective high-compression pruning requires query-dependent training. We challenge this view with Structural Anchor Pruning (SAP), a self-calibrating, training-free, query-agnostic index-time framework combining (i) Score Retention (SR), a white-box per-layer compression diagnostic; (ii) SR-guided window selection, which automatically locates the structural pruning region of any backbone with no per-model hyperparameters; and (iii) a visual in-degree centrality scorer that identifies anchor patches within that window. On ViDoRe v1/v2 across three architectures spanning 18, 28, and 36 backbone layers, SAP retains 93--96\\% of NDCG@5 on v1 and 88--90\\% on the harder v2 while pruning 90\\% of visual tokens; at 20$\\times$ compression it retains 85--90\\% and 76--79\\% respectively. Our layer-resolved SR analysis reveals an Alignment-Aggregation Divergence: visual structure is preserved as a stable ``Structural Plateau'' within the backbone, while the final layers reshape it into a sparse, query-aligned form unsuitable for pruning. Probing the pre-retrieval base backbones shows that contrastive fine-tuning sharpens this boundary three- to eight-fold, explaining why final-layer methods fail.",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2601.20107",
+    "pdf_url": "https://arxiv.org/pdf/2601.20107.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对视觉文档检索（VDR）中的索引压缩问题，提出了无需训练的剪枝方法，属于多模态搜索的核心技术优化；虽非纯推荐系统，但紧密契合多模态搜索场景，且来自中国公司，故给予高分。",
+    "translation": "结构锚点剪枝：用于视觉文档检索的免训练多向量压缩方法",
+    "summary_zh": "提出一种名为结构锚点剪枝的免训练框架，通过白盒评分诊断和视觉入度中心性 scorer，在保留视觉结构稳定区的同时自动定位并压缩冗余 token，显著降低视觉语言模型在文档检索中的索引存储开销。",
+    "key_points": [
+      "提出一种名为结构锚点剪枝的免训练框架，通过白盒评分诊断和视觉入度中心性 scorer，在保留视觉结构稳定区的同时自动定位并压缩冗余 token，显著降低视觉语言模型在文档检索中的索引存储开销"
+    ]
+  },
+  {
+    "arxiv_id": "2608.28965",
+    "title": "From Location Phrases to Geographic Entities: Task-Adapted Retrieval for People Search",
+    "authors": [
+      "Yanbo Li",
+      "Chujie Zheng",
+      "Jiahao Xu",
+      "Chetan Bhole",
+      "Lingyu Zhang",
+      "Puneet Singh Ahluwalia",
+      "Kevin Nguyen",
+      "Raghavan Muthuregunathan",
+      "Santhosh Sachindran",
+      "Sachin Ahuja",
+      "Fedor Borisyuk"
+    ],
+    "summary": "People search must map free-form location phrases to geographic entities used as structured retrieval filters. Lexical standardizers handle canonical names well but are brittle to aliases, misspellings, metropolitan expressions, and same-name ambiguity. We formulate this task as graded, set-valued entity retrieval over a fixed ontology. We identify three coupled design requirements: distinguishing identity-preserving variation from knowledge-dependent aliases, controlling false negatives among valid same-name entities, and separating stable transformations from mutable entity knowledge. We realize them in a prompt-asymmetric bi-encoder with calibrated alias support, bounded ambiguity-aware negatives, and editable entity documents that support localized updates without retraining.\n  Across a fixed production-derived development benchmark and a public GeoNames transfer task, task adaptation improves substantially over frozen encoders and standard token baselines. Controlled development ablations show that specialized supervision contributes beyond standard task fine-tuning and encoder scaling. On GeoNames, the adapted model improves known-target Recall@1 throughout zero-to-moderate character overlap, while character n-grams retain a small aggregate Target Recall@5 advantage. In a blinded human comparison on a stratified production challenge set, our model raises relevant P@1 from 28.0% to 46.0% (p=0.012). Fixed-query endpoint estimates improve on non-canonical queries and remain close to control on frequent queries; a randomized live experiment detects no engagement regression. These results support task-adapted geographic entity retrieval as a practical replacement for the incumbent taxonomy-based standardizer, with the largest relevance gains on non-canonical queries.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28965",
+    "pdf_url": "https://arxiv.org/pdf/2608.28965.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接解决搜索引擎中“人搜索”场景下的地理位置实体检索与查询理解问题，属于搜索核心环节（Query Understanding/Retrieval）的专用技术创新。",
+    "translation": "从位置短语到地理实体：面向人物搜索的任务自适应检索",
+    "summary_zh": "提出一种任务自适应的双编码器架构，通过将自由形式的位置短语映射为结构化地理实体，解决别名、拼写错误及同名歧义问题，以增强搜索系统的实体检索能力。",
+    "key_points": [
+      "提出一种任务自适应的双编码器架构，通过将自由形式的位置短语映射为结构化地理实体，解决别名、拼写错误及同名歧义问题，以增强搜索系统的实体检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.28649",
+    "title": "Can Large Language Models Identify Meaningful Touchpoints in Conversion Attribution?",
+    "authors": [
+      "Jinqi Wu",
+      "Sishuo Chen",
+      "Zhangming Chan",
+      "Yong Bai",
+      "Chao Yi",
+      "Han Zhu",
+      "Shuodian Yu",
+      "Lei Zhang",
+      "Sheng Chen",
+      "Chenghuan Hou",
+      "Jian Xu",
+      "Chaoyou Fu"
+    ],
+    "summary": "Touchpoint selection in conversion attribution, namely identifying meaningful touchpoints contributing to conversions, is essential for e-commerce recommendation and online advertising. Current selection methods rely heavily on collaborative-filtering-based heuristics, which fail to align with user-perceived semantic intent. Through human annotation, we reveal a significant semantic gap: many implicitly-related, semantically relevant touchpoints remain undetected by existing rules. Therefore, we systematically evaluate the capability of Large Language Models (LLMs) in identifying these hidden associations. Our evaluation shows that while LLMs effectively uncover a substantial portion of implicitly-related touchpoints, significant room for improvement remains in their selection performance. Furthermore, we analyze the impact of different prompting strategies and foundation model choices on identification performance, providing valuable insights into their reasoning patterns and effectiveness. These insights offer a new roadmap for transitioning conversion attribution from mechanical rule-matching to human-aligned semantic reasoning. Moreover, we leverage the LLM-attributed conversion labels for enhancing industrial CVR model training and achieve significant offline performance gains, showing the potential of LLMs in conversion attribution.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-08-18",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28649",
+    "pdf_url": "https://arxiv.org/pdf/2608.28649.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "StateKeyLaboratoryforNovel YongBai ShuodianYu",
+      "University",
+      "Technology,NanjingUniversity",
+      "ChenghuanHou Taobao&TmallGroupofAlibaba StateKeyLaboratoryforNovel",
+      "University",
+      "Technology,NanjingUniversity",
+      "rentselectionmethodsrelyheavilyoncollaborative-filtering-based"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对电商推荐和广告中的转化归因痛点，利用 LLM 解决语义间隙并优化 CVR 模型训练，属于 LLM 在 RecSys/Ads 核心环节的直接应用。",
+    "translation": "大语言模型能否在转化归因中识别有意义的触点是？",
+    "summary_zh": "本文提出利用大语言模型的语义推理能力识别传统规则遗漏的隐性归因触点，并将生成的归因标签用于增强工业界转化率预测模型的训练。",
+    "key_points": [
+      "本文提出利用大语言模型的语义推理能力识别传统规则遗漏的隐性归因触点，并将生成的归因标签用于增强工业界转化率预测模型的训练"
+    ]
+  },
+  {
+    "arxiv_id": "2608.29004",
+    "title": "Context-Aware Interpretable Representations for Retrieval and Graph Convolutional Network Classification",
+    "authors": [
+      "Thiago César Castilho Almeida",
+      "Gustavo Rosseto Letício",
+      "Vinicius Atsushi Sato Kawai",
+      "Daniel Carlos Guimarães Pedronette"
+    ],
+    "summary": "The advances in visual information modeling and representation during the last decades are remarkable, mainly supported by Convolutional Neural Networks, Transformer-based, and Foundation Models. Despite this progress, critical challenges regarding the nature of similarity assessment and model transparency have been neglected. A primary concern is the Geometric Gap, where traditional pairwise measures fail to capture the intrinsic geometry of the dataset manifold. Furthermore, the Interpretability Gap persists, as representations often lack alignment with human cognition. Therefore, how to provide interpretability to representations while maintaining low dimensionality and high effectiveness in downstream tasks remains an open challenge. In this paper, we propose a novel unsupervised framework that integrates Manifold Learning strategies with Rank-based Interpretable Graph Embeddings. Our approach effectively bridges these gaps by first characterizing the contextual information of the dataset through manifold analysis and subsequently generating sparse, self-explainable embeddings. The proposed approach employs a flexible formulation, allowing different Manifold Learning and Representation Learning strategies. Extensive experimental evaluation across diverse datasets and features demonstrates that our Context-Aware representations not only provide intrinsic interpretability and dimensionality reduction but also maintain or enhance effectiveness in downstream tasks, specifically in image retrieval and semi-supervised classification using Graph Convolutional Networks (GCNs).",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.29004",
+    "pdf_url": "https://arxiv.org/pdf/2608.29004.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文主要关注通用图像检索和 GCN 分类中的表征可解释性与流形学习，虽涉及检索但缺乏推荐系统特有的用户建模、排序或个性化场景，属于弱相关的通用 CV/ML 研究；因来自 TAL 公司额外加 1 分。",
+    "translation": "面向检索与图卷积网络分类的上下文感知可解释表征",
+    "summary_zh": "提出一种结合流形学习与基于秩的可解释图嵌入的无监督框架，旨在生成稀疏且自解释的表征以解决几何差距和可解释性差距，同时保持下游任务的有效性。",
+    "key_points": [
+      "提出一种结合流形学习与基于秩的可解释图嵌入的无监督框架，旨在生成稀疏且自解释的表征以解决几何差距和可解释性差距，同时保持下游任务的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2505.03654",
+    "title": "ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and Vision Assistant",
+    "authors": [
+      "Yifan Xiang",
+      "Zhenxi Zhang",
+      "Bin Li",
+      "Yixuan Weng",
+      "Bo Gao",
+      "Shoujun Zhou",
+      "Yangfan He",
+      "Yilin Yuan",
+      "Keqin Li"
+    ],
+    "summary": "Multimodal Large Language Models have shown strong performance across multimodal tasks, and recent personalized MLLMs can recognize user-specific concepts and generate contextual captions. However, existing personalized MLLMs mainly focus on isolated concepts, often lacking relational training data, neglecting connections among personalized concepts, and evaluating mostly on recognition or captioning. To address these limitations, we introduce ReGraP, a dataset of 120 personalized knowledge sets, each containing images, knowledge graphs, and Chain-of-Thought Question-Answering pairs. Based on ReGraP, we propose Reasoning enabled Graph-based Personalized Large Language and Vision Assistant ReGraP-LLaVA, a personalized MLLM that incorporates KGs and CoT QA pairs through soft and/or hard graph prompting to align structured relational knowledge with the model's semantic space. We further establish the ReGraP Benchmark, covering multiple-choice, fill-in-the-blank, true/false, and descriptive questions in both open- and closed-ended settings, to evaluate personalized relational reasoning and knowledge-connection capabilities. Experimental results show that ReGraP-LLaVA effectively learns personalized knowledge and performs relational reasoning, achieving the best overall performance among competitive baselines. Code and data are available at: https://github.com/xyfyyds/ReGraP",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2505.03654",
+    "pdf_url": "https://arxiv.org/pdf/2505.03654.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯多模态大模型（MLLM）与知识图谱结合的研究，聚焦于通用概念推理和问答，未明确针对推荐系统或搜索引擎的核心环节（如召回、排序），虽来自中国企业但缺乏直接业务场景应用。",
+    "translation": "ReGraP-LLaVA：支持推理的基于图的个人化大语言视觉助手",
+    "summary_zh": "提出一种融合知识图谱与思维链问答的个人化多模态大模型，通过图提示机制对齐结构化关系知识与语义空间，以增强对用户特定概念间关系的推理能力。",
+    "key_points": [
+      "提出一种融合知识图谱与思维链问答的个人化多模态大模型，通过图提示机制对齐结构化关系知识与语义空间，以增强对用户特定概念间关系的推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2608.28609",
+    "title": "Parametric Multimodal User Memory: Storing What Captions Cannot Carry",
+    "authors": [
+      "Bojie Li",
+      "Noah Shi"
+    ],
+    "summary": "A personalized agent needs a user memory: a persistent model of who its user is. Today it is almost always text -- transcripts and captions retrieved by similarity. This serves the captionable half of a person (\"my cat is named Bibi\"), but discards the perceptual half no caption can hold: how a voice sounds, how a face reads across age and lighting, how tired someone sounds. We measure this loss across five modalities: a strong caption-based re-identifier recovers as little as 0.11 of a dedicated encoder's recall, collapsing toward chance on non-nameable signals.\n  We instead ground perceptual memory in the model, decomposing recall into two subproblems: a vision-language model grounds the referent in context (what and where), and a dedicated encoder extracts an identity key (who), stored as one inline token read by attention at generation with no external round-trip. Neither suffices alone -- the VLM identifies cross-age faces at only 0.54 recall where a face encoder reaches 0.81, and an ungrounded encoder recognizes a two-person-scene referent at 0.05 -- yet together they reach correct-region oracle (0.96), generalizing to multi-speaker audio and video. The recognition core is training-free: it reproduces the encoder's recall on any frozen model at O(1) registration cost. On PerceptMem (12 domains, 1,080 tasks) perceptual identity is capacity-limited while exact facts are binding-limited: identity belongs in a parametric bank, facts in a text store. The two memories compose cleanly: an agent with both can remember not only what its user said, but also what they are like.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-07-08",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28609",
+    "pdf_url": "https://arxiv.org/pdf/2608.28609.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦通用个性化 Agent 的多模态记忆机制，虽涉及用户建模，但缺乏明确的推荐/搜索业务场景（如召回、排序），属于纯 LLM/Agent 研究范畴，仅因中国公司背景微调评分。",
+    "translation": "参数化多模态用户记忆：存储标题无法承载的信息",
+    "summary_zh": "提出一种结合视觉语言模型定位与专用编码器身份提取的参数化多模态记忆架构，通过内联 Token 机制让 Agent 在无外部检索下持久存储并感知用户的非文本特征（如声音、面容）。",
+    "key_points": [
+      "提出一种结合视觉语言模型定位与专用编码器身份提取的参数化多模态记忆架构，通过内联 Token 机制让 Agent 在无外部检索下持久存储并感知用户的非文本特征（如声音、面容）"
+    ]
+  },
+  {
+    "arxiv_id": "2608.29139",
+    "title": "More Perspectives, Stronger Signals: Multi-Perspective Enhancement and Progressive Fusion for Multimodal Entity Representation Learning",
+    "authors": [
+      "Chenyi Xiong",
+      "Yan Zhang",
+      "Jing Hu",
+      "Ziyue Qin",
+      "Kui Xiao",
+      "Xiaopan Lyu",
+      "Xiaoju Hou",
+      "Zhifei Li"
+    ],
+    "summary": "Learning effective multimodal entity representations is fundamental for reasoning tasks such as multimodal knowledge graph completion (MMKGC). However, existing methods often suffer from semantic over-smoothing within modalities and ineffective noise filtration across modalities, particularly under sparse or ambiguous conditions. To overcome these limitations, we propose PrismF, a unified framework that synergizes multi-perspective enhancement with progressive fusion to extract stronger signals from diverse inputs. PrismF enhances fine-grained intra-modal semantics through a multi-perspective mechanism that decomposes each modality into complementary views and constrains them with a decoupling loss to reduce representation collapse. Furthermore, it improves cross-modal integration through a progressive fusion strategy that dynamically calibrates inter-modal interactions, enabling the model to emphasize informative signals while suppressing noisy or unreliable ones. Extensive experiments on three public benchmarks show that PrismF achieves the strongest overall performance, including relative improvements of 4.04% in MRR and 11.17% in Hits@1 on KVC16K. Our code can be found at https://github.com/HubuKG/PrismF.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.29139",
+    "pdf_url": "https://arxiv.org/pdf/2608.29139.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦多模态知识图谱补全（MMKGC）这一特定推理任务，虽涉及多模态表征学习，但未直接针对推荐或搜索系统的核心环节（如召回、排序），且非纯 LLM 研究，故给予中低分；因来自中国公司额外加 1 分后仍属边缘相关。",
+    "translation": "更多视角，更强信号：用于多模态实体表征学习的多视角增强与渐进融合",
+    "summary_zh": "提出 PrismF 框架，通过多视角机制分解模态以减少语义过平滑，并利用渐进融合策略动态校准跨模态交互以过滤噪声，从而提升多模态实体表征质量。",
+    "key_points": [
+      "提出 PrismF 框架，通过多视角机制分解模态以减少语义过平滑，并利用渐进融合策略动态校准跨模态交互以过滤噪声，从而提升多模态实体表征质量"
+    ]
+  },
+  {
+    "arxiv_id": "2603.16138",
+    "title": "Answer Bubbles: Information Exposure in AI-Mediated Search",
+    "authors": [
+      "Michelle Huang",
+      "Agam Goyal",
+      "Koustuv Saha",
+      "Eshwar Chandrasekharan"
+    ],
+    "summary": "Generative search systems are increasingly replacing link-based retrieval with AI-generated summaries, yet little is known about how these systems differ in sources, language, and fidelity to cited material. We examine responses to 11,000 real search queries across five systems---vanilla GPT, Search GPT, Perplexity Search with Grok, Google AI Overviews, and traditional Google Search---at three levels: source diversity, linguistic characterization of the generated summary, and source-summary fidelity. We find that generative search systems exhibit significant \\textit{source-selection} biases in their citations, favoring certain sources over others. Incorporating search also selectively attenuates epistemic markers, reducing hedging by up to 60\\% while preserving confidence language in the AI-generated summaries. At the same time, AI summaries further compound the citation biases: Wikipedia and longer sources are disproportionately overrepresented, whereas cited social media content and negatively framed sources are substantially underrepresented. Our findings highlight the potential for \\textit{answer bubbles}, in which identical queries yield structurally different information realities across systems, with implications for user trust, source visibility, and the transparency of AI-mediated information access.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-08-28",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2603.16138",
+    "pdf_url": "https://arxiv.org/pdf/2603.16138.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/搜索系统评估研究，侧重于信息暴露、来源偏差和伦理分析，未提出任何推荐或搜索的核心算法、架构改进或直接应用方案。",
+    "translation": "答案气泡：AI 中介搜索中的信息暴露",
+    "summary_zh": "本文通过对比多种生成式搜索系统，揭示了 AI 生成摘要在来源选择、语言特征及引用忠实度上存在的系统性偏差，提出了“答案气泡”概念以描述不同系统对同一查询构建差异化信息现实的现象。",
+    "key_points": [
+      "本文通过对比多种生成式搜索系统，揭示了 AI 生成摘要在来源选择、语言特征及引用忠实度上存在的系统性偏差，提出了“答案气泡”概念以描述不同系统对同一查询构建差异化信息现实的现象"
+    ]
+  },
+  {
+    "arxiv_id": "2607.29181",
+    "title": "SERUM: State Extraction and Refinement for User Modeling",
+    "authors": [
+      "Andy J. Phu",
+      "Karin de Langis",
+      "James Mooney",
+      "Khanh Chi Le",
+      "Dongyeop Kang"
+    ],
+    "summary": "Agentic assistants capable of proactive, personalized interactions require structured models of user intent and workflow. However, building these models from raw, unstructured screen activity remains an open challenge. We present SERUM, a multi-pass framework that extracts finite-state behavioral models directly from unstructured egocentric video using hierarchical VLM annotation. Processing screen recordings through a sliding window, SERUM alternates between activity-recognition and intent-inference passes, with each pass refining labels using accumulated prior context to reduce hallucination and temporal conflation seen in single-pass annotation. Synonymous states are then merged via sentence embeddings and human-calibrated thresholds into a compact, coherent taxonomy. We evaluate behavioral structure by fitting first-order Markov models over the resulting label sequences (both actions and intents) and measuring predictive accuracy against frequency baselines. Across 61 egocentric videos in four domains (coding, cooking, physical activities, and daily life), we find: (1) iterative label refinement converges to a stable state vocabulary, which we term schematic equilibrium, after several passes; (2) normalized Markov models achieve substantially lower perplexity and higher action predictions than frequency baselines, with the largest gains on structured tasks like coding; and (3) human annotators rate final-pass labels as accurate and meaningfully improved over first-pass labels. To our knowledge, SERUM is the first system to produce interpretable process models from unstructured egocentric screen video without manual annotation, opening a scalable pathway for user modeling and behavioral understanding in the wild. Our demo, code, and results are publicly available",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2607.29181",
+    "pdf_url": "https://arxiv.org/pdf/2607.29181.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯用户行为建模与多模态理解研究，专注于从屏幕视频中提取通用工作流状态，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、个性化分发），且无 RecSys 应用场景。",
+    "translation": "SERUM：用于用户建模的状态提取与 refinement 框架",
+    "summary_zh": "提出一种多阶段框架，利用分层视觉语言模型从非结构化第一人称屏幕视频中提取并细化有限状态行为模型，通过迭代优化减少幻觉并构建可解释的用户意图 taxonomy。",
+    "key_points": [
+      "提出一种多阶段框架，利用分层视觉语言模型从非结构化第一人称屏幕视频中提取并细化有限状态行为模型，通过迭代优化减少幻觉并构建可解释的用户意图 taxonomy"
+    ]
+  },
+  {
+    "arxiv_id": "2608.28949",
+    "title": "The information geometry of product-reference discrete diffusion: Interaction growth complexity and optimal scheduling",
+    "authors": [
+      "Martin J. Wainwright"
+    ],
+    "summary": "We study a class of product-reference diffusion algorithms for sampling from a discrete distribution. We show that their sampling performance can be characterized using a path-based measure of data geometry that we call the interaction growth complexity (IGC). We show that a bivariate IGC kernel gives an exact representation of both the KL discretization error and a simple one-step upper bound. The simpler univariate IGC density can be used to study the effect of stepsize choices on the iteration complexity required to obtain $ε$-accurate samples in KL divergence. Samplers that traverse the path with equi-spaced steps in log-squared-reliability-odds have performance that depends on the aggregate IGC mass, whereas refined choices of stepsizes have a lower complexity depending on a square-root functional. In the fine-grid limit, both of these characterizations become sharp. We also allow general product reference distributions and show that the reference law can substantially reshape the IGC profile and the resulting sampling complexity; in particular, references far from both the uniform and the data marginals can yield dimension-dependent improvements. Finally, the aggregate IGC mass admits bounds in terms of total correlation and dual total correlation, thereby connecting the pathwise geometry to classical measures of multivariate dependence.",
+    "categories": [
+      "stat.ML",
+      "cs.AI",
+      "cs.LG",
+      "math.ST",
+      "stat.TH"
+    ],
+    "published": "2026-08-28",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.28949",
+    "pdf_url": "https://arxiv.org/pdf/2608.28949.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯理论机器学习研究，专注于离散扩散模型的采样几何和复杂度分析，未提及任何推荐系统或搜索的具体应用场景，属于排除类纯算法研究。",
+    "translation": "乘积 - 参考离散扩散的信息几何：交互增长复杂性与最优调度",
+    "summary_zh": "本文提出交互增长复杂度（IGC）概念，从信息几何角度刻画乘积 - 参考离散扩散算法的采样误差与迭代复杂度，并分析了参考分布对采样效率的影响机制。",
+    "key_points": [
+      "本文提出交互增长复杂度（IGC）概念，从信息几何角度刻画乘积 - 参考离散扩散算法的采样误差与迭代复杂度，并分析了参考分布对采样效率的影响机制"
+    ]
+  },
+  {
+    "arxiv_id": "2608.29099",
+    "title": "Temperature-Adaptive Transformed Teacher Matching",
+    "authors": [
+      "Hiroaki Aizawa",
+      "Yoshikazu Hayashi"
+    ],
+    "summary": "Temperature scaling is a core component of knowledge distillation, yet its role and effect are still not fully understood. Transformed Teacher Matching (TTM) clarifies the role of temperature scaling by applying it only to the teacher distribution and interpreting the resulting objective as standard distillation with an implicit Rényi entropy regularization on the student. However, TTM still relies on a fixed temperature and does not specify how the teacher-side temperature should be adapted for individual samples. In this paper, we introduce a sample-wise inverse-temperature update for TTM by locally minimizing the Kullback-Leibler divergence between the temperature-scaled teacher distribution and the student's prediction. We derive closed-form first and second derivatives with respect to the inverse temperature, and show that they can be expressed using variance and covariance statistics of centered teacher and student logits under the transformed teacher weighting. This yields an efficient curvature-aware update that requires one softmax evaluation and a constant number of class-wise weighted sums. Experiments on standard image classification distillation benchmarks show that our temperature adaptation generally improves TTM and WTTM, while remaining competitive with or outperforming prior temperature-adaptive distillation baselines.",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published": "2026-08-29",
+    "updated": "2026-09-01",
+    "url": "https://arxiv.org/abs/2608.29099",
+    "pdf_url": "https://arxiv.org/pdf/2608.29099.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯知识蒸馏（模型压缩）研究，专注于图像分类任务，未涉及推荐或搜索系统的任何核心环节，即使来自中国企业且为通用 ML 方法，因缺乏 RecSys 应用场景仍属低相关。",
+    "translation": "温度自适应变换教师匹配",
+    "summary_zh": "提出一种样本级的逆温度更新机制，通过局部最小化 KL 散度动态调整教师分布温度，利用对数几率的方差和协方差统计量实现高效曲率感知更新。",
+    "key_points": [
+      "提出一种样本级的逆温度更新机制，通过局部最小化 KL 散度动态调整教师分布温度，利用对数几率的方差和协方差统计量实现高效曲率感知更新"
+    ]
+  }
+]

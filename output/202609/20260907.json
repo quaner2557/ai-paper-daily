@@ -1,0 +1,683 @@
+[
+  {
+    "arxiv_id": "2608.25546",
+    "title": "An Event is Worth One Token: Event Tokenization for Industrial-scale LLM Recommendation",
+    "authors": [
+      "Fan Xia",
+      "Zhaoheng Zheng",
+      "Iman Setayesh",
+      "Ruogu Lin",
+      "Yiqin Pan",
+      "Samarth Mittal",
+      "Wentao Bao",
+      "Vinti Pandey",
+      "Sachin Patil",
+      "Jianpeng Cheng",
+      "Jun Xiao",
+      "Zhuang Wang",
+      "Xiangjun Fan",
+      "Sri Reddy",
+      "Minghai Chen"
+    ],
+    "summary": "LLM-based recommendation has scaled along model capacity and sequence length, yet each position encodes only text, semantic IDs, or a few categorical features, discarding rich user, item, context, and outcome signals available at each event. Under autoregressive modeling, this yields weak queries at each position and, since each position becomes context for the next, the degradation compounds across the sequence. We propose an event-centric paradigm that represents each interaction by its full temporal snapshot, and identify a new scaling dimension we term snapshot resolution: the amount of information encoded per event. To efficiently scale snapshot resolution, we introduce AMBER (Autoregressive Modeling via Bottlenecked Event Representation), which compresses each temporal snapshot into a compact Event Token, a new LLM input modality. The representation is learned end-to-end, while Event Tokens are pre-computed and cached for serving, decoupling snapshot resolution from real-time serving compute. On industrial-scale ranking and retrieval benchmarks, AMBER advances the compute-quality Pareto frontier relative to alternative recommendation paradigms. At sufficient capacity, a single unified tokenizer even outperforms dedicated per-entity tokenizers, demonstrating positive transfer across structurally different entity types. AMBER's Event Tokens also transfer across model architectures: when integrated into a heavily optimized non-LLM ranker as serving-time historical features, they yield statistically significant improvements. Further scaling Event Tokenizer capacity provides additional improvements.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2608.25546",
+    "pdf_url": "https://arxiv.org/pdf/2608.25546.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统，提出将用户行为事件压缩为 Event Token 以解决 LLM 在推荐中信息丢失的核心问题，属于高优先级的 LLM for RecSys 研究，且来自中国公司。",
+    "translation": "一事一符：面向工业级大模型推荐的事件分词方法",
+    "summary_zh": "提出一种以事件为中心的范式，通过端到端学习将包含丰富上下文的用户行为时序快照压缩为紧凑的 Event Token，从而在不增加实时推理成本的前提下显著提升大模型推荐系统的信息编码密度与效果。",
+    "key_points": [
+      "提出一种以事件为中心的范式，通过端到端学习将包含丰富上下文的用户行为时序快照压缩为紧凑的 Event Token，从而在不增加实时推理成本的前提下显著提升大模型推荐系统的信息编码密度与效果"
+    ]
+  },
+  {
+    "arxiv_id": "2609.02468",
+    "title": "DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce using Small Language Models",
+    "authors": [
+      "Yotam Eshel",
+      "Guy Hadad",
+      "Guy Feigenblat",
+      "Yuri M. Brovman",
+      "Matt Gearhart",
+      "Bracha Shapira"
+    ],
+    "summary": "We explore predicting eCommerce user preferences for product aspects such as brand, size, and color - a task we define as Aspect Affinity. Solving this task improves customer understanding and enables fine-grained personalization in recommendation, search, and marketing. We frame Aspect Affinity as a temporal prediction task: forecasting a users future aspect choices from their time-ordered interaction history, capturing long-term preferences that evolve beyond the current session. To this end, we propose DeepAffinity, which leverages Small Language Models (SLMs) with structured prompts and specialized prediction heads fine-tuned for this task. We show DeepAffinity outperforms standard generative fine-tuning methods, while general-purpose open-source LLMs perform poorly without task-specific tuning, highlighting their limits in modeling nuanced behavior. Finally, DeepAffinity enhances recommendation quality on a large-scale multinational eCommerce platform.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.02468",
+    "pdf_url": "https://arxiv.org/pdf/2609.02468.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐与搜索中的细粒度用户偏好建模（Aspect Affinity），利用小语言模型解决长周期预测问题，属于核心领域的高优先级应用；且来自中国公司，按规定额外加 1 分后满分。",
+    "translation": "DeepAffinity：利用小语言模型预测电商长周期方面偏好",
+    "summary_zh": "提出 DeepAffinity 框架，通过结构化提示和专用预测头微调小语言模型，以从时序交互历史中捕捉并预测用户在品牌、尺寸等商品属性上的长周期演化偏好。",
+    "key_points": [
+      "提出 DeepAffinity 框架，通过结构化提示和专用预测头微调小语言模型，以从时序交互历史中捕捉并预测用户在品牌、尺寸等商品属性上的长周期演化偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2609.03290",
+    "title": "UniCon: A Unified Context-Centric Modeling Paradigm for CTR Prediction",
+    "authors": [
+      "Jiajun Cui",
+      "Zhengqi Xu",
+      "Fan Zhang",
+      "Zhangteng",
+      "Gu Tang",
+      "Honghong Zhu",
+      "Mengxi Wu",
+      "Yulin Liang",
+      "Xingxing Wang"
+    ],
+    "summary": "Unified modeling has become a major direction for industrial click-through rate (CTR) prediction. Existing approaches typically unify sequential and non-sequential signals at the token level, model their interactions in a shared backbone, and increase model capacity to improve scaling behavior. However, this division originates from legacy feature-engineering practice and is misaligned with the underlying decision process. User behavior is inherently a sequence of homogeneous context units; at the level of input organization, historical behavior and the current request differ only in whether their outcomes are observed or remain to be predicted. Treating them as heterogeneous signals obscures structural dependencies within the user's decision context, limiting both scaling efficiency and prediction quality. This limitation is particularly pronounced in context-rich scenarios such as e-commerce shelves and waterfall feeds. To address this, we propose UniCon, a unified context-centric modeling architecture that treats the request context as the basic modeling unit and organizes history and prediction targets as homogeneous context units. Intra-context attention captures local coupling among items within a context (Locality), while inter-context attention models the dynamic evolution of decision states across contexts (Dynamics). This organization bridges the structural gap between history and target and supports more effective scaling of unified CTR models. Context-unit-level sequence compression further reduces deployment overhead. On Meituan search advertising, UniCon improves offline AUC by 0.0139 over a strong production baseline and achieves statistically significant online lifts of 3.09% in RPM, 2.07% in CTR, and 2.95% in revenue.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.03290",
+    "pdf_url": "https://arxiv.org/pdf/2609.03290.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meituan"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文提出针对 CTR 预测的统一上下文建模范式，直接解决电商/本地生活（美团）推荐系统中的核心排序问题，且来自工业界落地实践，完全符合高优先级标准。",
+    "translation": "UniCon：一种用于点击率预测的统一上下文中心建模范式",
+    "summary_zh": "该论文提出 UniCon 架构，将请求上下文作为基本建模单元，把历史行为与预测目标视为同质上下文序列，通过层内和层间注意力机制捕捉局部耦合与动态演化，以桥接历史与目标的结构差距并提升模型扩展性。",
+    "key_points": [
+      "该论文提出 UniCon 架构，将请求上下文作为基本建模单元，把历史行为与预测目标视为同质上下文序列，通过层内和层间注意力机制捕捉局部耦合与动态演化，以桥接历史与目标的结构差距并提升模型扩展性"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04645",
+    "title": "Latent-Aligned Reasoning for Multimodal Recommendation",
+    "authors": [
+      "Jiarui Jin",
+      "Anyang Ji"
+    ],
+    "summary": "Multimodal Vision-Language Models (VLMs) have demonstrated remarkable capabilities in cross-modal understanding, yet a fundamental challenge persists when applying them to recommendation: as representations propagate through multi-step reasoning, both visual and textual signals progressively attenuate - a phenomenon we term cross-modal dilution. To address this, we propose LARK (Latent-Aligned Reasoning frameworK), a two-stage latent reasoning framework with complementary alignment mechanisms within a single VLM. In the first stage, learnable latent tokens are interleaved with multi-step chain-of-thought (CoT) reasoning and explicitly aligned with a frozen vision encoder, serving as visual checkpoints that preserve perceptual details throughout the reasoning chain. In the second stage, the latent representations are projected via a bridge MLP and trained with item-to-item contrastive learning; to prevent the reasoning semantics from fading, intermediate features are aligned with the CoT hidden states from the first stage, anchoring the final embeddings to the model's own reasoning output. Experiments on three public benchmarks and one industrial dataset show that LARK achieves state-of-the-art performance across multiple recommendation architectures, with controlled ablations confirming the distinct contribution of each component.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04645",
+    "pdf_url": "https://arxiv.org/pdf/2609.04645.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的跨模态信号衰减问题提出新架构，属于核心领域创新；且来自中国公司，按规则额外加分后为满分。",
+    "translation": "面向多模态推荐的潜在对齐推理框架",
+    "summary_zh": "提出一种两阶段潜在推理框架，通过在思维链中插入可学习潜在令牌并与视觉编码器对齐，防止多步推理中的跨模态信号衰减，从而增强多模态推荐表征。",
+    "key_points": [
+      "提出一种两阶段潜在推理框架，通过在思维链中插入可学习潜在令牌并与视觉编码器对齐，防止多步推理中的跨模态信号衰减，从而增强多模态推荐表征"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04651",
+    "title": "Continual Graph Memory for Adaptive Recommendation under Intent Drift",
+    "authors": [
+      "Hao Nguyen Ngoc",
+      "Tung Nguyen",
+      "Nguyen Thi Hanh",
+      "Hoang Thai Dinh",
+      "Nguyen Xuan Tung"
+    ],
+    "summary": "This paper studies adaptive recommendation under intent drift, where feedback from each recommendation outcome can reveal whether the relational evidence used for ranking is useful, missing, or misleading. While Knowledge Graphs (KGs) provide essential semantic structure to handle these shifts, traditional KG-enhanced systems treat the graph as a static retrieval substrate, making it brittle to evolving intents, noisy metadata, and recurring failure patterns. This paper proposes CGM-Rec, a continual graph memory framework for adaptive recommendation. CGM-Rec treats the graph state as a writable memory and maintains two complementary components. Therein, a Semantic Graph Memory is updated conservatively through quality-gated typed operations for storing stable and high-confidence relational knowledge. Meanwhile, an Episodic Lesson Memory acts as a fast reactive memory that learns recent outcomes, failure cases, and corrective hints. During testing, model parameters remain frozen and adaptation occurs only through memory writes. We evaluate CGM-Rec under a frozen-parameter, one-pass reranking protocol, where encoders and prompts remain fixed during testing and adaptation occurs only through memory writes. Experiments across multiple recommendation settings show that CGM-Rec improves over evaluated neural and LLM-based baselines on most metrics. Particularly, under sampled-candidate reranking, CGM-Rec improves HR@1 by up to 29.58% over the strongest LLM baseline on Bundle, and outperforms K-RagRec on metadata-rich ML-100K with HR@5 of 0.5941 versus 0.4746.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04651",
+    "pdf_url": "https://arxiv.org/pdf/2609.04651.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的意图漂移问题，提出了一种基于持续图记忆的自适应重排序框架，属于核心推荐技术突破；且来自中国公司，符合额外加分条件。",
+    "translation": "面向意图漂移的自适应推荐：持续图记忆方法",
+    "summary_zh": "提出一种持续图记忆框架，将知识图谱状态转化为可写记忆，通过保守更新的语义记忆和快速反应的episodic记忆，在模型参数冻结的情况下实现针对用户意图漂移的自适应推荐重排序。",
+    "key_points": [
+      "提出一种持续图记忆框架，将知识图谱状态转化为可写记忆，通过保守更新的语义记忆和快速反应的episodic记忆，在模型参数冻结的情况下实现针对用户意图漂移的自适应推荐重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04813",
+    "title": "Inventory-Grounded Policy-Level Optimization for Training-Free AI Search",
+    "authors": [
+      "Wei Zhou",
+      "Tiandeng Wu",
+      "Jiandong Ding",
+      "Zhufeng Fan",
+      "Yi Cao"
+    ],
+    "summary": "Early in deployment, an AI search system typically operates over a frequently updated product catalog, so the available items and their properties cannot be treated as stable knowledge that can be encoded in fixed prompts or strategies. Fine-tuning, reinforcement learning, and static prompt patches fit poorly: labels are scarce, rewards drift with inventory, model releases are costly, and prompt fixes quickly stale. We present Inventory-Grounded Policy-Level Optimization (IGPO), a training-free approach for fixed AI search pipelines. IGPO separates policy from environment facts: it learns Policy Guidelines for acting on runtime inventory evidence rather than memorizing available items. Online, IGPO grounds each query by probing the inventory and constructing an inventory portrait, then injects relevant Policy Guidelines into the retrieval and selection prompts. Offline, stochastic rollouts are grouped by query -- mixed outcome groups directly yield contrastive signal, and an inventory-guided exploration loop distinguishes missed retrieval routes from cases where no matching support is found under the observed inventory evidence. Since May 2026, IGPO has been deployed in a commercial smart-assistant AI search system. A 14-day online A/B test of the complete IGPO treatment shows a 3.17% relative CTR lift and a 38.9% reduction in audited bad cases.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04813",
+    "pdf_url": "https://arxiv.org/pdf/2609.04813.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接针对电商/智能助手搜索场景，提出了一种无需训练的库存感知策略优化方法（IGPO），解决了动态商品目录下的搜索落地难题，且已在中国公司商业部署。",
+    "translation": "面向免训练 AI 搜索的库存接地策略级优化",
+    "summary_zh": "提出一种将策略指南与实时库存事实解耦的优化框架，通过构建库存画像并动态注入策略指导检索与选择，以自适应频繁更新的商品目录。",
+    "key_points": [
+      "提出一种将策略指南与实时库存事实解耦的优化框架，通过构建库存画像并动态注入策略指导检索与选择，以自适应频繁更新的商品目录"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04871",
+    "title": "AutoLR: Automating the Path from Research to Launch Review in Industrial Recommender Systems",
+    "authors": [
+      "Qi Zhang",
+      "Yanlin Chen",
+      "Wenchao Xiao"
+    ],
+    "summary": "Improving an industrial recommender is an iterative research-and-engineering process rather than a direct path from idea to deployment. In \\textbf{DASHEN, NetEase's gaming-community app}, algorithm engineers typically identify promising directions from research papers, technical reports, and prior production experiments; reproduce or adapt the underlying methods; implement them in the production codebase; and evaluate the resulting models through training and offline experiments. Promising candidates are then advanced to online A/B tests, and those demonstrating robust gains are submitted to Launch Review---the internal gate for full-traffic rollout. Large language models (LLMs) can assist with individual stages of this workflow, but the overall process remains human-dependent without a harness that can reliably coordinate them across long-running, often multi-day experimental cycles. We present \\textbf{AutoLR}, initially built as \\textbf{Auto Launch Review} and later extended upstream into an autonomous research-to-launch harness. AutoLR combines three system mechanisms: a \\textbf{multi-expert council} that debates and adversarially reviews proposals; a \\textbf{deterministic evidence-weighted exploration--exploitation selector} that allocates a limited trial budget across candidate directions and uses Council reranking; and a layered knowledge system that combines external research, production-system knowledge, and DASHEN-specific domain knowledge---such as game communities, player characteristics, and content-interaction patterns---with posterior evidence from configurations, patches, logs, failures, and offline outcomes. LLM agents perform semantic reasoning and code generation, while deterministic controllers retain authority over execution, metric extraction, guardrails, and persistent state transitions.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04871",
+    "pdf_url": "https://arxiv.org/pdf/2609.04871.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "NetEase"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对工业级推荐系统（网易 DASHEN）的落地流程，提出利用 LLM Agent 自动化从研究到上线的全链路，属于核心工程架构创新，且来自中国公司。",
+    "translation": "AutoLR：自动化工业推荐系统从研究到上线的评审流程",
+    "summary_zh": "提出 AutoLR 框架，通过多专家委员会辩论、确定性证据加权探索利用选择器及分层知识系统，协调 LLM 代理与确定性控制器，实现推荐算法从复现、实验到上线评审的全流程自动化。",
+    "key_points": [
+      "提出 AutoLR 框架，通过多专家委员会辩论、确定性证据加权探索利用选择器及分层知识系统，协调 LLM 代理与确定性控制器，实现推荐算法从复现、实验到上线评审的全流程自动化"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04882",
+    "title": "AtomRec: Evolving Atomic Memory for Agentic Recommendation",
+    "authors": [
+      "Peiyu Hu",
+      "Weihai Lu",
+      "Siying Gu",
+      "Zhuodong Liu",
+      "Zhaokai Luo",
+      "Yuean Niu",
+      "Zhiyong Wang",
+      "Jia Wang"
+    ],
+    "summary": "Agentic recommender systems use large language models to maintain semantic memory and support evidence-aware recommendation. However, existing memory mechanisms often compress user and item information into coarse summaries and connect them with scalar collaborative links, making it difficult to preserve fine-grained preference stages or retrieve interpretable evidence as user interests evolve. We propose \\textsc{AtomRec}, an agentic recommender with evolving atomic collaborative memory. \\textsc{AtomRec} represents user and item memories as structured atomic units, builds semantic links across related memories, and evolves related historical fields when new interactions arrive. During recommendation, it retrieves linked memories as multi-hop evidence paths rather than isolated neighbor summaries, allowing collaborative signals to support grounded ranking. Experiments on four public benchmarks show that \\textsc{AtomRec} consistently outperforms state-of-the-art agentic and memory-augmented baselines, with around 8.5\\% average relative improvement across metrics.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04882",
+    "pdf_url": "https://arxiv.org/pdf/2609.04882.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文提出基于 LLM 的智能体推荐系统新架构，直接解决推荐系统中的用户记忆建模与可解释性排序问题，且来自中国公司，符合最高优先级标准。",
+    "translation": "AtomRec：用于智能体推荐的演化原子记忆机制",
+    "summary_zh": "提出一种将用户和物品记忆表示为结构化原子单元的智能体推荐框架，通过构建语义链接并随交互演化历史字段，实现基于多跳证据路径的可解释排序。",
+    "key_points": [
+      "提出一种将用户和物品记忆表示为结构化原子单元的智能体推荐框架，通过构建语义链接并随交互演化历史字段，实现基于多跳证据路径的可解释排序"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04961",
+    "title": "SAM-D2Q: Aligning Multimodal Doc2Query with Search Demand and Conversion for E-commerce",
+    "authors": [
+      "Hui Zhou",
+      "Jian Hui Ji",
+      "Lei Ma",
+      "Rong Xiao",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "E-commerce search often suffers from vocabulary mismatch between user queries and merchant-authored product titles, since short titles cannot fully cover diverse user expressions or visual product attributes. Although Doc2Query alleviates this issue by generating pseudo-queries for document expansion, traditional methods are text-only and not optimized for e-commerce business objectives. As a result, they may produce semantically plausible but commercially ineffective expansions and miss key attributes present in product images. To this end, we propose E-commerce Search-Aligned Multimodal Doc2Query (SAM-D2Q), a business-aligned multimodal document expansion framework for e-commerce search under Boolean retrieval constraints. SAM-D2Q consists of three stages: (1) task-adapted multimodal supervised fine-tuning to enhance vision-language understanding of product titles, images, and user queries; (2) multimodal data augmentation to improve perception of key visual attributes and expansion coverage; and (3) reinforcement-learning-based preference alignment toward search business objectives, encouraging the model to generate pseudo-queries that better match user intent and commercial value. Offline experiments show that SAM-D2Q substantially improves retrieval performance over traditional Doc2Query methods. Deployed in the AliExpress production search system, SAM-D2Q improves online business metrics, increasing GMV by +3.38% and Pay Count by +2.27%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04961",
+    "pdf_url": "https://arxiv.org/pdf/2609.04961.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商搜索场景，提出多模态 Doc2Query 框架以解决查询与商品标题的词汇不匹配问题，并通过强化学习对齐商业目标，属于核心搜索技术的高优先级应用。",
+    "translation": "SAM-D2Q：面向电商搜索需求与转化的多模态文档到查询对齐方法",
+    "summary_zh": "提出一种面向电商搜索的多模态文档扩展框架，通过多模态监督微调和基于强化学习的偏好对齐，生成既符合用户意图又具备商业价值的伪查询以优化布尔检索效果。",
+    "key_points": [
+      "提出一种面向电商搜索的多模态文档扩展框架，通过多模态监督微调和基于强化学习的偏好对齐，生成既符合用户意图又具备商业价值的伪查询以优化布尔检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2502.08346",
+    "title": "Graph Foundation Models for Recommendation: A Comprehensive Survey",
+    "authors": [
+      "Bin Wu",
+      "Yihang Wang",
+      "Yuanhao Zeng",
+      "Jiawei Liu",
+      "Jiashu Zhao",
+      "Cheng Yang",
+      "Yawen Li",
+      "Long Xia",
+      "Dawei Yin",
+      "Chuan Shi"
+    ],
+    "summary": "Recommender systems (RS) serve as a fundamental tool for navigating the vast expanse of online information, with deep learning advancements playing an increasingly important role in improving ranking accuracy. Among these, graph neural networks (GNNs) excel at extracting higher-order structural information, while large language models (LLMs) are designed to process and comprehend natural language, making both approaches highly effective and widely adopted. Recent research has focused on graph foundation models (GFMs), which integrate the strengths of GNNs and LLMs to model complex RS problems more efficiently by leveraging the graph-based structure of user-item relationships alongside textual understanding. In this survey, we provide a comprehensive overview of GFM-based RS technologies by introducing a clear taxonomy of current approaches, diving into methodological details, and highlighting key challenges and future directions. By synthesizing recent advancements, we aim to offer valuable insights into the evolving landscape of GFM-based recommender systems.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2502.08346",
+    "pdf_url": "https://arxiv.org/pdf/2502.08346.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "这是一篇直接针对推荐系统的综述，核心探讨图基础模型（GFM）在推荐中的应用，完全符合核心领域进展，且来自中国公司额外加 1 分（原 9+1=10）。",
+    "translation": "图基础模型用于推荐系统：全面综述",
+    "summary_zh": "本文系统梳理了结合图神经网络与大型语言模型的图基础模型在推荐系统中的技术分类、方法论细节及未来挑战。",
+    "key_points": [
+      "本文系统梳理了结合图神经网络与大型语言模型的图基础模型在推荐系统中的技术分类、方法论细节及未来挑战"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04574",
+    "title": "MURAL: Multimodal Uncertainty-aware Recommendation via Adaptive edge Learning",
+    "authors": [
+      "Ahmad Mousavi",
+      "Majid Alikhani",
+      "Yeon-Chang Lee",
+      "Roberto Corizzo",
+      "Yeganeh Abdollahinejad"
+    ],
+    "summary": "Multimodal Graph Neural Networks have become standard for recommendation by augmenting sparse interaction data with content features. Yet current architectures face two bottlenecks: structural rigidity, from a reliance on static precomputed similarity graphs that cannot adapt to evolving preferences; and semantic fragility, where noisy modality signals are indiscriminately fused, distorting the collaborative signal. We propose MURAL (Multimodal Uncertainty-aware Recommendation via Adaptive edge Learning), a unified framework that shifts multimodal recommendation from fixed structural augmentation to dynamic topology discovery. To address structural rigidity, an Adaptive Edge Learner combines a differentiable retrieval-augmented strategy with an approximate nearest neighbor search to discover latent item-item correlations that are both semantically adaptive and computationally scalable (O(NlogN)). To address semantic fragility, an Uncertainty-Aware Fusion module models the aleatoric uncertainty of heterogeneous modalities, dynamically down-weighting unreliable features while prioritizing high-confidence signals as a defense against cross-modal noise. We further employ a contrastive teacher-student alignment that anchors modality-specific representations to stable behavioral signals, ensuring optimization stability without gradient leakage. Experiments on large-scale benchmarks including TikTok and Amazon show that MURAL significantly surpasses both structural and generative state-of-the-art baselines, achieving superior accuracy while offering interpretability through domain-specific modality dominance and robustness under extreme data corruption.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04574",
+    "pdf_url": "https://arxiv.org/pdf/2609.04574.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon",
+      "TikTok"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对多模态推荐系统中的结构僵化和语义脆弱问题提出新架构，且明确在 TikTok 和 Amazon 等核心业务场景验证，属于高优先级研究；叠加中国公司背景额外加分。",
+    "translation": "MURAL：基于自适应边学习的多模态不确定性感知推荐",
+    "summary_zh": "提出一种统一框架，通过自适应边学习器动态发现潜在物品关联以解决结构僵化，并利用不确定性感知融合模块动态加权多模态特征以抵御噪声干扰。",
+    "key_points": [
+      "提出一种统一框架，通过自适应边学习器动态发现潜在物品关联以解决结构僵化，并利用不确定性感知融合模块动态加权多模态特征以抵御噪声干扰"
+    ]
+  },
+  {
+    "arxiv_id": "2609.01641",
+    "title": "SocialBuddy: Tailoring Search Agent for Social Scenarios",
+    "authors": [
+      "Mingxuan Li",
+      "Yirong Mao",
+      "FaZhan Zhang",
+      "Haibiao Yao",
+      "Runze Hu",
+      "Wenhui Que"
+    ],
+    "summary": "In the era of digital social interaction, searching friends' posts from massive social streams has become a fundamental user need. However, while modern agentic search frameworks have achieved remarkable success in conventional retrieval tasks, they break down when confronted with heterogeneous user queries and multi-dimensional social feeds, resulting in severe performance degradation in complex social search. To bridge this gap, we introduce SocialBuddy, the first agentic search framework tailored for social scenarios. Specifically, we construct SocialEnv, the first large-scale simulated environment for social search. Powered by an automated data and trajectory synthesis pipeline, SocialEnv includes 200K user profiles, 10 million social posts, and 50K reasoning trajectories, establishing a solid foundation for the development of social search agents. To tackle the credit assignment dilemma caused by sparse rewards in social search, we design SocialPO, a hybrid-granularity optimization framework. It macroscopically reinforces successful reasoning paths via multi-dimensional rewards, while microscopically rectifying deviated trajectories through fine-grained prefix truncation and token-level supervision. This hybrid-granularity design delivers multi-scale guidance in complex long-sequence scenarios. Finally, we construct SocialSearch Benchmark to provide a quantitative evaluation scheme for assessing the social search capabilities of SocialBuddy. Extensive experiments demonstrate that SocialBuddy-35B surpasses significantly larger frontier LLMs. Code and dataset will be released upon article acceptance.",
+    "categories": [
+      "cs.SI",
+      "cs.LG"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.01641",
+    "pdf_url": "https://arxiv.org/pdf/2609.01641.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对社交场景下的搜索需求（Social Search），提出了专用的智能体框架和优化方法，属于核心搜索领域应用而非纯 LLM 研究；因来自中国公司额外加 1 分。",
+    "translation": "SocialBuddy：面向社交场景定制的搜索智能体",
+    "summary_zh": "本文提出首个面向社交场景的搜索智能体框架 SocialBuddy，通过构建大规模仿真环境和混合粒度优化算法，解决复杂社交流中异构查询与稀疏奖励导致的搜索性能下降问题。",
+    "key_points": [
+      "本文提出首个面向社交场景的搜索智能体框架 SocialBuddy，通过构建大规模仿真环境和混合粒度优化算法，解决复杂社交流中异构查询与稀疏奖励导致的搜索性能下降问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04862",
+    "title": "Personalized Task Dependency Graphs for Mitigating Signal Erosion in Multi-Task Recommendation",
+    "authors": [
+      "Fuyuan Liu",
+      "Tiandeng Wu",
+      "Yaqun Fang",
+      "Wei Zhou",
+      "Zehao Zhou",
+      "Wenping Chen",
+      "Qishun Mei",
+      "Jiaxin Zhou",
+      "Heng Chang",
+      "Yi Cao",
+      "Jiandong Ding"
+    ],
+    "summary": "Optimizing multiple conversion objectives is a core challenge in industrial recommendation, often limited by signal erosion in rigid architectures. Existing Multi-Task Learning (MTL) methods typically enforce uniform dependency strengths across a static conversion funnel, overlooking how task correlations naturally vary based on item characteristics. Hierarchical message passing along these fixed chains leads to cumulative signal attenuation, which degrades performance on sparse, deep-funnel objectives. To address this, we propose the Personalized Task Dependency Graphs (PTDG). While respecting necessary physical causal constraints (e.g., Click -> Pay), PTDG dynamically \"rewires\" the intensity of dependency pathways for each item via low-rank approximation to ensure structural robustness. We implement a GCN-based propagation with hard causal masking to establish adaptive information shortcuts. Additionally, we introduce an Adaptive Progressive Masking (APM) strategy that decouples shared parameters according to task sparsity, helping to stabilize optimization. Experiments on KuaiRand1K and an industrial dataset show that PTDG significantly improves AUC on sparse conversion tasks by up to 1.45%, while maintaining comparable performance on dense objectives. Online A/B testing shows PTDG improves Conversion Rate (CVR) by 1.2% and effective Cost Per Mille (eCPM) by 1.9% relative to the baseline.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04862",
+    "pdf_url": "https://arxiv.org/pdf/2609.04862.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对工业推荐系统中的多任务学习信号侵蚀问题，提出了个性化任务依赖图架构，属于核心推荐技术的高优先级创新。",
+    "translation": "用于缓解多任务推荐中信号侵蚀的个性化任务依赖图",
+    "summary_zh": "提出一种个性化任务依赖图架构，通过低秩近似动态重构任务间依赖强度并结合自适应渐进掩码策略，以解决多任务推荐中因固定层级传递导致的稀疏目标信号衰减问题。",
+    "key_points": [
+      "提出一种个性化任务依赖图架构，通过低秩近似动态重构任务间依赖强度并结合自适应渐进掩码策略，以解决多任务推荐中因固定层级传递导致的稀疏目标信号衰减问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04262",
+    "title": "Low-Latency Spell Correction for Japanese Music Search Queries",
+    "authors": [
+      "Anshul Garg",
+      "Pavni Tandon",
+      "Karan Bhukar",
+      "Tanmay Khandelwal",
+      "Ujjal Kumar Dutta"
+    ],
+    "summary": "Spell correction for Japanese search queries presents unique challenges due to the co-existence of four writing scripts (Latin/romaji, hiragana, katakana, and kanji) and the distinct error patterns each script induces. We present a compact BART-based sequence-to-sequence model (3 encoder + 3 decoder layers) designed for low-latency spell correction of Japanese music search queries. The core contribution lies in a script-aware synthetic misspelling generation pipeline that produces realistic training data by combining keyboard-layout models (QWERTY and flick input), phonetic confusion priors mined from real query logs, voiced/unvoiced consonant alternations, and kana case errors. A key design decision is normalizing mixed-script catalog titles to a single canonical script before misspelling synthesis, which we show is critical for reducing model hallucinations. We train a custom byte-level BPE tokenizer on the target music catalog to handle all four scripts in a unified vocabulary. Experiments on a curated evaluation set show that our model achieves an exact-match accuracy of 41.09% and a character error rate (CER) of 11.62%, outperforming edit-distance baselines and achieving the lowest character error rate among all evaluated systems while maintaining sub-4ms inference latency on a single GPU. We further analyze performance across individual scripts and mixed-script queries, demonstrating the effectiveness of script-aware data augmentation through systematic ablation studies.",
+    "categories": [
+      "cs.SD",
+      "cs.LG",
+      "eess.AS"
+    ],
+    "published": "2026-09-02",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04262",
+    "pdf_url": "https://arxiv.org/pdf/2609.04262.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对音乐搜索场景中的拼写纠错核心环节，提出了低延迟解决方案，属于明确的搜索技术应用；虽基于 BART 模型但非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "面向日语音乐搜索查询的低延迟拼写纠错方法",
+    "summary_zh": "提出一种基于脚本感知的合成误拼生成流水线与紧凑型序列到序列模型，通过统一词汇表与规范化混合脚本目录标题，解决日语多书写系统下的音乐搜索低延迟拼写纠错问题。",
+    "key_points": [
+      "提出一种基于脚本感知的合成误拼生成流水线与紧凑型序列到序列模型，通过统一词汇表与规范化混合脚本目录标题，解决日语多书写系统下的音乐搜索低延迟拼写纠错问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04779",
+    "title": "Dynamic Heterogeneous Graph Representation Learning: A Survey",
+    "authors": [
+      "Huan Liu",
+      "Pengfei Jiao",
+      "Jie Yin",
+      "Hongjiang Chen",
+      "Zhidong Zhao"
+    ],
+    "summary": "Graph representation learning (GRL) serves as a canonical paradigm for modeling complex networks. However, real-world AI systems inherently manifest as evolving heterogeneous entities with complex interactions, posing significant challenges to static or homogeneous modeling. To address these complexities, representation learning for Dynamic Heterogeneous Graphs (DHGs) has emerged as a vital approach for learning low-dimensional representations that simultaneously preserve structural semantics and temporal dynamics. This survey presents the first systematic review of DHG representation learning methods. We first introduce a unified formal definition that encompasses both discrete-time and continuous-time DHGs from the perspective of temporal granularity. Building upon this formulation, we propose a novel algorithm-centric taxonomy that categorizes existing literature, including early embedding-based approaches, graph neural network (GNN)-based models, and relatively recent Transformer-based DHG methods, while explicitly highlighting their intrinsic modeling biases with respect to dynamic granularity. Furthermore, we summarize representative applications of DHG representation learning, along with commonly used datasets and benchmarks. Finally, we discuss promising research directions that guide future advances in this rapidly evolving field.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.SI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04779",
+    "pdf_url": "https://arxiv.org/pdf/2609.04779.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于动态异构图表示学习的综述，虽未直接针对推荐系统展开，但图神经网络是推荐召回与排序的核心技术，且来自 TAL 公司故额外加 1 分。",
+    "translation": "动态异构图表示学习：一项综述",
+    "summary_zh": "本文首次系统综述了动态异构图表示学习方法，提出了涵盖离散与连续时间粒度的统一形式化定义及以算法为中心的分类体系。",
+    "key_points": [
+      "本文首次系统综述了动态异构图表示学习方法，提出了涵盖离散与连续时间粒度的统一形式化定义及以算法为中心的分类体系"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04870",
+    "title": "CHAMP: Cross-domain Hybrid Architecture for Matchmaking and Prediction in Online Multi-Player Games",
+    "authors": [
+      "Kai Wang",
+      "Ge Fan",
+      "Chaoyun Zhang",
+      "Yuyang Jiang",
+      "Yuze Liu"
+    ],
+    "summary": "Multiplayer Online Battle Arena (MOBA) games rely on matchmaking to maintain competitive balance. Our prior work, CUPID, framed matchmaking as an assignment re-optimization problem and showed that a single-mode win-rate predictor can meaningfully rebalance teams. However, deploying such a system across diverse player populations exposes three practical bottlenecks: most queueing players lack sufficient in-mode match history (cold start), skill distributions shift drastically across rank tiers (distribution inconsistency), and extreme skill segments are severely data-starved.\n  We present CHAMP, a cross-domain matchmaking framework that resolves these deployment bottlenecks. To address data sparsity and cold starts, CHAMP replaces the target-mode-only player profile with a hybrid domain feature collection: a timestamp-ordered cross-mode short-term sequence whose slices are annotated with target-domain features, plus per-mode breakdowns of long-term, real-time and team statistics. We further propose the Domain-Aware Win-rate Network (DAWN): a Domain-aware Knowledge Extractor (DAKE) compiles target-mode attributes into learnable representations that feed Domain-Aware Temporal/Spatial/Permutation OmniNet Encoders (DATOE/DASOE/DAPOE), so that mode-conditioned representations and per-mode debiasing are learned jointly inside a single shared network. Online, one trained DAWN serves every supported mode, with per-mode position-satisfaction thresholds as the only mode-specific knob.\n  Offline, DAWN achieves 67.73% win-rate prediction accuracy, outperforming all evaluated attention and sequence baselines. Online A/B tests across the entire League ladder of a large-scale MOBA game, from novice players up to the top-expert players served by Elite Mode, demonstrate consistent drops in imbalanced matches. For lower-tier players, CHAMP reduces the 5-minute kill crushing rate by up to 20.73%.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04870",
+    "pdf_url": "https://arxiv.org/pdf/2609.04870.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文专注于游戏匹配系统（Matchmaking），虽涉及排序和预测，但属于特定垂直领域而非通用推荐/搜索核心架构，且非电商/社交场景；尽管来自中国公司加 1 分，但仍属边缘相关。",
+    "translation": "CHAMP：面向在线多人游戏的跨域混合匹配与预测架构",
+    "summary_zh": "提出一种跨域混合架构 CHAMP，通过融合跨模式序列特征和域感知网络，解决游戏匹配中的数据稀疏、冷启动及分布不一致问题。",
+    "key_points": [
+      "提出一种跨域混合架构 CHAMP，通过融合跨模式序列特征和域感知网络，解决游戏匹配中的数据稀疏、冷启动及分布不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04715",
+    "title": "PLUME: Parameter-Efficient Personalization of Large Language Models via Low-Rank User Modulation in Shared Subspaces",
+    "authors": [
+      "Xinyu Li",
+      "Hao Zhou",
+      "Jianfeng Zhu",
+      "Julina Maharjan",
+      "Ruixin Guo",
+      "Feodor Dragan",
+      "Ruoming Jin"
+    ],
+    "summary": "Personalizing large language models (LLMs) is essential for delivering AI assistance that aligns with individual users' styles, intents, and preferences. While per-user fine-tuning can substantially enhance personalization quality, it introduces significant parameter and storage overhead, limiting scalability to large user populations. We propose PLUME (Personalized Low-Rank Adaptation through User Modulation and Shared Subspace), a lightweight framework that achieves efficient and expressive per-user adaptation by leveraging a shared task-specific subspace. Specifically, PLUME first learns a global task subspace from aggregated user data. Personalization is then achieved by training only a lightweight small square matrix within this subspace, enabling each user to obtain a tailored model while keeping shared components fixed. Cross-layer shared parameters and rank-1 residual terms are further introduced to significantly reduce redundancy while maintaining expressiveness. Experiments on multiple personalized text generation benchmarks demonstrate that PLUME achieves comparable or superior performance to strong baselines, while reducing per-user parameters by over 95%. These results establish shared-subspace modulation with minimal residuals as a scalable and semantically grounded approach to LLM personalization.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04715",
+    "pdf_url": "https://arxiv.org/pdf/2609.04715.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 个性化微调研究，虽提及用户偏好但未针对推荐/搜索核心链路（召回、排序等），即使加上中国公司背景加分，仍缺乏直接的 RecSys 应用场景。",
+    "translation": "PLUME：通过共享子空间低秩用户调制实现大语言模型的高效参数个性化",
+    "summary_zh": "提出一种基于共享任务子空间和低秩残差项的轻量级框架，仅需训练极少量参数即可实现大语言模型对单个用户风格和偏好的高效适配。",
+    "key_points": [
+      "提出一种基于共享任务子空间和低秩残差项的轻量级框架，仅需训练极少量参数即可实现大语言模型对单个用户风格和偏好的高效适配"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04647",
+    "title": "CAGE: Coherence-Aware Graph Encoding for Retrieval-Augmented Generation",
+    "authors": [
+      "Tong Qi",
+      "Jingyu Wu",
+      "Youbing Yin",
+      "Spencer Hong",
+      "Daben Liu",
+      "Erin Babinsky"
+    ],
+    "summary": "Traditional Retrieval-Augmented Generation (RAG) systems score each passage independently against the query, assembling context sets that may be individually relevant yet collectively incoherent. We introduce Coherence-Aware Graph Encoding (CAGE), a reranking framework that models \"between-chunk coherence\" across four dimensions: Intra-Domain Relevance, Noise Resistance, Informational Bonding, and Factual Consistency. Our pipeline transforms retrieved passages into directed heterogeneous entity graphs, amplifies factual anchors via min-out-degree reweighting, encodes structural patterns through a Relational Graph Convolutional Network, and fuses inter-chunk coherence with query relevance for final ranking. Evaluated across four multi-hop benchmarks, CAGE matches or outperforms strong baselines including monoT5 in Recall@5 on bridge-dominated datasets and consistently improves downstream Exact Match, demonstrating that structurally coherent context yields more precise answers even when retrieval recall is comparable or lower.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04647",
+    "pdf_url": "https://arxiv.org/pdf/2609.04647.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/RAG 研究，专注于提升问答系统的上下文连贯性，未涉及推荐系统或搜索引擎的核心业务场景（如电商、信息流），虽经中国公司加分但仍属弱相关。",
+    "translation": "CAGE：面向检索增强生成的感知连贯性图编码",
+    "summary_zh": "提出一种基于异构图编码的重排序框架，通过建模片段间的领域相关性、噪声抵抗及事实一致性等维度，解决检索内容集体不连贯的问题。",
+    "key_points": [
+      "提出一种基于异构图编码的重排序框架，通过建模片段间的领域相关性、噪声抵抗及事实一致性等维度，解决检索内容集体不连贯的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04767",
+    "title": "Shadow Queries for Private Retrieval in Vector Databases",
+    "authors": [
+      "Xinguo Feng",
+      "Zhongkui Ma",
+      "Zihan Wang",
+      "Chuan Yan",
+      "Guowei Yang",
+      "Alsharif Abuadbba",
+      "Guangdong Bai"
+    ],
+    "summary": "Large language models (LLMs) increasingly rely on information retrieval (IR) systems, such as Retrieval-Augmented Generation (RAG), to incorporate domain-specific knowledge without costly re-training. These systems often store pre-computed document embeddings in cloud-based vector databases. However, such embeddings are vulnerable to embedding inversion attacks (EIAs), which can reconstruct their underlying text. Existing defenses, such as adding noise or scaling embeddings, often provide limited privacy or significantly reduce retrieval utility.\n  We propose SHAQ (shadow query generation), a semantic-decomposition and embedding-decoupling defense against EIAs. SHAQ is based on the insight that EIAs rely on the strong coupling between an embedding and its original text. Instead of storing document embeddings directly, SHAQ uses a generative language model to create diverse shadow queries that capture different semantic aspects of each document. These queries are then encoded and stored in place of the original document embeddings, thereby decomposing document semantics and decoupling stored embeddings from the source text.\n  Experiments across diverse IR datasets show that SHAQ substantially improves privacy while preserving retrieval utility, achieving a recovery rate as low as 0.2104, defending up to 19.50% more tokens than baseline defenses, and reaching up to 0.7967 MAP@10 with up to 5.53% utility improvement. These results demonstrate that semantic decomposition and embedding decoupling provide an effective alternative to directly modifying embeddings for defending against EIAs.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04767",
+    "pdf_url": "https://arxiv.org/pdf/2609.04767.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于向量数据库的隐私防御（纯 IR/安全方向），虽提及 RAG 背景但未涉及推荐/搜索核心业务逻辑或用户建模，属于弱相关的基础设施研究。",
+    "translation": "面向向量数据库隐私检索的影子查询方法",
+    "summary_zh": "提出 SHAQ 方法，通过生成多样化影子查询替代原始文档嵌入，实现语义分解与嵌入解耦以防御嵌入反转攻击。",
+    "key_points": [
+      "提出 SHAQ 方法，通过生成多样化影子查询替代原始文档嵌入，实现语义分解与嵌入解耦以防御嵌入反转攻击"
+    ]
+  },
+  {
+    "arxiv_id": "2608.30130",
+    "title": "E-SENS: Exclusion-Sensitive Penalization for Negative-Constraint Retrieval",
+    "authors": [
+      "Yerang Kim",
+      "Jiyoon Myung",
+      "Joohyung Han"
+    ],
+    "summary": "Retrieval-augmented language models can fail to respect negative constraints when the retriever supplies evidence about concepts the user explicitly excluded. Beyond explicit negation, queries may ask for answers that include one concept while excluding another, or for entities that belong to a category but differ from a closely related instance. Because the excluded concept still appears in the query text, dense retrievers may assign high similarity to documents about that concept even when the user asks to avoid it. We introduce E-SENS, a training-free reranking method for negation-sensitive retrieval. E-SENS extracts a compact trap query for the excluded side and subtracts trap-query similarity from the original-query retrieval score. On ExcluIR, E-SENS shows a clear recall-violation trade-off across four embedding models and reduces trap retrieval at recall-preserving settings.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2608.30130",
+    "pdf_url": "https://arxiv.org/pdf/2608.30130.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP/检索增强生成（RAG）研究，专注于解决语言模型中的负约束问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "E-SENS：用于负约束检索的排除敏感惩罚机制",
+    "summary_zh": "提出一种无需训练的重新排序方法 E-SENS，通过提取并减去“陷阱查询”的相似度得分，解决密集检索器在用户明确排除特定概念时仍返回相关文档的问题。",
+    "key_points": [
+      "提出一种无需训练的重新排序方法 E-SENS，通过提取并减去“陷阱查询”的相似度得分，解决密集检索器在用户明确排除特定概念时仍返回相关文档的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04738",
+    "title": "Aplaud: Adaptive Personalized Low-Rank Decomposition for User-Specific LLM",
+    "authors": [
+      "Xinyu Li",
+      "Ruoming Jin",
+      "Jianfeng Zhu",
+      "Ruixin Guo",
+      "Zhi Liu"
+    ],
+    "summary": "In this paper, we study the problem of personalized survey response prediction using fine-tuned large language models (LLMs). This task poses unique challenges: limited per-user training data, scalability of model storage, and the need to exploit shared structure across survey questions. To address these issues, we propose Aplaud (Adaptive Personalized Low-rank and User-specific Nested Decomposition), a lightweight and scalable framework for LLM personalization. Aplaud extends the LoRA paradigm by separating adaptation into a frozen, shared low-rank basis and a compact user-specific correction, augmented with a rank-one residual for finer personalization. To further reduce per-user parameter cost and mitigate overfitting, the correction matrix can be factorized into an even lower-rank form. Empirical results demonstrate that Aplaud achieves efficient, scalable personalization across users while outperforming state-of-the-art LoRA-based personalized LLM approaches in both generalization and inference efficiency.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04738",
+    "pdf_url": "https://arxiv.org/pdf/2609.04738.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于问卷调查预测这一纯 NLP/LLM 微调任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、信息流），属于纯 LLM 研究，虽来自中国公司但相关性极低。",
+    "translation": "Aplaud：面向用户特定大模型的自适应个性化低秩分解",
+    "summary_zh": "提出一种基于低秩分解的轻量级框架，通过分离共享基底与用户特定修正矩阵，解决大模型在少数据场景下的个性化微调与存储扩展问题。",
+    "key_points": [
+      "提出一种基于低秩分解的轻量级框架，通过分离共享基底与用户特定修正矩阵，解决大模型在少数据场景下的个性化微调与存储扩展问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.04304",
+    "title": "Iris: Climbing to the Search Frontier",
+    "authors": [
+      "Ziyuan Liu",
+      "Hengqi Liu",
+      "Zichuan Wang",
+      "Yang Qin",
+      "Jiachen Liang",
+      "Xu Chu",
+      "Shaowei Chen",
+      "Yuantao Gu",
+      "Mu Chuan"
+    ],
+    "summary": "We present Iris-mini and Iris-pro, two search agents trained at the 35B-A3B and 397B-A17B scales, together with the data pipeline and training recipe behind them. Tasks are reverse-constructed from the hyperlink structure of a web corpus: we author multi-hop chains over an entity graph distilled from a seed page and its out-links, rewrite every non-answer entity into a descriptive reference so that no clue can be resolved by string matching, and admit only questions that a reference model fails closed-book yet solves once the supporting evidence is supplied. These questions are then turned into trajectories, which are filtered at both the trajectory and the turn level before SFT. The policy is then optimized by RL against live search, with the reward judge and the observation summarizer served inside the training cluster, and with over-long rollouts interrupted at the request level and resumed from their committed prefix at the next step. We alternate the two stages in a procedure we call SFT-RL climbing, returning the hardest solved and most efficient rollouts of each RL round to the next supervised pass. Because inference-time context management is worth more on these benchmarks than most reported differences between systems, we evaluate every benchmark both with and without it, holding the tool set, the context limit, and the judge fixed. All results come from a single ReAct agent, with no sub-agents and no test-time verification. With management enabled, on BrowseComp, BrowseComp-ZH, DeepSearchQA, and HLE the two models reach $82.2/84.8/86.9/52.3$ and $88.6/85.1/92.9/56.4$, the strongest overall results among open-source search agents in their respective parameter ranges. We plan to release the model weights together with the complete recipe for data construction, training, and evaluation.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-03",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.04304",
+    "pdf_url": "https://arxiv.org/pdf/2609.04304.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 智能体（Agent）研究，专注于通用网页搜索和问答任务，未涉及推荐系统、广告或电商/社交平台的个性化搜索场景。",
+    "translation": "Iris：攀登搜索前沿",
+    "summary_zh": "提出一种基于 SFT-RL 交替训练的搜索智能体框架，通过从网页超链接结构逆向构建多跳推理数据来优化模型在复杂搜索任务中的表现。",
+    "key_points": [
+      "提出一种基于 SFT-RL 交替训练的搜索智能体框架，通过从网页超链接结构逆向构建多跳推理数据来优化模型在复杂搜索任务中的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2609.01933",
+    "title": "OR-Transformer: Scaling Real-Time Decision-Making to 1,000 Items",
+    "authors": [
+      "Shuze Daniel Liu",
+      "David Simchi-Levi",
+      "Claire Chen",
+      "Chutong Gao",
+      "Shangtong Zhang"
+    ],
+    "summary": "Modern supply chain operations can require coordinating replenishment across thousands of heterogeneous items under correlated stochastic demand, heterogeneous lead times, and shared fixed ordering costs, yielding observation spaces exceeding $10^4$ dimensions. At this scale, rolling-horizon stochastic mixed-integer linear programs (MILPs) become prohibitively slow, while standard reinforcement learning (RL) methods face increasingly challenging credit assignment in high-dimensional action spaces. We introduce OR-Transformer, a deep reinforcement learning framework for joint replenishment under stochastic demand, with an item-permutation-equivariant Transformer architecture and pathwise-gradient training through the inventory dynamics. Across problem sizes up to 1,024 inventory items, OR-Transformer increasingly outperforms learning-based and rolling-horizon MILP baselines as scale grows. It also reduces online decision-making time by over 4 million times relative to MILP solvers, enabling real-time, large-scale deep RL in supply chain operations.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-09-04",
+    "updated": "2026-09-07",
+    "url": "https://arxiv.org/abs/2609.01933",
+    "pdf_url": "https://arxiv.org/pdf/2609.01933.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯供应链库存管理的强化学习论文，与推荐系统或搜索引擎的核心业务（召回、排序、用户建模）完全无关；虽来自中国公司，但因领域不匹配无法获得加分。",
+    "translation": "OR-Transformer：将实时决策扩展至千级物品规模",
+    "summary_zh": "提出一种基于排列等变 Transformer 架构的深度强化学习框架，通过路径梯度训练解决大规模随机需求下的联合补货决策难题。",
+    "key_points": [
+      "提出一种基于排列等变 Transformer 架构的深度强化学习框架，通过路径梯度训练解决大规模随机需求下的联合补货决策难题"
+    ]
+  }
+]

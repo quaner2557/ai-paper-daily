@@ -1,0 +1,516 @@
+[
+  {
+    "arxiv_id": "2502.01555",
+    "title": "Query Brand Entity Linking in E-Commerce Search",
+    "authors": [
+      "Dong Liu",
+      "Sreyashi Nag"
+    ],
+    "summary": "Associating user search queries with the correct brand entity is critical for e-commerce product retrieval, yet remains challenging due to the brevity of queries (three to four words on average), their lack of grammatical structure, and a catalog of hundreds of thousands of distinct brands. We formulate this as a brand entity linking task and develop two complementary solutions deployed at scale: (1) a cascaded pipeline that first detects brand mentions via sequence labeling and then disambiguates against a brand knowledge base, and (2) a single-stage approach that frames linking as extreme multiclass classification, directly mapping queries to brand identifiers. Through extensive multilingual evaluation (11 languages) and a controlled online experiment, we demonstrate that the proposed methods substantially improve brand recall while maintaining high precision, leading to measurable gains in customer engagement.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2502.01555",
+    "pdf_url": "https://arxiv.org/pdf/2502.01555.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决电商搜索中的核心实体链接问题，提出了具体的级联和单阶段架构并已在大规模系统中部署，完全符合高优先级标准；且来自中国公司，按规定额外 +1 分（原基础分 9 分）。",
+    "translation": "电商搜索中的查询品牌实体链接",
+    "summary_zh": "针对电商搜索查询简短且缺乏语法的挑战，提出级联流水线（序列标注加消歧）与单阶段极端多分类两种方案，将用户查询直接映射至品牌知识库以实现精准实体链接。",
+    "key_points": [
+      "针对电商搜索查询简短且缺乏语法的挑战，提出级联流水线（序列标注加消歧）与单阶段极端多分类两种方案，将用户查询直接映射至品牌知识库以实现精准实体链接"
+    ]
+  },
+  {
+    "arxiv_id": "2607.27647",
+    "title": "LoopMemGR: From Behavior Logs to Evolving Memory for Generative Recommendation",
+    "authors": [
+      "Hui Qian",
+      "Changfa Wu",
+      "Chang Liu",
+      "Binbin Cao",
+      "Jian Wu",
+      "Yuliang Yan",
+      "Han Zhu",
+      "Bo Zheng",
+      "Shiye Wang"
+    ],
+    "summary": "Generative recommendation formulates next-item prediction as conditional autoregressive generation over discrete Semantic IDs, enabling end-to-end recommendation over large-scale item spaces. However, most existing methods follow a history-as-context paradigm that repeatedly reconstructs user preference from behavior history while discarding system-side recommendation decisions after each request. This creates an asymmetric memory: the system remembers what the user has done, but not what it has previously recommended or learned from the resulting feedback. Consequently, useful preference-validation signals, potential negative evidence, and historical exploration information cannot be directly reused across requests. To address these limitations, we propose LoopMemGR, a closed-loop recommendation experience memory framework for generative recommendation. In addition to the conventional behavior log, LoopMemGR maintains a recommendation experience log that records past recommendation--feedback trajectories. It extracts request-relevant evidence through three complementary views: the recency view captures short-term interaction dynamics, the frequency view summarizes recurring recommendation patterns, and the global view distills transferable regularities shared across users. These signals are compressed into a fixed number of experience tokens to condition the generative backbone under a bounded input budget. Extensive experiments on an industrial Taobao dataset demonstrate the effectiveness of closed-loop experience accumulation and multi-view experience extraction.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2607.27647",
+    "pdf_url": "https://arxiv.org/pdf/2607.27647.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "AlibabaGroup AlibabaGroup InstituteofComputingTechnology,"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商（淘宝）场景下的生成式推荐系统，提出了利用闭环经验记忆解决不对称记忆问题的新架构，完全符合核心领域进展且来自工业界。",
+    "translation": "LoopMemGR：从行为日志到演化记忆的生成式推荐框架",
+    "summary_zh": "提出一种闭环推荐经验记忆框架，通过记录并利用过去的推荐 - 反馈轨迹，从近期、频率和全局三个视图提取证据以增强生成式推荐的条件输入。",
+    "key_points": [
+      "提出一种闭环推荐经验记忆框架，通过记录并利用过去的推荐 - 反馈轨迹，从近期、频率和全局三个视图提取证据以增强生成式推荐的条件输入"
+    ]
+  },
+  {
+    "arxiv_id": "2608.15877",
+    "title": "Dear Algo: A Precision-First Agentic Intent Layer for Unified Search and Recommendation",
+    "authors": [
+      "Rui Wang",
+      "Jiazhou Wang",
+      "Zheng Wei",
+      "Chenglin Lu",
+      "Fangcheng Sun",
+      "Ivy Sun",
+      "Jin Sun",
+      "Hui Geng",
+      "Lillian Zhang",
+      "Chao Yang",
+      "Lei Chen",
+      "Shahin Sefati",
+      "Reem Helou",
+      "Joe Zhou",
+      "Babak Shakibi",
+      "Yiyi Pan",
+      "Bi Xue",
+      "Hong Yan",
+      "Shujian Bu"
+    ],
+    "summary": "Search and recommendation serve a shared discovery objective but encode intent differently. We study this boundary through Dear Algo on Threads, a deployed product where open-ended requests such as \\emph{more NBA news} or \\emph{less politics} steer subsequent feed recommendations rather than return a one-shot result list. Its agentic intent layer compiles explicit, inferred, negative, and compound intent into a grounded executable plan, then invokes conventional retrieval and optional semantic or multimodal reranking. The layer shares an intent-to-retrieval contract without requiring one model or serving path across search-like and recommendation-like modes.\n  We evaluate Dear Algo under a precision-first objective. In a blinded audit of 300 public request-item pairs (296 evaluable), a strict categorical LLM-as-a-judge gate achieved 94.4\\% exact-Relevant precision [88.8\\%, 98.9\\%]. Across 72 normalized request clusters, the full configuration produced 7.73 judge-qualified candidates per 20 slots versus 6.61 for an LLM-derived-query baseline, a gain of 1.11 [0.12, 2.12]. In a candidate-randomized serving-path study restricted to the reranker path's first 72 eligible hours, the user-weighted judge-Irrelevant share among judged admissions was 2.80\\% versus 4.78\\% off (-1.97 points [-3.02, -0.94]), while Exact-Relevant share was 2.24 points higher [0.08, 4.41].\n  Together, these studies show how explicit natural-language intent can be carried into feed recommendation under a precision-first evaluation framework",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2608.15877",
+    "pdf_url": "https://arxiv.org/pdf/2608.15877.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对搜索与推荐的统一架构，提出了基于代理意图层（Agentic Intent Layer）解决用户显式意图引导信息流推荐的实际问题，属于核心领域的高优先级创新。",
+    "translation": "Dear Algo：面向统一搜索与推荐的精度优先代理意图层",
+    "summary_zh": "提出一种代理意图层，将用户的自然语言显式意图编译为可执行计划，以统一驱动搜索和推荐系统的检索与重排序过程。",
+    "key_points": [
+      "提出一种代理意图层，将用户的自然语言显式意图编译为可执行计划，以统一驱动搜索和推荐系统的检索与重排序过程"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09551",
+    "title": "An Efficient and Effective Agentic Group Shilling Attack on Recommender Systems",
+    "authors": [
+      "Quoc Viet Nguyen",
+      "Trinh Pham",
+      "Viet Huynh",
+      "Hongzhi Yin",
+      "Quoc Viet Hung Nguyen",
+      "Bay Vo",
+      "Thanh Tam Nguyen"
+    ],
+    "summary": "Recommender systems have become core infrastructure for modern online platforms, personalizing content at scale and strongly influencing what users see, click on, and purchase. However, this dependence on user interaction also exposes them to shilling attacks, where malicious actors can inject fake profiles to distort item rankings and control visibility. Existing attacks often rely on target-specific fine-tuning or fixed profile templates, making them either difficult to adapt to different victims or easier to detect. To overcome these limitations, we propose the Agentic Group Attack System (AGAS), a coordinated shilling framework where a central Coordinator directs a group of role-switching worker agents to adaptively promote a target item across different victim families. The Coordinator dynamically adjusts the strategy when progress stalls or suppression signals increase, while workers pursue a shared objective and switch between active and inactive roles to avoid repetitive patterns. Under the same attack budgets and evaluation protocols, AGAS consistently surpasses strong baselines in target promotion while better preserving benign recommendation quality, weakening representative detectors, and achieving higher efficiency than prior attacks. These findings also emphasize that defending recommender systems may require mechanisms that can handle adaptive shilling campaigns, not just isolated fake-profile injections. Our code is available at https://github.com/phkhanhtrinh23/AGAS.",
+    "categories": [
+      "cs.CR",
+      "cs.CL"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09551",
+    "pdf_url": "https://arxiv.org/pdf/2609.09551.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统的安全性与鲁棒性（抗注入攻击），提出了基于多智能体协作的新型攻击框架，属于推荐系统核心领域研究，且来自中国公司，符合最高优先级标准。",
+    "translation": "一种高效且有效的针对推荐系统的代理群体注入攻击方法",
+    "summary_zh": "提出了一种名为 AGAS 的协同注入攻击框架，通过中央协调器指挥多个角色切换的智能体，自适应地调整策略以在推荐系统中推广目标物品并规避检测。",
+    "key_points": [
+      "提出了一种名为 AGAS 的协同注入攻击框架，通过中央协调器指挥多个角色切换的智能体，自适应地调整策略以在推荐系统中推广目标物品并规避检测"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09685",
+    "title": "ALIGN-HOLD: Experience Alignment for Real-Time Hold Control in Large-Scale Ride-Hailing Matching at DiDi",
+    "authors": [
+      "Zuhao Zhang",
+      "Xu Liu",
+      "Kai Wan",
+      "Zihao Lu",
+      "Li Ma",
+      "Shuai Li"
+    ],
+    "summary": "Real-time hold control is a high-leverage mechanism in large-scale ride-hailing systems: by selectively deferring driver-order pairs, the platform can wait for better matching opportunities and improve end-to-end passenger-driver experience. Existing production systems such as EXHOLD learn bandit-based hold policies from handcrafted combinations of trip completion, cancellations, waiting time, and driver effort. However, designing such rewards becomes increasingly difficult as marketplace preferences are heterogeneous and observed passenger-driver behavior can be sparse, noisy, and affected by dynamic supply-demand conditions.\n  We present ALIGN-HOLD, a production-scale experience alignment framework that learns hold policy from implicit marketplace preferences. ALIGN-HOLD constructs complementary preference pairs from order trajectories, driver trajectories, and contemporaneous local matching graphs, and trains an experience Reward Model (RM) using balanced multi-view sampling and model-adaptive hard preference sampling. During simulator-based policy learning, the frozen RM provides a dense, context-dependent reward and supports label-free filtering of low-identifiability interactions whose behavioral feedback is difficult to attribute to matching quality.\n  We deploy ALIGN-HOLD on DiDi's ride-hailing platform and evaluate it in a 28-day randomized A/B experiment, covering approximately 100,000 passenger requests per day. Compared with the deployed production policy, ALIGN-HOLD achieves statistically significant improvements in trip completion rate and driver income, while significantly reducing passenger cancellations before and after driver acceptance. Complementary ablations, RM diagnostics, and behavioral analyses validate the contributions of the proposed components. ALIGN-HOLD has been fully ramped up and is currently serving DiDi's Brazil marketplace.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09685",
+    "pdf_url": "https://arxiv.org/pdf/2609.09685.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接解决滴滴（本地生活）大规模实时匹配中的核心‘挂单控制’问题，提出基于经验对齐的奖励模型学习框架，属于高优先级的工业界推荐/搜索核心技术创新，且来自中国公司加 2 分后满分。",
+    "translation": "ALIGN-HOLD：滴滴大规模网约车匹配中用于实时挂单控制的体验对齐方法",
+    "summary_zh": "提出一种生产级体验对齐框架，通过构建多视图偏好对训练奖励模型，从隐式市场偏好中学习实时挂单策略以优化供需匹配质量。",
+    "key_points": [
+      "提出一种生产级体验对齐框架，通过构建多视图偏好对训练奖励模型，从隐式市场偏好中学习实时挂单策略以优化供需匹配质量"
+    ]
+  },
+  {
+    "arxiv_id": "2602.14706",
+    "title": "Adaptive Autoguidance for Item-Side Fairness in Diffusion Recommender Systems",
+    "authors": [
+      "Zihan Li",
+      "Gustavo Escobedo",
+      "Marta Moscati",
+      "Oleg Lesota",
+      "Markus Schedl"
+    ],
+    "summary": "Diffusion recommender systems achieve strong recommendation accuracy but often suffer from popularity bias, resulting in unequal item exposure. To address this shortcoming, we introduce A2G-DiffRec, a diffusion recommender that incorporates adaptive autoguidance, where the main model is guided by a less-trained version of itself. Instead of using a fixed guidance weight, A2G-DiffRec learns to adaptively weigh the outputs of the main and weak models during training, supervised by a fairness-aware regularization that promotes balanced exposure across items with different popularity levels. Experimental results on three public datasets show that A2G-DiffRec is effective in enhancing item-side fairness at a marginal cost of accuracy reduction compared to existing guided diffusion recommenders and other non-diffusion baselines.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-24",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2602.14706",
+    "pdf_url": "https://arxiv.org/pdf/2602.14706.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的扩散模型进行改进，解决了物品侧公平性和流行度偏差这一核心业务问题，属于 RecSys 核心领域创新；虽涉及生成模型，但非纯 LLM 研究，且来自 TAL 公司，符合加分条件。",
+    "translation": "扩散推荐系统中用于物品侧公平性的自适应自动引导机制",
+    "summary_zh": "提出一种自适应自动引导策略，通过主模型与弱模型的动态加权及公平性正则化，在扩散推荐系统中平衡不同流行度物品的曝光率以缓解流行度偏差。",
+    "key_points": [
+      "提出一种自适应自动引导策略，通过主模型与弱模型的动态加权及公平性正则化，在扩散推荐系统中平衡不同流行度物品的曝光率以缓解流行度偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09716",
+    "title": "Scaling E-Commerce Attribute Extraction with Parallel Decoding",
+    "authors": [
+      "Nikhita Vedula",
+      "Dushyanta Dhyani",
+      "Bryan Wang",
+      "Shervin Malmasi"
+    ],
+    "summary": "Customers rely on specific product attributes to compare products and make purchasing decisions, but e-commerce catalogs are messy and unstructured, making it difficult to identify which attributes matter most and extract them at scale. Standard Attribute Value Extraction (AVE) systems treat all attributes equally, producing large, inconsistent attribute sets that do not reflect the factors consumers use to differentiate products. We introduce a two-stage LLM pipeline that first discovers a compact, ranked schema of purchase-discriminative attributes for each product category, then extracts their values from catalog text using a fine-tuned compact LLM (Qwen3-4B) with Hyper-Parallel Decoding (HPD). This pipeline achieves 85% extraction accuracy, on par with the foundational LLM it was distilled from, while reducing inference costs by 92% over foundational LLMs, enabling production-scale use for product discovery and catalog enrichment. The resulting category-level structured representations effectively constitute automatically constructed product knowledge bases, providing consistent, comparable attributes across varied product categories that can ground downstream knowledge-intensive applications.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09716",
+    "pdf_url": "https://arxiv.org/pdf/2609.09716.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决电商搜索与推荐中的核心属性抽取难题，利用 LLM 构建结构化商品知识库以增强下游应用，符合电商 +LLM+ 搜索的高优先级标准；虽涉及 LLM 技术，但应用场景明确为电商目录 enrichment，非纯 LLM 研究。",
+    "translation": "利用并行解码扩展电商属性抽取",
+    "summary_zh": "提出一种两阶段 LLM 流水线，先发现区分购买决策的关键属性模式，再利用超并行解码技术从非结构化目录文本中高效提取属性值，构建一致的商品知识库以支撑下游搜索与推荐应用。",
+    "key_points": [
+      "提出一种两阶段 LLM 流水线，先发现区分购买决策的关键属性模式，再利用超并行解码技术从非结构化目录文本中高效提取属性值，构建一致的商品知识库以支撑下游搜索与推荐应用"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09187",
+    "title": "AgenticGen: Reward-Guided Agentic Video Generation for Advertising",
+    "authors": [
+      "Xingyuan Bu",
+      "Chengru Song",
+      "Hao Zhou",
+      "Tao Zhou",
+      "Dong Li",
+      "Wei Li",
+      "Shilong Li",
+      "Hao Shi",
+      "Yongxin Guo",
+      "Donghao Zhou",
+      "Qiangpeng Yang",
+      "Shilei Wen"
+    ],
+    "summary": "Advertising video generation is not only a video synthesis task, but also a product-conditioned reasoning problem whose success is measured by online business metrics. Recent video foundation models can generate realistic clips from multimodal conditions, yet they do not optimize how a product should be transformed into an effective advertisement or how future generation should be improved from online business feedback. To close this loop, we propose AgenticGen, a reward-guided agentic framework that decomposes advertising video generation into two trainable reasoning stages, strategy selection and draft generation, thereby exposing optimization targets that online business feedback can supervise. AgenticGen learns a performance-based reward from accumulated online feedback and a complementary rubric-based reward aligned with human quality standards, then uses them to supervise policy optimization. DPO first moves the agentic policies toward online preferences, and GRPO further refines both stages with process and outcome rewards. Offline experiments validate the reward models and successive policy optimization. Online A/B experiments in the TikTok advertising system show that AgenticGen after DPO and GRPO improves CTR by 2.72%, CVR by 2.63%, and Advv by 9.61% over the SFT baseline.",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-08-31",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09187",
+    "pdf_url": "https://arxiv.org/pdf/2609.09187.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "ByteDance",
+      "TikTok"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "1ByteDance, 2TsinghuaUniversity, 3TheChineseUniversityofHongKong"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告视频生成这一核心推荐/搜索场景，利用在线业务反馈（CTR/CVR）优化生成策略，属于 LLM/Agent 在 Ads 领域的直接高价值应用。",
+    "translation": "AgenticGen：面向广告的奖励引导式代理视频生成框架",
+    "summary_zh": "提出一种将广告视频生成分解为策略选择与草稿生成的双阶段代理框架，通过融合在线业务反馈与人工标准的奖励模型，利用 DPO 和 GRPO 算法直接优化生成策略以提升广告转化效果。",
+    "key_points": [
+      "提出一种将广告视频生成分解为策略选择与草稿生成的双阶段代理框架，通过融合在线业务反馈与人工标准的奖励模型，利用 DPO 和 GRPO 算法直接优化生成策略以提升广告转化效果"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09854",
+    "title": "When Does Low-Bit Quantization Preserve the Decisions of Vector Search?",
+    "authors": [
+      "Wenxuan Xiao",
+      "Xu Cao"
+    ],
+    "summary": "Low-bit quantization can achieve high recall on some vector representations and fail sharply on others, while average distortion and global rank correlation do not explain the difference. We study quantized vector search at the level of the comparisons consumed by ranking and graph-pruning algorithms. Our first result is a distribution-free decomposition: the probability that a comparison flips is bounded by the probability mass of exact margins near zero plus the tail probability of the calibrated residual. We then account for dependence between residuals that share a query or graph node, and derive covariance-aware second-moment identities and tail bounds under a joint MGF proxy. For a frozen candidate permutation, we prove a deterministic coupling theorem for Vamana neighbour selection: the approximate replay returns the exact neighbour list exactly when all candidate-level pruning actions agree on the frozen exact states. We connect these results to representation geometry through an exact Gaussian oracle, establish a strict correlation gain from a deterministic magnitude bit in an aligned bilinear model, and give a rare-contamination construction showing why marginal Gaussian diagnostics do not imply the required residual tails. When analytical assumptions are unavailable, a held-out block certificate bounds the selective failure risk of a frozen quantized rule. Across learned, classical, and synthetic embeddings, standardized exact margins predict held-out ranking and pruning flip rates substantially better than global rank correlation. The framework applies to coordinate binary codes, RaBitQ, Lucene BBQ, and product quantizers through a common decision interface.",
+    "categories": [
+      "cs.DB",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09854",
+    "pdf_url": "https://arxiv.org/pdf/2609.09854.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "本文直接研究向量搜索（召回核心环节）中的低比特量化决策保持问题，提出了保障排序和剪枝准确性的理论框架，属于明确的搜索核心技术；虽含大量理论推导，但紧扣搜索系统实际痛点，且来自中国公司，故给予高分。",
+    "translation": "低比特量化何时能保持向量搜索的决策一致性？",
+    "summary_zh": "本文提出了一种无分布分解框架，通过分析精确边界概率和残差尾部界限，从理论上保证了低比特量化在向量搜索的排序比较与图剪枝过程中的决策一致性。",
+    "key_points": [
+      "本文提出了一种无分布分解框架，通过分析精确边界概率和残差尾部界限，从理论上保证了低比特量化在向量搜索的排序比较与图剪枝过程中的决策一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09569",
+    "title": "Reproducing Omitted Temporal Expressions in Japanese News for Retrieval-Augmented Applications",
+    "authors": [
+      "Tomoaki Yasuda",
+      "Shotaro Ishihara"
+    ],
+    "summary": "News articles often contain omitted temporal expressions, such as day-only or month-only mentions, which must be interpreted with reference to the publication date. When such articles are indexed or processed as standalone text in search and retrieval-augmented generation (RAG) systems, these omissions can cause temporal mismatches and unstable interpretation by large language models. We focus on reproducing omitted temporal expressions as concrete dates or intervals using the publication date as external context before the articles are indexed for search and RAG applications. Specifically, building on established temporal-expression extraction and normalization techniques and informed by a manual analysis of Japanese news articles, we propose jaROTE, a rule-based pipeline for Japanese news. Experiments on two news corpora demonstrate that jaROTE achieves high performance, and remains competitive with LLMs while providing a fast, low-cost pipeline. We further show that temporal reproduction improves time-constrained lexical retrieval, demonstrating the practical value of publication-date-grounded normalization for Japanese news retrieval.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09569",
+    "pdf_url": "https://arxiv.org/pdf/2609.09569.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文针对搜索和 RAG 系统中的时间表达式缺失问题提出预处理方案，虽非核心推荐算法创新，但明确解决了检索增强应用中的具体痛点，属于有潜力的搜索辅助技术。",
+    "translation": "面向检索增强应用的日语新闻省略时间表达式还原研究",
+    "summary_zh": "提出一种基于规则的流水线方法，利用发布日期作为外部上下文，在索引前自动还原日语新闻中省略的时间表达式为具体日期或区间，以解决检索系统中的时间错配问题。",
+    "key_points": [
+      "提出一种基于规则的流水线方法，利用发布日期作为外部上下文，在索引前自动还原日语新闻中省略的时间表达式为具体日期或区间，以解决检索系统中的时间错配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09835",
+    "title": "HyperTrace: Hypothesis-Based Preference Tracing for Online LLM Personalization",
+    "authors": [
+      "Jianzhi Shen",
+      "Keyu Mao",
+      "Minghao Shao",
+      "Chuanyang Jin",
+      "Yusong Wang",
+      "Ailiang Lin",
+      "Kotaro Funakoshi",
+      "Manabu Okumura",
+      "Tianmin Shu",
+      "Muhammad Shafique"
+    ],
+    "summary": "Personalized language models aim to adapt responses to individual users, whose preferences are often latent and revealed gradually through interaction. Existing training-free methods rely on stored histories or retrieved memories, but they often struggle to reconcile long- term preferences with short-term topic-specific needs. To address this issue, we propose HyperTrace, a training-free framework that formulates online personalization as latent preference tracing. HyperTrace maintains interpretable natural-language hypotheses over short-term intent and long-term preferences, and updates them through an SMC-style reweight process using an LLM-based surrogate choice model. By updating these hypotheses across turns and sessions, HyperTrace enables personalization without parameter updates. Experiments on PRISM and PersonaMem-v2 show that HyperTrace improves response alignment, preference prediction, and profile consistency over strong online baselines, demonstrating the effectiveness of tracing latent user preferences for robust personalization. Code and scripts are available in the repository: https://github.com/jiseshen/HyperTrace.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09835",
+    "pdf_url": "https://arxiv.org/pdf/2609.09835.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 个性化研究，聚焦于通用对话场景下的偏好追踪，未涉及推荐/搜索系统的核心环节（如召回、排序）或具体业务场景，虽来自中国公司但相关性仍较低。",
+    "translation": "HyperTrace：基于假设的在线 LLM 个性化偏好追踪",
+    "summary_zh": "提出一种无需训练的框架，通过维护和更新关于用户短期意图与长期偏好的自然语言假设，利用 SMC 重加权过程实现在线 LLM 个性化。",
+    "key_points": [
+      "提出一种无需训练的框架，通过维护和更新关于用户短期意图与长期偏好的自然语言假设，利用 SMC 重加权过程实现在线 LLM 个性化"
+    ]
+  },
+  {
+    "arxiv_id": "2609.08180",
+    "title": "Less Is Personal: Learning Minimal Sufficient User Profiles for Personalized Language Models",
+    "authors": [
+      "Minghang Liu",
+      "Qiang Qiu",
+      "Yuanzhuo Wang",
+      "Huawei Shen",
+      "Xueqi Cheng"
+    ],
+    "summary": "Retrieval-augmented personalization enables large language models to produce more accurate and preference-aligned outputs using relevant records retrieved from user histories. Personalized language models typically prepend a fixed number of retrieved user records, even when additional history is redundant, harmful, or unrelated to a user's distinctive behavior. We study minimal sufficient personalization: constructing the least costly ordered profile for each input while preserving the utility achievable from a retrieved candidate pool. We introduce ENOUGH, a method that iteratively appends behavioral records or emits STOP to construct profiles with adaptive lengths. Offline, bounded counterfactual search evaluates profile prefixes by jointly considering downstream gains, user specificity, and token costs. The resulting long-horizon targets are distilled into a multi-head value controller with explicit ranking and stopping supervision. At inference, the controller selects and orders records through lightweight decisions, and the frozen generator is invoked once after stopping. Extensive experiments on six personalized tasks demonstrate that ENOUGH consistently outperforms strong heuristic and retrieval-augmented baselines in both effectiveness and efficiency, achieving minimal sufficient profiles that preserve personalization utility while reducing unnecessary context costs.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-09-08",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.08180",
+    "pdf_url": "https://arxiv.org/pdf/2609.08180.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯 LLM 个性化生成研究，聚焦于优化 LLM 的上下文输入策略，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、广告），仅因来自中国公司额外加 1 分。",
+    "translation": "少即是个性：学习用于个性化语言模型的最小充分用户画像",
+    "summary_zh": "提出一种名为 ENOUGH 的方法，通过迭代选择行为记录或触发停止机制，为个性化语言模型构建自适应长度的最小充分用户画像，以在保留个性化效用的同时降低上下文成本。",
+    "key_points": [
+      "提出一种名为 ENOUGH 的方法，通过迭代选择行为记录或触发停止机制，为个性化语言模型构建自适应长度的最小充分用户画像，以在保留个性化效用的同时降低上下文成本"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09907",
+    "title": "Meta-LinEXP3: Online-within-Online Learning for Adversarial Linear Contextual Bandits",
+    "authors": [
+      "Hao Li",
+      "Jie Xu",
+      "Zheng Xie"
+    ],
+    "summary": "Meta-learning has emerged as an effective paradigm for transferring knowledge across sequential bandit tasks. While substantial progress has been made for stochastic bandits and non-contextual adversarial bandits, meta-learning for adversarial linear contextual bandits (ALCBs) with random action sets remains largely unexplored. To address this problem, we propose Meta-LinEXP3, an online-within-online algorithm that constructs a predictable task-level prior from completed tasks to guide the inner LinEXP3 learner. For known context distributions, we develop a policy-centered estimator that achieves an intrinsic-dimension $\\mathcal{O}(\\sqrt{n})$ per-task regret bound. For unknown distributions, we introduce a past-only regularized moment estimator with an $\\mathcal{O}(n^{2/3})$ leading regret term and explicit finite-sample error. We further establish a direct connection between prior accuracy and transfer regret, showing that increasingly accurate priors yield sublinear transfer-dependent regret across tasks. Experiments demonstrate the effectiveness of Meta-LinEXP3, including its application to structured hyperspectral tensor sampling.",
+    "categories": [
+      "cs.LG",
+      "math.OC"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09907",
+    "pdf_url": "https://arxiv.org/pdf/2609.09907.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文研究对抗性线性上下文多臂老虎机（Bandits）的元学习，虽与广告排序底层逻辑有理论关联，但属于通用强化学习/在线学习研究，缺乏明确的推荐系统业务场景或直接应用验证，且非纯 LLM 研究故不完全排除。",
+    "translation": "Meta-LinEXP3：用于对抗性线性上下文多臂老虎机的在线内在线学习",
+    "summary_zh": "提出一种在线内在线元学习算法，通过从已完成任务构建可预测的任务级先验来指导内部学习器，以解决随机动作集下的对抗性线性上下文多臂老虎机问题。",
+    "key_points": [
+      "提出一种在线内在线元学习算法，通过从已完成任务构建可预测的任务级先验来指导内部学习器，以解决随机动作集下的对抗性线性上下文多臂老虎机问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09878",
+    "title": "Purchase Advice and Observable Buyer Responses in Real AI Conversations",
+    "authors": [
+      "Benjamin Tannenbaum"
+    ],
+    "summary": "How often does a generative assistant persuade someone to buy, or persuade them not to buy? Conversation logs contain recommendations, but they do not necessarily record subsequent decisions. We audit 317 historical interactions from Aiso's proprietary research database of licensed, consent-based, de-identified conversations with commercially available AI assistants. Single-agent AI-assisted screening identifies 68 purchase-directed records; collapsing one shared-prefix copy yields 67 retained episodes, dated April 2023 to July 2025. Assistant responses provide candidate options, acquisition channels, or conditional preferences in 52 episodes (77.6%). One episode contains conditional redirection away from a named accommodation candidate. No episode is coded as advice to abandon or defer the purchase category. Only 18 episodes (26.9%) contain a subsequent user turn within the same purchase-related mission, compared with 23 (34.3%) that contain any later user turn. Using conversation depth alone therefore overstates this follow-up availability by 27.8%. Across 47 retained user follow-up messages, no explicit post-advice purchase commitment, completed-purchase report, or purchase-category abandonment statement is observed. These zeros describe recorded statements, not conversion or persuasion rates. The paper supplies operational definitions, text-free annotations, and reproducible descriptive results. Its central finding is a measurement limitation: recommendation content is observable much more often than a buyer's subsequent decision. The selected historical sample, unvalidated AI annotations, and missing transaction outcomes do not support a population-level or causal estimate of persuasion.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09878",
+    "pdf_url": "https://arxiv.org/pdf/2609.09878.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文是对现有 AI 助手对话日志中购买建议与用户反馈缺失现象的审计分析，属于纯 NLP/LLM 应用研究，未提出任何新的推荐系统架构或算法。",
+    "translation": "真实 AI 对话中的购买建议与可观察的用户响应",
+    "summary_zh": "本文通过审计历史对话数据，揭示了当前生成式 AI 助手中购买建议内容可观测但用户后续决策数据严重缺失的测量局限性。",
+    "key_points": [
+      "本文通过审计历史对话数据，揭示了当前生成式 AI 助手中购买建议内容可观测但用户后续决策数据严重缺失的测量局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09703",
+    "title": "Should I Be Polite to My LLM Relevance Judge? Tone as a Severity Operating-Point Shift",
+    "authors": [
+      "Tian Zhang",
+      "Meng Li"
+    ],
+    "summary": "Large language models are increasingly used as relevance judges, yet their labels can shift with prompt surface form. We study one such feature -- tone -- on 3,498 TREC DL19/DL20 query-passage pairs, across eight judge models, five classifier-calibrated politeness levels, and three paraphrases per level. Effects are strongly model-dependent: one judge shows a structured U-shaped response, whereas most show only small changes. Where tone changes agreement, the results are more consistent with a shift in the judge's severity operating point -- its overall scoring leniency -- than with improved judgment. Agreement rises or falls as this shift moves the judge toward or away from human annotators' strictness. A query-disjoint cross-fit retains the expected association (Spearman $ρ= -0.683$; exact model-block permutation $p = 0.019$). Tone affects calibration-based agreement more than ranking outcomes: across 32 model-tone contrasts, the largest absolute mean change in NDCG@10 is 0.011, although Kendall's $τ$ as low as 0.743 shows that reordering is reduced, not absent. The account reconciles prior contradictory findings and identifies prompt tone as a potential validity threat when absolute relevance labels matter.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09703",
+    "pdf_url": "https://arxiv.org/pdf/2609.09703.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM 评估与提示工程研究，聚焦于语气对相关性判断一致性的影响，未提出任何针对推荐或搜索系统的核心架构创新或直接应用方案。",
+    "translation": "我该对 LLM 相关性评判器礼貌吗？语气作为严重性操作点的偏移",
+    "summary_zh": "本研究揭示了提示语气的变化主要通过改变大语言模型评判器的整体评分宽严度（操作点偏移）而非提升判断质量来影响其与人类标注的一致性。",
+    "key_points": [
+      "本研究揭示了提示语气的变化主要通过改变大语言模型评判器的整体评分宽严度（操作点偏移）而非提升判断质量来影响其与人类标注的一致性"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09410",
+    "title": "Benchmarking Hybrid Deep Research Across Database Querying and Web Search",
+    "authors": [
+      "Ruofan Wu",
+      "Peiran Xu",
+      "Xiaolong Li",
+      "Fan Shu",
+      "Soyoung Yoon",
+      "Yite Wang",
+      "Xiaodong Yu",
+      "Boyi Liu",
+      "Feng Yan",
+      "Debiao Li",
+      "Yuxiong He",
+      "Zhewei Yao"
+    ],
+    "summary": "While autonomous agents have made significant strides in \"deep research\" by iteratively navigating the open web to synthesize information, real-world problem-solving is rarely confined to a single environment. Complex analytical tasks inherently require agents to weave together evidence from both ambiguous unstructured text (e.g., the open web) and highly precise structured data (e.g., relational databases). However, existing benchmarks evaluate these modalities in isolation, failing to capture the critical \"handoff\" - the ability to preserve constraints when moving evidence between systems. We introduce HybridDeepResearch, to our knowledge the first deep-research benchmark that requires both web search and SQL to form a complete, verifiable answer. The benchmark contains 380 tool-dependent tasks grounded in LiveSQLBench-Base-Lite databases and public web corpora, validated through automated checks and human review, and covering three reasoning patterns: SQL2S, S2SQL, and Parallel. Evaluations across proprietary and open-weight models under various agentic scaffolds reveal that even state-of-the-art models like GLM-5.2, Claude-Sonnet-4.6 and GPT-5 achieve only about 50-54% Pass@8 on the hard subset. Notably, results show that directional reasoning is substantially more difficult than parallel intersection, highlighting that bridging structured and unstructured information spaces without losing constraints remains a major open challenge for agentic systems. Code and datasets are publicly available at GitHub (https://github.com/Snowflake-AI-Research/HybridDeepResearch) and Hugging Face (https://huggingface.co/datasets/Snowflake/HybridDeepResearch).",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-09-08",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09410",
+    "pdf_url": "https://arxiv.org/pdf/2609.09410.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM Agent 研究，专注于数据库查询与网络搜索的混合基准测试，未涉及推荐系统或搜索产品的核心架构（如召回、排序、用户建模）。",
+    "translation": "跨数据库查询与网络搜索的混合深度研究基准测试",
+    "summary_zh": "提出首个要求结合网络搜索与 SQL 查询的混合深度研究基准，旨在评估智能体在结构化与非结构化信息间保持约束进行推理的能力。",
+    "key_points": [
+      "提出首个要求结合网络搜索与 SQL 查询的混合深度研究基准，旨在评估智能体在结构化与非结构化信息间保持约束进行推理的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2609.09243",
+    "title": "In RAG We Trust? Measuring Robustness of Retrieval-Augmented Generation Under Document Poisoning",
+    "authors": [
+      "Iliano Fasolino"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) grounds a language model in retrieved documents, which reduces hallucination but creates a new attack surface: if retrieved text is tampered with, the model may repeat the falsehood. We study how much a small quantized model, Llama 3.1 8B, degrades when a fraction of its retrieved context is poisoned. Three corruption strategies are tested, entity swap, number swap, and negation, each applied to zero, one, two, or three of the three retrieved passages, over a factorial sweep of 588 runs on a fact-checking task built from FEVER. Accuracy falls from 77.9% on clean context to 43.5% when all three passages are corrupted. Entity swap flips the largest share of answers that were correct on clean context. Number-based corruption stays flat while poisoned passages are a minority and jumps once they form a majority, a pattern we re-check with query-level bootstrap intervals. The model rarely invents new falsehoods; its dominant reaction is to abstain, and a lexical overlap proxy of unsupported generation falls under attack rather than rising. The study is a small-scale measurement with coarse automated labels; we treat the strategy contrasts as suggestive until decoding is controlled and stronger adjudication is in place.",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-09-08",
+    "updated": "2026-09-10",
+    "url": "https://arxiv.org/abs/2609.09243",
+    "pdf_url": "https://arxiv.org/pdf/2609.09243.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 鲁棒性研究，专注于 RAG 在事实核查任务中的文档投毒问题，未涉及推荐系统或搜索引擎的核心业务场景。",
+    "translation": "我们信任 RAG 吗？衡量检索增强生成在文档投毒下的鲁棒性",
+    "summary_zh": "该研究通过实体替换、数字篡改等策略量化了检索上下文投毒对小型语言模型事实核查准确性的负面影响及模型的回避反应。",
+    "key_points": [
+      "该研究通过实体替换、数字篡改等策略量化了检索上下文投毒对小型语言模型事实核查准确性的负面影响及模型的回避反应"
+    ]
+  }
+]

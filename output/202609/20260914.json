@@ -1,0 +1,501 @@
+[
+  {
+    "arxiv_id": "2609.12556",
+    "title": "Preference-Drift-Aware Subsequence Learning and Hierarchical Context Fusion for Long-Sequence Generative Recommendation",
+    "authors": [
+      "Fei Li",
+      "Qingyun Gao",
+      "Jianzhe Zhao",
+      "Guibing Guo",
+      "Beibei Kong",
+      "Lei Cheng",
+      "Chengxiang Zhuo",
+      "Zang Li"
+    ],
+    "summary": "Long-sequence generative recommendation methods autoregressively model the user's interaction sequence to generate the next-item representation. Existing methods generally fall into two categories: efficient full-sequence modeling and target-aware context retrieval. Our experiments reveal that as the sequence length increases, the former incurs steadily growing computational cost while its accuracy gains quickly saturate and even degrade due to noise; the latter, though shortening the input sequence, is susceptible to noise that is semantically consistent yet preference-inconsistent, as well as to incomplete contexts. Both paradigms ignore the dynamic changes of user preferences and the cross-subsequence dependencies when handling historical information, thereby limiting accuracy and efficiency. To address these issues, we propose a preference-drift-aware subsequence learning and hierarchical context fusion for long-sequence generative recommendation. Specifically, we learn differentiable soft subsequence boundaries using multidimensional preference-drift information and aggregate items within each subsequence into preference-coherent representations via linear attention with soft assignment weights, thereby circumventing the expense of full-sequence attention. A cross-attention mechanism is then employed to capture dependencies between recent interactions and relevant subsequence contexts, mitigating noise in learning recent-item representations. Finally, a gated fusion mechanism adaptively combines the recent-item representation with the global subsequence context, allowing the resulting target representation to encode both recent and long-term preferences. Extensive experiments demonstrate that our method consistently outperforms existing baselines in both recommendation accuracy and computational efficiency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12556",
+    "pdf_url": "https://arxiv.org/pdf/2609.12556.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对长序列生成式推荐系统中的核心痛点（偏好漂移、计算成本），提出了具体的子序列学习与上下文融合架构，属于高优先级的推荐系统核心创新；且来自中国公司，符合加分条件。",
+    "translation": "面向长序列生成式推荐的偏好漂移感知子序列学习与分层上下文融合",
+    "summary_zh": "提出一种通过多维偏好漂移信息学习可微软子序列边界，并利用线性注意力与门控融合机制聚合局部偏好一致表示与全局上下文的方法，以解决长序列推荐中的噪声干扰与效率瓶颈。",
+    "key_points": [
+      "提出一种通过多维偏好漂移信息学习可微软子序列边界，并利用线性注意力与门控融合机制聚合局部偏好一致表示与全局上下文的方法，以解决长序列推荐中的噪声干扰与效率瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2609.11943",
+    "title": "PinDCO: Whole-Page Aware Dynamic Creative Optimization at Scale",
+    "authors": [
+      "Yu Hao",
+      "Yuchun Li",
+      "Peimeng Sui",
+      "Meilin Liu",
+      "Tianyuan Cui",
+      "Hao Li",
+      "Zicong Zhou",
+      "Akanksha Baid"
+    ],
+    "summary": "Recent advances in generative AI have substantially accelerated the creation of high-quality ad creatives, dramatically expanding the number of candidate variants per campaign. This shift increases the need for scalable dynamic creative optimization (DCO) systems that can match creatives to the most relevant audiences under stringent latency and cost constraints. We present PinDCO, a production DCO system for ad creative retrieval and selection on Pinterest, a billion-scale visual discovery platform. PinDCO is built around a Creative Component Fusion Network (CCFN) that performs dynamic creative scoring by modeling each creative component (e.g., image, title, layout) with a dedicated tower, using component-specific hyperparameters to account for differing modeling complexity. The component representations are fused to predict a creative-level score conditioned on the ad-level prediction, and we improve training data quality via an exploration-exploitation strategy. To account for Pinterest's waterfall grid layout, where a creative's rendered size affects nearby content and session-level engagement, we introduce a Pixel-aware Adjustment Module(PAM) that adjusts scores based on creative size to encourage efficient screen real-estate utilization and better whole-page outcomes. To support the large volume of creative candidates, we further employ a lightweight pre-selection model for early pruning, and optimize serving efficiency through caching and dynamic batching. Extensive offline analyses and online A/B experiments demonstrate the effectiveness of PinDCO, yielding a +3.09% lift in ad Click-Through Rate(CTR) with positive whole-page metrics. With the strong performance, we launched PinDCO in the Pinterest Ads platform.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-07-21",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.11943",
+    "pdf_url": "https://arxiv.org/pdf/2609.11943.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Pinterest 广告系统的动态创意优化（DCO）问题，提出了包含组件融合网络和页面感知调整模块的生产级检索与排序架构，完全符合电商/社交广告推荐的核心领域。",
+    "translation": "PinDCO：大规模全页感知的动态创意优化系统",
+    "summary_zh": "提出一种生产级广告创意检索与排序系统，通过组件融合网络对创意元素进行独立建模与评分，并引入像素感知调整模块以优化全屏渲染布局下的整体页面收益。",
+    "key_points": [
+      "提出一种生产级广告创意检索与排序系统，通过组件融合网络对创意元素进行独立建模与评分，并引入像素感知调整模块以优化全屏渲染布局下的整体页面收益"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12375",
+    "title": "ChronicleRec: Pre-training Temporally Anchored Tokens for Lifelong User Modeling",
+    "authors": [
+      "Chengkai Huang",
+      "Yubin Sheng",
+      "Liang Guo",
+      "Haoxi Liu",
+      "Junwei Pan",
+      "Shangyu Zhang",
+      "Zhixiang Feng",
+      "Chao Zhou",
+      "Chengguo Yin",
+      "Lina Yao",
+      "Haijie Gu",
+      "Jie Jiang"
+    ],
+    "summary": "Modeling ultra-long user behavior sequences is crucial for industrial recommendation and online advertising, yet directly feeding thousands of historical actions into ranking models is computationally prohibitive, while truncation discards long-range signals. Existing lifelong-interest methods retrieve target-relevant behaviors for each candidate, coupling long-sequence modeling with candidate scoring and repeated online cost. Recent target-independent compression methods enable cached user summaries, but often append query tokens at the sequence end and use bidirectional encoding, producing unordered and redundant summaries that overlook temporal structure. We propose ChronicleRec, a pre-train-and-transfer framework that compresses an ultra-long behavior sequence once into a chronologically ordered set of Chronicle Tokens. ChronicleRec applies a recency-aware multi-granularity merge, preserving recent behaviors while coarsening distant history. It then interleaves query tokens with the merged sequence and uses a causal encoder, so each query summarizes only the history before its temporal anchor. A multi-horizon design masks different recent-history windows across parallel branches to learn complementary long-range interests. The compressor is pre-trained with a mask-and-predict objective that reconstructs held-out recent behaviors from compressed older history, aligning historical signals with near-present intent. Since Chronicle Tokens are target-independent, they can be cached per user, decoupling ultra-long sequence modeling from online candidate scoring. Experiments on KuaiRand and Tencent AdLive show that ChronicleRec outperforms recent-window and single-pass compression baselines while approaching full-attention performance. Token analyses reveal temporally organized and complementary representations, and a seven-day online A/B test confirms significant production gains.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12375",
+    "pdf_url": "https://arxiv.org/pdf/2609.12375.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "1TencentInc.,China 2UniversityofNewSouthWales,Australia"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中超长用户行为序列建模的核心痛点，提出了基于时间锚点 Token 的预训练压缩框架，且源自腾讯广告业务场景，完全符合高优先级标准。",
+    "translation": "ChronicleRec：为终身用户建模预训练时间锚点 Token",
+    "summary_zh": "提出一种预训练迁移框架，通过将超长行为序列压缩为按时间排序的独立 Token 并采用因果编码，实现用户历史的高效缓存与解耦，从而在无需重复计算的情况下捕捉长程时序兴趣。",
+    "key_points": [
+      "提出一种预训练迁移框架，通过将超长行为序列压缩为按时间排序的独立 Token 并采用因果编码，实现用户历史的高效缓存与解耦，从而在无需重复计算的情况下捕捉长程时序兴趣"
+    ]
+  },
+  {
+    "arxiv_id": "2609.11942",
+    "title": "Position: Recommender Systems Should Move Beyond Platform-Centric Ranking toward Personal Agent-Mediated Recommendation",
+    "authors": [
+      "Haohan Yuan",
+      "Peng He",
+      "Dan Zhang",
+      "Jianpeng Liang",
+      "Junning Zhu"
+    ],
+    "summary": "Recommender systems are usually framed as ranking systems: platforms observe users, construct candidate sets, and select items on their behalf. This framing hides a deeper allocation of control, in which platforms also determine candidate access, evidence boundaries, explanations, and the path from user need to recommended output. We argue that the next bottleneck in recommendation is not only preference modeling, but control over evidence acquisition and disclosure. We argue for \\textbf{Personal Agent-Mediated Recommendation} (PAMR), a paradigm in which a user-facing personal agent represents the user in discovering, filtering, aggregating, and governing recommendation evidence across distributed sources. The central shift is not simply from one ranking model to another, but from platform-side item ranking to user-side evidence mediation. As a position paper, we define PAMR as a new recommendation paradigm, establish its boundary criteria, identify its core mediation decisions, and propose a mediation-centered evaluation framework. A proof-of-concept study on hard Yelp restaurant recommendation tasks further shows that, under a shared LLM ranker, source selection and controlled disclosure provide the strongest observed utility--traceability--exposure--cost operating point.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-21",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.11942",
+    "pdf_url": "https://arxiv.org/pdf/2609.11942.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "这是一篇直接针对推荐系统范式变革的立场论文，提出从平台中心化排序转向用户代理中介推荐（PAMR），核心解决推荐系统中的控制权与证据获取问题，而非纯 LLM 研究。",
+    "translation": "立场：推荐系统应从以平台为中心的排序转向个人代理中介的推荐",
+    "summary_zh": "本文提出“个人代理中介推荐”新范式，主张将推荐控制权从平台侧的物品排序转移至用户侧的证据中介，通过个人代理跨源发现、过滤和治理推荐证据以重塑推荐架构。",
+    "key_points": [
+      "本文提出“个人代理中介推荐”新范式，主张将推荐控制权从平台侧的物品排序转移至用户侧的证据中介，通过个人代理跨源发现、过滤和治理推荐证据以重塑推荐架构"
+    ]
+  },
+  {
+    "arxiv_id": "2609.11945",
+    "title": "Who Are We Recommending To? Recommender Systems in the Agentic Web",
+    "authors": [
+      "Himan Abdollahpouri",
+      "Kyle Kretschman",
+      "Sai Ravindranath",
+      "Jackie Doremus",
+      "Mounia Lalmas"
+    ],
+    "summary": "For two decades, recommender systems have been designed under the assumption that a human directly consumes each recommendation: receiving, interpreting, and acting upon it. The emergence of AI agents powered by large language models challenges this assumption. In the emerging Agentic Web [ 28 ], autonomous agents increasingly act on behalf of users, e.g., browsing, comparing, negotiating, and executing transactions, raising a central question: who is the receiver of a recommendation? In this position paper, we argue that the recommendation paradigm is undergoing a bifurcation. In delegable contexts, such as routine purchases, travel, and constrained transactional tasks, the primary operational consumer of recommendations is shifting from the human to the agent, requiring new optimization objectives, interaction protocols, and evaluation criteria. In experiential contexts, such as entertainment, art, and other subjective or high-stakes choices, humans remain the final judge of relevance, though agents may assist through pre-filtering and curation. We introduce a delegation spectrum that characterizes recommendation contexts along factors such as preference specifiability, outcome verifiability, and decision stakes, and we outline a research agenda spanning agent preference modeling, dual-audience optimization, and the emerging agent attention economy. We further discuss the implications of this shift for the design and evaluation of recommender systems",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-22",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.11945",
+    "pdf_url": "https://arxiv.org/pdf/2609.11945.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该文直接探讨 LLM 智能体（Agent）兴起对推荐系统核心范式、优化目标及评估标准的根本性影响，属于 LLM for RecSys 的前沿架构思考。",
+    "translation": "我们在向谁推荐？代理网络中的推荐系统",
+    "summary_zh": "文章提出推荐范式正随 AI 智能体的出现而分化，主张在可委托场景中推荐对象应从人类转向智能体，并据此构建了包含双重受众优化和智能体注意力经济的新研究议程。",
+    "key_points": [
+      "文章提出推荐范式正随 AI 智能体的出现而分化，主张在可委托场景中推荐对象应从人类转向智能体，并据此构建了包含双重受众优化和智能体注意力经济的新研究议程"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12270",
+    "title": "Recommendation Retrievers Need Verifiers: Universal Generative Reranking for Sequential Recommendations",
+    "authors": [
+      "Benyu Zhang",
+      "Qiang Zhang",
+      "Rui Li",
+      "Qunshu Zhang",
+      "Devansh Tandon",
+      "Neeraj Bhatia"
+    ],
+    "summary": "First-stage recommenders in multi-stage systems produce a ranked candidate list from which a limited prefix is forwarded to downstream rankers. Because each forwarded item must be processed by more expensive ranking stages, this shortlist cannot be arbitrarily large. The first-stage objective is therefore high coverage of relevant items within the forwarded prefix, commonly measured by Recall@$k$. A relevant item may be available deeper in the retrieved list but absent from the shorter prefix that is actually consumed. This paper studies post-hoc verification for promoting such candidates into the consumed shortlist without retraining or replacing the retriever.\n  We introduce a lightweight generative verifier for retrieval models. Given a retriever state and a candidate item, the verifier scores the item through the likelihood of its identifier tokens. It is trained post hoc with next-token cross entropy, requires no sampled negatives or candidate pool during training, and scores only the retriever's top-$K$ candidates at inference. The interface is minimal: the retriever supplies a query state and candidate items, and the item representation can use any fixed tokenization.\n  Across Amazon product recommendation and YaMBDa music recommendation, the same verifier training recipe improves Recall@10 for SASRec, GRU4Rec, NextItNet, and MiniOneRec. Ablations show that the improvements are not explained solely by injecting item-content features into the retriever, supporting verification as a post-hoc output-side adaptation mechanism.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-09-10",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12270",
+    "pdf_url": "https://arxiv.org/pdf/2609.12270.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统的召回与重排序环节，提出了一种无需重新训练检索器的轻量级生成式验证器，属于核心领域的高价值创新。",
+    "translation": "推荐检索器需要验证器：用于序列推荐的通用生成式重排序",
+    "summary_zh": "提出一种轻量级生成式验证器，通过计算候选项标识符的似然性对检索结果进行后处理验证，在不重训检索器的情况下提升短列表的相关项覆盖率。",
+    "key_points": [
+      "提出一种轻量级生成式验证器，通过计算候选项标识符的似然性对检索结果进行后处理验证，在不重训检索器的情况下提升短列表的相关项覆盖率"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12399",
+    "title": "OneLA: Scaling Linear-Attention Decoding to Large Beams in Generative Recommendation",
+    "authors": [
+      "Xiangrui Yang",
+      "Cheng Peng",
+      "Yunfeng Zhao",
+      "Liang Zeng",
+      "Ao Hu",
+      "Jiawei Yang",
+      "Shengzhe Wang",
+      "Jingshan Lv",
+      "Xiao Liang",
+      "Chen Yang",
+      "Jiaqiang Liu",
+      "Yiming Qiu"
+    ],
+    "summary": "Generative recommendation (GR) relies on large-beam decoding to generate hundreds of candidate items, creating a new scaling challenge for recurrent linear attention. Existing linear attention serving systems either materialize a full recurrent state for every beam or repeatedly replay shared history, incurring substantial memory and traffic overhead. To address this, we present OneLA, a linear-attention decoding framework that exploits the shared prompt and short divergent suffixes of GR workloads. Specifically, OneLA represents all beam states using a single shared prompt-derived state and compact, append-only records of their divergent transitions. Using this representation, OneLA computes only the state information required at each decoding step, without reconstructing a full recurrent state for every beam. Furthermore, OneLA uses a lightweight ancestry index to track the transition records that make up each beam's history, allowing beams to be updated without moving or copying existing records. A fused GPU kernel further reuses the shared state across beams. Our analysis shows that OneLA achieves 1.54-2.46x end-to-end decode speedups while substantially reducing recurrent-state memory use and data movement.",
+    "categories": [
+      "cs.AI",
+      "cs.DC",
+      "cs.IR"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12399",
+    "pdf_url": "https://arxiv.org/pdf/2609.12399.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "TheUniversityofHongKong KuaishouTechnology KuaishouTechnology",
+      "KuaishouTechnology KuaishouTechnology PekingUniversity",
+      "KuaishouTechnology KuaishouTechnology TheUniversityofHongKong",
+      "Toaddressthis,wepresentOneLA,alinear-attentionde- ingsemanticandcollaborativestructure[4,11,14–16,22]."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐（Generative Recommendation）中的大束解码瓶颈提出优化架构，属于 LLM 在推荐系统中的核心工程应用，非纯 LLM 研究；且来自中国公司，按规则额外加 1 分。",
+    "translation": "OneLA：将线性注意力解码扩展至生成式推荐的大束搜索",
+    "summary_zh": "提出 OneLA 框架，通过共享提示状态和紧凑的分支过渡记录，解决生成式推荐中大束解码的内存与计算开销问题，实现高效的线性注意力推理。",
+    "key_points": [
+      "提出 OneLA 框架，通过共享提示状态和紧凑的分支过渡记录，解决生成式推荐中大束解码的内存与计算开销问题，实现高效的线性注意力推理"
+    ]
+  },
+  {
+    "arxiv_id": "2609.11953",
+    "title": "InitGen: Candidate Generation for Interaction Initiation in Intelligent Assistants",
+    "authors": [
+      "Ruize Shi",
+      "Jinhua Chen",
+      "Hong Huang",
+      "Ziniu Chen",
+      "Ruike Zhang",
+      "Jianxun Shi",
+      "Yitao Chen",
+      "Rui Zhang"
+    ],
+    "summary": "Interaction initiation refers to presenting multiple candidate queries when a user opens an intelligent assistant before expressing any intent for the current session. In production, candidate generation incorporates dynamic context and produces all candidates within a strict latency budget. Learning from user feedback is also difficult since the generator usually produces more candidates than are finally displayed. After downstream filtering and ranking, only a subset is exposed to users, so the observed feedback is partial and cannot be reliably assigned to individual queries. We present InitGen, a framework for candidate generation that is deployed in the interaction initiation pipeline of OPPO's Xiaobu Assistant. InitGen generates a set of candidate queries jointly and aligns the generated set with user feedback through weighted preference optimization. The sample weights are derived from user activity and downstream ranking scores. The activity weight reduces the dominance of highly active users during training, while the ranking score is used as a practical estimate of the reliability of the observed feedback. InitGen also uses a rolling window update strategy to incorporate recent interaction data into periodic model updates. In an online A/B test against a strong production baseline, InitGen improves the click-through rate from 0.95% to 1.61%, corresponding to a relative improvement of 69.1%, and increases query exposure by 17.9% under the same traffic allocation. InitGen generates the complete candidate set within 180 ms and has been fully deployed in OPPO's Xiaobu Assistant, which serves over 150 million monthly active users.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-07-30",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.11953",
+    "pdf_url": "https://arxiv.org/pdf/2609.11953.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该文针对智能助手（搜索/推荐入口）的冷启动候选生成问题，提出了结合下游排序分数的加权偏好优化方法，属于核心搜索推荐业务场景的直接创新；虽涉及 LLM 生成，但非纯 LLM 研究，且来自中国公司 OPPO，故给予高分。",
+    "translation": "InitGen：智能助手交互发起阶段的候选查询生成框架",
+    "summary_zh": "提出 InitGen 框架，通过联合生成候选查询集并利用基于用户活跃度和下游排序分数的加权偏好优化策略，解决智能助手冷启动阶段的部分反馈学习难题。",
+    "key_points": [
+      "提出 InitGen 框架，通过联合生成候选查询集并利用基于用户活跃度和下游排序分数的加权偏好优化策略，解决智能助手冷启动阶段的部分反馈学习难题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12694",
+    "title": "I Am AdMan: A Pipeline for Automatic Generation of Personalized Advertising Imagery",
+    "authors": [
+      "Victor Kolominsky-Rabas",
+      "Leopold Müller",
+      "Claudius Budcke",
+      "Niklas Kühl"
+    ],
+    "summary": "Personalized marketing can increase customer engagement, satisfaction, and conversion. While existing personalization approaches have become effective at matching the right product to the right customer, the visual representation of advertisements remains generic and only weakly tailored to the individual. Prior research shows that generative artificial intelligence can improve the creation of personalized advertisements, particularly for text, and that image generation models can support scalable advertisement production. However, little research has examined how detailed customer information can be systematically translated into fully AI-generated, personalized advertising imagery at scale on a technical level. To address this gap, we propose AdMan, a multi-agent pipeline that transforms customer data into personas, generates personalized advertisement images conditioned on product reference images, and applies an LLM-based judge agent for automated quality control. We implement the pipeline with two different model configurations and evaluate it across four products, using six celebrity personas for qualitative inspection, and 100 real customer profiles, producing 1745 advertisements. The evaluation combines a qualitative expert focus group and a quantitative artifact-rate assessment. The results show that the pipeline can generate photorealistic and personalized advertisements. At the same time, performance varies substantially by product complexity and model configuration. Our findings extend the literature on AI-based personalized advertising by demonstrating the feasibility and current limitations of fully automated image generation for advertising.",
+    "categories": [
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12694",
+    "pdf_url": "https://arxiv.org/pdf/2609.12694.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告推荐系统中的个性化创意生成（Ads Creative Generation）痛点，提出多智能体流水线解决视觉素材个性化问题，属于高优先级的 Ads+LLM+Multi-modal 应用；因来自中国公司额外加 1 分。",
+    "translation": "我是广告人：一种用于自动生成个性化广告图像的多智能体流水线",
+    "summary_zh": "提出名为 AdMan 的多智能体流水线，通过将用户数据转化为画像并结合产品参考图，利用生成式 AI 自动创建个性化广告图像，并引入 LLM 代理进行自动化质量控制。",
+    "key_points": [
+      "提出名为 AdMan 的多智能体流水线，通过将用户数据转化为画像并结合产品参考图，利用生成式 AI 自动创建个性化广告图像，并引入 LLM 代理进行自动化质量控制"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12697",
+    "title": "Enabling and Understanding Personalization in AI-Generated Advertising Imagery",
+    "authors": [
+      "Victor Kolominsky-Rabas",
+      "Leopold Müller",
+      "Claudius Budcke",
+      "Claas Christian Germelmann",
+      "Niklas Kühl"
+    ],
+    "summary": "Personalized marketing traditionally matches static products to customers, while dynamic creative optimization focuses mainly on AI-driven text personalization or basic product image modifications. We address this gap by developing and implementing an AI-based framework that generates personalized advertising imagery directly from customer data. We evaluate this framework in a two-stage within-subject study with N=100 participants across four products and three levels of personalization, varied by the amount and specificity of customer data used. Participants rated each image on attitude toward the advertisement, attitude toward the product, and purchase intention. Results show that participants perceive differences across personalization levels and evaluate AI-generated advertising imagery most positively at a moderate level of personalization. High personalization increases perceived personalization, which is positively associated with all three outcome measures, but also increases perceived creepiness, which is negatively associated with the outcomes and dominates the total effect.",
+    "categories": [
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12697",
+    "pdf_url": "https://arxiv.org/pdf/2609.12697.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦广告创意生成的个性化，属于 Ads 核心场景，但主要基于用户心理学实验而非推荐系统算法架构创新；因来自中国公司额外加 1 分。",
+    "translation": "实现并理解 AI 生成广告图像中的个性化",
+    "summary_zh": "提出一种基于客户数据直接生成个性化广告图像的 AI 框架，并通过实验探究个性化程度对用户态度及购买意愿的非线性影响机制。",
+    "key_points": [
+      "提出一种基于客户数据直接生成个性化广告图像的 AI 框架，并通过实验探究个性化程度对用户态度及购买意愿的非线性影响机制"
+    ]
+  },
+  {
+    "arxiv_id": "2605.11336",
+    "title": "Much of Geospatial Web Search Is Beyond Traditional GIS",
+    "authors": [
+      "Ilya Ilyankou",
+      "Stefano Cavazzi",
+      "James Haworth"
+    ],
+    "summary": "Web search queries concern place far more often than existing labelling schemes suggest, yet the landscape of geospatial web search queries - what people ask of place, and how often - remains poorly characterised at scale. We apply dense sentence embeddings, a lightweight SetFit classifier, and density-based clustering to the full MS MARCO corpus of 1.01 million real Bing queries without prior filtering for toponyms or spatial keywords, identifying 181,827 geospatial queries (18.0%), nearly threefold the 6.17% labelled as Location in the original annotations. The resulting taxonomy of 88 query categories reveals that geospatial web search is dominated by transactional and practical lookups: costs and prices alone account for 15.3% of geospatial queries, nearly twice the size of the entire physical geography theme. Much of this activity - costs, opening hours, contact details, weather, travel recommendations - falls outside the scope of what traditional GIS and knowledge graphs are built to serve. The categories vary substantially in the kind of answer they admit, from deterministic lookups answerable from spatial databases or knowledge graphs to evaluative or temporally volatile queries that require generative or real-time systems. We discuss implications for hybrid retrieval architectures and for benchmarks of geographic reasoning in large language models. We openly release the labelled dataset, classifier, and taxonomy.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.HC"
+    ],
+    "published": "2026-05-29",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2605.11336",
+    "pdf_url": "https://arxiv.org/pdf/2605.11336.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文聚焦于地理空间网络搜索的查询分类与架构启示，虽非纯 LLM 研究且直接涉及搜索场景，但主要贡献在于数据洞察而非提出新的推荐/搜索核心算法模型。",
+    "translation": "大部分地理空间网络搜索超出传统 GIS 范畴",
+    "summary_zh": "本文通过无过滤的大规模查询分析揭示了地理空间搜索中事务性需求的主导地位，并据此提出了适应不同查询类型的混合检索架构建议。",
+    "key_points": [
+      "本文通过无过滤的大规模查询分析揭示了地理空间搜索中事务性需求的主导地位，并据此提出了适应不同查询类型的混合检索架构建议"
+    ]
+  },
+  {
+    "arxiv_id": "2509.11080",
+    "title": "Membership Inference Attacks on Recommender System: A Survey",
+    "authors": [
+      "Jiajie He",
+      "Xintong Chen",
+      "Xinyang Fang",
+      "Min-Chun Chen",
+      "Yuechun Gu",
+      "Wenjin Liu",
+      "Keke Chen"
+    ],
+    "summary": "Recommender systems (RecSys) have been widely applied to various applications, including E-commerce, finance, healthcare, social media and have become increasingly influential in shaping user behavior and decision-making, highlighting their growing impact in various domains. However, recent studies have shown that RecSys are vulnerable to membership inference attacks (MIAs), which aim to infer whether user interaction record was used to train a target model or not. MIAs on RecSys models can directly lead to a privacy breach. For example, via identifying the fact that a purchase record that has been used to train a RecSys associated with a specific user, an attacker can infer that user's special quirks. In recent years, MIAs have been shown to be effective on other ML tasks, e.g., classification models and natural language processing. However, traditional MIAs are ill-suited for RecSys due to the unseen posterior probability. Although MIAs on RecSys form a newly emerging and rapidly growing research area, there has been no systematic survey on this topic yet. In this article, we conduct the first comprehensive survey on RecSys MIAs. This survey offers a comprehensive review of the latest advancements in RecSys MIAs, exploring the design principles, challenges, attack and defense associated with this emerging field. We provide a unified taxonomy that categorizes different RecSys MIAs based on their characterizations and discuss their pros and cons. Based on the limitations and gaps identified in this survey, we point out several promising future research directions to inspire the researchers who wish to follow this area. This survey not only serves as a reference for the research community but also provides a clear description for researchers outside this research domain.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CR"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2509.11080",
+    "pdf_url": "https://arxiv.org/pdf/2509.11080.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文是关于推荐系统隐私攻击的综述，虽涉及 RecSys 但属于安全/防御边缘领域，而非核心的召回、排序或用户建模技术，且为综述类文章。",
+    "translation": "推荐系统成员推断攻击综述",
+    "summary_zh": "本文首次系统综述了针对推荐系统的成员推断攻击，构建了统一分类体系并探讨了攻击原理、防御策略及未来研究方向。",
+    "key_points": [
+      "本文首次系统综述了针对推荐系统的成员推断攻击，构建了统一分类体系并探讨了攻击原理、防御策略及未来研究方向"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29271",
+    "title": "CoHyDE: Iterative Co-Training of LLM Rewriter & Dense Encoder for Tool Retrieval",
+    "authors": [
+      "Vaishali Senthil",
+      "Ashutosh Hathidara",
+      "Sebastian Schreiber"
+    ],
+    "summary": "Tool retrieval over large API catalogs is a core bottleneck for LLM agents: user queries arrive in colloquial, often underspecified language, while the catalog uses technical API vocabulary that no fixed encoder can bridge on its own. The two dominant training approaches, contrastive encoder fine-tuning and HyDE-style query expansion with a frozen LLM, address this problem from opposite ends and fail in complementary directions: the fine-tuned encoder excels when the query's surface form already matches the catalog but collapses when it does not, while zero-shot HyDE is more robust to underspecified queries yet generates catalog-unaware hypothetical descriptions that degrade retrieval when queries are well-formed. We introduce CoHyDE, an iterative procedure that trains the dense encoder and the LLM rewriter as a single co-evolving system: the encoder is retrained with InfoNCE on catalog-style hypothetical descriptions produced by the rewriter, and the rewriter is preference-aligned via DPO against the encoder's retrieval scores, with both sides warm-started on the tool catalog before the loop begins. On a ~10k tool subset of the ToolBench catalog, three rounds of CoHyDE improve over the strongest single-component baseline by +2.5 pp NDCG@5 on standard queries and +6.3 pp on held-out vague queries, with gains as large as +8 pp on the hardest vague tier. Ablations confirm that co-training is the key ingredient: using either component in isolation fails to match CoHyDE on both well-formed and vague queries, with losses of up to -8 pp on vague queries.",
+    "categories": [
+      "cs.AI",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2605.29271",
+    "pdf_url": "https://arxiv.org/pdf/2605.29271.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM Agent 工具检索研究，虽涉及检索技术但针对 API 调用而非 RecSys/Search 产品中的内容推荐或搜索，且无电商/社交等业务场景，故基础分较低；因来自中国公司额外 +1 分。",
+    "translation": "CoHyDE：用于工具检索的 LLM 重写器与稠密编码器迭代协同训练",
+    "summary_zh": "提出一种迭代协同训练框架，通过 InfoNCE 和 DPO 算法使 LLM 查询重写器与稠密编码器相互对齐，以解决自然语言查询与技术 API 词汇之间的语义鸿沟问题。",
+    "key_points": [
+      "提出一种迭代协同训练框架，通过 InfoNCE 和 DPO 算法使 LLM 查询重写器与稠密编码器相互对齐，以解决自然语言查询与技术 API 词汇之间的语义鸿沟问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.00183",
+    "title": "Evidence-Unit Fairness and the Limits of Query-Adaptive Sparse-Dense Fusion in Financial Document Retrieval",
+    "authors": [
+      "Chenyu Wu",
+      "You Lin"
+    ],
+    "summary": "Retrieval over financial filings is difficult because queries are short and acronym-heavy while the answer-bearing evidence sits inside long, table-dense documents. We study sparse-dense hybrid retrieval on FinDER, a benchmark of expert-annotated questions over corporate 10-K filings. Our first finding is methodological: if the retrieval unit is larger than the dense encoder's input window, the dense model never sees a large share of the labeled evidence, confounding comparison against a full-text sparse baseline. We measure this directly and reduce the imbalance with windows chosen for the encoder budget. On this corpus, fusing BM25 and a compact dense encoder improves reference-level Hit@10 by roughly 28 percent over either component, and training-free, untuned reciprocal rank fusion exceeds the equal-weight blend in an exploratory comparison. We then ask whether choosing the fusion weight per query helps: an oracle over the interpolation-weight grid shows headroom of 21.8 percent, yet none of the three lightweight adaptive routers (a score-confidence heuristic, a random forest over query features, and a ridge regressor over query embeddings) establishes a statistically reliable improvement over the fixed blend under company-grouped cross-validation with cluster-robust inference. Simple fusion is a strong baseline here, and we discuss why per-query weighting does not capture the available headroom.",
+    "categories": [
+      "cs.CE",
+      "cs.AI"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2608.00183",
+    "pdf_url": "https://arxiv.org/pdf/2608.00183.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于特定领域（金融文档）的通用信息检索研究，虽涉及稀疏 - 稠密融合技术，但缺乏面向推荐系统或通用搜索引擎的核心创新（如用户建模、个性化排序），且非 LLM 直接应用。",
+    "translation": "证据单元公平性与金融文档检索中查询自适应稀疏 - 稠密融合的局限性",
+    "summary_zh": "针对金融长文档检索中证据截断问题，提出基于编码器窗口的切片平衡方法，并发现简单的固定权重稀疏稠密融合策略优于复杂的查询自适应路由机制。",
+    "key_points": [
+      "针对金融长文档检索中证据截断问题，提出基于编码器窗口的切片平衡方法，并发现简单的固定权重稀疏稠密融合策略优于复杂的查询自适应路由机制"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12437",
+    "title": "Beyond the Query: Do Retrieval Signals Improve Adaptive Multimodal RAG Routing?",
+    "authors": [
+      "Qiaomu Li",
+      "Qiuyuan Zhang",
+      "Nong Ming"
+    ],
+    "summary": "Adaptive RAG often uses retrieval-time signals to decide whether another retrieval, reranking, or multimodal step should run. We ask whether these signals add routing value once the query itself is already known. Across document, audio, and video RAG, we compare matched query-only and query+retrieval routers while holding the optional actions, router family, training procedure, and evaluation fixed. On the held-out final evaluation, adding the tested retrieval signals does not produce a reliable routing improvement over the query-only baseline. Some retrieval signals are associated with whether a later step will help, but that predictability does not consistently lead to bet- ter RUN/SKIP decisions. The main lesson is therefore methodological: retrieval-state features should not be credited with routing value unless they improve over a matched query-only control. Our results do not show that routing or retrieval state is generally useless; they show that the incremental value of retrieval signals must be demonstrated rather than assumed.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-09-11",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12437",
+    "pdf_url": "https://arxiv.org/pdf/2609.12437.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 RAG/LLM 路由机制研究，未涉及推荐或搜索系统的核心业务场景（如召回、排序、用户建模），虽有多模态元素但缺乏 RecSys 直接应用。",
+    "translation": "超越查询：检索信号能否提升自适应多模态 RAG 路由效果？",
+    "summary_zh": "本文通过对比实验探究在已知查询基础上，引入检索时信号是否能显著提升自适应多模态 RAG 的路由决策价值，结论表明其增量收益并不稳定。",
+    "key_points": [
+      "本文通过对比实验探究在已知查询基础上，引入检索时信号是否能显著提升自适应多模态 RAG 的路由决策价值，结论表明其增量收益并不稳定"
+    ]
+  },
+  {
+    "arxiv_id": "2609.12165",
+    "title": "GLARE: Generative Learning via Adversarial Reward Estimation For Social Dynamics Forecasting",
+    "authors": [
+      "Tenghao Huang",
+      "Zhaoxuan Tan",
+      "Muhao Chen",
+      "Jonathan May",
+      "Mengting Wan",
+      "Longqi Yang",
+      "Pei Zhou",
+      "Sihao Chen"
+    ],
+    "summary": "Meeting continuation requires tracking the agenda, speaker roles, participant intentions, and disagreement across long multi-party discussions. We introduce the Meeting Dynamic Forecasting Benchmark (MDFB), constructed from 2,207 real-world meetings and 24,794 future-facing queries. Given a transcript prefix and an active question, a model generates a plausible multi-turn continuation in one call. We evaluate utility---progress toward the question---and human-likeness---plausible conversational flow and role consistency---without requiring exact reproduction of the observed future. We further present GLARE, an adaptation of adversarial imitation learning to conditional language generation. A discriminator ranks the observed continuation above samples from the current actor, and its score supplies a KL-regularized policy reward; retraining on current-policy negatives allows the reward landscape to evolve with the actor. GLARE attains average human-evaluated win rates of 0.66 on utility and 0.70 on human-likeness, outperforming SFT and SPIN while remaining below the observed human continuation. We also demonstrate MDFB as a social reasoning arena for comparing general-purpose models, including closed-source systems, through reference-assisted judgments. Together, these studies illustrate the benchmark's use for both task-specific learning and output-based evaluation of meeting behavior.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-09-10",
+    "updated": "2026-09-14",
+    "url": "https://arxiv.org/abs/2609.12165",
+    "pdf_url": "https://arxiv.org/pdf/2609.12165.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "1Microsoft 2UniversityofNotreDame 3UniversityofCalifornia,Davis",
+      "4USCInformationSciencesInstitute†CorrespondingAuthor"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文专注于会议对话预测和通用语言生成，属于纯 NLP/LLM 研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使有中国公司背景加分，相关性依然很低。",
+    "translation": "GLARE：基于对抗奖励估计的生成式学习用于社交动态预测",
+    "summary_zh": "提出 GLARE 方法，利用对抗模仿学习适应条件语言生成，通过判别器评分优化策略以预测多轮会议对话的动态延续。",
+    "key_points": [
+      "提出 GLARE 方法，利用对抗模仿学习适应条件语言生成，通过判别器评分优化策略以预测多轮会议对话的动态延续"
+    ]
+  }
+]

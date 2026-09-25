@@ -1,0 +1,275 @@
+[
+  {
+    "arxiv_id": "2609.25433",
+    "title": "Lightweight Ranking Heads: Accelerating Multi-Task Experimentation in Production Recommender Systems",
+    "authors": [
+      "Sanjay Surendranath Girija",
+      "Aniruddh Nath",
+      "Li Wei",
+      "Yanhao Jiang",
+      "Shawn Andrews",
+      "Lukasz Heldt",
+      "Yi Wu",
+      "Aditya Mahajan",
+      "Mohit Sharma"
+    ],
+    "summary": "Modern production-scale recommender systems rely on complex, multi-task ranking models. Introducing new prediction tasks into these massive systems often causes bottlenecks - it risks negative task conflicts with existing tasks, and can lead to long development and experimentation cycles due to the expensive retraining of backbone models and downstream models or tuning of reward combination formulas. To address the critical challenge of slow experimentation velocity, we introduce the Lightweight Ranking Heads (Light Heads) framework. Designed for continuous online learning environments, Light Heads enable the dynamic injection of new tasks into existing multi-task ranking models, effectively obviating the need for model cold-starting and retraining of backbone models. By utilizing stop-gradients and stateless daily training, this design strictly isolates new tasks, mitigating the risk of adverse task conflicts. Crucially, this framework uses a centralized configuration that allows Light Heads to be added to multiple models simultaneously, unblocking faster training data generation and co-training of downstream models. Successfully deployed at YouTube scale, this approach reduces the iteration cycle for multi-task experimentation from several weeks to days. In this paper, we detail the system architecture, analyze the training dynamics of stateless cold-started heads, compare their performance to full heads, and demonstrate how Light Heads have enabled the rapid A/B experimentation and deployment of new ranking tasks that yield measurable production value.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-09-21",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.25433",
+    "pdf_url": "https://arxiv.org/pdf/2609.25433.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统的多任务排序痛点，提出轻量级排序头架构以加速实验迭代，属于核心领域的高价值创新；且来自工业界落地实践，符合额外加分条件。",
+    "translation": "轻量级排序头：加速生产环境推荐系统中的多任务实验",
+    "summary_zh": "提出一种轻量级排序头框架，通过梯度截断和无状态每日训练机制，在不重训主干模型的情况下动态注入新任务，从而隔离任务冲突并大幅缩短推荐系统的多任务实验周期。",
+    "key_points": [
+      "提出一种轻量级排序头框架，通过梯度截断和无状态每日训练机制，在不重训主干模型的情况下动态注入新任务，从而隔离任务冲突并大幅缩短推荐系统的多任务实验周期"
+    ]
+  },
+  {
+    "arxiv_id": "2609.25825",
+    "title": "Robust Fusion of Semantic and Behavioural Signals for LLM Reranking in Personalised Search",
+    "authors": [
+      "Aleksandr V. Petrov",
+      "Nathan Stein",
+      "Erik Lybecker",
+      "Emma Schüldt",
+      "Daniel Lazarovski",
+      "Hugues Bouchard",
+      "Mounia Lalmas"
+    ],
+    "summary": "Personalised search must satisfy query intent while incorporating user context and historical interactions. LLM-based cross-encoders provide a single reranking interface, but injecting predictive behavioural statistics into their prompts can encourage shortcut learning: reliance on historical signals at the expense of semantic and user-context patterns that generalise to sparse or unseen searches.\n  We study this problem in the personalised search system of a large-scale audio streaming platform using Query Slice Stats (QSS), an interaction-derived behavioural feature summarising historical success for query-candidate pairs. Naive QSS injection improves ranking when the feature is available but reduces robustness when it is removed. We address this with deterministic dual-sample feature-dropout training, which presents each example once with QSS included and once with QSS removed.\n  Offline, QSS injection improves ranking quality by 13.3% when available. Dual-sample training preserves these gains while improving performance under QSS-removed evaluation by 4.0% relative to naive QSS training. In a live online test, both QSS-aware variants improve search success by roughly 2%. The aggregate test does not distinguish dual-sample from features-only training; the cold-start comparison is directionally consistent with the offline results.\n  Paired feature-present and feature-removed training can therefore reduce the tension between exploiting strong behavioural statistics and remaining robust when they are unavailable.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-22",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.25825",
+    "pdf_url": "https://arxiv.org/pdf/2609.25825.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对个性化搜索中的重排序（Reranking）环节，提出了利用双样本特征丢弃训练来解决 LLM 融合行为信号时的鲁棒性问题，属于核心领域的高价值创新；且来自中国公司，按规定额外加 1 分后满分。",
+    "translation": "个性化搜索中 LLM 重排序的语义与行为信号鲁棒融合",
+    "summary_zh": "提出一种确定性双样本特征丢弃训练方法，通过在训练中交替包含和移除查询切片统计特征，使 LLM 重排序模型既能利用强行为信号提升效果，又能在特征缺失时保持泛化鲁棒性。",
+    "key_points": [
+      "提出一种确定性双样本特征丢弃训练方法，通过在训练中交替包含和移除查询切片统计特征，使 LLM 重排序模型既能利用强行为信号提升效果，又能在特征缺失时保持泛化鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2605.29322",
+    "title": "ACE: Anisotropy-Controllable Embedding for LLM-enhanced Sequential Recommendation",
+    "authors": [
+      "Dongcheol Lee",
+      "Hye-young Kim",
+      "Jongwuk Lee"
+    ],
+    "summary": "Recent advances in the LLM-as-Extractor paradigm leverage large language models (LLMs) to transfer semantically rich item embeddings into sequential recommendation (SR) backbones. However, LLM-generated embeddings often suffer from strong anisotropy. Most vectors are concentrated in similar directions, resulting in a geometric imbalance that makes it difficult to adapt to collaborative signals during fine-tuning. To address this challenge, we propose Anisotropy-Controllable Embedding (ACE), which explicitly controls the anisotropy of LLM-generated embeddings. Specifically, ACE utilizes a linear autoencoder (LAE) to reshape the embedding distribution while preserving its semantic structure. In this process, the L2-regularization term mitigates the anisotropy by controlling the dispersion of embedding dimensions, while the reconstruction loss maintains semantic relationships among items. That is, ACE balances geometric uniformity and semantic embedding preservation for more stable learning. Extensive experiments demonstrate that ACE consistently outperforms existing LLM-enhanced SR models, yielding improvements of up to 12.4% and 11.8% in Recall@20 and NDCG@20, respectively.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-05-28",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2605.29322",
+    "pdf_url": "https://arxiv.org/pdf/2605.29322.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 增强的序列推荐系统，解决了 LLM 生成嵌入的各向异性问题以提升推荐效果，属于核心领域的高优先级应用。",
+    "translation": "ACE：用于 LLM 增强序列推荐的各向异性可控嵌入方法",
+    "summary_zh": "提出一种利用线性自编码器和 L2 正则化显式控制 LLM 生成嵌入各向异性的方法，在保持语义结构的同时优化几何分布以适配协同信号。",
+    "key_points": [
+      "提出一种利用线性自编码器和 L2 正则化显式控制 LLM 生成嵌入各向异性的方法，在保持语义结构的同时优化几何分布以适配协同信号"
+    ]
+  },
+  {
+    "arxiv_id": "2606.22807",
+    "title": "KaLM-Reranker-V1: Fast but Not Late Interaction for Compressed Document Reranking",
+    "authors": [
+      "Xinping Zhao",
+      "Jiaxin Xu",
+      "Ziqi Dai",
+      "Xin Zhang",
+      "Huiyao Chen",
+      "Shouzheng Huang",
+      "Xianhao Xiong",
+      "Danyu Tang",
+      "Xinshuo Hu",
+      "Guohong Fu",
+      "Meishan Zhang",
+      "Baotian Hu"
+    ],
+    "summary": "As retrieval systems scale, effective and efficient reranking becomes increasingly important. However, most existing encoder- and decoder-based rerankers jointly process every query--passage pair, tightly coupling their online computation and limiting deployment efficiency and flexibility. We present KaLM-Reranker-V1, a fast but not late-interaction FBNL reranker that decouples query and passage computation while retaining expressive relevance modeling. Built on an encoder--decoder architecture, KaLM-Reranker-V1 pre-encodes passages using Matryoshka embedding pooling, while its decoder models system and user instructions together with query intent; cross-attention then captures fine-grained relevance between the resulting query context and passage representations. Together, these designs offer four key advantages: (i) efficiency from offline passage encoding, (ii) expressiveness from cross-attention, (iii) compactness from Matryoshka embedding pooling, and (iv) test-time compute through an adjustable compute budget. We instantiate KaLM-Reranker-V1 in three sizes, Nano, Small, and Large, with 0.27B, 1B, and 4B activated parameters, respectively. Extensive experiments on BEIR, MIRACL, and LMEB demonstrate strong reranking performance with superior efficiency. On BEIR and MIRACL, our models achieve competitive performance in multi-domain and multilingual reranking, on par with strong industrial rerankers such as the Qwen3/BGE-Reranker series. On LMEB-Dialogue, a compact embedding model paired with our Nano reranker, which has only 0.27B activated parameters, remains competitive with 7--12B embedding models. Data and models are available at https://huggingface.co/collections/KaLM-Embedding/lychee-kalm-reranker-and-jev.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-09-22",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2606.22807",
+    "pdf_url": "https://arxiv.org/pdf/2606.22807.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "affiliation_lines": [
+      "1HarbinInstituteofTechnology(Shenzhen);2ShenzhenLoopAreaInstitute;3SoochowUniversity",
+      "and models are available at https://huggingface.co/collectio"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索系统中的核心重排序（Reranking）环节，提出了解耦查询与文档计算的新型架构以解决工业部署效率问题，属于高优先级的搜索核心技术。",
+    "translation": "KaLM-Reranker-V1：用于压缩文档重排序的快速非晚期交互模型",
+    "summary_zh": "提出一种基于编码器 - 解码器架构的重排序模型，通过 Matryoshka 嵌入池化预编码文档并利用交叉注意力机制捕捉细粒度相关性，实现了离线文档计算与在线查询意图建模的解耦。",
+    "key_points": [
+      "提出一种基于编码器 - 解码器架构的重排序模型，通过 Matryoshka 嵌入池化预编码文档并利用交叉注意力机制捕捉细粒度相关性，实现了离线文档计算与在线查询意图建模的解耦"
+    ]
+  },
+  {
+    "arxiv_id": "2609.25189",
+    "title": "GroundedGEO: Auditing the Evidence Gap in Generative Search Rankings",
+    "authors": [
+      "Yihan Xia",
+      "Huiling Fan",
+      "Kangrong Zhong",
+      "Taotao Wang"
+    ],
+    "summary": "Generative search systems rank products and services for consequential decisions, and publishers can cheaply make candidate text look relevant. Yet evidence status is not a text property but a claim-evidence relation: text-only rankers and defenses cannot separate honest detailed content from fabricated detail, creating an identifiability gap. We audit this gap with an evidence-paired benchmark (50 e-commerce queries, 1,950 cases) and a claim-level reranker, GroundedGEO, that penalizes query-relevant claims lacking support in a supplied packet. Matched rich variants control format and volume; packet twins add attestations at fixed text, while thinned packets withdraw them. On the frozen listwise ranker Qwen2.5-7B, unsupported-rich variants show significant normalized rank gain over clean candidates (+0.065 to +0.092 across claim profiles, Holm-corrected), while supported and neutral controls do not; the effect is model-dependent (marginal on MiMo-v2.5, absent on GLM-5.3-Flash). On a frozen pointwise scorer, oracle evidence labels cut the unsupported-rich top-3 rate from 0.65 to 0.43 (laundering from 0.61 to 0.39) at lambda=40 with zero false suppression; packet twins restore the original rates without changing text. Against a 370-claim human gold, all tested automatic judges fail the preregistered reliability gate, although the best local judge retains 79-100% of oracle suppression with zero measured false suppression on protected arms. Separately, stripping attestation coverage increases false suppression by 0.307. These diagnostic effects identify two limits on the evidence channel: label quality and packet coverage. They do not validate an automatic defense, and interpretation of the adverse human-gold arm remains pending adjudication.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-09-21",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.25189",
+    "pdf_url": "https://arxiv.org/pdf/2609.25189.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "ShenzhenUniversity",
+      "Flash).Onafrozenpointwisescorer,oracleevidencelabelscutthe"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式搜索排序中的证据缺口问题，提出了具体的重排序（reranker）方法 GroundedGEO 以解决电商场景下的虚假内容排名问题，属于核心的搜索排序安全与应用研究；虽基于 LLM 但非纯模型研究，且有中国公司背景加成。",
+    "translation": "GroundedGEO：审计生成式搜索排序中的证据缺口",
+    "summary_zh": "本文提出一种声称级重排序方法 GroundedGEO，通过惩罚缺乏支持证据的查询相关声称，旨在解决生成式搜索系统中因文本-only 排名器无法区分真实内容与伪造细节而导致的排序偏差问题。",
+    "key_points": [
+      "本文提出一种声称级重排序方法 GroundedGEO，通过惩罚缺乏支持证据的查询相关声称，旨在解决生成式搜索系统中因文本-only 排名器无法区分真实内容与伪造细节而导致的排序偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.25306",
+    "title": "ReFilter: Bridging Embeddings and LLM Filtering for Similar Mobile App Retrieval",
+    "authors": [
+      "Buthayna AlMulla",
+      "Maram Assi",
+      "Safwat Hassan"
+    ],
+    "summary": "Retrieving similar mobile applications (apps) is essential for researchers, developers, and end-users. Researchers use similarity detection to study app ecosystems and trends, developers for competitor analysis, and end-users for focused app recommendations. Existing approaches rely on embedding-based retrieval, which captures semantic similarity but fails to identify functionally similar apps. To our knowledge, no prior work has applied large language model (LLM)-based filtering to this task, due to the high computational cost of evaluating large numbers of app pairs. To address this gap, we propose ReFilter, a hybrid framework that first Retrieves semantically related candidate apps using embeddings and then applies LLM-based contextual Filtering to identify true functionally similar apps with higher precision. This design balances efficiency and accuracy, achieving an F1-score of 90% for retrieving similar apps. By improving the relevance of app alternatives, ReFilter enables more accurate app comparisons and supports improved ecosystem understanding, competitor analysis, and recommendations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-21",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.25306",
+    "pdf_url": "https://arxiv.org/pdf/2609.25306.pdf",
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种结合嵌入检索与 LLM 过滤的混合框架用于移动应用相似性检索，虽涉及推荐场景，但更偏向通用检索方法研究而非核心推荐系统架构创新。",
+    "translation": "ReFilter： bridging 嵌入与 LLM 过滤以实现相似移动应用检索",
+    "summary_zh": "提出一种混合框架，先利用嵌入技术检索语义相关候选应用，再通过大语言模型进行上下文过滤以精准识别功能相似的应用。",
+    "key_points": [
+      "提出一种混合框架，先利用嵌入技术检索语义相关候选应用，再通过大语言模型进行上下文过滤以精准识别功能相似的应用"
+    ]
+  },
+  {
+    "arxiv_id": "2609.22770",
+    "title": "Parameterized Dense-Sparse Fusion for Hybrid Retrieval: Tuning a Rank-Score Mix on BEIR SciFact with Qdrant",
+    "authors": [
+      "Satyanarayan Pati",
+      "Srikanth Patil"
+    ],
+    "summary": "We study a parameterized hybrid ranker that fuses a dense embedding list and a sparse lexical list. The method has a small, explicit parameter vector: a dense prior $α\\in [0,1]$, a score-versus-rank mix $λ\\in [0,1]$, an RRF smoothing parameter $κ> 0$, optional list-geometry coefficients that move $α$ per query, and a router margin $τ$ that can turn sparse search off. We grid-search those ranges on SciFact train (809 queries) and freeze the chosen values on SciFact test (300). The tuned rank-score mix ($α= 0.8$, $λ= 0.75$, $κ= 20$) reaches 0.753 nDCG@10 and 0.889 recall@10, outperforming dense BGE (0.742 / 0.871) and equal-weight RRF (0.707 nDCG@10) on that test split. A list-conditioned $α$ adds +0.0006 nDCG; a sparse-off router is rejected by the same train split (any $τ$ that skipped approximately 50% of queries lost nDCG). These coefficients are dataset-specific. Equal RRF with the same models does not beat dense on a nine-zip BEIR macro-average (0.479 vs. 0.519 nDCG@10). Repeating the same train-then-freeze sweep independently on all 20 indexed units beats equal RRF on 20/20 and dense on 16/20 (unit-mean nDCG@10 0.467 vs. 0.462 dense vs. 0.420 RRF). Other corpora should reuse the ranges, not a copy of the SciFact point.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-09-22",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.22770",
+    "pdf_url": "https://arxiv.org/pdf/2609.22770.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦于检索阶段的稠密与稀疏融合策略，属于搜索核心环节，但仅为特定数据集上的参数网格搜索工程优化，缺乏通用的架构创新或深度学习模型突破。",
+    "translation": "基于参数化的稠密 - 稀疏融合混合检索：在 BEIR SciFact 上利用 Qdrant 调优排名与分数混合",
+    "summary_zh": "提出一种参数化混合排序器，通过显式参数向量动态融合稠密嵌入列表与稀疏词汇列表的排名及分数，以优化检索效果。",
+    "key_points": [
+      "提出一种参数化混合排序器，通过显式参数向量动态融合稠密嵌入列表与稀疏词汇列表的排名及分数，以优化检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2609.25405",
+    "title": "Efficient Iterative Retrieval with Heterogeneous Batching",
+    "authors": [
+      "Dohyun Park",
+      "Hubertus Franke",
+      "Daniel G. Waddington",
+      "Swaminathan Sundararaman",
+      "Yongjoo Park"
+    ],
+    "summary": "Modern information retrieval increasingly employs both embedding and generative models to handle complex queries. However, current serving systems suffer from low throughput and poor GPU utilization because they execute these models in isolation. Coarse-grained partitioning, such as dedicating GPUs to specific tasks, fails to adapt to dynamic workloads and creates computational \"bubbles\". To address these, we present Orthrus, a serving system that performs heterogeneous batching within a unified inference loop. The primary challenge lies in unifying embedding and generation workloads with conflicting computational patterns while optimizing batch composition for high performance. Orthrus addresses these challenges through chunked embedding with incremental pooling and by adjusting batch composition in a workload-aware manner. Evaluation on four A100 GPUs shows that, relative to baseline deployments, Orthrus achieves 1.28$\\times$--4.52$\\times$ higher throughput on controlled workloads and up to 55.8% lower end-to-end p99 latency on an iterative-RAG benchmark. We release our code at https://github.com/illinoisdata/Orthrus .",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-09-21",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.25405",
+    "pdf_url": "https://arxiv.org/pdf/2609.25405.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "1University of Illinois Urbana-Champaign 2IBM Research"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该文主要关注检索系统的底层服务优化（异构批处理、GPU 利用率），属于通用系统架构研究，虽提及迭代检索但未提出针对推荐/搜索业务的核心算法创新；虽来自中国公司加分，但本质仍偏向纯系统工程而非 RecSys 核心领域。",
+    "translation": "基于异构批处理的高效迭代检索系统",
+    "summary_zh": "提出 Orthrus 服务系统，通过在统一推理循环中执行异构批处理，结合分块嵌入与增量池化技术，解决嵌入与生成模型混合负载下的计算资源利用低效问题。",
+    "key_points": [
+      "提出 Orthrus 服务系统，通过在统一推理循环中执行异构批处理，结合分块嵌入与增量池化技术，解决嵌入与生成模型混合负载下的计算资源利用低效问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.25669",
+    "title": "From Utterances to Networks: Modelling Slang Adoption and Diffusion Across Subreddits",
+    "authors": [
+      "Xiaoning Wang",
+      "Ted Underwood",
+      "Zhewei Sun"
+    ],
+    "summary": "Adoption and diffusion of neologisms in online communities have received renewed attention in recent years. As internet slang terms such as APT, referring to a K-pop song, and phrases such as Canon Event meaning an embarrassing but pivotal event, go viral online, it becomes increasingly important to understand the mechanisms that contribute to their success. Prior studies have often explained slang diffusion either from the perspective of social interaction or from the linguistic properties of the slang itself, but rarely from both perspectives together. One major obstacle has been the high cost of annotating slang usage in large-scale online communication. Recent advances in large language models (LLMs), however, make it possible to use them as scalable annotators for such tasks. In this study, we first curate a human-annotated benchmark to evaluate LLM performance in detecting slang usage in real Reddit communication. We then leverage LLM-based annotations to model slang adoption and diffusion. Our results show that slang diffusers with higher bridging capital are associated with increased subsequent adoption, whereas diffusers with higher bonding capital are associated with reduced adoption. We also find that wider contextual usage of a slang term is associated with a longer time before new users officially adopt it. Together, these findings suggest that both social-network structure and linguistic context shape the diffusion of neologisms in online communities.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-09-22",
+    "updated": "2026-09-23",
+    "url": "https://arxiv.org/abs/2609.25669",
+    "pdf_url": "https://arxiv.org/pdf/2609.25669.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 NLP 和社会计算研究，聚焦于网络俚语的传播机制分析，虽使用 LLM 作为标注工具，但未提出任何推荐系统或搜索引擎的核心算法、架构或直接应用场景。",
+    "translation": "从话语到网络：建模俚语在 Reddit 子社区中的采纳与扩散",
+    "summary_zh": "本文利用大语言模型作为可扩展标注器，结合社交网络结构与语言上下文特征，共同建模在线社区中新词俚语的采纳与扩散机制。",
+    "key_points": [
+      "本文利用大语言模型作为可扩展标注器，结合社交网络结构与语言上下文特征，共同建模在线社区中新词俚语的采纳与扩散机制"
+    ]
+  }
+]

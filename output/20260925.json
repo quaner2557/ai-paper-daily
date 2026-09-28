@@ -1,0 +1,320 @@
+[
+  {
+    "arxiv_id": "2609.28589",
+    "title": "OneTrans-V2: Unifying Retrieval, Pre-rank, and Fine-rank with One Transformer in Industrial Recommender",
+    "authors": [
+      "Hannan Cao",
+      "Jun Guo",
+      "Haolei Pei",
+      "Zhaoqi Zhang",
+      "Tianyu Wang",
+      "Ziyang Wang",
+      "Youchen Sun",
+      "Yue Xue",
+      "Yucheng Mao",
+      "Lintao Yan",
+      "Yufei Feng",
+      "Shaowei Liu",
+      "Rongkun Xing",
+      "Feiling Gong",
+      "Xinyu Chenli",
+      "Cong Xu",
+      "Mingge Zhang",
+      "Yunjia Zhu",
+      "Yajing Zhang",
+      "Pengfei Ren",
+      "Yue Lin"
+    ],
+    "summary": "Industrial recommendation systems typically operate as a \\emph{cascade} of retrieval, pre-rank, and fine-rank, but these stages are usually trained and served as separate models, causing repeated user-sequence encoding, isolated optimization, and duplicated engineering effort. Building on OneTrans' model-level unification, we present OneTrans-V2, one Transformer that unifies the entire cascade. It encodes the user behavior sequence once as a shared context while preserving stage-specific candidate features and computation. Joint training lets the three stages reinforce one another and enables in-model knowledge distillation from fine-rank to pre-rank. We scale the shared backbone with sparse mixture-of-experts (MoE), which increases capacity with bounded activated computation, and stabilize scaling with $μ$P-style parameterization. To consolidate objective-specific retrieval channels, we introduce Decision-Conditioned Generative Retrieval (DCGR). DCGR predicts a decision prefix describing the upcoming interaction and generates items conditioned on it, allowing business objectives to steer a single generative process. Finally, Sequence-Native Training (SNT) organizes training around each user's lifelong behavior sequence and amortizes its encoding across exposures. Deployed across all three stages of a large-scale industrial recommendation system, OneTrans-V2 improves gross merchandise value (GMV) by 9.74\\% and, with a co-designed serving stack, delivers $3.2\\times$ the throughput of the cascade it replaces under the same hardware budget.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-23",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.28589",
+    "pdf_url": "https://arxiv.org/pdf/2609.28589.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统的核心架构（召回、粗排、精排）提出统一的 Transformer 解决方案，完美契合电商/社交推荐场景的核心需求。",
+    "translation": "OneTrans-V2：在工业推荐系统中用单一 Transformer 统一召回、粗排与精排",
+    "summary_zh": "提出 OneTrans-V2 架构，通过共享用户序列编码、稀疏混合专家模型及决策条件生成检索技术，将推荐系统的召回、粗排和精排三个阶段整合为单一模型进行联合优化。",
+    "key_points": [
+      "提出 OneTrans-V2 架构，通过共享用户序列编码、稀疏混合专家模型及决策条件生成检索技术，将推荐系统的召回、粗排和精排三个阶段整合为单一模型进行联合优化"
+    ]
+  },
+  {
+    "arxiv_id": "2609.29180",
+    "title": "X-Rec Technical Report",
+    "authors": [
+      "Chenglei Shen",
+      "Chenzhe Huang",
+      "Dong Jiang",
+      "Hongjie Gao",
+      "Jue Zhang",
+      "Kun Xú",
+      "Lincan Cai",
+      "Nan Zhuang",
+      "Pan Zhang",
+      "Shi Chen",
+      "Shunchi Zhang",
+      "Xiaoyu Ye",
+      "Yang Jin",
+      "Yu Zhang",
+      "Zhenwei An",
+      "Zhongtao Jiang",
+      "Zhiwei Wang",
+      "Kun Xǔ"
+    ],
+    "summary": "Recent advances in generative modeling have reshaped recommender systems by formulating recommendation as a next-item generation problem. Existing retrieval approaches primarily follow two paradigms: user-to-item (U2I) methods represent user context using one or a few deterministic embeddings, which limits the ability to capture diverse and multi-mode interests, while semantic-ID-based autoregressive (SID-AR) methods model more expressive distributions but suffer from quantization errors and the low throughput of sequential decoding. To address these limitations, we propose X-Rec to directly learn the recommendation distribution in the continuous item embedding space through flow matching and generate embedding triggers for approximate nearest neighbor retrieval. X-Rec incorporates three key designs to make this formulation effective and efficient. First, we introduce anchor conditioning to decompose generation into coarse semantic-region selection and fine-grained refinement. Second, we adopt Riemannian flow matching to align generative trajectories with the hyperspherical geometry of item embeddings. Third, we design a late-interaction diffusion Transformer that restricts repeated velocity-field estimation to the final Transformer layer. On a streaming benchmark, X-Rec substantially outperforms U2I baselines, matches the retrieval quality of SID-AR methods, and delivers 3.46x higher inference throughput than SID-AR. X-Rec has also been deployed as a new retrieval source for a specific vertical content on TikTok, where two consecutive launches have yielded significant improvements in both vertical engagement (+4.1484%) and general engagement (+0.0111%).",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-24",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.29180",
+    "pdf_url": "https://arxiv.org/pdf/2609.29180.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统召回环节提出基于流匹配的新架构，并已在 TikTok 实际部署验证效果，属于核心领域高优先级创新；虽含额外加分项，但满分封顶为 10。",
+    "translation": "X-Rec 技术报告：基于流匹配的连续嵌入空间推荐生成方法",
+    "summary_zh": "提出 X-Rec 方法，利用流匹配在连续物品嵌入空间直接学习推荐分布，通过锚点条件分解、黎曼流匹配及晚期交互扩散 Transformer 设计，解决现有方法在兴趣多样性捕捉与推理效率上的瓶颈。",
+    "key_points": [
+      "提出 X-Rec 方法，利用流匹配在连续物品嵌入空间直接学习推荐分布，通过锚点条件分解、黎曼流匹配及晚期交互扩散 Transformer 设计，解决现有方法在兴趣多样性捕捉与推理效率上的瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2609.28972",
+    "title": "Cross-Country Code-Mixing for Generative Recommendation",
+    "authors": [
+      "Yuan Gao",
+      "Hao Deng",
+      "Haibo Xing",
+      "Yi Xu",
+      "Lingyu Mu",
+      "Jinxin Hu",
+      "Yu Zhang",
+      "Xiaoyi Zeng"
+    ],
+    "summary": "Cross-country recommendation on modern e-commerce platforms is typically deployed with disjoint user and item ID spaces across markets, removing the shared anchors that conventional cross-domain methods rely on. Generative recommendation (GR) mitigates this by mapping items into a shared token space and training a unified model, but existing approaches keep behavior sequences strictly country-specific, so knowledge transfer occurs only at the parameter level and remains absent at the data level. Inspired by code-switching corpora in multilingual natural language processing, we propose CMRec, a cross-country GR framework that injects cross-country supervision at the data level via dual-constrained, context-aware code-mixing. CMRec first learns a shared semantic codebook from multi-modal content and behavioral co-occurrence across countries. It then uses this codebook to synthesize mixed-country sequences via token-level substitutions that satisfy both static (content) and dynamic (e.g., price, audience, popularity) constraints. Finally, it introduces a context-aware loss that reweights mixed samples according to their plausibility in the current sequence. Experiments on two real-world multi-country datasets and an online A/B test show that CMRec substantially improves recommendation quality in data-sparse countries while preserving performance in data-rich countries, achieving +1.77% advertising revenue and +2.64% orders on a large-scale e-commerce platform.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-09-24",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.28972",
+    "pdf_url": "https://arxiv.org/pdf/2609.28972.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商跨国家推荐场景，提出基于代码混合（Code-Mixing）的生成式推荐框架 CMRec，解决了数据隔离下的知识迁移问题，属于核心推荐系统创新。",
+    "translation": "面向生成式推荐的跨国代码混合方法",
+    "summary_zh": "提出 CMRec 框架，通过构建共享语义码本并在行为序列中进行受约束的 token 级代码混合，在数据层面实现跨国监督注入以增强稀疏市场的推荐效果。",
+    "key_points": [
+      "提出 CMRec 框架，通过构建共享语义码本并在行为序列中进行受约束的 token 级代码混合，在数据层面实现跨国监督注入以增强稀疏市场的推荐效果"
+    ]
+  },
+  {
+    "arxiv_id": "2609.29182",
+    "title": "ScalarLens: Numerical Embeddings with Stable Coordinates and Contextual Responses for CTR Prediction",
+    "authors": [
+      "Heng Yao",
+      "Tianying Liu",
+      "Yulou Shu",
+      "Yong He",
+      "Chuan Yuan",
+      "Kaibin Qiu",
+      "Guowei Chen",
+      "Jiayu Zhao",
+      "Siyun Hou"
+    ],
+    "summary": "Numerical embeddings for click-through rate (CTR) prediction are built on a convenient but restrictive premise: a scalar has one representation. This premise conflates where a value lies with what it means for the current sample. On the Criteo validation split, the same numerical interval carries residual click evidence with opposite signs across categorical and numerical contexts, even after additive main effects are removed. Production pipelines compound this mismatch because externally normalized features require transformations and statistics to remain synchronized between training and serving. We introduce ScalarLens, a numerical embedding that preserves what a value is while adapting how it should be interpreted. A monotone local mesh constructs a stable coordinate from the focal scalar alone; bounded low-rank dynamics then produce a contextual response without moving that coordinate or replacing categorical tokens and the CTR backbone. In a 1,539-run primary evaluation covering 19 representations, three datasets, nine backbones, and three seeds, ScalarLens ranks first in 25 of 27 settings on original numerical scales and second in the remaining two. Matched ablations show that scale correction, additional local capacity, and generic conditioning do not reproduce the gain. A controlled study further recovers categorical, numerical, and mixed response mechanisms under context shift while the focal coordinate remains exactly invariant. A complete rerun under shared standardization retains significant advantages over DEER, DAES, and NaryDis, showing that the result is not explained by tolerance to raw scales alone. ScalarLens therefore recasts numerical embedding as a measurement problem: coordinates belong to values, while predictive responses belong to values in context.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-24",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.29182",
+    "pdf_url": "https://arxiv.org/pdf/2609.29182.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group",
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "AntGroup IndependentResearcher AlibabaInc.",
+      "GuoweiChen,Jiayu Zhao HenanPolytechnicUniversity"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统核心环节（CTR 预估）中的数值特征嵌入问题提出创新架构，属于高优先级的核心领域进展；且来自 OPPO，按规则额外加 1 分。",
+    "translation": "ScalarLens：用于 CTR 预估的具有稳定坐标与上下文响应的数值嵌入方法",
+    "summary_zh": "提出 ScalarLens 数值嵌入方法，通过单调局部网格构建稳定坐标，并利用有界低秩动态生成上下文响应，将数值嵌入重构为测量问题以解决值与语境解耦难题。",
+    "key_points": [
+      "提出 ScalarLens 数值嵌入方法，通过单调局部网格构建稳定坐标，并利用有界低秩动态生成上下文响应，将数值嵌入重构为测量问题以解决值与语境解耦难题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.23012",
+    "title": "RQ-Reg: A Residual-Quantization-Based Framework for Continuous Value Prediction in Recommender Systems",
+    "authors": [
+      "Runpeng Cui",
+      "Zhipeng Sun",
+      "Chi Lu",
+      "Peng Jiang"
+    ],
+    "summary": "Predicting continuous values such as watch-time and gross merchandise value (GMV) is a core problem in industrial recommendation systems. Its inherent difficulty stems from the highly complex and long-tailed distributions of the target signals, which are hard to model accurately. Existing regression methods typically rely on fixed parametric assumptions on the target distribution: overly simple assumptions underfit real-world data, whereas more intricate ones tend to sacrifice scalability and generalization. To address these limitations, we propose a sequence modeling framework based on residual quantization (RQ), in which the target continuous value is decomposed into a sequence of quantization codes that represent progressively finer approximations. The model autoregressively predicts these codes from coarse to fine granularity, with each step refining the residual error left by the previous one. To further improve the quality of the learned representations, we introduce an ordinal-aware representation learning objective that aligns the RQ code embedding space with the ordinal structure of target values, thereby yielding continuous representations of quantization codes and more accurate predictions. We conduct comprehensive experiments on public benchmarks for watch-time and lifetime value (LTV) prediction, together with a large-scale online A/B test for GMV prediction on an industrial short-video recommendation platform. Across all settings, the proposed method shows competitive performance among existing state-of-the-art approaches and generalizes well across diverse continuous value prediction scenarios.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-09-24",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2602.23012",
+    "pdf_url": "https://arxiv.org/pdf/2602.23012.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的连续值预测（如观看时长、GMV）难题，提出基于残差量化的新架构，属于核心领域的高优先级创新。",
+    "translation": "RQ-Reg：一种基于残差量化的推荐系统连续值预测框架",
+    "summary_zh": "提出一种基于残差量化的序列建模框架，将连续目标值分解为从粗到细的量化码序列进行自回归预测，并引入序数感知目标以对齐编码空间的序数结构。",
+    "key_points": [
+      "提出一种基于残差量化的序列建模框架，将连续目标值分解为从粗到细的量化码序列进行自回归预测，并引入序数感知目标以对齐编码空间的序数结构"
+    ]
+  },
+  {
+    "arxiv_id": "2401.08875",
+    "title": "DCRMTA: Deep Causal Representation Learning for Multi-Touch Attribution",
+    "authors": [
+      "Jiaming Tang",
+      "Jingxuan Wen",
+      "Liping Jing"
+    ],
+    "summary": "Multi-touch attribution (MTA) is essential for estimating the contribution of individual advertising touchpoints to user conversions. While recent studies incorporate causal inference to mitigate confounding bias from user preferences, existing multi-stage deconfounding pipelines exhibit a critical structural flaw: they indiscriminately filter out user influences, which inadvertently discards the genuine causal signals linking user covariates to conversions. To resolve this trade-off, we propose Deep Causal Representation for MTA (DCRMTA), an end-to-end framework that explicitly quantifies and preserves the causal impact of user features. By leveraging structural causal modeling and adaptive counterfactual attention perturbations, DCRMTA distills invariant user representations while actively decoupling them from latent confounding variables. Extensive experiments on real-world industrial datasets demonstrate the efficacy of our approach. DCRMTA effectively improves predictive accuracy yielding up to a 5.2\\% relative improvement in PR-AUC over strong baselines while providing robust, Shapley-based credit allocations across complex marketing channels.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ME"
+    ],
+    "published": "2026-09-22",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2401.08875",
+    "pdf_url": "https://arxiv.org/pdf/2401.08875.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告归因（Ads Attribution）这一推荐/搜索核心领域，提出了解决混淆偏差的因果表征学习框架，具有明确的工业应用场景。",
+    "translation": "DCRMTA：用于多触点归因的深度因果表征学习",
+    "summary_zh": "提出一种端到端深度因果表征框架，通过结构因果建模和自适应反事实注意力扰动，在解耦潜在混淆变量的同时保留用户特征对转化的真实因果信号。",
+    "key_points": [
+      "提出一种端到端深度因果表征框架，通过结构因果建模和自适应反事实注意力扰动，在解耦潜在混淆变量的同时保留用户特征对转化的真实因果信号"
+    ]
+  },
+  {
+    "arxiv_id": "2506.20584",
+    "title": "The kernel of graph indices for vector search",
+    "authors": [
+      "Mariano Tepper",
+      "Ted Willke"
+    ],
+    "summary": "The most popular graph indices for vector search use principles from computational geometry to build the graph. Hence, their formal graph navigability guarantees are only valid in Euclidean space. In this work, we show that machine learning can be used to build graph indices for vector search in metric and non-metric vector spaces (e.g., for inner product similarity). From this novel perspective, we introduce the Support Vector Graph (SVG), a new type of graph index that leverages kernel methods to establish the graph connectivity and that comes with formal navigability guarantees valid in metric and non-metric vector spaces. In addition, we interpret the most popular graph indices, including HNSW and DiskANN, as particular specializations of SVG and show that new navigable indices can be derived from the principles behind this specialization. Finally, we propose SVG-L0 that incorporates an $\\ell_0$ sparsity constraint into the SVG kernel method to build graphs with a bounded out-degree. This yields a principled way of implementing this practical requirement, in contrast to the traditional heuristic of simply truncating the out edges of each node. Additionally, we show that SVG-L0 has a self-tuning property that avoids the heuristic of using a set of candidates to find the out-edges of each node and that keeps its computational complexity in check.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-09-24",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2506.20584",
+    "pdf_url": "https://arxiv.org/pdf/2506.20584.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文提出基于核方法的向量搜索图索引（SVG），虽属于检索底层核心技术，但主要聚焦通用度量空间理论，未明确针对推荐/搜索业务场景或用户建模进行优化，属有潜力的通用方法。",
+    "translation": "向量搜索图索引的核方法研究",
+    "summary_zh": "提出支持向量图（SVG）索引架构，利用核方法在度量和非度量空间中构建具有形式化可导航性保证的图连接，并通过稀疏约束实现有界出度的自调节建图机制。",
+    "key_points": [
+      "提出支持向量图（SVG）索引架构，利用核方法在度量和非度量空间中构建具有形式化可导航性保证的图连接，并通过稀疏约束实现有界出度的自调节建图机制"
+    ]
+  },
+  {
+    "arxiv_id": "2609.29145",
+    "title": "Claim-Gated Source-Risk Auditing for Generative Search",
+    "authors": [
+      "Kainan Zhou",
+      "Chuhong Xu",
+      "Gangzhen Qian",
+      "Zhaoyi Li"
+    ],
+    "summary": "A generative search answer can cite a supported passage yet omit a source relationship that changes its interpretation. We specify a claim-gated audit of the query-source-answer tuple. An omission is resolved only when relationship evidence, answer adoption, materiality, and disclosure are all observed; incomplete evidence remains unresolved rather than being treated as independence. The specification separates this endpoint from citation support and review priority, and binds decisions to versioned evidence spans. A reference checker makes the record contract executable. On an exhaustive synthetic suite, it reproduces all 81 three-state predicate combinations and rejects 192 deliberately malformed records. Common-guard baselines and predicate ablations isolate endpoint logic from missing-evidence handling, while controlled transitions check support separation and evidence removal. These are finite contract-conformance results, not detector accuracy or evidence of improved user outcomes. We define the independent annotation, held-out evaluation, and paired utility tests still required to establish semantic validity and deployment benefit.",
+    "categories": [
+      "cs.AI",
+      "cs.CC",
+      "cs.CE",
+      "cs.ET",
+      "cs.IR"
+    ],
+    "published": "2026-09-24",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.29145",
+    "pdf_url": "https://arxiv.org/pdf/2609.29145.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于生成式搜索中的来源风险审计与事实核查机制，属于搜索系统的安全与可靠性边缘研究，而非核心的召回、排序或用户建模技术，且未直接涉及推荐场景。",
+    "translation": "面向生成式搜索的声明门控来源风险审计",
+    "summary_zh": "提出一种声明门控审计框架，通过严格验证查询、来源与答案三元组间的关系证据、采纳性及披露情况，以解决生成式搜索中引用支持但遗漏关键来源关系的问题。",
+    "key_points": [
+      "提出一种声明门控审计框架，通过严格验证查询、来源与答案三元组间的关系证据、采纳性及披露情况，以解决生成式搜索中引用支持但遗漏关键来源关系的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.28653",
+    "title": "The Fellowship of the Query: Learning Retrieval Actions",
+    "authors": [
+      "Mohammed Al-Maamari",
+      "Saber Zerhoudi",
+      "Michael Granitzer",
+      "Jelena Mitrović"
+    ],
+    "summary": "Retrieval-augmented question answering requires control decisions about when to decompose a question, search, reformulate, extract evidence, synthesize facts, verify progress, and stop. We study whether trajectory fine-tuning can improve small language models (SLMs) as next-action controllers. We additionally evaluate a low-resource setting in which a single SLM serves as both the controller and the final-answer generator. From accepted teacher search traces, we build a seven-way action-prediction task, where the model predicts the next structured teacher action from the current trajectory state, and evaluate LoRA-supervised fine-tuning across SLMs and xSLMs as controllers. On 1,646 held-out action examples, Granite 4.1 3B trained on 13,194 actions reaches macro-F1 0.6536, compared with 0.1736 for zero-shot prompting of the same model and 0.5399 for a TF-IDF logistic-regression baseline. In an end-to-end controller/generator swap evaluation over 149 held-out trajectories, using the fine-tuned model for both roles improves Exact Match from 0.7530 to 0.7946 and token F1 from 0.7783 to 0.8295 compared with using the base model as both controller and generator. The cross-role conditions show that the fine-tuned controller increases evidence-fact recording when the generator is fixed, while controller-only final-answer gains are not statistically clear. Overall, trajectory supervision improves action prediction and evidence-recording behaviour in this evaluated pipeline. Code is available at https://github.com/padas-lab-de/agent-action-controller",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-09-23",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.28653",
+    "pdf_url": "https://arxiv.org/pdf/2609.28653.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/Agent 研究，专注于问答系统中的检索动作控制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），因此相关性低。",
+    "translation": "查询联盟：学习检索动作",
+    "summary_zh": "该论文提出通过轨迹微调小型语言模型，使其作为控制器来预测检索增强问答中的下一步结构化动作（如分解、搜索、验证），以优化证据收集与答案生成的协同流程。",
+    "key_points": [
+      "该论文提出通过轨迹微调小型语言模型，使其作为控制器来预测检索增强问答中的下一步结构化动作（如分解、搜索、验证），以优化证据收集与答案生成的协同流程"
+    ]
+  },
+  {
+    "arxiv_id": "2609.28765",
+    "title": "Reinforcement Learning with Verifiable Rewards for Small Search Agents",
+    "authors": [
+      "Gaurisankar Jayadas",
+      "Aske Plaat",
+      "Álvaro Serra-Gómez",
+      "Sandheep P"
+    ],
+    "summary": "Reinforcement Learning with Verifiable Rewards (RLVR) performs well on problems with clear rewards, such as mathematics and coding, but whether it also works where the reward is less clear remains open. The reason-over-search recipe applies RLVR to open-domain question answering, where retrieval grounds the answer and a match against the reference supplies the reward. So far it has been demonstrated on large models, and below one billion parameters only with distillation from a larger teacher. We test the recipe on a small model. We train Qwen3.5-0.8B with Group Relative Policy Optimization (GRPO) and an interleaved Wikipedia-search tool on MuSiQue, varying only the reward across three shapes over three seeds each, and we evaluate every checkpoint held-out on a seven-benchmark question-answering suite. The recipe works: the best run reaches 0.352 average exact match against a 0.092 untrained floor, a 3.8-fold gain, with no distillation step in the training loop. The reward shape also matters. The Search-R1-faithful exact-match-only reward is the worst of the three at every seed at the matched training horizon, and it is worst even on exact match, the metric it directly optimises. We conclude that the sparse exact-match reward, RLVR's default in mathematics and code, is the wrong starting point for models of this size. The reason-over-search setting can supply a suitable reward for RLVR on small models, but small-model RLVR needs its own reward-design study rather than a scaled-down copy of a large-model recipe.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-09-23",
+    "updated": "2026-09-25",
+    "url": "https://arxiv.org/abs/2609.28765",
+    "pdf_url": "https://arxiv.org/pdf/2609.28765.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 RL 和 LLM 研究，专注于开放域问答（QA）中的小模型训练，未直接涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "基于可验证奖励的小规模搜索代理强化学习研究",
+    "summary_zh": "本文提出在开放域问答中利用检索增强和特定奖励形状设计，通过群相对策略优化（GRPO）直接训练小规模语言模型，证明了稀疏精确匹配奖励不适用于小模型。",
+    "key_points": [
+      "本文提出在开放域问答中利用检索增强和特定奖励形状设计，通过群相对策略优化（GRPO）直接训练小规模语言模型，证明了稀疏精确匹配奖励不适用于小模型"
+    ]
+  }
+]

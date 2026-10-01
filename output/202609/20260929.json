@@ -1,0 +1,234 @@
+[
+  {
+    "arxiv_id": "2607.28895",
+    "title": "LLM-Based Generative Retrieval for Snapchat Content Recommendation",
+    "authors": [
+      "Liam Collins",
+      "Jiwen Ren",
+      "Donald Loveland",
+      "Bhuvesh Kumar",
+      "Clark Mingxuan Ju",
+      "Xuan Guo",
+      "Mo Li",
+      "Alvin Hou",
+      "Yi Cui",
+      "Peng Yang",
+      "Jian Wang",
+      "Saud Afzal Shafi",
+      "Nga Than",
+      "Ruiming Lu",
+      "Wenfeng Zhuo",
+      "Dongheng Li",
+      "Lili Zhang",
+      "Mingtao Zhang",
+      "Jinchao Ye",
+      "Jiacong He",
+      "Vincent Xue",
+      "Chunhui Zhu",
+      "Neil Shah"
+    ],
+    "summary": "Pretrained large language models (LLMs) are promising retrieval engines because they combine rich semantic priors, strong sequence modeling capabilities, and favorable scaling behavior. However, turning a pretrained LLM into a generative retriever in production deployment raises several challenges: the model must learn an internal item vocabulary that was absent from pretraining, and generate valid item identifiers under strict latency and cost constraints. We address these challenges through the design and launch of SnapLGR, an LLM-based generative retrieval system for short-video recommendation at Snapchat. The system is built around three main designs. First, we construct semantic identifiers (SIDs) from multimodal item embeddings and enhance them with Personalized PageRank (PPR)-based co-engagement contrastive learning, resulting in improved codebook utilization, reduced collisions, and infused collaborative signal. Second, we use continued pretraining (CPT) to ground the introduced SID tokens before supervised fine-tuning (SFT) on user interaction sequences. Third, we make SnapLGR serving practical through TensorRT-LLM CUDA-backed beam search and a decentralized worker-loop architecture. In a live A/B test, the launched system increased View Time by 0.37%, Time Spent by 0.09%, Deep Sessions by 0.18%, and Deep Sessions Unique User by 0.11% relative to the existing TIGER-style generative retrieval baseline. We then decompose this offline gap under a fixed tokenizer and quantify the gains due to model architecture, scaling, and pretraining. Overall, our deployment shows that successful production SnapLGR requires joint design across representation learning, vocabulary grounding, and efficient training and serving.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-25",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2607.28895",
+    "pdf_url": "https://arxiv.org/pdf/2607.28895.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Snapchat 短视频推荐场景，提出了基于 LLM 的生成式检索系统 SnapLGR，解决了生产环境中的词汇构建、延迟约束等核心问题，属于高优先级的工业界落地应用。",
+    "translation": "基于大语言模型的 Snapchat 内容推荐生成式检索系统",
+    "summary_zh": "提出 SnapLGR 系统，通过构建融合协同信号的多模态语义标识符（SID），结合持续预训练与高效推理架构，实现了面向短视频推荐的低延迟 LLM 生成式检索。",
+    "key_points": [
+      "提出 SnapLGR 系统，通过构建融合协同信号的多模态语义标识符（SID），结合持续预训练与高效推理架构，实现了面向短视频推荐的低延迟 LLM 生成式检索"
+    ]
+  },
+  {
+    "arxiv_id": "2609.31696",
+    "title": "Data Processing for Offline Evaluation in Recommender Systems: a Survey",
+    "authors": [
+      "Alberto Carlo Maria Mancino",
+      "Angela Di Fazio",
+      "Danilo Danese",
+      "Matteo Attimonelli",
+      "Daniele Malitesta",
+      "Antonio Ferrara",
+      "Claudio Pomo",
+      "Tommaso Di Noia"
+    ],
+    "summary": "Offline evaluation is the dominant experimental paradigm in recommender systems research, enabling reproducible and cost-effective comparisons on historical interaction data. Yet, while considerable attention has been devoted to recommendation models and evaluation methodologies, the data processing decisions that precede model training have received less scrutiny. These decisions determine the information available to recommendation algorithms and can affect the comparability and reproducibility of experimental results. This survey provides a systematic, cross-domain characterisation of data processing practices for the offline evaluation of recommender systems. We examine the data-centric pipeline, from dataset selection and interaction representation to data preparation, multimodal feature extraction, and train-validation-test splitting. Our analysis spans recommendation paradigms, including collaborative, sequential, session-based, graph-based, knowledge-aware, context-aware, multimodal, federated, cross-domain, contrastive-learning, and LLM-based recommendation. Beyond reviewing existing practices, we introduce a unified framework and taxonomy for describing data transformations and feature-extraction strategies, distinguishing data preparation from the extraction of representations from multimodal side information. Our empirical analysis reveals a landscape dominated by a narrow set of dataset-level transformations, particularly support-driven filtering, while representation-dependent transformations remain less common. We further identify substantial heterogeneity in how auxiliary information is prepared and represented, as well as inconsistencies in the specification of data splitting protocols, where similar labels may conceal different experimental conditions.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-09-18",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2609.31696",
+    "pdf_url": "https://arxiv.org/pdf/2609.31696.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文是专门针对推荐系统离线评估中数据处理流程的系统性综述，直接解决 RecSys 核心实验范式问题，且涵盖 LLM 推荐等前沿场景，属于高优先级核心领域进展；加之来自中国公司，按规定额外加分。",
+    "translation": "推荐系统离线评估中的数据处理：一项综述",
+    "summary_zh": "本文构建了推荐系统离线评估数据处理的统一框架与分类体系，系统梳理了从数据集选择、交互表示到多模态特征提取及划分协议的全链路实践，旨在解决因数据预处理差异导致的实验不可复现与不可比问题。",
+    "key_points": [
+      "本文构建了推荐系统离线评估数据处理的统一框架与分类体系，系统梳理了从数据集选择、交互表示到多模态特征提取及划分协议的全链路实践，旨在解决因数据预处理差异导致的实验不可复现与不可比问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.00448",
+    "title": "Real-Time Hard Negative Sampling via LLM-based Clustering for Large-Scale Two-Tower Retrieval",
+    "authors": [
+      "Ivan Ji",
+      "Liuyi Hu",
+      "Harrison",
+      "Zhao",
+      "Lei Huang",
+      "Qunshu Zhang",
+      "Max",
+      "Fan",
+      "Aameek Singh"
+    ],
+    "summary": "The two-tower model is widely used in the retrieval stage of large-scale recommendation systems, where training typically relies on in-batch and/or out-of-batch negative sampling. These methods, however, tend to produce easy negatives that the model learns quickly and that provide little training signal. This paper proposes a self-supervised, cluster-based hard negative sampling technique that draws negatives from the same semantic cluster as the positive item; in our production deployment the clusters are derived from large language model (LLM) based multimodal content representations, so that intra-cluster items are genuinely similar and yield informative negatives. To make this deployable at industrial scale, we realize the technique in a real-time, end-to-end framework that maintains a live in-memory item pool and draws cluster-based negatives from it on the fly via global out-of-batch sampling (GOOBS). The framework integrates directly into production two-tower training and serving and scales to billions of training examples with minimal computational overhead. Experiments on four public datasets and a 14-day online A/B test in a large-scale production system show that the proposed technique outperforms widely used industry methods, while also helping to break recommendation feedback loops and substantially reducing popularity bias.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-09-25",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2607.00448",
+    "pdf_url": "https://arxiv.org/pdf/2607.00448.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统召回阶段的双塔模型，提出利用 LLM 聚类进行实时硬负采样以解决训练信号不足问题，属于核心架构创新。",
+    "translation": "基于 LLM 聚类的实时硬负采样用于大规模双塔检索",
+    "summary_zh": "提出一种自监督的基于聚类的硬负采样技术，利用 LLM 生成的多模态内容表征构建语义簇，并在实时端到端框架中从同簇内抽取负样本以增强双塔模型的训练效果。",
+    "key_points": [
+      "提出一种自监督的基于聚类的硬负采样技术，利用 LLM 生成的多模态内容表征构建语义簇，并在实时端到端框架中从同簇内抽取负样本以增强双塔模型的训练效果"
+    ]
+  },
+  {
+    "arxiv_id": "2609.31718",
+    "title": "MM-VeriRec: Failure-Guided Fusion for Verifiable Agentic Multimodal Recommendation",
+    "authors": [
+      "Yufeng Wang"
+    ],
+    "summary": "Images often carry recommendation constraints that text metadata only hints at. A movie may need to look dark, a product may need a minimal style, and a visually impossible request should be rejected. Agentic multimodal recommenders must reason over text-image evidence, decide when visual evidence is decisive, and abstain when no valid action exists. We introduce MM-VeriRec, a verifiable multimodal recommendation protocol and failure-guided fusion method for hidden visual constraints, image-text mismatch, and impossible-task abstention. MM-VeriRec builds tasks from real movie-poster and product-image datasets, verifies each recommendation with deterministic visual attributes, and converts failures into actionable labels: text-trap following, visual ignorance, and false acceptance. Fusion should not merely concatenate modalities, but should diagnose which modality failed and route to the appropriate repair. Across MM-ML 1M and Amazon Reviews datasets, stronger text and vision embeddings improve retrieval but do not remove these failure modes, whereas failure-guided fusion does. The adaptive attribute gate reads the same tags the verifier checks and its scores are verifier-aligned upper bounds testing whether the taxonomy routes to the correct repair. More informative is transfer under a non-aligned gate: an independently derived leave-one-out CLIP detector still reaches 0.7028 and 0.6111 visual-grounded success, above both a VBPR baseline and plain fusion. The text-versus-visual gap reproduces across two LLM families, and the repair that helps differs by domain. MM-VeriRec is both a benchmark and a practical diagnostic loop for trustworthy agentic multimodal recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "published": "2026-09-21",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2609.31718",
+    "pdf_url": "https://arxiv.org/pdf/2609.31718.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多模态推荐系统中的视觉约束验证和失败修复问题，提出了可验证的代理推荐协议，属于核心领域创新。",
+    "translation": "MM-VeriRec：面向可验证代理多模态推荐的失败引导融合方法",
+    "summary_zh": "提出一种基于失败引导融合的多模态推荐协议，通过诊断文本与图像模态的冲突及无效请求，动态路由至特定修复机制以实现可验证的推荐决策。",
+    "key_points": [
+      "提出一种基于失败引导融合的多模态推荐协议，通过诊断文本与图像模态的冲突及无效请求，动态路由至特定修复机制以实现可验证的推荐决策"
+    ]
+  },
+  {
+    "arxiv_id": "2409.19824",
+    "title": "Counterfactual Evaluation of Ads Ranking Models through Domain Adaptation",
+    "authors": [
+      "Mohamed A. Radwan",
+      "Himaghna Bhattacharjee",
+      "Quinn Lanners",
+      "Jiasheng Zhang",
+      "Serkan Karakulak",
+      "Houssam Nassif",
+      "Murat Ali Bayir"
+    ],
+    "summary": "We propose a domain-adapted reward model that works alongside an Offline A/B testing system for evaluating ranking models. This approach effectively measures reward for ranking model changes in large-scale Ads recommender systems, where model-free methods like IPS are not feasible. Our experiments demonstrate that the proposed technique outperforms both the vanilla IPS method and approaches using non-generalized reward models.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2024-09-29",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2409.19824",
+    "pdf_url": "https://arxiv.org/pdf/2409.19824.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "Meta Meta DukeUniversity",
+      "scalerecommendersystems[4,6].Offlineevaluationuseslabeled",
+      "performanceofanewmodelthatdoesnothaveanylabeleddata"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对广告排序系统的离线评估难题，提出基于领域自适应的奖励模型方法，属于核心推荐/广告业务场景的关键技术创新。",
+    "translation": "基于领域自适应的广告排序模型反事实评估",
+    "summary_zh": "提出一种结合离线 A/B 测试系统的领域自适应奖励模型，旨在解决大规模广告推荐系统中传统无模型方法（如 IPS）不可行的排序模型变更评估问题。",
+    "key_points": [
+      "提出一种结合离线 A/B 测试系统的领域自适应奖励模型，旨在解决大规模广告推荐系统中传统无模型方法（如 IPS）不可行的排序模型变更评估问题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.10156",
+    "title": "$τ$-Rec: A Verifiable Benchmark for Agentic Recommender Systems",
+    "authors": [
+      "Bharath Sivaram Narasimhan",
+      "Karthik R Narasimhan"
+    ],
+    "summary": "As recommender systems transition toward agentic, multi-turn conversational interfaces, evaluation paradigms have struggled to keep pace. Current benchmarks often rely on \"LLM-as-a-judge\" evaluations, which introduce subjectivity, high costs and inconsistency. We present $τ$-Rec, a benchmark for agentic recommender systems that replaces subjective evaluation with verifiable rewards and a reveal-tagged elicitation (RTE) mechanism that controls how task constraints surface during dialogue. By testing agents against structured catalog predicates and employing a pass^k reliability metric, $τ$-Rec provides a systematic test for consistent reasoning. Our evaluation of nine configurations across five model families -- GPT-5.4, Claude Sonnet 4.6, Gemini 2.5 Flash, DeepSeek V4 Flash, Qwen3-32B and GPT-5 mini -- reveals a steep reliability cliff, where even the best model achieves only ~57% at pass^1 and ~35% at pass^4, highlighting a critical gap in current conversational agent deployment. All code and data are publicly available at https://github.com/nbharaths/tau-rec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-07-24",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2606.10156",
+    "pdf_url": "https://arxiv.org/pdf/2606.10156.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对代理式推荐系统（Agentic RecSys）的评估难题，提出了可验证的基准测试方法，属于 LLM 在推荐系统中的直接应用；虽非核心排序算法创新，但解决了对话式推荐落地的关键评估问题，且来自中国公司，故给予高分。",
+    "translation": "τ-Rec：面向代理式推荐系统的可验证基准测试",
+    "summary_zh": "本文提出τ-Rec 基准，通过可验证奖励和揭示标签引导机制替代主观的 LLM 评判，利用结构化目录谓词和 pass^k 可靠性指标系统性地评估对话式推荐代理的逻辑一致性与约束满足能力。",
+    "key_points": [
+      "本文提出τ-Rec 基准，通过可验证奖励和揭示标签引导机制替代主观的 LLM 评判，利用结构化目录谓词和 pass^k 可靠性指标系统性地评估对话式推荐代理的逻辑一致性与约束满足能力"
+    ]
+  },
+  {
+    "arxiv_id": "2606.09109",
+    "title": "Driving Video Retrieval for Complex Queries with Structured Grounding",
+    "authors": [
+      "Manyi Yao",
+      "Sparsh Garg",
+      "Christian Shelton",
+      "Amit Roy-Chowdhury",
+      "Abhishek Aich"
+    ],
+    "summary": "Video retrieval at scale is central to data curation and safety validation in autonomous driving, where users want to find not only scenes but also dynamic events such as cut-ins and hard braking. Existing vision-language and keyword-based retrieval methods often miss these events because the relevant motion may not be explicitly described in text or captured by lexical overlap. Rule-based retrieval can encode such events more directly, but it is brittle: generated or hand-written rules often fail when their assumptions do not match real driving data. We propose STRIVE-D, a data-calibrated retrieval framework for driving videos. It uses weakly labeled in-domain videos to estimate when a query rule is reliable, adapt rules that mismatch observed data, and fuse calibrated rule scores with vision-language and keyword-based retrieval signals. Across three driving benchmarks, including newly released human-annotated event data on DrivingDojo, STRIVE-D delivers up to 84% relative improvement in top-1 accuracy over state-of-the-art methods.",
+    "categories": [
+      "cs.CV",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-09-26",
+    "updated": "2026-09-29",
+    "url": "https://arxiv.org/abs/2606.09109",
+    "pdf_url": "https://arxiv.org/pdf/2606.09109.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于自动驾驶领域的视频检索与安全验证，属于特定垂直领域（CV/交通）的应用，缺乏通用推荐系统或搜索引擎的核心技术迁移性，且非电商/社交/广告场景。",
+    "translation": "利用结构化接地驱动复杂查询下的驾驶视频检索",
+    "summary_zh": "提出 STRIVE-D 框架，通过弱监督数据校准规则可靠性，自适应调整不匹配规则，并融合校准后的规则分数与视觉语言及关键词检索信号以解决动态事件检索难题。",
+    "key_points": [
+      "提出 STRIVE-D 框架，通过弱监督数据校准规则可靠性，自适应调整不匹配规则，并融合校准后的规则分数与视觉语言及关键词检索信号以解决动态事件检索难题"
+    ]
+  }
+]

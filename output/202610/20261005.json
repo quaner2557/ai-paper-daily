@@ -1,0 +1,228 @@
+[
+  {
+    "arxiv_id": "2610.02600",
+    "title": "When History Misleads: Asymmetric Margin Supervision for Instruction-Guided LLM Generative Recommendation",
+    "authors": [
+      "Ming Yin",
+      "Yuhan Yang",
+      "Chen Chen",
+      "Xinyu Lin",
+      "Wentao Shi",
+      "Fangcong Yin",
+      "Chaofei Yang",
+      "Chao Yang",
+      "Jiyan Yang",
+      "Hui Zhang",
+      "Ning Jiang",
+      "Yiran Chen",
+      "Qifan Wang"
+    ],
+    "summary": "In instruction-guided generative recommendation, LLM-based recommenders need to balance two goals: responding to the user's current request and aligning with the preferences in their interaction history. When the two conflict, history events can override the request. We show that turning the effect of individual history events into supervision faces two obstacles. First, the events that most influence a recommendation are not necessarily the ones that support the target item. Second, removing a misleading event can raise the target's score but a competing item's score even more, so a higher target score alone does not guarantee a better ranking. We propose Asymmetric Intervention-Guided Margin Supervision (AIMS), which converts the effect of removing individual history events into ranking supervision. For training requests already ranked correctly, a frozen reference model identifies request-specific deletions that improve both the target's score and its margin over a competitor near the recommendation cutoff. These margins serve as training targets, while the complete history is retained as input. Training combines cross-entropy with an asymmetric auxiliary loss that penalizes margin shortfalls and routes its gradient only through the competitor score. Inference is unchanged, requiring no history editing or deletion search. Across six LLM backbones on an industrial dataset and two public benchmarks, AIMS improves Recall and NDCG over strong baselines. Ablations support request-specific margins and asymmetric supervision, and the selected deletions preferentially remove constraint-violating history.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-01",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02600",
+    "pdf_url": "https://arxiv.org/pdf/2610.02600.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Duke University, 2Meta"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决 LLM 生成式推荐中用户历史与当前指令冲突的核心难题，提出了具体的排序监督方法（AIMS），属于高优先级的 LLM for RecSys 研究；且来自中国公司，按规则额外 +1 分（上限 10）。",
+    "translation": "当历史产生误导：用于指令引导式 LLM 生成推荐的非对称边际监督方法",
+    "summary_zh": "针对 LLM 推荐中用户历史干扰当前指令的问题，提出非对称干预引导边际监督（AIMS）方法，通过将移除特定历史事件对目标项与竞争项排序边际的影响转化为训练信号，优化排名而不改变推理过程。",
+    "key_points": [
+      "针对 LLM 推荐中用户历史干扰当前指令的问题，提出非对称干预引导边际监督（AIMS）方法，通过将移除特定历史事件对目标项与竞争项排序边际的影响转化为训练信号，优化排名而不改变推理过程"
+    ]
+  },
+  {
+    "arxiv_id": "2610.02572",
+    "title": "Adaptive Sparsity Optimization with Learnable Soft Top-K and Per-Term Thresholding for Efficient Retrieval",
+    "authors": [
+      "Wentai Xie",
+      "Parker Carlson",
+      "Shanxiu He",
+      "Tao Yang"
+    ],
+    "summary": "Recent work on neural sparse retrieval has demonstrated strong relevance by leveraging Large Language Models (LLMs) for semantic term expansion. However, learned models paired with previous sparsification techniques still yield overly long document and query vectors partly due to a large LLM vocabulary, imposing a serious challenge to retrieval time and space efficiency. This paper proposes a scheme for optimizing model sparsity through a synergy of adaptive strategies, including learnable soft top-K, per-term thresholding, and FLOPs regularization to increase the sparsity of query and document vectors. Experimental results with Lion-SP model on the MS MARCO and BEIR datasets demonstrate that the proposed scheme can outperform the baselines by significantly reducing the average query and document lengths. Our scheme can achieve much shorter retrieval latency and lower storage cost while maintaining highly competitive relevance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-01",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02572",
+    "pdf_url": "https://arxiv.org/pdf/2610.02572.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对神经稀疏检索（Neural Sparse Retrieval）这一搜索核心环节，利用 LLM 进行语义扩展并优化向量稀疏度以提升检索效率，属于明确的搜索技术应用；虽涉及 LLM 但非纯 LLM 研究，结合中国公司背景加分后定为 8 分。",
+    "translation": "基于可学习软 Top-K 和逐项阈值的高效检索自适应稀疏度优化",
+    "summary_zh": "提出一种结合可学习软 Top-K、逐项阈值和 FLOPs 正则化的自适应策略，旨在压缩由大语言模型生成的查询与文档向量长度，从而在保持检索相关性的同时显著降低存储成本和延迟。",
+    "key_points": [
+      "提出一种结合可学习软 Top-K、逐项阈值和 FLOPs 正则化的自适应策略，旨在压缩由大语言模型生成的查询与文档向量长度，从而在保持检索相关性的同时显著降低存储成本和延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2610.02353",
+    "title": "Does Every User Need a Private LoRA? Decoupling Personalization from Per-User Adaptation",
+    "authors": [
+      "Songyuan Sui",
+      "Srikanth Malla",
+      "Chiho Choi",
+      "Joon Hee Choi"
+    ],
+    "summary": "Personalized large language models often require a complete adaptation state for each user. However, this paradigm scales poorly as the user population grows. We revisit this design through the lens of personalization capacity allocation: how much adaptation capacity can be shared across users, how the shared capacity should be composed, and how much must remain user-specific. We answer them through three complementary empirical analyses. We find that independent user adapters contain substantial cross-user reusable structure, that the utility of reusable directions reflects both user relevance and variation across queries, and that user histories provide transferable signals for compact individual correction. Motivated by these findings, we propose LINEUP. It learns a bank of reusable low-rank personalization factors, composes them through user-conditioned recall and query-dependent calibration, and restricts target-user adaptation to a tiny user code over a shared correction space. This design decouples expressive personalization capacity from per-user trainable state. Each target user optimizes only eight scalars, while all shared components remain fixed. By comparison, the evaluated private-LoRA configuration uses 4.19 million per-user parameters. Our theoretical analysis gives a finite-step, finite-history risk bound and sufficient conditions for user-code refinement to improve on history initialization. Across six tasks spanning personalized classification, prediction, and generation, LINEUP leads on all 12 metrics, each averaged over three independent runs (e.g., reducing LaMP-3 RMSE by 11.4% relative to the strongest baseline). It maintains advantages under limited history. These results show that rich personalization can be supported primarily by reusable, conditionally composed shared capacity, while independent user adaptation remains confined to a tiny correction state.",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "published": "2026-10-01",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02353",
+    "pdf_url": "https://arxiv.org/pdf/2610.02353.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种基于共享低秩因子和微用户码的高效 LLM 个性化架构，直接解决了推荐系统中大规模用户建模的扩展性问题，属于 LLM 在 RecSys 中的直接应用。虽非纯推荐系统架构创新，但其核心思想（解耦个性化与每用户适配）对搜索/推荐的用户建模具有极高参考价值。",
+    "translation": "每位用户都需要私有 LoRA 吗？将个性化与每用户适配解耦",
+    "summary_zh": "本文提出 LINEUP 架构，通过学习可复用的低秩个性化因子库并结合用户条件召回与查询校准，将每用户的可训练状态压缩至极小的标量代码，从而在保持丰富个性化能力的同时大幅降低计算开销。",
+    "key_points": [
+      "本文提出 LINEUP 架构，通过学习可复用的低秩个性化因子库并结合用户条件召回与查询校准，将每用户的可训练状态压缩至极小的标量代码，从而在保持丰富个性化能力的同时大幅降低计算开销"
+    ]
+  },
+  {
+    "arxiv_id": "2610.02749",
+    "title": "Learning Query Encoders Can Be Hard Even When Vector Retrieval Is Geometrically Easy",
+    "authors": [
+      "Anders Wikum",
+      "Nina Mishra",
+      "Amin Saberi",
+      "Tal Wagner"
+    ],
+    "summary": "Efficient vector retrieval requires both a corpus geometry that supports retrieving the right documents through vector similarity, and a query encoder that can embed queries near their desired documents in the embedding space. Recent work has studied geometric capacity through the lens of the minimum embedding dimension needed to realize all top-$k$ answer sets of $n$ documents. We study a different notion of geometric capacity--the maximum recall achievable for a frozen document index--and explore whether learned query encoders can reach this ceiling. On several real-world retrieval benchmarks, we show that retrieval quality of single-vector query encoders often lies far below what the document indices can support.\n  Motivated by this observation, we give theoretical evidence that learning query encoders can be computationally hard. In particular, we construct a retrieval task that (1) admits a query encoder with perfect recall which is representable by a small one-hidden-layer ReLU network, but (2) any statistical-query learner (a class capturing learners that access training data through aggregate statistics) provably requires exponentially many statistical queries to achieve non-trivial recall advantage over the random baseline $k/n$. Taken together, our results suggest substantial unrealized geometric capacity in retrieval benchmarks and establish query encoder learnability as a possible barrier in embedding-based retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-02",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02749",
+    "pdf_url": "https://arxiv.org/pdf/2610.02749.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该论文直接研究向量检索（搜索核心环节）中查询编码器的学习难度与几何容量限制，属于搜索基础架构研究，但侧重于理论界限分析而非具体的业务系统创新。",
+    "translation": "即使向量检索在几何上简单，学习查询编码器也可能很困难",
+    "summary_zh": "本文通过理论证明指出，即使在文档索引几何结构支持完美召回的情况下，基于统计查询的学习算法在训练单向量查询编码器时仍面临计算复杂性障碍，导致实际检索效果远低于理论上限。",
+    "key_points": [
+      "本文通过理论证明指出，即使在文档索引几何结构支持完美召回的情况下，基于统计查询的学习算法在训练单向量查询编码器时仍面临计算复杂性障碍，导致实际检索效果远低于理论上限"
+    ]
+  },
+  {
+    "arxiv_id": "2506.06557",
+    "title": "Infinity Search: Approximate Vector Search with Projections on q-Metric Spaces",
+    "authors": [
+      "Antonio Pariente",
+      "Ignacio Hounie",
+      "Santiago Segarra",
+      "Alejandro Ribeiro"
+    ],
+    "summary": "An ultrametric space or infinity-metric space is defined by a dissimilarity function that satisfies a strong triangle inequality in which every side of a triangle is not larger than the larger of the other two. We show that search in ultrametric spaces with a vantage point tree has worst-case complexity equal to the depth of the tree. Since datasets of interest are not ultrametric in general, we employ a projection operator that transforms an arbitrary dissimilarity function into an ultrametric space while preserving nearest neighbors. We further learn an approximation of this projection operator to efficiently compute ultrametric distances between query points and points in the dataset. We proceed to solve a more general problem in which we consider projections in $q$-metric spaces -- in which triangle sides raised to the power of $q$ are smaller than the sum of the $q$-powers of the other two. Notice that the use of learned approximations of projected $q$-metric distances renders the search pipeline approximate. We show in experiments that increasing values of $q$ result in faster search but lower recall. Overall, search in q-metric and infinity metric spaces is competitive with existing search methods.",
+    "categories": [
+      "cs.IR",
+      "cs.LG",
+      "eess.SP",
+      "math.MG"
+    ],
+    "published": "2026-10-01",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2506.06557",
+    "pdf_url": "https://arxiv.org/pdf/2506.06557.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文属于通用近似向量搜索算法研究，虽可用作推荐/搜索系统的底层检索组件，但缺乏针对 RecSys 场景的特定建模或直接应用，非核心领域创新。",
+    "translation": "无限搜索：基于 q-度量空间投影的近似向量搜索",
+    "summary_zh": "提出一种利用投影算子将任意距离函数转换为超度量或 q-度量空间的方法，通过构建 vantage point 树实现具有理论最坏情况复杂度保证的高效近似最近邻搜索。",
+    "key_points": [
+      "提出一种利用投影算子将任意距离函数转换为超度量或 q-度量空间的方法，通过构建 vantage point 树实现具有理论最坏情况复杂度保证的高效近似最近邻搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2610.02764",
+    "title": "A Controlled Audit of Personal AI Memory for Rating Prediction",
+    "authors": [
+      "Shivam Gupta"
+    ],
+    "summary": "In structured rating prediction, does a personal AI use historical item-rating associations, or mainly the user's rating tendencies? We audit this distinction by permuting historical ratings within each user while preserving the exact rating distribution, item support, and metadata. We combine this control with full history, native memory extraction, and matched numerical readers in a publicly frozen evaluation of 400 held-out user profiles and 6,160 target ratings across Coat and MovieLens. On Coat, the tested Qwen-written Mem0 pipeline increases user-macro mean absolute error relative to full history by 0.084 for Qwen and 0.149 for Phi; both family-adjusted bootstrap intervals exclude zero. Correct historical assignments help both readers on Coat, but the corresponding MovieLens effects are smaller and inconclusive after adjustment. A history-only ridge reader outperforms Qwen in both domains and Phi on MovieLens, while the Coat Phi comparison is unresolved. All 2,800 reader calls, including 150 invalid outputs, are retained under a fixed fallback rule. A separate implementation verifies inputs, metrics, and all ten primary contrasts. The contribution is a reproducible diagnostic study showing why extraction, association use, output reliability, and reader choice require separate evaluation.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-02",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02764",
+    "pdf_url": "https://arxiv.org/pdf/2610.02764.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要评估通用个人 AI 记忆机制在评分预测中的表现，属于纯 LLM 应用审计而非针对推荐系统核心架构（如召回、排序）的创新，且实验显示其效果不如传统方法。虽涉及评分预测这一 RecSys 子任务并来自中国公司（+1 分），但缺乏对推荐系统实际问题的直接解决能力。",
+    "translation": "个人 AI 记忆用于评分预测的控制性审计研究",
+    "summary_zh": "提出一种通过置换历史评分分布的控制变量法，审计个人 AI 记忆模型是依赖具体物品 - 评分关联还是用户整体评分倾向，并对比了其与纯历史基线在评分预测任务中的表现差异。",
+    "key_points": [
+      "提出一种通过置换历史评分分布的控制变量法，审计个人 AI 记忆模型是依赖具体物品 - 评分关联还是用户整体评分倾向，并对比了其与纯历史基线在评分预测任务中的表现差异"
+    ]
+  },
+  {
+    "arxiv_id": "2610.02460",
+    "title": "CUEing User Simulators: Calibrated User Embeddings for Multi-Turn Benchmarking",
+    "authors": [
+      "Anjali Kantharuban",
+      "Jonas Mueller"
+    ],
+    "summary": "Recent benchmarks rely on user simulators to evaluate AI agents in multi-turn interaction. While existing simulation techniques demonstrate surface fidelity to human style and behavior, ecologically valid interactive benchmarking also requires alignment in when and how agents fail across simulated and real user populations. We find that existing simulators lack outcome calibration: agreement with observed success rates and failure patterns when real users interact with the same agent. We introduce Calibrated User Embeddings (CUE), a framework that both encodes observed sessions and samples continuous representations, then decodes them into persona commands to steer LLMs to act as user simulators without training. Through this, we evaluate user-conditioned replay of past sessions and aggregate metric agreement when sampling novel personas for the same tasks. On $τ^2$-Bench, CUEd simulators commit fewer simulator-attributed errors and more faithfully reproduce real-user agent failure modes, aggregate success rates, and outcomes for specific task-user pairs than other persona-based simulation methods. These gains coexist with competitive user fidelity as measured using metrics established in prior work. After being fit to mostly customer support interactions, the same CUEd simulators generalize to document creation, math tutoring, and casual conversation, and remain effective across different simulator LLMs without CUE retraining.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-01",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02460",
+    "pdf_url": "https://arxiv.org/pdf/2610.02460.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM 代理评估与用户模拟器研究，旨在解决通用对话中的校准问题，未直接涉及推荐或搜索系统的核心环节（如召回、排序），尽管有 +1 分加分，但仍属弱相关。",
+    "translation": "CUEing 用户模拟器：用于多轮基准测试的校准用户嵌入",
+    "summary_zh": "提出一种无需训练的校准用户嵌入框架，通过编码真实会话并解码为人格指令来引导 LLM 模拟用户，以解决现有模拟器在交互失败模式和成功率上与真实用户不一致的问题。",
+    "key_points": [
+      "提出一种无需训练的校准用户嵌入框架，通过编码真实会话并解码为人格指令来引导 LLM 模拟用户，以解决现有模拟器在交互失败模式和成功率上与真实用户不一致的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.02438",
+    "title": "Are you Synthesizing or Recalling? Evaluating LLMs on Algorithmic Code Retrieval",
+    "authors": [
+      "Nickil Maveli",
+      "Antonio Vergari",
+      "Shay B. Cohen"
+    ],
+    "summary": "Large language models (LLMs) have demonstrated strong performance in code generation, where success depends on both recalling relevant algorithmic knowledge and reasoning about how to apply it. However, existing LLM pipelines are opaque, with no explicit separation between these two components. We argue that for well-known algorithms whose canonical implementations are widely accessible in pretraining corpora, code generation is better measured as \\textit{parametric code retrieval}: reproducing a named algorithm from internalised knowledge rather than synthesizing a novel one. We introduce AlgoREval, a benchmark of 599 problems spanning classical 77 algorithms across 14 domains, 7 programming languages, and 4 graph-input representations to evaluate this capability in isolation, and assess 15 models (7B--34B parameters) in a zero-shot setting. We find substantial variation in retrieval accuracy across languages and input representations, even for widely documented algorithms and show that prompt augmentation with retrieved code snippets or structured algorithmic hints improve accuracy on complex algorithms, while SFT achieves broader language gains and GRPO achieves larger per-language gains on specific languages. Together, our results establish parametric code retrieval as a distinct, measurable capability and caution against deploying AI-generated algorithmic code without systematic validation.\\footnote{Code and dataset are available at https://github.com/Nickil21/AlgoREval",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "cs.PL"
+    ],
+    "published": "2026-10-01",
+    "updated": "2026-10-05",
+    "url": "https://arxiv.org/abs/2610.02438",
+    "pdf_url": "https://arxiv.org/pdf/2610.02438.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于评估大模型在算法代码生成中的记忆与推理能力，未涉及推荐系统或搜索引擎的核心应用。",
+    "translation": "合成还是回忆？评估大语言模型在算法代码检索中的表现",
+    "summary_zh": "本文提出参数化代码检索概念，通过新基准 AlgoREval 隔离评估大模型从内部知识复现经典算法的能力，而非合成新代码。",
+    "key_points": [
+      "本文提出参数化代码检索概念，通过新基准 AlgoREval 隔离评估大模型从内部知识复现经典算法的能力，而非合成新代码"
+    ]
+  }
+]

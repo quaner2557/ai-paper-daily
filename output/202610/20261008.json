@@ -1,0 +1,376 @@
+[
+  {
+    "arxiv_id": "2605.29280",
+    "title": "LoopFM: Learning frOm HistOrical RePresentations of Foundation Model for Recommendation",
+    "authors": [
+      "Hua Zheng",
+      "Shali Jiang",
+      "Boyang Liu",
+      "Laming Chen",
+      "Kenny Lov",
+      "Chuanqi Xu",
+      "Lisang Ding",
+      "Qinghai Zhou",
+      "Can Cui",
+      "Xiaolong Liu",
+      "Xiaoyi Liu",
+      "Yasmine Badr",
+      "Xin Xu",
+      "Mingfu Liang",
+      "Jiyan Yang",
+      "Ellie Dingqiao Wen",
+      "Gerard Jonathan Mugisha Akkerhuis",
+      "Jason Rudy",
+      "Xi Liu",
+      "Chenxiao Guan",
+      "Rong Jin",
+      "Ruichao Qiu",
+      "Xian Chen",
+      "Zhehui Zhou",
+      "Ping Chen",
+      "Rui Yang",
+      "Haicheng Chen",
+      "Meet Raval",
+      "Song Zhou",
+      "Dharak Kharod",
+      "Shuyu Xu",
+      "Xingyuan Wang",
+      "Liang Tao",
+      "Qiang Jin",
+      "Qiao Yang",
+      "Wankun Zhu",
+      "Qin Huang",
+      "Yuzhen Huang",
+      "Darren Liu",
+      "Parish Aggarwal",
+      "Hui Zhou",
+      "Erzhuo Wang",
+      "Shuo Chang",
+      "Xiaorui Gan",
+      "Wenlin Chen",
+      "Santanu Kolay",
+      "Huayu Li"
+    ],
+    "summary": "Knowledge distillation (KD) transfers a single scalar prediction from a large foundation model (FM) to compact vertical models (VMs), suffering from diminishing transfer ratio -- the fraction of FM improvement captured by the VM -- as a single scalar cannot convey the rich intermediate knowledge that larger FMs learn. To address this bottleneck, we propose LoopFM (Learning frOm HistOrical RePresentations of FM), a framework that opens a high-bandwidth transfer channel by structuring FM intermediate embeddings as input features (e.g., user history sequence) for downstream VMs, without requiring real-time FM inference at serving and architectural coupling between FM and VM. We provide a theoretical framework for LoopFM with a gain decomposition and transfer-ratio analysis. On three public benchmarks, LoopFM demonstrates strong AUC improvements (e.g., 6%+ on TaobaoAd) and complementary knowledge transfer capability with KD. On industrial-scale systems (billions of examples, trillion-parameter FMs), LoopFM approximately doubles the knowledge transfer ratio on top of KD, delivering a +0.5% conversion improvement in the first half after its initial launch, and +1.03% and +1.22% conversion improvement from two individual launches in the subsequent half. Through systematic experiments, LoopFM demonstrates a scaling law in sequence length, embedding dimension, and upstream FM size.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2605.29280",
+    "pdf_url": "https://arxiv.org/pdf/2605.29280.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统（淘宝广告场景），提出利用基础模型历史表征进行知识蒸馏的新架构，完美契合电商推荐核心需求，且来自工业界实战。",
+    "translation": "LoopFM：面向推荐的基础模型历史表征学习方法",
+    "summary_zh": "提出 LoopFM 框架，通过将基础模型的中间层嵌入结构化为用户历史序列特征输入下游垂直模型，在不增加在线推理成本的前提下建立高带宽知识迁移通道。",
+    "key_points": [
+      "提出 LoopFM 框架，通过将基础模型的中间层嵌入结构化为用户历史序列特征输入下游垂直模型，在不增加在线推理成本的前提下建立高带宽知识迁移通道"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22647",
+    "title": "Vectorizing the Trie: Efficient Constrained Decoding for LLM-based Generative Retrieval on Accelerators",
+    "authors": [
+      "Zhengyang Su",
+      "Isay Katsman",
+      "Yueqi Wang",
+      "Ruining He",
+      "Lukasz Heldt",
+      "Raghunandan Keshavan",
+      "Shao-Chuan Wang",
+      "Xinyang Yi",
+      "Mingyan Gao",
+      "Onkar Dalal",
+      "Lichan Hong",
+      "Ed Chi",
+      "Ningren Han"
+    ],
+    "summary": "Generative retrieval has emerged as a powerful paradigm for LLM-based recommendation. However, industrial recommender systems often benefit from restricting the output space to a constrained subset of items based on business logic (e.g. enforcing content freshness or product category), which standard autoregressive decoding cannot natively support. Moreover, existing constrained decoding methods that make use of prefix trees (Tries) incur severe latency penalties on hardware accelerators (TPUs/GPUs). In this work, we introduce STATIC (Sparse Transition Matrix-Accelerated Trie Index for Constrained Decoding), an efficient and scalable constrained decoding technique designed specifically for high-throughput LLM-based generative retrieval on TPUs/GPUs. By flattening the prefix tree into a static Compressed Sparse Row (CSR) matrix, we transform irregular tree traversals into fully vectorized sparse matrix operations, unlocking massive efficiency gains on hardware accelerators. We deploy STATIC on a large-scale industrial video recommendation platform serving billions of users. STATIC produces significant product metric impact with minimal latency overhead (0.033 ms per step and 0.25% of inference time), achieving a 948x speedup over a CPU trie implementation and a 47-1033x speedup over a hardware-accelerated binary-search baseline. Furthermore, the runtime overhead of STATIC remains extremely low across a wide range of practical configurations. To the best of our knowledge, STATIC enables the first production-scale deployment of strictly constrained generative retrieval. In addition, evaluation on academic benchmarks demonstrates that STATIC can considerably improve cold-start performance for generative retrieval. Our code is available at https://github.com/youtube/static-constraint-decoding.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2602.22647",
+    "pdf_url": "https://arxiv.org/pdf/2602.22647.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "Google YaleUniversity Google Google",
+      "odsthatmakeuseofprefixtrees(Tries)incurseverelatencypenal- availableathttps://github.com/youtube/static-constraint-decoding.",
+      "ConstrainedDecoding),anefficientandscalableconstraineddecod- •Computingmethodologies→Machinelearningapproaches."
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对基于 LLM 的生成式推荐系统中的工业级约束解码难题，提出了专为加速器优化的 STATIC 方法并已在大规模视频推荐平台落地，属于高优先级的 LLM for RecSys 应用。",
+    "translation": "Trie 向量化：面向加速器上基于 LLM 的生成式检索的高效约束解码",
+    "summary_zh": "提出 STATIC 方法，通过将前缀树扁平化为静态压缩稀疏行矩阵，将不规则树遍历转化为完全向量化的稀疏矩阵运算，从而在硬件加速器上实现高效的大规模生成式检索约束解码。",
+    "key_points": [
+      "提出 STATIC 方法，通过将前缀树扁平化为静态压缩稀疏行矩阵，将不规则树遍历转化为完全向量化的稀疏矩阵运算，从而在硬件加速器上实现高效的大规模生成式检索约束解码"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21381",
+    "title": "PersonaMem-v3: Toward Omni-Platform Personal Intelligence for Holistic User Understanding, Recommendation, and Agentic Tasks",
+    "authors": [
+      "Bowen Jiang",
+      "Yuan Yuan",
+      "Zhuoqun Hao",
+      "Yuchen Liu",
+      "Maohao Shen",
+      "Sihao Chen",
+      "Gregory Wornell",
+      "Chris Callison-Burch",
+      "Lyle Ungar",
+      "Dan Roth",
+      "Iordanis Fostiropoulos",
+      "Qi Guo",
+      "Xiangjun Fan",
+      "Camillo J. Taylor",
+      "Hanchao Yu"
+    ],
+    "summary": "Personal intelligence is becoming a central frontier for user-facing AI agents. To be helpful in everyday life, agents must understand users across the digital contexts where their preferences, intents, habits, social relationships, and needs unfold over time. Today's systems can personalize within individual apps or tasks, but personal intelligence as a whole remains under-measured: how agents build cross-context user understanding, support steerable recommendation systems, act proactively across platforms, and avoid over-personalization. We introduce PersonaMem-v3, a real-world-grounded benchmark and evaluation harness for omni-platform personal intelligence. PersonaMem-v3 is seeded from more than one million anonymized real-world engagement histories, most of which are implicit signals, and uses them to construct time-indexed user digital worlds across social media, chatbot, calendar, and AI-companion with preference evolvement over time. The benchmark brings personalization, LLM-powered recommendation, proactiveness, agentic tool use, and geo-temporal reasoning into one framework, anchored in psychology, social-linguistics, and user-behavior theories. It evaluates whether AI agents can infer holistic user understanding from cross-platform evidence, personalize responses, rerank recommendations on social media, follow user steering through natural language, and hold back when personalization would be inappropriate, repetitive, outdated, or unnecessary. PersonaMem-v3 points toward LLM-powered personal intelligent agents that work with existing scalable recommendation infrastructure while making personalization more interactive, agentic, and aligned with how real users experience their digital lives.",
+    "categories": [
+      "cs.CY",
+      "cs.CL"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2608.21381",
+    "pdf_url": "https://arxiv.org/pdf/2608.21381.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta Recommendation Systems, 2University of Pennsylvania, 3MIT",
+      "scalable recommendation i"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对跨平台推荐系统和用户建模，提出了评估 LLM 在推荐重排序及个性化中应用的基准，虽含基准构建但核心紧密围绕 RecSys 实际痛点；作为中国公司成果额外 +1 分。",
+    "translation": "PersonaMem-v3：迈向全平台个人智能以实现整体用户理解、推荐与代理任务",
+    "summary_zh": "提出基于百万级真实交互数据的跨平台个人智能基准，旨在评估 AI 代理在多场景下的用户 holistic 理解、可 steer 推荐重排序及主动服务能力。",
+    "key_points": [
+      "提出基于百万级真实交互数据的跨平台个人智能基准，旨在评估 AI 代理在多场景下的用户 holistic 理解、可 steer 推荐重排序及主动服务能力"
+    ]
+  },
+  {
+    "arxiv_id": "2610.09177",
+    "title": "What Transfers from a VLM Teacher? Comparing Supervision Signals for Visual Document Retrieval",
+    "authors": [
+      "Saba Sturua",
+      "Han Xiao"
+    ],
+    "summary": "Visual document retrievers are trained contrastively: each query is matched to one page labelled relevant - the positive - and pushed away from negatives, pages presumed irrelevant. Recent methods distil a vision-language model (VLM) teacher into the retriever by enriching that positive, transferring the teacher's attention over it or a description of it. We ask whether the teacher is better spent on the other side, judging the candidates the retriever mines as negatives, which the label says nothing about. With student, data, optimizer and evaluation fixed, teacher-judged hard negatives and score distillation raise ViDoRe v2 nDCG@5 from 55.2 to 62.6 and 63.0; description alignment, as adapted here, gains 2.6 points and attention grounding nothing measurable. Against teacher-free rules that select four candidates from the same mined pool at identical training compute, the best of which is the positive-aware threshold current systems use, the teacher's judgement adds 4.1 points on v2 and 1.7 on v3. This is consistent with how incomplete the labels are. Annotators judge about two of a query's four top-ranked mined candidates relevant, none of them labelled, so training pushes the retriever away from relevant pages treated as negatives. What reaches the student is coarse: under a greedily decoded 0-100 rating prompt, 82% of the teacher's ratings come back at one end of the scale or the other, and a relevant/irrelevant partition keeps most of the distillation gain. A ten-annotator audit places the teacher within the range of variation among human annotators, and finds it reliable where a query has a single determinate answer. We release the code, the teacher's 3.3M judgements and page descriptions, the mined pools, the human audit and the trained adapters at https://github.com/elastic/vdr-teacher-signals.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-06",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2610.09177",
+    "pdf_url": "https://arxiv.org/pdf/2610.09177.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对视觉文档检索（搜索的核心场景），提出利用 VLM 教师模型优化负样本挖掘和蒸馏信号的具体方法，属于多模态搜索的直接应用而非纯 LLM 研究；结合中国公司背景额外加 1 分。",
+    "translation": "VLM 教师模型传递了什么？比较视觉文档检索中的监督信号",
+    "summary_zh": "本文提出将视觉语言模型（VLM）作为教师，通过其对学生模型挖掘的硬负样本进行评判打分及描述对齐，以解决标注不全导致的错误负样本学习问题，从而提升视觉文档检索效果。",
+    "key_points": [
+      "本文提出将视觉语言模型（VLM）作为教师，通过其对学生模型挖掘的硬负样本进行评判打分及描述对齐，以解决标注不全导致的错误负样本学习问题，从而提升视觉文档检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2604.05087",
+    "title": "Document Optimization for Black-Box Retrieval via Reinforcement Learning",
+    "authors": [
+      "Omri Uzan",
+      "Ron Polonsky",
+      "Douwe Kiela",
+      "Christopher Potts"
+    ],
+    "summary": "Generative large language models (LLMs) are increasingly used as inference-time components in retrieval pipelines, for tasks such as query rewriting and document reranking. However, these online approaches place costly autoregressive computation directly on the latency-critical retrieval path. We explore an alternative axis: using LLMs to improve documents instead, rewriting them into better representations and shifting computation offline. Yet producing a useful document rewrite is not straightforward: retrieval is inherently discriminative, so an effective rewrite must make a document more similar to relevant queries than competing candidates under the retriever's notion of similarity. We therefore formulate document transformation as an optimization problem, directly training an LLM or VLM to produce rewrites that improve retrieval. Our approach, DocOpt, uses GRPO with retriever ranking improvements as rewards, requires only black-box access to retrieval ranks, and applies across single-vector, multi-vector, and lexical retrievers. We evaluate zero-shot LLM rewriting and DocOpt on code and visual retrieval tasks, finding that document rewriting can improve retrieval and that optimizing rewrites yields further gains. For example, OpenAI text-embedding-3-small achieves 58.35 nDCG@5 on average with direct retrieval; zero-shot rewriting improves this to 60.83 with GPT-5.4-mini, 63.75 with Claude Haiku 4.5, and 64.23 with Qwen3. DocOpt further improves performance to 67.94, surpassing the 6.5X more expensive text-embedding-3-large retriever at 66.15.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2604.05087",
+    "pdf_url": "https://arxiv.org/pdf/2604.05087.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对检索系统（Retrieval）的核心环节，提出利用 LLM 离线优化文档表示以提升召回效果，属于明确的搜索/推荐应用技术，而非纯 LLM 研究。",
+    "translation": "基于强化学习的黑盒检索文档优化",
+    "summary_zh": "提出 DocOpt 方法，将文档改写建模为优化问题，利用强化学习训练 LLM 在黑盒检索器下生成能提升排序分数的文档表示，从而将计算负载从在线检索路径转移至离线阶段。",
+    "key_points": [
+      "提出 DocOpt 方法，将文档改写建模为优化问题，利用强化学习训练 LLM 在黑盒检索器下生成能提升排序分数的文档表示，从而将计算负载从在线检索路径转移至离线阶段"
+    ]
+  },
+  {
+    "arxiv_id": "2610.09070",
+    "title": "Covariate-dependent Joint Modeling of Multivariate Ordinal Preferences and Its Connections with Comparison Models",
+    "authors": [
+      "Yujie Chen",
+      "Antik Chakraborty",
+      "Anindya Bhadra"
+    ],
+    "summary": "Multivariate ordinal data along with covariates are commonly collected in problems ranging from alignment of language models with human preferences, as well as in recommender systems. For example, data sets such as MovieLens contain several movies rated on a scale 1--5 by human users, along with their demographic information such as age or gender. Similarly, data sets such as HelpSteer collect human feedback on several attributes such as \"helpfulness\" or \"verbosity\" of LLM response on an ordinal scale, with covariates depending on the LLM prompt--response pairs. Unfortunately, the standard approaches for modeling these data (a) look at the attributes individually rather than jointly, and (b) often convert the data into pairwise or list-wise win--loss comparisons for fitting models such as Bradley--Terry and Plackett--Luce. Both of these lead to a coarsening of what is actually observed, which we address via a joint covariate-dependent consecutive ratio Markov random field model. We also show pairwise or listwise comparison models are obtained under restrictions of our joint model, and that joint modeling improves comparisons. We also develop a maximum likelihood inference procedure even in the presence of an intractable normalizer.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "stat.ME"
+    ],
+    "published": "2026-10-06",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2610.09070",
+    "pdf_url": "https://arxiv.org/pdf/2610.09070.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种针对推荐系统中多变量有序偏好数据的联合建模方法，但属于通用统计建模创新，缺乏针对特定 RecSys 架构或业务场景的深度优化。",
+    "translation": "多变量有序偏好的协变量依赖联合建模及其与比较模型的关联",
+    "summary_zh": "提出一种协变量依赖的连续比率马尔可夫随机场模型，用于联合建模多变量有序偏好数据，以避免传统成对比较导致的信息粗化。",
+    "key_points": [
+      "提出一种协变量依赖的连续比率马尔可夫随机场模型，用于联合建模多变量有序偏好数据，以避免传统成对比较导致的信息粗化"
+    ]
+  },
+  {
+    "arxiv_id": "2610.09262",
+    "title": "Reading Position Is the Baseline to Beat: A Time-Ordered Evaluation of Personalised Highlight Prediction",
+    "authors": [
+      "Kazuki Nakayashiki",
+      "Keisuke Watanabe"
+    ],
+    "summary": "A reader's first highlights on a page are the cheapest personal signal a reading product has. The natural plan is to suggest what similar earlier readers marked, and to judge the result against popularity. We argue that the baseline to beat is reading position. In a time-ordered evaluation on one social highlighting platform (7,343 reader-page pairs on 1,511 pages after one highlight), ranking the sentences just below a reader's first highlight, with no other reader's data, puts the next highlight in the top five 47% of the time, against 26% for popularity and 29% for the better of two similarity methods. The baseline depends on the target: over all later highlights that ranking loses to popularity, while popularity discounted by distance from the latest highlight, at the scale with the best average precision of three tried, beats popularity and both similarity methods on both targets. In a comparison specified in advance, neither similarity method shows a gain over popularity in average precision over all later highlights, from one to five highlights, and a gain of +0.01 is excluded. Nor would a gain by itself show that a method has found a reader's preferences: synthetic readers who share one set of preferences produce one, and an evaluation out of time order shows a method where the reader went. The position results are exploratory and unconfirmed. Personalisation inside a document should be evaluated in time order and against reading position.",
+    "categories": [
+      "cs.IR",
+      "cs.HC"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2610.09262",
+    "pdf_url": "https://arxiv.org/pdf/2610.09262.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文针对社交阅读平台的高亮推荐场景，提出了基于阅读位置的时序评估基线，属于特定垂直领域的用户行为建模与个性化推荐研究，但方法创新性相对有限。",
+    "translation": "阅读位置是不可逾越的基线：个性化高亮预测的时序评估",
+    "summary_zh": "本文主张在文档内个性化推荐中，应将“阅读位置”而非“流行度”作为核心基线，并提出了一种严格的时间有序评估框架来验证基于位置的句子排序策略。",
+    "key_points": [
+      "本文主张在文档内个性化推荐中，应将“阅读位置”而非“流行度”作为核心基线，并提出了一种严格的时间有序评估框架来验证基于位置的句子排序策略"
+    ]
+  },
+  {
+    "arxiv_id": "2610.09039",
+    "title": "From High Recall to High Utility: Dataset-Adaptive Post-Processing of LLM-Generated Customer Intents",
+    "authors": [
+      "Mahesh Viswanathan",
+      "Joan Rossello",
+      "Leticia Fernandes",
+      "Paul Mutawe"
+    ],
+    "summary": "Large language models can extract useful signals from heterogeneous enterprise data, but high-recall extraction often produces outputs that are duplicated, uneven in granularity, semantically overlapping, or too numerous for downstream systems and human reviewers to use effectively. We present a dataset-adaptive post-processing architecture developed for Customer Intent Extraction (CIE), where unstructured customer language is transformed into stable, traceable intent units. The approach separates recall-oriented extraction from utility-oriented reduction. Source-specific preprocessing first isolates evidence from multimodal plans, sparse operational records, and structured opportunity data. Candidate intents are then standardized and deduplicated, optionally enriched with metadata for embedding computation, represented in a shared semantic vector space, and grouped using a clustering strategy selected according to the candidate set's characteristics. Cluster-level keywords provide an explainability layer, while singleton reassignment requires agreement between embedding and keyword similarity. Finally, constrained language-model aggregation produces one concise intent per cluster without introducing unsupported concepts, and the resulting unit retains provenance, clustering, embedding, and generation metadata. This treats post-processing not as cosmetic cleanup, but as a semantic reduction layer converting high-recall LLM outputs into reusable enterprise intelligence. We also describe two downstream applications: Machine-Generated Intents, which infer likely objectives for customers lacking direct evidence from peer customers with similar profiles, and intent-guided semantic retrieval and mapping, which uses the stable intent as a query against a downstream decision space, illustrated here by mapping customer intents to business outcomes.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-10-06",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2610.09039",
+    "pdf_url": "https://arxiv.org/pdf/2610.09039.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文主要解决企业数据中 LLM 生成意图的去重与标准化问题，属于通用 NLP/LLM 后处理研究，虽提及下游检索应用但未深入推荐/搜索核心算法，且非纯 RecSys 场景。",
+    "translation": "从高召回到高效用：LLM 生成客户意图的数据自适应后处理",
+    "summary_zh": "提出一种数据自适应的后处理架构，将高召回率的 LLM 提取结果通过语义向量空间聚类和约束生成，转化为稳定、可追溯且去重的客户意图单元。",
+    "key_points": [
+      "提出一种数据自适应的后处理架构，将高召回率的 LLM 提取结果通过语义向量空间聚类和约束生成，转化为稳定、可追溯且去重的客户意图单元"
+    ]
+  },
+  {
+    "arxiv_id": "2606.27980",
+    "title": "Listwise Explanation of Embedding-Based Rankings via Semantic Chunk Grouping",
+    "authors": [
+      "Hyunkyu Kim",
+      "Yeeun Yoo",
+      "Youngjun Kwak"
+    ],
+    "summary": "Dense embedding rankers score documents through contextual sentence- and passage-level representations, yet listwise explanation methods often attribute rankings to isolated words. We study this mismatch and introduce ChunkGroupSHAP, a listwise Shapley method that clusters semantically related chunks across documents into shared features, preserving contextual evidence while bounding the KernelSHAP regression dimension by the group count. Across MS MARCO, FinanceBench, AILACaseDocs, and FinQA with E5-family rankers and BM25, raw chunks improve rank-reconstruction Fidelity over RankSHAP's word features in all 11 dense-ranker settings. The best chunk-group configuration further improves on raw chunks in eight of these settings, with the incremental benefit depending on grouping scope; word features remain strongest in three of four BM25 settings. These results show that explanation units should match the ranking model: contextual chunks better suit dense bi-encoders, whereas words remain effective for BM25. ChunkGroupSHAP supports listwise attribution over contextual evidence through a bounded feature space shared across documents.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2606.27980",
+    "pdf_url": "https://arxiv.org/pdf/2606.27980.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "本文聚焦于搜索排序模型的可解释性（XAI），虽涉及检索场景，但核心贡献是解释方法而非排序架构或效果提升，且纯 LLM/解释性研究无直接业务转化，故给低分；因来自 TAL 公司额外 +1 分后仍属边缘相关。",
+    "translation": "基于语义块分组的嵌入排序列表式解释方法",
+    "summary_zh": "提出 ChunkGroupSHAP 方法，通过将跨文档的语义相关文本块聚类为共享特征，解决稠密嵌入排序器与基于单词的解释方法之间的不匹配问题，实现保留上下文证据的列表式归因。",
+    "key_points": [
+      "提出 ChunkGroupSHAP 方法，通过将跨文档的语义相关文本块聚类为共享特征，解决稠密嵌入排序器与基于单词的解释方法之间的不匹配问题，实现保留上下文证据的列表式归因"
+    ]
+  },
+  {
+    "arxiv_id": "2610.09412",
+    "title": "Finding the Right Balance: Relevance and Diversity in LLM Retrieval",
+    "authors": [
+      "Guillaume Brouillette",
+      "Faustin Kagabo",
+      "Usef Faghihi",
+      "Nadia Ghazzali"
+    ],
+    "summary": "Retrieval diversification is widely available in retrieval-augmented generation (RAG) frameworks, yet prior studies disagree on whether it improves retrieval and answer quality. We show that its effectiveness varies primarily with candidate-pool redundancy, in a pattern consistent with the number of distinct evidence pieces a query requires. Using controlled near-duplicate injection and production-style overlapping chunking, we find that diversification harms relevance, evidence coverage and answer quality on clean pools, but becomes beneficial on multi-evidence tasks when redundancy causes nearest-neighbor retrieval to select repeated passages. We therefore introduce a query-adaptive rule that diversifies only when the effective number of distinct documents in the nearest-neighbor top-$k$ selection falls below the query's evidence requirement. Computed from existing embeddings, the rule captures most of the achievable gain, transfers across datasets and encoders and automatically reduces to nearest-neighbor retrieval for single-evidence queries. We also introduce RNG-Score, a geometric reranker with an exact nearest-neighbor fallback whose margin indicates duplicate structure. Overall, we conclude that diversification should be used selectively, based on observable redundancy and evidence requirements.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2610.09412",
+    "pdf_url": "https://arxiv.org/pdf/2610.09412.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM/RAG 检索研究，聚焦于通用问答的证据多样性而非推荐/搜索系统的核心业务场景，虽涉及重排序但缺乏 RecSys 直接应用。",
+    "translation": "寻找正确平衡：LLM 检索中的相关性与多样性",
+    "summary_zh": "提出一种查询自适应规则，仅在候选池冗余度高于查询所需证据数量时触发检索多样化，以动态平衡 RAG 系统的相关性与覆盖度。",
+    "key_points": [
+      "提出一种查询自适应规则，仅在候选池冗余度高于查询所需证据数量时触发检索多样化，以动态平衡 RAG 系统的相关性与覆盖度"
+    ]
+  },
+  {
+    "arxiv_id": "2610.09188",
+    "title": "From Probabilities to Decisions: Search and Multi-Teacher Distillation with Jev",
+    "authors": [
+      "Mohamad Yazan Sadoun",
+      "Sarah Sharif",
+      "Yaser Mike Banad"
+    ],
+    "summary": "Probability-only models, which TypeSafe calls System One models, return calibrated probabilities for fixed choices in milliseconds and generate no text. We study one such model, Jev, through two tasks that require decisions under tight constraints. In bullet chess, a bot that places Jev's judgment inside Stockfish search alongside an opening book and endgame tablebases climbs above a 2200 Lichess bullet rating against other bots. Live model calls are too slow for search, so we distill pairwise judgments into a compact evaluator that runs at every position. We then ask how best to spend a fixed labeling budget when an LLM, Qwen3-32B, is available as a second teacher. In chess, averaging both judges' labels beats spending the whole budget on Qwen alone by 9.6 Elo (95% interval 4.3 to 14.9), and the gain replicates on fresh openings; a second answer from the same judge is no substitute, and Jev is the strongest partner for Qwen among the models tested. In passage reranking, Jev's labels alone train a reranker that scores as high as Qwen's, from 21 minutes of API calls instead of 5.1 GPU-hours, and adding Qwen gains at most a few thousandths in ranking quality. Search supplies the lookahead, distillation makes the judgment cheap enough to use at every position, and an LLM partner pays off in chess.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-06",
+    "updated": "2026-10-08",
+    "url": "https://arxiv.org/abs/2610.09188",
+    "pdf_url": "https://arxiv.org/pdf/2610.09188.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "论文虽在摘要中提及'passage reranking'实验，但核心研究场景为国际象棋博弈决策，属于纯 RL/博弈论研究，缺乏针对推荐/搜索系统的通用架构创新或深度应用。",
+    "translation": "从概率到决策：基于 Jev 的搜索与多教师蒸馏方法",
+    "summary_zh": "提出将快速概率模型嵌入搜索框架并通过多教师蒸馏压缩评估器，以解决受限条件下的序列决策问题。",
+    "key_points": [
+      "提出将快速概率模型嵌入搜索框架并通过多教师蒸馏压缩评估器，以解决受限条件下的序列决策问题"
+    ]
+  }
+]

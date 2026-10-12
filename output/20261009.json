@@ -1,0 +1,416 @@
+[
+  {
+    "arxiv_id": "2605.28888",
+    "title": "Generative Spatiotemporal Intent Sequence Recommendation via Implicit Reasoning in Amap",
+    "authors": [
+      "Sicong Wang",
+      "Ruiting Dong",
+      "Yue Liu",
+      "Bowen Zheng",
+      "Jun Meng",
+      "Jie Li",
+      "Shuaijun Guo",
+      "Yu Gu",
+      "Fanyi Di",
+      "Xin Li"
+    ],
+    "summary": "Real-world user behavior rarely consists of isolated actions; instead, it often forms intent flows governed by spatiotemporal dependencies. To provide integrated service recommendations, we focus on the task of Generative Spatiotemporal Intent Sequence Recommendation (GSISR), which aims to generate intent sequences that are logically coherent and physically executable within complex spatiotemporal contexts. While LLMs offer strong reasoning potential for GSISR, direct industrial deployment is limited by high inference latency and context-mismatched or physically infeasible plans. To address these challenges, we propose a generative framework, GPlan, that internalizes LLM reasoning into lightweight models through two components. First, to enable reasoning under strict latency constraints, we introduce Progressive Implicit CoT Distillation, which compresses explicit reasoning processes into reserved latent tokens, allowing small models to inherit complex planning logic without generating long reasoning text. Second, to address the disconnect between general knowledge and real-world constraints, we design Spatiotemporal Counterfactual DPO. By aligning the model with counterfactual context-plan pairs, we improve sensitivity to spatiotemporal context and reduce context-mismatched plans. Offline experiments and online A/B testing demonstrate that our approach improves sequence coherence and context responsiveness. Our implementation and the anonymized GSISR dataset are available at https://github.com/alibaba/GPlan.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-08",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2605.28888",
+    "pdf_url": "https://arxiv.org/pdf/2605.28888.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文来自阿里本地生活（高德），直接解决时空意图序列推荐这一核心业务问题，通过隐式推理蒸馏将 LLM 能力落地于工业级推荐系统，完全符合高优先级标准。",
+    "translation": "基于隐式推理的高德生成式时空意图序列推荐",
+    "summary_zh": "提出 GPlan 框架，通过渐进式隐式思维链蒸馏和时空反事实 DPO，将大模型的复杂规划逻辑压缩至轻量模型，以在低延迟约束下生成符合物理可行性的连贯时空意图序列。",
+    "key_points": [
+      "提出 GPlan 框架，通过渐进式隐式思维链蒸馏和时空反事实 DPO，将大模型的复杂规划逻辑压缩至轻量模型，以在低延迟约束下生成符合物理可行性的连贯时空意图序列"
+    ]
+  },
+  {
+    "arxiv_id": "2610.10556",
+    "title": "LIFT: A Lifecycle-aware Interaction Factorization Transformer for Unified Retrieval and Ranking",
+    "authors": [
+      "Keji Miao",
+      "Enhao Cheng",
+      "Yan Li",
+      "Qun Li",
+      "Qi Zhang",
+      "Jie Yuan",
+      "Xiaoyong Li"
+    ],
+    "summary": "Cascaded recommender systems use the same user history for retrieval and ranking, while the two stages have access to different information at different points of an interaction. We propose the Lifecycle-aware Interaction Factorization Transformer (LIFT), which decomposes each interaction into ordered Request, Item, Context, and Action states and models them as a causal sequence. Retrieval reads the Request state, while ranking reads the Context state, allowing both tasks to share history modeling while preserving stage-specific information. LIFT instantiates this representation with Role-Conditioned Attention and a lightweight Pre-LN Bias. On ML-20M and Taobao, LIFT achieves the highest Joint Score among the evaluated joint models, improving over the strongest baselines by 4.9% and 3.6%, respectively. Loss-weight sweeps show favorable retrieval--ranking trade-offs, while ablations and scaling analyses further examine lifecycle sequence construction, model components, and capacity settings.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-09-29",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.10556",
+    "pdf_url": "https://arxiv.org/pdf/2610.10556.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统的召回与排序联合建模问题，提出了基于生命周期感知的创新架构，且已在淘宝（Taobao）实际场景中验证，完全符合核心领域 advances 标准。",
+    "translation": "LIFT：用于统一召回与排序的生命周期感知交互因子分解 Transformer",
+    "summary_zh": "提出 LIFT 架构，将用户交互分解为请求、物品、上下文和动作的因果序列，利用角色条件注意力机制实现召回与排序阶段的历史共享与信息隔离。",
+    "key_points": [
+      "提出 LIFT 架构，将用户交互分解为请求、物品、上下文和动作的因果序列，利用角色条件注意力机制实现召回与排序阶段的历史共享与信息隔离"
+    ]
+  },
+  {
+    "arxiv_id": "2610.11228",
+    "title": "Multimodal Graph Retrieval-Augmented Sequential Recommendation via Collaborative Filtering Paths",
+    "authors": [
+      "Jason Marcell Setiadi",
+      "Xin Cao",
+      "Lina Yao"
+    ],
+    "summary": "Multimodal Large Language Models (MLLMs) have demonstrated strong potential for sequential recommendation through their ability to reason over complex multimodal data. However, existing approaches either rely solely on the target user's own interaction history, neglecting collaborative signals from neighboring users, or incur substantial computational overhead through repeated MLLM inference over long interaction histories. To address these challenges, we propose MGRASRec, a multimodal graph retrieval-augmented framework for sequential recommendation. MGRASRec injects collaborative filtering signals conditioned on the candidate item directly into the MLLM prompt by retrieving structured paths from a user-item interaction graph, extended via multimodal similarity to increase coverage beyond exact co-interaction overlap. This retrieval also surfaces the history items most relevant to the candidate at no additional cost, removing the need for recurrent summarization and keeping inference to a single forward pass per candidate. All components are unified into an augmented prompt for parameter-efficient fine-tuning of an MLLM. Extensive evaluations across three publicly available datasets validate the effectiveness of MGRASRec, achieving the best performance on all metrics with particularly strong gains in ranking quality.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-08",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.11228",
+    "pdf_url": "https://arxiv.org/pdf/2610.11228.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐任务，提出利用多模态图检索增强 MLLM 以融合协同过滤信号，完美契合核心领域进展与 LLM 应用方向；且来自中国公司，按规则额外加分后满分。",
+    "translation": "基于协同过滤路径的多模态图检索增强序列推荐",
+    "summary_zh": "提出一种通过从多模态用户 - 物品图中检索结构化路径，将协同过滤信号直接注入 MLLM 提示的框架，旨在无需重复推理即可高效融合邻居用户信号与相关历史项进行序列推荐。",
+    "key_points": [
+      "提出一种通过从多模态用户 - 物品图中检索结构化路径，将协同过滤信号直接注入 MLLM 提示的框架，旨在无需重复推理即可高效融合邻居用户信号与相关历史项进行序列推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2610.11277",
+    "title": "H2CE: Modeling Geo-Semantic Interactions for POI Reranking with Heterogeneous Two-Stage Cross-Encoders",
+    "authors": [
+      "Zhengwei Bai",
+      "Moreno D'Incà",
+      "Danielle Class",
+      "Alessandro Moschitti"
+    ],
+    "summary": "Point-of-Interest (POI) reranking in local search must model query-conditioned tradeoffs among lexical semantics, geospatial proximity, and numerical quality signals such as rating and review count, while remaining practical under real-time serving constraints. A close POI may only partially satisfy the query intent, while a farther one may offer stronger semantic and quality evidence. We present H2CE, a Heterogeneous Two-stage Cross-Encoder for latency-bounded POI reranking. H2CE represents numerical attributes in two complementary ways: bucketized natural-language descriptors are inserted into the cross-encoder input to support semantic--numeric attention, while exact scalar values are processed by dedicated MLPs to preserve magnitude information. The resulting semantic and numerical embeddings are fused through latent-space aggregation, enabling nonlinear interactions beyond scalar weighted sums. H2CE then applies a two-stage architecture: Stage 1 scores all candidates pointwise for scalable filtering, and Stage 2 performs head-to-head pairwise comparison among the top-$K$ candidates with Copeland aggregation, making fine-grained relative tradeoffs explicit while reducing pairwise cost from O(N^2) to O(N+K(K-1)). On a 5,743-query local search test set, H2CE achieves 67.48% NDCG@5, improving over XGBoost LTR by +22.82% absolute and over a zero-shot LLM reranker by +35.89%. The pairwise stage adds +1.98% NDCG@5 over the pointwise model alone. Ablations confirm the value of numerical features, latent aggregation, top-K pairwise reranking, and aligned training.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-08",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.11277",
+    "pdf_url": "https://arxiv.org/pdf/2610.11277.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "Amazon UniversityofTrento",
+      "pointwiseforscalablefilt"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对本地生活搜索中的 POI 重排序问题，提出了结合地理语义交互的两阶段交叉编码器架构，完全符合核心推荐搜索技术的高优先级标准。",
+    "translation": "H2CE：利用异构两阶段交叉编码器建模地理语义交互以进行 POI 重排序",
+    "summary_zh": "提出一种异构两阶段交叉编码器，通过将数值属性转化为自然语言描述与标量处理相结合，并在第二阶段采用 Top-K 成对比较机制，以在实时约束下优化本地搜索中查询意图、地理位置与质量信号的非线性权衡。",
+    "key_points": [
+      "提出一种异构两阶段交叉编码器，通过将数值属性转化为自然语言描述与标量处理相结合，并在第二阶段采用 Top-K 成对比较机制，以在实时约束下优化本地搜索中查询意图、地理位置与质量信号的非线性权衡"
+    ]
+  },
+  {
+    "arxiv_id": "2610.10920",
+    "title": "Language Models for Page-Level Layout Decisions in E-commerce Search",
+    "authors": [
+      "Varun Joshi",
+      "Eva C. Song",
+      "ChengXiang Zhai"
+    ],
+    "summary": "E-commerce search pages are critical touchpoints for millions of online shoppers. While traditional search engines return a ranked list of results, modern E-commerce search pages increasingly incorporate recommender system modules -- for example, secondary stacks that surface alternative product groupings at specific positions. When introduced appropriately, secondary stacks can improve user engagement; however, suboptimal placement may disrupt browsing flow and degrade the primary results. Unlike traditional search ranking, where evaluation techniques such as interleaving are well established, evaluating page-level layout changes e.g., when and where to insert a secondary stack remains challenging without costly online A/B testing. To address this, we study offline methods for evaluating whether a given layout decision -- specifically, the inclusion of a secondary stack at a particular position -- is beneficial to users. We investigate language models as scalable evaluators by comparing direct prompt-based, prompt-derived feature, and representation-based methods. Our results show that representation-based approaches consistently outperform prompt-based judging in predicting user engagement, suggesting they provide a reliable foundation for offline layout evaluation in E-commerce search.",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.10920",
+    "pdf_url": "https://arxiv.org/pdf/2610.10920.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索场景中的页面级布局决策（如推荐模块插入位置），利用 LLM 作为评估器解决核心业务问题，属于高优先级的 LLM for Search 应用。",
+    "translation": "电商搜索中基于语言模型的页面级布局决策研究",
+    "summary_zh": "本文提出利用语言模型作为可扩展的离线评估器，通过基于表示的方法预测电商搜索页面中次要推荐栈插入位置对用户参与度的影响，以优化页面布局决策。",
+    "key_points": [
+      "本文提出利用语言模型作为可扩展的离线评估器，通过基于表示的方法预测电商搜索页面中次要推荐栈插入位置对用户参与度的影响，以优化页面布局决策"
+    ]
+  },
+  {
+    "arxiv_id": "2610.11164",
+    "title": "RideBench: A Large-Scale Exogenous-Aware Benchmark for Ride-Hailing Time Series Forecasting",
+    "authors": [
+      "Shengsheng Lin",
+      "Jing Hu",
+      "Zhengyang Hu",
+      "Jiazheng Sun",
+      "Zichun Cao",
+      "Siwei Sun",
+      "Zhichao Zou",
+      "Enyun Yu",
+      "Dongdong Li",
+      "Xinyi Hu",
+      "Weiwei Lin"
+    ],
+    "summary": "We release Ride-Hailing, a large-scale ride-hailing time series dataset synthesized from DiDi's marketplace data across 200 spatial areas. Ride-Hailing spans four consecutive years at half-hourly granularity and covers three representative exogenous scenarios: Weather Disturbance, Holiday Effect, and Large-scale Event Impact. Built upon Ride-Hailing, we introduce RideBench, a comprehensive benchmark for exogenous-aware ride-hailing forecasting, covering both regular week-ahead forecasting and long-horizon 8-week-ahead forecasting with up to 2,688 prediction steps. RideBench evaluates over 30 representative forecasting methods, including endogenous-only models, exogenous-aware models, and time series foundation models. Our results show that future-known exogenous variables provide clear benefits in regular week-ahead forecasting, especially under weather, holiday, and large-scale event (e.g., major sporting events and concerts) scenarios. However, current exogenous-aware models still struggle to fully capture disturbance-induced pattern changes under complex external contexts. For long-horizon forecasting, existing models cannot simultaneously achieve low pointwise errors, accurate broad trends, and reliable near-term forecasts. These findings reveal a clear mismatch between existing forecasting models and real-world ride-hailing requirements, highlighting the need for models that can better exploit future-known exogenous information, scale across heterogeneous areas, and support long-horizon planning. By introducing Ride-Hailing and RideBench, we aim to encourage the community to study these practical challenges in real-world ride-hailing forecasting.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-08",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.11164",
+    "pdf_url": "https://arxiv.org/pdf/2610.11164.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "本文源自滴滴（本地生活核心场景），直接解决网约车供需预测这一推荐/调度系统的关键前置问题，且明确针对外生变量建模，符合高优先级业务场景，故给予基础高分并叠加公司背景加分。",
+    "translation": "RideBench：面向网约车时间序列预测的大规模外生感知基准",
+    "summary_zh": "本文构建了基于滴滴真实数据的大规模网约车数据集与基准，旨在评估并推动模型在天气、节假日等外生变量干扰下的短期及长期供需趋势预测能力。",
+    "key_points": [
+      "本文构建了基于滴滴真实数据的大规模网约车数据集与基准，旨在评估并推动模型在天气、节假日等外生变量干扰下的短期及长期供需趋势预测能力"
+    ]
+  },
+  {
+    "arxiv_id": "2610.10955",
+    "title": "Learning Multi-Step Query Rewriting via Corpus Feedback for Conversational Search",
+    "authors": [
+      "João Coelho",
+      "Hong Wang",
+      "Jie Yuan",
+      "Zhuoer Wang",
+      "Samson Koelle",
+      "Wei Niu"
+    ],
+    "summary": "Conversational Query Rewriting (CQR) turns a context dependent user turn into a standalone query for a retriever, and most methods do this in a single step from the dialogue history before retrieving once. The rewrite is therefore fixed before any corpus evidence is available to correct its reference resolution or its vocabulary. We recast CQR as a sequential retrieval problem: an agent rewrites the current turn, retrieves, and conditions its next rewrite on the returned passages. The agent acts in a typed space of three rewriting operations, resolving conversational intent into a standalone query, generating lexical reformulations, or synthesizing pseudo-documents for document-to-document matching, together with a stop action that ends the episode. We train the policy with supervised fine-tuning followed by reinforcement learning against a single retrieval-quality reward, using no human rewrite annotations. Across TopiOCQA and QReCC, the agent outperforms several retrieval-aligned baselines, while remaining effective across retrieval backends and generalizing to the CAsT benchmarks without additional training. Further analysis shows that, through retrieval-reward optimization alone, the learned policy develops a behavior of grounding pseudo-documents in passages retrieved by earlier steps, substantially improving retrieval.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.10955",
+    "pdf_url": "https://arxiv.org/pdf/2610.10955.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对对话式搜索中的查询重写核心环节，提出利用检索反馈进行多步重写的创新方法，虽涉及 LLM/RL 但紧密服务于搜索场景；因来自中国公司额外加 1 分。",
+    "translation": "基于语料反馈的对话式搜索多步查询重写学习",
+    "summary_zh": "本文将对话式查询重写重构为序列检索问题，通过代理根据检索返回的段落反馈迭代执行重写操作，利用检索质量奖励优化策略以动态修正查询意图和词汇。",
+    "key_points": [
+      "本文将对话式查询重写重构为序列检索问题，通过代理根据检索返回的段落反馈迭代执行重写操作，利用检索质量奖励优化策略以动态修正查询意图和词汇"
+    ]
+  },
+  {
+    "arxiv_id": "2610.10991",
+    "title": "Region-Aware CLS Token Augmentation for Fine-Grained Image Retrieval",
+    "authors": [
+      "Ian de Holanda Cavalcanti Bezerra",
+      "Vivek Trivedy",
+      "Lucas Pascotti Valem",
+      "Longin Jan Latecki"
+    ],
+    "summary": "Image retrieval methods often rely on a single global semantic descriptor extracted from an image, e.g., the [CLS] token in vision transformers. However, trying to squeeze all the semantic information of an image into a single descriptor can hurt downstream retrieval performance, especially for fine-grained retrieval tasks. In this work, we augment the semantic tokens in the newer visual transformers, the global [CLS] token and the four register tokens, with a carefully selected collection of spatial tokens, aiming to capture the spatial region representation that characterizes the contents captured in each of the semantic tokens. We leverage the DINOv2-reg model, which includes register tokens that emergently learn object and part-based representations. For each \"cue\" token ([CLS] and each register token), we find a \"buddy\" image patch token and extract an N x N patch region to produce a set of localized ROI tokens. Our approach automatically captures important regions of interest without any external bounding boxes or saliency modules, purely by matching semantic tokens with their spatial representation regions. Furthermore, we incorporate these tokens into a multi-vector retrieval framework inspired by ColBERT, enabling fine-grained matching via a per-token alignment mechanism while avoiding the large storage cost of keeping all patch embeddings. Through extensive experiments, we find that (1) register tokens encode useful fine-grained details that can complement the [CLS] token; (2) automatically pooled ROI tokens further improve fine-grained discrimination; and (3) multi-vector retrieval with a small set of tokens improves over a DINOv2-reg single-vector baseline while remaining tractable for large-scale search. The code is available at https://github.com/IdhcbIan/Augmenting_CLS_with_ROI_tokens.",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.10991",
+    "pdf_url": "https://arxiv.org/pdf/2610.10991.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种针对细粒度图像检索的多向量匹配方法，直接优化了搜索系统中的核心召回/匹配环节，虽非纯推荐业务但属于搜索核心技术。",
+    "translation": "面向细粒度图像检索的区域感知 CLS 令牌增强方法",
+    "summary_zh": "该方法通过自动匹配语义令牌与空间区域令牌来增强视觉 Transformer 的表征能力，并结合多向量检索框架实现无需外部标注的细粒度图像匹配。",
+    "key_points": [
+      "该方法通过自动匹配语义令牌与空间区域令牌来增强视觉 Transformer 的表征能力，并结合多向量检索框架实现无需外部标注的细粒度图像匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2609.08663",
+    "title": "MoEMB: Scaling Universal Multimodal Embeddings with Efficient Mixture-of-Experts Models",
+    "authors": [
+      "Xuanming Cui",
+      "Shlok Kumar Mishra",
+      "Wentao Bao",
+      "Aashu Singh",
+      "Zihao Wang",
+      "Xiangjun Fan",
+      "Jun Xiao",
+      "Ser-Nam Lim",
+      "Jianpeng Cheng"
+    ],
+    "summary": "Universal multimodal embedding (UME) increasingly demands encoder's capacity for handling a broad range of tasks and modalities with increased complexity. Prior scaling methods either increase the representation size, retrieval effort, or scales the encoder into a heavy multimodal LLM. Recent works, such as Think-Then-Embed (TTE), explore scaling via reasoning tokens. However, embedding models are hard to scale up: increasing parameters directly tradeoffs for the large training batch size that contrastive learning needs, and retrieval has to be served under tight latency. Moreover, UME tasks are diverse in complexity, where scaling up embedders can bring significant redundant computation. In this work, we propose MOEMB, which instead scales UME along the expert axis through mixture-of-experts (MoE), growing encoder capacity while preserving single-vector, non-autoregressive encoding. Through a systematic study of the design space and training recipes for MoE-based UME, MoEMB sets a new state of the art on both MMEB-V2 and MRMR among models trained on public MMEB-family data: with only 3B active parameters, MoEMB surpasses TTE-based methods with >4x active parameters, using significantly less computes. To further improve the scalability and efficiency, we conduct the first comprehensive study of adaptive computation for MoE-based embedding, spanning diverse strategies across training-based and inference-only methods. Together, these results support expert scaling as an effective and efficient direction for UME, with adaptive computation further improving efficiency for MLLM-based embedding models towards large-scale retrieval and recommendation systems.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2609.08663",
+    "pdf_url": "https://arxiv.org/pdf/2609.08663.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1AIatMeta,2UniversityofCentralFlorida",
+      "scalabilityandefficiency,weconductthefirstcomprehensivestudyofadaptivecomputationforMoE-based"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文提出基于 MoE 的多模态嵌入方法，虽在摘要末尾提及可应用于大规模检索和推荐系统，但核心内容仍偏向通用多模态表征学习，缺乏针对 RecSys 特定场景的深度定制。",
+    "translation": "MoEMB：利用高效混合专家模型扩展通用多模态嵌入",
+    "summary_zh": "本文提出 MoEMB 方法，通过混合专家（MoE）架构沿专家轴扩展通用多模态嵌入能力，在保持单向量非自回归编码特性的同时，结合自适应计算策略提升大规模检索与推荐系统的效率。",
+    "key_points": [
+      "本文提出 MoEMB 方法，通过混合专家（MoE）架构沿专家轴扩展通用多模态嵌入能力，在保持单向量非自回归编码特性的同时，结合自适应计算策略提升大规模检索与推荐系统的效率"
+    ]
+  },
+  {
+    "arxiv_id": "2610.10974",
+    "title": "Budgeted Multi-Source Counterfactual Annotation for Off-Policy Evaluation",
+    "authors": [
+      "Biao Xiang",
+      "Ali Eshragh",
+      "Yuexing Li",
+      "Kai Wang"
+    ],
+    "summary": "Off-policy evaluation (OPE) estimates the value of a target policy from logged data, but limited behavior-policy coverage can force high-variance reweighting or reward-model extrapolation. Counterfactual annotations can add evidence about unobserved actions, yet practical sources, including domain experts and large language models (LLMs), may be costly, biased, or noisy. We study budgeted acquisition of such annotations for contextual-bandit OPE. Given source-specific costs and error profiles, we formulate an integer allocation problem over context-action pairs and annotation sources to minimize the component of estimator variance that depends on the annotation plan. We characterize when annotations are valuable through a first-annotation threshold and local annotation-value regimes. For the coupled multi-source problem, we develop a majorization-minimization algorithm with dynamic-programming subroutines that monotonically improves the objective. Experiments in synthetic clinical and LLM-annotated education bandits show that our allocation method reduces fixed-profile mean squared error (MSE) by 20.58% and 10.77%, respectively, relative to no annotation.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "math.OC"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.10974",
+    "pdf_url": "https://arxiv.org/pdf/2610.10974.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于离线策略评估（OPE）中的反事实标注预算分配，虽涉及推荐系统常用的 Bandit 场景，但核心是通用统计估计方法而非针对 RecSys 架构的直接创新，且 LLM 仅作为标注源提及。",
+    "translation": "面向离线策略评估的预算化多源反事实标注方法",
+    "summary_zh": "提出一种在有限预算下，根据成本与误差特征动态分配多源（如专家、LLM）反事实标注的整数规划算法，以最小化离线策略评估估计量的方差分量。",
+    "key_points": [
+      "提出一种在有限预算下，根据成本与误差特征动态分配多源（如专家、LLM）反事实标注的整数规划算法，以最小化离线策略评估估计量的方差分量"
+    ]
+  },
+  {
+    "arxiv_id": "2610.11316",
+    "title": "MetaEncoder: Exploring the Limit of Bi-Encoders for Multimodal System One Decision Making with Natural Language Interface",
+    "authors": [
+      "Jianpeng Cheng",
+      "Guangyu Sun",
+      "Aashu Singh",
+      "Benyu Zhang",
+      "Haixing Dai",
+      "Hossein Mansour",
+      "Jiangfan Zhang",
+      "Shlok Kumar Mishra",
+      "Wei Sun",
+      "Xuanming Cui",
+      "Yanli Liu",
+      "Qi Guo",
+      "Max Xiangjun Fan",
+      "Jun Xiao"
+    ],
+    "summary": "System One models output constrained decisions and probability distributions rather than free-form text generation. While prevailing paradigms rely on structured schema objects to encode state, intent, and candidate choices, we revisit a fully natural language-based System One interface. In this framework, both the user request and each candidate option are expressed in natural language, supported by multimodal (image and video) auxiliary inputs. We introduce MetaEncoder, which fine-tunes a pre-trained Muse-Glimmer 30B decoder into an instruction-following decision-making encoder. To scale effectively across both small closed-set (< 256) and massive open-set (millions) candidate spaces, MetaEncoder employs a bi-encoder architecture trained via unidirectional contrastive learning for request-candidate alignment. We conduct extensive evaluations across 11 benchmark suites and 190 tasks spanning multimodal decision-making, understanding (closed-set) and retrieval (open-set), highlighting where MetaEncoder beats SOTA multimodal encoders, as well as its current limits on reasoning-intensive tasks.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-10-08",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.11316",
+    "pdf_url": "https://arxiv.org/pdf/2610.11316.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究通用多模态决策的 Bi-Encoder 架构，虽提及检索任务但未针对推荐/搜索场景进行专门优化或验证，属于有潜力的通用方法而非核心 RecSys 研究。",
+    "translation": "MetaEncoder：探索基于自然语言接口的多模态系统一决策中双编码器的极限",
+    "summary_zh": "提出 MetaEncoder，通过将预训练解码器微调为指令遵循的双编码器，利用单向对比学习实现自然语言请求与多模态候选项的对齐，以支持封闭集决策和开放集检索。",
+    "key_points": [
+      "提出 MetaEncoder，通过将预训练解码器微调为指令遵循的双编码器，利用单向对比学习实现自然语言请求与多模态候选项的对齐，以支持封闭集决策和开放集检索"
+    ]
+  },
+  {
+    "arxiv_id": "2610.11074",
+    "title": "Optimally Pacing Budget Spending and Learning",
+    "authors": [
+      "Mark Braverman",
+      "Jingyi Liu",
+      "Jieming Mao",
+      "Jon Schneider",
+      "Eric Xue"
+    ],
+    "summary": "We establish near-optimal regret bounds for budget-constrained online learning against arbitrary classes of budget-pacing experts in the adversarial setting. In particular, given any class of $F$ experts and a candidate budget pacing schedule, we provide a full-information algorithm which obtains regret $O(D \\sqrt{\\log F}+ \\sqrt{T\\log F})$ against all experts whose cumulative spending stays within distance $D$ of this schedule, matching lower bounds established by Braverman et al. (2025).\n  We additionally show that our technique extends to various problems in online resource allocation, where the learner gets to see the rewards and costs of the current options available to them, and establish $O(D\\sqrt{\\log F})$ regret bounds when fractional allocation is allowed. This is the first algorithm we are aware of which can achieve $o(\\sqrt{T})$ guarantees for such tasks.",
+    "categories": [
+      "cs.LG",
+      "cs.GT"
+    ],
+    "published": "2026-10-08",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2610.11074",
+    "pdf_url": "https://arxiv.org/pdf/2610.11074.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "1DepartmentofComputerScience,PrincetonUniversity",
+      "2GoogleResearch",
+      "allocation,wherethelearnergetstoseetherewardsandcostsofthecurrentoptionsavailable"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于通用的在线学习与资源分配理论，虽提及预算控制（与广告相关），但缺乏针对推荐/搜索系统的具体建模或应用，属于弱相关的通用 ML 方法。",
+    "translation": "预算消耗与学习的最优节奏控制",
+    "summary_zh": "提出了一种全信息在线学习算法，通过在对抗环境下约束专家累积支出与预设节奏的距离，实现了近最优的遗憾界保证。",
+    "key_points": [
+      "提出了一种全信息在线学习算法，通过在对抗环境下约束专家累积支出与预设节奏的距离，实现了近最优的遗憾界保证"
+    ]
+  },
+  {
+    "arxiv_id": "2601.21803",
+    "title": "Quantifying Retriever-Generator Alignment in RAG with Local Explanations",
+    "authors": [
+      "Korbinian Randl",
+      "Guido Rocchietti",
+      "Aron Henriksson",
+      "Ziawasch Abedjan",
+      "Tony Lindgren",
+      "John Pavlopoulos"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems combine dense retrievers and language models to ground outputs in external documents. However, the interaction between these components remains opaque, creating challenges for deployment in high-stakes domains. We present RAG-E, an end-to-end explainability framework that quantifies retriever-generator alignment through mathematically grounded attribution methods. Our approach adapts Integrated Gradients for retriever analysis, proposes a Monte Carlo-stabilized Shapley Value approximation for generator attribution, and introduces the Weighted Alignment between Retriever and Generator (WARG) metric to measure how closely the generator's document usage aligns with retriever rankings. Experiments on PopQA, QAMPARI, and TREC CAST datasets reveal substantial misalignment: depending on the model and setting, generators often ignore top-ranked documents and rely on documents ranked as less relevant. We show that WARG captures retriever-generator alignment better than Pearson and Spearman correlations and can serve as an indicator of RAG performance. RAG-E and WARG provide a practical framework for auditing this interaction, enabling more reliable and transparent RAG systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-07",
+    "updated": "2026-10-09",
+    "url": "https://arxiv.org/abs/2601.21803",
+    "pdf_url": "https://arxiv.org/pdf/2601.21803.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于检索器与生成器的对齐度量化与可解释性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "利用局部解释量化 RAG 中检索器与生成器的对齐度",
+    "summary_zh": "提出一种端到端可解释性框架，通过改进的归因方法和新度量指标 WARG，量化并评估检索增强生成系统中检索结果与生成模型实际使用情况之间的对齐程度。",
+    "key_points": [
+      "提出一种端到端可解释性框架，通过改进的归因方法和新度量指标 WARG，量化并评估检索增强生成系统中检索结果与生成模型实际使用情况之间的对齐程度"
+    ]
+  }
+]

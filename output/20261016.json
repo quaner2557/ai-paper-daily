@@ -1,0 +1,293 @@
+[
+  {
+    "arxiv_id": "2610.20913",
+    "title": "TransX Technical Report: Scaling Sequence Transduction for Recommendation",
+    "authors": [
+      "Da Xu",
+      "Liyan Fang",
+      "Divya Venugopalan",
+      "Sunny Hsu",
+      "Xukai Wang",
+      "Rishav Roy Chowdhury",
+      "Cindy Liang",
+      "Nishant Satya Lakshmikanth"
+    ],
+    "summary": "We present TransX, a sequence-transduction framework and co-designed infrastructure for scaling industrial recommendation with explicit control over model-compute allocation and execution amortization. TransX separates sequence encoding, behavior memory, and candidate-conditioned fusion into independently scalable components. Training amortizes causal trajectory computation across behavioral prefixes and fans out memory states to candidates; serving disaggregates bulk prefill, nearline refresh, and online prediction through compact behavior-memory KV.\n  We observe anisotropic scaling returns: encoder scaling may saturate beyond moderate depth at fixed memory resolution and fusion capacity; increasing supervision shifts the allocation frontier toward candidate-conditioned fusion; and the memory resolution needed to preserve quality remains roughly stable as model capacity grows. We train TransX on click and conversion, post-train its shared behavioral interface for retrieval and preference ranking, and explore generative recommendation offline.\n  In separate production A/B experiments, the core TransX model improves CTR by 6.02% and conversion by 4.45%, while post-trained retrieval and preference-ranking variants improve CTR by 2.96% and conversion by 1.33%, respectively, over corresponding production baselines. Under matched training conditions, the training infrastructure increases supervised-target throughput by 84%. In serving, disaggregation reduces TransX's total serving cost by nearly 80% versus colocated serving at matched traffic and SLO, enabling approximately 5X the per-request model FLOPs of the HSTU-style production baseline at the same total serving cost. At matched per-request model FLOPs, TransX delivers approximately 4X higher request throughput per H200. These results show that online serving cost need not grow proportionally with recommendation model capacity.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-14",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2610.20913",
+    "pdf_url": "https://arxiv.org/pdf/2610.20913.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统的序列建模与服务架构提出创新，属于核心推荐领域的高优先级研究，且来自中国公司额外加分。",
+    "translation": "TransX 技术报告：扩展用于推荐的序列转导模型",
+    "summary_zh": "提出 TransX 框架，通过将序列编码、行为记忆和候选融合解耦为独立可扩展组件，并采用训练摊销与服务 disaggregation 策略，实现推荐模型容量与服务成本的线性解耦。",
+    "key_points": [
+      "提出 TransX 框架，通过将序列编码、行为记忆和候选融合解耦为独立可扩展组件，并采用训练摊销与服务 disaggregation 策略，实现推荐模型容量与服务成本的线性解耦"
+    ]
+  },
+  {
+    "arxiv_id": "2607.19747",
+    "title": "Beyond Relevance-Centric Retrieval: Rubric-Oriented Document Set Selection and Ranking",
+    "authors": [
+      "Kailin Jiang",
+      "Lei Liu",
+      "Jian Xi",
+      "Hui Xu",
+      "Junlin Liu",
+      "Baochen Fu",
+      "Bin Li",
+      "Vichwang",
+      "Yu Lu",
+      "Haibo Shi"
+    ],
+    "summary": "As large language models and AI agents become the primary consumers of search results, document set quality determines the upper bound of downstream generation. Yet existing evaluation systems remain confined to scoring documents independently and aggregating via nDCG, ignoring inter-document interactions (redundancy, conflict, complementarity) and unable to answer what makes one document set better than another. To address these issues, we propose a complete evaluate-diagnose-optimize framework. We design SetwiseEvalKit, a three-level, nine-dimension document set evaluation benchmark covering both short-form and long-form scenarios, comprising approximately 28K high-quality evaluation rubrics. We systematically evaluate 12 rerankers: even the best method achieves no more than 45% coverage, cross-document coordination dimensions are universally weak, and no single method maintains top performance across both settings. Building on this, we propose Rubric4Setwise, a training-free method that converts rubric-based evaluation criteria into document set selection signals, achieving the best downstream generation performance with fewer documents and search rounds. It is the only method that maintains state-of-the-art results across both scenarios, validating the effectiveness of closing the loop from evaluation to optimization.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2607.19747",
+    "pdf_url": "https://arxiv.org/pdf/2607.19747.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "1UniversityofScienceandTechnologyofChina 2YuanbaoTeam,Tencent",
+      "3UniversityofChineseAcademyofSciences 4ShandongUniversity"
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的重排序（re-ranking）和文档集选择问题，提出了基于评估标准（rubric）的优化方法以改善下游生成质量，属于核心搜索技术进阶。",
+    "translation": "超越相关性检索：面向评估标准的文档集选择与排序",
+    "summary_zh": "提出一种无需训练的 Rubric4Setwise 方法，将评估标准转化为文档集选择信号，通过考虑文档间的冗余与互补性来优化搜索结果的集合质量。",
+    "key_points": [
+      "提出一种无需训练的 Rubric4Setwise 方法，将评估标准转化为文档集选择信号，通过考虑文档间的冗余与互补性来优化搜索结果的集合质量"
+    ]
+  },
+  {
+    "arxiv_id": "2610.21030",
+    "title": "Learning When to Think: Utility-Guided Adaptive Reasoning for Efficient Text Retrieval",
+    "authors": [
+      "Yingtao Luo",
+      "Kangyi Zhao",
+      "Shiyi Du",
+      "Yubo Li"
+    ],
+    "summary": "Reasoning-conditioned embeddings can improve retrieval by progressively refining semantic constraints. However, additional reasoning may introduce over-generalized or semantically noisy abstractions that weaken retrieval specificity. Existing methods largely supervise reasoning through final retrieval outcomes, providing limited guidance over the refinement process itself. We propose AURA, a framework that directly supervises intermediate reasoning states according to how well they separate relevant documents from hard distractors. AURA further trains a lightweight utility estimator over prefix-conditioned embeddings to adapt reasoning depth at inference time. On the reasoning-intensive BRIGHT benchmark, AURA-4B achieves 34.7 average nDCG@10 while using 2.8 reasoning steps and 96 generated tokens per query. Under matched deployment conditions, adaptive stopping reduces latency from 4.6 to 0.76 seconds relative to full-trajectory reasoning. Results on MS MARCO further suggest that this specialization need not substantially degrade conventional in-domain retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2610.21030",
+    "pdf_url": "https://arxiv.org/pdf/2610.21030.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对文本检索（Search）场景，提出自适应推理机制以平衡效果与延迟，属于搜索核心技术创新；虽涉及 LLM 推理，但非纯 LLM 研究，且来自中国公司，故给予高分。",
+    "translation": "学习何时思考：效用引导的自适应推理用于高效文本检索",
+    "summary_zh": "提出 AURA 框架，通过监督中间推理状态区分相关文档与干扰项，并训练轻量级效用估计器在推理时动态调整推理深度，以优化检索效率。",
+    "key_points": [
+      "提出 AURA 框架，通过监督中间推理状态区分相关文档与干扰项，并训练轻量级效用估计器在推理时动态调整推理深度，以优化检索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2508.17715",
+    "title": "How Do LLM-Generated Texts Impact Term-Based Retrieval Models?",
+    "authors": [
+      "Wei Huang",
+      "Keping Bi",
+      "Yinqiong Cai",
+      "Wei Chen",
+      "Jiafeng Guo",
+      "Xueqi Cheng"
+    ],
+    "summary": "As more content generated by large language models (LLMs) floods into the Internet, information retrieval (IR) systems now face the challenge of distinguishing and handling a blend of human-authored and machine-generated texts. Recent studies suggest that neural retrievers may exhibit a preferential inclination toward LLM-generated content, while classic term-based retrievers like BM25 tend to favor human-written documents. This paper investigates the influence of LLM-generated content on term-based retrieval models, which are valued for their efficiency and robust generalization across domains. Our linguistic analysis reveals that LLM-generated texts exhibit smoother high-frequency and steeper low-frequency Zipf slopes, higher term specificity, and greater document-level diversity. These traits are aligned with LLMs being trained to optimize reader experience through diverse and precise expressions. Our study further explores whether term-based retrieval models demonstrate source bias, concluding that these models prioritize documents whose term distributions closely correspond to those of the queries, rather than displaying an inherent source bias. This work provides a foundation for understanding and addressing potential biases in term-based IR systems managing mixed-source content.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2508.17715",
+    "pdf_url": "https://arxiv.org/pdf/2508.17715.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Baidu"
+    ],
+    "affiliation_lines": [
+      "StateKeyLaboratoryofAISafety, StateKeyLaboratoryofAISafety, BaiduInc.",
+      "InstituteofComputingTechnology, InstituteofComputingTechnology, Beijing,China",
+      "UniversityofChineseAcademyof UniversityofChineseAcademyof",
+      "StateKeyLaboratoryofAISafety, StateKeyLaboratoryofAISafety, StateKeyLaboratoryofAISafety,",
+      "InstituteofComputingTechnology, InstituteofComputingTechnology, InstituteofComputingTechnology,",
+      "UniversityofChineseAcademyof UniversityofChineseAcademyof UniversityofChineseAcademyof"
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯信息检索（IR）基础研究，仅分析 LLM 生成文本对传统词项检索模型的影响，未涉及推荐系统、用户建模或排序优化等核心 RecSys 场景。",
+    "translation": "LLM 生成的文本如何影响基于词项的检索模型？",
+    "summary_zh": "本文通过分析 LLM 生成文本的语言统计特征，探究其对传统词项检索模型的影响，结论表明该类模型依据词分布匹配度而非内容来源进行检索。",
+    "key_points": [
+      "本文通过分析 LLM 生成文本的语言统计特征，探究其对传统词项检索模型的影响，结论表明该类模型依据词分布匹配度而非内容来源进行检索"
+    ]
+  },
+  {
+    "arxiv_id": "2610.20857",
+    "title": "Idea2Prior: Auditable Paper Retrieval and Ranking from Research Ideas",
+    "authors": [
+      "Shitian Yang",
+      "Ruijie Tao",
+      "Jian Huang"
+    ],
+    "summary": "Finding a paper from an informal research idea requires more than matching topic words: relevant work may use different terminology, and its distinguishing mechanism may be absent from the abstract. We present \\system{}, an auditable literature-search system built on PaperArena. It combines multi-source discovery, identity verification, facet-based abstract assessment, semantic citation expansion, and joint Expert ranking. A retrieval-only mode ranks up to five papers from a shortlist of at most 60, using complete available abstracts and locally selected PDF evidence from five fixed acquisition attempts, without generating a long-form report. In a historical comparison covering ten queries from each of EASY, MEDIUM, and HARD, aggregate reported Hit@5 is 53.3\\% for \\system{}, 43.3\\% for ChatGPT web Deep Research, and 36.7\\% for Gemini web Deep Research under the documented accounting convention. The advantage is concentrated in EASY and MEDIUM; ChatGPT leads on HARD. Selected \\system{} runs average 8 minutes 53 seconds, compared with user-reported web averages of 5.2 and 4.7 minutes. A separate nine-query API sample averages \\$0.0945 per task; this is a historical cost observation, not a matched comparison with web subscription costs. Pairwise Top 5 coverage ranges from 6\\% to 34\\%, showing differing returned evidence sets. The system also exposes optional implementation analysis and citation-evolution tools. These results support targeted idea-to-paper retrieval while leaving general web research, forum search, and broader relevance evaluation open. https://github.com/ystok66/IDEA2PRIOR",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-14",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2610.20857",
+    "pdf_url": "https://arxiv.org/pdf/2610.20857.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文属于学术文献检索工具研究，虽涉及排序但针对科研场景而非电商/社交等 RecSys 核心业务，且无用户行为建模或多模态推荐应用，属弱相关。",
+    "translation": "Idea2Prior：基于研究想法的可审计论文检索与排序系统",
+    "summary_zh": "提出一种结合多源发现、语义引用扩展及专家联合排序的审计式文献检索系统，旨在解决从非正式研究想法到精准论文匹配的术语差异问题。",
+    "key_points": [
+      "提出一种结合多源发现、语义引用扩展及专家联合排序的审计式文献检索系统，旨在解决从非正式研究想法到精准论文匹配的术语差异问题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.20840",
+    "title": "KoViDoRe: A Benchmark for Korean Visual Document Retrieval",
+    "authors": [
+      "Yongbin Choi",
+      "Yongwoo Song",
+      "Mujeen Sung"
+    ],
+    "summary": "Recent advances in multimodal retrieval have improved the ability to retrieve information from visually rich documents such as PDFs and reports. However, existing benchmarks remain largely centered on English and provide limited coverage of Korean visual documents with complex structures. Furthermore, most existing Korean resources primarily evaluate single-page retrieval, failing to capture realistic scenarios that require evidence aggregation across multiple pages. To address these gaps, we introduce KoViDoRe, a benchmark for Korean visual document retrieval. The dataset is constructed from publicly available Korean documents with diverse layouts, including tables, figures, and multi-column structures. We develop a multi-stage data curation pipeline consisting of structured document parsing, synthetic query generation using both summary-based and context-based strategies, and relevance mapping with human verification. Using KoViDoRe, we evaluate a wide range of multimodal retrieval models and observe that current models struggle to effectively handle Korean visual document retrieval, particularly in settings involving structured content and diverse query types. Motivated by this finding, we further curate a large-scale training dataset, Ko-VDR Train Public, to support the development of retrieval models tailored to Korean visual documents. Together, KoViDoRe and Ko-VDR Train Public provide a unified benchmark and training resource for Korean visual document retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.CV"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2608.20840",
+    "pdf_url": "https://arxiv.org/pdf/2608.20840.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文主要是一个针对韩语视觉文档检索的基准数据集构建工作，属于特定语言和多模态检索的资源贡献，缺乏通用的推荐/搜索核心算法创新，且非纯 LLM 研究但应用场景较为垂直局限。",
+    "translation": "KoViDoRe：韩语视觉文档检索基准",
+    "summary_zh": "本文提出了首个针对韩语复杂结构视觉文档的多页检索基准 KoViDoRe 及配套训练数据集，旨在评估并推动多模态模型在韩语结构化文档证据聚合检索任务上的发展。",
+    "key_points": [
+      "本文提出了首个针对韩语复杂结构视觉文档的多页检索基准 KoViDoRe 及配套训练数据集，旨在评估并推动多模态模型在韩语结构化文档证据聚合检索任务上的发展"
+    ]
+  },
+  {
+    "arxiv_id": "2608.22137",
+    "title": "MegaMem: A Retrieval Solution for Ultra-Large Context Windows",
+    "authors": [
+      "Xinyuan Song",
+      "Bowen Zhu",
+      "Hasibul Haque",
+      "Liang Zhao"
+    ],
+    "summary": "Modern language models and agents increasingly require persistent memory for complete codebases, long interaction histories, and heterogeneous enterprise records. The key challenge is to keep hundreds of millions of tokens searchable while passing only bounded source evidence to the answer model. We introduce MegaMem, a source-resolved dual-view retrieval system that separates semantic access from generation evidence. Distilled records and detailed evidence are searched with original and transformed queries; every distilled hit resolves to an immutable source ID before reciprocal-rank fusion, deduplication, and cross-encoder reranking; and only the highest-ranked detailed evidence within a fixed budget supports generation. Post-answer attribution then identifies which loaded sources support the fixed answer. We evaluate MegaMem on EnterpriseRAG-Bench, which contains more than 500,000 heterogeneous enterprise documents and approximately 650M tokens. MegaMem improves Overall from 68.22 to 82.26 and reaches 86.50 Correctness. These results show that MegaMem supports ultra-large persistent memory while preserving strong answer accuracy under a bounded generation context. By separating searchable memory scale from answer-context size, MegaMem provides a practical path toward accurate retrieval over memories ranging from hundreds of millions to one billion tokens. Our code is available at https://github.com/ xfab-xinyuansong/MegaMem.git.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2608.22137",
+    "pdf_url": "https://arxiv.org/pdf/2608.22137.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM/RAG 研究，专注于解决通用长上下文记忆检索问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，相关性依然较低。",
+    "translation": "MegaMem：面向超大规模上下文窗口的检索解决方案",
+    "summary_zh": "提出一种源解析双视图检索系统，通过将语义访问与生成证据分离，在受限的生成上下文预算内实现对数亿级令牌记忆的精确检索与归因。",
+    "key_points": [
+      "提出一种源解析双视图检索系统，通过将语义访问与生成证据分离，在受限的生成上下文预算内实现对数亿级令牌记忆的精确检索与归因"
+    ]
+  },
+  {
+    "arxiv_id": "2610.21184",
+    "title": "Beyond Retrieval Failure: Understanding Why LLMs Miss Evidence in Multi-Hop RAG",
+    "authors": [
+      "Jiaqi Wei",
+      "Wenxuan Huang",
+      "Chengdong Xu",
+      "Xiang Zhang",
+      "Wanli Ouyang"
+    ],
+    "summary": "Multi-hop retrieval-augmented generation (RAG) requires an agent to retrieve evidence for a sequence of dependent sub-questions. When a wrong answer lacks a required passage, the passage may be inaccessible to the retriever, or the agent may have failed to issue a query that would retrieve it. Standard retrieval evaluations conflate these two causes. We study how much apparent retrieval failure is instead caused by search drift: the search no longer tracks an unanswered sub-question. Holding the retriever, corpus, and generation model fixed, we introduce ExecutionRAG, a training-free requirement register that records open sub-questions and their supporting evidence. The register changes search guidance but not evidence access, so each gold passage it recovers certifies that the passage was reachable by the original retriever. On 1,000 MuSiQue questions, the number of wrong answers with unretrieved required evidence falls from 382 to 234 with all-MiniLM-L6-v2 and from 383 to 274 with Qwen3-Embedding-0.6B. These counts correspond to 69% to 44% and 66% to 48% of each system's wrong answers, respectively. Crucially, evidence recovery does not produce a proportional reduction in total error: premature resolutions and abstentions increase as missing-evidence failures decrease. The central finding is therefore a shift in the remaining bottleneck, from guiding search toward required evidence to verifying that the retrieved evidence is sufficient.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2610.21184",
+    "pdf_url": "https://arxiv.org/pdf/2610.21184.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，聚焦于多跳问答中的检索漂移问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有加分也仅属弱相关。",
+    "translation": "超越检索失败：理解大语言模型在多跳 RAG 中遗漏证据的原因",
+    "summary_zh": "提出无需训练的 ExecutionRAG 机制，通过记录开放子问题及其证据来纠正搜索漂移，将瓶颈从引导检索转向验证证据充分性。",
+    "key_points": [
+      "提出无需训练的 ExecutionRAG 机制，通过记录开放子问题及其证据来纠正搜索漂移，将瓶颈从引导检索转向验证证据充分性"
+    ]
+  },
+  {
+    "arxiv_id": "2507.03411",
+    "title": "Tourist arrival forecasting with game-theoretic social influence weighting and deep learning",
+    "authors": [
+      "Ali Nikseresht"
+    ],
+    "summary": "In the era of Industry 5.0, data-driven decision-making has become indispensable for planning in service systems such as tourism. This paper proposes a non-linear hybrid approach for forecasting tourist arrivals to Hong Kong from five major source markets before COVID-19 and to Sanya, China, through the COVID-19 shock. The method integrates multiple sources of Internet big data and employs a cooperative game-theoretic algorithm to identify coalitions of opinion leaders on social media, whose content then receives larger weights. The Empirical Wavelet Transform (EWT), applied causally, manages nonstationary attributes, and a Stacked Bi-directional Long Short-Term Memory (Stacked BiLSTM) network tuned by Bayesian optimization generates the forecasts. We prove that the Shapley values of the underlying trust-weighted coverage game have a closed form and that the coalition of maximal synergy can be found exactly in polynomial time. Relative to the same network fed only with past arrivals, Internet big data reduce the one-step-ahead root mean squared error by 4.1-41.7% across the Hong Kong markets and opinion-leader weighting by a further 10.1-49.4%, against 5.3% and 8.7% for Sanya. The approach compares favorably with published benchmarks and remains robust under volatile conditions, which suggests uses in logistics, supply chains and production planning.",
+    "categories": [
+      "cs.LG",
+      "cs.GT",
+      "eess.SP"
+    ],
+    "published": "2026-10-14",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2507.03411",
+    "pdf_url": "https://arxiv.org/pdf/2507.03411.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯时间序列预测研究，专注于旅游客流 forecasting，完全未涉及推荐系统或搜索引擎的核心任务（如召回、排序、用户建模），属于排除类别。",
+    "translation": "基于博弈论社交影响力加权与深度学习的游客到达量预测",
+    "summary_zh": "该论文提出一种混合方法，利用合作博弈论识别社交媒体意见领袖联盟以加权互联网大数据，并结合经验小波变换与堆叠双向 LSTM 进行非平稳时间序列预测。",
+    "key_points": [
+      "该论文提出一种混合方法，利用合作博弈论识别社交媒体意见领袖联盟以加权互联网大数据，并结合经验小波变换与堆叠双向 LSTM 进行非平稳时间序列预测"
+    ]
+  },
+  {
+    "arxiv_id": "2610.20652",
+    "title": "Does Personalization Break Trust? Open-Set Rejection Calibration Under Few-Shot On-Device Intent Adaptation",
+    "authors": [
+      "Vaibhav Prajapati",
+      "Pushp Garg"
+    ],
+    "summary": "Always-on virtual assistants increasingly personalize on-device to new user-specific commands via few-shot fine-tuning (e.g., LoRA), but this adaptation is evaluated almost exclusively on whether it learns the new commands, not on whether the assistant can still recognize an input that matches none of its intents - the out-of-scope (OOS) rejection problem. We show that naive few-shot LoRA personalization degrades OOS-rejection AUROC (area under the ROC curve) on every one of five public intent-classification benchmarks (mean drop $0.055$--$0.258$, five seeds each), while in-scope accuracy is preserved. A scorer-invariant check shows part of this drop is an artifact of the standard confidence scorer's own miscalibration under adaptation, though a smaller, genuine effect remains under any scorer; we trace it to a measurable shrinkage of the embedding margin around known-intent regions (pooled Spearman rho=0.61$). A deployment-cheap fix is scoring rejection by Mahalanobis distance instead of softmax confidence without extra training/retraining recovers most of the lost quality on 3 of 5 datasets at no accuracy cost, beats two further OOD scoring baselines, and generalizes across shot count, LoRA rank, and a second base encoder. We report honestly where the fix falls short and release all code for reproducibility.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-12",
+    "updated": "2026-10-16",
+    "url": "https://arxiv.org/abs/2610.20652",
+    "pdf_url": "https://arxiv.org/pdf/2610.20652.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/虚拟助手领域的研究，专注于少样本微调下的意图分类和域外拒绝问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化推荐）。",
+    "translation": "个性化是否破坏信任？少样本端侧意图适配下的开集拒绝校准",
+    "summary_zh": "该论文指出基于 LoRA 的少样本个性化微调会削弱虚拟助手识别域外指令的能力，并提出利用马氏距离替代软最大置信度进行拒绝评分的校准方法。",
+    "key_points": [
+      "该论文指出基于 LoRA 的少样本个性化微调会削弱虚拟助手识别域外指令的能力，并提出利用马氏距离替代软最大置信度进行拒绝评分的校准方法"
+    ]
+  }
+]

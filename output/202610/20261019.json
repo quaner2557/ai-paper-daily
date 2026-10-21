@@ -1,0 +1,354 @@
+[
+  {
+    "arxiv_id": "2610.22768",
+    "title": "StoBasket: Joint Upsell and Cross-Sell Optimization for Contribution Margin",
+    "authors": [
+      "Xin Heng"
+    ],
+    "summary": "Retail recommenders rank relevance, but retailers earn contribution margin: an upsell earns the margin difference over the item it replaces, whereas a cross-sell earns its full margin. We introduce joint stochastic basket editing, a formulation in which one policy selects replacement and addition offers for an existing basket, values them by expected incremental contribution margin, and couples them through displayed-offer, accepted-offer, and joint-acceptance response channels. To our knowledge, it is the first formulation in which upsell and cross-sell responses are coupled; prior separable treatments are its zero-coupling special case. In real-data-calibrated simulations on five public basket datasets, StoBasket captures essentially all attainable offer margin: within 0.5% in every default-price setting and within 0.7% when the true response lies outside its model family. Correct economic accounting is the broadest gain: margin-weighted popularity leaves up to 11% of attainable margin unrealized, and a published next-basket recommender leaves 11-52%. Joint selection adds 10.2% of attainable margin on Instacart, where premium tiers and add-ons are strongly linked. When offers pay only together, the best heuristics lose 64% while exact search stays within 0.5%. For a structured subclass, we characterize when staged policies fail and give an exact optimizer that solves every tested real basket in 0.13 ms median and at most 111 ms. Profit saturates long before prediction accuracy: a correctly structured predictor trained on 5,000 randomized sessions comes within 0.06% of perfect prediction, while a signal-free one loses 38%. The same estimates yield a decision-aware market-basket analysis whose cost does not grow with association order.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22768",
+    "pdf_url": "https://arxiv.org/pdf/2610.22768.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐系统中的连带销售（Cross-sell）和升级销售（Upsell）进行联合优化，核心目标是提升贡献利润，属于高优先级的电商推荐业务场景；且来自中国企业，符合加分项。",
+    "translation": "StoBasket：面向贡献利润的连带销售与升级销售联合优化",
+    "summary_zh": "提出一种联合随机购物篮编辑框架，通过耦合替换和添加商品的响应通道，直接以预期增量贡献利润为目标进行推荐策略优化。",
+    "key_points": [
+      "提出一种联合随机购物篮编辑框架，通过耦合替换和添加商品的响应通道，直接以预期增量贡献利润为目标进行推荐策略优化"
+    ]
+  },
+  {
+    "arxiv_id": "2610.22797",
+    "title": "Reasoning Reranking with Semantic IDs as the Sole Item Representation",
+    "authors": [
+      "Zhenwei Tang",
+      "Jintao Liu",
+      "Di Bai",
+      "Xidong Wu",
+      "Xinwu Cheng"
+    ],
+    "summary": "Reasoning rerankers write a rationale before ranking a candidate slate, and existing systems read item metadata to do so, even though generative recommenders increasingly represent items as compact Semantic IDs (SIDs). Ranking from SIDs alone has two appeals: SID prompts are far shorter than the matched item text, and although item codes are fixed from content, the backbone learns their token embeddings in part from user-item interaction sequences, so the tokens can carry behavioral signal that item text lacks. That training targets next-item generation, and whether it supports ranking a supplied slate from SIDs alone is untested. We build ReRankID, a controlled testbed in which models reason and rank from a history and slate shown only as SIDs, varying item rendering, history length, and slate size one at a time. On this testbed, such models often copy the input order instead of reranking, and readable metadata does not repair the failure. We compare supervised fine-tuning, rejection-sampled self-training, on-policy distillation, and verifier-based reinforcement learning as post-training methods and find that they elicit the missing behavior. The strongest post-trained model, the 8B model trained with a graded ranking reward, gives the best SID-only ranking and matches strong text-reading LLMs whose prompts are about 20x longer. It ranks above random with no history at all, where a caption-reading reference does not, and it keeps its gains at long histories, where text prompts pass 50k tokens and the caption-reading reference stops improving. In a paired rationale audit, this model argues trade-offs better than that reference but describes items less accurately. The common post-training methods we test thus elicit ranking from SIDs but not faithful item descriptions, which calls for post-training that improves the reasoning itself, not only the ranking it produces.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22797",
+    "pdf_url": "https://arxiv.org/pdf/2610.22797.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "1Google 2UniversityofToronto"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的重排序（Reranking）核心问题，提出仅利用语义 ID（SID）进行推理重排的新方法，属于 LLM 在 RecSys 中的直接高价值应用；且来自中国公司，按规定额外 +1 分后满分。",
+    "translation": "基于语义 ID 作为唯一物品表示的推理重排序研究",
+    "summary_zh": "本文提出 ReRankID 框架，探索并验证了大型语言模型仅依靠包含行为信号的紧凑语义 ID（而非冗长文本元数据）进行推理和重排序的可行性，并通过特定的后训练策略解决了模型直接复制输入顺序的问题。",
+    "key_points": [
+      "本文提出 ReRankID 框架，探索并验证了大型语言模型仅依靠包含行为信号的紧凑语义 ID（而非冗长文本元数据）进行推理和重排序的可行性，并通过特定的后训练策略解决了模型直接复制输入顺序的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.22400",
+    "title": "Rethinking User Encoders: Routing Diffusion States for Scenario-Adaptive User Representation",
+    "authors": [
+      "Junru Zhang",
+      "Jinyong Wen",
+      "Bin Dou",
+      "Wuliang Huang",
+      "Baokun Wang",
+      "Yu Cheng",
+      "Weiqiang Wang",
+      "Cheng Peng"
+    ],
+    "summary": "Existing large language model (LLM)-based user encoders serialize heterogeneous behavioral logs and compress them into static representations through autoregressive (AR) prediction. However, their unidirectional constraint limits bidirectional information flow, hindering cross-modal interactions and the joint preservation of multi-source signals. Consequently, the learned static representations struggle to accommodate the distinct evidence requirements of diverse downstream scenarios. We address these limitations by unlocking the iterative denoising process of diffusion language models (dLLMs) as a multi-granularity reconstruction space. Based on this insight, we propose FINDERS (FactorIzatioN of Diffusion statEs for Routing across Scenarios), a router-equipped dLLM framework comprising four operations: denoise, factorize, route, and compress. Learnable meta-slots organize complementary denoising states into transferable cross-modal semantics and modality-specific behavioral factors. To provide grounded supervision, we construct BehaviorQA, a large-scale corpus containing explicit behavioral rationales. Guided by scenario queries, a lightweight router dynamically emphasizes relevant slot directions via an input-level residual pathway before cross-source fusion and final compression. Extensive experiments and online A/B tests across ten industrial scenarios demonstrate that FINDERS consistently outperforms state-of-the-art methods in both unified and scenario-adaptive settings. This work effectively pushes the boundaries of dLLMs beyond language generation, demonstrating their immense potential as powerful user representation learners.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-14",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22400",
+    "pdf_url": "https://arxiv.org/pdf/2610.22400.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "1ZhejiangUniversity,2AntGroup"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的核心用户建模问题，提出利用扩散语言模型（dLLM）替代传统自回归模型来构建场景自适应的用户表示，具有明确的工业落地场景。",
+    "translation": "重思用户编码器：路由扩散状态以实现场景自适应的用户表示",
+    "summary_zh": "提出 FINDERS 框架，利用扩散语言模型的迭代去噪过程构建多粒度重构空间，通过可学习元槽和动态路由机制，将异构行为日志转化为适应不同下游场景的跨模态用户表示。",
+    "key_points": [
+      "提出 FINDERS 框架，利用扩散语言模型的迭代去噪过程构建多粒度重构空间，通过可学习元槽和动态路由机制，将异构行为日志转化为适应不同下游场景的跨模态用户表示"
+    ]
+  },
+  {
+    "arxiv_id": "2610.22652",
+    "title": "Evidence-Gated Bilingual RAG for Reliable Consumer Banking Search",
+    "authors": [
+      "Ahmed Mohamed Mahmoud Rayyan",
+      "Rana Mahmoud Mohammed",
+      "Aya Abdallah Abdelmonem",
+      "Mohamed Khaled Goda Othman",
+      "Rahatara Ferdousi"
+    ],
+    "summary": "Consumers often describe what they need rather than use the terminology found on a banking website. For example, a natural-language request (\"a card for travel\") may not share the keywords of the relevant product page, and the problem is harder in bilingual services, where the same intent may be expressed in Arabic or English. This paper presents an evidence-gated bilingual retrieval-augmented generation (RAG) framework for consumer banking search that operates entirely on local infrastructure. The framework combines structured web-content refinement, hybrid dense-lexical retrieval, intent-aware evidence selection, cross-encoder reranking, and a three-outcome Answer / Related Mismatch / No Answer decision mechanism. On 210 URL-labeled Arabic and English queries, the proposed approach improves Top-1 hit rate from 50.48% to 79.05% and MRR@5 from 0.571 to 0.797 over a hybrid baseline. A separate 26-case end-to-end evaluation achieved 69.2% strict success, with 72.7% of generated answers classified as supported by an automated faithfulness judge. These results are preliminary: the retrieval queries are paraphrases of a small reference set, and the end-to-end test is small and uses an automated rather than human judge, so they do not establish human-verified answer correctness or generalizable performance.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22652",
+    "pdf_url": "https://arxiv.org/pdf/2610.22652.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文针对消费者银行搜索场景提出了双语 RAG 框架，属于垂直领域的搜索应用，但主要依赖现有组件组合而非核心检索/排序算法的原始创新。",
+    "translation": "面向可靠消费者银行搜索的证据门控双语检索增强生成框架",
+    "summary_zh": "提出一种证据门控的双语 RAG 框架，通过混合稠密 - 词汇检索、意图感知证据选择及三态决策机制，解决跨语言自然语言查询与银行产品页面术语不匹配的搜索难题。",
+    "key_points": [
+      "提出一种证据门控的双语 RAG 框架，通过混合稠密 - 词汇检索、意图感知证据选择及三态决策机制，解决跨语言自然语言查询与银行产品页面术语不匹配的搜索难题"
+    ]
+  },
+  {
+    "arxiv_id": "2606.22807",
+    "title": "Lychee-Reranker: Fast but Not Late Interaction for Compressed Document Reranking",
+    "authors": [
+      "Xinping Zhao",
+      "Jiaxin Xu",
+      "Ziqi Dai",
+      "Xin Zhang",
+      "Huiyao Chen",
+      "Shouzheng Huang",
+      "Xianhao Xiong",
+      "Danyu Tang",
+      "Xinshuo Hu",
+      "Guohong Fu",
+      "Meishan Zhang",
+      "Baotian Hu"
+    ],
+    "summary": "As retrieval systems scale, effective and efficient reranking becomes increasingly important. However, most existing encoder- and decoder-based rerankers jointly process every query--passage pair, tightly coupling their online computation and limiting deployment efficiency and flexibility. We present Lychee-Reranker, a fast but not late-interaction (FBNL) reranker that decouples query and passage computation while retaining expressive relevance modeling. Built on an encoder--decoder architecture, Lychee-Reranker pre-encodes passages using Matryoshka embedding pooling, while its decoder models system and user instructions together with query intent; cross-attention then captures fine-grained relevance between the resulting query context and passage representations. Together, these designs offer four key advantages: (i) efficiency from offline passage encoding, (ii) expressiveness from cross-attention, (iii) compactness from Matryoshka embedding pooling, and (iv) test-time compute through an adjustable compute budget. We instantiate Lychee-Reranker in three sizes, Nano, Small, and Large, with 0.27B, 1B, and 4B activated parameters, respectively. Extensive experiments on BEIR, MIRACL, and LMEB demonstrate strong reranking performance with superior efficiency. On BEIR and MIRACL, our models achieve competitive performance in multi-domain and multilingual reranking, on par with strong industrial rerankers such as the Qwen3/BGE-Reranker series. On LMEB-Dialogue, a compact embedding model paired with our Nano reranker, which has only 0.27B activated parameters, remains competitive with 7--12B embedding models. Lychee-Reranker was previously known as KaLM-Reranker-V1. Data and models are available at https://huggingface.co/collections/KaLM-Embedding/lychee-kalm-reranker-and-jev. The code is available at https://github.com/HITsz-TMG/Lychee-Reranker.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2606.22807",
+    "pdf_url": "https://arxiv.org/pdf/2606.22807.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的重排序（Reranking）核心环节，提出了解耦查询与文档计算的高效架构，属于明确的搜索技术应用，而非纯 LLM 基础研究。",
+    "translation": "Lychee-Reranker：面向压缩文档重排序的快速非晚期交互模型",
+    "summary_zh": "提出一种基于编码器 - 解码器架构的重排序模型，通过离线预编码文档和在线交叉注意力机制，在解耦计算以提升效率的同时保持细粒度的相关性建模能力。",
+    "key_points": [
+      "提出一种基于编码器 - 解码器架构的重排序模型，通过离线预编码文档和在线交叉注意力机制，在解耦计算以提升效率的同时保持细粒度的相关性建模能力"
+    ]
+  },
+  {
+    "arxiv_id": "2610.22695",
+    "title": "Chance-Constrained Personalized LLM Routing with Online Preference Learning",
+    "authors": [
+      "Ameya Anjarlekar",
+      "Rasoul Etesami",
+      "R Srikant"
+    ],
+    "summary": "We study personalized LLM routing, where a router selects among heterogeneous models with different costs and capabilities. The router must minimize cumulative inference cost while ensuring reliable realized response quality, even though user preferences are unknown and must be learned from feedback during deployment. We formulate this problem as a constrained contextual bandit and develop an algorithm that learns preferences while balancing cost and quality. Under a logistic preference model and a strict-feasibility condition, we establish sublinear expected cost regret relative to an optimal stationary randomized contextual oracle and a high-probability guarantee on realized cumulative satisfaction. The framework extends beyond LLM routing to broader online model-selection problems with reliability requirements.",
+    "categories": [
+      "cs.LG",
+      "stat.AP"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22695",
+    "pdf_url": "https://arxiv.org/pdf/2610.22695.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 推理优化与在线学习研究，虽提及个性化但未针对推荐/搜索核心场景（如召回、排序），缺乏具体 RecSys 业务应用。",
+    "translation": "基于在线偏好学习的机会约束个性化大模型路由",
+    "summary_zh": "提出一种约束上下文 bandit 算法，在未知用户偏好下动态选择异构大模型，以平衡推理成本与响应质量可靠性。",
+    "key_points": [
+      "提出一种约束上下文 bandit 算法，在未知用户偏好下动态选择异构大模型，以平衡推理成本与响应质量可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.18654",
+    "title": "Kwai Summary Attention V2 Technical Report",
+    "authors": [
+      "OneRec Team",
+      "Chenglong Chu",
+      "Guohong Mu",
+      "Guowang Zhang",
+      "Hao Peng",
+      "Hui Wang",
+      "Jian Liang",
+      "Jiangxia Cao",
+      "Jiao Ou",
+      "Jiaxin Deng",
+      "Lu Ren",
+      "Muhao Wei",
+      "Ruiming Tang",
+      "Tianle Xu",
+      "Wenwu Ou",
+      "Xingmei Wang",
+      "Zhixin Ling",
+      "Zhiyuan Liang",
+      "Ziqi Wang",
+      "Chaoyi Ma",
+      "Haixiao Gao",
+      "Kuo Cai",
+      "Renpu Liu",
+      "Ruochen Yang",
+      "Wenlong Xu",
+      "Xinqi Jin",
+      "Yan Sun",
+      "Yifan Wang",
+      "Yingzhi He",
+      "Yiyu Wang",
+      "Yusen Huo",
+      "Zhaojie Liu",
+      "Zihan Zhou"
+    ],
+    "summary": "Summary-token architectures such as Kwai Summary Attention (KSA) compress distant context into learnable Summary token per chunk, and hybrid variants interleave these layers with full attention to retain exact access to the original text. In such hybrid KSA-Full architecture, the interleaving inserted summary tokens are served as a streaming flow role across different layers. Although effective, however, it also introduce some bottlenecks: (1) the different layers summary compression chunk must be same, therefore hard to reach a flexible KV Cache compression, e.g., different layer set different summary compression chunk window. (2) in the full-attention layers, the summary token introduced additional computation cost, but such layer ignore them and still pay quadratic prefilling, therefore unfriendly to the computation side. Motivated by them, we developed the KSA V2, which not only achieves a more flexible KV cache memory compression but also reduces the computation cost in Full attention layer. Specifically, we found that the summary tokens can serve two roles: the KV memory and sparse indexer.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.18654",
+    "pdf_url": "https://arxiv.org/pdf/2610.18654.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 架构优化技术报告，专注于 KV Cache 压缩和推理计算效率，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "快手摘要注意力 V2 技术报告",
+    "summary_zh": "提出 KSA V2 架构，通过将摘要 token 双重角色化为 KV 内存与稀疏索引器，实现了更灵活的显存压缩并降低了全注意力层的计算成本。",
+    "key_points": [
+      "提出 KSA V2 架构，通过将摘要 token 双重角色化为 KV 内存与稀疏索引器，实现了更灵活的显存压缩并降低了全注意力层的计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2610.22588",
+    "title": "SAG2: Embedding-Free Multi-Hop Retrieval with BM25 and JEV",
+    "authors": [
+      "Yuchao Wu"
+    ],
+    "summary": "Strong multi-hop retrieval should be practical to deploy without expensive corpus preparation or complex database infrastructure. We present SAG2, an embedding-free retrieval architecture built around a single SQLite database, BM25, and contextual evidence decisions from JEV. SAG2 follows the query-time association principle of SAG (SQL-Retrieval Augmented Generation), while replacing its event-entity and dense indexes with a lexical index over original passages. Selected passages supply terms for further retrieval, and newly retrieved evidence guides subsequent decisions. This moves semantic evidence selection to query time, eliminating offline embedding computation, LLM-based event-entity extraction, and dedicated database servers. The resulting system combines lightweight preparation with strong retrieval accuracy: on 1,000-question subsets of MuSiQue, 2WikiMultiHopQA, and HotpotQA, SAG2 achieves the highest Recall@5 and Recall@10 among the compared methods, with Recall@10 of 86.62%, 97.43%, and 99.00%. It also reaches 81.10% document Recall@10 over the 511,962-document EnterpriseRAG-Bench corpus. Indexing all 11,656 MuSiQue passages takes 2.36 seconds, produces a 25.87 MiB database, and requires no model calls. SAG2 demonstrates that accurate multi-hop evidence retrieval can be supported by compact, rapidly prepared infrastructure, making it a practical foundation for knowledge retrieval applications.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22588",
+    "pdf_url": "https://arxiv.org/pdf/2610.22588.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 RAG/LLM 检索架构研究，专注于多跳问答任务，未涉及推荐系统或搜索引擎的核心业务场景（如排序、个性化、广告），属于排除类纯 LLM 应用研究。",
+    "translation": "SAG2：基于 BM25 和 JEV 的无嵌入多跳检索",
+    "summary_zh": "提出一种无需预计算嵌入的轻量级多跳检索架构，仅利用 SQLite、BM25 和查询时上下文证据决策来实现高效的知识检索。",
+    "key_points": [
+      "提出一种无需预计算嵌入的轻量级多跳检索架构，仅利用 SQLite、BM25 和查询时上下文证据决策来实现高效的知识检索"
+    ]
+  },
+  {
+    "arxiv_id": "2610.21711",
+    "title": "How language model agents reshape price competition",
+    "authors": [
+      "Martin Bichler",
+      "Philip Hierhager",
+      "Kassian Köck",
+      "Fabian Pieroth"
+    ],
+    "summary": "Repeated Bertrand competition is a stringent benchmark for algorithmic pricing: in homogeneous-goods markets, standard learning procedures typically select the stage-game Nash outcome with prices near marginal cost. We show that LLM pricing agents can escape this benchmark, depending on deployment decisions. LLMs outperform standard online learners through faster adaptation, but this advantage largely disappears against full-information learners. An extracted surrogate algorithm illustrates how LLMs in specific deployments profit from regularly undercutting slower learners. Agents that post one price every period from raw market histories that include rival prices can sustain supracompetitive regimes in self-play. Agents that periodically emit probability distributions from summarized histories of their own profits instead move toward the competitive region in self-play. Markets mixing these interfaces can generate dynamic regimes in which LLMs establish a high-price anchor and regularly undercut it to capture demand. These regimes can keep both competitors' prices above marginal cost. Deployment choices shape these outcomes, shifting the focus from stationary equilibria to dynamic pricing regimes.",
+    "categories": [
+      "cs.GT",
+      "cs.LG",
+      "cs.MA",
+      "econ.GN",
+      "q-fin.EC"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.21711",
+    "pdf_url": "https://arxiv.org/pdf/2610.21711.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 在经济学定价博弈中的研究，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），属于排除类别。",
+    "translation": "语言模型代理如何重塑价格竞争",
+    "summary_zh": "本文研究了不同部署策略下的 LLM 定价代理如何在重复伯川德博弈中通过动态调整价格策略，从而摆脱边际成本定价的纳什均衡并维持超竞争价格体系。",
+    "key_points": [
+      "本文研究了不同部署策略下的 LLM 定价代理如何在重复伯川德博弈中通过动态调整价格策略，从而摆脱边际成本定价的纳什均衡并维持超竞争价格体系"
+    ]
+  },
+  {
+    "arxiv_id": "2602.04926",
+    "title": "AutoPrunedRetriever: Persistent Reasoning Graphs for Efficient and Extensible Retrieval-Augmented Generation",
+    "authors": [
+      "Ning Wang",
+      "Kuanyan Zhu",
+      "Daniel Yuehwoon Yee",
+      "Yitang Gao",
+      "Shiying Huang",
+      "Zirun Xu",
+      "Sainyam Galhotra"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) has become a standard approach for knowledge-intensive LLM tasks. Complex reasoning remains challenging because queries often require composing dispersed evidence through multiple dependent reasoning steps. Yet existing RAG systems process queries independently, repeatedly retrieving overlapping evidence and reconstructing established reasoning. Preserving such reasoning makes previously retrieved evidence and intermediate results reusable for subsequent queries. However, inference-time reuse becomes increasingly costly as the history grows, motivating a compact representation that preserves useful information without substantial loss in quality. To address these challenges, we present AutoPrunedRetriever (APR), a graph-based RAG system that encodes corpus facts and query-derived reasoning in a shared symbolic codebook. The codebook serves both as the retrieval index and as persistent memory, representing facts, questions, and answers as compact edge sequences, so that the previously established structure can be directly retrieved and reused. At inference time, APR retrieves query-specific reasoning paths and constructs compact prompts, while incremental consolidation keeps the growing memory compact. For deployments where the retriever cannot be replaced, we introduce AutoPruned Layer (APL), which leaves host retrieval unchanged but replaces the retrieved context with the corresponding entries in the shared symbolic codebook, writing each question and answer back as a compact structure. Across five complex-reasoning benchmarks, APR improves accuracy over the strongest baseline by 1.8-10.8 points while using up to 96% fewer input tokens. APL reduces generator input by 60-96% across host systems and preserves answer quality on document-style contexts.",
+    "categories": [
+      "cs.DB",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2602.04926",
+    "pdf_url": "https://arxiv.org/pdf/2602.04926.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通用推理任务的效率优化，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有加分项也属于低优先级。",
+    "translation": "AutoPrunedRetriever：用于高效可扩展检索增强生成的持久化推理图",
+    "summary_zh": "提出一种基于图的 RAG 系统，通过共享符号码本将事实与推理路径编码为紧凑结构，实现推理过程的持久化存储与复用以降低推理成本。",
+    "key_points": [
+      "提出一种基于图的 RAG 系统，通过共享符号码本将事实与推理路径编码为紧凑结构，实现推理过程的持久化存储与复用以降低推理成本"
+    ]
+  },
+  {
+    "arxiv_id": "2610.22615",
+    "title": "When Does Uncertainty Measure RAG Hallucination Risk?",
+    "authors": [
+      "Rajeel Ahmad Ansari",
+      "Tautik Agrahari"
+    ],
+    "summary": "Uncertainty can measure hallucination risk in retrieval-augmented generation (RAG), but only when retrieved evidence constrains the answer. When evidence is present, unsupported factual claims become less likely; when retrieval coverage is poor, the model can answer from internal knowledge and assign high probability to unsupported claims. We test this across four instruction-tuned models on HotpotQA and SQuAD. After matching faithful and hallucinated answers within word-count bins, length-only classifiers fall near chance, while perplexity reaches 0.81--0.91 AUROC on targeted unsupported edits. Varying retrieval depth shows why the score changes meaning: detection can weaken with only the top-ranked passage, then recover after adding a second passage. A combined uncertainty and semantic-drift score improves calibration, and measurements remain above chance on RAGTruth QA. Results support a conditional view of uncertainty as a useful measure of RAG hallucination risk.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.22615",
+    "pdf_url": "https://arxiv.org/pdf/2610.22615.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于检测生成内容中的幻觉风险，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），属于排除类别。",
+    "translation": "不确定性度量何时能评估 RAG 的幻觉风险？",
+    "summary_zh": "该论文提出了一种条件性观点，即只有当检索证据能约束答案时，不确定性度量才能有效检测检索增强生成（RAG）中的幻觉风险，并通过结合不确定性与语义漂移分数来改善校准。",
+    "key_points": [
+      "该论文提出了一种条件性观点，即只有当检索证据能约束答案时，不确定性度量才能有效检测检索增强生成（RAG）中的幻觉风险，并通过结合不确定性与语义漂移分数来改善校准"
+    ]
+  }
+]

@@ -1,0 +1,471 @@
+[
+  {
+    "arxiv_id": "2606.31031",
+    "title": "GenPage: Towards End-to-End Generative Homepage Construction at Netflix",
+    "authors": [
+      "Lequn Wang",
+      "Jiangwei Pan",
+      "Fengdi Che",
+      "Linas Baltrunas"
+    ],
+    "summary": "We present GenPage, an end-to-end generative approach to Netflix homepage construction that replaces the traditional multi-stage recommender stack with a single transformer. GenPage treats the user and request context as a prompt and autoregressively generates the entire structured, multi-row homepage as the response. We adapt the LLM training recipe: pretraining on production pages, followed by post-training via weighted binary classification (WBC) or reinforcement learning (RL). For industry-scale deployment, we introduce techniques addressing cold start, model freshness, business-rule enforcement, and serving efficiency. In online A/B tests against a mature, highly optimized production homepage recommender, GenPage delivered a substantial lift on the core user engagement metric we use for launch decisions, while reducing end-to-end serving latency by 20%. Offline, two findings stand out: enriching the prompt yields a larger improvement than scaling model capacity in our current regime, and RL post-training increases homepage diversity even though diversity is not part of the objective.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2606.31031",
+    "pdf_url": "https://arxiv.org/pdf/2606.31031.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Netflix"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Netflix 首页推荐系统的核心架构创新，提出用端到端生成式 Transformer 替代传统多阶段推荐栈，属于高优先级的电商/社交 + 推荐搜索 + 深度学习/LLM 应用。",
+    "translation": "GenPage：面向 Netflix 的端到端生成式首页构建方法",
+    "summary_zh": "提出 GenPage 架构，将用户上下文作为提示词，利用单个 Transformer 自回归地直接生成结构化多行首页，以替代传统的召回、排序等多阶段推荐流程。",
+    "key_points": [
+      "提出 GenPage 架构，将用户上下文作为提示词，利用单个 Transformer 自回归地直接生成结构化多行首页，以替代传统的召回、排序等多阶段推荐流程"
+    ]
+  },
+  {
+    "arxiv_id": "2609.13993",
+    "title": "P$^3$Rec: Distilling Prior--Posterior Preference Reasoning for LLM-based Recommendation",
+    "authors": [
+      "Jinfei Chen",
+      "Weihai Lu",
+      "Jiawei Cheng"
+    ],
+    "summary": "Large language models (LLMs) exhibit strong semantic understanding and preference reasoning capabilities, offering new opportunities for user modeling in recommender systems. Existing LLM-as-Enhancer methods typically distill LLM-derived preference knowledge into lightweight recommenders to avoid costly online LLM inference. However, they often construct distillation knowledge from only one perspective. Prior preference captures users' stable and consistent interests but provides limited guidance for the current decision, whereas posterior preference reveals target-relevant fine-grained interests but may rely excessively on target clues. To address these limitations, we propose P$^3$Rec, a framework that jointly extracts and internalizes complementary prior and posterior preference reasoning knowledge. Specifically, P$^3$Rec first derives target-agnostic prior preferences and target-conditioned posterior preferences from the user side, while further extracting item-centric preference representations from item semantics and predecessor interactions. It then progressively internalizes prior and posterior knowledge into behavioral representations through prior preference absorption and posterior-guided preference distillation. Since the resulting comprehensive preference representation may not always provide an equally decisive retrieval direction, P$^3$Rec further characterizes historical interest dispersion with interest entropy and adaptively calibrates the user representation before contrastive retrieval optimization. In this way, P$^3$Rec achieves more complete preference reasoning while preserving efficient recommendation. Extensive experiments on multiple public datasets demonstrate its effectiveness.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2609.13993",
+    "pdf_url": "https://arxiv.org/pdf/2609.13993.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出利用 LLM 蒸馏先验与后验偏好知识以增强用户建模的 P$^3$Rec 框架，属于高优先级的 LLM for RecSys 研究；且来自中国公司，按规定额外加 1 分（基础 9 分 +1 分）。",
+    "translation": "P$^3$Rec：蒸馏先验 - 后验偏好推理用于基于大语言模型的推荐",
+    "summary_zh": "提出 P$^3$Rec 框架，通过联合提取并内化 LLM 生成的目标无关先验偏好与目标条件后验偏好，结合兴趣熵自适应校准，实现高效且完整的用户偏好推理。",
+    "key_points": [
+      "提出 P$^3$Rec 框架，通过联合提取并内化 LLM 生成的目标无关先验偏好与目标条件后验偏好，结合兴趣熵自适应校准，实现高效且完整的用户偏好推理"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24481",
+    "title": "DuoLM: Fast and Effective Personalized Recommendation with Language Models",
+    "authors": [
+      "Jiang Wu",
+      "Yutong Song",
+      "Hongbo Wang",
+      "Guanghe Cao",
+      "Jeff Liang"
+    ],
+    "summary": "Language models can make personalized recommendations from rich item content, user history, and feedback. However, evaluating many candidates with full-text inputs incurs substantial online computation and limits serving throughput. We introduce DuoLM, a framework for fast and effective personalized recommendation that integrates a compact recommendation model with an efficient serving runtime. An encoder LLM learns compact item representations for offline reuse, while a personalized ranker LLM combines them with user history and feedback for recommendation. We train both models end to end with recommendation supervision and teacher distillation. The runtime further accelerates inference through virtual token IDs for embedding access, shared history computation, and CUDA Graph replay. Benchmark results show that our framework achieves recommendation quality comparable to that of the expert teacher model. On a single H100, it delivers approximately 26,400 candidate scores per second, about $60\\times$ the throughput of the teacher served with vLLM and automatic prefix caching.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24481",
+    "pdf_url": "https://arxiv.org/pdf/2610.24481.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的 LLM 推理效率瓶颈，提出了结合离线编码与在线排序的 DuoLM 架构及加速策略，属于高优先级的 LLM for RecSys 核心应用；且来自中国公司，符合额外加分条件。",
+    "translation": "DuoLM：基于语言模型的高效个性化推荐框架",
+    "summary_zh": "提出一种双阶段 LLM 推荐框架，通过离线编码器生成紧凑物品表示，结合在线排序模型与虚拟 Token、CUDA Graph 等运行时加速技术，在保持推荐质量的同时大幅提升服务吞吐量。",
+    "key_points": [
+      "提出一种双阶段 LLM 推荐框架，通过离线编码器生成紧凑物品表示，结合在线排序模型与虚拟 Token、CUDA Graph 等运行时加速技术，在保持推荐质量的同时大幅提升服务吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2608.01260",
+    "title": "Is Serving-Time Language-Model Inference Necessary for Recommendation? Evidence from Generative and Agentic Settings",
+    "authors": [
+      "Xiang Chen",
+      "Zhongke He",
+      "Hongwei Zeng",
+      "Kai Deng",
+      "Long Wang",
+      "Kehua Yang",
+      "Kong Wang"
+    ],
+    "summary": "Language models (LMs) are increasingly used in recommender systems to generate recommendations or coordinate recommendation tools. However, does their strong performance imply that serving-time LM inference is necessary? We challenge this seemingly reasonable but unverified assumption. To investigate this question, we introduce recovery-based mechanism auditing, which tests whether independent alternatives can achieve the accuracy of LM-based recommender systems without the audited inference mechanisms under controlled information and evaluation conditions. For generative recommendation, we propose LIME-Rec, which combines sequential, collaborative, and offline semantic information without autoregressive LM decoding. On three Amazon Reviews datasets (Beauty, Toys, and Sports), LIME-Rec achieves the highest reported mean in all 12 dataset-metric combinations, with up to a 15.2% relative improvement in Recall@10 over GRAM, an LM-based generative recommender. For agentic recommendation, we propose DART-Rec, which replaces LM-based tool control with deterministic fusion and fixed expert selection. On 1,000 Beauty users, given the same candidate items and expert scores, deterministic fusion achieves a 16.7% relative improvement in Recall@10 over a fine-tuned LM controller. With at most two tool calls, fixed expert selection matches the LM controllers' Hit@10 outcomes for every user in 17 of 18 comparisons. These findings demonstrate that strong recommendation performance does not necessarily require serving-time LM inference: under the evaluated task and information conditions, alternatives without the specified inference mechanisms can match or exceed the accuracy of their LM-based counterparts. To support reproducibility, code is available at https://github.com/Double-wk/LIME-Rec.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2608.01260",
+    "pdf_url": "https://arxiv.org/pdf/2608.01260.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的 LLM 服务时推理必要性提出质疑，并提出了无需自回归解码的生成式推荐（LIME-Rec）和确定性融合的智能体推荐（DART-Rec）新架构，具有极高的核心业务应用价值。",
+    "translation": "推荐系统是否必需服务时语言模型推理？来自生成式与智能体场景的证据",
+    "summary_zh": "本文提出恢复机制审计方法，论证了通过结合序列、协同及离线语义信息的非自回归模型（LIME-Rec）及确定性融合策略（DART-Rec），可在无需服务时 LLM 推理的情况下实现甚至超越现有 LLM 推荐系统的性能。",
+    "key_points": [
+      "本文提出恢复机制审计方法，论证了通过结合序列、协同及离线语义信息的非自回归模型（LIME-Rec）及确定性融合策略（DART-Rec），可在无需服务时 LLM 推理的情况下实现甚至超越现有 LLM 推荐系统的性能"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24200",
+    "title": "Candidate-dependent residual routing trades top-of-list accuracy for recall in sequential recommendation",
+    "authors": [
+      "Han Chen",
+      "Yingrui Li"
+    ],
+    "summary": "Candidate-dependent routing lets a sequential recommender weight a user's past behaviors differently for each item it scores. We test whether this flexibility helps by adding a small residual routing module to a self-attentive baseline, in two versions that differ only in what sets the routing weights: the user's history representation or the candidate item's embedding. Across five paired seeds on the REES46 cosmetics-shop dataset, with matched training for all three models, candidate-dependent routing leaves the primary metric, normalized discounted cumulative gain at cutoff ten (NDCG@10), essentially unchanged (mean relative change +0.003%). Secondary and exploratory analyses show that this flat average hides two effects that cancel. The candidate-dependent model places more relevant items in its top ten (recall +1.81%) but ranks the first one lower (mean reciprocal rank -1.09%), and most of its new hits land at positions six to ten. Its gains come from queries with at least one target among the user's last 50 events, while queries whose targets all lie outside that window get worse. In this form, candidate-dependent routing trades accuracy at the top of the list for recall further down.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24200",
+    "pdf_url": "https://arxiv.org/pdf/2610.24200.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐系统中的核心排序问题，提出了一种候选依赖的残差路由机制以平衡顶部准确率与召回率，属于高优先级的核心领域进展；虽为实验性分析且结果持平，但因其直接解决推荐实际痛点且来自中国公司，给予高分。",
+    "translation": "候选依赖残差路由在序列推荐中以顶部列表准确率换取召回率",
+    "summary_zh": "本文提出在自注意力基线中引入候选依赖的残差路由模块，通过动态调整用户历史行为权重，实现在序列推荐中将顶部排序精度略微让渡以换取中后段位置召回率的提升。",
+    "key_points": [
+      "本文提出在自注意力基线中引入候选依赖的残差路由模块，通过动态调整用户历史行为权重，实现在序列推荐中将顶部排序精度略微让渡以换取中后段位置召回率的提升"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24341",
+    "title": "Optimal Fusion Weights Form Intervals, Not Points: A Latency-Aware Study of Query-Adaptive WRRF",
+    "authors": [
+      "Iris Ma",
+      "Zahra Shekarchi",
+      "Stuart Mcilroy",
+      "Mahtab Farrokh",
+      "Fattane Zarrinkalam",
+      "Joel Stremmel"
+    ],
+    "summary": "Reciprocal Rank Fusion (RRF) is widely used to combine sparse and dense retrievers in hybrid information retrieval, but a critical limitation is that it assigns a fixed, uniform weight to each retriever regardless of the query. Query-aware methods treat the per-query optimal weight as a single point, an assumption whose empirical validity has not been examined. We present an empirical study of eight dynamic fusion weight prediction strategies across four datasets and four sparse--dense retriever pairs. When we compare these approaches to static fusion and a per-query oracle that bounds achievable performance, several findings emerge. First, the per-query optimal fusion weight is typically an interval rather than a point. Queries can have multiple optimal intervals, and these can take on a variety of shapes. Second, 74 of 128 dynamic fusion methods tested were significantly better than standard RRF after false discovery rate correction. Third, dynamic fusion methods exhibit differing quality and latency characteristics that should be considered when choosing an appropriate fusion method. To address this last finding, we present a tiered decision framework that maps practitioner constraints, dataset properties, label availability, hardware, and latency budget to an appropriate method class. We release the code for our experiments at https://github.com/thomsonreuters/query-based-rrf.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24341",
+    "pdf_url": "https://arxiv.org/pdf/2610.24341.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对搜索系统中的混合检索重排序（RRF）环节，提出了基于查询的动态融合权重策略，属于核心搜索技术优化。",
+    "translation": "最优融合权重呈区间而非单点：一种感知延迟的查询自适应 RRF 研究",
+    "summary_zh": "本文通过实证研究发现混合检索中每查询的最优融合权重通常为区间而非单点，并提出了一套结合质量与延迟考量的分层决策框架以选择动态融合方法。",
+    "key_points": [
+      "本文通过实证研究发现混合检索中每查询的最优融合权重通常为区间而非单点，并提出了一套结合质量与延迟考量的分层决策框架以选择动态融合方法"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24347",
+    "title": "Exact Risk Certificates for Pairwise-Judged Reranking",
+    "authors": [
+      "Xinyu Wang",
+      "Jingrui Tian",
+      "Sicheng Lyu",
+      "Yu Gu",
+      "Ziyang Song",
+      "Xiao-Wen Chang",
+      "Lei Ding"
+    ],
+    "summary": "Pairwise relevance judgments constrain both the loss numerator and the ideal-ranking denominator of nDCG. We characterize the exact worst-case loss of replacing a ranking with a fixed proposal. Binary gains attain this loss and provide an inspectable witness. Threshold verification reduces to at most $K+1$ maximum-closure problems. Our exposure-flow ablation isolates denominator coupling: on shared judge trajectories, exact verification saves 2.34 comparisons per TREC-DL development query and 1.98 per confirmation query at a budget of 32. Savings transfer to BEIR and a second proposer. Predictive gates achieve higher deployment gains, while certificates expose the worst gains still permitted by accepted comparisons.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24347",
+    "pdf_url": "https://arxiv.org/pdf/2610.24347.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐/搜索中的重排序（Reranking）环节，提出了基于成对判断的精确风险证书方法来优化 nDCG 损失，属于核心排序技术创新。",
+    "translation": "基于成对判断重排序的精确风险证书",
+    "summary_zh": "提出一种通过成对相关性判断约束 nDCG 损失分子与分母的方法，利用最大闭包问题构建精确的最坏情况损失证书以指导重排序决策。",
+    "key_points": [
+      "提出一种通过成对相关性判断约束 nDCG 损失分子与分母的方法，利用最大闭包问题构建精确的最坏情况损失证书以指导重排序决策"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24478",
+    "title": "Beyond Recall Saturation: Scaling Hard-Negative Reranker Training for Industrial Legal Retrieval",
+    "authors": [
+      "Yunhan Li",
+      "Mingjie Xie",
+      "Zeyang Shi",
+      "Gengshen Wu",
+      "Min Yang"
+    ],
+    "summary": "Industrial retrieval systems often improve quality by enlarging embedding candidate pools or adopting complex training pipelines. We show that, under a sufficiently large but practical candidate pool, embedding recall exhibits diminishing returns, motivating a closer examination of reranker quality. On Chinese legal retrieval benchmarks, embedding top-300 reaches a high-recall operating region, while relevant evidence may still be ranked below the output cutoff. We compare hard-negative strategies for reranker training, including embedding-mined, self-mined, and dynamic-negative variants, under aligned retrieval protocols that evaluate reranking after candidate retrieval. Among the evaluated staged configurations, an embedding-to-self-mined pipeline provides a favorable trade-off; additional dynamic stages do not improve all held-out metrics. The selected pipeline scales from a 0.6B to a 4B reranker. Relative to the native 4B reranker, the trained 4B Stage2 model improves reported metrics on the STARD and CSAID benchmarks and on an internal development set, and is preferred in 72.4\\% of non-tied comparisons on 410 de-identified, reconstructed internal operational-query inputs in a latency-sensitive offline preference evaluation. These results support evaluating the retrieval and reranking stages separately when selecting an optimization target for industrial retrieval systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24478",
+    "pdf_url": "https://arxiv.org/pdf/2610.24478.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文聚焦工业级检索系统中的重排序（Reranking）环节，提出了针对法律场景的硬负例挖掘与训练策略，属于搜索核心技术的直接应用。",
+    "translation": "超越召回饱和：扩展工业法律检索中的硬负例重排序器训练",
+    "summary_zh": "针对工业检索中嵌入召回收益递减的问题，提出了一种从嵌入挖掘到自挖掘的分阶段硬负例重排序器训练流水线，以优化大模型在延迟敏感场景下的排序质量。",
+    "key_points": [
+      "针对工业检索中嵌入召回收益递减的问题，提出了一种从嵌入挖掘到自挖掘的分阶段硬负例重排序器训练流水线，以优化大模型在延迟敏感场景下的排序质量"
+    ]
+  },
+  {
+    "arxiv_id": "2512.12605",
+    "title": "Causal inference and model explainability analysis of a real world sales dataset",
+    "authors": [
+      "Pranav Gupta",
+      "Nithin Surendran"
+    ],
+    "summary": "Most major retailers today have multiple divisions focused on various aspects, such as marketing, supply chain, online customer experience, store customer experience, employee productivity, and vendor fulfillment. They also regularly collect data corresponding to all these aspects as dashboards and weekly/monthly/quarterly reports. Although several machine learning and statistical techniques have been in place to analyze and predict key metrics, such models typically lack interpretability. Moreover, such techniques also do not allow the validation or discovery of causal links. In this paper, we aim to provide a recipe for applying model interpretability and causal inference for deriving sales insights. In this paper, we review the existing literature on causal inference and interpretability in the context of problems in e-commerce and retail, and apply them to a real-world dataset. We find that an inherently explainable model has a lower variance of SHAP values, and show that including multiple confounders through a double machine learning approach allows us to get the correct sign of causal effect.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2512.12605",
+    "pdf_url": "https://arxiv.org/pdf/2512.12605.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦电商销售数据的因果推断与可解释性，虽非核心推荐算法创新，但直接服务于零售业务决策，且来自中国公司，故给予中等偏上评分。",
+    "translation": "真实世界销售数据集的因果推断与模型可解释性分析",
+    "summary_zh": "本文提出在电商零售场景中应用因果推断与可解释性模型的框架，通过双重机器学习处理混淆变量以获取正确的因果效应符号。",
+    "key_points": [
+      "本文提出在电商零售场景中应用因果推断与可解释性模型的框架，通过双重机器学习处理混淆变量以获取正确的因果效应符号"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24395",
+    "title": "MSCR: Jointly Balancing Utilization Across Modalities and Discovering Synergistic Information",
+    "authors": [
+      "Xinyu Chen",
+      "Liangjian Wen",
+      "Jiang Duan",
+      "Dongkai Wang",
+      "Yong Dai",
+      "Jiayu Bai",
+      "Jianzhuang Liu",
+      "Zhen Tian",
+      "Guoping Qiu",
+      "Zhao Kan"
+    ],
+    "summary": "In multimodal learning, modality imbalance often lets one modality dominate optimization and keeps the model from fully exploiting cross-modal interactions. Balance-oriented methods such as the Multimodal Competition Regularizer (MCR) perform well by alleviating this imbalance during training. These dynamic balancing methods, however, mainly adjust modality contributions and do not consider how imbalance affects the formation of synergistic information during fusion. Synergy is a major source of multimodal advantage, because it is predictive gain that cannot be recovered from unimodal evidence alone. We propose the Multimodal Synergistic Competition Regularizer (MSCR), a fusion method that jointly promotes balanced modality utilization and the discovery of synergistic information. MSCR has two complementary objectives. An anti-dominance objective suppresses excessive unimodal influence and leaves room for synergistic information, and a synergy objective encourages the fused predictor to outperform a non-synergistic unimodal reference. An adaptive gate further concentrates the regularization on samples that need stronger collaborative modeling. Experiments on five benchmarks show that MSCR consistently improves performance over MCR and strengthens synergistic capability. It raises conditional recovery, the accuracy of the fused prediction on samples that the unimodal predictors misclassify, as well as the share of the model's output that InterSHAP attributes to cross-modal interactions. Its gain in conditional recovery persists when the fusion module is Transformer-based. Code is available at https://github.com/chenxinyu991-collab/MSCR.",
+    "categories": [
+      "cs.AI",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24395",
+    "pdf_url": "https://arxiv.org/pdf/2610.24395.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文提出了一种通用的多模态融合正则化方法（MSCR），虽可应用于多模态推荐场景，但属于通用机器学习研究，未针对推荐/搜索系统的特定问题（如召回、排序、用户建模）进行设计或验证。",
+    "translation": "MSCR：联合平衡多模态利用率与发现协同信息",
+    "summary_zh": "提出多模态协同竞争正则化器（MSCR），通过抗主导和协同性两个互补目标，在抑制单一模态过度影响的同时，显式鼓励模型挖掘跨模态的协同预测增益。",
+    "key_points": [
+      "提出多模态协同竞争正则化器（MSCR），通过抗主导和协同性两个互补目标，在抑制单一模态过度影响的同时，显式鼓励模型挖掘跨模态的协同预测增益"
+    ]
+  },
+  {
+    "arxiv_id": "2610.20857",
+    "title": "Idea2Prior: Auditable Paper Retrieval and Ranking from Research Ideas",
+    "authors": [
+      "Shitian Yang",
+      "Ruijie Tao",
+      "Jian Huang"
+    ],
+    "summary": "Finding a paper from an informal research idea requires more than matching topic words: relevant work may use different terminology, and its distinguishing mechanism may be absent from the abstract. We present IDEA2PRIOR, an auditable literature-search system built on PaperArena. It combines multi-source discovery, identity verification, facet-based abstract assessment, semantic citation expansion, and joint Expert ranking. A retrieval-only mode ranks up to five papers from a shortlist of at most 60, using complete available abstracts and locally selected PDF evidence from five fixed acquisition attempts, without generating a long-form report. In a historical comparison covering ten queries from each of EASY, MEDIUM, and HARD, aggregate reported Hit@5 is 53.3% for IDEA2PRIOR, 43.3% for ChatGPT web Deep Research, and 36.7% for Gemini web Deep Research under the documented accounting convention. The advantage is concentrated in EASY and MEDIUM; ChatGPT leads on HARD. Selected IDEA2PRIOR runs average 8 minutes 53 seconds, compared with user-reported web averages of 5.2 and 4.7 minutes. A separate nine-query API sample averages $0.0945 per task; this is a historical cost observation, not a matched comparison with web subscription costs. Pairwise Top 5 coverage ranges from 6% to 34%, showing differing returned evidence sets. The system also exposes optional implementation analysis and citation-evolution tools. These results support targeted idea-to-paper retrieval while leaving general web research, forum search, and broader relevance evaluation open.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.20857",
+    "pdf_url": "https://arxiv.org/pdf/2610.20857.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文专注于学术文献检索与排名，属于通用信息检索/科研辅助工具，而非电商、社交或广告等核心推荐系统业务场景；虽涉及检索排序，但缺乏 RecSys 特有的用户行为建模与个性化推荐要素，且非中国公司研发（PaperArena 为国际项目），故不适用额外加分。",
+    "translation": "Idea2Prior：基于研究想法的可审计论文检索与排序系统",
+    "summary_zh": "提出一种结合多源发现、语义引用扩展及专家联合排序的审计式文献检索系统，旨在解决从非正式研究想法到相关论文发现的术语不匹配问题。",
+    "key_points": [
+      "提出一种结合多源发现、语义引用扩展及专家联合排序的审计式文献检索系统，旨在解决从非正式研究想法到相关论文发现的术语不匹配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24287",
+    "title": "SteerSearch: Interactive Search Reasoning with Mid-Response Steering",
+    "authors": [
+      "Udit Thakur",
+      "Baohao Liao",
+      "Matteo Nulli",
+      "Stefan Vasilev",
+      "Seyyed Hadi Hashemi",
+      "Shahram Khadivi",
+      "Christof Monz"
+    ],
+    "summary": "Search-augmented language models increasingly serve as long-horizon research agents, yet most open training methods assume a fixed user goal throughout search. We study mid-response steering, where users redirect a model during ongoing reasoning or retrieval. We identify answer-target anchoring, a failure mode in which fixed-query search agents retrieve evidence for the updated request but still answer an earlier question. We introduce SteerSearch, an RL framework that trains on interactive search trajectories with injected interventions to enable context-preserving target reassignment, and SteerSearch-Bench, a benchmark adapted from multi-hop QA datasets. We also investigate Contrastive Context Reward (CCR), an auxiliary signal for aligning post-intervention reasoning with the updated goal. Without CCR, SteerSearch improves average steering accuracy over Search-R1 from 11.1% to 31.3% on Qwen2.5-3B and from 36.6% to 44.6% on Qwen3-4B, while preserving standard single-query performance. Gains also extend to larger Qwen2.5 models and natural multi-turn conversations.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24287",
+    "pdf_url": "https://arxiv.org/pdf/2610.24287.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 研究，专注于提升搜索增强型语言模型在交互过程中的推理修正能力，缺乏针对推荐系统或搜索引擎核心业务场景（如召回、排序、用户建模）的直接应用。",
+    "translation": "SteerSearch：基于响应中途引导的交互式搜索推理",
+    "summary_zh": "提出一种强化学习框架，通过注入干预训练使搜索增强型语言模型能够在用户中途修正意图时，有效避免锚定偏差并重新对齐检索与推理目标。",
+    "key_points": [
+      "提出一种强化学习框架，通过注入干预训练使搜索增强型语言模型能够在用户中途修正意图时，有效避免锚定偏差并重新对齐检索与推理目标"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24081",
+    "title": "Location, Location, Generation: Where You Ask Matters for Generative Engine Optimization",
+    "authors": [
+      "Mahe Chen",
+      "Nick Koudas"
+    ],
+    "summary": "Generative search engines answer local and commercial questions with a written answer and a few cited sources. A growing practice of generative engine optimization (GEO) monitors which sources and brands these answers show, typically from a single place. In this paper, we present a controlled audit of how the user's location changes the sources that generative engines cite. We ask 300 questions of ChatGPT with 19 declared locations, and of ChatGPT and Gemini from five network locations, each twice to measure run-to-run noise (31,200 answers). The engines take location from different channels. ChatGPT follows the location an application declares, down to the city: it writes the place into its own searches, and its search backend localizes results even when the queries name no place. It ignores the network. Gemini ignores the declared location and follows the country of the network, changing most of its sources even for questions that do not depend on place. The businesses the answers recommend change with the sources. Thus, visibility in generative search is specific to the user's location, and audits must control both channels.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG",
+      "cs.SI"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24081",
+    "pdf_url": "https://arxiv.org/pdf/2610.24081.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该论文主要研究生成式引擎（如 ChatGPT）中地理位置对引用来源的影响，属于纯 LLM 行为审计与 GEO 研究，未提出针对推荐/搜索系统的核心算法或架构创新。",
+    "translation": "位置、位置、生成：询问地点对生成式引擎优化的重要性",
+    "summary_zh": "本文通过受控审计揭示了不同生成式引擎在处理用户声明位置与网络位置时的差异化机制，指出地理位置通道显著影响生成答案的引用来源及商业推荐可见性。",
+    "key_points": [
+      "本文通过受控审计揭示了不同生成式引擎在处理用户声明位置与网络位置时的差异化机制，指出地理位置通道显著影响生成答案的引用来源及商业推荐可见性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24030",
+    "title": "When Does Evidence-Graph Structure Predict Answer Correctness? Label-Free Abstention for Structured Retrieval",
+    "authors": [
+      "Anjan Goswami"
+    ],
+    "summary": "Retrieval systems return scored answers, but a high score does not show that an answer should be trusted. The proposed training-free abstention method applies the boundary cut to the selected evidence in an evidence graph. The signal is the weighted cut between selected and unselected candidates and requires no correctness labels or confidence-model training. On MemoryAgentBench (MAB) FactConsolidation multi-hop, with unresolved queries ranked last for every selector, it raises area under the precision-coverage curve from 0.736 for the best score baseline to 0.785 (+0.049, 95% CI [+0.008, +0.092]); under the native evaluation, where score baselines keep their unresolved values, the gap is +0.108. A zero-cut subset contains 71 of 400 queries at 100% observed precision. In this pipeline, the subset corresponds to structural closure; controlled analyses attribute much of the remaining separation to resolution status, with little benefit from continuous edge weights. Across external benchmarks, usefulness varies with graph construction, edge semantics, and relation; typed structure alone does not ensure useful confidence. A supervised gradient-boosted selector achieves 0.814 versus the boundary cut's 0.785 when the retrieval stack matches. These findings provide empirical guidance for using available evidence graphs for lightweight, auditable post-retrieval abstention without additional model inference.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24030",
+    "pdf_url": "https://arxiv.org/pdf/2610.24030.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于结构化检索中的答案可信度评估与弃权机制，属于通用信息检索/问答领域，未直接针对推荐系统或搜索广告的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "证据图结构何时预测答案正确性？面向结构化检索的无标签弃权方法",
+    "summary_zh": "提出一种无需训练的弃权方法，通过分析证据图中选中与未选中候选项之间的加权割边信号，来判断检索答案的可信度并自动 abstain 低质量结果。",
+    "key_points": [
+      "提出一种无需训练的弃权方法，通过分析证据图中选中与未选中候选项之间的加权割边信号，来判断检索答案的可信度并自动 abstain 低质量结果"
+    ]
+  },
+  {
+    "arxiv_id": "2603.23533",
+    "title": "Upgrade the Retriever First: What an LLM Call per Chunk Buys in RAG",
+    "authors": [
+      "Bhavik Mangla"
+    ],
+    "summary": "Many RAG pipelines pay one LLM call per chunk at indexing time to add titles, summaries, keywords and questions (enrichment) or document context (contextual retrieval, CR). We ask what that call buys over free structure and a better retriever. Our advice: upgrade the retriever first, chunk at headers, and enrich mainly for lexical retrieval. Under a plan made public before any index was built, 7B enrichment beats a free section-path prefix under a hybrid retriever by +5.5 recall points on Qasper; on FreshStack its gain (+2.7) does not survive Holm adjustment. It is equivalent to CR, which sends 5.8-8.7 times the input tokens, and Qasper answer F1 (7B reader) is equivalent for both contrasts. Header-led chunks beat 512-character windows; on FreshStack they lose to overlapping 256-token windows. Under qwen3-embedding and a reranker, the two strongest of eight retrievers (named as secondary before any outcome was computed), the CIs of 7B enrichment against the free prefix fall within the equivalence margins; under BM25 it gains +8.7. Exploratory analyses attribute the hybrid gain to document expansion and to repairing an untuned rank fusion; the free prefix under either strong retriever beats hybrid enrichment by +3.4 to +6.3 points, though the best 120B-indexed configuration leads the best free one by +2.5 on Qasper. Add-ons built on the call do no better than LLM-free controls, and late chunking lowers Qasper recall. We release the plan, harness and per-question results.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2603.23533",
+    "pdf_url": "https://arxiv.org/pdf/2603.23533.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG（检索增强生成）研究，专注于通用问答任务的索引策略优化，未涉及推荐系统或搜索引擎的核心业务场景（如个性化、广告、电商召回排序等）。",
+    "translation": "优先升级检索器：RAG 中每个分块调用一次 LLM 的实际收益",
+    "summary_zh": "本文探讨了在 RAG 索引阶段对文本分块进行 LLM 富集处理的实际收益，发现相比于直接优化检索器架构和分块策略，昂贵的 LLM 调用带来的提升有限且往往不具备统计显著性。",
+    "key_points": [
+      "本文探讨了在 RAG 索引阶段对文本分块进行 LLM 富集处理的实际收益，发现相比于直接优化检索器架构和分块策略，昂贵的 LLM 调用带来的提升有限且往往不具备统计显著性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24240",
+    "title": "Extending Myerson's Optimal Auctions to Correlated Bidders via Neural Network Interpolation",
+    "authors": [
+      "Mingyu Guo",
+      "Jiayuan Liu",
+      "Vincent Conitzer"
+    ],
+    "summary": "We aim to design revenue-maximizing single-item auctions that are deterministic, strategy-proof, and ex post individually rational --- the quintessential fundamental model for optimal mechanism design. While Myerson's seminal work solved this model for independent bidders, straightforward extensions to correlated settings often result in non-monotonic, and therefore non-strategy-proof allocations. Critically, optimal allocation design for correlated bidders is NP-hard to approximate, rendering theoretical optimality guarantees in this domain computationally intractable.\n  We establish a new standard of empirical rigor for this theoretically hard model by proposing an empirical pipeline. We synthesize neural interpolation of Myerson's greedy allocation based on marginal profits (the correlated variant of virtual valuation), formal neural verification to enforce exact strategy-proofness, and a constructive repair procedure.\n  Empirically, our method is highly effective, consistently achieves near-optimal revenue across a wide range of distributions, including synthetic, adversarial, and real-world (consumer, financial, and industrial) datasets. Compared to existing manual and neural baselines, our approach shows substantial improvement, often reducing the revenue gap by an order of magnitude. Our study is also the first to introduce (unattainable) greedy revenue as a rigorous upper bound for empirical benchmarking, providing a definitive quantitative performance measure where true optima remain theoretically elusive.\n  We demonstrate the generality of our approach by extending it to multi-unit auctions with unit demand and integrating our verification techniques into RegretNet to achieve exact strategy-proofness.",
+    "categories": [
+      "cs.GT",
+      "cs.LG",
+      "econ.TH"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24240",
+    "pdf_url": "https://arxiv.org/pdf/2610.24240.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该文属于纯机制设计（拍卖理论）研究，虽涉及广告底层逻辑但未直接解决推荐/搜索系统的检索、排序或用户建模等核心问题，且非 LLM 应用，故给低分。",
+    "translation": "通过神经网络插值将 Myerson 最优拍卖扩展至相关 bidder 场景",
+    "summary_zh": "提出一种结合神经网络插值与形式化验证的实证流程，旨在解决相关 bidder 设定下满足策略真实性的单物品最优拍卖机制设计难题。",
+    "key_points": [
+      "提出一种结合神经网络插值与形式化验证的实证流程，旨在解决相关 bidder 设定下满足策略真实性的单物品最优拍卖机制设计难题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24013",
+    "title": "SPADE-KD: Peer-to-Peer Collaborative Learning under Heterogeneous Settings",
+    "authors": [
+      "Harikrishna Kuttivelil",
+      "Katia Obraczka"
+    ],
+    "summary": "Peer-to-peer collaborative learning is an emerging distributed deep learning paradigm that eliminates the need for a central aggregator and disseminator, avoiding the single-point-of-failure and bottleneck issues they can bring. Many such approaches use parameter averaging, requiring clients to have homogeneous model architectures, whereas others use knowledge distillation as an alternative while leaning on shared public data or centralized control infrastructure. Many of these approaches also make a one-size-fits-all assumption, i.e., jointly training a single, globally optimal solution for all clients, when in reality, clients' underlying data distributions might differ such that a globally optimal solution may not be locally optimal for all clients. To enable collaborative learning in environments with both model architecture and data distribution heterogeneity, we present SPADE-KD -- a fully decentralized model distillation framework that optimizes collaboration towards personalized rather than global performance. SPADE-KD leverages two mechanisms -- adaptive distillation and utility-driven peer selection. Adaptive distillation modulates the strength of each incoming model transfer by the performance advantage of the incoming model compared to the native model measured by their task losses, such that a client will distill more aggressively from incoming models that outperform it on its own local data. Utility-driven peer selection uses the loss-informed utility derived from adaptive distillation to rank prospective partners, focusing on exchanges that measurably improve the local model while suppressing low-utility transfers. Using federated classification tasks, we demonstrate that SPADE-KD consistent outperforms naive decentralized distillation with lower loss and faster convergence and that its individual components are more effective together than independently.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-15",
+    "updated": "2026-10-20",
+    "url": "https://arxiv.org/abs/2610.24013",
+    "pdf_url": "https://arxiv.org/pdf/2610.24013.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯分布式机器学习/联邦学习的研究论文，专注于解决异构设置下的模型蒸馏问题，未提及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "SPADE-KD：异构设置下的点对点协同学习",
+    "summary_zh": "提出了一种完全去中心化的模型蒸馏框架，通过自适应蒸馏和效用驱动的伙伴选择机制，在模型架构和数据分布异构的环境中实现个性化的协同学习优化。",
+    "key_points": [
+      "提出了一种完全去中心化的模型蒸馏框架，通过自适应蒸馏和效用驱动的伙伴选择机制，在模型架构和数据分布异构的环境中实现个性化的协同学习优化"
+    ]
+  }
+]

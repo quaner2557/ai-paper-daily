@@ -1,0 +1,337 @@
+[
+  {
+    "arxiv_id": "2610.27232",
+    "title": "Neighborhood-Aware Unlearning for Generative Recommendation",
+    "authors": [
+      "Pierre Lubitzsch",
+      "Yubao Tang",
+      "Maarten de Rijke",
+      "Sebastian Schelter"
+    ],
+    "summary": "Generative recommendation predicts items by autoregressively generating semantic identifiers (SIDs), whose tokens are shared across semantically related items. With this paradigm gaining adoption, the question of how to support unlearning in it has become pressing. If training interactions must later be removed, such as injected spam or interactions with items a user no longer wants, this sharing lets an unlearning update unintentionally affect the predictions for the interactions' neighbors. We show that this effect is locally structured and hidden by global metrics: unlearning can leave recommendation utility on the whole test set nearly unchanged while substantially degrading it on neighborhoods of the forgotten interactions' SIDs. We propose Neighborhood-Aware Unlearning (NAU), which augments interaction-level unlearning with explicit control over the probability mass assigned to the forgotten items' neighborhoods. Across three datasets and four SID tokenizers, NAU restores spam-induced exposure toward the retrained reference while retaining more than 95% of retrained utility, and recovers the neighborhood utility that forget-and-repair unlearning loses at no global cost. We identify local probability redistribution as an important failure mode of unlearning in SID-based generative recommenders and show that explicitly controlling this redistribution can mitigate its effects.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.27232",
+    "pdf_url": "https://arxiv.org/pdf/2610.27232.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的关键痛点（遗忘学习）提出创新架构，解决了语义标识符共享导致的邻居效应问题，属于核心推荐领域的高价值研究；且来自中国公司，按规则额外加分。",
+    "translation": "面向生成式推荐的邻域感知遗忘学习方法",
+    "summary_zh": "本文提出邻域感知遗忘（NAU）方法，通过在交互级遗忘中显式控制被遗忘项邻域的概率质量分布，解决了生成式推荐中因语义标识符共享导致的局部效用退化问题。",
+    "key_points": [
+      "本文提出邻域感知遗忘（NAU）方法，通过在交互级遗忘中显式控制被遗忘项邻域的概率质量分布，解决了生成式推荐中因语义标识符共享导致的局部效用退化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.27423",
+    "title": "Baseline and Incremental: User, Item, and Request Debiasing in Instagram Feed Ranking",
+    "authors": [
+      "Hsin-Chiang Chen",
+      "Hao Wang",
+      "Gedi Zhou",
+      "Mingze Gao",
+      "Abhishek Kumar",
+      "Yiben Yang",
+      "Haoyu Wang",
+      "Hongjing Xia",
+      "Bo Chen",
+      "Zhengyu Su",
+      "Xian Sun",
+      "Chang Xu",
+      "Kevin Han",
+      "Weiwei Li",
+      "Zhongchang Sun",
+      "Yao Zhang",
+      "Qifei Wang",
+      "Peggy Yang",
+      "Yihan Wu",
+      "Haoran Liu",
+      "Siyang Sun",
+      "Xingyu Pan",
+      "Shannon Phu",
+      "Haoming Chen",
+      "Kevin Zhao",
+      "Chen Liang"
+    ],
+    "summary": "A feed ranker scores candidates with a value model, a weighted sum of engagement predictions. Each prediction conflates a baseline, what this viewer, item or request would produce anyway, with the incremental amount by which this candidate exceeds it. The literature mostly removes the baseline. We argue that a multi-signal value model should keep the raw prediction and add the incremental part as a separately weighted term. On Instagram Feed, three debiasing families deployed independently, for viewer habit, item popularity and request context, are one parameterised operator, and a design procedure picks a point in it. Media-type (format) bias goes instead to a debiased label chosen by the same procedure. In a controlled four-arm ablation of deployed Feed terms (neither term, each alone, both), the two-term arm beats both single-term arms at production weights on point estimates in 11 of 13 judged (term, metric) pairs. Of the 26 direct contrasts, 17 are significantly for it and only 1 against it, on impressions. The ablation also suggests that the offline diagnostic should screen signals, not rank them. Such terms have served Instagram Feed production for most of a year. Beyond Feed, Meta, whose apps serve billions of people, has adopted the operator across surfaces, apps and both ranking stages. Its launches there drive sessions and daily active users, the core visitation and retention metrics.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.27423",
+    "pdf_url": "https://arxiv.org/pdf/2610.27423.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Instagram 信息流排序中的去偏问题，提出了基线与增量分离的核心架构创新，属于高优先级的核心推荐系统业务场景。虽非中国公司（TAL）出品（实为 Meta），但因其极高的业务相关性和架构创新性，仍给予满分。",
+    "translation": "基线与增量：Instagram 信息流排序中的用户、物品及请求去偏",
+    "summary_zh": "提出将预测值分解为基线值和增量值的双项加权架构，通过参数化算子统一处理用户习惯、物品流行度及请求上下文等多维去偏信号，以优化信息流排序价值模型。",
+    "key_points": [
+      "提出将预测值分解为基线值和增量值的双项加权架构，通过参数化算子统一处理用户习惯、物品流行度及请求上下文等多维去偏信号，以优化信息流排序价值模型"
+    ]
+  },
+  {
+    "arxiv_id": "2610.26902",
+    "title": "MOSS: A Production Framework for Monitoring and Diagnosing Semantic Failures in Search and Recommendation Systems",
+    "authors": [
+      "Alina Nesen",
+      "Prathyusha Kanmanth Reddy",
+      "David Relyea",
+      "Rohit Avinash Mujumdar",
+      "Samaneh Karimi",
+      "Bo Shen",
+      "Jordan Hashemi"
+    ],
+    "summary": "Detecting semantic failures in production recommendation and search systems is hard: behavioral metrics lag by days, manual review does not scale, and most LLM evaluation frameworks are designed for offline, fixed datasets rather than continuous operational monitoring. We present Model Sanity Service (MOSS), a production framework that addresses this operational gap by embedding LLM-based relevance scoring into a recurring monitoring loop with targeted sampling, strategy-aware prompting, structured alerting, and diagnostic follow-up prompting that categorizes failures into actionable root causes.\n  MOSS has been running in production at a large U.S. retailer for over six months across recommendation, search, and offer surfaces, and has surfaced two confirmed serving defects. For one of these, a backfill blending defect, MOSS quantified the impact of the proposed fix offline as a 76.4\\% relative reduction in alert rate. On a 498-pair human-annotated recommendation benchmark, frontier LLM judges achieve higher F1 and AUC point estimates than non-LLM baselines (internal production embeddings and SBERT), with the largest gains on strategy-dependent tasks requiring intent-level relational reasoning. The same judge, score scale, and threshold transfer to a 466-pair search benchmark spanning 21 queries with only a surface-specific prompt adaptation, achieving strong F1 and AUC without retuning. These results show that a single LLM monitoring framework can provide useful, actionable quality signals across multiple product discovery surfaces in a large-scale e-commerce setting.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.26902",
+    "pdf_url": "https://arxiv.org/pdf/2610.26902.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商搜索与推荐系统的生产级监控与诊断问题，提出了基于 LLM 的语义故障检测框架，属于核心业务场景的直接应用而非纯 LLM 研究。",
+    "translation": "MOSS：用于监控和诊断搜索与推荐系统语义故障的生产级框架",
+    "summary_zh": "提出 MOSS 框架，通过将基于 LLM 的相关性评分嵌入循环监控流程，利用针对性采样和策略感知提示，实现对搜索与推荐系统语义故障的自动化检测、告警及根因诊断。",
+    "key_points": [
+      "提出 MOSS 框架，通过将基于 LLM 的相关性评分嵌入循环监控流程，利用针对性采样和策略感知提示，实现对搜索与推荐系统语义故障的自动化检测、告警及根因诊断"
+    ]
+  },
+  {
+    "arxiv_id": "2610.26948",
+    "title": "LightCRS: Lightweight Multi-Domain Conversational Recommendation System",
+    "authors": [
+      "He Ma",
+      "Lan You",
+      "Qiyang Wu",
+      "Chen Liu"
+    ],
+    "summary": "Conversational recommender systems have recently adopted vision-language models to match user dialogue intents with multimodal product information. However, extending these methods to many product domains faces a dilemma: deploying a separately adapted VLM per domain scales cost linearly with the number of domains and requires routing each dialogue to the right model, while naively merging all domains into a single VLM degrades accuracy because product characteristics vary widely across categories. We propose LightCRS, a lightweight, query-conditioned framework for unified multi-domain multimodal conversational recommendation. LightCRS precomputes multimodal product representations once offline with frozen encoders. Online, a compact 5.3M-parameter module fuses this evidence for each dialogue via query-conditioned cross-attention, whose parameters are shared across all domains, and compares candidates jointly with an inter-candidate Transformer. To enable rigorous evaluation, we construct MM-R2A-25, a 25-domain benchmark pairing natural Reddit recommendation-seeking conversations with Amazon product listings. LightCRS achieves state-of-the-art average HR@1, NDCG@5, and MRR, improving HR@1 by 35.4\\% over the strongest baseline while reducing per-query latency by 266 times. Joint multi-domain training itself improves HR@1 by 15.2\\% over separately trained single-domain models.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-18",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.26948",
+    "pdf_url": "https://arxiv.org/pdf/2610.26948.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对多领域对话推荐系统（RecSys 核心场景），提出了轻量级多模态架构以解决跨域扩展难题，属于高优先级的推荐系统应用研究。",
+    "translation": "LightCRS：轻量级多领域对话推荐系统",
+    "summary_zh": "提出一种轻量级查询条件框架，通过离线预计算多模态商品表征与在线共享参数模块，实现统一的多领域多模态对话推荐。",
+    "key_points": [
+      "提出一种轻量级查询条件框架，通过离线预计算多模态商品表征与在线共享参数模块，实现统一的多领域多模态对话推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2610.27273",
+    "title": "FLINT: Fixed-budget Late Interaction",
+    "authors": [
+      "Himank Handa",
+      "Negar Arabzadeh",
+      "Matei Zaharia"
+    ],
+    "summary": "Multi-vector retrieval models such as ColBERT often outperform single-vector models of comparable scale by matching queries and documents at the token level. However, retaining a vector for every token substantially increases storage requirements and slows retrieval compared to single-vector bi-encoders, limiting their scalability. We introduce FLINT (Fixed-budget Late INTeraction), an architecture that uses attention-based pooling to represent each query and document with a fixed number of embedding vectors. Unlike architectures that pool only document representations while retaining token-level queries, FLINT applies pooling symmetrically to both sides, limiting document storage and the number of vector comparisons needed during retrieval. FLINT achieves comparable ranking effectiveness to the closest baselines on BEIR and outperforms them on several benchmarks with longer and more complex queries, including BrowseComp+, CRUMB, and TREC Tip-of-the-Tongue 2025. We demonstrate that FLINT's effectiveness-efficiency benefits extend across encoder architectures, testing it on two separate backbones (BERT and ModernBERT). On long-query corpora, FLINT delivers 1.5-2.8 times faster end-to-end retrieval than ConstBERT, the closest baseline. FLINT also reduces index size by 5.3-9.3 times relative to token-level late-interaction models such as ColBERTv2.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.27273",
+    "pdf_url": "https://arxiv.org/pdf/2610.27273.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种针对多向量检索模型（如 ColBERT）的架构优化，直接解决搜索系统中的存储和延迟瓶颈，属于核心搜索技术；虽非纯 LLM 研究且无明确电商/社交业务场景，但作为搜索底层引擎的关键改进，符合中高优先级标准，叠加中国公司背景加分后得 8 分。",
+    "translation": "FLINT：固定预算的晚期交互检索架构",
+    "summary_zh": "提出一种对称注意力池化架构，将查询和文档均表示为固定数量的嵌入向量，在保持令牌级匹配精度的同时显著降低搜索系统的存储开销并提升检索速度。",
+    "key_points": [
+      "提出一种对称注意力池化架构，将查询和文档均表示为固定数量的嵌入向量，在保持令牌级匹配精度的同时显著降低搜索系统的存储开销并提升检索速度"
+    ]
+  },
+  {
+    "arxiv_id": "2610.27195",
+    "title": "UIBK-Embedding: Effective Text Retrieval by Unifying Dense and Late-Interaction Retrieval",
+    "authors": [
+      "Abdelrahman Abdallah",
+      "Mohammed Ali",
+      "Adam Jatowt"
+    ],
+    "summary": "Dense bi-encoders and late-interaction retrievers are usually treated as alternatives, yet they fail on different queries: one vector captures what a text is about, token-level matching finds its exact entities and phrases. Using both today means two models, two indexes and a score-fusion step. We present UIBK-Embedding-v1, a 179M-parameter English encoder that produces both representations in one pass and scores them with one unmodified MaxSim. The dense embedding is written into the list of token vectors as three extra vectors, and a one-dimensional tag keeps the two kinds of vectors from matching each other, so that plain MaxSim equals the token-level MaxSim plus a weighted dense cosine. The model therefore runs in a standard late-interaction index without changes; we test it with PLAID. A shared 18-layer trunk with a separate 4-layer top per head, and a cross-encoder distilled into the fused score, turn the two heads into one retriever. On BEIR, UIBK-Embedding-v1 reaches 59.79 nDCG@10. This is 2.57 points above LateOn, the strongest model of its size, and 2.10 points above it when both models read documents of the same length; UIBK-Embedding-v1 is ahead on all 15 datasets. On a decontaminated version of BEIR it stays ahead on average (61.55 against 60.36) and on 8 of 12 datasets. Among the 156 models with complete BEIR results in the MTEB results repository, only models with at least 1.5B parameters score higher. Code, model weights, and a technical blog post are available at https://github.com/DataScienceUIBK/uibk-embedding , https://huggingface.co/DataScience-UIBK/uibk-embedding-v1 , and https://huggingface.co/blog/abdoelsayed/uibk-embedding-v1 .",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.27195",
+    "pdf_url": "https://arxiv.org/pdf/2610.27195.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Hugging Face"
+    ],
+    "affiliation_lines": [
+      "UniversityofInnsbruck",
+      "available on GitHub, Hugging Face, and our"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种通用的文本检索嵌入方法，虽可应用于搜索系统的召回环节，但属于通用 NLP/IR 基础研究，缺乏针对推荐系统或特定搜索业务场景的直接创新与应用。",
+    "translation": "UIBK-Embedding：通过统一稠密与晚期交互检索实现高效文本检索",
+    "summary_zh": "该研究提出一种单模型架构，通过在 token 向量列表中嵌入额外的稠密向量并利用标记位隔离，实现在单次前向传播中同时生成稠密和晚期交互表示，从而无需修改现有索引即可兼容标准 MaxSim 评分机制。",
+    "key_points": [
+      "该研究提出一种单模型架构，通过在 token 向量列表中嵌入额外的稠密向量并利用标记位隔离，实现在单次前向传播中同时生成稠密和晚期交互表示，从而无需修改现有索引即可兼容标准 MaxSim 评分机制"
+    ]
+  },
+  {
+    "arxiv_id": "2610.16372",
+    "title": "PersonaFactor: Preference Factors with Dynamic Selection for LLM Personalization",
+    "authors": [
+      "Hang Su",
+      "Zequn Liu",
+      "Jianghan Chao",
+      "Qiuyu Tian",
+      "Xuesong Lu",
+      "Yingce Xia"
+    ],
+    "summary": "Although users may express different personalization needs across tasks, these task-specific behaviors can reflect shared underlying preference mechanisms. Existing LLM personalization methods often focus on surface-level interactions or undifferentiated histories, overlooking the shared mechanisms underlying these behaviors. We introduce PersonaFactors, a framework that distills reusable and interpretable personalization factors from heterogeneous user interactions. We construct a library of thirteen PersonaFactors by extracting evidence-grounded rationales and clustering recurring patterns across tasks, and develop a dynamic factor-guided generation framework that selects factors relevant to each user's history and current request. Across four personalization benchmarks and four backbone models, Dynamic PersonaFactor achieves the best score on every reported metric. Representation analyses further show that PersonaFactors and user history induce partially overlapping low-dimensional representations, and that their joint use yields complementary shifts. Taken together, these findings suggest that factor-based and history-based personalization can mutually reinforce each other.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.16372",
+    "pdf_url": "https://arxiv.org/pdf/2610.16372.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 个性化研究，聚焦通用任务中的用户偏好建模，未明确针对推荐系统或搜索引擎的核心环节（如召回、排序），仅因来自中国公司加 1 分。",
+    "translation": "PersonaFactor：用于大模型个性化的动态选择偏好因子",
+    "summary_zh": "提出一种从异构用户交互中提取可复用解释性偏好因子的框架，并通过动态选择机制将因子与用户历史结合以增强大模型个性化生成能力。",
+    "key_points": [
+      "提出一种从异构用户交互中提取可复用解释性偏好因子的框架，并通过动态选择机制将因子与用户历史结合以增强大模型个性化生成能力"
+    ]
+  },
+  {
+    "arxiv_id": "2412.10128",
+    "title": "Feature Selection for Latent Factor Models",
+    "authors": [
+      "Rittwika Kansabanik",
+      "Adrian Barbu"
+    ],
+    "summary": "Feature selection is crucial for pinpointing relevant features in high-dimensional datasets, mitigating the 'curse of dimensionality,' and enhancing machine learning performance. Traditional feature selection methods for classification use data from all classes to select features for each class. This paper explores feature selection methods that select features for each class separately, using class models based on low-rank generative methods and introducing a signal-to-noise ratio (SNR) feature selection criterion. This novel approach offers a theoretically sound guarantee of feature recovery under specific assumptions and has been demonstrated to outperform some existing feature selection methods on standard classification datasets. Additionally, it can be easily applied in a class-incremental learning setup, yielding performance comparable to that of some current methods.",
+    "categories": [
+      "cs.LG",
+      "stat.AP"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2412.10128",
+    "pdf_url": "https://arxiv.org/pdf/2412.10128.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究通用分类任务中的特征选择方法，虽提及潜在因子模型但未明确针对推荐/搜索场景，属于弱相关的通用机器学习研究；因来自 TAL 公司额外加 1 分。",
+    "translation": "潜在因子模型的特征选择方法",
+    "summary_zh": "提出一种基于低秩生成类模型和信噪比准则的每类独立特征选择方法，旨在解决高维数据下的特征恢复问题并支持类增量学习。",
+    "key_points": [
+      "提出一种基于低秩生成类模型和信噪比准则的每类独立特征选择方法，旨在解决高维数据下的特征恢复问题并支持类增量学习"
+    ]
+  },
+  {
+    "arxiv_id": "2610.27538",
+    "title": "Less is More: Concise Retrieval and Critic-based Re-ranking for Composed Image Retrieval",
+    "authors": [
+      "Yuqian Zheng",
+      "Hyoju Ahn",
+      "Hyeongjin Ahn",
+      "Eunil Park"
+    ],
+    "summary": "Zero-shot composed image retrieval (ZS-CIR) aims to retrieve a target image based on a reference image and modification text. Recent approaches commonly rely on large vision-language models to generate target image captions for retrieval. However, these captions may include redundant semantic details, introducing noise when retrieving the target image and leading to suboptimal retrieval results. To address this issue, we propose Less-is-More CIR, a two-stage training-free framework that combines Concise Retrieval and Critic Re-ranking. In the first stage, concise target-oriented captions are generated that preserve only the most discriminative modification semantics, thereby reducing semantic noise in the retrieval. In the second stage, a critic re-rank module further evaluates the retrieved candidates from the perspectives of modification consistency and reference preservation. Extensive experiments demonstrate the effectiveness and robustness of the proposed framework for the ZS-CIR. Our code is available at: https://github.com/dxlabskku/LM-CIR.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.27538",
+    "pdf_url": "https://arxiv.org/pdf/2610.27538.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文属于纯计算机视觉（多模态检索）研究，专注于零样本组合图像检索算法本身，未明确涉及推荐系统或搜索引擎的业务场景与应用。",
+    "translation": "少即是多：基于简洁检索与批评重排序的组合图像检索方法",
+    "summary_zh": "提出一种无需训练的两阶段框架，通过生成仅保留关键修改语义的简洁描述来减少噪声，并结合批评机制从修改一致性和参考保持性角度对检索结果进行重排序。",
+    "key_points": [
+      "提出一种无需训练的两阶段框架，通过生成仅保留关键修改语义的简洁描述来减少噪声，并结合批评机制从修改一致性和参考保持性角度对检索结果进行重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2610.26938",
+    "title": "GRaSP: Latency-Aware Optimization for Geo-Distributed Retrieval-Augmented Generation",
+    "authors": [
+      "Hardik Ruparel",
+      "Raj Kumar Pandey",
+      "Pramod Kumar"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is increasingly served across geo-distributed cloud and edge infrastructures, where wide-area latency, cross-region egress cost, and data-residency rules compete with retrieval quality. Conventional pipelines rank by semantic similarity alone and ignore where content lives, inflating tail latency and cost. We formalize the Geo-RAG Selection Problem (GRaSP), a drop-in re-scoring layer that decays relevance by latency and adds an optional cost penalty under a cardinality budget and per-region caps, with no retraining. We first settle its complexity: the base formulation is a linear objective over a partition matroid, solved optimally by an O(N log N) greedy algorithm, rather than NP-hard as a knapsack framing suggests, with hardness entering only under an additive egress budget. On a five-node CloudLab testbed emulating a four-region WAN over the Natural Questions corpus (2.68M passages), GRaSP's benefit is placement-dependent: under uniform placement it cuts fetch latency at negligible quality cost; under topical (residency-like) placement it traces a recall-latency Pareto frontier that dominates relevance-only, nearest-k, and a latency-budgeted baseline. At a moderate latency setting, GRaSP lowers P90 fetch latency by 41% while retaining 78% of relevance-only's recall, with sub-millisecond selection overhead, stable to 200 queries/s. Findings generalize across four public BEIR benchmarks. In end-to-end question answering, GRaSP reduces context-fetch latency by 43% while remaining within 0.062 absolute EM of relevance-only retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.26938",
+    "pdf_url": "https://arxiv.org/pdf/2610.26938.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "本文属于纯 LLM/RAG 基础设施优化研究，聚焦于地理分布式延迟与成本权衡，未涉及推荐系统或搜索引擎的核心业务逻辑（如用户建模、排序学习），即使有 +1 分加分仍属低相关。",
+    "translation": "GRaSP：面向地理分布式检索增强生成的延迟感知优化",
+    "summary_zh": "提出一种无需重训练的重新评分层 GRaSP，通过将延迟衰减和成本惩罚融入语义相关性排序，在满足数据驻留和基数约束下优化地理分布式 RAG 系统的检索选择策略。",
+    "key_points": [
+      "提出一种无需重训练的重新评分层 GRaSP，通过将延迟衰减和成本惩罚融入语义相关性排序，在满足数据驻留和基数约束下优化地理分布式 RAG 系统的检索选择策略"
+    ]
+  },
+  {
+    "arxiv_id": "2610.27606",
+    "title": "Ask to Learn: Query-Based Collaborative Reinforcement Learning",
+    "authors": [
+      "Kaicheng Zhang",
+      "Hongqian Niu",
+      "Laixi Shi",
+      "Didong Li",
+      "Guannan Qu",
+      "Zhun Deng"
+    ],
+    "summary": "Offline reinforcement learning is fundamentally limited by the coverage of the available data, while collecting additional trajectories through online exploration may be costly, unsafe, or infeasible. We study whether this limitation can be overcome without directly interacting with the underlying environment. Motivated by practical settings such as collaborator-mediated simulation, where a collaborator can provide information complementary to the offline data, we introduce query-based collaborative reinforcement learning to study how to acquire this information efficiently. The learner starts with a fixed offline dataset and adaptively queries state-time pairs; the collaborator samples an action according to a fixed, possibly suboptimal policy, and the simulator returns the corresponding reward and next state. For finite-horizon tabular problems, we derive an instance-dependent information-theoretic lower bound on the additional queries required to identify an $ε$-optimal policy and develop a local quadratic approximation. Guided by this characterization, we develop an adaptive query-allocation algorithm whose query complexity nearly matches the local benchmark under suitable conditions. Experiments on multiple synthetic and semi-synthetic environments demonstrate the empirical efficiency of the proposed method.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.27606",
+    "pdf_url": "https://arxiv.org/pdf/2610.27606.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯强化学习（RL）理论研究，专注于离线 RL 的查询机制，未提及任何推荐系统或搜索的具体应用场景，即使有中国公司背景且 RL 有潜力，但因缺乏直接业务关联，评分依然较低。",
+    "translation": "Ask to Learn：基于查询的协作强化学习",
+    "summary_zh": "提出一种基于查询的协作强化学习框架，允许智能体在固定离线数据集基础上，通过向协作者自适应查询状态 - 时间对来获取补充信息，从而在不直接与环境交互的情况下优化策略。",
+    "key_points": [
+      "提出一种基于查询的协作强化学习框架，允许智能体在固定离线数据集基础上，通过向协作者自适应查询状态 - 时间对来获取补充信息，从而在不直接与环境交互的情况下优化策略"
+    ]
+  }
+]

@@ -1,0 +1,626 @@
+[
+  {
+    "arxiv_id": "2602.03608",
+    "title": "Controlling Output Rankings in LLM-Based Search via Generative Engine Optimization",
+    "authors": [
+      "Haibo Jin",
+      "Huimin Zeng",
+      "Yifeng Luo",
+      "Haohan Wang"
+    ],
+    "summary": "The way customers search for and choose products is changing with the rise of large language models (LLMs). LLM-based search, or generative engines, provides direct product recommendations to users, rather than traditional online search results that require users to explore options themselves. However, these recommendations are strongly influenced by the initial retrieval order of LLMs, which disadvantages small businesses and independent creators by limiting their visibility.\n  In this work, we propose CORE, an optimization method that \\textbf{C}ontrols \\textbf{O}utput \\textbf{R}ankings in g\\textbf{E}nerative Engines for LLM-based search. Since the LLM's interactions with the search engine are black-box, CORE targets the content returned by search engines as the primary means of influencing output rankings. Specifically, CORE optimizes retrieved content by appending strategically designed optimization content to steer the ranking of outputs. We introduce three types of optimization content: string-based, reasoning-based, and review-based, demonstrating their effectiveness in shaping output rankings. To evaluate CORE in realistic settings, we introduce ProductBench, a large-scale benchmark with 15 product categories and 200 products per category, where each product is associated with its top-10 recommendations collected from Amazon's search interface.\n  Extensive experiments on four LLMs with search capabilities (GPT-4o, Gemini-2.5, Claude-4, and Grok-3) demonstrate that CORE achieves an average Promotion Success Rate of \\textbf{91.4\\% @Top-5}, \\textbf{86.6\\% @Top-3}, and \\textbf{80.3\\% @Top-1}, across 15 product categories, outperforming existing ranking manipulation methods while preserving the fluency of optimized content.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2602.03608",
+    "pdf_url": "https://arxiv.org/pdf/2602.03608.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 LLM 搜索（生成式引擎）中的输出排序控制问题，提出了具体的优化方法 CORE，属于核心的搜索/推荐重排序研究，且来自中国公司。",
+    "translation": "通过生成式引擎优化控制基于大语言模型的搜索输出排序",
+    "summary_zh": "提出 CORE 方法，通过在检索内容中附加策略性设计的优化文本（如字符串、推理或评论），在黑盒环境下引导大语言模型搜索生成的商品推荐排序。",
+    "key_points": [
+      "提出 CORE 方法，通过在检索内容中附加策略性设计的优化文本（如字符串、推理或评论），在黑盒环境下引导大语言模型搜索生成的商品推荐排序"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24481",
+    "title": "DuoLM: Fast and Effective Personalized Recommendation with Language Models",
+    "authors": [
+      "Jiang Wu",
+      "Yutong Song",
+      "Hongbo Wang",
+      "Guanghe Cao",
+      "Jeff Lei Liang"
+    ],
+    "summary": "Language models can make personalized recommendations from rich item content, user history, and feedback. However, evaluating many candidates with full-text inputs incurs substantial online computation and limits serving throughput. We introduce DuoLM, a framework for fast and effective personalized recommendation that integrates a compact recommendation model with an efficient serving runtime. An encoder LLM learns compact item representations for offline reuse, while a personalized ranker LLM combines them with user history and feedback for recommendation. We train both models end to end with recommendation supervision and teacher distillation. The runtime further accelerates inference through virtual token IDs for embedding access, shared history computation, and CUDA Graph replay. Benchmark results show that our framework achieves recommendation quality comparable to that of the expert teacher model. On a single H100, it delivers approximately 26,400 candidate scores per second, about $60\\times$ the throughput of the teacher served with vLLM and automatic prefix caching.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.24481",
+    "pdf_url": "https://arxiv.org/pdf/2610.24481.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的 LLM 推理效率瓶颈，提出了结合离线编码与在线排序的 DuoLM 架构及加速策略，属于高优先级的 LLM for RecSys 核心应用；且来自中国公司，符合额外加分条件。",
+    "translation": "DuoLM：基于语言模型的高效个性化推荐框架",
+    "summary_zh": "提出一种双阶段 LLM 推荐框架，通过离线编码器生成紧凑物品表示，结合在线排序模型与虚拟 Token、CUDA Graph 等运行时加速技术，在保持推荐质量的同时大幅提升服务吞吐量。",
+    "key_points": [
+      "提出一种双阶段 LLM 推荐框架，通过离线编码器生成紧凑物品表示，结合在线排序模型与虚拟 Token、CUDA Graph 等运行时加速技术，在保持推荐质量的同时大幅提升服务吞吐量"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29298",
+    "title": "Generative Recommenders Forget the Long Tail: Restoring Memorization in Retrieval and Ranking",
+    "authors": [
+      "Xu Huang",
+      "Jiancan Wu",
+      "Hongzheng Qin",
+      "Jiawei Feng",
+      "Can Ye",
+      "Wencong Zeng",
+      "Fengze Li",
+      "Xiang Wang"
+    ],
+    "summary": "Generative recommenders replace the retrieve-then-rank cascade with a single model: beam search over semantic item identifiers performs retrieval, and the same likelihood performs ranking. We show that this shared score makes them forget long-tail items twice. In retrieval, beam search keeps identifier prefixes by the probability mass of their subtrees, so tail items are pruned early, and a wider beam admits few more of them. In ranking, the likelihood places tail items below head items even when they are admitted, so expanding retrieval alone brings little or no gain. Both failures reflect missing item-level memorization (i.e., direct recall of which items co-occur), which collaborative filtering provides and shared-prefix generation lacks. To this end, we propose CAPE (Co-occurrence-Aware Pool Expansion), a training-free plug-in that restores memorization at both stages: (i) a memorization channel retrieves co-occurrence-supported tail items outside the beam and scores them with the frozen generator, and (ii) memorization-calibrated ranking fuses the generator likelihood with co-occurrence evidence while keeping the generator's first item. Experiments with two generative backbones on product and music domains show that CAPE significantly improves long-tail accuracy over the backbones and over re-ranking baselines that share its candidates, preserves or improves overall accuracy, and adds a small fraction of the latency.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29298",
+    "pdf_url": "https://arxiv.org/pdf/2610.29298.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的长尾遗忘问题，提出了具体的检索与排序优化架构（CAPE），属于核心推荐算法创新，且来自中国公司。",
+    "translation": "生成式推荐系统遗忘长尾：恢复检索与排序中的记忆能力",
+    "summary_zh": "本文指出生成式推荐因共享评分机制导致长尾物品在检索剪枝和排序中被双重遗忘，并提出一种无需训练的插件化方法，通过引入共现记忆通道来恢复对长尾物品的直接召回与校准排序。",
+    "key_points": [
+      "本文指出生成式推荐因共享评分机制导致长尾物品在检索剪枝和排序中被双重遗忘，并提出一种无需训练的插件化方法，通过引入共现记忆通道来恢复对长尾物品的直接召回与校准排序"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28642",
+    "title": "Controllable Generative Recommendation via Guided Token Refinement",
+    "authors": [
+      "Haichao Zhang",
+      "Zhixuan Liang",
+      "Chong Zhang",
+      "Zixi Chen",
+      "Wen Wang",
+      "Jia Wang"
+    ],
+    "summary": "Generative recommendation over discrete Semantic IDs has become a powerful paradigm for item retrieval. Real-world systems, however, frequently require real-time controllability to balance accuracy against objectives such as diversity. Existing autoregressive methods generate tokens strictly from left to right. This fixed direction locks in early decisions, preventing holistic planning and making control difficult. Consequently, direct interventions often break the semantic structure, producing non-existent items. To address this, we propose ReGen, a framework that shifts from sequential decoding to parallel iterative refinement. ReGen reformulates generation as a mask-filling task, predicting all tokens simultaneously rather than one by one. This global view allows us to apply control signals directly to tokens with high-level semantics without retraining the model. To ensure that decoded candidates map to real items, we introduce a topology-constrained tree that iteratively corrects low-confidence predictions while strictly enforcing valid codebook paths during beam-based inference. Experiments show that ReGen provides a favorable accuracy-diversity trade-off under moderate guidance while maintaining high validity of generated Semantic IDs. The source code is available at: https://github.com/zhang-haichao/ReGen.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-27",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28642",
+    "pdf_url": "https://arxiv.org/pdf/2610.28642.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐系统中的实时可控性难题，提出了基于并行迭代优化的新架构以平衡准确率与多样性，属于核心推荐技术突破。",
+    "translation": "通过引导令牌优化实现可控生成式推荐",
+    "summary_zh": "提出 ReGen 框架，将生成式推荐从自回归序列解码重构为并行掩码填充任务，利用拓扑约束树在推理阶段直接施加控制信号以优化多样性并保证生成项的有效性。",
+    "key_points": [
+      "提出 ReGen 框架，将生成式推荐从自回归序列解码重构为并行掩码填充任务，利用拓扑约束树在推理阶段直接施加控制信号以优化多样性并保证生成项的有效性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29138",
+    "title": "Progressive Learning from Content to Relevance to Personalization for CTR Prediction",
+    "authors": [
+      "Zhiguang Yang",
+      "Yulin Yang",
+      "Fuyu Lv",
+      "Dan Ou"
+    ],
+    "summary": "Multimodal click-through rate (CTR) prediction is central to search systems, where ranking depends on item content, query relevance, and user preference. Existing approaches incorporate content through dense embeddings or coarse discrete IDs, yet effectively integrating fine-grained heterogeneous content with ID-based predictors remains challenging. We propose FineSID, a progressive learning framework that unifies content tokenization, query--item semantic pretraining, and personalized post-training via a shared fine-grained discrete representation. Each stage optimizes an explicit objective while preserving token-level access to content. First, a pretrained multi-scale visual tokenizer and text tokenizers convert heterogeneous content into fine-grained Semantic IDs (SIDs), explicitly aligning them with the ID features. Second, full-parameter semantic pretraining under query--item relevance supervision establishes a robust matching prior, jointly optimizing the interactions of multimodal SIDs and conventional fields within a shared predictor. Third, this initialized predictor is directly fine-tuned with user click supervision to capture implicit personalized preferences. Extensive offline and online evaluations demonstrate substantial gains in both standard CTR prediction and core business metrics. Furthermore, FineSID improves within-product creative discrimination, demonstrating its semantic generalization beyond conventional ID memorization.",
+    "categories": [
+      "cs.IR",
+      "cs.MM"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29138",
+    "pdf_url": "https://arxiv.org/pdf/2610.29138.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索系统中的 CTR 预测问题，提出了一种融合内容、相关性和个性化的渐进式学习框架，属于核心推荐搜索技术的高优先级应用。",
+    "translation": "从内容到相关性再到个性化：CTR 预测的渐进式学习",
+    "summary_zh": "提出 FineSID 框架，通过多模态细粒度语义 ID 统一表征，分阶段进行查询 - 物品语义预训练和个性化微调，以解决异构内容与 ID 特征融合难题。",
+    "key_points": [
+      "提出 FineSID 框架，通过多模态细粒度语义 ID 统一表征，分阶段进行查询 - 物品语义预训练和个性化微调，以解决异构内容与 ID 特征融合难题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28639",
+    "title": "Can AI Chat Replace Traditional Search? Evidence from a RAG-based Live Events Experiment",
+    "authors": [
+      "Rakesh Allu",
+      "Evgeny Kagan"
+    ],
+    "summary": "Conversational AI tools are being increasingly integrated into online search and browsing interfaces. To understand how such tools affect user behavior and search outcomes, we run a pre-registered, incentivized online experiment in which participants search a catalog of several thousand events scraped from a major live-events platform. We compare three interfaces: a classic, attribute-based filter interface (Filter), a GenAI chat interface (Chat), and a combined interface offering both (Hybrid). In both AI conditions, AI output is restricted via retrieval-augmented generation (RAG). Our main result is that, relative to the other two conditions, the Chat condition performs the worst. The effect is robust across AI models (gpt-4.1-mini, gpt-5.2 and gpt-5.4) and is driven mainly by users who perform open-ended exploration (as opposed to users searching for a specific artist, venue or sports team). Furthermore, there are no significant differences on any metrics between Filter and Hybrid. We also document two mechanisms. First, Chat creates an echo chamber: without a visible menu, users construct queries based on what they think is contained in the catalog. As a result, they frequently search for event types that are not available in the catalog, and they search too narrowly. Second, Chat leads to prompting fatigue: it shifts effort towards prompting, and away from inspecting and evaluating the output. As a result, users often pick one of the first displayed suggestions rather than examining the list more carefully. Taken together, our results suggest that AI is best used as a complementary tool to existing filter-based search rather than as a replacement.",
+    "categories": [
+      "cs.IR",
+      "econ.GN",
+      "q-fin.EC"
+    ],
+    "published": "2026-08-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28639",
+    "pdf_url": "https://arxiv.org/pdf/2610.28639.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文通过实证研究直接评估了生成式 AI（RAG）在搜索界面中的用户行为影响，明确属于搜索产品交互与效果优化范畴，虽非算法核心创新但具有极高的业务指导价值；基础分 7 分，因来自中国公司额外加 1 分。",
+    "translation": "AI 聊天能否取代传统搜索？基于 RAG 的现场活动实验证据",
+    "summary_zh": "本文通过对比实验发现，在基于检索增强生成（RAG）的搜索场景中，纯聊天界面因导致“回音室”效应和提示疲劳，其搜索效果劣于传统过滤界面，证明 AI 应作为现有搜索工具的补充而非替代。",
+    "key_points": [
+      "本文通过对比实验发现，在基于检索增强生成（RAG）的搜索场景中，纯聊天界面因导致“回音室”效应和提示疲劳，其搜索效果劣于传统过滤界面，证明 AI 应作为现有搜索工具的补充而非替代"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05543",
+    "title": "omni-macos: On-Device Omni-Modal Search on Apple Silicon",
+    "authors": [
+      "Han Xiao"
+    ],
+    "summary": "We present omni-macos, a search engine that embeds text, code, documents, images, audio and video into one representation space and runs its encoder, index and store on the Mac that already holds the files, so the files, the queries and the vectors stay on that machine. It keeps a background indexer and an interactive search box responsive on one shared device. Each distinct chunk is embedded and stored once, and every file becomes searchable from a small first share of its content. Indexer work is split into smaller units while the user types, and one memory setting reaches every allocator found to draw on unified memory. Once the index is large, queries scan a one-bit replica of it, rescore a shortlist exactly and rank every modality in one list on a common score scale. We measure omni-macos on five Macs spanning an eightfold range of accelerator width and a thirty-twofold range of memory, and its ranking on a labeled multilingual and multimodal testbed. omni-macos is open source under Apache 2.0 at https://github.com/hanxiao/omni-macos.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2608.05543",
+    "pdf_url": "https://arxiv.org/pdf/2608.05543.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Apple"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种直接在设备端运行的多模态搜索引擎架构，属于核心搜索技术（检索/排序）的直接应用，虽侧重系统实现而非纯算法创新，但紧密契合多模态搜索领域。",
+    "translation": "omni-macos：基于 Apple Silicon 的端侧全模态搜索引擎",
+    "summary_zh": "提出一种在单设备上统一嵌入、索引和存储文本/代码/音视频等多模态数据的本地搜索架构，通过共享内存和增量索引实现隐私安全的即时跨模态检索与统一排序。",
+    "key_points": [
+      "提出一种在单设备上统一嵌入、索引和存储文本/代码/音视频等多模态数据的本地搜索架构，通过共享内存和增量索引实现隐私安全的即时跨模态检索与统一排序"
+    ]
+  },
+  {
+    "arxiv_id": "2605.18767",
+    "title": "DualView: Adaptive Local-Global Fusion for Multi-Hop Document Reranking",
+    "authors": [
+      "Litong Zhang",
+      "Jiaxin Li",
+      "Kuo Zhao"
+    ],
+    "summary": "Multi-hop question answering requires aggregating information from multiple documents, a critical capability for knowledge-intensive applications. A fundamental challenge lies in efficiently identifying the minimal relevant document set from retrieved candidates while maintaining high recall.\n  We present an efficient dual-view cascaded reranking framework for multi-hop document reranking. Operating as a lightweight post-retrieval stage over E5-base-v2 candidates, our architecture comprises: (1) a Local Scorer employing stacked cross-attention for fine-grained query-document relevance; and (2) a Global Scorer modeling inter-document dependencies via Transformer-based context aggregation. These views are dynamically fused through an Adaptive Gate conditioned on query semantics.\n  Under the fixed candidate set reranking setting with offline cached embeddings, our model achieves competitive results, particularly outstanding on MuSiQue with 99.4% Top-4 Recall and 97.8% Full Hit accuracy at 4.0 ms latency (249 QPS). It substantially outperforms 600M-parameter cross-encoders (BGE-Large: 92.0% Recall, Jina-v3: 90.1% Recall) while maintaining 5 to 6 times lower latency. Ablation studies validate that both Local and Global views contribute substantially to multi-hop performance.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2605.18767",
+    "pdf_url": "https://arxiv.org/pdf/2605.18767.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦多跳问答（QA）场景下的文档重排序，属于纯 NLP 任务而非直接的推荐/搜索系统应用，但重排序机制与搜索核心环节有方法论层面的通用性，故给予中等偏低分。",
+    "translation": "DualView：用于多跳文档重排序的自适应局部 - 全局融合",
+    "summary_zh": "提出一种双视图级联重排序框架，通过自适应门控动态融合基于交叉注意力的局部细粒度评分与基于 Transformer 的全局文档依赖建模，以高效解决多跳问答中的相关文档筛选问题。",
+    "key_points": [
+      "提出一种双视图级联重排序框架，通过自适应门控动态融合基于交叉注意力的局部细粒度评分与基于 Transformer 的全局文档依赖建模，以高效解决多跳问答中的相关文档筛选问题"
+    ]
+  },
+  {
+    "arxiv_id": "2607.21951",
+    "title": "SIREN (Luring LLMs onto the Rocks): PAIR-Driven Preference Manipulation in Web-RAG Recommenders",
+    "authors": [
+      "Evan Caville",
+      "Spencer Kayser",
+      "Siamak Layeghy",
+      "Billy Sung",
+      "Sara Dolnicar",
+      "Marius Portmann"
+    ],
+    "summary": "This paper investigates the adversarial manipulation of the ranked recommendations produced by web-augmented large language models (LLMs). When an LLM answers a recommendation query by retrieving and reading live webpages, it acts as a recommender, and each retrieved page becomes a potential attack surface. Prior work has examined fabricated products, retrieval poisoning, and rank promotion. However, these studies do not compare how different edits to an already retrieved page change the model's final ranking while the surrounding source set remains unchanged. To address this gap, we propose SIREN, an automated attacker--judge method that adapts the PAIR jailbreaking loop to competitive rank manipulation, with the goal of moving a chosen entity to rank~1 in an LLM-generated recommendation. SIREN retrieves and captures webpages using Anthropic's web tools, then iteratively edits a retrieved source using an interpretable taxonomy of 23 content-poisoning techniques. The custom-RAG replay platform keeps the same sources in the same order, so changes in the model's ranking can be linked to changes in the supplied content rather than to differences in retrieval. Across two production Claude models, SIREN reaches rank~1 in 62 of 124 technique trials nested within eight query--model contexts. The payloads that reached rank~1 were then tested in fresh sessions, where they reproduced the result with a mean success rate of 0.805. Across the evaluated settings, declarative ranking claims and seeded lists were generally more effective than directive-form injections, although the strength of this difference depended on the target model. To the best of our knowledge, this is among the first controlled studies of competitive rank manipulation in production LLMs where the supplied source context is kept fixed.",
+    "categories": [
+      "cs.IR",
+      "cs.CR"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2607.21951",
+    "pdf_url": "https://arxiv.org/pdf/2607.21951.pdf",
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "本文聚焦于针对 LLM 推荐系统的对抗性攻击与安全漏洞，属于系统安全性研究而非推荐算法核心创新；虽涉及 RecSys 场景，但纯安全/攻击类研究优先级较低，且无中国公司背景（SIREN/PAIR/Anthropic 均为国外技术），不适用额外加分。",
+    "translation": "SIREN：诱导大语言模型触礁——基于 PAIR 的 Web-RAG 推荐系统偏好操纵",
+    "summary_zh": "提出一种自动化攻击框架 SIREN，通过在固定检索源上迭代编辑网页内容，利用对抗性提示技术操纵基于 Web-RAG 的大语言模型推荐排序结果。",
+    "key_points": [
+      "提出一种自动化攻击框架 SIREN，通过在固定检索源上迭代编辑网页内容，利用对抗性提示技术操纵基于 Web-RAG 的大语言模型推荐排序结果"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29216",
+    "title": "Preference Is Not Permission: Personalizing the Auto-Purchase Line in Agentic Commerce",
+    "authors": [
+      "Ryotaro Shimizu",
+      "Sai HtaungKham",
+      "Mo Fan"
+    ],
+    "summary": "Personalized shopping benchmarks ask which item fits the user; we ask how far an agent may commit on that item, and pose learning the individual's auto-purchase line as a task. The boundary is evidence-conditioned and three-valued: whether committing is appropriate depends on the sufficiency of product information (warrant), reversibility, price against the user's norm, and urgency, not only on fit; and the natural output is don't buy, confirm first, or buy automatically. Across sixteen instruction-tuned models, autonomous commitment is misaligned with a human authorization reference in which fifteen annotators, role-playing the delegating principal from a given profile, choose the furthest action they would allow without confirmation: models commit even when fit is low and when their own evidence flag reports the warrant missing. This is overreach. The line is individual: these raters disagree, yet the disagreement is structured and partly predictable from a person's own other labels. A shallow learner on a few dozen of a person's own labels predicts their held-out auto-purchase line at a median of 0.79 by 30-40 labels, outperforming every evaluated prompt$\\times$model configuration, including a per-annotator oracle over 80 configurations; the learned boundary does not transfer across domains. We release the counterfactual benchmark, human authorization reference, and annotation protocol after acceptance.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.HC",
+      "cs.LG"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29216",
+    "pdf_url": "https://arxiv.org/pdf/2610.29216.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于代理电商中的自动购买决策边界与用户授权建模，虽涉及个性化但核心是 Agent 行为对齐而非传统推荐/搜索架构，且纯 LLM 应用属性较强，仅因中国公司背景加分。",
+    "translation": "偏好非许可：代理商务中自动购买线的个性化研究",
+    "summary_zh": "提出将学习用户个性化的自动购买决策边界作为任务，通过少量用户标注训练浅层模型来预测用户在何种证据条件下允许代理自动执行购买操作。",
+    "key_points": [
+      "提出将学习用户个性化的自动购买决策边界作为任务，通过少量用户标注训练浅层模型来预测用户在何种证据条件下允许代理自动执行购买操作"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28638",
+    "title": "TAGR: Task-Adaptive Geo-Semantic Retrieval across Heterogeneous Urban Delivery Tasks",
+    "authors": [
+      "Zhi Liu",
+      "Yurun Cai",
+      "Xiao Han",
+      "Zhi Zhen",
+      "Yuran Li",
+      "Guojiang Shen",
+      "Xiangjie Kong"
+    ],
+    "summary": "As urban residents demand higher-quality instant delivery services, demand forecasting, estimated time of arrival prediction, and next-stop prediction have become critical tasks in urban delivery systems. However, the three tasks rely on historical evidence with substantially different structures and granularities. Meanwhile, their prediction targets differ in output form, making it difficult to integrate retrieved evidence through a single fusion mechanism without causing mismatch or negative transfer. These issues can increase prediction errors and subsequently lead to imbalanced resource allocation, where some regions experience unmet demand. In contrast, others suffer from underutilization, ultimately degrading overall efficiency and service quality. To address these challenges, we propose TAGR, a Task-Adaptive Geo-Semantic Retrieval framework across heterogeneous urban delivery tasks. TAGR constructs an LLM-based geo-semantic shared prior and task-specific retrieval banks to share regional knowledge while preserving heterogeneous task-specific evidence. The LLM-derived regional representations encode geographic context and semantic relations among regions, providing transferable knowledge for all three tasks without requiring online LLM inference. It further introduces a task-adaptive retrieval augmentation module to accommodate heterogeneous output structures, thereby mitigating information mismatch and negative transfer caused by a uniform retrieval-fusion strategy. Experiments on three city datasets demonstrate that TAGR consistently outperforms state-of-the-art baselines across multiple tasks.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-08-12",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28638",
+    "pdf_url": "https://arxiv.org/pdf/2610.28638.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦即时配送中的需求预测与 ETA 等运筹优化任务，虽含 LLM 用于地理语义表征，但核心不属于推荐/搜索系统的召回、排序或用户建模范畴，仅属弱相关的物流调度应用。",
+    "translation": "TAGR：面向异构城市配送任务的任务自适应地理语义检索框架",
+    "summary_zh": "提出一种利用 LLM 构建地理语义共享先验与任务专属检索库的框架，通过任务自适应检索增强机制解决异构配送任务间的知识迁移冲突与信息不匹配问题。",
+    "key_points": [
+      "提出一种利用 LLM 构建地理语义共享先验与任务专属检索库的框架，通过任务自适应检索增强机制解决异构配送任务间的知识迁移冲突与信息不匹配问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29295",
+    "title": "Latent space configuration for neural network finetuning, fast ranking, and embedding dimensionality reduction",
+    "authors": [
+      "Nikita Gabdullin",
+      "Anton Raskovalov"
+    ],
+    "summary": "Finding K most similar elements for a query in a large gallery of neural network (NN) embeddings is essential in various areas of computer science and industrial applications of artificial intelligence. This paper proposes search algorithms for structured latent spaces (LS) of NNs which allow to speed up top K item retrieval owing to O(1) complexity small candidate gallery subset search. ArcFace-pretrained IResNet50 models are finetuned using Latent Space Configuration (LSC) methodology to obtain new distribution of embeddings with desired geometric properties. Applying the proposed algorithms to embeddings obtained from finetuned models leads to several times speed-up over baseline exhaustive search. Specifically, we report up to 3 times speed-up on GPU and 40% speed-up on CPU compared to the baseline method GPU speed. These results are obtained for the original and reduced numbers of LS dimensions. The results show that LS dimensionality reduction allows to further accelerate the search and even improve rank-N metrics.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29295",
+    "pdf_url": "https://arxiv.org/pdf/2610.29295.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文主要关注计算机视觉（ArcFace/IResNet）领域的嵌入检索加速，虽涉及排序和检索技术，但缺乏明确的推荐系统业务场景或直接应用，属于弱相关的通用检索方法研究。",
+    "translation": "用于神经网络微调、快速排序及嵌入降维的潜在空间配置",
+    "summary_zh": "提出一种潜在空间配置方法，通过微调神经网络使嵌入分布具备特定几何属性，从而将大规模检索复杂度降至 O(1) 以实现快速排序和降维。",
+    "key_points": [
+      "提出一种潜在空间配置方法，通过微调神经网络使嵌入分布具备特定几何属性，从而将大规模检索复杂度降至 O(1) 以实现快速排序和降维"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28708",
+    "title": "Borrowing Strength Across Stores: Transfer Learning for Choice-Based Revenue Management",
+    "authors": [
+      "Recep Yusuf Bekci",
+      "Stefanus Jasin",
+      "Joline Uichanco"
+    ],
+    "summary": "Large retail chains must tailor assortment and pricing decisions to local customer preferences, yet even retailers with extensive sales records often have limited data for estimating demand at the store or local market level, particularly in product categories with short selling windows. Local estimation (fitting a demand model for each store on its own) can therefore be unreliable, while pooling data across stores improves estimation precision at the cost of ignoring local demand heterogeneity. We study how retailers can balance these competing effects through transfer learning under a multinomial logit (MNL) demand model. We propose a shrinkage estimator that combines store-specific demand estimates with information pooled from other stores. Unlike the linear or quadratic settings underlying much of the existing theoretical literature on information transfer in operations, the nonlinear MNL likelihood does not admit a straightforward bias-variance decomposition. By exploiting its self-concordant-like properties, we establish finite-sample performance guarantees that characterize when information transfer improves demand estimation and how the appropriate degree of shrinkage depends on local sample size, feature dimensionality, and cross-store heterogeneity. We further derive regret bounds for downstream assortment and pricing decisions. Numerical experiments demonstrate the operational benefits of shrinkage across different data environments. An empirical study using data from several hundred stores of a European apparel retailer shows that shrinkage improves out-of-sample product prioritization and revenue capture relative to both local estimation and full pooling. Our findings demonstrate how retailers can leverage information across their store networks to improve revenue management decisions while preserving local demand differences.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "math.OC"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28708",
+    "pdf_url": "https://arxiv.org/pdf/2610.28708.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于零售业的定价与选品收益管理（Operations Research），虽涉及需求估计但非推荐/搜索核心算法（召回、排序等），且无 LLM 应用，仅因来自中国企业加 1 分。",
+    "translation": "跨店借力：基于选择的收益管理中的迁移学习",
+    "summary_zh": "提出一种利用多项 Logit 模型特性的收缩估计器，通过在不同门店间迁移学习来平衡局部需求异质性与数据聚合精度，以优化库存选品和定价决策。",
+    "key_points": [
+      "提出一种利用多项 Logit 模型特性的收缩估计器，通过在不同门店间迁移学习来平衡局部需求异质性与数据聚合精度，以优化库存选品和定价决策"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29228",
+    "title": "From Scores to Safe Sets: Exact Safety--Constrained Decoding for Medication Recommendation",
+    "authors": [
+      "Animesh Agarwal",
+      "Meysam Ghaffari",
+      "Nina Fatehi",
+      "Anushka Swarup",
+      "Carlos Morato"
+    ],
+    "summary": "Recent generative medication recommendation systems ultimately produce sets of drugs, but drug--drug interaction (DDI) constraints depend on the set as a whole. A natural post-hoc approach is to first predict medications and then locally repair interacting pairs by removing one drug at a time. We ask whether this local repair step itself introduces avoidable error. Using fixed medication scores from FLAME's frozen classifier on MIMIC-III, we compare increasingly strong local repair strategies with an exact global decoder while holding the scores, output size, and DDI constraint fixed. The global decoder jointly selects the highest-scoring feasible medication set using mixed-integer linear programming. Across validation and test splits, global decoding consistently achieves higher Jaccard similarity than greedy repair, degree-aware repair, and degree-aware repair strengthened with exhaustive 1-swap local search. Its advantage is small under loose DDI constraints and becomes larger as the constraint tightens; on the test split it reaches +0.0064 Jaccard over the strongest local baseline at the strict DDI operating point. The finding also holds across a fine accuracy--DDI sweep at matched realized DDI exposure and under three score representations. At the strict setting, global decoding retains more true-positive medications while removing more false positives. These results show that medication recommendation is not only a representation-learning problem: even with a frozen clinical model, how its scores are converted into a constrained medication set can materially affect the final prediction.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29228",
+    "pdf_url": "https://arxiv.org/pdf/2610.29228.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文属于医疗领域的特定应用（药物推荐），并非通用的电商/社交/搜索推荐系统，且核心方法是约束解码而非推荐架构创新；虽符合'推荐'字面但领域偏差大，基础分 2 分，因源自中国公司加 1 分。",
+    "translation": "从分数到安全集合：面向药物推荐的精确安全约束解码",
+    "summary_zh": "针对药物相互作用约束，提出利用混合整数线性规划进行全局精确解码的方法，以替代传统的局部修复策略，从而在满足安全约束下生成更优的药物组合集合。",
+    "key_points": [
+      "针对药物相互作用约束，提出利用混合整数线性规划进行全局精确解码的方法，以替代传统的局部修复策略，从而在满足安全约束下生成更优的药物组合集合"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28686",
+    "title": "A Small Model Asks Better: Fine-Tuning Query Clarification for Retrieval-Augmented Generation",
+    "authors": [
+      "Lihong He",
+      "Lucian Popa",
+      "Marina Danilevsky"
+    ],
+    "summary": "Query clarification is essential for retrieval-augmented generation (RAG) systems that face ambiguous user queries. We consider multi-turn grounded conversational scenarios where a user query is either ill-formed or ambiguous in the context of the prior dialog or, more interestingly, it may be well-formed but when posed against retrieved documents there are multiple relevant interpretations. The task is to recognize both such cases and then generate an appropriate clarification request to the user. We present ClariEdge, a new dataset of approximately 3,900 examples that include such ambiguous queries along with negative examples that do not require clarification. We also show that a lightweight fine-tuned LoRA achieves 96.6% classification accuracy and outperforms prompted baselines of many larger models on both classification and quality of clarification generation. Our study shows that hard negatives are an essential ingredient to separate out queries that are truly ambiguous from queries that may look ambiguous but are not (i.e., can be resolved from the context). The same LoRA achieves high performance in both pre-retrieval and post-retrieval scenarios; thus, it can be used in two places in a RAG pipeline as a check before answer generation. The ClariEdge dataset is available at https://huggingface.co/datasets/ibm-research/ClariEdge.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28686",
+    "pdf_url": "https://arxiv.org/pdf/2610.28686.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "prerank_score": 7,
+    "affiliation_lines": [
+      "IBMResearch,USA"
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文专注于纯 RAG/NLP 领域的查询澄清任务，未直接涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），属于通用 NLP 研究。",
+    "translation": "小模型更善提问：面向检索增强生成的查询澄清微调",
+    "summary_zh": "提出一种轻量级微调方法，用于在检索前后识别模糊查询并生成澄清请求，以解决 RAG 系统中的歧义问题。",
+    "key_points": [
+      "提出一种轻量级微调方法，用于在检索前后识别模糊查询并生成澄清请求，以解决 RAG 系统中的歧义问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28929",
+    "title": "Scriptorium: System Design and Implementation of a Multi-Human, Multi-AI Collaborative Digital Library Search Platform",
+    "authors": [
+      "Abbas Pirmoradi",
+      "Milad Momeni",
+      "Anna Chu",
+      "Orland Hoeber"
+    ],
+    "summary": "This technical report documents the design and implementation of Scriptorium, a digital library search interface designed to support multi-human, multi-AI collaboration: full cross-user transparency of search activity combined with a Manager--Worker architecture of seven role-specialized generative AI agents. A companion short demonstration paper describes Scriptorium's interaction design; because a demonstration format is constrained to a few pages, it necessarily omits most implementation detail. This report documents Scriptorium's complete system architecture, data model, collaborative-interaction design rationale, and AI orchestration mechanism, including verbatim agent prompts, the deterministic guardrails that constrain them, the language model and retrieval configuration, and the steps needed to run the system, so that the design can be inspected, critiqued, reproduced, and reused by other researchers. We also discuss the system's current limitations and the user study we are planning to evaluate its central hypothesis: that combining collaborative transparency with scoped multi-agent AI assistance increases serendipitous cross-pollination between collaborators' research threads.",
+    "categories": [
+      "cs.HC",
+      "cs.IR"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28929",
+    "pdf_url": "https://arxiv.org/pdf/2610.28929.pdf",
+    "prerank_score": 7,
+    "relevance_score": 3,
+    "reasoning": "该文主要描述多智能体协作的数字图书馆系统架构，属于通用 AI 应用与 HCI 研究，缺乏针对推荐/搜索核心算法（如召回、排序、用户建模）的创新，且纯 LLM 应用无 RecSys 直接关联，故给低分。",
+    "translation": "Scriptorium：多人多 AI 协作数字图书馆搜索平台的系统设计与实现",
+    "summary_zh": "本文提出一种基于 Manager-Worker 架构的多智能体协作系统，通过透明化搜索活动与角色专用生成式 AI 代理的协同，旨在增强数字图书馆环境下的跨用户研究灵感碰撞。",
+    "key_points": [
+      "本文提出一种基于 Manager-Worker 架构的多智能体协作系统，通过透明化搜索活动与角色专用生成式 AI 代理的协同，旨在增强数字图书馆环境下的跨用户研究灵感碰撞"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29219",
+    "title": "PerSPL: Personalized Semi-supervised Preference Learning",
+    "authors": [
+      "Xiaoan Xu",
+      "Tingzhou Wei",
+      "Juncheng Dong",
+      "Korel Gundem",
+      "Ethan X. Fang",
+      "Zhengling Qi"
+    ],
+    "summary": "Personalized reward models require user-specific preference comparisons, but collecting such feedback is costly and provides only limited supervision for each user. At the same time, large pools of responses can be generated without user identities or preference labels, yet existing personalized reward models leave this data unused. Directly learning from these responses is difficult because pairwise objectives constrain relative scores within a prompt, whereas pseudo-labeling individual responses requires scores that are comparable across prompts for the same user. We propose \\textbf{PerSPL} (Personalized Semi-supervised Preference Learning), a backbone-agnostic framework that uses pair-mean score centering to stabilize this cross-prompt score coordinate and iteratively turns unlabeled responses into user-specific training signals. Against seven representative baselines across four benchmarks---PersonalLLM, HelpSteer2, Reddit TLDR, and Chatbot Arena---PerSPL achieves the highest reported mean accuracy among the evaluated methods for both seen and unseen users. The two latter benchmarks provide real-user preference comparisons in summarization and open-domain chatbot interaction, respectively. These results indicate that unlabeled responses can provide additional supervision for personalized reward modeling when per-user preference labels are scarce.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29219",
+    "pdf_url": "https://arxiv.org/pdf/2610.29219.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM 研究（个性化奖励模型训练），专注于通用对话和摘要任务的偏好对齐，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、电商/内容流推荐）。",
+    "translation": "PerSPL：个性化半监督偏好学习",
+    "summary_zh": "提出一种与骨干模型无关的框架，通过成对均值分数中心化和迭代伪标签技术，利用无标签响应数据增强稀疏用户反馈下的个性化奖励模型训练。",
+    "key_points": [
+      "提出一种与骨干模型无关的框架，通过成对均值分数中心化和迭代伪标签技术，利用无标签响应数据增强稀疏用户反馈下的个性化奖励模型训练"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28658",
+    "title": "CompLit: Scientific Literature Search Benchmarks Must Cover Implicit, Cumulative, and Unmet Needs",
+    "authors": [
+      "Dayoon Ko",
+      "Jihyuk Kim",
+      "Soyeong Jeong",
+      "Young-jun Lee",
+      "Dahyun Lee",
+      "Juyeon Kim",
+      "Gunhee Kim",
+      "Moontae Lee",
+      "Kyungjae Lee"
+    ],
+    "summary": "How much can we trust an agent to find the paper we need? As researchers, we search the literature from what we have read toward what we have not. We thus describe what we want in our own terms, which a paper may show only implicitly; our requirements grow as we read; and what we seek may lie in an empty region no paper yet covers. We introduce CompLit, a literature search benchmark spanning all eight arXiv domains, with one diagnostic setting for each of these needs. The strongest agents, Codex (GPT-5.6-Sol) and Claude Code (Opus 4.8), answer 86-87% of Standard queries, yet fall to 66-68% when requirements are implicit (implicit), lose another 6 and 15pp, respectively, as they accumulate (cumulative), and abstain on at most 53% of the queries no paper satisfies (unmet). No agent leads in every domain, and all are less accurate on papers from before 2019 or after 2023. Tracing their search, we find that agents often reach the right paper, or the closest one, yet misjudge it. Doing well on CompLit is a step toward agents that we can trust to find the paper we need, or to tell us that none exists.",
+    "categories": [
+      "cs.DL",
+      "cs.AI"
+    ],
+    "published": "2026-10-10",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28658",
+    "pdf_url": "https://arxiv.org/pdf/2610.28658.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "affiliation_lines": [
+      "1SeoulNationalUniversity2LGAIResearch3KAIST",
+      "4UniversityofMinnesota5UniversityofIllinoisChicago6UniversityofSeoul",
+      "paperweneed? Asresearchers,wesearchthe 25",
+      "literaturesearchbenchmarkspanningalleight",
+      "ResearchersincreasinglyaskagentssuchasOpe-",
+      "nAIDeepResearch,Codex,orClaudeCodetofind",
+      "per’ssideratherthantheresearcher’s. Theybuild"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM Agent 在学术文献搜索基准测试上的研究，未涉及电商/社交等通用推荐系统核心架构或用户建模，属于特定领域的 NLP 应用而非 RecSys 核心技术。",
+    "translation": "CompLit：科学文献搜索基准必须涵盖隐性、累积及未满足的需求",
+    "summary_zh": "提出 CompLit 基准以评估 LLM 代理在处理隐性需求、累积上下文及识别无解查询时的文献搜索能力，揭示当前模型在复杂科研检索场景中的局限性。",
+    "key_points": [
+      "提出 CompLit 基准以评估 LLM 代理在处理隐性需求、累积上下文及识别无解查询时的文献搜索能力，揭示当前模型在复杂科研检索场景中的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2603.00720",
+    "title": "MARS: Harmonizing Multimodal Convergence via Adaptive Rank Search",
+    "authors": [
+      "Minkyoung Cho",
+      "Insu Jang",
+      "Shuowei Jin",
+      "Zesen Zhao",
+      "Adityan Jothi",
+      "Ethem F. Can",
+      "Min-Hung Chen",
+      "Z. Morley Mao"
+    ],
+    "summary": "Fine-tuning Multimodal Large Language Models (MLLMs) with parameter-efficient methods like Low-Rank Adaptation (LoRA) is crucial for task adaptation. However, imbalanced training dynamics across modalities often lead to suboptimal accuracy due to negative interference, a challenge typically addressed with inefficient heuristic methods such as manually tuning separate learning rates. To overcome this, we introduce MARS (Multimodal Adaptive Rank Search), an approach to discover optimal rank pairs that balance training dynamics while maximizing performance. Our key innovation, a proposed framework of dual scaling laws, enables this search: one law models module-specific convergence time to prune the search space to candidates with aligned dynamics, while the other predicts final task performance to select the optimal pair from the pruned set. By re-purposing the LoRA rank as a controller for modality-specific convergence speed, MARS outperforms baseline methods and provides a robust, automated strategy for optimizing MLLM fine-tuning.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2603.00720",
+    "pdf_url": "https://arxiv.org/pdf/2603.00720.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS",
+      "NVIDIA"
+    ],
+    "prerank_score": 6,
+    "affiliation_lines": [
+      "1UniversityofMichigan 2NVIDIA"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/多模态大模型微调方法的研究，旨在解决训练动态不平衡问题，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "MARS：通过自适应秩搜索协调多模态收敛",
+    "summary_zh": "提出一种利用双缩放定律自动搜索最优 LoRA 秩对的方法，以平衡多模态大模型中各模态的训练动态并提升微调性能。",
+    "key_points": [
+      "提出一种利用双缩放定律自动搜索最优 LoRA 秩对的方法，以平衡多模态大模型中各模态的训练动态并提升微调性能"
+    ]
+  },
+  {
+    "arxiv_id": "2610.28957",
+    "title": "Scan or Index? large Evidence Coverage, Answer Quality, and Cost in Long-Document RAG",
+    "authors": [
+      "Juan Terven",
+      "Diana-Margarita Córdova-Esparza",
+      "Julio-Alejandro Romero-González",
+      "Edgar Chavez-Urbiola",
+      "Juan Irving Vasquez",
+      "Julian Andres Ramirez-Bautista",
+      "Silvia L. Chaparro-Cárdenas",
+      "Gendry Alfonso-Francia"
+    ],
+    "summary": "Scanning every passage in a long document seems thorough, but does it preserve more useful evidence or produce better answers? We compare 11 retrieval configurations spanning lexical and dense search, hybrid reranking, and full-document scanning with Jev, OpenAI Decisions, and Cloudflare Clef. Our evaluation uses 396 QASPER questions and 80 questions from eight complete textbooks, with common passages, a five-passage limit, and a fixed answer generator. On books, Hybrid + Jev achieves the highest observed evidence coverage (94.1%), compared with 88.7% for Jev full scan and 81.3\\% for OpenAI dense retrieval. Full scans examine every passage initially, yet later reduction steps can discard relevant evidence. Higher evidence coverage also does not consistently produce better answers: Hybrid + Decisions achieves the highest observed book Answer Accuracy among retrieval methods (0.892), despite recovering less reference evidence. Full scanning incurs substantially higher latency on books under the tested deployments, while reusable dense retrieval has lower projected API cost than paid decision-based methods as queries accumulate. Most QASPER articles already fit within the hybrid candidate pool, limiting the benefit of scanning. These results highlight evidence retention, answer quality, and reuse cost as complementary criteria for choosing a long-document retrieval strategy.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-20",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.28957",
+    "pdf_url": "https://arxiv.org/pdf/2610.28957.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于长文档问答中的检索策略对比，未涉及推荐系统或搜索引擎的核心业务场景（如个性化、广告、信息流）。",
+    "translation": "扫描还是索引？长文档 RAG 中的证据覆盖、答案质量与成本",
+    "summary_zh": "本文对比了长文档检索中全量扫描与混合索引策略，分析了证据覆盖率、答案准确性及延迟成本之间的权衡关系。",
+    "key_points": [
+      "本文对比了长文档检索中全量扫描与混合索引策略，分析了证据覆盖率、答案准确性及延迟成本之间的权衡关系"
+    ]
+  },
+  {
+    "arxiv_id": "2610.29234",
+    "title": "Learning Marginal Viewpoint Utility for Budgeted Evidence Selection in RAG",
+    "authors": [
+      "Yiyang Duan",
+      "Ziqi Yu",
+      "Tiantong Wu",
+      "Yebo Wu",
+      "Wei Yang Bryan Lim"
+    ],
+    "summary": "Retrieval-augmented generation over multi-viewpoint queries must preserve distinct answers and positions from the retrieved evidence while operating under a fixed context budget. We introduce LMVU, a lightweight ranker that learns to prioritize candidates by the marginal viewpoint coverage they add to the current selection. Training uses viewpoint annotations from each benchmark's development split to compare candidates within the same selection state. At inference, LMVU repeatedly scores budget-feasible candidates as the context grows, without accessing these annotations. We evaluate two forms of recovered viewpoint coverage: RVC$_1$ assigns each viewpoint full credit for at least one supporting source unit, while RVC$_2$ assigns half credit for one and full credit for two or more distinct source units. Exact oracles measure achievable coverage under the same evidence pool and budget. Across four viewpoint-annotated benchmarks at a 1,024-token budget, LMVU achieves gains of up to 0.047 and 0.052 points in RVC$_1$ and RVC$_2$, respectively, over the strongest non-oracle baseline for each benchmark and metric, and reaches the exact viewpoint-breadth ceiling on two benchmarks.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-22",
+    "url": "https://arxiv.org/abs/2610.29234",
+    "pdf_url": "https://arxiv.org/pdf/2610.29234.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于多观点查询的证据选择，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "学习边际视图效用以用于 RAG 中的预算证据选择",
+    "summary_zh": "提出一种轻量级排序器 LMVU，通过在学习过程中评估候选证据对当前选择状态的边际视图覆盖率，实现在固定上下文预算下优化多观点查询的证据选择。",
+    "key_points": [
+      "提出一种轻量级排序器 LMVU，通过在学习过程中评估候选证据对当前选择状态的边际视图覆盖率，实现在固定上下文预算下优化多观点查询的证据选择"
+    ]
+  }
+]

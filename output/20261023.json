@@ -1,0 +1,500 @@
+[
+  {
+    "arxiv_id": "2607.26621",
+    "title": "WhisperRec: Latent Reasoning for Efficient Foundation Recommendation Models",
+    "authors": [
+      "Hao Jiang",
+      "Peiru Du",
+      "Pengfei Yao",
+      "Mengting Li",
+      "Siyuan Lou",
+      "Kuo Cai",
+      "Sheng Yu",
+      "Qiang Luo",
+      "Jian Liang",
+      "Ruiming Tang",
+      "Fei Pan",
+      "Peng Jiang",
+      "Wenwu Ou"
+    ],
+    "summary": "Large language models (LLMs) have demonstrated strong reasoning capabilities, motivating their adoption as backbones for foundation recommendation models (FRMs). Existing approaches typically enhance recommendation with explicit Chain-of-Thought (CoT) under the Think-then-Answer paradigm. However, generating lengthy rationales introduces substantial inference overhead, while fixed CoT templates struggle to model diverse, dynamic, and context-dependent user interests. We propose WhisperRec, an efficient latent reasoning framework for FRMs. WhisperRec compresses teacher-generated CoT into learnable latent reasoning tokens, enabling a Latent-Reason-then-Answer paradigm that performs reasoning in latent space without producing verbose rationales. This design retains decision-relevant reasoning information while avoiding the latency bottleneck of autoregressive rationale generation. Specifically, it first introduces Multi-View Adaptive CoT (MV-ACoT) to construct diverse, high-quality supervision from complementary perspectives on user interests. MV-ACoT also adapts reasoning complexity to each instance, applying lightweight analysis to clear cases and targeted multi-factor reasoning to challenging ones. Building on a pre-trained FRM, WhisperRec then employs a three-stage Latent Reasoning Alignment procedure to progressively internalize teacher CoT into latent representations. Finally, curriculum-based post-training activates latent-token reasoning for downstream recommendation while preserving standard recommendation capability. Experiments on an industrial-scale Kuaishou dataset and the public Kuaishou LLM-Rec benchmark show that WhisperRec consistently outperforms explicit-CoT methods and conventional baselines. Compared with explicit CoT Think and No-Think variants, WhisperRec improves SID@64 by 17.44% and 9.33%, respectively, and achieves over 10x higher online inference throughput.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2607.26621",
+    "pdf_url": "https://arxiv.org/pdf/2607.26621.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统（FRM），提出利用隐式推理令牌解决 LLM 在推荐中显式思维链推理延迟过高的问题，且基于快手工业级数据验证，完美契合核心领域进展与 LLM for RecSys 方向。",
+    "translation": "WhisperRec：面向高效基础推荐模型的隐式推理框架",
+    "summary_zh": "提出一种将教师模型生成的思维链压缩为可学习隐式令牌的框架，通过在潜空间执行推理而非生成冗长文本，在保留决策相关推理信息的同时显著降低推荐系统的推理延迟。",
+    "key_points": [
+      "提出一种将教师模型生成的思维链压缩为可学习隐式令牌的框架，通过在潜空间执行推理而非生成冗长文本，在保留决策相关推理信息的同时显著降低推荐系统的推理延迟"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30675",
+    "title": "OneLatent: Latent Reasoning for Efficient Foundation Recommendation Models",
+    "authors": [
+      "Hao Jiang",
+      "Peiru Du",
+      "Pengfei Yao",
+      "Mengting Li",
+      "Siyuan Lou",
+      "Kuo Cai",
+      "Sheng Yu",
+      "Qiang Luo",
+      "Jian Liang",
+      "Ruiming Tang",
+      "Fei Pan",
+      "Peng Jiang",
+      "Wenwu Ou"
+    ],
+    "summary": "Large language models (LLMs) have demonstrated strong reasoning capabilities, motivating their use as the backbone of foundation recommendation models (FRMs). Existing methods enhance recommendations through explicit Chain-of-Thought (CoT) reasoning under a Think-then-Answer paradigm. However, explicit CoT incurs substantial inference overhead by generating lengthy reasoning traces and relies on manually designed templates that struggle to capture diverse, dynamic user interests. We propose OneLatent, an efficient latent reasoning framework that compresses explicit reasoning traces into several learnable latent tokens, enabling Latent-Reason-then-Answer inference without generating verbose traces. OneLatent first introduces Multi-View Adaptive CoT (MV-ACoT), which creates diverse, high-quality teacher-generated supervision by exploring user interests from multiple perspectives and automatically adapting reasoning complexity to each instance. Building on pretrained FRMs, it then uses a three-stage latent-token alignment paradigm to progressively internalize CoT traces into learnable latent tokens. Finally, a multistage curriculum-based post-training strategy activates latent-token reasoning for downstream recommendation tasks. Experiments on an industrial-scale Kuaishou dataset and the public Kuaishou LLM-Rec benchmark show that OneLatent consistently outperforms explicit CoT-based methods and traditional baselines. Compared with the Think and No-Think variants of FRMs, OneLatent improves SID@64 by 17.44% and 9.33%, respectively, while achieving over 17x higher online inference throughput. We further develop a production serving system for scalable, real-time FRM inference. An online A/B test in Kuaishou's local-services advertising scenario shows that deploying OneLatent with this system yields an estimated 9.6% revenue lift over strong online baselines, including OneRec and OneReason.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30675",
+    "pdf_url": "https://arxiv.org/pdf/2610.30675.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统基础模型（FRM）的推理效率问题，提出潜在推理框架以替代显式 CoT，并在快手本地生活广告场景中验证了显著的营收提升，完全符合核心领域 advances 且来自目标公司。",
+    "translation": "OneLatent：面向高效基础推荐模型的潜在推理方法",
+    "summary_zh": "提出一种将显式思维链压缩为可学习潜在令牌的高效潜在推理框架，通过多视图自适应生成监督和课程后训练策略，在无需生成冗长推理轨迹的情况下实现高性能实时推荐。",
+    "key_points": [
+      "提出一种将显式思维链压缩为可学习潜在令牌的高效潜在推理框架，通过多视图自适应生成监督和课程后训练策略，在无需生成冗长推理轨迹的情况下实现高性能实时推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30825",
+    "title": "Bezier-Guided Adaptive Flow for Cross-domain Sequential Recommendation",
+    "authors": [
+      "Ziang Lu",
+      "Yu Zhang",
+      "Xinzhe Jiang",
+      "Lei Sang",
+      "Yiwen Zhang"
+    ],
+    "summary": "Cross-domain sequential recommendation aims to alleviate data sparsity and cold-start problems by transferring useful preference knowledge across domains. However, users exhibit varying degrees of preference consistency across domains, while existing methods often rely on global alignment objectives or coarse-grained transfer strategies. Such approaches may introduce irrelevant information and provide limited flexibility in adapting semantic representations to individual user preferences. To address these challenges, we propose BGAFlow, a personalized framework that combines state-adaptive semantic evolution with user-specific transfer control. BGAFlow first establishes a shared semantic space through unified dual-domain pretraining with user profiles inferred by a large language model (LLM). Based on latent interest overlap, it then estimates a personalized horizon to determine the appropriate transfer extent for each user. To enable semantic adaptation, BGAFlow constructs a conditional Bezier curve as a geometric reference and learns a residual flow that progressively refines the trajectory based on intermediate preference states. The learned flow incorporates dynamic preference feedback to adjust transfer directions, while recommendation supervision and trajectory regularization encourage effective and smooth adaptation. Extensive experiments on real-world datasets demonstrate that BGAFlow consistently outperforms state-of-the-art baselines, validating the benefits of personalized transfer control and state-adaptive semantic evolution.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30825",
+    "pdf_url": "https://arxiv.org/pdf/2610.30825.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决跨域序列推荐中的核心问题（数据稀疏、冷启动），提出结合 LLM 用户画像与贝塞尔曲线流的新架构，属于高优先级的核心领域创新；且来自中国公司，符合加分条件。",
+    "translation": "贝塞尔引导自适应流用于跨域序列推荐",
+    "summary_zh": "提出 BGAFlow 框架，利用 LLM 构建共享语义空间，并通过个性化贝塞尔曲线残差流动态调整跨域偏好迁移轨迹，以实现细粒度的用户语义适应。",
+    "key_points": [
+      "提出 BGAFlow 框架，利用 LLM 构建共享语义空间，并通过个性化贝塞尔曲线残差流动态调整跨域偏好迁移轨迹，以实现细粒度的用户语义适应"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30359",
+    "title": "FAIRGate: Agentic Runtime Policy Selection and Verified Repair for Fairer Recommendation Delivery",
+    "authors": [
+      "Navkar Jain",
+      "Enock Ayiku",
+      "Kenneth Fletcher"
+    ],
+    "summary": "Fairness-aware recommender systems often encode one fairness objective during training or apply a fixed re-ranking rule after scoring. In deployment, however, the appropriate fairness action can vary across requests because the candidate pool, item metadata, exposure debt, user preference history, and utility budget all change at runtime. We propose FAIRGate, a model-agnostic delivery controller that places an agentic policy-selection layer between a base ranker and the final top-K list. The agent does not define fairness objectives from scratch. It chooses from a predefined policy library covering long-tail exposure, item-group exposure balance, concentration control, calibration protection, and abstention. A deterministic executor then applies the selected policy through constrained repair, and a validator accepts the result only when relevance, feasibility, metadata, calibration, and audit constraints are satisfied. The final language-model component receives only the verified audit trace and produces evidence-linked narration after the ranking decision is fixed. This design gives the agent runtime responsibility while keeping fairness enforcement measurable, bounded, and replayable.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30359",
+    "pdf_url": "https://arxiv.org/pdf/2610.30359.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统的重排序（re-ranking）环节提出公平性控制架构，属于核心领域进展；虽含 LLM 组件但仅用于事后审计而非核心推理，非纯 LLM 研究。因来自中国公司额外 +1 分。",
+    "translation": "FAIRGate：面向更公平推荐交付的代理式运行时策略选择与验证修复",
+    "summary_zh": "提出一种模型无关的推荐交付控制器，通过在基础排序器与最终列表间插入代理层，根据运行时上下文动态选择预定义公平策略并执行约束修复，仅在决策固定后利用语言模型生成审计叙述。",
+    "key_points": [
+      "提出一种模型无关的推荐交付控制器，通过在基础排序器与最终列表间插入代理层，根据运行时上下文动态选择预定义公平策略并执行约束修复，仅在决策固定后利用语言模型生成审计叙述"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30932",
+    "title": "UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents",
+    "authors": [
+      "Jujia Zhao",
+      "Jiakai Tang",
+      "Jing Yu",
+      "Wen Chen",
+      "Jian Wu",
+      "Han Zhu",
+      "Fei Sun",
+      "Suzan Verberne",
+      "Zhaochun Ren"
+    ],
+    "summary": "Agentic recommendation pursues shopper goals through sequences of context-dependent decisions. Developing and evaluating such policies requires faithful recommendation world models that capture both the interactive shopping environment and users' behavioral responses over long interactions. Existing resources rarely provide long-horizon, fine-grained real-user trajectories or support trajectory-level evaluation and offline validation against production A/B results. We introduce UserArena, a real-world e-commerce interactive benchmark containing 64,729 session trajectories from 11,010 users, spanning 566,102 items and 13 action types. UserArena pairs these trajectories with an interactive environment and supports offline validation against outcomes from a controlled production A/B test, enabling five-level evaluation from output validity and local decisions to sequential behavior, personalization, and outcomes. To improve simulator fidelity over these long-horizon interactions, we further propose On-Policy Trajectory Distillation (OPTD), which uses trajectory-level intent to provide dense teacher targets on student-generated rollouts. Experiments show that OPTD achieves the strongest overall fidelity among the evaluated simulators under UserArena's evaluation protocol and most closely reproduces the production policy effect in offline simulation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30932",
+    "pdf_url": "https://arxiv.org/pdf/2610.30932.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "1LeidenUniversity 2RenminUniversityofChina 3AlibabaGroup",
+      "4InstituteofComputingTechnology,ChineseAcademyofSciences",
+      "mendationpolicyrequireascalablerecommendationworldmodelt"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商推荐场景，提出了长周期用户交互仿真基准和用户模拟方法，旨在解决推荐策略的离线评估与优化问题，具有极高的业务应用价值。",
+    "translation": "UserArena：面向长周期购物智能体的交互式用户仿真基准评测",
+    "summary_zh": "本文构建了包含真实长周期会话轨迹的电商交互基准 UserArena，并提出基于轨迹意图蒸馏的 On-Policy Trajectory Distillation 方法，以提升用户模拟器在长程交互中的保真度及离线评估对线上实验的预测能力。",
+    "key_points": [
+      "本文构建了包含真实长周期会话轨迹的电商交互基准 UserArena，并提出基于轨迹意图蒸馏的 On-Policy Trajectory Distillation 方法，以提升用户模拟器在长程交互中的保真度及离线评估对线上实验的预测能力"
+    ]
+  },
+  {
+    "arxiv_id": "2512.10551",
+    "title": "LLM-Auction: Generative Auction towards LLM-Native Advertising",
+    "authors": [
+      "Chujie Zhao",
+      "Qun Hu",
+      "Shiping Song",
+      "Dagui Chen",
+      "Han Zhu",
+      "Jian Xu",
+      "Bo Zheng"
+    ],
+    "summary": "The commercialization of LLM applications is the next frontier in online advertising, with LLM-native advertising emerging as a promising paradigm by integrating ads into LLM-generated content. However, classic mechanisms are no longer applicable in this setting where the auction object is shifted from discrete ad slots to distributions over LLM outputs, and existing methods are impractical in industrial scenarios due to ignored externalities or high inference costs. To address these issues, we propose LLM-Auction, the first learning-based generative auction mechanism that integrates auction and generation. By formulating the allocation as preference alignment between LLM outputs and a mechanism objective that balances advertisers' value and user experience, we optimize the LLMs to inherently model allocation externalities without extra inference cost. Theoretically, we identify the allocation monotonicity and continuity of the optimal allocation rule of LLM-Auction, and prove that a simple first-price payment rule exhibits favorable incentive properties under this allocation rule. Furthermore, we build an LLM-as-a-judge simulation environment for quantitative evaluation, and experiments demonstrate that LLM-Auction achieves the state-of-the-art allocation efficiency while approximately satisfying key mechanism properties.",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2512.10551",
+    "pdf_url": "https://arxiv.org/pdf/2512.10551.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对 LLM 原生广告（Ads）场景，提出了将拍卖机制与大模型生成过程融合的新架构，解决了推荐/广告系统中的核心商业化问题，非纯 LLM 研究。",
+    "translation": "LLM-Auction：面向 LLM 原生广告的生成式拍卖机制",
+    "summary_zh": "提出一种学习式生成式拍卖机制，通过将广告分配建模为大模型输出与机制目标的偏好对齐，使模型在生成过程中内化外部性并优化 advertiser 价值与用户体验的平衡。",
+    "key_points": [
+      "提出一种学习式生成式拍卖机制，通过将广告分配建模为大模型输出与机制目标的偏好对齐，使模型在生成过程中内化外部性并优化 advertiser 价值与用户体验的平衡"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30697",
+    "title": "Lychee: Certified Screening of Inverted Lists for High-Recall Vector Search",
+    "authors": [
+      "Dongfang Zhao"
+    ],
+    "summary": "Nearest-neighbor search over embedding vectors matches faces against watchlists, transactions against known fraud patterns, and medical images against confirmed cases, where a missed neighbor is a missed threat, fraud, or diagnosis. Because an approximate index cannot report which queries lost a true neighbor, these applications require recall of 0.999 to 0.9999, at a cost far below that of exact search over billions of vectors. Inverted-file indexes reach high recall by probing more lists, but they read and score every probed vector at full precision, so that throughput falls in inverse proportion to the number of probed lists. Graph indexes saturate below these targets, whereas quantized lists must rerank their candidates with the full vectors. Our insight is to decide for almost every probed vector that it cannot enter the top k of the probed lists without reading the vector, through the certified lower bound of exact search by certified exclusion. This paper turns this insight into Lychee, a GPU inverted-file search that screens the probed lists on tensor cores under a threshold from anchors of the same lists and computes exact distances only for the few survivors. We prove that Lychee returns exactly the k nearest vectors of the probed lists, the answer of an inverted-file search at full precision, while it reads a few hundred full vectors per query regardless of the number of probed lists. On eleven datasets from one million to one billion vectors and against ten GPU and CPU baselines, Lychee is 9.7 to 117 times faster than IVF-Flat at equal recall with 200 probed lists on datasets of up to 100 million vectors. It also reaches recall levels that CAGRA and HNSW do not reach and outruns exact search by certified exclusion by 5 to 18 times above ten million vectors. On four GPUs, Lychee searches one billion vectors at recall 0.9999, 44.5 times faster than IVF-Flat on BIGANN-1B.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30697",
+    "pdf_url": "https://arxiv.org/pdf/2610.30697.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种针对高召回率向量搜索的优化方法，直接服务于推荐/搜索系统的核心检索环节，虽非纯 LLM 研究但属于关键基础设施技术。",
+    "translation": "Lychee：面向高召回向量搜索的倒排列表认证筛选",
+    "summary_zh": "提出 Lychee 方法，通过认证排除机制在 GPU 张量核上快速筛选倒排列表中的候选向量，仅对少量幸存者计算精确距离，从而在保证高召回率的前提下大幅提升大规模向量搜索效率。",
+    "key_points": [
+      "提出 Lychee 方法，通过认证排除机制在 GPU 张量核上快速筛选倒排列表中的候选向量，仅对少量幸存者计算精确距离，从而在保证高召回率的前提下大幅提升大规模向量搜索效率"
+    ]
+  },
+  {
+    "arxiv_id": "2610.24478",
+    "title": "Beyond Recall Saturation: Scaling Hard-Negative Reranker Training for Industrial Legal Retrieval",
+    "authors": [
+      "Yunhan Li",
+      "Mingjie Xie",
+      "Zeyang Shi",
+      "Gengshen Wu",
+      "Min Yang"
+    ],
+    "summary": "Industrial retrieval systems often improve quality by enlarging embedding candidate pools or adopting complex training pipelines. We show that, under a sufficiently large but practical candidate pool, embedding recall exhibits diminishing returns, motivating a closer examination of reranker quality. On Chinese legal retrieval benchmarks, embedding top-300 reaches a high-recall operating region, while relevant evidence may still be ranked below the output cutoff. We compare hard-negative strategies for reranker training, including embedding-mined, self-mined, and dynamic-negative variants, under aligned retrieval protocols that evaluate reranking after candidate retrieval. Among the evaluated staged configurations, an embedding-to-self-mined pipeline provides a favorable trade-off; additional dynamic stages do not improve all held-out metrics. The selected pipeline scales from a 0.6B to a 4B reranker. Relative to the native 4B reranker, the trained 4B Stage2 model improves reported metrics on the STARD and CSAID benchmarks and on an internal development set, and is preferred in 72.4\\% of non-tied comparisons on 410 de-identified, reconstructed internal operational-query inputs in a latency-sensitive offline preference evaluation. These results support evaluating the retrieval and reranking stages separately when selecting an optimization target for industrial retrieval systems.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.24478",
+    "pdf_url": "https://arxiv.org/pdf/2610.24478.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文聚焦工业级检索系统中的重排序（Reranking）环节，提出了针对硬负样本挖掘的训练策略以解决召回饱和后的排序质量问题，属于搜索核心技术的直接应用。",
+    "translation": "超越召回饱和：扩展工业法律检索中的硬负样本重排序器训练",
+    "summary_zh": "针对工业检索系统在召回饱和后质量提升受限的问题，提出了一种从嵌入挖掘到自挖掘的分阶段硬负样本重排序器训练策略，以优化大模型重排序器的排序质量。",
+    "key_points": [
+      "针对工业检索系统在召回饱和后质量提升受限的问题，提出了一种从嵌入挖掘到自挖掘的分阶段硬负样本重排序器训练策略，以优化大模型重排序器的排序质量"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30612",
+    "title": "The Fusion Tax: A Diagnostic Analysis of When Hybrid Retrieval Hurts",
+    "authors": [
+      "Aaditya Chauhan",
+      "Arun Agarwal"
+    ],
+    "summary": "Hybrid retrieval, which fuses a sparse lexical retriever with a dense neural one, is widely recommended in the software documentation surveyed in September 2026, usually with reciprocal rank fusion (RRF), on the strength of aggregate gains. We ask what fusion costs on individual queries, treating \"do not fuse\" as a first-class outcome, in the setting in which hybrid retrieval is deployed: a standard Anserini BM25, five dense encoders spanning 22M-596M parameters and three model generations, a learned-sparse (SPLADE) alternative, and a cross-encoder second stage, on seven BEIR datasets and three fusion functions. Even the best method, dense-weighted score interpolation, ranks relevant documents below the better of its two components on 13-48% of queries and below the deployable dense-only retriever on 8-21% (14-48% and 11-25% at a weight selected under leave-one-corpus-out validation), while beating dense-only in aggregate on every corpus with the primary encoder; the downside is significant under loss-averse risk-sensitive evaluation on six of the seven corpora. We call this loss the fusion tax. It is mostly a ranking effect that preserves recall in aggregate, it is most likely on the queries that only one retriever covers, and it persists across the encoder ladder and the SPLADE substitution. RRF carries the higher tax wherever the dense retriever is clearly stronger and only beats dense-only where the two components are balanced. Fusion failure is weakly predictable within a corpus but transfers unreliably across corpora, because the features that predict it change sign with the sparse-dense balance. A cross-encoder recovers part of the tax only where it is itself reliable. We distill these findings into guidance that keys the fusion decision to the measured sparse-dense balance of the target corpus.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30612",
+    "pdf_url": "https://arxiv.org/pdf/2610.30612.pdf",
+    "prerank_score": 7,
+    "relevance_score": 8,
+    "reasoning": "该论文直接研究混合检索（稀疏 + 稠密）在搜索系统中的融合代价与失败场景，属于搜索核心检索环节的关键分析，虽非纯 LLM 研究但对搜索架构优化极具价值。",
+    "translation": "融合税：混合检索何时产生负面影响的诊断分析",
+    "summary_zh": "本文提出“融合税”概念，诊断发现混合检索策略在部分查询上会导致排序效果劣于单一组件，并建议根据语料库的稀疏 - 稠密平衡动态决策是否进行融合。",
+    "key_points": [
+      "本文提出“融合税”概念，诊断发现混合检索策略在部分查询上会导致排序效果劣于单一组件，并建议根据语料库的稀疏 - 稠密平衡动态决策是否进行融合"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30425",
+    "title": "Getting a GRIP on Graph-Based Search for Learned Sparse Retrieval",
+    "authors": [
+      "Vihan Lakshman",
+      "Franco Maria Nardini",
+      "Cosimo Rulli",
+      "Rossano Venturini"
+    ],
+    "summary": "Learned sparse retrieval (LSR) has recently gained traction in the information retrieval community for the ability to combine the generalization capabilities of neural representations with the interpretability of keyword-based search. A number of recent works have demonstrated that inverted indexes, when appropriately modified for learned sparse embeddings, achieve state-of-the-art recall-latency tradeoffs for LSR, often outperforming graph-based indexes by substantial margins in latency at a fixed recall target. As a result, the community has generally concluded that graph-based approximate nearest neighbor (ANN) search is inferior to inverted indexes for LSR. This paper challenges this conventional wisdom. Our key insight is that, while applying standard graph-based ANN indexes out-of-the-box to sparse vectors leads to uncompetitive performance, we can overcome these shortcomings by infusing the strengths of inverted indexes into graph-based search. In particular, we introduce three techniques to accelerate graph-based LSR: (i) term-based entry point seeding, (ii) approximate routing via sparse sketching, and (iii) sparse partition-based graph construction. We combine these techniques into a new graph-based ANN system for LSR we call GRIP. On the MS MARCO v2 benchmark (138M passages) with SPLADE embeddings, GRIP achieves a $2.5\\times$ latency improvement over Seismic, a state-of-the-art inverted index tailored for LSR, at 95\\% recall@10. Ultimately, our results call into question the default choice of inverted indexes for deploying learned sparse retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.DB"
+    ],
+    "published": "2026-10-21",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30425",
+    "pdf_url": "https://arxiv.org/pdf/2610.30425.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该文聚焦搜索引擎核心检索环节（稀疏向量索引优化），提出了改进图搜索的新方法，属于明确的搜索技术应用，但主要贡献在于底层索引工程而非推荐算法或 LLM 应用创新。",
+    "translation": "掌握图基搜索：面向学习式稀疏检索的优化方法",
+    "summary_zh": "针对学习式稀疏检索中图索引性能不足的问题，提出融合倒排索引优势的三项技术（术语入口 seeding、稀疏草图路由、稀疏分区构建），构建了名为 GRIP 的新型图基近似最近邻搜索系统。",
+    "key_points": [
+      "针对学习式稀疏检索中图索引性能不足的问题，提出融合倒排索引优势的三项技术（术语入口 seeding、稀疏草图路由、稀疏分区构建），构建了名为 GRIP 的新型图基近似最近邻搜索系统"
+    ]
+  },
+  {
+    "arxiv_id": "2405.13795",
+    "title": "A Memory-Efficient Distributed Algorithm for Approximate Nearest Neighbour Search with Arbitrary Distances",
+    "authors": [
+      "Elena Garcia-Morato",
+      "Maria Jesus Algar",
+      "Cesar Alfaro",
+      "Felipe Ortega",
+      "Javier Gomez",
+      "Javier M. Moguerza"
+    ],
+    "summary": "Approximate nearest neighbour (ANN) search has become a central task in modern data-intensive applications, particularly when operating on large-scale, heterogeneous, or high-dimensional datasets. However, many existing ANN methods struggle in such scenarios, either because they rely on metric assumptions or because their indexing strategies are not well suited to distributed environments or to settings with constrained memory resources. This work introduces PDASC (Parametrizable Distributed Approximate Similarity Search with Clustering), a distributed ANN search algorithm whose index design jointly addresses three concerns commonly treated separately in the ANN literature: support for arbitrary dissimilarity functions, native distributed execution, and efficient operation under constrained memory environments, avoiding reliance on specialised hardware accelerators or costly memory resources. PDASC builds a distributed hierarchical index that accommodates non-metric and domain-specific similarities while naturally partitioning indexing and search across multiple computing nodes, with a compact per-node memory footprint. By preserving locally informative neighbourhood structure, the proposed index reduces sensitivity to practical manifestations of the curse of dimensionality in high-dimensional spaces. We analyse how the index structural parameters govern the trade-offs among recall, computational cost, and memory usage. Experimental evaluation across multiple benchmark datasets and distance functions shows that PDASC achieves competitive accuracy-efficiency trade-offs while consistently requiring lower per-node memory compared to state-of-the-art ANN methods.",
+    "categories": [
+      "cs.IR",
+      "cs.DB"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2405.13795",
+    "pdf_url": "https://arxiv.org/pdf/2405.13795.pdf",
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "该文提出了一种通用的分布式近似最近邻搜索算法，虽未明确针对推荐/搜索业务场景，但 ANN 是召回阶段的核心技术，具有直接应用潜力；因来自 TAL 公司，按规则额外 +1 分。",
+    "translation": "一种支持任意距离度量的内存高效分布式近似最近邻搜索算法",
+    "summary_zh": "提出 PDASC 算法，通过构建分布式分层索引，在受限内存环境下实现支持任意非度量距离函数的高效近似最近邻搜索。",
+    "key_points": [
+      "提出 PDASC 算法，通过构建分布式分层索引，在受限内存环境下实现支持任意非度量距离函数的高效近似最近邻搜索"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30177",
+    "title": "FlexVDR: Learning to Allocate Matryoshka Representation Budgets for Visual Document Retrieval",
+    "authors": [
+      "Haowen Xiang",
+      "Yibo Yan",
+      "Xin Zou",
+      "Shuliang Liu",
+      "Yi Cao",
+      "Mingdong Ou",
+      "Xuming Hu"
+    ],
+    "summary": "Visual document retrieval relies on rich multi-vector representations to capture fine-grained evidence in document pages, but encoding and matching these representations can be computationally expensive. Existing compression and elastic representation methods expose smaller configurations, yet making multiple budgets available does not determine which configuration a query should use. The allocation decision must estimate the retrieval value of alternative representations before incurring their full computation, while accommodating different resource preferences. We introduce FlexVDR, a framework for query-adaptive budget allocation within a single retriever. We construct a joint family of routes over encoder depth, embedding width, and token count. Retrieval supervision and distillation train the compact routes, while a native bypass preserves the full-budget reference. A Budget Allocator predicts route-specific retrieval utility from early query features and combines these predictions with a configurable resource preference to select a route. Experiments across five backbones on ViDoRe V1, V2, and V3 public show that FlexVDR retains much of the native retrieval quality while selecting compact routes for individual queries. A configurable resource preference allows the same retriever to adjust its computation without retraining or switching models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30177",
+    "pdf_url": "https://arxiv.org/pdf/2610.30177.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该文针对视觉文档检索（搜索的子任务）提出自适应计算预算分配方法，属于多模态搜索优化，但并非核心推荐系统或通用 LLM 应用。",
+    "translation": "FlexVDR：学习为视觉文档检索分配套娃表示预算",
+    "summary_zh": "提出一种查询自适应的预算分配框架，通过预测不同编码路径的检索效用，在单模型内动态选择计算资源以平衡视觉文档检索的效率与质量。",
+    "key_points": [
+      "提出一种查询自适应的预算分配框架，通过预测不同编码路径的检索效用，在单模型内动态选择计算资源以平衡视觉文档检索的效率与质量"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30167",
+    "title": "IRAH: Hierarchical Agentic Tree Search for Retrieval Pipeline Optimization",
+    "authors": [
+      "Maria Ana Cardei",
+      "Aniket Singh",
+      "Amir Moghadam",
+      "Srividhya Baikadi",
+      "Rashmi Shetty"
+    ],
+    "summary": "Optimizing Information Retrieval (IR) pipelines for Retrieval-Augmented Generation (RAG) requires jointly selecting structural components and numerical hyperparameters under limited evaluation budgets. We introduce the Information Retrieval Agentic Harness (IRAH), which combines Language Agent Tree Search for IR (LATS-IR) with offline meta-learned initialization. LATS-IR performs UCT-guided hierarchical search, first exploring macro-structural pipeline choices and then refining numerical parameters, with natural-language reflections to guide subsequent mutations and provide inspectable search traces. We evaluate IRAH on three in-distribution benchmarks and one out of-distribution benchmark to assess generalization under distribution shift. Under the same meta-learned initialization, LATS-IR outperforms TPE on two of three in-distribution benchmarks, with gains of up to 6.4%, and remains competitive on the out-of-distribution benchmark. Across all four benchmarks, warm-started IRAH achieves the highest average held-out nDCG@10 (0.4816) and improves over its cold-start counterpart. These results establish IRAH as a competitive approach to retrieval pipeline optimization under constrained evaluation budgets.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30167",
+    "pdf_url": "https://arxiv.org/pdf/2610.30167.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于利用 LLM Agent 优化 RAG 中的检索流水线超参数，属于通用 IR 自动化方法，缺乏针对推荐系统或搜索排序核心业务场景（如用户建模、个性化排序）的直接应用与创新。",
+    "translation": "IRAH：用于检索流水线优化的分层代理树搜索",
+    "summary_zh": "提出一种结合语言代理树搜索与元学习初始化的分层优化框架，通过宏观结构选择与微观参数 refinement 的协同搜索，在有限评估预算下自动构建高效的检索增强生成流水线。",
+    "key_points": [
+      "提出一种结合语言代理树搜索与元学习初始化的分层优化框架，通过宏观结构选择与微观参数 refinement 的协同搜索，在有限评估预算下自动构建高效的检索增强生成流水线"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30909",
+    "title": "TwinStore: A Synthetic Consumer Platform Using Vision--Language Models",
+    "authors": [
+      "Minhyeok Lee"
+    ],
+    "summary": "We present TwinStore, a source-available synthetic consumer platform for physical retail built on vision--language models. TwinStore turns a store into a digital twin---from 82 ready-made formats, a floor-plan image or phone photos of its shelves---and fills it with synthetic shoppers who plan a trip, walk the aisles and decide what to buy by looking at rendered shelves with packs, price tags and promotion signs. Every trip ends in a receipt, so a layout, price, pack or promotion can be tried on the same shoppers before it reaches the store. Around this core, TwinStore provides 3D playback, paired comparisons and layout optimization, shopper interviews, a trade-area model, counterfactual edits of real shelf photos, a marketing studio with eleven tools, and an assistant that turns a plain sentence into a drafted study or an answer grounded in a run's own numbers. In a held-out validation on eleven public datasets, simulated receipts approach the households' own natural variation (category-mix divergence 0.017--0.018 against a real drift of 0.012), price elasticities fall inside the range measured in the field, and three independent decision models agree. TwinStore runs on cloud or on-device models and is distributed with installers for Windows, macOS and Linux.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30909",
+    "pdf_url": "https://arxiv.org/pdf/2610.30909.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要利用 VLM 构建零售环境的数字孪生进行仿真模拟，属于营销科学和运营优化范畴，缺乏推荐系统核心的召回、排序或个性化用户建模技术，且非纯 LLM 研究故未给最低分。",
+    "translation": "TwinStore：基于视觉 - 语言模型的合成消费者平台",
+    "summary_zh": "提出一种基于视觉 - 语言模型的合成消费者平台，通过构建商店数字孪生和模拟 shopper 行为来评估货架布局、价格及促销策略的效果。",
+    "key_points": [
+      "提出一种基于视觉 - 语言模型的合成消费者平台，通过构建商店数字孪生和模拟 shopper 行为来评估货架布局、价格及促销策略的效果"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30728",
+    "title": "Federated Graph Retrieval-Augmented Generation",
+    "authors": [
+      "Xiaobao Wang",
+      "Renda Han",
+      "Zhiliang Xia",
+      "Meng Liu",
+      "Renxiang Guan",
+      "Di Jin"
+    ],
+    "summary": "Graph Retrieval-Augmented Generation (GraphRAG) leverages centralized knowledge graphs to enhance large language models with structured knowledge retrieval. However, real-world knowledge is inherently distributed across multiple organizations rather than being centrally accessible. Privacy constraints further prohibit sharing entire local knowledge graphs, preventing GraphRAG from effectively retrieving and utilizing distributed knowledge. To this end, we propose Federated GraphRAG (FedGRAG), a unified framework for distributed graph retrieval and knowledge-enhanced generation over multiple clients with knowledge graphs. Specifically, we address two fundamental challenges in federated GraphRAG. First, the absence of a global knowledge graph makes unified retrieval impossible. To address this, we develop a Federated Knowledge Routing mechanism that efficiently identifies relevant clients through lightweight knowledge indices without exposing local graph structures. Second, local graph memory cannot be shared directly because it contains sensitive entities and knowledge information. We therefore propose a controlled-disclosure evidence construction method. It extracts retrieved evidence subgraphs and converts them into an evidence abstract, enabling evidence conversion and reconstruction on the server. Extensive experiments demonstrate that Federated GraphRAG consistently outperforms existing baselines in both retrieval and downstream generation tasks, establishing a new paradigm for deploying GraphRAG in federated environments.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-22",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30728",
+    "pdf_url": "https://arxiv.org/pdf/2610.30728.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 与联邦学习结合的研究，聚焦于分布式知识图谱的检索增强生成，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属弱相关。",
+    "translation": "联邦图检索增强生成",
+    "summary_zh": "提出联邦图检索增强生成框架，通过联邦知识路由机制和可控披露证据构建方法，解决分布式环境下隐私保护与结构化知识检索生成的难题。",
+    "key_points": [
+      "提出联邦图检索增强生成框架，通过联邦知识路由机制和可控披露证据构建方法，解决分布式环境下隐私保护与结构化知识检索生成的难题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.30181",
+    "title": "Deep Search in Real-World Web Environments",
+    "authors": [
+      "Xiaomin Yu",
+      "Hongliang Chen",
+      "Zhe Huang",
+      "Shilin Yan",
+      "Shao-Rong Su",
+      "Xuqiao Ma",
+      "Feiyang Wang",
+      "Jiayu Chen",
+      "Jiwei Fang",
+      "Yu Yan",
+      "Yini Huang",
+      "Chen Chen",
+      "Ruoxi Cheng",
+      "Yuzhi He",
+      "Yuhui Zhang",
+      "Xiaoxing Hu",
+      "Chen Liu",
+      "Jianbo Lin",
+      "Yijiang Li",
+      "Xiaobin Hu",
+      "Menglong Li",
+      "Zhuoran Lu",
+      "Weishi Wang",
+      "Zhongqi Yue",
+      "Chengwei Qin"
+    ],
+    "summary": "Despite substantial progress in Deep Search agents, their ability to conduct end-to-end research in real-world open Web environments remains insufficiently evaluated. Unlike static retrieval settings, information on the real-world Web is distributed across diverse sources, modalities, and heterogeneous formats, often involving complex interaction mechanisms that require agents to autonomously search for, access, and integrate relevant evidence during execution. To address this gap, we introduce the OpenDS task, designed to evaluate agents' ability to perform multi-step deep search in the live, open Web. This task requires agents to autonomously explore the real Web, discover and connect relevant evidence from multiple independent sources through Web search, browser interaction, and evidence processing, and ultimately determine a unique factual answer. Building on this task formulation, we construct OpenDS-World, a benchmark comprising 200 challenging tasks spanning diverse information modalities, heterogeneous file formats, and interactive access requirements, with independent human verification to ensure evidence validity and answer uniqueness. We evaluate 12 frontier models under a unified tool environment and execution protocol. The best-performing model achieves 39.0% accuracy, while human evaluation across 1,000 independent attempts yields 21.1% accuracy. Further analyses of tool usage, search cost, termination behavior, and failure recovery reveal substantial differences in research strategies across models, as well as persistent challenges in tool coordination and long-horizon search management. OpenDS-World provides a unified evaluation platform for systematically assessing and advancing agents' autonomous deep search capabilities in real-world open Web environments.",
+    "categories": [
+      "cs.IR",
+      "cs.MM",
+      "cs.SE"
+    ],
+    "published": "2026-10-19",
+    "updated": "2026-10-23",
+    "url": "https://arxiv.org/abs/2610.30181",
+    "pdf_url": "https://arxiv.org/pdf/2610.30181.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "1HKUST(GZ) 2FDU 3UW 4IC 5NTU 6Stanford 7SJTU 8Yale 9NJU 10UCSD 11NUS 12HKU 13SAP 14MicrosoftResearch"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM Agent 研究，专注于评估通用网络环境下的自主搜索与推理能力，未涉及推荐系统或搜索引擎的核心架构（如召回、排序、用户建模）。",
+    "translation": "真实世界网络环境中的深度搜索",
+    "summary_zh": "提出 OpenDS 任务与基准，旨在评估智能体在开放网络环境中通过多步交互、跨源证据整合进行自主深度搜索以解决复杂事实问题的能力。",
+    "key_points": [
+      "提出 OpenDS 任务与基准，旨在评估智能体在开放网络环境中通过多步交互、跨源证据整合进行自主深度搜索以解决复杂事实问题的能力"
+    ]
+  }
+]

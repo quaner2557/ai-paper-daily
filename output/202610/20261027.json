@@ -1,0 +1,391 @@
+[
+  {
+    "arxiv_id": "2604.13273",
+    "title": "Mitigating Collaborative Semantic ID Staleness in Generative Retrieval",
+    "authors": [
+      "Vladimir Baikalov",
+      "Iskander Bagautdinov",
+      "Sergey Muravyov"
+    ],
+    "summary": "Generative retrieval with Semantic IDs (SIDs) assigns each item a discrete identifier and treats retrieval as a sequence generation problem rather than a nearest-neighbor search. While content-only SIDs are stable, they do not take into account user-item interaction patterns, so recent systems construct interaction-informed SIDs. However, as interaction patterns drift over time, these identifiers become stale, i.e., their collaborative semantics no longer match recent logs. Prior work typically assumes a fixed SID vocabulary during fine-tuning, or treats SID refresh as a full rebuild that requires retraining. However, SID staleness under temporal drift is rarely analyzed explicitly. To bridge this gap, we study SID staleness under strict chronological evaluation and propose a lightweight, model-agnostic SID alignment update. Given refreshed SIDs derived from recent logs, we align them to the existing SID vocabulary so the retriever checkpoint remains compatible, enabling standard warm-start fine-tuning without a full rebuild-and-retrain pipeline. Across three public benchmarks, our update consistently improves Recall@K and nDCG@K at high cutoffs over naive fine-tuning with stale SIDs and reduces retriever-training compute by approximately 8-9 times compared to full retraining.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-04-14",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2604.13273",
+    "pdf_url": "https://arxiv.org/pdf/2604.13273.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接解决生成式检索（Generative Retrieval）中的核心痛点，即语义 ID 随时间漂移导致的失效问题，提出了无需全量重训的轻量级对齐更新方法，属于搜索/推荐核心架构创新；且来自好未来（TAL），符合加分项。",
+    "translation": "缓解生成式检索中协同语义 ID 的时效性问题",
+    "summary_zh": "针对生成式检索中因用户交互模式漂移导致的语义 ID 失效问题，提出一种模型无关的轻量级 ID 对齐更新机制，使现有检索模型能兼容新 ID 并进行热启动微调，避免全量重建与重训。",
+    "key_points": [
+      "针对生成式检索中因用户交互模式漂移导致的语义 ID 失效问题，提出一种模型无关的轻量级 ID 对齐更新机制，使现有检索模型能兼容新 ID 并进行热启动微调，避免全量重建与重训"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33435",
+    "title": "PinGER: Token-Efficient Generative Retrieval with Semantic IDs",
+    "authors": [
+      "Xinyi Li",
+      "Sujan Reddy Ale",
+      "Yi-Ping Hsu",
+      "Zelun Wang",
+      "Yilin Chen",
+      "Hanyu Li",
+      "Hanlin Lu",
+      "Arkin Dharawat",
+      "Lulu Yao",
+      "Yaxin Li",
+      "Bella Huang",
+      "Xiangyi Chen",
+      "Jaewon Yang",
+      "Jiajing Xu",
+      "Charles Rosenberg"
+    ],
+    "summary": "Generative retrieval replaces nearest-neighbor search with token-by-token decoding of an item's semantic ID (SID). But existing SID-based methods primarily use L levels of tokens sequentially to represent each item in the input history. As a result, a fixed context window holds L times fewer items than it would with one embedding per item. We present PinGER, a generative retriever deployed at Pinterest that retains SID outputs while making input histories compact, built on three ideas. (1) An asymmetric attention mask over interleaved SID and dense tokens lets later items attend only to the dense ones, so the model is supervised at every SID position in training yet serves one token per item while computing the same function. (2) Generation is controllable through goal-conditioned outputs, reinforcement learning, and a prefix-diversity penalty, which together steer retrieval toward surface-specific goals and diverse candidates. (3) A serving stack built for efficient wide-beam generation is paired with decoding constrained to valid identifiers and candidate resolution from a host-local index. Deployed in Related Pins, PinGER lifts saves of fresh Pins by 3.60% and overall saves by 0.62%, while reducing the surface's end-to-end latency by 0.7% and eliminating the cost of the nearest-neighbor search it replaces.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-24",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33435",
+    "pdf_url": "https://arxiv.org/pdf/2610.33435.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文是 Pinterest 部署的生成式检索系统，直接解决推荐系统中的召回效率与多样性问题，且来自中国团队（+1 分已计入满分上限）。",
+    "translation": "PinGER：基于语义 ID 的令牌高效生成式检索",
+    "summary_zh": "提出 PinGER 架构，通过非对称注意力掩码压缩输入历史并实现单令牌推理，结合目标条件生成与前缀多样性惩罚，在消除近邻搜索成本的同时提升推荐多样性与延迟表现。",
+    "key_points": [
+      "提出 PinGER 架构，通过非对称注意力掩码压缩输入历史并实现单令牌推理，结合目标条件生成与前缀多样性惩罚，在消除近邻搜索成本的同时提升推荐多样性与延迟表现"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33168",
+    "title": "How Much Fresh Data Should CTR Recalibration Use? A Temporal Evaluation of Post-hoc Calibration",
+    "authors": [
+      "Rui Liu"
+    ],
+    "summary": "Offline evaluation of click-through rate (CTR) models still defaults to random splits, although deployed models score future traffic and downstream systems consume calibrated probabilities. On Avazu (40.4M impressions) we train logistic regression (LR), DeepFM, and DCN-v2 under two rolling temporal origins and a random split, three seeds per arm, and recalibrate each test day with Platt scaling and isotonic regression fitted on the preceding hours. At origin 1's nearest test day, random splits report LR's expected calibration error (ECE) at 55-62% of the temporal value in every seed (the deep models' ratio is seed-unstable), and no model's ECE is monotone in temporal distance. With a 6-hour fitting slice, recalibration removes up to 61% of ECE in badly miscalibrated cells but increases it in about a third of applications (14-17 of 48 across seeds). On fixed evaluation sets, a 12-hour slice cuts harm from 13-17 to 3-5 of 36 applications, and 24 hours raises it again. The 12-hour slice subsampled to the 1-hour slice's size (5% of the impressions; 20-25x faster to fit) recovers 88% of the full slice's gain, so impression count alone does not explain it. A slice-ECE gate shows no benefit out-of-origin, and in a simulated auction recalibration moves profit by only about -0.21% to +0.26%. Offline protocols should measure calibration temporally, over multiple origins and seeds; in this data, recalibration fitted on a wide time span beat the freshest few hours, which other logs must confirm.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-10-23",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33168",
+    "pdf_url": "https://arxiv.org/pdf/2610.33168.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统核心环节 CTR 预估的校准问题，提出了基于时间维度的评估方法和后处理校准策略，具有明确的业务应用价值。",
+    "translation": "CTR 重校准应使用多少新鲜数据？后处理校准的时间维度评估",
+    "summary_zh": "本文提出了一种针对 CTR 模型的时间维度离线评估协议，并研究了不同时间跨度的历史数据对后处理概率校准效果的影响，发现较宽的时间窗口往往比仅使用最新数据更能提升校准稳定性。",
+    "key_points": [
+      "本文提出了一种针对 CTR 模型的时间维度离线评估协议，并研究了不同时间跨度的历史数据对后处理概率校准效果的影响，发现较宽的时间窗口往往比仅使用最新数据更能提升校准稳定性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33248",
+    "title": "Reinforcement Learning for Controller Parameters in the Auto-Bidding System at Pinterest",
+    "authors": [
+      "Yichu Zhou",
+      "Qinyi Chen",
+      "Fei Feng",
+      "Jacob Loh",
+      "Mehdi Ben Ayed",
+      "Lin Yang",
+      "Andrei Curelea",
+      "Jiajing Xu"
+    ],
+    "summary": "Auto-bidding systems in online advertising must balance competing objectives-maximizing budget delivery while minimizing cost per action-across heterogeneous campaigns under non-stationary market conditions. This trade-off evolves over campaign lifespans: early on, cost optimization dominates when budgets roll over; near deadlines, budget delivery becomes urgent. While PID controllers are widely used in production for their stability and interpretability, fixed tunings cannot adapt to diverse campaigns and shifting traffic patterns. We present RLBP (Reinforcement Learning for Bidding Parameters), a hybrid architecture deployed at Pinterest that uses RL as a meta-controller to select campaign-specific PID parameters daily while retaining PID for high-frequency bid adjustments. RLBP trains a multi-head Q-network using a relative-lift reward formulation normalized against the production baseline, and performs inference-time fusion that adapts the cost-delivery trade-off to campaign states without retraining. Through online A/B testing at Pinterest, RLBP achieves a statistically significant reduction in effective cost-per-click (eCPC) with no revenue degradation, and two months of post-rollout measurements against a holdout also show consistent cost reductions. These results demonstrate that meta-controller RL can successfully augment production control systems at scale.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-10-23",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33248",
+    "pdf_url": "https://arxiv.org/pdf/2610.33248.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对广告自动出价系统中的核心排序与调控问题，提出利用强化学习作为元控制器来优化 PID 参数，属于搜索/广告领域的具体应用创新。",
+    "translation": "Pinterest 自动出价系统中基于强化学习的控制器参数优化",
+    "summary_zh": "提出一种混合架构，利用强化学习作为元控制器根据广告活动状态动态选择 PID 控制器的参数，以在非平稳市场条件下自适应地平衡预算交付与成本优化目标。",
+    "key_points": [
+      "提出一种混合架构，利用强化学习作为元控制器根据广告活动状态动态选择 PID 控制器的参数，以在非平稳市场条件下自适应地平衡预算交付与成本优化目标"
+    ]
+  },
+  {
+    "arxiv_id": "2605.04949",
+    "title": "AllSERP: Exhaustive Per-Element Enrichment of the Versatile AdSERP Dataset",
+    "authors": [
+      "K. Andrew Edmonds"
+    ],
+    "summary": "AdSERP is a public corpus of 2,776 search trials with eye gaze, cursor, scroll, pupil and click telemetry recorded on real Google result pages, together with the page screenshots and captured HTML. Its shipped bounding boxes cover only advertisements, which receive about 16 % of main-axis clicks. AllSERP adds a typed area-of-interest (AOI) layer for everything else: screenshot-anchored boxes for organic results, People-Also-Ask, image packs, local packs and other widgets, labelled from the captured HTML. Three typed flavours trade box tightness for coverage, from tight boxes to gap-filled boxes to per-card cells inside the top-ads carousel. The ad partition agrees with the shipped ad rectangles on all 38,250 comparisons, and box fidelity is measured on the full corpus with a DOM-based harness. Under the gap-filled flavour, 95.7 % of final clicks land in a typed main-axis AOI once cursor coordinates are converted into screenshot space. In a per-element inventory of clicks, fixations, regressions and above-fold exposure, attention and clicks dissociate by element type: 99.7 % of top-ads carousels are fixated but only 10 % of clicks land on them, and 44 % of People-Also-Ask boxes are fixated but only two clicks in the corpus land on one. We release the pipeline, per-trial JSON, corpus CSVs and a browser-based replay viewer.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-24",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2605.04949",
+    "pdf_url": "https://arxiv.org/pdf/2605.04949.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文专注于搜索引擎结果页（SERP）的用户行为数据集构建与标注，虽非核心算法创新，但为搜索相关性评估和用户建模提供了关键数据基础；因来自中国公司格力，按规则额外加 1 分。",
+    "translation": "AllSERP：对多功能 AdSERP 数据集进行 exhaustive 逐元素增强",
+    "summary_zh": "本文提出了 AllSERP 数据集，通过为搜索引擎结果页中的有机结果、问答模块等各类元素添加精细化的感兴趣区域（AOI）标注，实现了眼动、光标等用户行为数据的逐元素关联分析。",
+    "key_points": [
+      "本文提出了 AllSERP 数据集，通过为搜索引擎结果页中的有机结果、问答模块等各类元素添加精细化的感兴趣区域（AOI）标注，实现了眼动、光标等用户行为数据的逐元素关联分析"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33171",
+    "title": "Learning the Past from the Future: Retrospective Reconstruction in Temporal Interaction Networks",
+    "authors": [
+      "Amarnath R"
+    ],
+    "summary": "Temporal link prediction uses past interactions to predict future links. In practice, interaction records from web and mobile applications can contain gaps caused by logging failures, API limits or lost records, even when later events remain available. To our knowledge, the extent to which later events help recover interactions within such gaps has not been measured directly for this ranking task. We study retrospective reconstruction using the tgbl-wiki and tgbl-comment datasets. We hide a two-hour window, use its interactions as ground truth, and rank the directed pairs active within it. We compare count-based heuristics and logistic regression models using past information alone or together with 1, 6 or 24 hours of later events. Target pairs and candidate lists remain fixed across conditions, so differences in ranking performance cannot be attributed to changes in candidate selection. With 24 hours of later events, the 26-feature logistic regression improves mean reciprocal rank (MRR) by 0.039 on tgbl-wiki under exhaustive ranking, 0.046 under historical-random ranking, and 0.108 on tgbl-comment under historical-random ranking. The 26-feature logistic regression benefits from adding later features to past features, whereas replacing the past pair count with the later pair count reduces MRR by 0.157 on tgbl-wiki under exhaustive ranking. A control removing later interactions from query sources to historically observed destinations reduces the MRR gain by 59% on tgbl-wiki and 10% on tgbl-comment. Because this control removes more than repeated target pairs, these reductions cannot be attributed to pair recurrence alone. Later events improve the ranking of hidden interactions on both datasets, including tgbl-comment, where only 6.4% of target pairs reappeared within 24 hours.",
+    "categories": [
+      "cs.SI",
+      "cs.LG"
+    ],
+    "published": "2026-10-23",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33171",
+    "pdf_url": "https://arxiv.org/pdf/2610.33171.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该论文研究利用未来事件修复历史交互缺失的通用时序链接预测问题，虽涉及排序任务但未针对推荐/搜索场景优化，属于弱相关的通用 ML 方法；因来自中国公司额外加 1 分。",
+    "translation": "从未来学习过去：时序交互网络中的回溯重建",
+    "summary_zh": "提出一种利用后续事件信息辅助恢复时序网络中缺失历史交互的回溯重建方法，通过结合过去与未来特征提升链接预测的排序效果。",
+    "key_points": [
+      "提出一种利用后续事件信息辅助恢复时序网络中缺失历史交互的回溯重建方法，通过结合过去与未来特征提升链接预测的排序效果"
+    ]
+  },
+  {
+    "arxiv_id": "2610.05107",
+    "title": "SearchJev: A Calibrated System-1 Model for Search Agents",
+    "authors": [
+      "Congfeng Cao",
+      "Lipeng Zuo",
+      "Konstantinos Papakostas",
+      "Qiwei Xu",
+      "Songwei Xu",
+      "Qianru Meng",
+      "Lun Zhou",
+      "Zhaochun Ren",
+      "Yougang Lyu",
+      "Xiaohui Yan"
+    ],
+    "summary": "Search agents repeatedly make short decisions about relevance, evidence sufficiency, and search actions. Using generative language models for these decisions introduces latency and unreliable confidence. We present SearchJev, a calibrated System-1 model that separates search decisions from System-2 reasoning and generation. Given a search state and a decision schema, SearchJev scores legal options without autoregressive output generation. We propose Soft-Label Learning for Calibrated Decisions (SLCD) to learn decision probabilities from uncertain supervision and improve the reliability of decision confidence. In a dual-system search agent, SearchJev handles short decisions and delegates uncertain judgments to System 2, which retains planning, query generation, and answer composition. We also introduce SearchDecision-Bench, a benchmark unifying six types of search decisions for training and evaluation. On SearchDecision-Bench, SearchJev improves decision quality over same-size Qwen3.5 autoregressive models, achieves 5.2-5.3 times faster decisions, and reduces average expected calibration error by 41-74%. On BrowseComp-Plus, the dual-system agents achieve a 3.7-4.7 times speedup in active search time while improving answer accuracy from 45% to up to 54%.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-23",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.05107",
+    "pdf_url": "https://arxiv.org/pdf/2610.05107.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Huawei"
+    ],
+    "affiliation_lines": [
+      "1HuaweiTechnologiesCo.,Ltd. 2LeidenUniversity",
+      "ation. We propose Soft-Label Learning for",
+      "areavailable1."
+    ],
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM/Agent 架构研究，专注于通用搜索代理的决策加速与校准，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模等）。",
+    "translation": "SearchJev：面向搜索代理的校准型系统 1 模型",
+    "summary_zh": "提出一种非自回归的校准型 System-1 模型，通过软标签学习从不确定监督中获取决策概率，将快速决策与复杂推理分离以优化搜索代理的延迟与可靠性。",
+    "key_points": [
+      "提出一种非自回归的校准型 System-1 模型，通过软标签学习从不确定监督中获取决策概率，将快速决策与复杂推理分离以优化搜索代理的延迟与可靠性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33047",
+    "title": "Parametric Session States Recover Retrieval Intent without Replaying History",
+    "authors": [
+      "Qingsen Ma",
+      "Dianyun Wang",
+      "Jiahong Liu",
+      "Irwin King"
+    ],
+    "summary": "Long-running assistants often interpret follow-up requests whose referents, constraints, and active goals were established many turns earlier. The central challenge is therefore not only context length, but retrieval intent: a current query such as ``use the previous configuration'' may omit the project, entity, and version terms needed to locate relevant evidence. Long-context models can recover those terms by replaying the interaction, but repeatedly pay the cost of processing history. Conventional retrieval-augmented generation (RAG) is cheaper, yet assumes an information-sufficient query; conversational rewriting either rereads the history or depends on an explicitly maintained textual memory. We introduce \\emph{Parametric Session State} (\\method{}), a reusable session-memory layer that remembers what to search for while keeping factual knowledge external.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-10-17",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33047",
+    "pdf_url": "https://arxiv.org/pdf/2610.33047.pdf",
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/对话代理研究，聚焦于长上下文记忆机制，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模），即使有中国公司背景加分，仍属低相关性。",
+    "translation": "参数化会话状态无需重放历史即可恢复检索意图",
+    "summary_zh": "提出一种参数化会话状态层，通过在模型参数中隐式维护搜索意图而非重放历史文本，解决长程对话中检索指代缺失的问题。",
+    "key_points": [
+      "提出一种参数化会话状态层，通过在模型参数中隐式维护搜索意图而非重放历史文本，解决长程对话中检索指代缺失的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33043",
+    "title": "A Multimodal Framework for Measuring Creator Communication on Short-Form Video",
+    "authors": [
+      "Julie R. Ancis",
+      "Michael Fire",
+      "Omer Tarshish"
+    ],
+    "summary": "Short-form video combines speech, imagery, and on-screen text, creating challenges for systematic content analysis. We present a five-stage multimodal framework for measuring creators' themes and communication strategies at scale. The framework integrates platform metadata, speech transcripts, and vision-language descriptions of sampled frames, then applies large language models to generate predefined indicators and open-ended labels. An audited keyword scheme consolidates thematic labels, while creator-weighted aggregation gives each account equal weight regardless of posting volume. We demonstrate the framework on 9,852 TikTok videos from sixteen creators, retaining 7,311 videos for analysis across seven themes and seven communication indicators. Automated profiles reveal substantial differences in creators' use of education, humor, and responses to current events. Validation against two independent expert annotators yielded a mean framework-expert agreement of Cohen's $κ= 0.40$ across the six binary indicators, close to the $κ= 0.42$ the two experts achieved with each other, though agreement varied substantially across individual indicators. The framework provides a modular approach to comparative analysis of creator communication, combining scalable annotation with transparent aggregation and construct-specific validation.",
+    "categories": [
+      "cs.SI",
+      "cs.CL",
+      "cs.CY"
+    ],
+    "published": "2026-10-16",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33043",
+    "pdf_url": "https://arxiv.org/pdf/2610.33043.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "TikTok"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文是纯多模态内容分析方法研究，旨在测量创作者沟通策略而非优化推荐/搜索系统，虽使用 LLM 但无 RecSys 直接应用；因来自中国公司额外 +1 分。",
+    "translation": "一种衡量短视频创作者沟通的多模态框架",
+    "summary_zh": "提出一种整合元数据、语音及视觉语言描述的五阶段多模态框架，利用大语言模型规模化生成指标以分析创作者的主题与沟通策略。",
+    "key_points": [
+      "提出一种整合元数据、语音及视觉语言描述的五阶段多模态框架，利用大语言模型规模化生成指标以分析创作者的主题与沟通策略"
+    ]
+  },
+  {
+    "arxiv_id": "2603.28197",
+    "title": "EpiPersona: Persona Projection and Episode Coupling for Pluralistic Preference Modeling",
+    "authors": [
+      "Yujie Zhang",
+      "Weikang Yuan",
+      "Zhuoren Jiang",
+      "Pengwei Yan"
+    ],
+    "summary": "Pluralistic alignment is essential for adapting large language models (LLMs) to the diverse preferences of individuals and minority groups. However, existing personalized reward models often mix stable personal traits with episode-specific factors, limiting their ability to generalize across episodes. To address this challenge, we propose EpiPersona, a framework for explicit persona-episode coupling. EpiPersona first projects noisy preference feedback into a low-dimensional persona space, where similar personas are aggregated into shared discrete codewords. This process separates enduring personal characteristics from situational signals without relying on predefined preference dimensions. The inferred persona representation is then coupled with the current episode, enabling episode-aware preference prediction. Extensive experiments show that EpiPersona outperforms the baselines. It achieves notable performance gains in hard episodic-shift scenarios, while remaining effective with sparse preference data.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-24",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2603.28197",
+    "pdf_url": "https://arxiv.org/pdf/2603.28197.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 对齐与偏好建模研究，旨在解决通用 LLM 的个性化适应问题，未涉及推荐系统或搜索引擎的核心架构（如召回、排序）及具体业务场景。",
+    "translation": "EpiPersona：用于多元偏好建模的人物投影与 episode 耦合",
+    "summary_zh": "提出一种将噪声偏好反馈投影到低维人物空间并聚合为离散码字的框架，以分离持久个人特征与情境信号，实现基于 episode 感知的偏好预测。",
+    "key_points": [
+      "提出一种将噪声偏好反馈投影到低维人物空间并聚合为离散码字的框架，以分离持久个人特征与情境信号，实现基于 episode 感知的偏好预测"
+    ]
+  },
+  {
+    "arxiv_id": "2508.12045",
+    "title": "Integrating Large Language Models with Human Data to Design Personalized Decoy Nudges",
+    "authors": [
+      "Vladimir Maksimenko",
+      "Leonard Lee",
+      "Prateek Bansal"
+    ],
+    "summary": "Although nudge strategies can influence behavior, their effectiveness varies across individuals, highlighting the need for personalized nudge design. We hypothesize that large language models (LLMs) can facilitate the development of individual-specific nudges while reducing the financial and time costs associated with human data collection by augmenting small human samples or by replacing human participants. Using the decoy effect as a test case, we evaluate these hypotheses in a preregistered field experiment involving 3,495 participants across five countries. We show that decoy parameters identified by LLMs as optimal for a given country generate stronger nudging effects than non-optimal parameters in the United States and, marginally, in Germany, but not in China, India, or Singapore. We find no evidence that LLM-informed personalized decoys produce a stronger nudging effect than country-level optimal decoys. Finally, we demonstrate that LLM-generated data can serve as informative priors for Bayesian choice models, improving predictive performance and parameter estimation with smaller human samples. At matched predictive performance, this approach yields estimated reductions of 37-75$\\%$ in human sample size. Overall, our findings suggest that LLMs hold considerable promise as low-cost tools for piloting and optimizing personalized nudge strategies, particularly when complemented with a small sample of human participants.",
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "published": "2026-10-24",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2508.12045",
+    "pdf_url": "https://arxiv.org/pdf/2508.12045.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯行为经济学与 LLM 结合的研究，专注于“助推（nudge）”策略而非推荐/搜索系统的核心架构（如召回、排序），属于排除类别中的非 RecSys 应用。",
+    "translation": "整合大语言模型与人类数据以设计个性化诱饵助推",
+    "summary_zh": "该研究提出利用大语言模型生成合成数据或优化参数来辅助设计个性化的行为助推策略，旨在减少对人类样本数据的依赖并降低实验成本。",
+    "key_points": [
+      "该研究提出利用大语言模型生成合成数据或优化参数来辅助设计个性化的行为助推策略，旨在减少对人类样本数据的依赖并降低实验成本"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33301",
+    "title": "The As-If Machine: Personalized counterfactuals make distant policy risks feel close",
+    "authors": [
+      "Joshua Ashkinaze",
+      "Yubo Zhou",
+      "Pengyu Chen",
+      "Avi Bhattacharya",
+      "Hyebin Park",
+      "Yanman Zhang",
+      "Stephanie Preston",
+      "Eric Gilbert",
+      "Ceren Budak"
+    ],
+    "summary": "Life experiences can shape policy attitudes, but we only live one life. Citizens may therefore fail to support policies addressing risks they have never personally experienced. Narratives can make such risks immediate and personal, but personalized stories remain difficult to produce at scale. Here we ask whether AI can make distant scenarios feel concrete by simulating a participant's life as if that scenario occurred. We present the As-If Machine (AIM), a multi-agent system through which people co-write personalized counterfactual narratives---stories about their own lives under different policy futures. In two pre-registered and quota-matched experiments on science funding (N=1,007) and satellite cybersecurity (N=894), we compared AIM with two controls: reading an expert-written vignette on the same topic and co-writing with AIM about an unrelated topic. AIM increased psychological closeness---how close a risk feels to the self---by nearly identical margins in the two domains (0.36 and 0.38 standard deviations (SDs) against the vignette, 0.80 and 0.90 against unrelated writing). AIM increased psychological closeness even among participants with unfavorable views of AI. For policy attitudes, AIM's effects were 0.16 SDs against the vignette and 0.10 SDs (n.s.) against unrelated writing for science funding; the corresponding effects for satellite cybersecurity were 0.54 and 0.67 SDs. Across 23,496 human-AI autocomplete interactions, participants and the system played distinct roles: AIM supplied concrete detail that grounded the scenario, and participants supplied first-person perspective and emotion. Co-writing with the As-If Machine makes distant policy risks feel close.",
+    "categories": [
+      "cs.HC",
+      "cs.AI"
+    ],
+    "published": "2026-10-23",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33301",
+    "pdf_url": "https://arxiv.org/pdf/2610.33301.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯社会科学/公共政策研究，利用 LLM 生成叙事以影响政策态度，与推荐系统或搜索引擎的核心技术（召回、排序、用户建模等）完全无关。",
+    "translation": "假设机器：个性化反事实叙事让遥远的政策风险变得切近",
+    "summary_zh": "提出一种多智能体系统，通过让人类与 AI 共同撰写关于自身生活的个性化反事实故事，使抽象的政策风险在心理上感觉更具体和亲近。",
+    "key_points": [
+      "提出一种多智能体系统，通过让人类与 AI 共同撰写关于自身生活的个性化反事实故事，使抽象的政策风险在心理上感觉更具体和亲近"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33277",
+    "title": "GEMS-RAG: Graph-grounded Engineering Multimodal Standards Retrieval-Augmented Generation",
+    "authors": [
+      "Abdul Hannan Azad",
+      "Irvin Wang",
+      "Jiwan Jiang",
+      "Chenchen Kuai",
+      "Bofeng Cao",
+      "Keshu Wu",
+      "Yuzhou Wang",
+      "Xiaopeng Li",
+      "Yang Zhou"
+    ],
+    "summary": "Engineering standards are challenging knowledge sources for large language models (LLMs) because they are hierarchical, multimodal, and densely connected through figures, tables, cross-references, and normative rules. Existing retrieval-augmented generation (RAG) methods often rely on unstructured text retrieval and struggle with questions requiring joint reasoning over textual provisions, visual specifications, and document structure. We propose GEMS-RAG (Graph-grounded Engineering Multimodal Standards Retrieval-Augmented Generation), a framework for grounded reasoning over engineering standards. GEMS-RAG combines hierarchical parsing, fine-grained visual entity extraction, multimodal knowledge graph construction, and graph-grounded hybrid retrieval. Instead of treating figures as monolithic images, it decomposes them into meaningful visual entities linked to textual provisions, engineering concepts, and regulatory rules. During inference, dense, sparse, and visual retrieval are combined with graph expansion to identify relevant evidence across text, figures, and document structure. We evaluate GEMS-RAG on the Manual on Uniform Traffic Control Devices (MUTCD), a large engineering standard containing egulations, technical drawings, and standardized traffic-control devices. Results show that graph-grounded multimodal retrieval improves retrieval effectiveness and question-answering performance over text-only, multimodal, and graph-based RAG baselines. Beyond MUTCD, GEMS-RAG offers a general framework for reasoning over engineering codes, technical manuals, regulatory documents, and scientific standards in safety-critical applications.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-23",
+    "updated": "2026-10-27",
+    "url": "https://arxiv.org/abs/2610.33277",
+    "pdf_url": "https://arxiv.org/pdf/2610.33277.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于工程标准文档的问答与推理，完全未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "GEMS-RAG：基于图结构的工程多模态标准检索增强生成",
+    "summary_zh": "该论文提出一种结合层级解析、细粒度视觉实体提取与多模态知识图谱构建的框架，旨在通过图扩展混合检索解决工程标准文档中图文联合推理的难题。",
+    "key_points": [
+      "该论文提出一种结合层级解析、细粒度视觉实体提取与多模态知识图谱构建的框架，旨在通过图扩展混合检索解决工程标准文档中图文联合推理的难题"
+    ]
+  }
+]

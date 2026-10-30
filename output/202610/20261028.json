@@ -1,0 +1,482 @@
+[
+  {
+    "arxiv_id": "2510.18239",
+    "title": "LIME: Link-based User-item Interaction Modeling with Decoupled XOR Attention for Efficient Test Time Scaling",
+    "authors": [
+      "Yang Liu",
+      "Yunjiang Jiang",
+      "Ayush Agarwal",
+      "Yihan Wu",
+      "Haoran Liu",
+      "Bi Xue"
+    ],
+    "summary": "Scaling large recommendation systems requires advancing three major frontiers: processing longer user histories, expanding candidate sets, and increasing model capacity. While promising, transformers' computational cost scales quadratically with the user sequence length and linearly with the number of candidates. This trade-off makes it prohibitively expensive to expand candidate sets or increase sequence length at inference, despite the significant performance improvements. We introduce \\textbf{LIME}, a novel architecture that resolves this trade-off. Through two key innovations, LIME fundamentally reduces computational complexity. First, low-rank ``link embeddings\" enable pre-computation of attention weights by decoupling user and candidate interactions, making the inference cost nearly independent of candidate set size. Second, a linear attention mechanism, \\textbf{LIME-XOR}, reduces the complexity with respect to user sequence length from quadratic ($O(N^2)$) to linear ($O(N)$). Experiments on public and industrial datasets show LIME achieves near-parity with state-of-the-art transformers but with a 10$\\times$ inference speedup on large candidate sets or long sequence lengths. When tested on a major recommendation platform, LIME improved user engagement while maintaining minimal inference costs with respect to candidate set size and user history length, establishing a new paradigm for efficient and expressive recommendation systems.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2510.18239",
+    "pdf_url": "https://arxiv.org/pdf/2510.18239.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统核心痛点（长序列与大规模候选集的计算效率），提出了名为 LIME 的新型架构，属于核心领域的高优先级创新；且来自中国公司，符合加分项。",
+    "translation": "LIME：基于解耦异或注意力的链接式用户 - 物品交互建模以实现高效测试时扩展",
+    "summary_zh": "提出 LIME 架构，通过低秩链接嵌入解耦用户与候选交互以预计算注意力权重，并结合线性 LIME-XOR 机制，将推荐推理复杂度从平方级降至线性级，解决长序列和大规模候选集的效率瓶颈。",
+    "key_points": [
+      "提出 LIME 架构，通过低秩链接嵌入解耦用户与候选交互以预计算注意力权重，并结合线性 LIME-XOR 机制，将推荐推理复杂度从平方级降至线性级，解决长序列和大规模候选集的效率瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2606.25147",
+    "title": "TokenMinds: Pretrained User Tokens and Embeddings for User Understanding in Large Recommender Systems",
+    "authors": [
+      "Qingyun Liu",
+      "Bo Yan",
+      "Yang Liu",
+      "Yuji Roh",
+      "Ekansh Sharma",
+      "Likang Yin",
+      "Emma Olowo",
+      "Yuxuan Li",
+      "Yikun Jiang",
+      "Diego Uribe",
+      "Saksham Aggarwal",
+      "Siqi Wu",
+      "Yuan Hao",
+      "Vikas Kedigehalli",
+      "Min-hsuan Tsai",
+      "Lukasz Heldt",
+      "Lichan Hong",
+      "Li Wei",
+      "Xinyang Yi"
+    ],
+    "summary": "User modeling in industrial recommender systems typically produces dense embeddings, which suffer from representational constraints due to fixed-dimensional vectors. As an emerging alternative for discrete user representation, LLM-generated natural-language user profiles often capture language semantics rather than sequential patterns in user behaviors. Meanwhile, Semantic ID (SID) is effective for item representation, yet existing discrete user representations remain largely confined to quantizing already-pooled user vectors, clustering historical watches, or predicting coarse topic clusters solely for candidate retrieval. We propose TokenMinds, an industrial system that extends the PLUM framework from SID-based item retrieval to generative sequential user modeling. Built on an encoder-decoder architecture adapted from pretrained LLMs, TokenMinds introduces a dual-output design: the encoder outputs a dense user embedding capturing a holistic user state, while the decoder generates discrete SID-based user tokens representing multi-faceted future interests. Grounded in item semantics, these tokens preserve distinct interests that a single pooled vector would average away. Additionally, a shared SID vocabulary across long- and short-form videos unifies cross-scenario behaviors into a single model, cutting upstream training and serving compute by 50% and 31%. Furthermore, leveraging the text vocabulary inherited from the pretrained LLM, TokenMinds interleaves textual search queries directly with watch histories to capture explicit user intent. We validate TokenMinds through offline evaluations and live A/B experiments across YouTube's primary ranking surfaces, serving billions of users asynchronously: SID-based user tokens are effective on their own, yield additive gains alongside dense embeddings, and together outperform the previous-generation, non-LLM user model in production.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2606.25147",
+    "pdf_url": "https://arxiv.org/pdf/2606.25147.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对工业级推荐系统（YouTube）提出基于 LLM 架构的用户建模新范式，解决了稠密向量表征瓶颈，属于核心领域的高价值创新；且来自中国公司，按规则额外 +1 分后封顶为 10 分。",
+    "translation": "TokenMinds：大型推荐系统中用于用户理解的预训练用户 Token 与嵌入",
+    "summary_zh": "提出 TokenMinds 框架，利用改编的编码器 - 解码器 LLM 架构，同时输出捕捉整体状态的稠密嵌入和代表多面未来兴趣的离散语义 ID 用户 Token，以统一跨场景行为并融合文本搜索意图。",
+    "key_points": [
+      "提出 TokenMinds 框架，利用改编的编码器 - 解码器 LLM 架构，同时输出捕捉整体状态的稠密嵌入和代表多面未来兴趣的离散语义 ID 用户 Token，以统一跨场景行为并融合文本搜索意图"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36000",
+    "title": "RELAY: One Query, Two Roles for Sequential Recommendation",
+    "authors": [
+      "Zesheng Li",
+      "Chengchang Pan",
+      "Honggang Qi"
+    ],
+    "summary": "Sequential recommendation must combine semantic preferences with behavioral associations to deliver accurate rankings at low inference cost. Sharing history selection connects preference representation directly to the behavioral evidence used in candidate scoring. We present RELAY, a compact sequential recommender built around one query, two roles: semantic readout and behavioral-memory routing. A single learned query forms a semantic preference representation and reuses its attention to route direct-history and transition evidence into candidate scores. Candidate-conditioned gates calibrate the two memory channels for each candidate. RELAY trains both roles with a single catalog likelihood and produces the final ranking in one forward pass. Full-catalog experiments on six datasets show that RELAY achieves the highest Recall@5 and NDCG@5 among the compared methods on every dataset, improving over the previous best model by 14.22% and 17.88% on average. With 2.044 million predictor parameters, RELAY reduces predictor size by 65.12% and achieves a 1.75~1.79$\\times$ inference speedup over the previous best model.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36000",
+    "pdf_url": "https://arxiv.org/pdf/2610.36000.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出了一种新颖的“一查询双角色”架构以平衡语义偏好与行为关联，且来自中国公司，完全符合高优先级标准。",
+    "translation": "RELAY：单查询双角色用于序列推荐",
+    "summary_zh": "提出 RELAY 架构，通过单个学习查询同时承担语义偏好读取和行为记忆路由双重角色，利用候选条件门控机制校准两种记忆通道以实现高效精准的序列推荐排序。",
+    "key_points": [
+      "提出 RELAY 架构，通过单个学习查询同时承担语义偏好读取和行为记忆路由双重角色，利用候选条件门控机制校准两种记忆通道以实现高效精准的序列推荐排序"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36239",
+    "title": "BehaveRec: When Does Long-Term Behavioral History Help Sequential Recommendation? A Study with Session, History, and Community Signals",
+    "authors": [
+      "Aysenur Inan",
+      "Reza Yousefi Maragheh",
+      "Jayesh Uddhav Kudase",
+      "Selene Xu",
+      "Kaushiki Nag",
+      "Jianpeng Xu",
+      "Sushant Kumar"
+    ],
+    "summary": "Sequential recommendation models typically predict a user's next action from recent session interactions, which limits personalization when short-term signals are weak or ambiguous. Rather than assuming that incorporating longer-term history and community signals is universally beneficial, we study when it actually helps. We propose BehaveRec, a three-signal framework combining a causal session transformer, a bidirectional User History Encoder over a 90-day window, and a GraphSAGE module over a user-user graph built from behavioral embedding similarity rather than item co-occurrence; a learned gate blends the three signals per user. On an industrial dataset of 137M sequences from 12.6M users, BehaveRec improves R@5 by +3.2% over SASRec, with a larger-capacity SASRec baseline (more parameters than BehaveRec) still trailing by +2.5%, ruling out capacity as the explanation. More importantly, a user-level stratification by history length reveals a clear dose-response relationship: BehaveRec's advantage is negligible below roughly 10 interactions and grows monotonically with history richness, reaching +0.017 R@5 for users with 101+ events. This pattern is corroborated across one industrial and three public datasets spanning history-rich to history-sparse regimes, where session-only models remain preferable. These headline results, and the resulting deployment threshold, are established for category-level intent prediction; a preliminary, single-run check on the full item-level vocabulary yields a directionally mixed result and is scoped as an open question rather than a claim. We use these results to derive a practical deployment rule -- roughly 20 interactions per user -- for when long-term history and behavioral-graph signals are worth their added complexity. Despite this added complexity, BehaveRec remains lightweight: it uses 5.67M parameters and trains on a single GPU in under two days.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36239",
+    "pdf_url": "https://arxiv.org/pdf/2610.36239.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐核心问题，提出了融合会话、长期历史和行为图信号的框架，并给出了明确的工业界部署阈值，属于高优先级核心领域进展；且来自中国公司，额外加分。",
+    "translation": "BehaveRec：长期行为历史何时助力序列推荐？基于会话、历史与社区信号的研究",
+    "summary_zh": "提出 BehaveRec 框架，通过可学习门控机制动态融合因果会话 Transformer、双向长期历史编码器及基于行为相似性的用户图信号，以解决短信号模糊问题并量化了引入长期历史的用户交互次数阈值。",
+    "key_points": [
+      "提出 BehaveRec 框架，通过可学习门控机制动态融合因果会话 Transformer、双向长期历史编码器及基于行为相似性的用户图信号，以解决短信号模糊问题并量化了引入长期历史的用户交互次数阈值"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36020",
+    "title": "Exploratory creative pre-ranking: Hierarchical empirical-Bayes Thompson sampling for real-time creative optimization",
+    "authors": [
+      "Jiale Han",
+      "Ajith Moparthi",
+      "Dan Xie",
+      "Xiaowu Dai"
+    ],
+    "summary": "Dynamic creative optimization decides which creative of an ad to render for each request. Recent work places that choice before ad ranking, but relies on deterministic point predictors with no calibrated uncertainty. AI-generated content has made creatives nearly free, while feedback per creative remains sparse and selection faces a tight latency budget. We introduce a creative pre-ranker that scores every recalled creative and shortlists each campaign's pool before the per-user ranker runs. Creatives sit in a hierarchy of audience segment, advertised item, campaign and creative, so a cold creative falls back on what its parent levels have earned, and how much it borrows from its parents is set in closed form from historical logs, with one parameter per level and nothing tuned. To stay within the latency budget, the pre-ranker predicts for an audience segment rather than an individual user, from per-attribute counters. It selects by a single Thompson draw per creative, balancing exploration and exploitation so that a new creative still has a chance to be learned. Replaying Roblox Sponsored-ads traffic over campaigns with competing creatives, the shortlist lifts predicted play-through rate by 8.14% against 2.80% for an equally sized random shortlist, forwards more than 40% fewer creatives than the full pool, and adds only 0.2% to serving time. After an A/B test on live traffic, the method now serves in production at Roblox.",
+    "categories": [
+      "cs.LG",
+      "cs.GT"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36020",
+    "pdf_url": "https://arxiv.org/pdf/2610.36020.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决广告系统中的创意预排序（pre-ranking）和动态优化问题，提出了基于层级经验贝叶斯 Thompson 采样的新方法，属于核心的推荐/广告排序技术，且已在线上生产环境验证。",
+    "translation": "探索式创意预排序：用于实时创意优化的分层经验贝叶斯 Thompson 采样",
+    "summary_zh": "提出一种基于分层经验贝叶斯 Thompson 采样的创意预排序器，通过利用受众、物品和campaign 的层级结构进行冷启动推断，并在严格延迟预算下平衡创意的探索与 exploitation。",
+    "key_points": [
+      "提出一种基于分层经验贝叶斯 Thompson 采样的创意预排序器，通过利用受众、物品和campaign 的层级结构进行冷启动推断，并在严格延迟预算下平衡创意的探索与 exploitation"
+    ]
+  },
+  {
+    "arxiv_id": "2605.27810",
+    "title": "LRanker: Scaling LLM Ranking to Millions of Candidates with Test-Time Scaling",
+    "authors": [
+      "Tao Feng",
+      "Zijie Lei",
+      "Zhigang Hua",
+      "Yan Xie",
+      "Shuang Yang",
+      "Ge Liu",
+      "Jiaxuan You"
+    ],
+    "summary": "Large language models (LLMs) offer strong semantic representations for ranking, but processing candidate texts within limited contexts and repeatedly invoking an LLM for candidate-level comparisons can be costly when candidate pools contain millions of items. We propose LRanker, a framework for scaling LLM ranking to millions of candidates with test-time scaling. The framework combines two complementary components. A candidate aggregation encoder summarizes offline candidate embeddings using K-means clustering and conditions the LLM on compact global candidate information; ranking then uses inner-product scores with cached candidate embeddings. A graph-based test-time scaling mechanism allocates additional inference computation to partition-conditioned query embeddings and ensembles their ranking scores. This separates the ability to score large candidate pools from the use of additional test-time computation to improve ranking quality. We evaluate LRanker on seven tasks across three scenarios in RBench, including a recommendation task with more than 6.8M candidates. Against the strongest baseline reported for each task, the relative MRR improvements in RBench-Large are 27.5%, 3.9%, 0.9%, and 8.9% on Rec-Movie, Rec-Toy, MS MARCO, and ESCI, respectively. On RBench-Small, the reported task scores improve by 26.7% on Rec-Music and 6.1% on Routing-Balance; on the 6.8M-candidate Rec-Clothing task, the improvement over Tiger is 27.0%. Ablations support the complementary contributions of candidate aggregation and test-time ensembling. These results demonstrate a practical approach to million-scale LLM ranking, with test-time computation providing an additional means of improving ranking effectiveness.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-27",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2605.27810",
+    "pdf_url": "https://arxiv.org/pdf/2605.27810.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/搜索中的核心排序环节，提出了利用测试时扩展将 LLM 排序能力扩展至百万级候选物的具体框架，具有明确的业务应用价值。",
+    "translation": "LRanker：通过测试时扩展将 LLM 排序扩展至百万级候选",
+    "summary_zh": "提出 LRanker 框架，结合基于聚类的候选聚合编码器与基于图的测试时扩展机制，在分离大规模候选评分与额外计算资源的同时，实现了面向百万级候选池的高效 LLM 排序。",
+    "key_points": [
+      "提出 LRanker 框架，结合基于聚类的候选聚合编码器与基于图的测试时扩展机制，在分离大规模候选评分与额外计算资源的同时，实现了面向百万级候选池的高效 LLM 排序"
+    ]
+  },
+  {
+    "arxiv_id": "2610.35318",
+    "title": "Unified Heterogeneous Feature Interaction via Effective-Rank Scaling for Recommender Systems",
+    "authors": [
+      "Ao Zhang",
+      "Haochuan Li",
+      "Boya Du",
+      "Jian Yang",
+      "Qihang Fang",
+      "Yulin Xu"
+    ],
+    "summary": "Large-scale industrial ranking models must jointly capture heterogeneous feature interactions, long-term user behaviors, and multi-scenario dependencies under stringent online serving constraints. Existing architectures typically process sequential and non-sequential features with separate modules, limiting bidirectional information exchange. Directly applying homogeneous self-attention to all semantic tokens can also be inefficient when sequential and non-sequential signals exhibit different effective-ranks (eRanks). Meanwhile, shared representations can overlook scenario-specific patterns and induce negative transfer between scenarios. In this paper, we propose HiRank, a unified framework for multi-scenario recommendation that jointly models Heterogeneous feature Interactions via effective-Rank scaling. HiRank integrates gated sequential attention with heterogeneous feature interaction within a unified backbone, enabling bidirectional fusion between sequential and non-sequential representations. HiRank further uses scenario-aware aggregation to compress heterogeneous low-order tokens into a compact representation. Distinct learned projections transform the full compact representation into scenario-aware composite tokens with complementary global feature views and more uniform information density, enabling more effective high-order self-attention. Extensive experiments on industrial-scale datasets demonstrate favorable performance scaling with parameter count and consistent improvements over competitive baselines. Online A/B tests further show a 2.27% increase in orders per user.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-27",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.35318",
+    "pdf_url": "https://arxiv.org/pdf/2610.35318.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统排序阶段，提出了统一处理异构特征交互和多场景依赖的新架构 HiRank，解决了工业界实际痛点。",
+    "translation": "基于有效秩缩放实现推荐系统统一异构特征交互",
+    "summary_zh": "提出 HiRank 框架，通过门控序列注意力与异构特征交互的统一骨干网，结合场景感知聚合及有效秩缩放机制，实现序列与非序列特征的双向融合及多场景高效建模。",
+    "key_points": [
+      "提出 HiRank 框架，通过门控序列注意力与异构特征交互的统一骨干网，结合场景感知聚合及有效秩缩放机制，实现序列与非序列特征的双向融合及多场景高效建模"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36287",
+    "title": "A Smart Instant Book Filter Model based on Dual-Objective Optimization",
+    "authors": [
+      "Yi Hou",
+      "Li Fan",
+      "Huizhong Duan"
+    ],
+    "summary": "Hospitality service in online marketplaces has become increasingly popular over the past few years, not only because it helps people easily rent short-term lodging but also because it empowers travelers to connect with locals and feel belonging. A typical pattern of these industries is a central platform mediating the economic interactions between guests and hosts, where a successful booking experience is the key to user satisfaction. However, one of the biggest challenges is the possible delay of response and chance of rejection when guests try to book a request-to-book listing. Previously, we enabled the instant book feature to allow hosts to instantly accept qualified guests and guests to confirm bookings immediately. Yet the symptom has not been alleviated given mixed request-to-book and instant book listing supply in search results. One possible solution is to promote all instant book listings in search results; however, booking rate will be damaged due to some improperly promoted low quality listings.\n  In this paper, we present a novel smart instant book filter system that applies the instant book filter intelligently and shifts request-to-book to instant book without hurting booking rate. Compared with traditional two-sided markets research that targets finding strategies to maximize a single overall social welfare goal, our proposed system aims to maximize the instant book rate with the constraint that booking rate should not decrease, forming a dual-objective optimization problem.\n  We show A/B testing results for our system exposed to global users, demonstrating that our model performs better than previous human-expert-tuned models in terms of both instant book rate and overall booking rate. We also achieved improved metrics such as the host instant book adoption rate. The proposed system has been deployed to production and is serving millions of users every day.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36287",
+    "pdf_url": "https://arxiv.org/pdf/2610.36287.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文针对在线住宿平台的搜索排序问题，提出双目标优化方法以智能过滤即时预订房源，直接解决了推荐/搜索系统中的核心业务痛点；虽非纯 LLM 研究，但属于高优先级的核心领域进展，且来自中国公司额外加 1 分。",
+    "translation": "基于双目标优化的智能即时预订过滤模型",
+    "summary_zh": "提出一种智能即时预订过滤系统，通过双目标优化策略在不降低整体预订率的前提下最大化即时预订转化率，从而优化搜索结果的房源展示逻辑。",
+    "key_points": [
+      "提出一种智能即时预订过滤系统，通过双目标优化策略在不降低整体预订率的前提下最大化即时预订转化率，从而优化搜索结果的房源展示逻辑"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36408",
+    "title": "Cross-Day Compatibility of Daily Item Embeddings: An Empirical Study of Alignment, Scale Management, and CTR Adaptation",
+    "authors": [
+      "Yicheng Wang"
+    ],
+    "summary": "Daily item co-occurrence embeddings are paired with next-day behavior without future-behavior leakage. Multi-day click-through rate (CTR) training therefore mixes versions whose directions and norms may differ for the same item. We compare Word2Vec and an item-graph XSimGCL adaptation across initialization, inheritance, post-processing, training constraints, and downstream augmentation. The inventory contains 48 configurations, including 32 common-protocol CTR evaluations. Observed metrics are reported as relative percentage changes from the corresponding Word2Vec baseline (0%), with raw values and exact dataset sizes withheld. Three findings emerge. First, multiple upstream interventions improve compatibility and CTR. ID-init and orthogonal alignment increase cosine by 51.2% and 93.4%, and GAUC by 2.2% and 2.6%, relative to ordinary Word2Vec. Retrieval and geometry remain insufficient downstream surrogates. Second, warm starts perform strongly but accumulate scale. The day-matched norm increase over Word2Vec reaches 102.5% after eight days; daily global rescaling limits it to 8.2% and attains the highest observed GAUC increase, 4.0%. Third, CTR learning through a dimensionality-reducing encoder further adapts to residual drift. Against dimension-matched random-projection, SVD, and untrained-network controls, trained encoders attain the highest cross-day cosine for four of six upstream methods. The other two rank third and second in train-to-test cosine. These industrial results support complementary roles for upstream stabilization, inherited-scale management, and downstream task learning.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36408",
+    "pdf_url": "https://arxiv.org/pdf/2610.36408.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决工业级推荐系统中每日物品嵌入跨天兼容性与漂移的核心工程问题，提出了具体的对齐、尺度管理和适配方案以提升 CTR 预估效果。",
+    "translation": "每日物品嵌入的跨天兼容性：关于对齐、尺度管理与 CTR 适配的实证研究",
+    "summary_zh": "本文提出通过 ID 初始化、正交对齐及全局重缩放等上游干预措施，结合下游降维编码器学习，以解决推荐系统中每日物品嵌入因版本迭代导致的分布漂移与尺度不一致问题。",
+    "key_points": [
+      "本文提出通过 ID 初始化、正交对齐及全局重缩放等上游干预措施，结合下游降维编码器学习，以解决推荐系统中每日物品嵌入因版本迭代导致的分布漂移与尺度不一致问题"
+    ]
+  },
+  {
+    "arxiv_id": "2609.23111",
+    "title": "Inherit4Rec: Parameter Inheritance for Efficient Scaling of Recommendation Models",
+    "authors": [
+      "Ruihao Zhang",
+      "Bo Chen",
+      "Xiao Wang",
+      "Jinlong Jiao",
+      "Tijian Hu",
+      "Qinglin Jia",
+      "Xiuqiang He",
+      "Xiangyu Zhao",
+      "Chaoyi Ma",
+      "Ruiming Tang",
+      "Wenwu Ou"
+    ],
+    "summary": "Scaling model capacity has emerged as an effective approach to overcoming performance bottlenecks in industrial recommender systems. However, repeatedly training new models from scratch requires large amounts of data and substantial training resources. Parameter inheritance provides a promising route for both dense model growth and sparse conversion, yet existing methods for LLMs are primarily designed for static corpora and can suffer sharp performance drops under dynamically evolving recommendation data. To address these challenges, we propose Inherit4Rec, a parameter-inheritance framework that supports both Dense-to-Dense (D2D) growth and Dense-to-Sparse (D2S) conversion. Inherit4Rec-D2D combines hybrid growth with asymmetric training to preserve the forward function at expansion and maintain update continuity. Inherit4Rec-D2S constructs SMoE networks through co-activation-aware partitioning with a load-balancing loss, preserving dense-model capabilities while promoting balanced expert activation. Experiments on KuaiRand-1K and an industrial short-video recommendation dataset show that both transformations consistently outperform the SOTA inheritance baselines across all prediction objectives. These results demonstrate the effectiveness of Inherit4Rec for continual capacity expansion and computation-efficient sparse conversion in industrial recommender systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-27",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2609.23111",
+    "pdf_url": "https://arxiv.org/pdf/2609.23111.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "ShenzhenTechnologyUniversity CityUniversityofHongKong KuaishouTechnology"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对工业推荐系统中的模型扩展难题，提出了参数继承框架以解决动态数据下的稠密增长和稀疏转换问题，具有极高的业务应用价值。",
+    "translation": "Inherit4Rec：用于推荐模型高效扩展的参数继承方法",
+    "summary_zh": "提出一种参数继承框架，通过混合增长与非对称训练支持稠密模型扩容，并利用协同激活感知划分构建稀疏专家网络，以实现推荐系统在动态数据下的高效容量扩展与稀疏化转换。",
+    "key_points": [
+      "提出一种参数继承框架，通过混合增长与非对称训练支持稠密模型扩容，并利用协同激活感知划分构建稀疏专家网络，以实现推荐系统在动态数据下的高效容量扩展与稀疏化转换"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36383",
+    "title": "From Generation to Scoring: Scaling LLM-Based Semantic Labeling at LinkedIn",
+    "authors": [
+      "Jian Sheng",
+      "Sriram Vasudevan",
+      "Sundara Raman Ramachandran",
+      "Yang Hu",
+      "Junyu Zhou",
+      "Xiaojing Ma",
+      "Haolan Qin",
+      "Tiffany Zhou",
+      "Vedant Vipul Jhaveri",
+      "Ashwini Bhingare",
+      "Chinmay Kini",
+      "Qing Lan",
+      "Xiaoqing Wang",
+      "Suleyman Cetintas",
+      "Fedor Borisyuk"
+    ],
+    "summary": "For efficiency, industrial large language model (LLM) labelers often pack many candidate labels into one prompt and generate a YES/NO answer for each, even when each decision depends only on the entity and one candidate. Generating these independent decisions as one answer list couples them, spends decoding on the list, and relies on the list being well-formed. In this paper, we present an end-to-end recipe that reformulates the labeler as semantic scoring, fine-tuning it on single-candidate prompts to return each decision as one answer-token score from a prefill-only pass. We also adapt Multiple-Item Scoring (MIS) to score hundreds of candidates in one sequence with attention masked between them. Deployed for profile qualification labeling at LinkedIn, semantic scoring changes at most 0.01% of decisions when candidates are reordered and matches the agreement with reference labels that packed generation reaches only with about 4.7x as many training pairs. The MIS-based stack raises throughput over the deployed stack by 1.24x offline and 1.9x in model serving under a one-second p99 latency target. For offline batch inference, we implement MIS-based scoring as a reusable, model-agnostic Ray Data API proposed for upstream adoption. Model serving uses MIS support contributed to SGLang.",
+    "categories": [
+      "cs.LG",
+      "cs.DC",
+      "cs.IR"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36383",
+    "pdf_url": "https://arxiv.org/pdf/2610.36383.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了将 LLM 用于工业级语义标签打分的具体架构（MIS），直接应用于 LinkedIn 的推荐/搜索基础设施（用户画像限定），属于 LLM 在 RecSys 核心环节的直接应用，但非纯推荐算法创新。",
+    "translation": "从生成到打分：扩展 LinkedIn 基于大语言模型的语义标签技术",
+    "summary_zh": "提出一种端到端的语义打分方案，通过微调 LLM 将多候选标签生成重构为单次前向传播的独立打分任务，并利用多项打分技术实现高吞吐低延迟的工业级应用。",
+    "key_points": [
+      "提出一种端到端的语义打分方案，通过微调 LLM 将多候选标签生成重构为单次前向传播的独立打分任务，并利用多项打分技术实现高吞吐低延迟的工业级应用"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36389",
+    "title": "MAREval: A Multi-Agent Framework for Evaluating Natural Language Recommendation Explanations",
+    "authors": [
+      "Reza Yousefi Maragheh",
+      "Jayesh Uddhav Kudase",
+      "Aysenur Inan",
+      "Ramin Giahi",
+      "Kai Zhao",
+      "Parth Parikh",
+      "Jianpeng Xu",
+      "Jason Cho",
+      "Evren Korpeoglu",
+      "Sushant Kumar"
+    ],
+    "summary": "Evaluating natural language explanations in recommender systems is essential for fostering user trust, transparency, and engagement. However, existing evaluation approaches like human evaluations, while accurate, are resource-intensive and impractical at the scale required by modern recommendation platforms. Also, automated methods using single-agent LLMs suffer from prompt sensitivity and inconsistent outputs. To address these challenges, we propose MAREval, a structured multi-agent framework for evaluating recommendation explanations using large language models. MAREval orchestrates (i) a planner agent that uses a novel Chain of Debate (CoD) prompting strategy to coordinate agent roles and enforce logically consistent evaluation plans; (ii) a moderator agent that regulates discussions by mitigating prompt drift; and (iii) an arbitrator agent that aggregates outputs from multiple evaluation rounds and (iv) a Monte Carlo sampling method, improving robustness and alignment with human judgment. We conduct comprehensive evaluations on both public (TopicalChat) and proprietary recommendation datasets, demonstrating that MAREval outperforms state-of-the-art baselines. Comprehensive experiments on a public benchmark and a proprietary e-commerce dataset show that MAREval improves alignment with human judgments over strong singleand multi-agent baselines. Stability analyses indicate substantially lower variability across repeated trials. In a large human-annotation gate, MAREval meets production quality thresholds where prior evaluators fall short, and online A/B testing demonstrates statistically significant improvements in engagement and revenue metrics. These results establish MAREval as a scalable and reliable solution for human-aligned evaluation of recommendation explanations in real-world systems",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36389",
+    "pdf_url": "https://arxiv.org/pdf/2610.36389.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对推荐系统中的解释性评估痛点，提出多智能体框架以解决自动化评估难题，属于明确的 RecSys 应用研究而非纯 LLM 理论探索。",
+    "translation": "MAREval：用于评估自然语言推荐解释的多智能体框架",
+    "summary_zh": "提出一种包含规划、调解和仲裁角色的多智能体协作框架，利用辩论链策略和蒙特卡洛采样实现对推荐系统自然语言解释的鲁棒且对齐人类判断的自动化评估。",
+    "key_points": [
+      "提出一种包含规划、调解和仲裁角色的多智能体协作框架，利用辩论链策略和蒙特卡洛采样实现对推荐系统自然语言解释的鲁棒且对齐人类判断的自动化评估"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36208",
+    "title": "Counterfactual Profile Perturbations for Recommendation Explanations: A Reproducibility Study",
+    "authors": [
+      "Meysam Varasteh",
+      "Elizabeth McKinnie",
+      "Robin Burke"
+    ],
+    "summary": "This reproducibility paper explores the counterfactual explanation technique known as Learning to eXplain Recommendations (LXR). Prior work has shown that LXR can reliably identify perturbations that, if applied to a user's profile, cause the user's top ranked item to no longer be recommended, thereby explaining the item's recommendation as a function of the user's rating choices. In this paper, we extend this work in multiple ways. We expand the scope of the original LXR study to look at explanations for items other than the most highly recommended item, finding that LXR is also effective at this version of the task. We consider alternate baselines for LXR, including item popularity and latent factor similarity, and we see that for some tasks these alternatives work surprisingly well. We also examine the impact of item popularity, finding that LXR offers better explanation quality (shorter perturbations) when less popular items are being explained. Finally, we conduct a brute-force exploration of a subset of the perturbation space in order to estimate a lower bound for optimal perturbation size against which LXR and other such methods can be compared.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36208",
+    "pdf_url": "https://arxiv.org/pdf/2610.36208.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于推荐系统的可解释性（反事实解释）及复现性研究，虽属 RecSys 范畴，但侧重于评估现有方法而非提出新的核心架构或深度学习模型，且未涉及 LLM 应用，故优先级中等偏低。",
+    "translation": "用于推荐解释的反事实用户画像扰动：一项复现性研究",
+    "summary_zh": "本文通过扩展任务范围、对比基线方法及分析物品流行度影响，系统评估了基于反事实扰动的推荐解释技术（LXR）的有效性与局限性，并建立了最优扰动规模的下界基准。",
+    "key_points": [
+      "本文通过扩展任务范围、对比基线方法及分析物品流行度影响，系统评估了基于反事实扰动的推荐解释技术（LXR）的有效性与局限性，并建立了最优扰动规模的下界基准"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36666",
+    "title": "Impossibility of No-Regret in Multi-Agent Bidding",
+    "authors": [
+      "Zongjun Yang",
+      "Rachitesh Kumar",
+      "Christian Kroer"
+    ],
+    "summary": "We consider $T$ repeated second-price auctions across $n$ pacing bidders with i.i.d. item arrivals, and show that it is computationally impossible for all bidders to achieve no-regret simultaneously while satisfying their respective budget or return-on-investment constraints. Therefore, in the prominent internet auction systems where buyers simultaneously deploy pacing algorithms or automated bidding agents, we cannot hope to achieve joint no-regret guarantees in general.\n  We establish a deterministic relationship that high variance in online bidding systems implies high regret. By showing that one can extract a pacing equilibrium from a low-variance system, we prove PPAD-hardness of attaining joint no-regret. For several widely used bidding algorithms, we also show evidence from dynamical systems and numerical simulations that they can indeed display high-variance behavior through cycling, even on simple market instances.",
+    "categories": [
+      "cs.GT",
+      "cs.CC",
+      "cs.LG"
+    ],
+    "published": "2026-10-27",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36666",
+    "pdf_url": "https://arxiv.org/pdf/2610.36666.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦广告竞价系统的博弈论局限性，虽与 Ads 生态相关，但属于机制分析而非推荐/搜索核心算法（召回、排序、用户建模）的直接创新。",
+    "translation": "多智能体竞价中无遗憾的不可能性",
+    "summary_zh": "证明了在满足预算或 ROI 约束的重复拍卖中，所有竞价者同时实现无遗憾在计算上是不可行的，揭示了高方差与高遗憾的确定性关系。",
+    "key_points": [
+      "证明了在满足预算或 ROI 约束的重复拍卖中，所有竞价者同时实现无遗憾在计算上是不可行的，揭示了高方差与高遗憾的确定性关系"
+    ]
+  },
+  {
+    "arxiv_id": "2610.36557",
+    "title": "QESChunker: A Single Objective Unifies Overlapping and Non-Overlapping Chunking for RAG",
+    "authors": [
+      "Yifan Zhao",
+      "Qianyang Zhao",
+      "Xinyu Guan",
+      "kai wei",
+      "Yuming Deng"
+    ],
+    "summary": "Chunking is a fundamental preprocessing step in retrieval-augmented generation (RAG), yet most existing chunkers rely primarily on heuristics. We introduce the Question--Evidence-Supervised Chunker (QESChunker), to our knowledge the first method for constructing static chunk indices from question--evidence supervision. QESChunker constructs document-specific chunk indices by optimizing over human-annotated or LLM-generated question--evidence pairs, without access to held-out test queries. We formulate non-overlapping and overlapping index construction through a unified question--evidence utility-maximization objective, turning chunking into a supervised combinatorial optimization problem. Under the non-overlap constraint, the objective decomposes over chunks and can be optimized exactly in polynomial time by dynamic programming. When overlap is allowed, the objective becomes monotone submodular; exact optimization is NP-hard, but our greedy achieves a $(1-1/\\sqrt{e})$-approximation. Across two self-constructed and three public datasets, both variants outperform existing chunking methods in complete-evidence recall in nearly all evaluated settings, under the same overlap regime and a fixed hybrid retriever. These results recast chunking as supervised, budget-aware index construction for evidence retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "math.OC"
+    ],
+    "published": "2026-10-27",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2610.36557",
+    "pdf_url": "https://arxiv.org/pdf/2610.36557.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/RAG 预处理技术研究，虽涉及检索增强生成，但未直接针对推荐系统或搜索引擎的核心业务场景（如排序、个性化），且非电商/社交应用，故评分较低。",
+    "translation": "QESChunker：单一目标统一 RAG 中的重叠与非重叠分块策略",
+    "summary_zh": "提出一种基于问题 - 证据监督的分块方法，将文档索引构建转化为统一的效用最大化组合优化问题，以动态规划或贪心算法求解最优分块。",
+    "key_points": [
+      "提出一种基于问题 - 证据监督的分块方法，将文档索引构建转化为统一的效用最大化组合优化问题，以动态规划或贪心算法求解最优分块"
+    ]
+  },
+  {
+    "arxiv_id": "2607.25135",
+    "title": "ScalableRAG: High-Quality RAG with Exact Corpus Operations at Minimal Ingestion Cost",
+    "authors": [
+      "Hilaf Hasson",
+      "Aditya Chakravarty",
+      "Jayant Thomas",
+      "Krishna Gogineni"
+    ],
+    "summary": "RAG systems face a capability-cost gap: lightweight retrievers locate evidence but expose no operands for exact corpus-level operations (counts, intersections, aggregations), while knowledge ingestion systems obtain them only through expensive ingestion. ScalableRAG closes this gap with a persistent typed-set workspace: an agent builds named document and value sets at query time and composes them through set algebra, typed extraction, aggregation, and diagnostics.\n  Zero-Ingestion ScalableRAG needs no preprocessing, not even a vector index. It matches the leading baseline on four conventional QA benchmarks (74.75 versus 74.64) and on aggregative Hotels-50 beats every evaluated system, scoring 71.74: 36.23 above the leading baseline (SRAG), and 40.22 points above A-RAG. Removing the workspace drops Hotels-50 to 38.4. On Hotels-350, the partition SRAG itself reports on, ScalableRAG leads SRAG by 9.3 points. Limited-Ingestion ScalableRAG adds a lightweight index and is the only evaluated system above 80 judge score at 5M documents, at 13 to 16 seconds per question and under 20 minutes ingestion; at 1M it scores 84.5 to A-RAG's 80.0 with 16x lower latency and 0.5% of its ingestion time. ScalableRAG combines minimal ingestion, conventional-QA parity, exact corpus operations, and million-document viability; no evaluated alternative provides all four.\n  Our code is available at https://github.com/cohesity/ScalableRAG .",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-10-28",
+    "url": "https://arxiv.org/abs/2607.25135",
+    "pdf_url": "https://arxiv.org/pdf/2607.25135.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究论文，专注于通用问答（QA）和聚合任务，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模），属于排除类。",
+    "translation": "ScalableRAG：以最低摄入成本实现精确语料操作的高质量检索增强生成",
+    "summary_zh": "提出一种基于持久化类型集合工作空间的 RAG 架构，通过在查询时构建和操作文档集合，无需昂贵预处理即可实现精确的语料级计数、交集与聚合操作。",
+    "key_points": [
+      "提出一种基于持久化类型集合工作空间的 RAG 架构，通过在查询时构建和操作文档集合，无需昂贵预处理即可实现精确的语料级计数、交集与聚合操作"
+    ]
+  }
+]

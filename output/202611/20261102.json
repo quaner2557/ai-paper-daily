@@ -1,0 +1,513 @@
+[
+  {
+    "arxiv_id": "2610.38378",
+    "title": "Towards Reliable, Scalable, and Value-Aligned Generative Recommendation for Large-Scale Advertising",
+    "authors": [
+      "Yatong Xiao",
+      "Yibo Sheng",
+      "Lixiang Wang",
+      "Mingjie Sun",
+      "Yunhao Sha",
+      "Pengfei Zhang",
+      "Shengyu Wang",
+      "Peng Wang",
+      "Wenjin Wu",
+      "Peng Jiang"
+    ],
+    "summary": "Generative recommendation (GR) reformulates item retrieval as autoregressive generation of discrete semantic identifiers (SIDs), offering a unified paradigm for personalized recommendation. GR4AD, as an industrial generative recommendation framework, has greatly improved advertising revenue while enabling efficient real-time serving in Kuaishou. However, continued deployment has exposed three limitations: deterministic SID assignment remains sensitive to semantic boundaries; conventional backbone scaling provides diminishing revenue gains under strict serving constraints; and sequence-level value optimization provides limited credit assignment to intermediate SID decisions, causing likelihood-based beam search to prematurely prune potentially high-value candidates. We present GR4AD-X, which addresses these limitations through reliable SID construction, serving-efficient capacity scaling, and unified value alignment. Specifically, GR4AD-X improves SID reliability through Multi-Path assignment. It expands model capacity along multiple complementary dimensions rather than relying solely on wider or deeper backbones, achieving a better effectiveness-efficiency trade-off under strict serving constraints. Finally, Unified Value-Guided Generation and Discrimination (UniVGD) aligns generation with commercial value through prefix-level reward optimization, value-guided beam pruning, and discriminative reranking within a unified model. Large-scale online A/B tests on the Kuaishou advertising platform demonstrate that GR4AD-X achieves a cumulative revenue improvement of 3.07% over the deployed GR4AD baseline while satisfying strict latency and throughput constraints.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.38378",
+    "pdf_url": "https://arxiv.org/pdf/2610.38378.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接针对快手广告系统的生成式推荐进行核心架构创新，解决了工业界实际部署中的可靠性、扩展性和价值对齐问题，完全符合高优先级标准并获额外加分。",
+    "translation": "面向大规模广告的可靠、可扩展且价值对齐的生成式推荐研究",
+    "summary_zh": "提出 GR4AD-X 框架，通过多路径语义标识符构建、多维容量扩展及统一价值引导生成与判别机制，解决工业级生成式推荐在语义边界敏感、服务约束下扩展受限及价值分配不均的核心难题。",
+    "key_points": [
+      "提出 GR4AD-X 框架，通过多路径语义标识符构建、多维容量扩展及统一价值引导生成与判别机制，解决工业级生成式推荐在语义边界敏感、服务约束下扩展受限及价值分配不均的核心难题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40658",
+    "title": "Explain, Then Forget: Recommendation Unlearning under Asymmetric Access Constraint",
+    "authors": [
+      "Haichao Zhang",
+      "Chong Zhang",
+      "Wen Wang",
+      "Shi Qiu",
+      "Peiyu Hu",
+      "Jia Wang"
+    ],
+    "summary": "Recommendation unlearning aims to remove the influence of specific historical interactions that should no longer affect future recommendations, such as noisy clicks or outdated user preferences. However, performing recommendation unlearning becomes much harder in modern Machine-Learning-as-a-Service (MLaaS) architectures, where the recommendation model is remotely hosted by a model provider (MP) and accessed by service operators (SO) only through APIs. In this setting, a service operator serves end users but cannot access or modify internal model parameters. As a result, existing unlearning methods are difficult to apply because they require access to model internals for retraining, fine-tuning, or other parameter updates. To address these challenges, we propose Causal Explanation-based Unlearning (CEU), a novel unlearning framework tailored for MLaaS environments. Instead of modifying internal model weights, CEU operates through a two-step output-level score intervention. First, it estimates how the forgotten interaction causally contributes to the current recommendation. Second, guided by this causal signal, the system removes the influence of the forgotten interaction by adjusting the final ranking scores of affected items. Because CEU leaves model parameters untouched, it naturally supports continuous unlearning requests while avoiding the error accumulation that can result from repeated parameter updates. Extensive experiments on three public datasets show that CEU achieves unlearning effectiveness comparable to full retraining while preserving recommendation utility and significantly reducing computational cost. The source code is available at: https://github.com/zhang-haichao/Explain-and-Forget.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-08-27",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.40658",
+    "pdf_url": "https://arxiv.org/pdf/2610.40658.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的“机器遗忘”实际问题，特别是针对 MLaaS 架构下的参数不可访问场景提出了创新方案，属于核心推荐技术进阶，且来自中国公司额外加 1 分。",
+    "translation": "解释后遗忘：非对称访问约束下的推荐系统机器遗忘",
+    "summary_zh": "提出一种基于因果解释的机器遗忘框架，通过在输出层进行分数干预而非修改模型参数，实现在无法访问模型内部的 MLaaS 架构中高效移除特定历史交互的影响。",
+    "key_points": [
+      "提出一种基于因果解释的机器遗忘框架，通过在输出层进行分数干预而非修改模型参数，实现在无法访问模型内部的 MLaaS 架构中高效移除特定历史交互的影响"
+    ]
+  },
+  {
+    "arxiv_id": "2610.41319",
+    "title": "MILES-Rec: Uncovering Implicit Intents from Mobility Behaviors for Cross-Domain POI Recommendation",
+    "authors": [
+      "Yi Zou",
+      "Wei Luo",
+      "Xuewen Zhang",
+      "Zhuang Yan",
+      "Pengjie Wang"
+    ],
+    "summary": "Map applications bridge everyday mobility with local services, creating opportunities to recommend places by uncovering users' implicit intents. However, utility-driven map interactions provide only indirect and incomplete evidence of consumption demands, making it challenging to infer personalized service needs from observed behaviors. We propose MILES-Rec, a cross-domain POI recommendation framework that infers latent service intents from heterogeneous map behaviors and expresses them as prioritized natural language queries. It first learns from progressive reasoning demonstrations that synthesize user profiles and map histories for situation understanding, intent expansion, and query prioritization. We then introduce intent-aligned group relative policy optimization, using subsequent user interactions to reward query relevance and ranked service coverage while penalizing redundancy and excessive response length. A two-level credit assignment mechanism integrates shared list-level advantages with query-specific advantages, coordinating individual query quality with the complementary coverage of the complete query list. We further construct MILES-Bench from real user interaction logs on a large-scale mapping platform, supporting training and evaluation across diverse services under rich and sparse behavioral histories. Extensive experiments against general-purpose LLMs and specialized recommendation baselines demonstrate superior POI retrieval utility and strong service and semantic alignment, with consistent gains from behavioral policy optimization across four backbone scales.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.41319",
+    "pdf_url": "https://arxiv.org/pdf/2610.41319.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对地图场景下的 POI 推荐问题，利用 LLM 挖掘用户隐式意图并优化排序，属于典型的'LLM for RecSys'高价值应用，且来自中国公司额外加 1 分后满分。",
+    "translation": "MILES-Rec：从移动行为中挖掘隐式意图以实现跨域 POI 推荐",
+    "summary_zh": "提出一种跨域 POI 推荐框架，通过渐进式推理从异构地图行为中推断潜在服务意图并生成自然语言查询，结合意图对齐的群体相对策略优化机制协调查询质量与列表覆盖度。",
+    "key_points": [
+      "提出一种跨域 POI 推荐框架，通过渐进式推理从异构地图行为中推断潜在服务意图并生成自然语言查询，结合意图对齐的群体相对策略优化机制协调查询质量与列表覆盖度"
+    ]
+  },
+  {
+    "arxiv_id": "2610.41374",
+    "title": "BrowseFlow: Sparse Event Flow Matching for Generative User Simulation",
+    "authors": [
+      "Yitian Pang",
+      "Jiayi Zhang",
+      "Zhenjia Ma",
+      "Xiaowei Yue",
+      "Dagui Chen",
+      "Jian Xu"
+    ],
+    "summary": "User simulation aims to reproduce how users interact with content and products across online platforms. Recent generative approaches have enriched user simulation with behavioral history and contextual information. However, realistic browsing simulation still faces two challenges. (i) Stochastic Responses: Even with the same recommendation feed, the same user may produce different browsing responses, yielding distinct behavioral trajectories. A logged trajectory records only one such realization. (ii) Sparse Key Events: Clicks and likes provide important feedback but occur sparsely within browsing trajectories dominated by progression actions such as scrolling. Many stepwise simulators predict these actions in a dense sequence, where key events contribute relatively few training targets. To address these challenges, we propose BrowseFlow, a conditional discrete flow matching method for generative user simulation. For Sparse Key Events, BrowseFlow represents each response by its browsing extent and an ordered sequence of key events, directly modeling their counts and locations under exposure constraints. BrowseFlow learns the conditional distribution of complete browsing responses through probabilistic extent prediction and discrete flow matching over key events. Random event retention defines probability paths over partial event sequences, while transition rate matching learns stochastic insertion dynamics. For Stochastic Responses, we use the energy score, a proper scoring rule, to evaluate response fidelity and generated variability, complemented by the Wasserstein distance between key event count distributions. We further introduce TaobaoBrowse, a benchmark pairing real recommendation contexts with fine-grained browsing trajectories. Experiments across three datasets demonstrate that BrowseFlow consistently achieves the best distributional performance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.41374",
+    "pdf_url": "https://arxiv.org/pdf/2610.41374.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "DepartmentofAutomation Taobao&TmallGroupofAlibaba Taobao&TmallGroupofAlibaba",
+      "TsinghuaUniversity Beijing,China Beijing,China",
+      "DepartmentofIndustrialEngineering Taobao&TmallGroupofAlibaba Taobao&TmallGroupofAlibaba",
+      "TsinghuaUniversity Beijing,China Beijing,China",
+      "signedappropriateprobabilities.(ii)SparseKeyEvents:Clicksand toriesisalongstandingresearchprobleminunderstandingand"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对电商推荐场景（淘宝）中的用户行为模拟难题，提出生成式方法解决随机响应和稀疏关键事件问题，属于核心用户建模与推荐系统评估的高价值研究，且源自工业界实战。",
+    "translation": "BrowseFlow：面向生成式用户模拟的稀疏事件流匹配方法",
+    "summary_zh": "提出 BrowseFlow 框架，利用条件离散流匹配技术直接建模用户在推荐流中的浏览范围及稀疏关键事件序列，以解决传统模拟器难以捕捉用户随机响应和关键反馈稀疏性的问题。",
+    "key_points": [
+      "提出 BrowseFlow 框架，利用条件离散流匹配技术直接建模用户在推荐流中的浏览范围及稀疏关键事件序列，以解决传统模拟器难以捕捉用户随机响应和关键反馈稀疏性的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2411.09181",
+    "title": "Time Will Tell: Harness Time to Denoise Collaborative Filtering",
+    "authors": [
+      "Xinyu He",
+      "Jose Sepulveda",
+      "Mostafa Rahmani",
+      "Alyssa Woo",
+      "Fei Wang",
+      "Hanghang Tong"
+    ],
+    "summary": "Neural graph collaborative filtering is a powerful tool for recommendation due to its superb capability of capturing the user-item interaction. Despite the substantial progress, the noisy nature of interaction data remains a significant challenge in collaborative filtering, especially for data collected from implicit feedback. Both noisy interactions and interactions crafted by malicious users could greatly degenerate model performance. To purify the input data and enhance model robustness, it is vital to understand how noisy interactions can be identified and rectified. Existing denoising methods focus on mining the correlation between user/item embeddings and noisy interactions, neglecting the temporal dimension for denoising. However, time information bears its natural and unique advantage in revealing noisy edges as we observe in this paper. In this work, we introduce a simple yet effective mechanism for generating time-aware user/item embeddings that capture both global preferences and temporal patterns. Two strategies, reweighting adjacency matrix (Tint-A) and reweighting loss function (Tint-L), are proposed to leverage the embeddings for the task of using \\underline{t}ime \\underline{in}forma\\underline{t}ion to denoise \\underline{c}ollaborative \\underline{f}iltering (TintCF). Extensive experiments have been conducted on four real-world datasets to demonstrate the efficacy of our methods and illustrate how time information indeed helps identify and rectify noisy edges. Our codes are available at \\href{https://github.com/xinyuu-he/TintCF}{https://github.com/xinyuu-he/TintCF}.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2411.09181",
+    "pdf_url": "https://arxiv.org/pdf/2411.09181.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "Collaborative Filtering",
+      "University of Illinois, Urbana-Champaign Shopify Amazon Amazon",
+      "Alchedata AI University of Illinois, Urbana-Champaign",
+      "Abstract—Neural graph collaborative filtering is a powerful intended for others (e.g., gifts). These noisy interactions are",
+      "many malicious attacks [20]–[22] have been designed to collaborative filtering, especially for data collected from implicit",
+      "To purify the input data and enhance model robustness, it is neuralcollaborativefiltering,theproblembecomesevenworse",
+      "neglecting the temporal dimension for denoising. However, time and rectifying noisy interactions for collaborative filtering"
+    ],
+    "relevance_score": 9,
+    "reasoning": "本文直接针对推荐系统中的协同过滤去噪问题，创新性地利用时间维度识别噪声交互，属于核心推荐算法改进；且来自 TAL（好未来），根据规则额外 +1 分。",
+    "translation": "时间会证明：利用时间信息对协同过滤进行去噪",
+    "summary_zh": "提出一种利用时间信息生成用户/物品嵌入的机制，通过重加权邻接矩阵或损失函数两种策略，在神经图协同过滤中识别并修正噪声交互以提升模型鲁棒性。",
+    "key_points": [
+      "提出一种利用时间信息生成用户/物品嵌入的机制，通过重加权邻接矩阵或损失函数两种策略，在神经图协同过滤中识别并修正噪声交互以提升模型鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.41425",
+    "title": "How BERT-based Cross-Encoders Model Relevance in Information Retrieval?",
+    "authors": [
+      "Mathias Vast",
+      "Basile Van Cooten",
+      "Laure Soulier",
+      "Benjamin Piwowarski"
+    ],
+    "summary": "Cross-encoders are the most effective but also the least efficient models in Information Retrieval. Despite their success, the mechanisms underlying their relevance predictions remain poorly understood, particularly how they process to match queries and documents. This lack of interpretability limits their optimization, can lead to suboptimal retrieval, especially out-of-domain, and raises efficiency concerns for over-parameterized models. To address these challenges, this paper investigates two under-explored aspects of cross-encoder behavior. First, to understand the relevance prediction process, we trace the flow of information at the different stages of the process and between different input segments. We study the nature of the signals that compose this flow and that allow cross-encoders to predict the relevance of a passage to a query. Our work particularly focuses on the matching performed by the cross-encoders between queries and documents. Second, we explore how cross-encoders behave with out-of-domain documents and/or queries. Through a series of interpretability experiments, we evaluate three BERT-based cross-encoder models, varying in size and pre-training strategies, across both in-domain and out-of-domain datasets. Overall, this study both consolidates what is known about how cross-encoders model relevance and extends it by exploring the role of matching signals.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.41425",
+    "pdf_url": "https://arxiv.org/pdf/2610.41425.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "论文直接研究信息检索（搜索核心环节）中 Cross-Encoder 的相关性建模机制与可解释性，虽属分析性研究而非新架构提出，但对优化搜索排序有明确指导意义；非纯 LLM 研究。",
+    "translation": "基于 BERT 的交叉编码器如何在信息检索中建模相关性？",
+    "summary_zh": "本文通过追踪信息流与匹配信号，深入解析了交叉编码器在查询与文档匹配过程中的内部机制及其在域外数据上的行为特征。",
+    "key_points": [
+      "本文通过追踪信息流与匹配信号，深入解析了交叉编码器在查询与文档匹配过程中的内部机制及其在域外数据上的行为特征"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40936",
+    "title": "Fair Recommender Systems for Intersecting Groups",
+    "authors": [
+      "Christine Ling",
+      "Juba Ziani"
+    ],
+    "summary": "Recommendation systems that optimize for the average user can fail to capture the preferences of diverse demographic groups. We consider a dynamic recommendation system, where arriving users can belong to different demographic groups. Importantly, these groups can intersect, and a user may belong to several groups. We first show that over time, any group-blind policy (which excludes all current-user group information) recommending $K \\geq 1$ items incurs linear total regret under mild conditions. In turn, we introduce three group-aware algorithms based on the classical Upper Confidence Bound algorithm (UCB): i) Intersection-Fitting, which runs UCB on each intersection, but has a sublinear group- and intersection-level regret guarantee with an exponential dependence in the number of groups; and ii) two group-level heuristics, Inner-Outer UCB and Group-Item UCB which allocate different arms to different groups, and use a sleeping expert meta-learner to choose which active group's recommendation an intersection should inherit at any given time step. We provide experimental results on two datasets, Goodreads and BoardGameGeek, and highlight that our heuristics can be preferable to the intersection-fitting algorithm when intersection-level preferences are closely related to group-level preferences, but that intersection-fitting performs better when different intersections within a same group prefer different items.",
+    "categories": [
+      "cs.LG",
+      "cs.CY",
+      "cs.GT"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.40936",
+    "pdf_url": "https://arxiv.org/pdf/2610.40936.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 7,
+    "reasoning": "论文针对推荐系统中的公平性问题，提出了处理交叉群体偏好的具体算法，属于核心推荐技术；虽非深度学习/LLM 前沿且加分后仍属中高优先级。",
+    "translation": "面向交叉群体的公平推荐系统研究",
+    "summary_zh": "本文提出了一种动态推荐框架，通过基于 UCB 的交集拟合及内外部启发式算法，解决多属性交叉用户群体的偏好建模与线性遗憾最小化问题。",
+    "key_points": [
+      "本文提出了一种动态推荐框架，通过基于 UCB 的交集拟合及内外部启发式算法，解决多属性交叉用户群体的偏好建模与线性遗憾最小化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.25592",
+    "title": "Optimal Design for Multinomial Logit Model with Applications to Best Assortment Identification",
+    "authors": [
+      "Joongkyu Lee",
+      "Min-hwan Oh"
+    ],
+    "summary": "We study optimal experimental design for multinomial logit (MNL) bandits, where an agent repeatedly selects a subset of $K$ items from a ground set of size $N$ and observes single-choice feedback. Unlike linear or generalized linear bandits, MNL bandits have a combinatorial action space, which makes classical optimal design approaches and naive optimization over all subsets computationally intractable. We propose a computationally efficient optimal design framework for MNL models that achieves both statistical efficiency and scalability through two complementary approaches: (i) an exact or certified-approximate reformulation of the design oracle as a $0$-$1$ mixed-integer linear program (MILP) with solver-certified early stopping, and (ii) a fully polynomial-time lifted design that replaces the nonlinear objective with a tractable surrogate. Using the Kiefer-Wolfowitz equivalence theorem, we establish near G-optimality guarantees and characterize the induced statistical-computational trade-offs. As an application, we develop a best assortment identification algorithm for MNL bandits with linear utilities and non-uniform revenues, and prove an instance-dependent sample complexity of $\\tilde{O}\\big(\\frac{d \\log N}{Δ^2}\\big)$, where $d$ is the feature dimension, $N$ is the number of arms, and $Δ$ is the minimum revenue gap.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2605.25592",
+    "pdf_url": "https://arxiv.org/pdf/2605.25592.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "论文研究 MNL Bandit 在最优商品组合（Assortment）识别中的应用，属于推荐系统中的排序与选择问题，但侧重于理论算法设计而非直接的大规模工业推荐架构或 LLM 应用。",
+    "translation": "多项 Logit 模型的最优实验设计及其在最佳商品组合识别中的应用",
+    "summary_zh": "提出一种针对多项 Logit 带臂模型的高效最优实验设计框架，通过混合整数线性规划重构和多项式时间提升设计解决组合动作空间的计算难题，并应用于非均匀收益下的最佳商品组合识别。",
+    "key_points": [
+      "提出一种针对多项 Logit 带臂模型的高效最优实验设计框架，通过混合整数线性规划重构和多项式时间提升设计解决组合动作空间的计算难题，并应用于非均匀收益下的最佳商品组合识别"
+    ]
+  },
+  {
+    "arxiv_id": "2610.41407",
+    "title": "Fidelity Synopses: Pre-Execution Plan Selection for Approximate Vector Search",
+    "authors": [
+      "Adithya Ramanatha",
+      "Sanskar S. Singh",
+      "Maya Ramanath"
+    ],
+    "summary": "Vector search has become a database operator with many physical implementations: different index families, build-time and search-time parameters, and compressed or disk-resident variants. Each trades cost against fidelity, the fraction of a query's exact top-k nearest neighbors that a configuration returns. Deployments nevertheless choose one configuration offline and use it for every query, so they are sized for their hardest queries and overpay for the rest. On a 5.8M-item LAION benchmark with four embedding models, running each query on the cheapest configuration that suffices for it would roughly halve the cost in a typical setting. Exploiting this requires predicting each configuration's fidelity before running it, which is hard because fidelity is defined by the very exact search that approximate indexes avoid. Relational optimizers solve the analogous problem for cardinality with offline synopses; we propose one for vector search. A fidelity synopsis divides the embedding space into cells around a set of landmarks and records, for every cell and configuration, how often that configuration met a fidelity target on a sample of queries. At query time, one nearest-landmark lookup yields a calibrated estimate for every configuration, and an optimizer chooses configurations so that the workload misses the target no more often than its requirement allows. We test the two premises the synopsis relies on, that fidelity varies smoothly across the embedding space and that its loss is specific to each configuration. Held to the same requirement a static deployment is built to meet, synopsis-guided selection lowers cost in all 16 combinations of model and query direction, to a median of 0.72x the static deployment, with a batched lookup of 21-32 microseconds per query. The saving persists against the best static choice among the same indexes, and within a single index at no extra memory.",
+    "categories": [
+      "cs.DB",
+      "cs.IR"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.41407",
+    "pdf_url": "https://arxiv.org/pdf/2610.41407.pdf",
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦数据库层面的近似向量搜索索引优化与执行计划选择，属于底层系统技术，虽为检索提供基础设施但未直接涉及推荐/搜索的核心算法（如排序、用户建模）或业务逻辑，且非 LLM 直接应用。",
+    "translation": "Fidelity Synopses：近似向量搜索的预执行计划选择",
+    "summary_zh": "提出一种基于“保真度概要”的数据库优化方法，通过预测不同索引配置在嵌入空间局部区域的查询保真度，动态选择满足精度要求的最优执行计划以降低向量搜索成本。",
+    "key_points": [
+      "提出一种基于“保真度概要”的数据库优化方法，通过预测不同索引配置在嵌入空间局部区域的查询保真度，动态选择满足精度要求的最优执行计划以降低向量搜索成本"
+    ]
+  },
+  {
+    "arxiv_id": "2610.41358",
+    "title": "Do Transaction Prices Reflect Visual Preference? A Diagnostic Study with Multimodal Language Models",
+    "authors": [
+      "Fengxian Ji",
+      "Jingpu Yang",
+      "Fan Zhang",
+      "Junhong Liang",
+      "Qian Jiang",
+      "Yuke Li",
+      "Jinri Guo",
+      "Rongxin Zhu",
+      "Zhuohan Xie"
+    ],
+    "summary": "Existing visual preference evaluation relies on costly human annotations or preference reward models, whereas online marketplace transaction prices are readily available and reflect real purchasing behavior, offering potential low-cost supervision. However, transaction prices conflate visual preferences with non-visual factors such as provenance, demand, and competition, making aggregate accuracy insufficient to distinguish model errors, unreliable price signals, and protocol confounds. To address this identifiability challenge, we introduce MarketImage, a diagnostic framework that identifies when transaction prices reflect visual preferences, where they fail, and whether multimodal language models can recover human-supported visual preference signals. MarketImage comprises three components: (i) MarketImageArt, 266 six-image comparison sets with transaction prices and price-blind human rankings; (ii) MarketImageLens, a tie-preserving protocol that partitions 3,990 within-set image pairs into price-human agreement, conflict, and price-tie regions while separately auditing presentation-order effects; and (iii) MarketValuator, six elicitation methods spanning direct comparison, independent scoring, budget constraints, and multi-agent aggregation to evaluate signal recovery by static visual scorers and three multimodal language models. Experiments show that only 24.2% of image pairs have a non-tied price direction, of which 34.7% agree with the human majority. Within this region, HPSv2 leads at 66.4% Recoverable Accuracy; Qwen's budgeted and aggregated variants trail baselines, while GPT interface gains remain statistically unresolved. Thus, transaction prices encode recoverable visual preferences only under limited conditions and should be treated as uncertain proxies rather than ground truth.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.41358",
+    "pdf_url": "https://arxiv.org/pdf/2610.41358.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该研究主要评估多模态大模型在艺术品价格与视觉偏好一致性上的诊断能力，属于纯 MLLM 评估研究，未提出具体的推荐或搜索系统架构，仅边缘相关。",
+    "translation": "交易价格是否反映视觉偏好？一项基于多模态语言模型的诊断研究",
+    "summary_zh": "提出 MarketImage 诊断框架，通过解构交易价格中的非视觉因素，评估多模态大模型从市场价格中恢复真实视觉偏好信号的能力与局限性。",
+    "key_points": [
+      "提出 MarketImage 诊断框架，通过解构交易价格中的非视觉因素，评估多模态大模型从市场价格中恢复真实视觉偏好信号的能力与局限性"
+    ]
+  },
+  {
+    "arxiv_id": "1504.06952",
+    "title": "Random Forest for the Contextual Bandit Problem - extended version",
+    "authors": [
+      "Raphaël Féraud",
+      "Elys Allesiardo",
+      "Tanguy Urvoy",
+      "Fabrice Clérot"
+    ],
+    "summary": "To address the contextual bandit problem, we propose an online random forest algorithm. The analysis of the proposed algorithm is based on the sample complexity needed to find the optimal decision stump. Then, the decision stumps are assembled in a random collection of decision trees, Bandit Forest. We show that the proposed algorithm is optimal up to logarithmic factors. The dependence of the sample complexity upon the number of contextual variables is logarithmic. The computational cost of the proposed algorithm with respect to the time horizon is linear. These analytical results allow the proposed algorithm to be efficient in real applications, where the number of events to process is huge, and where we expect that some contextual variables, chosen from a large set, have potentially non- linear dependencies with the rewards. In the experiments done to illustrate the theoretical analysis, Bandit Forest obtain promising results in comparison with state-of-the-art algorithms.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2016-09-15",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/1504.06952",
+    "pdf_url": "https://arxiv.org/pdf/1504.06952.pdf",
+    "prerank_score": 5,
+    "relevance_score": 4,
+    "reasoning": "该文提出用于上下文多臂老虎机（Contextual Bandit）的随机森林算法，虽为推荐排序的理论基础，但属于通用强化学习/决策方法，缺乏针对 RecSys 具体场景（如序列建模、多模态）的直接应用或创新。",
+    "translation": "面向上下文多臂老虎机问题的随机森林算法（扩展版）",
+    "summary_zh": "提出一种在线随机森林算法（Bandit Forest），通过集成决策桩解决上下文多臂老虎机问题，在保证对数级样本复杂度和线性时间成本的同时处理大规模上下文变量与非线性奖励依赖。",
+    "key_points": [
+      "提出一种在线随机森林算法（Bandit Forest），通过集成决策桩解决上下文多臂老虎机问题，在保证对数级样本复杂度和线性时间成本的同时处理大规模上下文变量与非线性奖励依赖"
+    ]
+  },
+  {
+    "arxiv_id": "2610.41132",
+    "title": "When Disclosure Is Compulsory: Evaluating Ride-Hailing Rebalancing Policies with Self-Interested LLM Driver Agents",
+    "authors": [
+      "Xinyu Wang",
+      "Andres Fielbaum"
+    ],
+    "summary": "The EU Platform Work Directive, to be transposed by December 2026, requires ride-hailing platforms to state in plain language the main parameters of their automated decisions and how a worker's behaviour affects them. Such rules are exactly what a large language model (LLM) can read, so drivers will be able to let one decide for them. We compare two main families of rebalancing policy once their rules are public: a reactive policy (R) that sends idle drivers to cover requests just lost, and an anticipatory policy (A) that plans moves on a demand forecast. Each driver is an LLM agent maximizing its own net income, given no rules (N) or the rules at the directive's level of detail (L). We test two LLMs, Claude Haiku 5.5 and Jev, which understand the rules equally well, in a three-zone model and in Manhattan. With the rules disclosed, drivers follow the platform more closely: in Manhattan, the share of relocation offers they decline falls from about four in five to one in four under both policies. Yet the effects differ by policy. For the platform, disclosure costs R 3.7% of its profit in Manhattan, as R now pays for moves drivers used to make for free, while A's profit is unchanged; the two policies, which tie on profit under full compliance, end 6.1% apart. For drivers, disclosure raises income in the small model under both policies and LLMs; for users, it raises the service rate there by 10 to 18 percentage points. In Manhattan, self-interested drivers also make A a win-win-win against full compliance, raising driver income, platform profit and service rate by 10 to 12% each. Rebalancing policies that perform equally well under full compliance can thus show opposite results under mandatory disclosure. The study offers a framework to evaluate such policies under the new requirement and is, to our knowledge, the first to do so with LLM agents.",
+    "categories": [
+      "cs.MA",
+      "cs.AI"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.41132",
+    "pdf_url": "https://arxiv.org/pdf/2610.41132.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM Agent 在博弈论/政策评估中的应用，核心是司机与平台的策略互动，而非推荐系统或搜索引擎的核心技术（召回、排序、用户建模等），虽涉及平台经济但非 RecSys 直接相关。",
+    "translation": "当披露成为强制要求：利用自利 LLM 司机代理评估网约车重平衡策略",
+    "summary_zh": "提出一种利用大语言模型构建自利司机代理的框架，以评估在欧盟新规强制披露算法规则下，不同网约车车辆重平衡策略对平台、司机及用户的多方影响。",
+    "key_points": [
+      "提出一种利用大语言模型构建自利司机代理的框架，以评估在欧盟新规强制披露算法规则下，不同网约车车辆重平衡策略对平台、司机及用户的多方影响"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21702",
+    "title": "From Association to Causation: Improving Retrieval Precision of Retrieval-Augmented Generation via Causal Relations and an Attention Mechanism",
+    "authors": [
+      "Jing Liu",
+      "Yongxing Qi",
+      "Muchen Jiang",
+      "Chengnan Hu",
+      "Qingqing Peng",
+      "Haoming Wang",
+      "Yuqing Wang",
+      "Yang Yu",
+      "Xu Zhang",
+      "Ting Wu"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) grounds LLM generation on retrieved documents, but the standard terminal retrieval stage--dense-vector similarity, optionally followed by reranking--often returns documents that share keywords with the query without containing the needed information, a failure mode that grows with the knowledge base. We trace it to a conceptual gap: similarity captures only associational relations, whereas the documents that matter are linked to the query causally. We model the terminal retrieval stage with a causal graph grounded in Reichenbach's common cause principle: the keywords shared by the query and a retrieved document form a latent common cause A, and the document's residual keywords form a latent set B linking the document to the ideal output. Since a retrieved document is a collider (A -> d <- B), retrieval itself opens an associational path between the query and B, which licenses a training-free, attention-style re-scoring rule: the cosine similarity between the query embedding and the weighted centroid embedding of B. Unlike causality-enhanced RAG variants that model causal relations inside the knowledge content, our graph models the causal structure of the retrieval process itself. On a real 471-document enterprise knowledge base, the method promotes a relevant guideline from rank 6 to the top 3; on a controlled diagnostic corpus reproducing the keyword-stuffing regime, it improves the mean target rank from 2.88 to 1.25, while a trained cross-encoder reranker barely helps (2.63). Conversely, on three BEIR benchmarks the score underperforms the similarity baseline, delineating the applicability boundary: the method guards the keyword-stuffing regime of growing proprietary knowledge bases and complements neural rerankers; a corpus-level calibration gate selects the correct regime with >= 95% reliability. A fully local testbed demonstrates deployability.",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2608.21702",
+    "pdf_url": "https://arxiv.org/pdf/2608.21702.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于解决生成任务中的检索噪声问题，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "从关联到因果：利用因果关系与注意力机制提升检索增强生成的检索精度",
+    "summary_zh": "该论文提出一种基于因果图的无训练重评分方法，通过区分查询与文档间的共同原因和因果联系，修正密集向量检索在关键词堆砌场景下的错误匹配。",
+    "key_points": [
+      "该论文提出一种基于因果图的无训练重评分方法，通过区分查询与文档间的共同原因和因果联系，修正密集向量检索在关键词堆砌场景下的错误匹配"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40930",
+    "title": "Adaptive Personalization Under Preference Epistemic Uncertainty",
+    "authors": [
+      "Priyanka Dey",
+      "Rajarshi Das",
+      "Vikas Bahirwani",
+      "Qi Zeng",
+      "Julia Kruk",
+      "Qi Qi"
+    ],
+    "summary": "Human preferences change over time: an established preference may remain valid over time, become uncertain as context shifts, or be explicitly revised. Effective personalization requires conversational AI to adapt its response strategy to evolving preferences rather than relying on passive memory retrieval. We formalize this capability as adaptive personalization under epistemic uncertainty. A human preference study further confirms that people favor state-contingent response strategies as preference uncertainty changes. To evaluate whether language models mirror this adaptation, we create a multilingual benchmark spanning 250 personas, 5 languages, and 25K conversational turns that decouples strategy selection from response execution. Across eight closed- and open-weight models, we uncover a recognition-generation gap: models reliably identify appropriate strategies when selecting among candidate options, but collapse during open-ended generation, suffering a 35-46% drop in strategy calibration. Crucially, this failure is systematic: models default to exploit-first behavior, over-relying on existing preferences regardless of preference epistemic uncertainty. We show this failure is addressable: while prompting interventions fail, targeted training that supervises models' internal strategy representations toward state-conditional human preferences narrows the user acceptability generalization gap by a third on out-of-distribution personas and conversational styles.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.40930",
+    "pdf_url": "https://arxiv.org/pdf/2610.40930.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta Superintelligence Labs, 2University of Southern California"
+    ],
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 LLM 研究，聚焦于对话 AI 中的偏好不确定性与策略生成差距，未涉及推荐系统或搜索引擎的核心环节（如召回、排序），属于排除类低优先级。",
+    "translation": "偏好认知不确定性下的自适应个性化",
+    "summary_zh": "本文形式化了对话 AI 在偏好认知不确定性下的自适应个性化问题，揭示了模型在开放生成中无法根据偏好不确定性调整策略的系统性缺陷，并提出通过监督内部策略表征来缩小该差距的方法。",
+    "key_points": [
+      "本文形式化了对话 AI 在偏好认知不确定性下的自适应个性化问题，揭示了模型在开放生成中无法根据偏好不确定性调整策略的系统性缺陷，并提出通过监督内部策略表征来缩小该差距的方法"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40966",
+    "title": "Better Retrievers, Worse Labels: How Incomplete Relevance Judgments Distort Abstention Evaluation in Conversational RAG",
+    "authors": [
+      "Ivan Kochergin",
+      "Vasily Konovalov"
+    ],
+    "summary": "Conversational RAG benchmarks such as MTRAG and RETECO evaluate retrieval and generation end to end: each system answers from its own retrieval, so abstention must be scored against whether each retrieved context is sufficient. A convenient shortcut reads sufficiency off the relevance judgments and treats a context without gold documents as unanswerable. We re-run the official baselines exactly and test this shortcut on RECOR (RETECO track~2) with four retrievers (nDCG@10 from .18 to .59) and three Qwen3 readers. Two open LLM judges and a panel of four small open models label each context by content, and a model of another family audits 250 contexts blind, with adjudication. The stronger the retriever, the larger the share of no-gold contexts that still contain the answer (28\\% to 72\\%) and the lower the shortcut's precision (.68 to .10; .70 to .21 under the audit). A reader agrees: Qwen3-4B answers 62--67\\% of these false misses correctly, against 23--30\\% of no-gold contexts judged insufficient and 1\\% with no documents. In most false misses, the answer comes from a hard negative mined for the same question, another turn's gold or a neighbouring chunk of the gold page. On MTRAG, whose judgments come from annotators, precision drops from .72 to .50. Under the shortcut, answerability AUROC is up to .19 too low, and the best sufficiency detector appears to be a retrieval score that never reads the documents. We release code, runs and labels, and recommend scoring refusals against content labels, not the presence of gold.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.40966",
+    "pdf_url": "https://arxiv.org/pdf/2610.40966.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM/RAG 评估方法研究，聚焦于对话式检索增强生成的标注偏差问题，未直接涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化），即使有中国公司背景加分，相关性依然较低。",
+    "translation": "更好的检索器，更差的标签：不完整的相关性判断如何扭曲对话式 RAG 中的弃权评估",
+    "summary_zh": "本文揭示了对话式 RAG 评估中因依赖不完整黄金文档标签而导致的弃权判断偏差，提出应基于检索内容的实际充分性而非标签存在性来评估系统的拒绝回答能力。",
+    "key_points": [
+      "本文揭示了对话式 RAG 评估中因依赖不完整黄金文档标签而导致的弃权判断偏差，提出应基于检索内容的实际充分性而非标签存在性来评估系统的拒绝回答能力"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40768",
+    "title": "Retrieve-then-Disambiguate: Scalable Reviewer Discovery",
+    "authors": [
+      "Vicente Amado Olivo",
+      "Joe Petrecca",
+      "Wolfgang E. Kerzendorf"
+    ],
+    "summary": "The growing number of scientific submissions is straining the peer review process, while a large pool of relevant researchers remains unidentified and is therefore not considered as potential reviewers. We formulate the discovery of these researchers as a retrieval problem: given a submission, we retrieve and rank researchers based on domain similarity. We present retrieve-then-disambiguate, an open-source algorithm that identifies domain relevant researchers for a query submission by retrieving similar publications from the scientific literature and resolving ambiguous author names into unique researcher identities. We evaluate the algorithm on 500 astronomy and physics publications. We use ORCID-linked first authors, coauthors, and cited researchers as proxy labels to evaluate the recovery of researchers with known connections to each query publication. When retrieving the top 500 most similar papers, the algorithm recovers roughly 68\\% of first authors, 60\\% of coauthors, and 45\\% of cited researchers. Our code is available at https://github.com/deepthought-initiative/Retrieve-then-Disambiguate.",
+    "categories": [
+      "cs.IR",
+      "cs.DL"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.40768",
+    "pdf_url": "https://arxiv.org/pdf/2610.40768.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于学术同行评审中的审稿人发现，属于特定领域的检索应用，而非电商、社交或通用推荐/搜索系统的核心进展；且未涉及 LLM 在 RecSys 中的直接应用。",
+    "translation": "先检索后消歧：可扩展的审稿人发现方法",
+    "summary_zh": "提出一种“先检索后消歧”算法，通过检索领域相似文献并解决作者姓名歧义，从科学文献中识别与投稿论文相关的潜在审稿人。",
+    "key_points": [
+      "提出一种“先检索后消歧”算法，通过检索领域相似文献并解决作者姓名歧义，从科学文献中识别与投稿论文相关的潜在审稿人"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40742",
+    "title": "Prevented is Not Protected: What Attack Success Rate Hides about RAG",
+    "authors": [
+      "Chahana Dahal",
+      "Zuobin Xiong"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) is vulnerable to knowledge poisoning, where adversaries manipulate retrieved evidence to influence model outputs. Existing defenses are primarily evaluated using attack success rate (ASR), which obscures defense-induced failures and the mechanisms behind apparent attack prevention. To address this issue, this work introduces \\textbf{Aligned RAG Evaluation}, a matched-query protocol that jointly examines clean and poisoned responses, with and without defense. By combining matched conditions analysis, LLM-judge endorsement, and retrieval dependence controls, the proposed framework distinguishes prevented from introduced failures, target mentions from LLM endorsement, and single-passage influence from evidence composition. Experiments on HotpotQA and Natural Questions reveal that existing defenses can introduce unexpected target-positive answers, although they can prevent some attacks, while evaluation criteria can also change defense rankings. Our findings expose critical blind spots in ASR-based evaluation and motivate a more comprehensive assessment of RAG poisoning defenses. The code and the evaluation artifact are available at https://github.com/chxhana/aligned-rag-eval.",
+    "categories": [
+      "cs.CR",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-02",
+    "url": "https://arxiv.org/abs/2610.40742",
+    "pdf_url": "https://arxiv.org/pdf/2610.40742.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 安全与评估的研究，专注于知识投毒防御的评估指标，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "防止不等于保护：攻击成功率掩盖了 RAG 的哪些真相",
+    "summary_zh": "本文提出了一种对齐的 RAG 评估框架，通过匹配查询协议联合分析清洁与投毒响应，以区分防御导致的失败与真正的攻击阻止，揭示了仅依赖攻击成功率评估的盲区。",
+    "key_points": [
+      "本文提出了一种对齐的 RAG 评估框架，通过匹配查询协议联合分析清洁与投毒响应，以区分防御导致的失败与真正的攻击阻止，揭示了仅依赖攻击成功率评估的盲区"
+    ]
+  }
+]

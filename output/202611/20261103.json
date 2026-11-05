@@ -1,0 +1,363 @@
+[
+  {
+    "arxiv_id": "2611.00323",
+    "title": "Beyond Semantic IDs: Atomic Creator Tokens for Large-Scale Generative Recommendation",
+    "authors": [
+      "Zhuosheng Liu",
+      "Yihan Wu",
+      "Ziyun Xu",
+      "Xiaoxuan Liu",
+      "Longfei Yun",
+      "Kevin Han",
+      "Mingze Gao",
+      "Pengfei Wang",
+      "Junfeng Pan",
+      "Wenjie Fu",
+      "Haoran Liu"
+    ],
+    "summary": "Recommending creators that a user does not yet follow is a cold-start problem: from hundreds of thousands of popular creators and only a short trail of prior engagements, the system must predict the next creator worth surfacing. The prevailing generative recommendation recipe tokenizes each creator into a \\emph{Semantic ID} (SID) by quantizing a frozen embedding and trains a language model to generate SIDs. We show that this SID layer, not the language model, is the binding constraint. The creator-to-SID map is many-to-one, so colliding creators must be resolved by a popularity tie-break that caps creator-level recall and favors already-popular creators, and the frozen quantizer stops the training gradient from reaching the creator representation. We propose Atomic Creator Token (ACT), which gives every creator its own vocabulary token trained end-to-end. The map is bijective, so collisions are impossible and inference is a direct top-$k$ over creator logits. In a controlled comparison on production data in which the token layer is the only variable, ACT improves creator-level Recall@15 by 19.8 points ($1.84\\times$) over a matched SID baseline, still leads when the SID codebook is enlarged $64\\times$, and serves at ${\\sim}2.7\\times$ lower per-user latency. The advantage carries over to the public KuaiRand dataset, where ACT is the only method that beats a global-popularity baseline, provided each creator token sees enough training examples. In a live A/B test, ACT is directionally positive on every reported metric against both the SID-enhanced and the classic production rankers.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00323",
+    "pdf_url": "https://arxiv.org/pdf/2611.00323.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决推荐系统中的创作者冷启动问题，提出 ACT 方法替代现有的语义 ID（SID）生成式推荐架构，属于核心推荐技术突破；且来自中国公司，按规则额外 +1 分（基础分 9+ 额外 1=10）。",
+    "translation": "超越语义 ID：面向大规模生成式推荐的原子创作者令牌",
+    "summary_zh": "针对生成式推荐中语义 ID 映射冲突和梯度阻断问题，提出为每个创作者分配独立可训练的原子令牌（ACT），实现端到端优化并消除碰撞，直接提升创作者召回能力。",
+    "key_points": [
+      "针对生成式推荐中语义 ID 映射冲突和梯度阻断问题，提出为每个创作者分配独立可训练的原子令牌（ACT），实现端到端优化并消除碰撞，直接提升创作者召回能力"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00530",
+    "title": "WeSearch: A Unified Model-Centric Retrieval Framework for WeChat Search",
+    "authors": [
+      "Kepu Zhang",
+      "Yuzhe Cai",
+      "Yue Shu",
+      "Dawei Chen",
+      "Jinhai Zhu",
+      "Yuan Xu",
+      "Zehua Dai",
+      "Tongke Ni",
+      "Ziyao Chen",
+      "Chen Fu",
+      "Jie Shao",
+      "Chao Wang",
+      "Xiangmin Wang",
+      "Ruifeng Zhao",
+      "Rongchun Yao",
+      "Jie Yin",
+      "Weixin Qiu",
+      "Nan Song",
+      "Junyang Li",
+      "Fan Li",
+      "Quanchao Hui",
+      "Yulong Ou",
+      "Qiang Chen",
+      "Hao Cao",
+      "Sen Yang"
+    ],
+    "summary": "We present WeSearch, a unified, model-centric retrieval framework for large-scale, continuously evolving content search. Prevailing methods assign documents fixed hierarchical Semantic IDs, implicitly assuming each document follows a single coherent semantic path-an assumption that often breaks down for multi-topic documents. WeSearch instead retrieves query-relevant clusters and then ranks atomic documents within the resulting query-specific candidate space, decoupling candidate pruning from fine-grained relevance modeling. Combined with relevance-aware training, compact document representations, and incremental index updates, this design enables weekly-or daily when needed-model refreshes. Deployed as the primary semantic retrieval path in WeChat Search alongside a lexical syntax tree, WeSearch shows consistent one-week A/B gains on corpora from hundreds of millions to billions of documents, and a one-month full-traffic A/B test confirms stable improvements of +0.68% CTR and +2.27% per-user article clicks, together with a 41% reduction in retrieval resource cost and a 19 ms reduction in graphic-text retrieval latency. WeSearch is now fully deployed in WeChat Search, serving 100% of production traffic.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00530",
+    "pdf_url": "https://arxiv.org/pdf/2611.00530.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "WeChat"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文直接针对微信搜索核心检索架构提出创新方案，属于社交巨头落地的高优先级工业级推荐搜索系统，且已全量上线。",
+    "translation": "WeSearch：面向微信搜索的统一模型中心检索框架",
+    "summary_zh": "提出一种解耦候选剪枝与细粒度相关性建模的检索框架，通过动态聚类检索和原子文档排序解决多主题文档语义路径单一假设失效问题，支持大规模内容的增量索引更新与高频模型刷新。",
+    "key_points": [
+      "提出一种解耦候选剪枝与细粒度相关性建模的检索框架，通过动态聚类检索和原子文档排序解决多主题文档语义路径单一假设失效问题，支持大规模内容的增量索引更新与高频模型刷新"
+    ]
+  },
+  {
+    "arxiv_id": "2512.17820",
+    "title": "Understanding ID-Text Complementarity in Sequential Recommendation",
+    "authors": [
+      "Liam Collins",
+      "Bhuvesh Kumar",
+      "Clark Mingxuan Ju",
+      "Tong Zhao",
+      "Donald Loveland",
+      "Leonardo Neves",
+      "Neil Shah"
+    ],
+    "summary": "Dense retrieval-based Sequential Recommendation (SR) systems increasingly leverage text features to represent items, and generally do so in one of two ways: (i) by completely replacing ID embeddings with text embeddings, or (ii) by carefully combining ID and text embeddings through complex fusion mechanisms. While these lines of work have produced strong recommendation performances, they offer conflicting perspectives on ID-text complementarity, or the extent to which ID and text embeddings specialize in modeling different signals: the former suggests a lack of complementarity, and the latter argues it exists but must be harnessed carefully. Moreover, neither workstream conducts an in-depth study of ID-text complementarity. We aim to clarify this picture by developing a rigorous understanding of the complementarity of ID- and text-based SR models in this work. Our study reveals that these models do learn complementary signals, meaning that either should provide performance gain when used properly alongside the other. Motivated by this, we introduce and evaluate a new, simple SR baseline that preserves ID-text complementarity through independent model training, then harnesses it via ensembling. Despite this method's simplicity, we show it outperforms several competitive SR baselines, implying a third perspective on ID-text complementarity: both features are necessary to achieve state-of-the-art SR performance, but complex fusion strategies are not.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2512.17820",
+    "pdf_url": "https://arxiv.org/pdf/2512.17820.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对序列推荐系统中的核心问题（ID 与文本特征的互补性）提出新见解和简单有效的基线方法，属于核心领域进展。",
+    "translation": "理解序列推荐中 ID 与文本的互补性",
+    "summary_zh": "本文通过独立训练与集成策略，证实了 ID 嵌入与文本嵌入在序列推荐中学习到了互补信号，无需复杂融合机制即可提升性能。",
+    "key_points": [
+      "本文通过独立训练与集成策略，证实了 ID 嵌入与文本嵌入在序列推荐中学习到了互补信号，无需复杂融合机制即可提升性能"
+    ]
+  },
+  {
+    "arxiv_id": "2609.07276",
+    "title": "Matryoshka Hash Representations for Model-Aware Compact Semantic Retrieval",
+    "authors": [
+      "Peichun Hua",
+      "Yunming Xiao"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) depends on dense retrieval: each document is stored as a learned vector, and queries are answered by nearest-neighbor search. Keeping one full-precision vector per document dominates index cost at corpus scale, so systems replace each vector with a short code of a few bytes (quantization). Standard quantizers such as product quantization (PQ) pick the code that best reconstructs the original vector, but reconstruction is only a proxy for retrieval: at a few bytes per document, a model-aware code trained on the retriever's ranking signal uses the budget better. A single code is even more useful if its short prefixes are each directly searchable, letting a deployment set its efficiency-quality operating point without re-encoding the corpus. But training all prefixes under one objective makes the early bits a compromise across budgets: short codes improve while the full-width code degrades. Binary codes sharpen the conflict, since a gradient step either flips a stored bit or leaves it unchanged. We introduce Matryoshka Hash Representations (MHR), a two-stage procedure that separates full-width training from prefix organization. MHR first learns a longer binary code, then freezes the model and trains zero-initialized residual code adaptors for directly searchable prefixes. Documents are stored at one bit per coordinate, queries keep continuous logits as in PQ, and search runs on FAISS FastScan. Trained on MS MARCO and zero-shot transferred to seven BEIR datasets, one MHR code reaches 0.502 NDCG@10 at 16 bytes and 0.556 at 32 bytes, against 0.404 and 0.524 for the best compact baselines; the gains hold across training seeds, on all 13 public BEIR datasets, and against off-the-shelf binary Matryoshka embeddings with stronger backbones. The same code also helps shortlist candidates for reranking and prune low-storage graph indexes such as LEANN.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2609.07276",
+    "pdf_url": "https://arxiv.org/pdf/2609.07276.pdf",
+    "prerank_score": 7,
+    "relevance_score": 9,
+    "reasoning": "该论文提出了一种面向检索增强生成（RAG）的模型感知紧凑语义检索方法，直接优化搜索引擎的核心召回环节，且来自中国公司申通快递（STO），符合高优先级标准。",
+    "translation": "用于模型感知紧凑语义检索的套娃哈希表示",
+    "summary_zh": "提出套娃哈希表示（MHR）两阶段训练法，通过分离全宽训练与前缀组织，实现单份二进制代码支持多精度可搜索前缀，从而在极低存储成本下优化密集检索的排序信号。",
+    "key_points": [
+      "提出套娃哈希表示（MHR）两阶段训练法，通过分离全宽训练与前缀组织，实现单份二进制代码支持多精度可搜索前缀，从而在极低存储成本下优化密集检索的排序信号"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00165",
+    "title": "Learning to bid and bundle: a posterior-sampling agent for online retail",
+    "authors": [
+      "Hadi Mohammadi"
+    ],
+    "summary": "An online retailer launching a perishable product bids for sponsored-search clicks, discounts a bundle with an always-stocked staple and displays its remaining stock, which raises willingness to pay. It knows neither how clicks respond to its bid nor how strong and dispersed its market is, and learns both over repeated seasons from data its own decisions censor: a zero bid reveals nothing about paid clicks, and choices follow only clicks. We design a posterior-sampling agent for it. Each period it draws a market from an exact posterior and posts the bid and discount of that market's exactly solved season plan, so every action is one a fully informed seller could take. In a simulated online florist it has the lowest regret averaged over markets. In weak markets it gives up 12% to 23% of one season's revenue over 500 seasons, four to seven times less than drawing once per season. A planner acting on point estimates can stop bidding and never learn that bidding pays. The agent escapes after about three seasons on average, against fifty with one draw per season. Where displayed scarcity keeps willingness to pay above the posted price, the discount needs no learning. Customers waiting for the discount to return to its recent level look like lost sales, so frequent waiting makes the agent underrate its market. One discount per season removes waiting at a cost of 5.9% of clairvoyant revenue in a weak market and none in a strong one.",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00165",
+    "pdf_url": "https://arxiv.org/pdf/2611.00165.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "论文直接针对电商搜索广告（Sponsored-search）的竞价与捆绑销售策略，属于搜索变现核心场景，虽侧重强化学习但应用明确。",
+    "translation": "学习与竞价捆绑：一种用于在线零售的后验采样智能体",
+    "summary_zh": "提出一种后验采样智能体，通过在未知市场响应和需求分布下联合优化搜索广告竞价与商品捆绑折扣，解决数据截断带来的探索利用难题。",
+    "key_points": [
+      "提出一种后验采样智能体，通过在未知市场响应和需求分布下联合优化搜索广告竞价与商品捆绑折扣，解决数据截断带来的探索利用难题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00172",
+    "title": "From Fragmentation to Fusion: A Survey and Roadmap for Omnimodal Embeddings",
+    "authors": [
+      "Ziyin Zhang",
+      "Yuyu Guo",
+      "Ying Zhang",
+      "Siqiao Xue",
+      "Zihan Liao",
+      "Jin Qin",
+      "Wenjie Yang",
+      "Siyuan Yang",
+      "Shijie Li",
+      "Cheng Chen",
+      "Hao Wu",
+      "Zhaoyang Zhu",
+      "Ruipeng Li",
+      "Zhaokun Jiang",
+      "Lei Lei",
+      "Rui Wang",
+      "Hang Yu",
+      "Rui Wang"
+    ],
+    "summary": "Embedding models underpin virtually every modern AI system, from search engines to recommendation systems. Despite shared mathematical foundations, research on embedding models remains fragmented by modality: the communities develop largely in isolation, seldom exchanging insights. We argue that this fragmentation obscures a deeper convergence. Driven by contrastive learning, Transformer architectures, and a granularity shift, embedding research across modalities is converging toward a common set of principles, even as modality-specific challenges remain underexplored. To reason across this convergence without conflating it, we propose a framework of three progressively harder capabilities: coverage, comparability, and compositionality. Three paths toward unification satisfy these in turn: transformation broadens coverage, alignment enables comparability, and joint embedding, the terminus we advocate, aims at compositionality. This position paper traces the resulting evolution, providing the first unified, cross-cutting treatment of omnimodal embedding research.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-10-30",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00172",
+    "pdf_url": "https://arxiv.org/pdf/2611.00172.pdf",
+    "prerank_score": 5,
+    "is_industry": true,
+    "matched_companies": [
+      "Ant Group"
+    ],
+    "affiliation_lines": [
+      "1AntGroup 2ShanghaiJiaoTongUniversity 3AustralianNationalUniversity",
+      "4TongjiUniversity 5NationalUniversityofSingapore",
+      "recommendationsystems. Despitesharedmathematicalfoundations,researchonembedding",
+      "bycontrastivelearning,Transformerarchitectures,andagranularityshift,embeddingresearch",
+      "firstunified,cross-cuttingtreatmentofomnimodalembeddingresearch."
+    ],
+    "relevance_score": 6,
+    "reasoning": "这是一篇关于多模态嵌入统一框架的综述文章，虽提及搜索和推荐作为应用场景，但核心内容是通用表征学习理论而非针对 RecSys/Search 的具体算法创新。",
+    "translation": "从碎片化到融合：全模态嵌入的综述与路线图",
+    "summary_zh": "本文提出一个涵盖覆盖性、可比性和组合性的三阶段框架，旨在统一当前碎片化的多模态嵌入研究，推动从单一模态转换向联合嵌入的演进。",
+    "key_points": [
+      "本文提出一个涵盖覆盖性、可比性和组合性的三阶段框架，旨在统一当前碎片化的多模态嵌入研究，推动从单一模态转换向联合嵌入的演进"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00719",
+    "title": "Pricing Today, Shaping Tomorrow: Contextual Dynamic Pricing in Purchase-Driven Evolving Systems",
+    "authors": [
+      "Jinjiang Zou",
+      "Yang Li",
+      "Zemin Zheng"
+    ],
+    "summary": "Across diverse markets, it is important for firms to balance attracting customers with managing operational conditions, such as workloads and delivery times. Dynamic pricing plays a central role in this tradeoff, as the orders generated today can change the conditions faced by future customers. We develop a novel framework for contextual dynamic pricing with an observed shared state and unknown purchase-driven transitions. The valuation model allows unknown mean functions of customer covariates and state, unknown state-specific scales and a common unknown standardized noise distribution. We propose Shadow-Adjusted Pricing in Evolving Systems (SHAPE), which incorporates a purchase's future revenue consequences into current pricing. Purchase-shadow adjustment and scale standardization reveal a common one-dimensional oracle price map across states, allowing SHAPE to retain its pricing history across value updates without repeating coarse exploration. The same active sales records support price-map learning and joint updates of continuation values and purchase shadows, without fitting the noise distribution or full transition matrices. To support this reuse under purchase-driven feedback, we establish pricing guarantees for history-dependent inputs and stability bounds for the joint updates. Under regularity, coverage and design conditions, we obtain sublinear expected regret against a finite-horizon dynamic oracle for linear, Hölder and sparse linear mean models. For affine valuations at fixed state and feature dimensions, SHAPE matches the static semiparametric minimax time exponent up to logarithmic factors for every fixed noise-tail smoothness order $β\\ge2$. Numerical experiments further demonstrate the appealing performance of SHAPE.",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "stat.ME"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00719",
+    "pdf_url": "https://arxiv.org/pdf/2611.00719.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle",
+      "MiniMax"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文聚焦于运营研究和动态定价策略，虽与电商业务相关，但核心属于运筹优化而非推荐/搜索系统的核心算法（召回、排序、用户建模），且非纯 LLM 研究，故相关性较低。",
+    "translation": "今日定价，塑造明日：购买驱动演化系统中的上下文动态定价",
+    "summary_zh": "提出一种名为 SHAPE 的动态定价框架，通过将当前销售对未来状态的影响（购买阴影）纳入定价决策，实现在未知状态转移下的跨状态价格映射学习与联合更新。",
+    "key_points": [
+      "提出一种名为 SHAPE 的动态定价框架，通过将当前销售对未来状态的影响（购买阴影）纳入定价决策，实现在未知状态转移下的跨状态价格映射学习与联合更新"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00822",
+    "title": "AdKnob: Ad Intensity Control and Labeling for LLM-Native Advertising",
+    "authors": [
+      "Woo Jae Kim",
+      "Seongho Keum",
+      "Joonsung Jeon",
+      "Suhyeon Ha",
+      "Sooel Son",
+      "Sung-eui Yoon"
+    ],
+    "summary": "Large language model (LLM)-native advertising has emerged as a viable monetization channel as LLM service providers seek sustainable revenue streams. However, integrating native ads into LLM responses introduces two largely understudied challenges: (1) controlling ad intensity -- how prominently advertising content appears -- and (2) ad labeling -- identifying which segments of the generated text constitute advertising. We propose AdKnob, a framework jointly addressing both challenges. For ad intensity control, we introduce new ad control tokens without pretrained semantic associations and align the model via direct preference optimization to generate ads at each desired level. For ad labeling, we propose an attention rollout-based attribution mechanism that identifies ad segments by tracing their attribution to input ad-related tokens, requiring no additional inference cost. We further construct MI-KnobSet, the first multi-level ad intensity preference dataset for LLM-native ads. Experiments across six LLMs and human evaluations show that AdKnob achieves uniformly spaced ad intensities where baselines collapse to a narrow range, achieves the highest ad labeling accuracy while being over 500x faster than the strongest baseline, and is preferred over baselines by human evaluators up to 89.6% of the time.",
+    "categories": [
+      "cs.AI",
+      "cs.CY",
+      "cs.LG"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00822",
+    "pdf_url": "https://arxiv.org/pdf/2611.00822.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于 LLM 原生广告的强度控制和标注，属于广告变现机制研究，虽与 Ads 领域相关但缺乏推荐/搜索核心的召回、排序或用户建模技术创新，且偏向纯 LLM 应用控制。",
+    "translation": "AdKnob：面向 LLM 原生广告的强度控制与标注框架",
+    "summary_zh": "提出 AdKnob 框架，通过引入无预训练语义的控制令牌结合直接偏好优化以调节广告强度，并利用注意力回滚归因机制实现零额外推理成本的广告片段自动标注。",
+    "key_points": [
+      "提出 AdKnob 框架，通过引入无预训练语义的控制令牌结合直接偏好优化以调节广告强度，并利用注意力回滚归因机制实现零额外推理成本的广告片段自动标注"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00564",
+    "title": "WAR-CRAFT: Refining Web API Recommendations through Requirement Auditing",
+    "authors": [
+      "Zishuo Xu",
+      "Dezhong Yao",
+      "Zhiqiang Xu"
+    ],
+    "summary": "Web API recommenders return a set of APIs for a mashup request but do not check it against provider documentation, the main public evidence of an API's capabilities. The set can therefore contain unsupported or redundant APIs and miss requested capabilities. Filling every apparent gap does not fix this, because a gap may already be served, may not need its own API, or may have no documented provider. We study post-recommendation refinement, which revises a frozen recommender's output using only the request, the catalog, and provider documentation. We propose WAR-CRAFT, which treats refinement as three decisions. An LLM removes unsupported or subsumed APIs by judging candidates jointly, then audits the remaining set against a requirement checklist derived from the request. For each uncovered requirement, a fine-tuned catalog-constrained Resolver proposes a catalog API or abstains, and an independent documentation check admits only supported proposals. On ProgrammableWeb with 7 heterogeneous upstream recommenders, WAR-CRAFT raises mean SetF1 from 0.558 to 0.644, above the strongest of 5 refinement baselines (62.5%), and roughly halves functional redundancy (0.127 to 0.065) without changing mean functional coverage. Gains range from +2.2 points on generative recommenders to +18.2 on fixed-cutoff rankers. At matched set sizes, WAR-CRAFT still outperforms truncating the upstream output, so the gain is not explained by set-size calibration alone. Our code is available at https://github.com/ZsXu-enrico/WAR-CRAFT.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00564",
+    "pdf_url": "https://arxiv.org/pdf/2611.00564.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于软件工程领域的 Web API 推荐，属于纯 NLP/LLM 应用研究，与电商、社交或内容平台的 RecSys/Search 核心业务无直接关联，即使有中国公司背景加分仍属低优先级。",
+    "translation": "WAR-CRAFT：通过需求审计优化 Web API 推荐",
+    "summary_zh": "提出一种基于 LLM 的后推荐细化框架，通过联合判断移除不支持的 API 并审计需求覆盖，利用微调解析器在目录约束下补充缺失功能以优化推荐结果。",
+    "key_points": [
+      "提出一种基于 LLM 的后推荐细化框架，通过联合判断移除不支持的 API 并审计需求覆盖，利用微调解析器在目录约束下补充缺失功能以优化推荐结果"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00791",
+    "title": "PhoneValue-Bench: A Multimodal Benchmark and Datasets for Consumer Smartphone Recommerce Valuation",
+    "authors": [
+      "Zihan Deng",
+      "Jun Gao"
+    ],
+    "summary": "As consumer smartphone recommerce scales, buyers must quote binding repurchase prices from seller-uploaded multi-view photos and diagnostic screenshots before devices reach the warehouse. Accurate remote valuation requires fusing noisy cosmetic evidence with identity, battery, lock, and channel risk from screenshots and staff forms, since an error in any modality changes both grade and payout. However, existing multimodal resources mainly target general VLM competence, screen reading, or factory defect detection, and largely overlook staff-aligned trade-in fields, dual appearance/staff ground truth, and executable valuation scorecards. This gap stems from two challenges: (1) the lack of large-scale real trade-in data with audited dual annotations and a compact ranking benchmark kept separate from training labels, and (2) the need to jointly reason over unordered multi-view cosmetics and diagnostic screens under operational deduction rules. To address these challenges, we propose PhoneValue-Bench, a dual-GT evaluation suite with tier-gated scorecards, together with PhoneValue-Corpus, a matched weakly labeled training set of over twenty thousand orders and hundreds of thousands of captioned images. We further present ValueAgent, a staged perception-fusion-valuation reference pipeline aligned with production inspection, plus an executable public scorer and submission schema. Experiments show that ValueAgent reaches a measured 84.1/100 on Bench-Full, with 97.0 appearance fill and 54.1 staff-field fill, establishing a practical dual-GT benchmark for multimodal recommerce valuation.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2611.00791",
+    "pdf_url": "https://arxiv.org/pdf/2611.00791.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于手机回收估价这一特定垂直领域的多模态评估，属于计算机视觉与业务规则结合的应用，并非通用的推荐系统或搜索引擎核心技术研究。",
+    "translation": "PhoneValue-Bench：面向消费类智能手机回收估价的多模态基准与数据集",
+    "summary_zh": "提出一个包含双地面真值标注的多模态基准及数据集，旨在解决融合外观图像与诊断截图进行远程手机回收估价的难题。",
+    "key_points": [
+      "提出一个包含双地面真值标注的多模态基准及数据集，旨在解决融合外观图像与诊断截图进行远程手机回收估价的难题"
+    ]
+  },
+  {
+    "arxiv_id": "2608.11154",
+    "title": "DACRI: Decision-Aware Causal Intervention Ranking for Critical Supply Chains",
+    "authors": [
+      "Shiqi Huang",
+      "Jiani He",
+      "Dingyan Shang",
+      "Yihua Xu",
+      "Jize Li",
+      "Yan Lyu",
+      "Lakshmi Muraleedharan Nair"
+    ],
+    "summary": "Detecting or attributing a supply-chain disruption is not the same as selecting the intervention that maximizes recoverable net value. We present CriticalSCM-Bench v1, a controlled synthetic benchmark with causal ground truth, paired factual/counterfactual rollouts, and an explicit net-value objective. Relative to a full-information train-selected static benchmark, LambdaMART improves median normalized net value by 5.7--16.2\\%, with paired statistical support on the semiconductor and critical-material archetypes but not on digital infrastructure. On digital infrastructure, a domain-informed constant-buffer policy remains stronger, showing that greater model complexity is not uniformly justified. Across partial and delayed settings, LambdaMART retains 33--75\\% of full-clamp value. Stress tests further show that intervention fidelity, timing, cost, and held-out disruptions can alter policy ordering. Critical materials show the weakest out-of-distribution retention. Separately, a guarded explanation study over 540 generations preserves every fixed intervention decision after deterministic validation and template fallback, although exact wording remains unstable. Within this controlled setting, the results identify regimes in which adaptive ranking adds value and those in which simpler structural policies remain preferable.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-03",
+    "url": "https://arxiv.org/abs/2608.11154",
+    "pdf_url": "https://arxiv.org/pdf/2608.11154.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "该论文专注于供应链中断的因果干预排序，属于运筹优化与供应链管理领域，完全未涉及推荐系统或搜索引擎的核心任务（如召回、排序、用户建模），纯 LLM/通用 ML 研究若无 RecSys 应用应给低分。",
+    "translation": "DACRI：面向关键供应链的决策感知因果干预排序",
+    "summary_zh": "提出一种基于因果推断的决策感知排序框架，旨在通过合成基准评估不同干预策略在供应链中断场景下的净价值最大化能力。",
+    "key_points": [
+      "提出一种基于因果推断的决策感知排序框架，旨在通过合成基准评估不同干预策略在供应链中断场景下的净价值最大化能力"
+    ]
+  }
+]

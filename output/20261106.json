@@ -1,0 +1,495 @@
+[
+  {
+    "arxiv_id": "2605.21987",
+    "title": "HGCRS: Hypergraph-Enhanced Generative Conversational Recommender System",
+    "authors": [
+      "Sixiao Zhang",
+      "Mingrui Liu",
+      "Cheng Long"
+    ],
+    "summary": "Recent conversational recommender systems have begun to unify recommendation and response generation within autoregressive models, with semantic IDs providing a natural representation for generative recommendation. However, relational knowledge is typically organized around item-level representations, which do not naturally align with the compositional SIDs. This mismatch makes it difficult for unified CRSs to effectively exploit structured catalog relations. We propose HGCRS, a hypergraph-enhanced generative conversational recommender system that bridges this gap with an SID--entity hypergraph. Each item forms a hyperedge connecting its SID codes and attribute entities, and a type-aware hypergraph encoder incorporates relational information into generative item selection. HGCRS further introduces a mode--item--response protocol for jointly modeling recommendation-bearing and response-only turns. Experiments on ReDial and INSPIRED demonstrate strong recommendation performance while maintaining competitive response generation quality.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2605.21987",
+    "pdf_url": "https://arxiv.org/pdf/2605.21987.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对对话式推荐系统（CRS），提出利用超图增强生成式模型以解决结构化知识融合问题，属于核心推荐领域创新且来自中国企业，符合最高优先级标准。",
+    "translation": "HGCRS：超图增强的生成式对话推荐系统",
+    "summary_zh": "提出一种基于 SID-实体超图的生成式对话推荐架构，通过类型感知编码器将结构化目录关系融入自回归生成过程，并设计模式 - 物品 - 响应协议联合建模推荐与回复生成。",
+    "key_points": [
+      "提出一种基于 SID-实体超图的生成式对话推荐架构，通过类型感知编码器将结构化目录关系融入自回归生成过程，并设计模式 - 物品 - 响应协议联合建模推荐与回复生成"
+    ]
+  },
+  {
+    "arxiv_id": "2611.06323",
+    "title": "Generative Retrieval under Real-Time Supply Constraints in Local Commerce",
+    "authors": [
+      "Shaopeng Liang",
+      "Biao Zhang",
+      "Hongzhen Ye",
+      "Zeyang Hou",
+      "Ma Jiang",
+      "Jintao Tu",
+      "yunxi. hz",
+      "Zhijia Fang",
+      "Jianqiang Cao",
+      "Junxue Rao",
+      "Jia Jia"
+    ],
+    "summary": "Generative retrieval predicts semantic identifiers for candidate entities. In local retail and food delivery, candidates must also be serviceable for a particular user at a particular time. Location, weather, and traffic reshape merchant and product supply, so a catalog-valid identifier may be infeasible for the current request. Post-generation filtering removes such candidates only after beam capacity and inference computation have been spent. We study retrieval over an explicitly materialized, request-time supply snapshot, where short output sequences leave little opportunity to amortize online constraint preparation. Our RTP-LLM pipeline compiles eligible residual-quantization identifiers into a compressed sparse row prefix index, overlaps CPU compilation with model prefill, and shares the uploaded index across beams. Legal expansions retain original-model log probabilities, and constraint states follow selected beam parents. We formalize snapshot-relative identifier validity and distinguish it from entity-level eligibility and freshness. The implementation generates three-token merchant identifiers. Historical evidence covers T+1 daily-refresh catalog constraints and subsequent request-scoped serving evaluations. In one matched-beam daily-constraint case, filtered merchants decrease from 170 of 299 candidates to 29 of 299; residual distance filtering motivates request-specific constraints. A different-host comparison with 30,000 supplied entries reports a 0.6 ms service-side latency increment, while client measurements expose additional request costs. Captured requests from three geographic settings characterize behavior across supply sizes and output widths. These observations span development stages and measurement boundaries. They establish a practical implementation and identify bottlenecks, but do not establish compute savings at matched retrieval quality.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.06323",
+    "pdf_url": "https://arxiv.org/pdf/2611.06323.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决本地生活（外卖/零售）场景下生成式检索的实时供给约束问题，提出了具体的工程架构（RTP-LLM），属于高优先级的核心业务创新；且来自中国公司，按规定额外 +1 分（基础分 9+1=10）。",
+    "translation": "本地商业中实时供给约束下的生成式检索",
+    "summary_zh": "提出一种 RTP-LLM 流水线，通过将实时供给快照编译为压缩稀疏行前缀索引并与模型预填充重叠，实现在生成过程中直接约束候选商户标识符的有效性，避免后过滤带来的计算浪费。",
+    "key_points": [
+      "提出一种 RTP-LLM 流水线，通过将实时供给快照编译为压缩稀疏行前缀索引并与模型预填充重叠，实现在生成过程中直接约束候选商户标识符的有效性，避免后过滤带来的计算浪费"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07425",
+    "title": "BRIDGE: Bridging the Semantic Quantization Gap for Generative Recommendation",
+    "authors": [
+      "Yatong Xiao",
+      "Mingjie Sun",
+      "Peng Wang",
+      "Wenjin Wu",
+      "Peng Jiang"
+    ],
+    "summary": "Generative recommendation retrieves items by autoregressively generating Semantic IDs(SIDs), where an RQ-VAE quantizes each item into a hierarchical SID sequence that the decoder generates level by level. We identify an overlooked bottleneck in this paradigm: the Semantic Quantization Gap(SQG). Quantization derives SIDs from rich continuous signals, including codebook centroids, local neighborhood geometry, and level-wise entropy. However, the decoder receives only discrete identifiers and loses the semantic structure that shaped them. This mismatch manifests in three ways: a grounding gap, where the decoder lacks semantic anchors when target-side information is limited; a neighborhood gap, where token-level supervision discards inter-item similarity and exacerbates exposure bias; and a difficulty gap, where computation is allocated uniformly despite generation difficulty diminishing with depth.\n  To bridge the SQG, we propose BRIDGE. Codebook-grounded latent reasoning injects frozen quantizer centroids as semantic anchors before SID generation. Privileged EMA self-distillation transfers neighborhood-aware knowledge from a teacher to an on-policy student, preserving inter-item geometry while mitigating exposure bias. Effort-aware recurrence allocates more computation to the challenging early levels and progressively reduces it with depth. Across three Amazon benchmarks, BRIDGE improves Recall@10 and NDCG@10 by 10.9% and 9.7% on average over the strongest baseline (up to 12.6% and 10.7%). In a one-week online A/B experiment on a large-scale e-commerce advertising platform with 5% traffic, BRIDGE improves eCPM by 0.65%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07425",
+    "pdf_url": "https://arxiv.org/pdf/2611.07425.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的核心瓶颈（语义量化差距）提出新架构，并已在电商广告平台通过在线 A/B 测试验证，属于高优先级的核心领域进展。",
+    "translation": "BRIDGE：弥合生成式推荐中的语义量化差距",
+    "summary_zh": "针对生成式推荐中离散标识符丢失语义结构的问题，提出通过注入量化中心作为语义锚点、特权自蒸馏传递邻域知识及感知难度的计算分配策略，以弥合语义量化差距。",
+    "key_points": [
+      "针对生成式推荐中离散标识符丢失语义结构的问题，提出通过注入量化中心作为语义锚点、特权自蒸馏传递邻域知识及感知难度的计算分配策略，以弥合语义量化差距"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07523",
+    "title": "OptST: Optimizing Semantic Tokenization for LLM-Enhanced Recommendation",
+    "authors": [
+      "Hanchong Chen",
+      "Jie Liu",
+      "Fuyuan Lyu",
+      "Dugang Liu",
+      "Lingjie Li",
+      "Xiuqiang He",
+      "Xing Tang"
+    ],
+    "summary": "Semantic information can enrich the identifiers and structured fields used by recommender systems. Semantic tokenization provides a structured representation of this information by converting LLM-derived user profiles into discrete tokens. In the common two-stage pipeline, the tokenizer is trained before the recommender. Its token assignments are then treated as fixed input features during recommendation training. As a result, the downstream recommender can learn how to use the assigned indices, but it cannot revise the semantic partition that produced them. Making this partition task-aware is difficult because nearest-code assignment is discrete, and unconstrained adaptation may also distort the geometry learned during pretraining. Moreover, a fixed token depth exposes the same semantic resolution to every interaction. We thus propose OptST (Optimizing Semantic Tokenization), which makes a pretrained tokenizer responsive to downstream recommendation. To revise token assignments without directly updating the pretrained encoder or base codebooks, OptST learns a low-rank deformation whose drift is limited by an anchor regularizer. Recommendation supervision reaches this transformation through a straight-through estimator, while prediction retains hard nearest-code assignments. Beyond adapting the assignments themselves, OptST selects an interaction-conditioned prefix to control how much residual detail is exposed to the recommender. Experiments on four public datasets show that OptST achieves the highest AUC among conventional and LLM-enhanced baselines. Its improvements also persist across different recommendation backbones. These results establish task-aware semantic tokenization as an effective interface between LLM-derived profiles and downstream recommendation models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07523",
+    "pdf_url": "https://arxiv.org/pdf/2611.07523.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出了一种优化 LLM 语义分词的新方法（OptST），解决了预训练分词器与下游推荐任务脱节的核心问题，属于 LLM for RecSys 的高优先级创新。",
+    "translation": "OptST：优化面向 LLM 增强推荐的语义分词",
+    "summary_zh": "提出 OptST 方法，通过低秩变形和交互条件前缀选择，使预训练的 LLM 语义分词器能够响应下游推荐任务监督，动态调整 token 分配以更好地服务于推荐模型。",
+    "key_points": [
+      "提出 OptST 方法，通过低秩变形和交互条件前缀选择，使预训练的 LLM 语义分词器能够响应下游推荐任务监督，动态调整 token 分配以更好地服务于推荐模型"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07588",
+    "title": "What Gets Hacked in a Collaborative Reward for LLM Recommenders: The Part That Does Not Depend on the User",
+    "authors": [
+      "Zhuangsheng Li",
+      "Liang Dong",
+      "Yu Wu",
+      "Dailin Li",
+      "Yu Xia",
+      "Yunhan C. Zhang",
+      "Rui Cai",
+      "Yi Wu",
+      "Julian McAuley"
+    ],
+    "summary": "Collaborative-filtering (CF) scores provide graded, personalized rewards for training large language model (LLM) recommenders through reinforcement learning. However, these rewards can cause exposure collapse: even though the CF model itself produces diverse top recommendations across users, an LLM optimized with its rewards concentrates on fewer items. We decompose each score into an item-mean component, the item's average CF score across user histories, and a residual component, the current user's score deviation from the average. Through controlled interventions, we identify the item-mean component as a contributor to exposure collapse. Accordingly, we propose two reward corrections: per-item centering removes each item's estimated mean score, while per-item standardization further rescales the residual using its estimated standard deviation. Experiments on two datasets with two identifier schemes show that both corrections substantially improve catalog coverage and exposure evenness. Compared with training on the uncorrected CF reward, our corrections increase the number of distinct items ranked first across users by up to $9.8\\times$, while maintaining comparable ranking accuracy. Code is available at https://anonymous.4open.science/r/LLM4Rec-CF-Bias-27EF/.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07588",
+    "pdf_url": "https://arxiv.org/pdf/2611.07588.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "What Gets Hacked in a Collaborative Reward for LLM",
+      "UniversityofCalifornia,SanDiego GoogleInc. UniversityofCalifornia,SanDiego",
+      "UniversityofVirginia UniversityofCalifornia,SanDiego UniversityofMelbourne",
+      "UniversityofCalifornia,Davis GoogleInc. UniversityofCalifornia,SanDiego",
+      "Abstract andevaluatedsuchcollaborativerewards[17,31].Inthissetup,",
+      "Collaborative-filtering (CF) scores provide graded, personalized an LLM policy first undergoes supervised fine-tuning (SFT) on"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决 LLM 推荐系统中的曝光坍塌问题，提出基于协同过滤奖励分解的修正方法，属于 LLM for RecSys 的核心创新；且来自中国公司，按规则额外 +1 分（原基础分 9 分）。",
+    "translation": "LLM 推荐器协同奖励中何者被篡改：不依赖用户的部分",
+    "summary_zh": "本文发现协同过滤奖励中的物品均值分量导致 LLM 推荐器曝光坍塌，提出逐项去中心化和标准化两种奖励修正方法以提升目录覆盖率。",
+    "key_points": [
+      "本文发现协同过滤奖励中的物品均值分量导致 LLM 推荐器曝光坍塌，提出逐项去中心化和标准化两种奖励修正方法以提升目录覆盖率"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07591",
+    "title": "Beyond Independent Predictions: Learning the Browsing Journey for Sequence-Level Re-ranking",
+    "authors": [
+      "Jiayi Zhang",
+      "Jingxin Hai",
+      "Zhenjia Ma",
+      "Hongbin Pei",
+      "Dagui Chen",
+      "Han Zhu",
+      "Jian Xu"
+    ],
+    "summary": "Re-ranking aims to present users with an ordered list that maximizes sequence-level utility. Industrial deployments widely adopt the Generator--Evaluator framework, where the generator proposes candidate sequences, and the evaluator scores them to select the best one for display. The fidelity of the evaluator's utility estimates thus directly governs recommendation quality. However, existing evaluators predominantly follow the \\textbf{Independent Behavior Modeling (IBM)} paradigm, which simplifies the continuous user \\emph{browsing journey} into independent per-item predictions (e.g., CTR). This oversimplification ignores two physical realities: (i) a click can occur only after the item has been reached and impressed, and (ii) items compete for finite user attention. As a result, IBM produces systematically biased evaluations and suboptimal sequence selection. To address this, we propose a \\textbf{Joint Behavior Modeling (JBM)} perspective that explicitly models the \\emph{display} $\\rightarrow$ \\emph{impression} $\\rightarrow$ \\emph{click} process to capture causal and competitive dependencies within a sequence. Building on JBM, we develop the \\textbf{Impression-Click Evaluator (ICE)}, a plug-and-play framework that (i) predicts a browsing-depth distribution to estimate per-position impression probabilities, (ii) leverages predicted impressions to suppress spurious context from unexposed items during click modeling, and (iii) introduces a click distribution matching objective to capture intra-sequence dependencies. Extensive offline experiments across diverse backbones, together with a 14-day online A/B test in the Taobao App (+0.70\\% clicks, +3.67\\% revenue) and full-traffic deployment, validate the effectiveness and robustness of our approach.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07591",
+    "pdf_url": "https://arxiv.org/pdf/2611.07591.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Alibaba"
+    ],
+    "affiliation_lines": [
+      "Taobao&TmallGroupofAlibaba Xi’anJiaotongUniversity Taobao&TmallGroupofAlibaba",
+      "Xi’anJiaotongUniversity Taobao&TmallGroupofAlibaba Taobao&TmallGroupofAlibaba"
+    ],
+    "relevance_score": 10,
+    "reasoning": "本文直接解决推荐系统核心环节中的重排序（Re-ranking）问题，提出联合行为建模（JBM）以纠正独立预测偏差，且已在淘宝 App 成功落地验证，完全符合高优先级标准并获额外加分。",
+    "translation": "超越独立预测：为序列级重排序学习浏览旅程",
+    "summary_zh": "本文提出联合行为建模（JBM）视角及 ICE 框架，通过显式建模“展示 - 曝光 - 点击”的因果链条与竞争依赖，解决传统独立行为建模在序列重排序中因忽略用户浏览旅程而产生的评估偏差问题。",
+    "key_points": [
+      "本文提出联合行为建模（JBM）视角及 ICE 框架，通过显式建模“展示 - 曝光 - 点击”的因果链条与竞争依赖，解决传统独立行为建模在序列重排序中因忽略用户浏览旅程而产生的评估偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2610.19065",
+    "title": "Revisiting Generative vs. Dense Retrieval: A Static Value Prior Reverses the Gap",
+    "authors": [
+      "Renbo Tu",
+      "Yang Liu",
+      "Shuying Sun"
+    ],
+    "summary": "Generative retrieval (GR) has emerged as a strong candidate generator for sequential recommendation as language models and semantic-item identifiers have improved. However, GR is not a uniformly stronger replacement of dense retrieval (DR) in online retail candidate generation. We examine their differences on two Amazon Toys datasets under different metrics. GR leads on best relevant item value among users both methods cover, while DR leads on exact-target recall and relevant value across the ranked list. With deep analysis, we find that popularity contributes the most to GR's measured value lead. Adding the same static item value to DR in one reranking step reverses this lead and keeps recall above GR. Finally, on an industrial-scale internal e-commerce dataset with LLM-judged relevance, we show that a 14B SID-LLM still underperforms a $47\\times$ smaller dense encoder.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-11-04",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2610.19065",
+    "pdf_url": "https://arxiv.org/pdf/2610.19065.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商推荐系统中的候选生成环节，深入对比了生成式检索与稠密检索的差异，并提出了基于静态价值先验的改进策略，具有极高的工业应用价值。",
+    "translation": "重访生成式与稠密检索：静态价值先验逆转差距",
+    "summary_zh": "本文揭示了生成式检索在推荐系统中的优势主要源于物品流行度偏差，并提出通过引入静态物品价值先验对稠密检索进行重排序，从而在保持高召回率的同时超越生成式检索的效果。",
+    "key_points": [
+      "本文揭示了生成式检索在推荐系统中的优势主要源于物品流行度偏差，并提出通过引入静态物品价值先验对稠密检索进行重排序，从而在保持高召回率的同时超越生成式检索的效果"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07614",
+    "title": "The Popular Get More Popular: Auditing Brand Bias in Generative Search",
+    "authors": [
+      "Giorgio Monaco",
+      "Jacopo Lenti",
+      "Francesco Pierri"
+    ],
+    "summary": "The shift from traditional to generative search has fundamentally transformed online product discovery. Because conversational recommendations synthesize choices into a few direct answers, subtle systemic preferences toward specific providers can exert profound commercial impacts. In this work, we audit this phenomenon through two distinct dimensions: (i) brand popularity bias, the systematic preference for market-dominant entities over long-tail alternatives, and (ii) brand familiarity bias, the ranking advantage an entity encoded in an LLM's parametric memory holds over an unfamiliar competitor. First, evaluating commercial queries across major engines, we observe persistent brand popularity bias: dominant brands in the top quintile are cited 1.4x to 2.8x more frequently than the average brand within a sample of 1,176 top market players, already present in parametric memory that external web retrieval fails to mitigate. Second, through controlled in-context experiments holding product attributes constant, we find that substituting authentic brand signatures with unfamiliar ones significantly degrades recommendation rank. Conversely, fact-preserving content rewrites yield negligible ranking gains. Taken together, our findings demonstrate that generative search engines reinforce a ``rich-get-richer'' dynamic by favoring established market leaders and imposing a parametric barrier to entry that standard content optimization cannot overcome.",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.SI"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07614",
+    "pdf_url": "https://arxiv.org/pdf/2611.07614.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对生成式搜索（Generative Search）中的品牌偏见问题进行审计，属于搜索系统的公平性与机制研究，虽非核心排序算法创新，但与搜索产品强相关；纯 LLM 研究通常低分，但此处应用于搜索场景且来自中国企业，故给予高分。",
+    "translation": "强者愈强：审计生成式搜索中的品牌偏见",
+    "summary_zh": "本文通过审计发现生成式搜索引擎存在显著的品牌流行度与熟悉度偏见，导致头部品牌在推荐中占据优势，而参数记忆形成的壁垒使常规内容优化难以提升新品牌排名。",
+    "key_points": [
+      "本文通过审计发现生成式搜索引擎存在显著的品牌流行度与熟悉度偏见，导致头部品牌在推荐中占据优势，而参数记忆形成的壁垒使常规内容优化难以提升新品牌排名"
+    ]
+  },
+  {
+    "arxiv_id": "2611.06777",
+    "title": "WISE: An Agentic Framework for Whole-page Multimodal Search Experience Attribution",
+    "authors": [
+      "Wenyi Xu",
+      "Renzhe Zhou",
+      "Songyang Li",
+      "Feiran Zhu",
+      "Ruoqi Zhao",
+      "Chenglei Dai",
+      "Xuanping Li",
+      "Kaiqiao Zhan",
+      "Jingwei Zhuo"
+    ],
+    "summary": "Algorithm-driven services, including search, recommendation, and advertising, rely on multi-stage model pipelines. While research prioritizes model optimization, post-deployment monitoring focuses on operational reliability. Yet operationally healthy systems may still produce poor-quality results, exposing a gap in existing evaluation and monitoring practices. However, a systematic problem formulation and benchmark for this task remain lacking. To bridge this gap, we formulate System Quality Diagnosis (SQD) for algorithm-driven services, a new task that extends quality evaluation beyond identifying poor outcomes to attributing their causes across system components. Focusing on industrial search, we propose WISE, an agentic framework for end-to-end quality diagnosis that discovers user-facing issues and traces their origins to underlying algorithmic components. To improve diagnostic reliability, we introduce ReTrace for constructing evidence-consistent trajectory supervision and Adaptive Harness-Policy Optimization (AHPO) for failure-guided optimization of the agent harness and model policy. To enable systematic evaluation, we construct WISE-BENCH, a real-world multimodal search benchmark that combines user-facing evidence, internal pipeline traces, and expert diagnosis annotations. Extensive experiments show consistent gains across model scales, with WISE achieving 75.20% end-to-end accuracy on Qwen3.5-35B-A3B. In production, WISE supports quality auditing, online quality assurance, and model optimization, reducing diagnosis costs and improving downstream relevance models.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.06777",
+    "pdf_url": "https://arxiv.org/pdf/2611.06777.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "1KuaishouTechnology 2IndependentResearcher",
+      "researchprioritizesmodeloptimization,post-deploymentmon- results,aswellaswherequalityproblemsoriginate."
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对工业搜索系统的端到端质量诊断与归因，利用 Agent 框架解决搜索业务中的实际监控与优化问题，属于明确的搜索系统应用而非纯 LLM 研究。",
+    "translation": "WISE：一种用于全页多模态搜索体验归因的代理框架",
+    "summary_zh": "提出 WISE 代理框架，通过构建证据一致的轨迹监督和失败引导的策略优化，实现从用户可见问题到底层算法组件的端到端搜索质量诊断与归因。",
+    "key_points": [
+      "提出 WISE 代理框架，通过构建证据一致的轨迹监督和失败引导的策略优化，实现从用户可见问题到底层算法组件的端到端搜索质量诊断与归因"
+    ]
+  },
+  {
+    "arxiv_id": "2602.07307",
+    "title": "LIT-GRAPH: Evaluating Deep vs. Shallow Graph Embeddings for High-Quality Text Recommendation in Domain-Specific Knowledge Graphs",
+    "authors": [
+      "Nirmal Gelal",
+      "Chloe Snow",
+      "Kathleen M. Jagodnik",
+      "Ambyr Rios",
+      "Hande Küçük McGinty"
+    ],
+    "summary": "This study presents LIT-GRAPH (Literature Graph for Recommendation and Pedagogical Heuristics), a novel knowledge graph-based recommendation system designed to scaffold high school English teachers in selecting diverse, pedagogically aligned instructional literature. The system is built upon an ontology for English literature, addressing the challenge of curriculum stagnation, where we compare four graph embedding paradigms: DeepWalk, Biased Random Walk (BRW), Hybrid (concatenated DeepWalk and BRW vectors), and the deep model Relational Graph Convolutional Network (R-GCN). Results reveal a critical divergence: while shallow models excelled in structural link prediction, R-GCN dominated semantic ranking. By leveraging relation-specific message passing, the deep model prioritizes pedagogical relevance over raw connectivity, resulting in superior, high-quality, domain-specific recommendations.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-02-07",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2602.07307",
+    "pdf_url": "https://arxiv.org/pdf/2602.07307.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了基于知识图谱的特定领域（教育）推荐系统，属于明确的 RecSys 应用，但场景较为垂直且方法主要为现有图嵌入模型的对比评估，创新性中等。",
+    "translation": "LIT-GRAPH：评估深度与浅层图嵌入在领域特定知识图谱中高质量文本推荐的表现",
+    "summary_zh": "本文提出 LIT-GRAPH 系统，通过对比浅层随机游走与深度关系图卷积网络（R-GCN），利用关系特定的消息传递机制优先捕捉教学语义相关性，以解决领域特定知识图谱中的文本推荐问题。",
+    "key_points": [
+      "本文提出 LIT-GRAPH 系统，通过对比浅层随机游走与深度关系图卷积网络（R-GCN），利用关系特定的消息传递机制优先捕捉教学语义相关性，以解决领域特定知识图谱中的文本推荐问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07298",
+    "title": "Reducing Representational Interference in Retrieval Embeddings with Trainable Prefix Tokens",
+    "authors": [
+      "Seongtae Hong",
+      "Youngjoon Jang",
+      "Jungseob Lee",
+      "Chanjun Park",
+      "Heuiseok Lim"
+    ],
+    "summary": "Embedding models compress variable-length text into fixed-size vector representations, but this compression can entangle semantic content with residual token-level information, such as artifacts arising from attention sink behavior. We propose a simple method that prepends trainable [DUMP] tokens to the input during embedding model training. The method keeps the model architecture, pooling strategy, and training loss unchanged, while optimizing the added tokens through the standard contrastive retrieval objective. By introducing trainable prefix positions that interact with regular tokens during encoding, [DUMP] tokens help reduce the influence of residual or uninformative token-level signals on the final retrieval representation. Experiments on standard retrieval and long-context benchmarks show that our method consistently improves over finetuned baselines across encoder and decoder embedding models. Further analysis shows that [DUMP] tokens alter token-level activation and attention patterns associated with low-information tokens. These results suggest that trainable prefix tokens provide a lightweight way to improve retrieval representations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07298",
+    "pdf_url": "https://arxiv.org/pdf/2611.07298.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种通过可训练前缀令牌减少检索嵌入中表征干扰的通用方法，虽在检索基准上验证有效，但属于底层表示学习优化，缺乏针对推荐/搜索具体业务场景（如排序、多模态融合）的直接创新应用。",
+    "translation": "利用可训练前缀令牌减少检索嵌入中的表征干扰",
+    "summary_zh": "提出在输入端 prepend 可训练的 [DUMP] 令牌，通过在标准对比检索目标下优化这些令牌与常规令牌的交互，以吸收残差或无信息 token 信号，从而解耦语义内容与注意力机制产生的伪影，提升固定长度向量表示的质量。",
+    "key_points": [
+      "提出在输入端 prepend 可训练的 [DUMP] 令牌，通过在标准对比检索目标下优化这些令牌与常规令牌的交互，以吸收残差或无信息 token 信号，从而解耦语义内容与注意力机制产生的伪影，提升固定长度向量表示的质量"
+    ]
+  },
+  {
+    "arxiv_id": "2606.13610",
+    "title": "One Polluted Page Is Enough: Evaluating Web Content Pollution in LLM Recommenders",
+    "authors": [
+      "Minghao Luo",
+      "Liang Chen"
+    ],
+    "summary": "Search-augmented LLMs increasingly mediate everyday consumer recommendations by retrieving live web content. This creates a new risk: LLM recommenders may consume web content that Generative Engine Optimization (GEO) operators have polluted to mislead them. We ask: to what extent do they become unwitting promoters of fake products? We introduce FORGE (Fake Online Recommendations in Generative Environments), which locally rewrites real products in a frozen set of retrieved web pages into fake ones and measures how often the LLM recommends the fake product, across 225 real products in 15 categories and 5 consumer scenarios. Across 12 commercial and open-weights LLMs, all models are vulnerable: a single polluted page yields fooled rates of up to 27%, while the full top-3 replacement raises this to 73.8%. Vulnerability varies across categories, increasing when models lack stable prior knowledge of the products. Reasoning does not mitigate this vulnerability; instead, it often generates spurious social proof to justify false recommendations. None of the four defenses is adequate: the skepticism prompt can exacerbate vulnerability much like reasoning, the two consensus filters risk suppressing legitimate products, and credibility re-ranking helps every model but removes only a sixth of the fakes. We release the FORGE benchmark and the evaluation code at https://github.com/leoluolol/forge-benchmark.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-08-24",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2606.13610",
+    "pdf_url": "https://arxiv.org/pdf/2606.13610.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文主要评估 LLM 在搜索增强推荐中的安全性（对抗污染），属于安全/鲁棒性研究而非核心推荐算法创新，且未提出新的推荐架构或排序方法。",
+    "translation": "一页污染足矣：评估 LLM 推荐系统中的网页内容污染问题",
+    "summary_zh": "本文提出 FORGE 基准，通过局部重写检索到的网页内容生成虚假产品，以评估搜索增强的 LLM 推荐系统在面临内容污染时的脆弱性及现有防御机制的局限性。",
+    "key_points": [
+      "本文提出 FORGE 基准，通过局部重写检索到的网页内容生成虚假产品，以评估搜索增强的 LLM 推荐系统在面临内容污染时的脆弱性及现有防御机制的局限性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.13314",
+    "title": "NEAR: Neighborhood-Aware Residuals for Memory Retrieval",
+    "authors": [
+      "Han Luo",
+      "Zhan Zhuang",
+      "Xu He",
+      "Jujia Zhao",
+      "Yu Li",
+      "Suqin Yuan",
+      "Dong Li",
+      "Jianye Hao",
+      "Lei Feng"
+    ],
+    "summary": "Memory retrieval aims to identify evidence from stored records to answer a query. Stored records with different factual details may share topics, entities, or events. Such shared contents would make records without the required evidence more likely to receive high similarity scores and outrank the correct evidence. In this paper, we use the information shared by these records to construct local references for query-memory matching. We propose NEighborhood-Aware Residuals (NEAR), a training-free framework that uses these references to construct residual representations that complement the original embeddings. Specifically, each memory derives a reference direction from its neighbors, and each query obtains its reference from a precomputed table. Using these references, NEAR constructs projection residuals for both queries and memories. These residuals are combined with the original embeddings for a single approximate nearest-neighbor search over a fixed memory index. Experiments on eight long-context retrieval benchmarks show consistent improvements across nine embedding models. Downstream evaluations show that NEAR improves question-answering performance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2610.13314",
+    "pdf_url": "https://arxiv.org/pdf/2610.13314.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 NLP/长上下文检索研究，旨在提升问答任务中的证据召回，未涉及推荐系统或搜索广告的核心业务场景（如用户建模、排序、CTR 预测），虽来自中国企业但领域不匹配。",
+    "translation": "NEAR：用于记忆检索的邻域感知残差方法",
+    "summary_zh": "提出一种无需训练的邻域感知残差框架，利用存储记录间的共享信息构建局部参考方向，通过生成查询与记忆的投影残差来增强嵌入表示，从而优化近似最近邻搜索的准确性。",
+    "key_points": [
+      "提出一种无需训练的邻域感知残差框架，利用存储记录间的共享信息构建局部参考方向，通过生成查询与记忆的投影残差来增强嵌入表示，从而优化近似最近邻搜索的准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07215",
+    "title": "Fractional physics-informed neural networks to model social media virality",
+    "authors": [
+      "Alex Koong",
+      "George Em Karniadakis"
+    ],
+    "summary": "Existing models of social media virality either prescribe the functional form of engagement growth or assume a fixed mechanism by which past activity influences future engagement. We present a fractional physics-informed neural network that learns both the temporal memory and nonlinear growth dynamics of social media engagement, using symbolic regression to translate the learned dynamics into interpretable equations. Synthetic experiments at the deployment resolution of 24 hourly observations demonstrate that the fractional order and reaction law can be jointly recovered from clean data. Under observation noise, however, the standard pointwise physics residual drives the fractional order toward its lower bound through a scale artifact. We address this failure using a fully whitened residual that propagates observation noise through the fractional operator. Applying the framework to 348 posts from X (formerly Twitter), we find that a single-window model estimates strongly memory-dependent dynamics but fails to accurately reconstruct held-out trajectories. Partitioning the 24-hour window into four teacher-forced segments substantially improves performance, yielding segment-specific fractional orders that increase from 0.23 to 0.99 and interpretable growth laws for each phase. The segmented model reconstructs 64% of held-out trajectories within a mean squared error of 0.01, compared with 44% for the strongest of nine classical baselines. Together, these results demonstrate the potential of fractional physics-informed equation discovery to uncover interpretable engagement dynamics while highlighting the importance of noise-aware estimation and temporal segmentation.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-04",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07215",
+    "pdf_url": "https://arxiv.org/pdf/2611.07215.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯机器学习方法研究（分数阶物理信息神经网络），虽应用于社交媒体传播建模，但未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户画像构建），不符合核心领域要求。",
+    "translation": "用于建模社交媒体病毒式传播的分数阶物理信息神经网络",
+    "summary_zh": "提出一种结合符号回归的分数阶物理信息神经网络，旨在从含噪数据中学习社交媒体参与度的时间记忆效应与非线性增长动态，并通过分段建模提升轨迹重构的可解释性。",
+    "key_points": [
+      "提出一种结合符号回归的分数阶物理信息神经网络，旨在从含噪数据中学习社交媒体参与度的时间记忆效应与非线性增长动态，并通过分段建模提升轨迹重构的可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.07122",
+    "title": "Regulating Autonomous Mobility-on-Demand Operators with Fixed and Adaptive Penalties: A Multi-Agent Reinforcement Learning Approach",
+    "authors": [
+      "Korbinian Kügler",
+      "Carolin Schmidt",
+      "Florian Dandl",
+      "Filipe Rodrigues"
+    ],
+    "summary": "Profit-maximizing Autonomous Mobility-on-Demand (AMoD) operators may exploit consumer surplus through excessive prices and underserve less profitable regions by relocating vehicles away from them. We study how penalty-based regulation of an AMoD operator in a multimodal mobility system can limit surge pricing and improve regional service availability. We model regulation as an outer control loop that acts on a learning-based operator. Static regulation with fixed penalties is formulated as a Markov Decision Process for an operator that jointly controls pricing and rebalancing, and dynamic regulation as a Partially Observable Stochastic Game in which a regulator periodically adjusts region-specific penalties in closed loop. Operator and regulator policies are learned with graph-based multi-agent reinforcement learning. In experiments with real-world Manhattan data, fixed surge pricing penalties reduce the share of travelers facing excessive prices from 22% to 1%. For regional service availability, dynamic regulation improves the regulator's reward by up to 15.6% over fixed penalties of equal mean intensity. The gains in service availability are strongest when spare fleet capacity exists, whereas service deficits persist in peak periods with highly utilized fleets. The learned regulator policy responds by reducing penalties where limited fleet capacity restricts compliance. The results identify trade-offs between regulatory targets, operator profitability, and traveler utility.",
+    "categories": [
+      "cs.LG",
+      "cs.MA"
+    ],
+    "published": "2026-11-04",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2611.07122",
+    "pdf_url": "https://arxiv.org/pdf/2611.07122.pdf",
+    "prerank_score": 9,
+    "relevance_score": 2,
+    "reasoning": "该文属于纯强化学习在交通调度领域的应用，与推荐系统或搜索引擎核心业务无直接关联，即使有中国公司背景且为 RL 研究，因缺乏 RecSys 场景仍属排除类。",
+    "translation": "基于固定与自适应惩罚的多智能体强化学习方法监管自主移动出行运营商",
+    "summary_zh": "提出一种基于多智能体强化学习的外层控制循环监管框架，通过静态或动态惩罚机制调节自主出行运营商的定价与车辆重平衡策略，以限制价格飙升并提升区域服务覆盖率。",
+    "key_points": [
+      "提出一种基于多智能体强化学习的外层控制循环监管框架，通过静态或动态惩罚机制调节自主出行运营商的定价与车辆重平衡策略，以限制价格飙升并提升区域服务覆盖率"
+    ]
+  },
+  {
+    "arxiv_id": "2605.09214",
+    "title": "Fast Rates for Offline Contextual Bandits with Forward-KL Regularization under Single-Policy Concentrability",
+    "authors": [
+      "Qingyue Zhao",
+      "Kaixuan Ji",
+      "Heyang Zhao",
+      "Quanquan Gu"
+    ],
+    "summary": "\\emph{Kullback-Leibler} (KL) regularization is ubiquitous in reinforcement learning algorithms in the form of \\emph{reverse} or \\emph{forward} KL. Recent studies have demonstrated $ε^{-1}$-type fast rates for decision making under reverse KL regularization, in contrast to the standard $ε^{-2}$-type sample complexity. However, for forward-KL-regularized objectives, existing statistical analyses are either not applicable or result in $\\tilde{O}(ε^{-2})$ slow rates. We take the first step towards addressing this problem via a streamlined analysis of forward-KL-regularized offline CBs. We give the first $\\tilde{O}(ε^{-1})$ upper bounds in tabular and general function approximation settings, both under notions of \\emph{single-policy concentrability}. In particular, our convex-analytical pipeline unifies these settings by exploiting the pessimism principle in a novel way and completely bypasses the proof routines in previous works based on the mean value theorem, which might be of independent interest. Moreover, we provide rate-optimal lower bounds, manifesting the tightness of our upper bounds in terms of statistical rates. Our lower bounds also demonstrate that the forward-KL-regularized sample complexity recovers the unregularized slow rate in the low-regularization regime, similarly to the reverse-KL regularization.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IT",
+      "math.IT",
+      "math.ST",
+      "stat.ML",
+      "stat.TH"
+    ],
+    "published": "2026-11-04",
+    "updated": "2026-11-06",
+    "url": "https://arxiv.org/abs/2605.09214",
+    "pdf_url": "https://arxiv.org/pdf/2605.09214.pdf",
+    "prerank_score": 5,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯强化学习理论论文，专注于离线上下文多臂老虎机的统计收敛率分析，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "单策略集中性下前向 KL 正则化离线上下文多臂老虎机的快速收敛率",
+    "summary_zh": "该论文提出了一种新的凸分析框架，通过在单策略集中性假设下利用悲观原则，首次证明了前向 KL 正则化离线上下文多臂老虎机在表格和一般函数近似设置下的最优样本复杂度上界。",
+    "key_points": [
+      "该论文提出了一种新的凸分析框架，通过在单策略集中性假设下利用悲观原则，首次证明了前向 KL 正则化离线上下文多臂老虎机在表格和一般函数近似设置下的最优样本复杂度上界"
+    ]
+  }
+]

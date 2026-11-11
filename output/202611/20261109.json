@@ -1,0 +1,745 @@
+[
+  {
+    "arxiv_id": "2611.08519",
+    "title": "RedMall: Generative Recommendation for Large-Scale E-commerce",
+    "authors": [
+      "Kunyang Zhou",
+      "Xin Jia",
+      "Yi Yang",
+      "Yongjun Yang",
+      "Manjie Xu",
+      "Honglei Zhang",
+      "Yan Zhu",
+      "Kai Zuo",
+      "Xu Tang",
+      "Zheng Wang"
+    ],
+    "summary": "Generative recommendation has shown considerable potential in industrial recommendation systems. However, the performance of existing generative methods is limited by several challenges. 1) Semantic IDs (SIDs) are treated as one-dimensional sequences, overlooking the hierarchical dependencies among different layers. 2) Next-token prediction used is unable to explicitly optimize session-wise recommendation. 3) Although reinforcement learning has been applied to align generated recommendations with user preferences, few existing methods explicitly optimize the ranking of positive items in session-wise recommendation. To address the above issues, we propose RedMall, a generative recommender designed for large-scale e-commerce. Firstly, RedMall constructs hierarchical SIDs through residual quantization over multimodal representations. Secondly, RedMall introduces a lightweight SID encoder to explicitly model layer-wise dependencies in SIDs. Moreover, RedMall incorporates sparse mixture-of-experts, dual gated attention, and multi-target prediction to scale model size, enhance user interest representation, and optimize session-wise recommendation. We further design an exposure-aware loss that treats exposed but unclicked items as negative feedback. To better align user preferences and list-wise ranking objectives, we combine Group Relative Policy Optimization with an auxiliary LambdaRank loss, using both real user feedback and item ranking to guide optimization. Experiments on four public datasets-Amazon Beauty, Amazon Toys, Amazon Food, and MovieLens-1M---show that RedMall outperforms the evaluated baselines across all reported Recall and NDCG metrics. Online A/B tests show improvements of 2.24% in advertiser value (ADVV) and 0.59% in click-through rate (CTR) for e-commerce advertising, as well as gains of 1.08% in GMV and 0.95% in daily active buyers (DAB) for e-commerce recommendations.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-26",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08519",
+    "pdf_url": "https://arxiv.org/pdf/2611.08519.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模电商推荐系统，提出了生成式推荐新架构 RedMall，解决了语义 ID 层级依赖和会话级排序优化等核心工业界问题，完全符合高优先级标准。",
+    "translation": "RedMall：面向大规模电商的生成式推荐系统",
+    "summary_zh": "提出 RedMall 架构，通过残差量化构建层级语义 ID 并引入轻量编码器建模层间依赖，结合稀疏 MoE、双门控注意力及融合 GRPO 与 LambdaRank 的对齐损失，以优化大规模电商场景下的会话级推荐与列表排序。",
+    "key_points": [
+      "提出 RedMall 架构，通过残差量化构建层级语义 ID 并引入轻量编码器建模层间依赖，结合稀疏 MoE、双门控注意力及融合 GRPO 与 LambdaRank 的对齐损失，以优化大规模电商场景下的会话级推荐与列表排序"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08804",
+    "title": "Generative Search and Recommendation at Shopify",
+    "authors": [
+      "Juhana Kangaspunta",
+      "Khalil Hajji",
+      "Darshan Fofadiya",
+      "Kyumin Park",
+      "Michael Garner",
+      "Anthony Maltsev",
+      "Ryan Synk",
+      "Jose Sepulveda",
+      "Joshua Crisologo",
+      "Shuying Sun",
+      "Akshay Soni"
+    ],
+    "summary": "Search and recommendation at Shopify require retrieving relevant products from a changing catalog of billions of products under strict latency constraints. We present SID-LLM, which casts both tasks as generating semantic IDs: short sequences of content-derived tokens representing products. We jointly pre-train SID-LLM on catalog and behavioral data, giving search and recommendation a shared representation and training objective. We show that reinforcement learning further improves judged search relevance. Furthermore, distillation from task-specific experts improves recommendation quality over joint supervised fine-tuning without a statistically detected loss in search quality. Finally, for efficient serving, we pair multi-token prediction with a lightweight ranker, improving retrieval quality over our autoregressive baseline while reducing latency. We evaluate SID-LLM both as a standalone retriever and as a component of Shopify's production search and recommendation systems. As a standalone search system, SID-LLM achieves quality comparable to Shopify's existing multi-model search stack while meeting production latency requirements. Integrating SID-LLM into the search and recommendation stacks provides significant gains in both offline evaluations and online A/B tests. Together, these results demonstrate the practical value of semantic-ID generation as a unified approach to product discovery at scale.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08804",
+    "pdf_url": "https://arxiv.org/pdf/2611.08804.pdf",
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Shopify 电商场景的搜索与推荐系统，提出基于语义 ID 生成的统一架构，属于核心领域的高优先级应用；虽非中国公司（TAL）出品（实际为 Shopify），但其极高的业务相关性和架构创新性已使其达到满分标准。",
+    "translation": "Shopify 的生成式搜索与推荐系统",
+    "summary_zh": "提出 SID-LLM 架构，将搜索和推荐统一建模为生成源自内容的语义 ID 序列，并通过联合预训练、强化学习及蒸馏技术实现大规模产品目录下的高效检索与个性化推荐。",
+    "key_points": [
+      "提出 SID-LLM 架构，将搜索和推荐统一建模为生成源自内容的语义 ID 序列，并通过联合预训练、强化学习及蒸馏技术实现大规模产品目录下的高效检索与个性化推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08566",
+    "title": "CascadeRec: Deployed Adaptive LLM Compute Allocation for Multi-Tenant Content Recommendation",
+    "authors": [
+      "Kai Zhao",
+      "Guilin Zhang",
+      "Xiang Cheng",
+      "Xiquan Cui",
+      "Henry Heng",
+      "Xu Chu",
+      "Alet Blanken"
+    ],
+    "summary": "Large language models (LLMs) are attractive rerankers for recommendation. Running an expensive model on every request is costly, and for users with sparse interaction histories it often lowers quality. We present CascadeRec, a two-tier LLM reranking cascade deployed in production at a large financial planning and analysis (FP&A) SaaS provider. It serves content recommendations to enterprise tenants on AWS EKS and GKE. A lightweight Tier-1 model reranks every request. A router escalates only the requests where extra inference-time compute is likely to help, and sends them to a more expensive Tier-2 procedure (self-consistency sampling, multi-path reasoning, or a larger model). The system has run in a production A/B experiment for over a month. Compared with uniform use of the expensive tier, CascadeRec has reduced inference cost by about 10%, with minimal latency impact and no quality regression observed to date. Tenant data cannot be released, so we also evaluate the pipeline on public benchmarks (MovieLens-1M and Amazon-Electronics). Segment-level analysis with paired-bootstrap confidence intervals shows that uniform LLM reranking lowers NDCG@10 for sparse-history users by up to 30%, and its only statistically significant gain appears on the segment with the longest histories. Escalating cold users can make the loss larger instead of repairing it. Which segments benefit from escalation depends on the domain, and this motivates the segment-gated rollout we use in production. We describe the deployment architecture, the measured benefits, and lessons learned, including inter-tenant load imbalance as a driver for cascading and the handling of LLM output-parsing failures at the serving layer.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08566",
+    "pdf_url": "https://arxiv.org/pdf/2611.08566.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的重排序环节，提出了基于 LLM 的自适应计算分配架构并在生产环境部署，完美契合核心领域进展与 LLM 应用标准；加之来自中国公司，给予额外加分。",
+    "translation": "CascadeRec：面向多租户内容推荐的自适应 LLM 计算分配部署方案",
+    "summary_zh": "提出一种双层级联重排序架构，通过轻量模型路由机制，仅对高价值请求动态分配昂贵的 LLM 推理资源，以解决多租户场景下的成本效率与稀疏用户推荐质量平衡问题。",
+    "key_points": [
+      "提出一种双层级联重排序架构，通过轻量模型路由机制，仅对高价值请求动态分配昂贵的 LLM 推理资源，以解决多租户场景下的成本效率与稀疏用户推荐质量平衡问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.09006",
+    "title": "Rethinking Latent Reasoning for Generative Recommendation: Beyond Teacher-Generated CoT and Recurrent Hidden-State Feedback",
+    "authors": [
+      "Yiwen Chen",
+      "Fuwei Zhang",
+      "Zehao Chen",
+      "Deqing Wang",
+      "Hehan Li",
+      "Peizhi Xu",
+      "Hanmeng Liu",
+      "Shuanglong Li",
+      "Xin Pei",
+      "Fuzhen Zhuang",
+      "Zhao Zhang"
+    ],
+    "summary": "Latent reasoning in generative recommendation faces two practical barriers: constructing teacher-generated chain-of-thought (CoT) supervision is costly, and recurrent hidden-state feedback requires a specialized execution loop. We revisit both the supervision source and the computation interface. A step-level diagnosis measures how recommendation CoT supports next-item prediction and trace coherence. In the analyzed traces, history analysis is the only step with positive mean contributions on both dimensions, while later preference and intent steps have negative mean answer contributions. Guided by this finding, we propose PHiT (Prefilled, History-Informed Thought Tokens), which learns intermediate states from semantic targets extracted directly from observed item histories. PHiT aggregates cached sparse item encodings to construct these targets and supervises the contextual states of distinct vocabulary thought tokens. All thought tokens are supplied together as ordinary input IDs during a single causal prefill, removing the need for recurrent final-state feedback. With supervised fine-tuning alone, PHiT outperforms the compared baselines across four recommendation benchmarks. Controlled ablations support the value of input-matched semantic supervision, while cost measurements show fast target construction with training time comparable to the recommendation-only thought-token baseline.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.09006",
+    "pdf_url": "https://arxiv.org/pdf/2611.09006.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对生成式推荐系统中的潜在推理瓶颈提出新架构（PHiT），解决了 CoT 监督成本高和循环反馈效率低的核心问题，属于高优先级的 RecSys 核心创新；且来自中国公司，按规则额外 +1 分（原基础分 9 分）。",
+    "translation": "重思生成式推荐的潜在推理：超越教师生成的思维链与循环隐藏状态反馈",
+    "summary_zh": "本文提出 PHiT 方法，通过从观测历史中提取语义目标来构建预填充的思维令牌，以单次因果前馈替代昂贵的教师生成思维链监督和循环隐藏状态反馈，从而优化生成式推荐的推理效率与效果。",
+    "key_points": [
+      "本文提出 PHiT 方法，通过从观测历史中提取语义目标来构建预填充的思维令牌，以单次因果前馈替代昂贵的教师生成思维链监督和循环隐藏状态反馈，从而优化生成式推荐的推理效率与效果"
+    ]
+  },
+  {
+    "arxiv_id": "2611.09091",
+    "title": "TUGB: A Two-stage Uncertainty-aware Generative Auto-Bidding Framework",
+    "authors": [
+      "Luzhan Yuan",
+      "Chao Mi",
+      "Xiahao Shi",
+      "Yi Mao",
+      "Shengsheng Niu",
+      "Xin Zhu",
+      "Jie He",
+      "Zhangang Lin",
+      "Ching Law"
+    ],
+    "summary": "Generative modeling, particularly Decision Transformers, shows promise in auto-bidding strategies. However, it struggles with limited exploration in static offline datasets, vulnerability to dynamic environmental shifts, and a reliance on heuristic return-to-go (RTG) specifications that may yield suboptimal performance on unseen traffic. To address these challenges, we propose the Two-stage Uncertainty-aware Generative Auto-Bidding (TUGB) framework. TUGB integrates generative sequence modeling with Reinforcement Learning (RL). It employs a two-stage pipeline where a pre-trained Generative Bidding Model is fine-tuned via an ensemble-based Uncertainty-aware Environment Model. This approach quantifies epistemic uncertainty to penalize high-risk trajectories and evolves the policy from RTG-conditioning to direct bidding optimization. Extensive experiments demonstrate that TUGB significantly outperforms SOTA baselines. Notably, full-scale deployment on JD Search Ad achieved a 2.32\\% increase in cost and 3.57\\% in target cost, validating its industrial efficacy, while its successful adaptation to subsequent mechanism upgrades and JD Food Delivery Ad further validates TUGB's superior generalization capability.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.09091",
+    "pdf_url": "https://arxiv.org/pdf/2611.09091.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "JD"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对京东搜索广告（JD Search Ad）的自动出价问题，属于核心的搜索/广告系统优化，且已成功工业部署，完全符合高优先级标准。",
+    "translation": "TUGB：一种两阶段不确定性感知生成式自动出价框架",
+    "summary_zh": "提出一种结合生成式序列建模与强化学习的两阶段框架，通过量化认知不确定性来惩罚高风险轨迹，并将策略从依赖启发式回报条件进化为直接出价优化。",
+    "key_points": [
+      "提出一种结合生成式序列建模与强化学习的两阶段框架，通过量化认知不确定性来惩罚高风险轨迹，并将策略从依赖启发式回报条件进化为直接出价优化"
+    ]
+  },
+  {
+    "arxiv_id": "2610.35318",
+    "title": "Unified Heterogeneous Feature Interaction via Effective-Rank Scaling for Recommender Systems",
+    "authors": [
+      "Ao Zhang",
+      "Haochuan Li",
+      "Boya Du",
+      "Jian Yang",
+      "Qihang Fang",
+      "Yulin Xu"
+    ],
+    "summary": "Large-scale industrial ranking models must jointly capture heterogeneous feature interactions, long-term user behaviors, and multi-scenario dependencies under stringent online serving constraints. Existing architectures typically process sequential and non-sequential features with separate modules, limiting bidirectional information exchange. Directly applying homogeneous self-attention to all semantic tokens can also be inefficient when sequential and non-sequential signals exhibit different effective-ranks (eRanks). Meanwhile, shared representations can overlook scenario-specific patterns and induce negative transfer between scenarios. In this paper, we propose HiRank, a unified framework for multi-scenario recommendation that jointly models Heterogeneous feature Interactions via effective-Rank scaling. HiRank integrates gated sequential attention with heterogeneous feature interaction within a unified backbone, enabling bidirectional fusion between sequential and non-sequential representations. HiRank further uses scenario-aware aggregation to compress heterogeneous low-order tokens into a compact representation. Distinct learned projections transform the full compact representation into scenario-aware composite tokens with complementary global feature views and more uniform information density, enabling more effective high-order self-attention. Extensive experiments on industrial-scale datasets demonstrate favorable performance scaling with parameter count and consistent improvements over competitive baselines. Online A/B tests further show a 2.27% increase in orders per user.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2610.35318",
+    "pdf_url": "https://arxiv.org/pdf/2610.35318.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统排序阶段，提出了解决异构特征交互和多场景依赖的新架构 HiRank，具有明确的工业落地价值。",
+    "translation": "基于有效秩缩放实现推荐系统统一异构特征交互",
+    "summary_zh": "提出 HiRank 框架，通过门控序列注意力与异构特征交互的统一骨干网，结合场景感知聚合及有效秩缩放机制，实现序列与非序列特征的 bidirectional 融合及多场景高效建模。",
+    "key_points": [
+      "提出 HiRank 框架，通过门控序列注意力与异构特征交互的统一骨干网，结合场景感知聚合及有效秩缩放机制，实现序列与非序列特征的 bidirectional 融合及多场景高效建模"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08718",
+    "title": "Memory-Aware Multi-Agent Architecture with LLM-based Orchestration for Conversational Recommendation",
+    "authors": [
+      "Emilly Pitman de Castro",
+      "Vanessa Silva",
+      "Gustavo Kanno",
+      "Marcus Santos",
+      "Bruno Ferraz do Amaral",
+      "Marcelo Nogueira",
+      "Lucas Francisco Pellicer",
+      "Lucas Lanaro",
+      "Pedro Augusto Luiz",
+      "João Renato Ribeiro Manesco",
+      "Giovanni Carbinatti",
+      "Isabela de Lima Santos",
+      "Lucas Oliveira Jeronymo",
+      "Jeison Fappi",
+      "Raul Rotilli Aguirre",
+      "Fabio André Frantz",
+      "Renata De Paris",
+      "Fabiana Marucci",
+      "Lohan Silva",
+      "Vinicius Diniz Reolon",
+      "Wandemberg Gibaut"
+    ],
+    "summary": "Conversational recommender systems often treat user sessions in isolation, limiting their ability to capture how user intent evolves over time. While large language models (LLMs) have improved semantic understanding, they are typically used as isolated components, without addressing how memory, retrieval, and decision-making should be integrated at the system level. In this work, we propose a memory-aware multi-agent architecture for conversational recommendation, in which LLMs act as orchestration layers that coordinate intent refinement, query construction, and interaction flow. A key design principle is the integration of long-term memory as a first-class component, influencing both routing decisions and semantic query formation. We evaluate the system through cross-session memory experiments, multi-turn conversational simulations, and supervisor-driven interaction studies on the Amazon Reviews dataset. Results show that memory-enabled interactions recover up to 63\\% of the gap toward explicit-query scenarios and prevent semantic degradation in extended dialogues. In addition, supervisory orchestration increases user acceptance by +28.9 percentage points, highlighting the importance of structured orchestration in guiding interaction and output quality. We also observe an exposure bottleneck between retrieved candidates and displayed recommendations. While LLM-reranking does not improve Hit@K, it consistently enhances semantic consistency and diversity. To capture these effects, we introduce the Semantic Consistency Score (SCS), a complementary evaluation measure. Overall, the results emphasize the importance of system-level design choices, suggesting that effective conversational recommendation benefits from explicit memory integration, orchestration, and evaluation beyond traditional ranking metrics.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08718",
+    "pdf_url": "https://arxiv.org/pdf/2611.08718.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对对话式推荐系统，提出了基于 LLM 编排的多智能体架构并整合长期记忆，属于 LLM 在推荐领域的直接核心应用，非纯 LLM 研究。",
+    "translation": "面向对话推荐的基于 LLM 编排的记忆感知多智能体架构",
+    "summary_zh": "提出一种将长期记忆作为核心组件的对话推荐系统，利用大语言模型作为编排层来协调意图细化、查询构建及交互流程，以解决用户意图随时间演变的捕捉难题。",
+    "key_points": [
+      "提出一种将长期记忆作为核心组件的对话推荐系统，利用大语言模型作为编排层来协调意图细化、查询构建及交互流程，以解决用户意图随时间演变的捕捉难题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08790",
+    "title": "SteerGR: Steering Generative Recommendation via Sparse Autoencoders for Controllable Game Discovery",
+    "authors": [
+      "Sunkyung Lee",
+      "Xiaokai Wei",
+      "Da Long",
+      "Hyunsik Jeon",
+      "Jiajun Wu",
+      "Rithwik Seth",
+      "Jongwuk Lee",
+      "Michelle Gong",
+      "Gungor Polatkan"
+    ],
+    "summary": "Generative recommendation aims to predict item identifiers from user interaction histories, but explicit control over the properties of recommended items remains underexplored. A key challenge is to connect human-readable concepts to internal features whose interventions effectively change the recommended items. To address this, we propose Steerable Generative Recommender (SteerGR), a framework that uses sparse autoencoders for concept-level control in game discovery. SteerGR proceeds through three stages: (i) Concept Definition and Grounding for defining play concepts with an LLM; (ii) Feature Discovery and Selection for discovering candidate features by their concept associations and selecting one by its steering effect; and (iii) Sparse Feature Intervention for amplifying or suppressing selected features to steer recommendations without retraining the recommender. Extensive experiments with two industrial generative recommendation models on a real-world game dataset show that the selected features successfully steer recommendations toward or away from target concepts. We believe this work takes a first step to extend SAE-based steering from LLMs to industrial generative recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08790",
+    "pdf_url": "https://arxiv.org/pdf/2611.08790.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文将稀疏自编码器（SAE）的可控性技术直接应用于工业级生成式推荐系统（游戏发现），解决了推荐属性显式控制的难题，属于 LLM/深度学习技术在 RecSys 核心场景的直接创新应用；且来自中国公司，按规则额外 +1 分。",
+    "translation": "SteerGR：利用稀疏自编码器 steering 生成式推荐以实现可控的游戏发现",
+    "summary_zh": "提出 SteerGR 框架，通过稀疏自编码器挖掘并干预生成式推荐模型中的概念特征，实现在不重训模型的情况下对推荐结果进行细粒度的概念级可控引导。",
+    "key_points": [
+      "提出 SteerGR 框架，通过稀疏自编码器挖掘并干预生成式推荐模型中的概念特征，实现在不重训模型的情况下对推荐结果进行细粒度的概念级可控引导"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08840",
+    "title": "What Matters for LLM Persona Simulation: Signal Form in Cold-Start E-Commerce Advertising",
+    "authors": [
+      "Jiwoo Choi",
+      "In Ik Lee",
+      "Woo Sung Seo",
+      "Minho Lee",
+      "Yun Young Choi"
+    ],
+    "summary": "Estimating advertising performance in cold-start settings is challenging because historical logs are unavailable before launch. Large language models (LLMs) offer a potential alternative by simulating persona-conditioned user responses, but it remains unclear which design choices actually drive LLM-based persona simulation. Using real Google Ads e-commerce campaign data across five demographic segments, we identify three signal-form dimensions that affect simulation quality: (i) a demographic anchor without noisy rich attributes, (ii) a relative qualitative banner-blindness signal rather than quantitative anchors, and (iii) prompt phrasing. On this campaign, our method attains an MAE of 24.9 and a MAPE of 26.1%, a 51.3% lower MAE than the best tested non-LLM baseline and 77.3% lower than an LLM configuration using explicit CTR anchors. Systematic ablations show that minimal demographic descriptions achieve lower mean error than richer persona configurations, while relative qualitative cues substantially outperform the tested quantitative anchors. We additionally compare these configurations with direct-prior and rule-based baselines and with alternative LLM configurations.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08840",
+    "pdf_url": "https://arxiv.org/pdf/2611.08840.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对电商广告冷启动场景，利用 LLM 模拟用户画像以预估广告效果，属于 LLM 在 Ads/RecSys 领域的直接核心应用；因来自中国公司额外加 1 分。",
+    "translation": "LLM 画像模拟的关键要素：冷启动电商广告中的信号形式研究",
+    "summary_zh": "提出通过优化人口统计锚点、相对定性信号及提示词措辞三种信号形式，利用大语言模型在缺乏历史日志的冷启动阶段高精度模拟用户广告响应。",
+    "key_points": [
+      "提出通过优化人口统计锚点、相对定性信号及提示词措辞三种信号形式，利用大语言模型在缺乏历史日志的冷启动阶段高精度模拟用户广告响应"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08990",
+    "title": "Action-Centered Causal Bandits for Budget-Constrained Promotion Targeting",
+    "authors": [
+      "Yifan Lin",
+      "Kaixu Yang",
+      "Di Mo"
+    ],
+    "summary": "Web platforms select among costly interventions for each user to maximize incremental outcomes under a global budget. We formulate this problem as a budget-constrained contextual bandit with heterogeneous treatment effects. Although an action-independent outcome baseline cancels from treatment comparisons, modeling a nonlinear baseline can increase statistical complexity.\n  We propose DR-CATE-CBwK, an action-centered causal bandit that directly learns treatment contrasts. Its online update remains valid under baseline-model misspecification without inverse-propensity weighting. It combines an offline doubly robust learner to warm-start treatment-effect estimates, an online action-centered estimator for sequential contrast learning, and a primal-dual controller with an affordable-action rule to enforce the effective-cost budget pathwise.\n  For linear conditional average treatment effects (CATEs) in a stationary i.i.d. setting, we prove a high-probability (\\widetilde{O}(Kd\\sqrt{T})) regret bound, where K is the number of priced actions, d the context dimension, and T the horizon. We benchmark against the fluid linear program (LP) under the coverage-guaranteed action rule. We further show that the action-centered estimating moment remains unbiased under any predictable baseline estimate, whereas a specified separate-arm reward regression can exhibit asymptotic contrast bias under action-dependent logging and shared-baseline misspecification.\n  On a semi-synthetic job-marketplace benchmark with real logged features and simulated outcomes, our practical Thompson-restricted variant achieves the lowest regret among evaluated budget-feasible methods in the operating regime. It reduces regret by approximately 20% versus the strongest reward-based baseline, outperforming raw-reward contextual bandits, BwK baselines, and a static offline policy, while never exceeding the effective-cost budget.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08990",
+    "pdf_url": "https://arxiv.org/pdf/2611.08990.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐/广告系统中的预算约束促销定向问题，提出基于因果推断的 Bandit 算法以优化干预效果，属于核心 Ads/RecSys 业务场景；虽涉及因果方法但非纯 LLM 研究，且来自 TAL 公司加 1 分。",
+    "translation": "面向预算约束促销定向的以行动为中心的因果 Bandit 算法",
+    "summary_zh": "提出一种以行动为中心的因果 Bandit 框架，通过直接学习处理效应对比并结合原对偶控制器，在无需逆倾向加权的情况下有效解决全局预算约束下的用户干预优化问题。",
+    "key_points": [
+      "提出一种以行动为中心的因果 Bandit 框架，通过直接学习处理效应对比并结合原对偶控制器，在无需逆倾向加权的情况下有效解决全局预算约束下的用户干预优化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2601.01930",
+    "title": "MCGI: Manifold-Consistent Graph Indexing for Billion-Scale Disk-Resident Vector Search",
+    "authors": [
+      "Dongfang Zhao"
+    ],
+    "summary": "Graph-based Approximate Nearest Neighbor (ANN) search often suffers from performance degradation in high-dimensional spaces due to the Euclidean-Geodesic mismatch, where greedy routing diverges from the underlying data manifold. To address this challenge, this paper presents Manifold-Consistent Graph Indexing (MCGI), a geometry-aware and disk-resident indexing method that leverages Local Intrinsic Dimensionality (LID) to allocate the search effort of a graph index according to the intrinsic geometry of data. Specifically, MCGI estimates the LID around each query from the distances that its own search has already computed and resizes the candidate list of the query once, so that queries in high-LID regions receive longer lists while queries in low-LID regions terminate earlier; the estimate itself costs no additional disk reads. Theoretical analysis shows that the success probability of any fixed search list decays exponentially with the LID of the query. At matched high recall, MCGI raises the query throughput of DiskANN on the same standard Vamana index by up to $1.43\\times$ on three million-scale benchmarks and by up to $1.24\\times$ on the billion-scale SIFT1B and Deep1B.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2601.01930",
+    "pdf_url": "https://arxiv.org/pdf/2601.01930.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "本文提出了一种针对十亿级向量检索的图索引优化方法，直接服务于搜索引擎和推荐系统的核心召回环节；虽非纯 LLM 研究，但解决了高维空间检索效率的关键工程问题，且来自中国企业额外加 1 分。",
+    "translation": "MCGI：面向十亿级磁盘驻留向量搜索的流形一致性图索引",
+    "summary_zh": "该论文提出利用局部内在维度（LID）感知数据几何特征，动态调整图索引搜索候选列表大小，以解决高维空间中贪婪路由与数据流形不匹配导致的性能下降问题。",
+    "key_points": [
+      "该论文提出利用局部内在维度（LID）感知数据几何特征，动态调整图索引搜索候选列表大小，以解决高维空间中贪婪路由与数据流形不匹配导致的性能下降问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.09126",
+    "title": "PAGSL: Path-Augmenting Graph Structure Learning for explainable scholar recommendation",
+    "authors": [
+      "Jiale Xu",
+      "Mingshu Ai",
+      "Junjie Huang",
+      "Tao Jia"
+    ],
+    "summary": "Explainable scholar recommendation aims to identify potential scholars of interest and provide reasonable explanations for the recommendations. However, existing frameworks struggle with optimization-induced noise and \"hub node bias\", yielding trivial explanations that lack hierarchical depth and personalization. To this end, we propose a novel explainable scholar recommendation model, Path-Augmenting Graph Structure Learning (named PAGSL). PAGSL combines representation learning and semantic path knowledge to ensure recommendation performance while providing interpretable results from two perspectives. Specifically, it activates latent academic paths among entities through graph augmentation and employs a path-based neural network to encode these paths for recommendation. A masking mechanism with path score optimization is designed to generate concise and informative explanations. We evaluate PAGSL on three academic datasets (Scholat, AMiner, and ResearchGate), comprising approximately 49,000 authors and over 330,000 interaction records. Experimental evaluations validate that PAGSL outperforms state-of-the-art baselines, achieving significant improvements of 6.31\\% in F1-score, 6.29\\% in Accuracy and 5.95\\% in AUC for recommendation. Crucially, in terms of explainability, we provide quantitative results and visualization effects. Furthermore, ablation studies validate the effectiveness of our heterogeneous convolution and path representation learning. PAGSL achieves strong performance in both recommendation accuracy and explainability.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.09126",
+    "pdf_url": "https://arxiv.org/pdf/2611.09126.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "论文提出了一种结合图结构学习与语义路径的可解释学者推荐模型，直接解决推荐系统中的核心问题；虽为垂直领域（学术），但方法对通用 RecSys 有明确借鉴意义，且来自中国公司加 1 分。",
+    "translation": "PAGSL：用于可解释学者推荐的路径增强图结构学习",
+    "summary_zh": "提出一种路径增强图结构学习方法，通过激活潜在学术路径并结合掩码机制，在提升推荐性能的同时生成具有层次深度和个性化的可解释结果。",
+    "key_points": [
+      "提出一种路径增强图结构学习方法，通过激活潜在学术路径并结合掩码机制，在提升推荐性能的同时生成具有层次深度和个性化的可解释结果"
+    ]
+  },
+  {
+    "arxiv_id": "2611.09040",
+    "title": "MV-IVF: Multi-Vector Retrieval via Multi-Vector Clustering",
+    "authors": [
+      "Kishen N Gowda",
+      "Laxman Dhulipala",
+      "Lars Gottesbüren",
+      "Rajesh Jayaram"
+    ],
+    "summary": "Multi-vector retrieval represents each query and document as a set of embeddings and scores relevance via fine-grained set-to-set interactions such as MaxSim (Chamfer similarity). This expressiveness improves retrieval quality over single-vector representations, but makes search substantially more expensive. Existing systems address this challenge primarily through proxy representations or filter-and-rerank pipelines that reduce candidate generation to single-vector search. We study the complementary direction of building a native IVF-style index directly over multi-vector data.\n  We introduce MV-IVF, an inverted-file index for multi-vector retrieval built on MV-Lloyd, a new Lloyd-style algorithm for clustering point clouds under a Chamfer objective. Our key observation is that once point clouds are assigned to clusters, the center-update step reduces to standard single-vector clustering over the flattened embeddings in each cluster. This enables efficient construction of a hierarchical IVF tree with center point clouds at internal nodes.\n  At query time, MV-IVF performs best-first beam search over the tree to identify promising leaf clusters, then scores the documents in those leaves. We further accelerate search using low-bit quantization, query compression, and cache-efficient batched search. We implement MV-IVF in MVSIC, an optimized C++ library and unified evaluation framework for multi-vector retrieval that includes several major approaches. Across BEIR and LoTTE text retrieval benchmarks, MV-IVF achieves strong latency--recall tradeoffs, the best batched throughput frontiers, and favorable build-time and index-size profiles. At $90\\%$ Recall-$10$@$10$, MV-IVF achieves up to $8.03\\times$ lower single-query latency and up to $173.5\\times$ higher QPS than the baselines, demonstrating that native IVF-style indexing is practical and effective for scalable multi-vector retrieval.",
+    "categories": [
+      "cs.IR",
+      "cs.DB"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.09040",
+    "pdf_url": "https://arxiv.org/pdf/2611.09040.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "affiliation_lines": [
+      "UniversityofMaryland UniversityofMaryland",
+      "GoogleResearch GoogleResearch",
+      "thatoncepointcloudsareassignedtoclusters,thecenter-update MaxSimwithoutexhaustivelyscoringtheentirecollection."
+    ],
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种专为多向量检索设计的原生倒排索引（MV-IVF），直接解决了推荐和搜索系统中召回阶段的关键效率瓶颈，属于核心检索技术突破。",
+    "translation": "MV-IVF：基于多向量聚类的多向量检索方法",
+    "summary_zh": "提出一种基于 MV-Lloyd 聚类算法的原生倒排文件索引，通过分层树结构上的束搜索直接对多向量数据进行高效索引与检索，无需依赖代理表示或重排序流水线。",
+    "key_points": [
+      "提出一种基于 MV-Lloyd 聚类算法的原生倒排文件索引，通过分层树结构上的束搜索直接对多向量数据进行高效索引与检索，无需依赖代理表示或重排序流水线"
+    ]
+  },
+  {
+    "arxiv_id": "2610.11316",
+    "title": "MetaEncoder: Exploring the Limit of Bi-Encoders for Multimodal System One Decision Making with Natural Language Interface",
+    "authors": [
+      "Jianpeng Cheng",
+      "Guangyu Sun",
+      "Aashu Singh",
+      "Benyu Zhang",
+      "Haixing Dai",
+      "Hossein Mansour",
+      "Jiangfan Zhang",
+      "Shlok Kumar Mishra",
+      "Wei Sun",
+      "Xuanming Cui",
+      "Yanli Liu",
+      "Qi Guo",
+      "Max Xiangjun Fan",
+      "Jun Xiao"
+    ],
+    "summary": "System One models prioritize fast, low-latency decision-making and calibrated probability distributions over token generation. While prevailing systems rely on structured schemas and typed outputs, candidate-scoring trade-offs remain poorly understood. We systematically investigate the scaling dynamics, accuracy, and inference efficiency of three scoring architectures adapted from a pre-trained decoder: bi-encoders, cross-encoders, and constrained decoders. Experiments show clear performance scaling with model size across all three architectures. Cross-encoders consistently achieve the highest accuracy across model sizes, while bi-encoders and constrained decoders perform similarly as training tokens scale. Efficiency-wise, bi-encoders maintain near-constant inference latency as candidate pools grow because candidate embeddings can be cached offline, whereas cross-encoder and constrained-decoder costs scale quadratically with candidate size. This efficiency advantage makes bi-encoders uniquely suited to bridge small closed-set decisions and massive open-set retrieval. For closed-set tasks, including all candidate options in the request prompt is critical for bi-encoder competitiveness. Guided by these insights, we introduce MetaEncoder, a multimodal encoder fine-tuned from a Muse-Glimmer decoder via unidirectional contrastive learning to match requests and candidates. We present packed contrastive training to maximize efficiency for dynamically allocated negative candidates, enabling memory-efficient full fine-tuning of a 30B decoder into an encoder. Evaluated across 12 benchmark suites spanning closed-set decision-making, multimodal understanding, and open-set retrieval, MetaEncoder outperforms state-of-the-art multimodal embedding baselines on decision tasks and MMEB-v3 image/video retrieval, while scaling to open candidate spaces far too large for current decision models.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2610.11316",
+    "pdf_url": "https://arxiv.org/pdf/2610.11316.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文虽源于 LLM 架构研究，但核心聚焦于解决大规模候选集检索（Retrieval）中的效率与精度权衡，直接应用于多模态搜索和推荐系统的召回/匹配环节，且来自中国公司额外加 1 分。",
+    "translation": "MetaEncoder：探索双编码器在多模态系统一决策与自然语言接口中的极限",
+    "summary_zh": "提出 MetaEncoder 多模态编码器，通过单向对比学习和打包对比训练，将解码器转化为高效的双编码器架构，以在保持低延迟缓存优势的同时解决大规模开放集检索中的候选评分难题。",
+    "key_points": [
+      "提出 MetaEncoder 多模态编码器，通过单向对比学习和打包对比训练，将解码器转化为高效的双编码器架构，以在保持低延迟缓存优势的同时解决大规模开放集检索中的候选评分难题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08785",
+    "title": "Learning from How Users Interpret: Personalizing Recommendation Explanation Order",
+    "authors": [
+      "Deo Munduku",
+      "Elsa Negre"
+    ],
+    "summary": "Personalized explanations typically adapt their content or presentation based on preferences, interaction histories, or other user characteristics. We examine whether regularities inferred from prior textual interpretations can support personalization of explanation organization. In a controlled within participant study with 122 participants, prior interpretations were represented along three dimensions: information selection, relative salience, and relational organization. The relational dimension was partially operationalized through co mobilization. These representations were aggregated into fixed historical profiles and used to organize otherwise identical explanation sentences. Participants encountered four organization procedures: the OWN historical profile, the DONOR historical profile, a population profile called POP, and a language model procedure using the historical profile called PROFILE LLM. Post exposure objective comprehension was the primary outcome. OWN achieved 86.5 percent correct responses, compared with 66.0 percent for DONOR, 63.9 percent for POP, and 73.0 percent for PROFILE LLM. Mixed effects analyses showed higher comprehension with OWN than with each alternative procedure. No reliable overall condition effect was detected for recommendation acceptance. These findings indicate that historical profiles derived from prior interpretations can provide an actionable signal for personalizing explanation order while keeping explanatory content and wording fixed.",
+    "categories": [
+      "cs.HC",
+      "cs.AI"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08785",
+    "pdf_url": "https://arxiv.org/pdf/2611.08785.pdf",
+    "prerank_score": 8,
+    "relevance_score": 5,
+    "reasoning": "论文关注推荐解释的个性化排序，属于可解释性推荐范畴，但主要基于受控用户实验而非大规模工业级深度学习或 LLM 架构创新，且未直接解决核心召回/排序效率问题。",
+    "translation": "从用户解读中学习：个性化推荐解释的顺序",
+    "summary_zh": "提出利用用户历史文本解读行为构建画像，以此个性化调整推荐解释句子的组织顺序，从而在不改变内容的前提下提升用户对解释的理解度。",
+    "key_points": [
+      "提出利用用户历史文本解读行为构建画像，以此个性化调整推荐解释句子的组织顺序，从而在不改变内容的前提下提升用户对解释的理解度"
+    ]
+  },
+  {
+    "arxiv_id": "2602.12510",
+    "title": "Visual RAG Toolkit: Scaling Multi-Vector Visual Retrieval with Training-Free Pooling and Multi-Stage Search",
+    "authors": [
+      "Ara Yeroyan"
+    ],
+    "summary": "Multi-vector visual retrievers (e.g., ColPali-style late interaction models) deliver strong accuracy, but scale poorly because each page yields thousands of vectors, making indexing and search increasingly expensive. We present Visual RAG Toolkit, a practical system for scaling visual multi-vector retrieval with training-free, model-aware pooling and multi-stage retrieval. Motivated by Matryoshka Embeddings, our method performs static spatial pooling - including a lightweight sliding-window averaging variant - over patch embeddings to produce compact tile-level and global representations for fast candidate generation, followed by exact MaxSim reranking using full multi-vector embeddings.\n  Our design yields a quadratic reduction in vector-to-vector comparisons by reducing stored vectors per page from thousands to dozens, notably without requiring post-training, adapters, or distillation. Across experiments with interaction-style models such as ColPali and ColSmol-500M, we observe that over the limited ViDoRe v2 benchmark corpus 2-stage retrieval typically preserves NDCG and Recall @ 5/10 with minimal degradation, while substantially improving throughput (approximately 4x QPS); with sensitivity mainly at very large k. The toolkit additionally provides robust preprocessing - high resolution PDF to image conversion, optional margin/empty-region cropping and token hygiene (indexing only visual tokens) - and a reproducible evaluation pipeline, enabling rapid exploration of two-, three-, and cascaded retrieval variants. By emphasizing efficiency at common cutoffs (e.g., k <= 10), the toolkit lowers hardware barriers and makes state-of-the-art visual retrieval more accessible in practice.",
+    "categories": [
+      "cs.IR",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-02-13",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2602.12510",
+    "pdf_url": "https://arxiv.org/pdf/2602.12510.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯视觉检索（Visual Search）的基础设施优化研究，虽涉及搜索流程但未针对推荐系统场景或用户行为建模，且缺乏电商/社交等具体业务应用，仅因包含“搜索”关键词及中国公司背景给予低分段加分。",
+    "translation": "Visual RAG Toolkit：通过免训练池化与多阶段搜索扩展多向量视觉检索",
+    "summary_zh": "提出一种免训练的模型感知空间池化方法，将每页数千个视觉向量压缩为数十个紧凑表示以实现快速候选生成，并结合全量多向量嵌入进行精确重排序，从而在保持精度的同时显著降低视觉检索的计算成本。",
+    "key_points": [
+      "提出一种免训练的模型感知空间池化方法，将每页数千个视觉向量压缩为数十个紧凑表示以实现快速候选生成，并结合全量多向量嵌入进行精确重排序，从而在保持精度的同时显著降低视觉检索的计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33798",
+    "title": "Whispers from the Neighbors: Rethinking Caption Consensus as Inference-Time Evidence for Vision-Language Retrieval",
+    "authors": [
+      "Khang Nhat Hoang Vo",
+      "Belal Shoer",
+      "Abhirama Subramanyam Penamakuri"
+    ],
+    "summary": "An image is rarely described only once. Retrieval benchmarks and many collections attach several captions to each picture, yet dual encoders still judge every image-caption pair in isolation. We ask what these neighboring captions contribute when a frozen encoder consults them at inference time. Fusing image similarity with similarity to an image's own captions improves text-to-image R@1 by 3.4 to 16.8 points across nine frozen encoders when the captions come from the same annotators as the queries. The gain falls to 1.9 to 7.2 points when an off-the-shelf captioner writes them, and to at most one point when they come from a different annotation source; a paraphrase-trained text encoder strengthens the text side further. A natural refinement, scoring the part of the image that the captions leave unexplained, appears to add much more under a leave-one-out evaluation. We show that this advantage arises because the correct candidate's supports are built differently from those of the negative candidates, with set size and query removal each contributing about half, and that under a fixed support index the residual reduces to a reweighting of what the captions already provide. On compositional benchmarks, the captions help by matching candidates to human descriptions of the image, without improving image-text grounding. The code is available at: https://github.com/nhatkhangcs/clip_consensus",
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2610.33798",
+    "pdf_url": "https://arxiv.org/pdf/2610.33798.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于通用视觉 - 语言检索（Vision-Language Retrieval）的基础模型推理优化，虽涉及多模态匹配技术，但未明确针对推荐系统或搜索产品的具体业务场景（如电商、信息流），属于边缘相关的通用 ML 研究。",
+    "translation": "来自邻居的低语：重新思考将标题共识作为视觉语言检索的推理时证据",
+    "summary_zh": "提出在推理阶段利用图像关联的多个相邻标题（邻居）构建一致性证据，通过融合图像相似度与标题共识来增强冻结编码器的文本到图像检索能力。",
+    "key_points": [
+      "提出在推理阶段利用图像关联的多个相邻标题（邻居）构建一致性证据，通过融合图像相似度与标题共识来增强冻结编码器的文本到图像检索能力"
+    ]
+  },
+  {
+    "arxiv_id": "2605.08360",
+    "title": "Embeddings for Preferences, Not Semantics",
+    "authors": [
+      "Carter Blair",
+      "Ariel D. Procaccia",
+      "Milind Tambe"
+    ],
+    "summary": "Modern AI is opening the door to collective decision-making in which participants express their views as free-form text rather than voting on a fixed set of candidates. A natural idea is to embed these opinions in a vector space so that the substantial literature on facility location problems and fair clustering can be brought to bear. But standard text embeddings measure semantic similarity, whereas distances in facility location problems and fair clustering require what we call preferential similarity: a participant's agreement with a piece of text should be inversely related to their distance from it. Off-the-shelf embeddings inherit a coarse preference signal through a correlation between semantic and preferential similarity, but fail to capture preferences when the correlation breaks. We formalize this as an invariance problem: text embedding models encode both a preference-relevant signal (stance and values) and semantic nuisance (style and wording), and the two are observationally correlated, so a geometry that relies on nuisance can appear preference-correct even when it is not. We show that synthetic training data designed to break this correlation provably shifts the optimal scorer away from nuisance-dominated cosine and significantly improves preference prediction across 11 online deliberation datasets.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2605.08360",
+    "pdf_url": "https://arxiv.org/pdf/2605.08360.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦于利用嵌入技术解决集体决策中的偏好建模问题，属于 NLP 与社会计算交叉领域，并未涉及推荐系统或搜索引擎的核心环节（如召回、排序、个性化广告等），纯 LLM/NLP 研究且无 RecSys 直接应用，故基础分低；虽来自中国公司加 1 分，但仍属弱相关。",
+    "translation": "用于偏好而非语义的嵌入表示",
+    "summary_zh": "提出一种新的文本嵌入方法，通过合成训练数据解耦语义噪声与偏好信号，使向量空间距离能准确反映用户对文本观点的认同度而非单纯的语义相似性。",
+    "key_points": [
+      "提出一种新的文本嵌入方法，通过合成训练数据解耦语义噪声与偏好信号，使向量空间距离能准确反映用户对文本观点的认同度而非单纯的语义相似性"
+    ]
+  },
+  {
+    "arxiv_id": "2610.33301",
+    "title": "The As-If Machine: Personalized AI counterfactuals make distant policy risks feel close",
+    "authors": [
+      "Joshua Ashkinaze",
+      "Yubo Zhou",
+      "Pengyu Chen",
+      "Avi Bhattacharya",
+      "Hyebin Park",
+      "Yanman Zhang",
+      "Stephanie Preston",
+      "Eric Gilbert",
+      "Ceren Budak"
+    ],
+    "summary": "Life experiences can shape policy attitudes, but we only live one life. Citizens may therefore fail to support policies addressing risks they have never personally experienced. Narratives can make such risks immediate and personal, but personalized stories remain difficult to produce at scale. Here we ask whether AI can make distant scenarios feel concrete by simulating a participant's life as if that scenario occurred. We present the As-If Machine (AIM), a multi-agent system through which people co-write personalized counterfactual narratives---stories about their own lives under different policy futures. In two pre-registered and quota-matched experiments on science funding (N=1,007) and satellite cybersecurity (N=894), we compared AIM with two controls: reading an expert-written vignette on the same topic and co-writing with AIM about an unrelated topic. AIM increased psychological closeness---how close a risk feels to the self---by nearly identical margins in the two domains (0.36 and 0.38 standard deviations (SDs) against the vignette, 0.80 and 0.90 against unrelated writing). AIM increased psychological closeness even among participants with unfavorable views of AI. For policy attitudes, AIM's effects were 0.16 SDs against the vignette and 0.10 SDs (n.s.) against unrelated writing for science funding; the corresponding effects for satellite cybersecurity were 0.54 and 0.67 SDs. Across 23,496 human-AI autocomplete interactions, participants and the system played distinct roles: AIM supplied concrete detail that grounded the scenario, and participants supplied first-person perspective and emotion. Co-writing with the As-If Machine makes distant policy risks feel close.",
+    "categories": [
+      "cs.HC",
+      "cs.AI"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2610.33301",
+    "pdf_url": "https://arxiv.org/pdf/2610.33301.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "该文属于纯 LLM 应用研究（政策叙事生成），完全未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），即使有中国公司背景且加分后仍属低相关。",
+    "translation": "假设机器：个性化 AI 反事实模拟让遥远的政策风险感同身受",
+    "summary_zh": "提出一种多智能体系统，通过让用户与 AI 共同创作关于自身生活的反事实叙事，将抽象的政策风险转化为具体的个人体验以增强心理接近感。",
+    "key_points": [
+      "提出一种多智能体系统，通过让用户与 AI 共同创作关于自身生活的反事实叙事，将抽象的政策风险转化为具体的个人体验以增强心理接近感"
+    ]
+  },
+  {
+    "arxiv_id": "2605.07847",
+    "title": "Measuring and Mitigating the Distributional Gap Between Real and Simulated User Behaviors",
+    "authors": [
+      "Shuhaib Mehri",
+      "Philippe Laban",
+      "Sumuk Shashidhar",
+      "Marwa Abdulhai",
+      "Sergey Levine",
+      "Michel Galley",
+      "Dilek Hakkani-Tür"
+    ],
+    "summary": "As user simulators are increasingly used for interactive training and evaluation of AI assistants, it is essential that they represent the diverse behaviors of real users. While existing works train user simulators to generate human-like responses, whether they capture the broad and heterogeneous distribution of real user behaviors remains an open question. In this work, we introduce a method to measure the distributional gap between real and simulated user behaviors, validated through a human study and ablations. Given a dataset of real and simulated conversations, our method extracts representations of user behavior from each conversation, quantizes them into discrete distributions via clustering, then computes divergence metrics. We provide the first systematic evaluation of 24 LLM-based user simulators on coding and writing tasks, and reveal a large distributional gap from real users that varies across model families, scales, and behavioral facets. Pairwise comparisons show that most simulators behave similarly, while a few stand apart. Combining behaviorally complementary simulators brings the resulting distribution closer to real users compared to either simulator on its own. Finally, a TF-IDF analysis of the clusters surfaces interpretable patterns of behaviors that simulators capture, miss, and hallucinate.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2605.07847",
+    "pdf_url": "https://arxiv.org/pdf/2605.07847.pdf",
+    "prerank_score": 7,
+    "is_industry": true,
+    "matched_companies": [
+      "Microsoft"
+    ],
+    "affiliation_lines": [
+      "ShuhaibMehri♠ PhilippeLaban♢ SumukShashidhar♠ MarwaAbdulhai⋆",
+      "♠UniversityofIllinoisUrbana-Champaign ♢MicrosoftResearch",
+      "⋆UniversityofCalifornia,Berkeley"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究，专注于评估和缓解用户模拟器与真实用户行为之间的分布差距，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、个性化）。",
+    "translation": "测量并缓解真实与模拟用户行为之间的分布差距",
+    "summary_zh": "提出一种基于聚类和散度指标的方法，用于量化 LLM 用户模拟器与真实用户在行为分布上的差异，并通过组合互补模拟器来缩小该差距。",
+    "key_points": [
+      "提出一种基于聚类和散度指标的方法，用于量化 LLM 用户模拟器与真实用户在行为分布上的差异，并通过组合互补模拟器来缩小该差距"
+    ]
+  },
+  {
+    "arxiv_id": "2602.22710",
+    "title": "Same Words, Different Judgments: How Preferences Vary Across Modalities",
+    "authors": [
+      "Aaron Broukhim",
+      "Nadir Weibel",
+      "Eshin Jolly"
+    ],
+    "summary": "Preference-based reinforcement learning (PbRL) is the dominant framework for aligning AI systems to human preferences. However, evaluation protocols for such data were designed for text and have not been validated for speech. We present the first intraclass correlation coefficient (ICC)-based, controlled cross-modal study of human and synthetic preference annotations, comparing text and audio evaluations of identical semantic content across 100 prompts. We show that achieving \\textit{good} (audio) to \\textit{near good} (text) agreement within either modality (ICC(2,$k$) $\\approx$ .81 audio, .74 text) requires $\\sim$9 raters and modalities show marked differences in how people report preferences: audio raters exhibit narrower decision thresholds, reduced length bias, and more user-oriented evaluation criteria, with near-chance cross-modality agreement. We demonstrate that synthetic ratings can be used to effectively predict inter-rater agreement, thus serving as an early signal for stimulus selection and proxy for human annotations. Together, these findings argue that evaluation protocols for audio preference data require modality-specific design rather than direct adaptation from text. Code, data, and the audio corpus are available at: https://huggingface.co/datasets/sciminds/same-words-different-judgements",
+    "categories": [
+      "cs.SD",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "published": "2026-11-05",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2602.22710",
+    "pdf_url": "https://arxiv.org/pdf/2602.22710.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 对齐与评估研究，专注于语音与文本偏好标注的差异，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "同词异判：偏好如何随模态变化",
+    "summary_zh": "本文通过对比相同语义内容在文本和音频模态下的人类及合成偏好标注，揭示了跨模态偏好评估标准的显著差异及合成评分预测一致性潜力。",
+    "key_points": [
+      "本文通过对比相同语义内容在文本和音频模态下的人类及合成偏好标注，揭示了跨模态偏好评估标准的显著差异及合成评分预测一致性潜力"
+    ]
+  },
+  {
+    "arxiv_id": "2610.32955",
+    "title": "Measure Before You Train: Typed Decision Models vs. a Classical Baseline vs. a Generative LLM for Routing a Personal Multilingual Inbox",
+    "authors": [
+      "Federico Lucca"
+    ],
+    "summary": "Personal email agents decide, for every message, its type and urgency and whether to draft a reply, create a task or ignore it. In production these decisions are delegated to a generative LLM or to rules, and their error rate is rarely measured: the stored labels were written by the system itself. We describe Foyer, a self-hosted personal inbox agent, and a measurement protocol -- stratified sampling, frozen snapshots, thread-grouped splits, secret redaction, human labels in the review loop -- that produces ground truth before any training. On 231 emails in Italian and English we compare eleven systems: the production rules, a TF-IDF + logistic-regression baseline, local and hosted typed decision models (Tev1, Nimble, Jeva, Jev) and generative LLMs (Qwen2.5, Gemma 4). Four results. The production rules for message type score 28% against a 57% majority class. With about two hundred labels a logistic regression has the highest accuracy on every field (type 0.79, urgency 0.74, needs-reply 0.83, is-noise 0.90) at a latency three orders of magnitude lower, though it never predicts the two rarest types; the best zero-shot system reaches 0.74 on type. The sender's relationship to the owner is recovered from other emails of the same contact with 98.6% accuracy on the 63% of emails whose sender was seen before: it belongs in the contact graph, not in the prompt. Per-email accuracy is not the product metric: composed into actions, the baseline ignores 18% of the emails that needed a reply or a task, against 4% for the best generative model; a cost-chosen threshold cuts that to 6% and makes the classifier the cheapest system at every price. An adversarial third round (722 emails) with eleven pre-registered hypotheses confirms seven and refutes four. Two blind annotators agree with the reference at kappa 0.81 and 0.86 on type. We release the protocol and the harness; the emails stay private.",
+    "categories": [
+      "cs.CL",
+      "cs.HC",
+      "cs.LG"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2610.32955",
+    "pdf_url": "https://arxiv.org/pdf/2610.32955.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 应用研究，专注于个人邮箱代理的决策路由，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），属于排除类别。",
+    "translation": "训练前先行评估： typed 决策模型、经典基线与生成式 LLM 在个人多语言邮箱路由中的对比",
+    "summary_zh": "本文提出一种在训练前构建真实标签的测量协议，并对比了规则、传统机器学习模型与生成式 LLM 在处理个人邮件分类及动作决策上的表现。",
+    "key_points": [
+      "本文提出一种在训练前构建真实标签的测量协议，并对比了规则、传统机器学习模型与生成式 LLM 在处理个人邮件分类及动作决策上的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08498",
+    "title": "Improving Contextual Retrieval for Long Documents using Semantic Chunking and Hybrid Retrieval Strategies",
+    "authors": [
+      "Sakshi Garg",
+      "William B. Andreopoulos"
+    ],
+    "summary": "The vast amount of information available in lengthy, distributed documents makes finding relevant answers difficult, especially when the answer requires connecting evidence from multiple sources. Standard Retrieval-Augmented Generation (RAG) systems often struggle with this type of \"multi-hop\" reasoning and frequently face issues with context fragmentation. In this paper, we propose a hybrid RAG framework that integrates the structured reasoning of knowledge graphs with the broad semantic coverage of dense vector retrieval. Our approach employs a multi-stage pipeline using transformer-based summarization and semantic chunking to improve context retention. We construct a dynamic knowledge graph to capture explicit relationships between entities while simultaneously maintaining a dense vector index. During inference, the system uses a hierarchical mechanism that prioritizes graph traversal for precision and falls back to vector retrieval when necessary. We evaluated our framework on the MultiHop-RAG dataset. The results show that this hybrid approach outperforms standalone vector and graph-based baselines, achieving higher Exact Match scores and improved retrieval accuracy for complex queries. This confirms that merging structured reasoning with standard vector retrieval creates a more robust system for handling complex knowledge-intensive questions.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-08-19",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2611.08498",
+    "pdf_url": "https://arxiv.org/pdf/2611.08498.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于长文档问答和多跳推理，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "利用语义分块与混合检索策略提升长文档的上下文检索能力",
+    "summary_zh": "提出一种混合 RAG 框架，结合知识图谱的结构化推理与稠密向量检索的语义覆盖，通过多阶段流水线和动态图谱构建来解决长文档中的多跳推理与上下文碎片化问题。",
+    "key_points": [
+      "提出一种混合 RAG 框架，结合知识图谱的结构化推理与稠密向量检索的语义覆盖，通过多阶段流水线和动态图谱构建来解决长文档中的多跳推理与上下文碎片化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2605.13481",
+    "title": "PersonalAI 2.0: Enhancing knowledge graph traversal/retrieval with planning mechanism for Personalized LLM Agents",
+    "authors": [
+      "Mikhail Menschikov",
+      "Matvey Iskornev",
+      "Alexander Kharitonov",
+      "Alina Bogdanova",
+      "Mikhail Belkin",
+      "Ekaterina Lisitsyna",
+      "Artyom Sosedka",
+      "Victoria Dochkina",
+      "Ruslan Kostoev",
+      "Ilia Perepechkin",
+      "Evgeny Burnaev"
+    ],
+    "summary": "We introduce PersonalAI 2.0 (PAI-2), a novel framework designed to enhance LLM-based systems through integration of external knowledge graphs (KGs). The proposed approach addresses key limitations of existing Graph Retrieval-Augmented Generation (GraphRAG) methods by incorporating a dynamic, multistage pipeline. The central point of the PAI-2 design is its ability to perform adaptive, iterative information search, guided by extracted entities, matched graph vertices and generated clue-queries. Conducted evaluation on five benchmarks (Natural Questions, TriviaQA, HotpotQA, 2WikiMultihopQA and MuSiQue) demonstrates an improvement in the factual correctness of generated answers compared to baseline methods (LightRAG, RAPTOR, HippoRAG 2 and PAI-1). PAI-2 achieves a 9 percentage points (pp) average gain by LLM-as-a-Judge on 2WikiMultihopQA and MuSiQue benchmarks, and attains comparable accuracy to HippoRAG 2 on the TriviaQA and HotpotQA benchmarks with Qwen2.5 7B and multilingual-e5-large reflecting its effectiveness in reducing hallucination rates and increasing recall. We show that enabled search plan enhancement mechanism gain in average a 18 pp boost compared to disabled one by LLM-as-a-Judge across five benchmarks. In addition, an ablation study reveals that PAI-2 achieves superior result on the MINE-1 benchmark, obtaining an 89\\% information-retention score with Qwen2.5 7B and multilingual-e5-large. Collectively, these findings underscore the potential of PAI-2 to serve as a reusable component for personalized AI applications, which require context-aware knowledge-representation and reasoning capabilities. The source code of PAI-2 is available at the following link: https://github.com/Dzigen/PersonalAI.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-09",
+    "url": "https://arxiv.org/abs/2605.13481",
+    "pdf_url": "https://arxiv.org/pdf/2605.13481.pdf",
+    "prerank_score": 4,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于利用知识图谱增强通用问答和推理能力，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "PersonalAI 2.0：利用规划机制增强知识图谱遍历/检索以构建个性化 LLM 智能体",
+    "summary_zh": "该论文提出了一种结合动态多阶段流水线与规划机制的框架，通过自适应迭代搜索知识图谱实体来增强大语言模型的上下文感知推理能力并减少幻觉。",
+    "key_points": [
+      "该论文提出了一种结合动态多阶段流水线与规划机制的框架，通过自适应迭代搜索知识图谱实体来增强大语言模型的上下文感知推理能力并减少幻觉"
+    ]
+  }
+]

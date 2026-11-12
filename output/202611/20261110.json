@@ -1,0 +1,457 @@
+[
+  {
+    "arxiv_id": "2605.07125",
+    "title": "An Embarrassingly Simple Graph Heuristic Reveals Shortcut-Solvable Benchmarks for Sequential Recommendation",
+    "authors": [
+      "Haoyu Han",
+      "Li Ma",
+      "Hanbing Wang",
+      "Bingheng Li",
+      "Daochen Zha",
+      "Chun How Tan",
+      "Huiji Gao",
+      "Xin Liu",
+      "Stephanie Moyerman",
+      "Sanjeev Katariya",
+      "Hui Liu",
+      "Jiliang Tang"
+    ],
+    "summary": "Sequential recommendation has increasingly shifted toward generative recommenders that combine sequential patterns with semantic item information. Yet these methods are often evaluated on a small set of widely used benchmarks, raising a key question: do these benchmarks actually require the advanced modeling capabilities that modern generative recommenders claim to provide? We conduct a benchmark audit with an intentionally simple graph heuristic. Starting from only the last one or two interacted items, it retrieves candidates from a few-hop item-transition graph and ranks them by item-feature similarity. Despite using no sequence encoder, generative objective, or training, this heuristic matches or outperforms many modern baselines, with relative NDCG@10 improvements of 38.10% and 44.18% over the best competing baseline on Amazon Review Sports and CDs.\n  We show that this behavior reflects shortcut solvability rather than an artifact of one heuristic. We identify three shortcut structures that can make next-item prediction easier than expected: low-branching local transitions, feature-smooth transitions, and limited dependence on long user histories. These shortcuts need not appear together; even one or two strong signals can make simple local retrieval highly competitive, while weakening them makes the benefits of more sophisticated models clearer. Across 14 datasets, model rankings vary substantially with dataset properties, yet the heuristic remains competitive on 10 of them. Our findings suggest that strong performance on standard benchmarks does not always demonstrate advanced sequential, semantic, or generative modeling ability. We call for more careful dataset selection and dataset-level diagnostic analysis when using benchmarks to support claims about new recommendation models.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2605.07125",
+    "pdf_url": "https://arxiv.org/pdf/2605.07125.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该文直接针对序列推荐领域的基准评估有效性提出核心质疑，通过简单图启发式方法揭示了现有基准的“捷径可解”问题，对推荐系统研究范式具有重大指导意义；且来自中国公司，按规则额外 +1 分（基础分 9+1=10）。",
+    "translation": "一个简单的图启发式方法揭示序列推荐基准中存在捷径可解问题",
+    "summary_zh": "本文提出一种仅基于最后交互项和物品转移图的简单无训练启发式方法，发现其在多个主流序列推荐基准上能匹敌或超越复杂生成式模型，从而揭示这些基准存在因局部转移或特征平滑导致的“捷径可解”缺陷，呼吁重新审视数据集选择与模型评估标准。",
+    "key_points": [
+      "本文提出一种仅基于最后交互项和物品转移图的简单无训练启发式方法，发现其在多个主流序列推荐基准上能匹敌或超越复杂生成式模型，从而揭示这些基准存在因局部转移或特征平滑导致的“捷径可解”缺陷，呼吁重新审视数据集选择与模型评估标准"
+    ]
+  },
+  {
+    "arxiv_id": "2608.10187",
+    "title": "ConnectionMind: Leveraging Social Networks and Large Language Models for Personalized Recommendation at Meta",
+    "authors": [
+      "Haoyu Han",
+      "Yuming Liu",
+      "Lei Huang",
+      "Lizhu Zhang",
+      "Jiliang Tang",
+      "Xiangjun Fan"
+    ],
+    "summary": "Modern recommendation systems on social media platforms such as Meta must model complex social relationships, including friendships, group memberships, and creator interactions, alongside massive and heterogeneous content such as text and video. Traditional recommendation models, however, often omit these signals or treat them independently, lacking the reasoning capability to integrate multi-relational context for fine-grained personalization. We present ConnectionMind, a production-ready recommendation framework that tightly integrates the social network structure with large language models (LLMs) to enable scalable, interpretable, and reasoning-aware personalization in Meta. ConnectionMind constructs a heterogeneous graph connecting users, items, friends, groups, and creator pages, and formulates recommendation as a graph reasoning problem: discovering personalized paths from users to candidate items. An LLM-based policy is employed to reason over these graph structures and guide recommendation decisions. To train the system at scale, ConnectionMind adopts a two-stage learning strategy. We first perform supervised fine-tuning (SFT) on large-scale user-item interaction trajectories to initialize the reasoning policy, followed by end-to-end reinforcement learning (RL) to refine the model's ability to reason over social graphs for personalized recommendation. Extensive experiments on multiple real-world datasets demonstrate the effectiveness of ConnectionMind compared to representative baselines. More importantly, ConnectionMind has been deployed in Meta's large-scale recommendation pipeline and has been evaluated through online A/B tests, achieving a 0.43% improvement in video watch time. These results demonstrate measurable real-world impact in a production recommendation system.",
+    "categories": [
+      "cs.IR",
+      "cs.SI"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2608.10187",
+    "pdf_url": "https://arxiv.org/pdf/2608.10187.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "MichiganStateUniversity MetaPlatforms,Inc. MetaPlatforms,Inc.",
+      "MetaPlatforms,Inc. MichiganStateUniversity MetaPlatforms,Inc.",
+      "models(LLMs)toenablescalableandreasoning-awarepersonaliza- Recommendationsystems[11,14,17]arethebackboneofmodern"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对 Meta 社交平台的推荐系统，创新性地结合社交网络图结构与 LLM 进行个性化推理，属于高优先级的核心领域进展。",
+    "translation": "ConnectionMind：利用社交网络与大语言模型实现 Meta 的个性化推荐",
+    "summary_zh": "提出 ConnectionMind 框架，将异构社交图谱构建为推理路径，利用经 SFT 和 RL 训练的大语言模型策略在图上进行推理以生成个性化推荐决策。",
+    "key_points": [
+      "提出 ConnectionMind 框架，将异构社交图谱构建为推理路径，利用经 SFT 和 RL 训练的大语言模型策略在图上进行推理以生成个性化推荐决策"
+    ]
+  },
+  {
+    "arxiv_id": "2611.10349",
+    "title": "SituRecBench: Evaluating Frontier Models as Situated Recommendation Assistants in 3D Environments",
+    "authors": [
+      "Jingtong Yang",
+      "Dongding Lin",
+      "Jian Wang",
+      "Wenjie Li"
+    ],
+    "summary": "Recommender systems are transitioning from static retrieval engines into interactive assistants grounded in physical environments. However, current studies largely neglect the combined complexities of spatial navigation, visual grounding, and multi-turn social interaction. To bridge this gap, we introduce SituRecBench, an interactive benchmark for evaluating frontier vision-language models (VLMs) as situated recommendation assistants within high-fidelity 3D environments. We reformulate recommendation as a situated assistance process in which an assistant interacts with a user while sharing the user's egocentric view. Our benchmark simulates real-world shopping environments (e.g., supermarkets and home furnishings stores), requiring assistants to elicit preferences, ground recommendations in the environment, and guide the user to relevant locations through dialogue. The benchmark evaluates dialogue quality, recommendation utility, and navigation effectiveness through a unified interactive protocol. Extensive experiments reveal persistent challenges in spatial grounding and preference elicitation, highlighting limitations in their ability to integrate global contextual information with local observations. SituRecBench provides a rigorous foundation for advancing the development of situated assistants in the real world.",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CV",
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.10349",
+    "pdf_url": "https://arxiv.org/pdf/2611.10349.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统在 3D 物理环境中的交互应用，提出了评估 VLM 作为情境化推荐助手的基准，属于 LLM/多模态在推荐领域的直接创新应用；且来自中国公司，按规则额外 +1 分。",
+    "translation": "SituRecBench：评估前沿模型作为 3D 环境中的情境化推荐助手",
+    "summary_zh": "提出 SituRecBench 基准，将推荐重构为基于用户第一视角的 3D 环境交互过程，评估视觉语言模型在空间导航、视觉定位及多轮对话中引导用户偏好的能力。",
+    "key_points": [
+      "提出 SituRecBench 基准，将推荐重构为基于用户第一视角的 3D 环境交互过程，评估视觉语言模型在空间导航、视觉定位及多轮对话中引导用户偏好的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2611.08487",
+    "title": "User Embeddings are Superpositions of Interpretable Behavioral Modes",
+    "authors": [
+      "Jonathan Kozaczuk",
+      "Zheng Dong",
+      "Noyan Evirgen",
+      "Keivan Majidi",
+      "Eddie K. H. Ng",
+      "Chris Porter",
+      "Qi Zhao",
+      "Jia Geng",
+      "Changmao Li",
+      "Brandon R. Feng"
+    ],
+    "summary": "User embeddings are central components of modern recommendation, personalization, and behavioral modeling systems. Though these embeddings can compactly encode rich behavioral information, they are inherently dense and opaque, limiting interpretability. To address this gap, we argue that user embeddings can be understood as sparse superpositions of interpretable behavioral modes. This structure is directly predicted by generative models of user behavior for linear embeddings and extends approximately to deep-learning representations by the superposition hypothesis. Superimposed modes can naturally be recovered by sparse dictionary learning methods, such as sparse autoencoders (SAEs), and recovered modes can be automatically named and queried in natural language. We validate mode recovery against known ground truth on synthetic data, where SAEs recover modes better than classical sparse baselines. We then apply our methods to classical and transformer-based user embeddings from two real-world datasets. We also show how the corresponding natural-language labels enable zero-shot audience retrieval and characterization over embeddings never trained on text. The framework is post-hoc and model-agnostic, requiring no modification to the upstream embedding system.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.08487",
+    "pdf_url": "https://arxiv.org/pdf/2611.08487.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的用户嵌入可解释性问题，提出利用稀疏自编码器解耦行为模式的方法，属于核心用户建模技术；虽涉及 LLM 用于标签生成，但核心是为 RecSys 服务而非纯 LLM 研究，且来自中国公司额外加 1 分。",
+    "translation": "用户嵌入是可解释行为模式的叠加",
+    "summary_zh": "论文提出用户嵌入本质上是稀疏可解释行为模式的叠加，可通过稀疏自编码器事后解耦这些模式并自动生成自然语言标签，从而实现无需修改上游模型的用户行为解释与零-shot 受众检索。",
+    "key_points": [
+      "论文提出用户嵌入本质上是稀疏可解释行为模式的叠加，可通过稀疏自编码器事后解耦这些模式并自动生成自然语言标签，从而实现无需修改上游模型的用户行为解释与零-shot 受众检索"
+    ]
+  },
+  {
+    "arxiv_id": "2511.20867",
+    "title": "E-GEO: A Testbed for Generative Engine Optimization in E-Commerce",
+    "authors": [
+      "Puneet S. Bagga",
+      "Vivek F. Farias",
+      "Tamar Korkotashvili",
+      "Tianyi Peng",
+      "Yuhang Wu"
+    ],
+    "summary": "With the rise of large language models (LLMs), generative engines have become powerful alternatives to traditional search, creating the need for generative engine optimization (GEO)---improving content visibility and relevance for generative engines. Despite its growing importance, current GEO practices are largely ad hoc, and their impacts remain understudied. In e-commerce, for instance, conversational shopping agents now guide consumers to relevant products, yet it is unclear if GEO can affect how products surface to users. We address this gap by introducing E-GEO, which contains 13,746 realistic, multi-sentence consumer product queries, each paired with 10 retrieved Amazon listings, capturing rich intent, constraints, preferences, and shopping contexts that existing datasets miss. Using this dataset, we conduct a large-scale empirical study of e-commerce GEO across five representative generative engines, seven LLM rewriters, and fifteen rewriting heuristics. We further formulate GEO as an optimization problem and develop a prompt meta-optimization algorithm that significantly improves over heuristic baselines. Notably, prompts independently optimized from different heuristics converge to a stable pattern, suggesting a shared, transferable GEO strategy. Finally, we red-team the GEO system through both static and optimization-based attacks and show that, under a simple in-prompt defense in our setting, gains from GEO reflect genuine content improvement, anchoring GEO as a substantive optimization problem.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2511.20867",
+    "pdf_url": "https://arxiv.org/pdf/2511.20867.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对电商搜索场景，研究如何利用 GEO 优化商品在生成式引擎（新型搜索）中的可见性，属于 LLM 在搜索领域的直接应用。",
+    "translation": "E-GEO：电子商务中生成式引擎优化的测试床",
+    "summary_zh": "本文构建了包含丰富购物意图的电商查询数据集 E-GEO，并将生成式引擎优化（GEO）形式化为优化问题，提出了一种提示元优化算法以提升商品在生成式搜索结果中的相关性。",
+    "key_points": [
+      "本文构建了包含丰富购物意图的电商查询数据集 E-GEO，并将生成式引擎优化（GEO）形式化为优化问题，提出了一种提示元优化算法以提升商品在生成式搜索结果中的相关性"
+    ]
+  },
+  {
+    "arxiv_id": "2608.05543",
+    "title": "omni-macos: On-Device Omni-Modal Search on Apple Silicon",
+    "authors": [
+      "Han Xiao"
+    ],
+    "summary": "We present omni-macos, a search engine that embeds text, code, documents, images, audio and video into one representation space and runs on the Mac that already holds the files, so the files, the queries and the vectors stay on that machine. A background indexer and an interactive search box share the device. Each distinct chunk is embedded and stored once, and every file becomes searchable from a small first share of its content. Indexer work is split into smaller units while the user types, and one memory setting reaches every allocator found to draw on unified memory. Once the index is large, queries scan a one-bit replica of it, rescore a shortlist exactly and rank every modality in one list on a common score scale. The engine can also leave the GPU entirely, with the encoder on the Neural Engine and search on the CPU. We measure omni-macos on five Macs spanning an eightfold range of accelerator width and a thirty-twofold range of memory, and its ranking on a labeled multilingual and multimodal testbed. omni-macos is open source under Apache 2.0 at https://github.com/hanxiao/omni-macos.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2608.05543",
+    "pdf_url": "https://arxiv.org/pdf/2608.05543.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Apple"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文提出了一种直接在设备端运行的多模态搜索引擎架构，明确解决了本地文件的多模态检索与排序问题，属于核心搜索技术应用；虽非纯 LLM 研究且无特定电商/社交场景，但因其直接针对多模态搜索核心环节并具备明确的工程落地价值，结合中国公司背景加分，评为中高优先级。",
+    "translation": "omni-macos：基于 Apple Silicon 的端侧全模态搜索引擎",
+    "summary_zh": "提出一种在单设备上将文本、代码、音视频等多模态数据映射至统一表示空间的本地搜索架构，通过后台索引与交互式查询共享内存资源，实现跨模态内容的统一检索与重排序。",
+    "key_points": [
+      "提出一种在单设备上将文本、代码、音视频等多模态数据映射至统一表示空间的本地搜索架构，通过后台索引与交互式查询共享内存资源，实现跨模态内容的统一检索与重排序"
+    ]
+  },
+  {
+    "arxiv_id": "2602.09969",
+    "title": "Causal Multi-Task Demand Learning",
+    "authors": [
+      "Varun Gupta",
+      "Vijay Kamble"
+    ],
+    "summary": "We study multi-task demand learning for retail pricing, where firms seek to estimate heterogeneous linear price-response functions across many decision contexts. Each context has rich covariates but limited price variation, motivating transfer across tasks. However, such transfer is complicated by endogeneity: prices may be arbitrarily correlated with unobserved task-level demand determinants.\n  We propose a meta-learning framework that identifies the conditional mean of task-specific causal demand parameters despite this confounding, provided each task contains at least two distinct, locally exogenous price points. The key is to carefully design the information available to the learner. We condition on the full price history to address cross-task confounding, but withhold the demand outcomes associated with two locally exogenous price points to preserve identifiability. These withheld outcomes provide supervision through a randomized query.\n  We establish that this information design is maximally uniformly valid for the squared-loss objective: any refinement of the conditioning set that reveals information about the withheld outcomes or the query index admits a data-generating process under which the objective no longer identifies the conditional mean causal target. Synthetic experiments demonstrate improved estimation of causal demand parameters under strong confounding, while retail experiments show improved held-out demand prediction relative to standard transfer-learning baselines.",
+    "categories": [
+      "cs.LG",
+      "econ.EM",
+      "stat.ML"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2602.09969",
+    "pdf_url": "https://arxiv.org/pdf/2602.09969.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦零售定价中的因果需求估计，虽属电商核心业务场景，但主要解决计量经济学中的内生性问题，而非典型的推荐/搜索排序或召回算法创新。",
+    "translation": "因果多任务需求学习",
+    "summary_zh": "提出一种元学习框架，通过精心设计信息集（利用局部外生价格点并隐藏对应需求结果），在存在强混淆变量的情况下识别多任务场景下的因果需求参数。",
+    "key_points": [
+      "提出一种元学习框架，通过精心设计信息集（利用局部外生价格点并隐藏对应需求结果），在存在强混淆变量的情况下识别多任务场景下的因果需求参数"
+    ]
+  },
+  {
+    "arxiv_id": "2611.09977",
+    "title": "Seeing Like a Shopper: Validating Vision-Language Models as Synthetic Consumers",
+    "authors": [
+      "Woongki Kim",
+      "Seungkook Baek",
+      "Minhyeok Lee"
+    ],
+    "summary": "Language models are widely used as synthetic respondents in surveys, behavioral experiments, and market research. Most of these respondents read text, whereas shoppers in a store choose by looking at shelves, which makes vision-language models (VLMs) natural synthetic shoppers. We test whether VLM shoppers follow real consumers at two levels. At the purchase level, VLM shoppers built from household records plan their trips from a store directory and select products from shelf images, and we compare their purchases with six public datasets from three countries. The synthetic baskets hit held-out purchases as often as the households' own past trips, and synthetic group differences correlate with real ones twice as strongly as those of a trained regression. Without fitting, VLM shoppers reproduce alcohol purchases by gender and age in Russia and trip sizes by store distance in Taiwan, and respond to situations, prices, and displays within measured ranges. At the level of a single shelf choice, a model's answer confounds the product with its position and letter label. We therefore introduce ShelfSight, shelf renderings that vary products, positions, labels, viewpoints, and prices independently, together with a factor model that separates product preferences from the effects of label and position, which we call answer effects. On ShelfSight, hosted VLMs read the shelf, follow stated needs, keep their product preferences across views, and respond to price as budget shoppers. These answer effects, a preference for the letter A and for positions in the image, are estimated once per image type and removed. VLMs are thus good synthetic shoppers whose corrected shelf choices reflect product preferences.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-31",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.09977",
+    "pdf_url": "https://arxiv.org/pdf/2611.09977.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文主要研究利用 VLM 作为市场调查的合成消费者，属于市场研究方法论，虽涉及商品选择但非推荐/搜索系统核心算法（如召回、排序），且未解决 RecSys 工程问题；虽来自中国公司加 1 分，但本质仍为弱相关。",
+    "translation": "像购物者一样观察：验证视觉语言模型作为合成消费者",
+    "summary_zh": "提出利用视觉语言模型模拟真实消费者在货架前的商品选择行为，并通过引入 ShelfSight 数据集和因子模型消除位置与标签偏差，以校正模型使其反映真实的产品偏好。",
+    "key_points": [
+      "提出利用视觉语言模型模拟真实消费者在货架前的商品选择行为，并通过引入 ShelfSight 数据集和因子模型消除位置与标签偏差，以校正模型使其反映真实的产品偏好"
+    ]
+  },
+  {
+    "arxiv_id": "2611.10016",
+    "title": "Pixie: A Context-Aware Multi-Agent Multi-Modal Large Language Models (LLM) Architecture for Digital Marketing",
+    "authors": [
+      "Vivek Vishwas Vichare",
+      "Akshat Singhal",
+      "Kirill Dubovikov",
+      "Vivek Kumar",
+      "Sreyas Chaithanya",
+      "Saurabh Verma",
+      "Humeil Makhija",
+      "Mrunal Nasery"
+    ],
+    "summary": "We present Pixie, a context-aware, multi-agent large language model (LLM) architecture designed to enhance digital marketing operations across real-time and offline activities. Pixie uses a primary orchestration agent alongside task-specific and reconciliation/reviewer agents to support a broad range of marketing tasks. These agents combine zero-shot and few-shot prompting with marketing data, proprietary expert strategy guidelines, and documentation for proprietary statistical models.\n  We experiment with agentic workflows ranging from single-agent to multi-agent systems. We evaluate them using assessments by trained marketing experts and measurements of LLM output variance, focusing on accuracy, consistency, and domain-specific problem-solving. Results show that Pixie's multi-agent framework improves decision quality and operational efficiency in digital marketing workflows.\n  We assess Pixie on common digital marketing processes, including root-cause analysis and reporting, campaign research, and planning. The framework is designed to support additional specialized agents for other marketing tasks and adapt to evolving digital marketing needs.",
+    "categories": [
+      "cs.MA",
+      "cs.AI"
+    ],
+    "published": "2026-11-04",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.10016",
+    "pdf_url": "https://arxiv.org/pdf/2611.10016.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 LLM 多智能体架构研究，主要应用于通用数字营销流程（如报告、策划），未涉及推荐/搜索系统的核心环节（召回、排序、用户建模等），仅因来自好未来且提及营销场景给予微弱相关分。",
+    "translation": "Pixie：一种用于数字营销的上下文感知多智能体多模态大语言模型架构",
+    "summary_zh": "提出一种包含编排、任务执行及审核角色的多智能体 LLM 架构，通过结合零样本/少样本提示与专家策略指南，旨在优化数字营销工作流中的决策质量与运营效率。",
+    "key_points": [
+      "提出一种包含编排、任务执行及审核角色的多智能体 LLM 架构，通过结合零样本/少样本提示与专家策略指南，旨在优化数字营销工作流中的决策质量与运营效率"
+    ]
+  },
+  {
+    "arxiv_id": "2606.30509",
+    "title": "Muon learns balanced solutions in matrix factorization without slow saddle-to-saddle dynamics",
+    "authors": [
+      "Mark Rhee",
+      "Jamie Simon",
+      "Dhruva Karkada"
+    ],
+    "summary": "Matrix factorization (i.e., problems of the form $\\min_{\\mathbf{P},\\mathbf{Q}} \\|\\mathbf{M}^\\star - \\mathbf{P}^\\top\\mathbf{Q}\\|_\\mathrm{F}^2$) is a minimal learning problem that exhibits both nonlinear parameter dynamics and representation learning. In this setting, we study how parameter trajectories under the Muon optimizer differ from those of gradient descent. We identify three main dynamical differences: (1) Muon avoids the slow saddle-to-saddle dynamics of GD from small initialization. Muon instead learns all the top singular vectors of $\\mathbf{M}^\\star$ at the same rate, and they saturate in order of increasing (rather than decreasing) singular value. (2) Muon does not diverge even when the learning rate exceeds the critical threshold set by the local loss sharpness. This frees the learning rate from the condition number of the problem, enabling rapid convergence via exponential learning rate annealing. (3) Once the weights are aligned with each other and the target, Muon flow conserves the matrix quantity $\\sqrt{\\mathbf{P}^\\top \\mathbf{P}}-\\sqrt{\\mathbf{Q}^\\top \\mathbf{Q}}$, while gradient flow is known to conserve the matrix $\\mathbf{P}^\\top\\mathbf{P} - \\mathbf{Q}^\\top\\mathbf{Q}$. Despite having distinct conserved quantities, both optimizers find the so-called balanced solution from vanishing initialization. When training from small random initialization, the weights spontaneously align early in training. We derive the alignment rates in simple settings and show that they predict the empirical alignment rates in general. Finally, we exploit structural properties of Muon to construct a learning rate schedule that achieves near-perfect alignment in only two optimization steps.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2606.30509",
+    "pdf_url": "https://arxiv.org/pdf/2606.30509.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文专注于矩阵分解中的优化器（Muon）动力学分析，属于纯机器学习/优化理论研究，未直接针对推荐系统或搜索场景提出具体应用或解决方案。",
+    "translation": "Muon 在矩阵分解中学习平衡解且无需缓慢的鞍点到鞍点动力学",
+    "summary_zh": "本文分析了 Muon 优化器在矩阵分解问题中的参数轨迹特性，发现其能避免梯度下降的缓慢鞍点动力学并实现快速收敛与权重对齐。",
+    "key_points": [
+      "本文分析了 Muon 优化器在矩阵分解问题中的参数轨迹特性，发现其能避免梯度下降的缓慢鞍点动力学并实现快速收敛与权重对齐"
+    ]
+  },
+  {
+    "arxiv_id": "2611.10095",
+    "title": "Adaptive Budgeted Data Acquisition for Robust Off-Policy Evaluation from Multiple Loggers",
+    "authors": [
+      "Amitakshar Biswas",
+      "Ruoqing Zhu"
+    ],
+    "summary": "We consider off-policy evaluation when additional data can be purchased from several existing logging policies (or loggers) with heterogeneous costs per observation. While existing work on multiple loggers presumes a fixed number of observations from each logger, we study how to allocate a limited budget across them sequentially to evaluate a finite class of target policies. We propose Adaptive Greedy, an algorithm that purchases observations sequentially from the affordable logger that has the most cost-normalized variance reduction across the target policies. It turns out that each such purchase is an 'approximate conditional-gradient step' for the corresponding design problem. Under mild assumptions, we establish that the empirical allocation converges almost surely to the optimal design at an explicit rate. We also derive the asymptotic normality of the final pooled estimator and show that it attains the semiparametric efficiency bound. Simulations and a semi-synthetic application based on the AIDS Clinical Trials Group Study 175 show that Adaptive Greedy outperforms standard allocation strategies, remains accurate if stopped early, and matches the final accuracy of repeated integer programming at a fraction of its computational cost.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-11-06",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.10095",
+    "pdf_url": "https://arxiv.org/pdf/2611.10095.pdf",
+    "prerank_score": 6,
+    "relevance_score": 3,
+    "reasoning": "该论文聚焦于离线策略评估（OPE）中的数据预算分配，属于通用强化学习/因果推断方法，虽可应用于推荐系统评估但非直接针对 RecSys/Search 核心架构或 LLM 应用，且无具体业务场景，故给低分（基础分 2+ 中国公司加分 1）。",
+    "translation": "面向多记录器的鲁棒离线策略评估的自适应预算数据采集",
+    "summary_zh": "提出一种自适应贪心算法，通过在有限预算下顺序购买不同成本记录器的数据，以最小化方差并优化对目标策略集的离线评估效率。",
+    "key_points": [
+      "提出一种自适应贪心算法，通过在有限预算下顺序购买不同成本记录器的数据，以最小化方差并优化对目标策略集的离线评估效率"
+    ]
+  },
+  {
+    "arxiv_id": "2605.17609",
+    "title": "Adaptive Generate-Rank-Verify: Inference-Time Search with Costly Verification",
+    "authors": [
+      "Shaddin Dughmi",
+      "Mahdi Haghifam",
+      "Yusuf Hakan Kalayci"
+    ],
+    "summary": "Many inference-time language-model pipelines combine a cheap reward signal with an expensive verifier, such as exact answer checking in mathematical reasoning or hidden-test execution in code generation. We formalize this setting using a learning-theoretic lens as generative active search: a cost-sensitive first-positive search problem in which a policy adaptively samples candidates from an unknown distribution, observes cheap scores, and pays for verifier labels until it finds a positive example. For a fixed prompt, the generator and reward model induce two unknown objects: a distribution over reward scores and a score-conditioned success function. When these quantities are known, we characterize the distribution-aware optimal policy using a dynamic programming approach. In the realistic and practical setting where both the score distribution and success function are unknown, we propose ADAP, a shellwise adaptive generate-rank-verify algorithm that progressively increases the number of sampled responses and top-ranked verifications. Under the monotonicity assumption that higher reward scores are no less likely to pass verification, we show that ADAP achieves expected cost within a constant factor of the distribution-aware optimum. We complement this result with learning-theoretic lower bounds, based on a centered star number, showing that structural assumptions on the score--label relationship are necessary. Experiments on mathematical reasoning and competitive programming validate the predicted advantage over both fixed non-adaptive policies and difficulty-adaptive baselines.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2605.17609",
+    "pdf_url": "https://arxiv.org/pdf/2605.17609.pdf",
+    "prerank_score": 8,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 推理优化研究，专注于数学推理和代码生成的验证策略，未涉及推荐系统或搜索引擎的核心场景。",
+    "translation": "自适应生成 - 排序 - 验证：基于高成本验证的推理时搜索",
+    "summary_zh": "该论文提出了一种自适应生成 - 排序 - 验证算法，通过在未知分布下动态调整采样和验证数量，以最小化寻找正例的期望成本。",
+    "key_points": [
+      "该论文提出了一种自适应生成 - 排序 - 验证算法，通过在未知分布下动态调整采样和验证数量，以最小化寻找正例的期望成本"
+    ]
+  },
+  {
+    "arxiv_id": "2502.11371",
+    "title": "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights",
+    "authors": [
+      "Haoyu Han",
+      "Li Ma",
+      "Yu Wang",
+      "Harry Shomer",
+      "Yongjia Lei",
+      "Zhisheng Qi",
+      "Kai Guo",
+      "Zhigang Hua",
+      "Bo Long",
+      "Hui Liu",
+      "Charu C. Aggarwal",
+      "Jiliang Tang"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) improves large language models (LLMs) by retrieving relevant information from external sources and has been widely adopted for text-based tasks. For structured data, such as knowledge graphs, Graph Retrieval-Augmented Generation (GraphRAG) retrieves and aggregates information along graph structures. More recently, GraphRAG has been extended to general text settings by organizing unstructured text into graph representations, showing promise for reasoning and grounding. Despite these advances, existing GraphRAG systems for text data are often tailored to specific tasks, datasets, and system designs, resulting in heterogeneous evaluation protocols. Consequently, a systematic understanding of the relative strengths, limitations, and trade-offs between RAG and GraphRAG on widely used text benchmarks remains limited. In this paper, we present a comprehensive benchmark study comparing RAG and GraphRAG on established text-based tasks, including question answering and query-based summarization. We introduce a unified evaluation protocol that standardizes data preprocessing, retrieval configurations, and generation settings, enabling fair and reproducible comparisons. Our results highlight the distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives. Building on these findings, we explore selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements. We further analyze failure modes, efficiency trade-offs, and evaluation biases, and highlight key considerations for designing and evaluating retrieval-augmented generation systems.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2502.11371",
+    "pdf_url": "https://arxiv.org/pdf/2502.11371.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "MichiganStateUniversity MichiganStateUniversity UniversityofOregon",
+      "UniversityofTexasatArlington MichiganStateUniversity UniversityofOregon",
+      "UniversityofOregon MetaPlatforms,Inc. MetaPlatforms,Inc.",
+      "MichiganStateUniversity IBMT.J.WatsonResearchCenter MichiganStateUniversity"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 研究论文，专注于通用文本问答和摘要任务中的 RAG 与 GraphRAG 对比，未涉及任何推荐系统或搜索引擎的具体应用场景。",
+    "translation": "RAG 与 GraphRAG：系统性评估与关键洞察",
+    "summary_zh": "本文建立了统一评估协议，系统对比了 RAG 与 GraphRAG 在通用文本任务中的优劣，并提出了结合两者优势的集成策略及失败模式分析。",
+    "key_points": [
+      "本文建立了统一评估协议，系统对比了 RAG 与 GraphRAG 在通用文本任务中的优劣，并提出了结合两者优势的集成策略及失败模式分析"
+    ]
+  },
+  {
+    "arxiv_id": "2611.10335",
+    "title": "Two-Sided Conformal Evidence Sets for Retrieval-Augmented Generation",
+    "authors": [
+      "Ben Jenkins",
+      "Mihaela Cardei"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) can surface passages that support a claim, contradict it, or fail to address it, yet existing calibrated grounding methods are typically one-sided and model only supporting evidence. We introduce Conformal Evidence Sets (CES), a two-sided framework that returns separate support and refutation sets with finite-sample inclusion coverage of at least $1-α$ on each side under exchangeability; a Bonferroni union yields joint coverage of at least $1-2α$. On labeled candidate pools from the contrastive VitaminC benchmark, CES closely tracks nominal coverage across $α\\!\\in\\!\\{0.05,0.10,0.15,0.20,0.30\\}$, with maximum deviations of $3.0$ percentage points for support and $5.4$ for refutation, and reaches essentially the same empirical coverage--size frontier as a test-tuned fixed-threshold heuristic without any test exposure. Stress tests mark the boundary of that guarantee: under FEVER distribution shift both sides under-cover, by up to $12.7$ percentage points, and support-side group-stratified recalibration substantially reduces the support gap. Scorer swaps, hard-negative retrieval, cross-dataset transfer, and a live end-to-end pilot expose a clear separation: when exchangeability holds and relevant evidence is retrieved, evidence inclusion remains calibrated even with an imperfect scorer, whereas the support/refute verdict tracks scorer quality directly. Calibrated evidence coverage and reliable verdicts are therefore distinct properties and should be reported separately.",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.10335",
+    "pdf_url": "https://arxiv.org/pdf/2611.10335.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 校准研究，专注于证据集合的统计覆盖保证，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "检索增强生成的双向共形证据集",
+    "summary_zh": "提出一种双向共形证据集框架，分别为支持性和反驳性证据提供有限样本下的统计覆盖保证，以解决现有校准方法仅单向建模的问题。",
+    "key_points": [
+      "提出一种双向共形证据集框架，分别为支持性和反驳性证据提供有限样本下的统计覆盖保证，以解决现有校准方法仅单向建模的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.10345",
+    "title": "The Power of Two Choices in Dynamic Pricing: As Good As Full Feedback, Instance-Wise",
+    "authors": [
+      "Yan Dai",
+      "Tao Lin",
+      "Aleksandrs Slivkins"
+    ],
+    "summary": "We study the dynamic pricing problem, where a firm sells a product to $T$ myopic customers and their values are independent samples from an unknown value distribution $F$. With posted prices, the firm only sees whether each customer buys, and the minimax regret is $\\widetilde Θ(T^{2/3})$ [KL03]. A menu instead offers several options, each selling the product with some probability at some expected payment. Infinitely many menu options allow the seller to fully reveal customer values, reducing the regret to $Θ(\\sqrt T)$. How many options are needed?\n  Perhaps surprisingly, a second menu option suffices, achieving the same regret as infinite menus (up to $\\log$ factors). This holds broadly: without knowing any property of $F$, our algorithm with two menu options attains $\\tilde O(\\sqrt T)$ regret in general, $\\tilde O(T^{1/3})$ regret for monotone-hazard-rate distributions, and $\\tilde O(T^{d/(d+1)})$ instance-dependent regret when $d\\in(0,1)$ is a suitable notion of \"dimension\". All are optimal even with infinite menus. Moreover, we argue, via a novel lower-bound construction, that our algorithm is near-optimal for each problem instance.\n  Along the way, we study the query complexity of revenue maximization, where an algorithm issues a query to each customer to learn the property of interest (either the best price or the CDF) up to some precision. We show that interval queries suffice to achieve the same query complexity as value queries (up to $\\log$ factors) for both properties and across several classes of value distributions. We provide a new interval-query algorithm for each property. The best-price-estimation algorithm is the key ingredient in our main dynamic pricing algorithm, and the CDF-estimation algorithm underpins a simpler algorithm attaining $\\tilde O(\\sqrt T)$ regret with three menu options.",
+    "categories": [
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-11-07",
+    "updated": "2026-11-10",
+    "url": "https://arxiv.org/abs/2611.10345",
+    "pdf_url": "https://arxiv.org/pdf/2611.10345.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "MiniMax"
+    ],
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "该文属于纯动态定价与机制设计研究，未涉及推荐系统或搜索引擎的核心环节（如召回、排序、用户建模），即使来自国内公司也不改变其领域不相关的事实。",
+    "translation": "动态定价中二选一的威力：实例级媲美全反馈",
+    "summary_zh": "提出一种仅需两个菜单选项的动态定价算法，在未知价值分布下实现与无限选项相当的最优后悔界，并证明了区间查询在收益最大化中的有效性。",
+    "key_points": [
+      "提出一种仅需两个菜单选项的动态定价算法，在未知价值分布下实现与无限选项相当的最优后悔界，并证明了区间查询在收益最大化中的有效性"
+    ]
+  }
+]

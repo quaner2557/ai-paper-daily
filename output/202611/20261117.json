@@ -1,0 +1,482 @@
+[
+  {
+    "arxiv_id": "2602.07526",
+    "title": "MSN: A Memory-based Sparse Activation Scaling Framework for Large-scale Industrial Recommendation",
+    "authors": [
+      "Shikang Wu",
+      "Hui Lu",
+      "Jinqiu Jin",
+      "Zheng Chai",
+      "Shiyong Hong",
+      "Junjie Zhang",
+      "Shanlei Mu",
+      "Kaiyuan Ma",
+      "Tianyi Liu",
+      "Yuchao Zheng",
+      "Zhe Wang",
+      "Jingjian Lin"
+    ],
+    "summary": "Scaling deep learning recommendation models is an effective way to improve model expressiveness. Existing approaches often incur substantial computational overhead, making them difficult to deploy in large-scale industrial systems under strict latency constraints. Recent sparse activation scaling methods, such as Sparse Mixture-of-Experts, reduce computation by activating only a subset of parameters, but still suffer from high memory access costs and limited personalization capacity due to the large size and small number of experts. To address these challenges, we propose MSN, a memory-based sparse activation scaling framework for recommendation models. MSN dynamically retrieves personalized representations from a large parameterized memory and integrates them into downstream feature interaction modules via a memory gating mechanism, enabling fine-grained personalization with low computational overhead. To enable further expansion of the memory capacity while keeping both computational and memory access costs under control, MSN adopts a Product-Key Memory (PKM) mechanism, which factorizes the memory retrieval complexity from linear time to sub-linear complexity. In addition, normalization and over-parameterization techniques are introduced to maintain balanced memory utilization and prevent memory retrieval collapse. We further design customized Sparse-Gather operator and adopt the AirTopK operator to improve training and inference efficiency in industrial settings. Extensive experiments demonstrate that MSN consistently improves recommendation performance while maintaining high efficiency. Moreover, MSN has been successfully deployed in the Douyin Search Ranking System, achieving significant gains over deployed state-of-the-art models in both offline evaluation metrics and large-scale online A/B test.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2602.07526",
+    "pdf_url": "https://arxiv.org/pdf/2602.07526.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文提出针对工业级推荐系统的内存稀疏激活框架，并已在抖音搜索排序系统中成功部署，完全符合核心领域进展及中国大厂落地标准。",
+    "translation": "MSN：一种面向大规模工业推荐的基于记忆的稀疏激活缩放框架",
+    "summary_zh": "提出一种基于乘积键记忆机制的稀疏激活框架，通过动态检索个性化表示并结合定制算子，在低计算开销下实现细粒度个性化与高效推理。",
+    "key_points": [
+      "提出一种基于乘积键记忆机制的稀疏激活框架，通过动态检索个性化表示并结合定制算子，在低计算开销下实现细粒度个性化与高效推理"
+    ]
+  },
+  {
+    "arxiv_id": "2611.19074",
+    "title": "TokenFormer V2: Breaking the Resolution-Complexity Dilemma in Unified Recommendation",
+    "authors": [
+      "Kaihui Wu",
+      "Guoming Li",
+      "Liang Guo",
+      "Yifeng Zhou",
+      "Yuehong Hu",
+      "Junwei Pan",
+      "Zhixiang Feng",
+      "Chengguo Yin",
+      "Wenqi Fan",
+      "Haijie Gu",
+      "Jie Jiang"
+    ],
+    "summary": "Industrial recommendation faces a resolution--complexity dilemma: dense interactions make detailed modeling of long behavior histories expensive, while compact history summaries restrict the evidence available to prediction. A unified backbone must preserve rich behavioral details within strict serving budgets. We introduce \\textbf{TokenFormer V2}, a unified architecture that explicitly decouples \\emph{representation resolution} from \\emph{interaction density}. Its group-wise token layout jointly encodes behavior segments with non-sequential context, expands interaction ranges via hierarchical group merging, and coordinates distributed groups through \\emph{NS Fusion} and \\emph{Global Sync} modules. Through this \\emph{local--global decomposition} paradigm, computation is concentrated on structured interactions while preserving fine-grained evidence, ensuring that every encoded event remains directly accessible to the \\emph{Full-Resolution Readout} module. On the Tencent Advertising Algorithm Competition 2026 (TAAC 2026) benchmark, TokenFormer V2 achieves top-ranking accuracy among unified recommendation baselines while using \\textbf{5.1$\\times$ fewer FLOPs} than leading baselines, sustaining its advantage across long histories and imbalanced behavior domains. Furthermore, in billion-parameter evaluations on WeChat Channels advertising, it consistently outperforms state-of-the-art industrial baselines, yielding up to a \\textbf{+0.07 pp} overall AUC gain. In live online A/B testing against the production model, TokenFormer V2 delivers a statistically significant \\textbf{2.33\\% increase in GMV}. These results establish TokenFormer V2 as a battle-tested blueprint for scalable, full-resolution behavior modeling in industrial recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.LG"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.19074",
+    "pdf_url": "https://arxiv.org/pdf/2611.19074.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent",
+      "WeChat"
+    ],
+    "prerank_score": 9,
+    "affiliation_lines": [
+      "1TencentInc. 2TheHongKongPolytechnicUniversity",
+      "behaviorhistoriesexpensive,whilecompacthistorysummariesrestricttheevidenceavailabletoprediction.Aunifiedbackbone",
+      "2.33%increaseinGMV.TheseresultsestablishTokenFormerV2asabattle-testedblueprintforscalable,full-resolutionbehavior"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接解决工业级推荐系统中的核心矛盾（分辨率与复杂度），提出了 TokenFormer V2 新架构，并已在微信广告等真实业务场景中验证有效，完全符合高优先级标准。",
+    "translation": "TokenFormer V2：打破统一推荐中的分辨率与复杂度困境",
+    "summary_zh": "提出 TokenFormer V2 架构，通过解耦表示分辨率与交互密度，利用分层组融合及全局同步机制，在严格计算预算下实现长行为序列的细粒度建模。",
+    "key_points": [
+      "提出 TokenFormer V2 架构，通过解耦表示分辨率与交互密度，利用分层组融合及全局同步机制，在严格计算预算下实现长行为序列的细粒度建模"
+    ]
+  },
+  {
+    "arxiv_id": "2611.19110",
+    "title": "CLEAR: Legible and Steerable Recommendation via Grounded Natural-Language Interests",
+    "authors": [
+      "Qi Guo",
+      "Reza Mirghaderi",
+      "Iordanis Fostiropoulos",
+      "David Fan",
+      "Yuchen Liu",
+      "Shiliang Tang",
+      "Lukasz Korycki",
+      "Golnaz Ghasemiesfeh",
+      "Xinzhu Bei",
+      "Sasha Vorontsov",
+      "Hanchao Yu",
+      "Brendan Quinlivan",
+      "Khoi Pham",
+      "Jigar Gada",
+      "Hao Yu",
+      "Felix Li",
+      "Hang Gao",
+      "Boyu Fang",
+      "Yang Gao",
+      "Yale Thomas",
+      "Xiaomeng Jin",
+      "Avishek Dutta",
+      "Hong Hong",
+      "Janet Xia",
+      "Ethan Zhu",
+      "Ellie Pan",
+      "Xiang Shen",
+      "Jawwad Zakaria",
+      "Jinfeng Lin",
+      "Jonathan Rush",
+      "Ruixue Lian",
+      "Noah Kennedy",
+      "Brian Vanover",
+      "Jas Pyneni",
+      "Daniel Thiyagu",
+      "Apoorv Saxena",
+      "Sanyogeeta Lawande",
+      "Huayu Ding",
+      "Hima Cherukuru",
+      "Yang Liu",
+      "Chen Kovacs",
+      "Qunshu Zhang",
+      "Lizhu Zhang",
+      "Benyu Zhang",
+      "Kate Chen",
+      "Ashish Singal",
+      "Danny Kanoff",
+      "Zhiyu Liu",
+      "Jiayi Liu",
+      "Jianyu Wang",
+      "Fei Liu",
+      "Xiangjun Fan",
+      "Abhishek Kumar",
+      "Hong Yan"
+    ],
+    "summary": "Modern recommenders keep learned preferences in representations people cannot inspect or change. We present CLEAR (Controllable and Legible End-to-end Architecture for Recommendation), an end-to-end system deployed at Meta and built around an editable natural-language interest layer. CLEAR makes a ranked subset of inferred interests readable and stores accepted additions and suppressions as authoritative preference state. Behavioral grounding maps each inferred interest back to supporting events in the user's own history. The resulting interest object is also a serving address: its label and profile-conditioned rewrites drive lexical retrieval, its supporting events seed behavioral retrieval, its projection queries an embedding index, and its stable identity supports ranking, attribution, and exposure control. A fresh user declaration may precede behavioral support, so it enters through the same serving identity and initially draws candidates from topical retrieval. Ranking makes those candidates competitive, while a delivery controller observes attributable exposure and replenishes underexposed interests. Direct user review found that users rated about 88.5% of displayed interests accurate. In an offline benchmark using a shared evaluation protocol, the Specialized 3B generator reached 0.3967 mean-user F1@10, compared with 0.3633 for Gemini 2.5 Pro and 0.1911 for the prior generator. For a newly declared interest, a user-randomized cumulative ablation measured same-day delivery losses of 8.7 percentage points for added-interest ranking terms, 11.1 for reserved top-slot insertion, and 13.7 for interest-conditioned candidate sourcing, conditional on the tested removal sequence. CLEAR components have operated in production for over one year; the system spans four surfaces on Instagram and Facebook, with an interest layer people can inspect, correct, and use to direct recommendations.",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.19110",
+    "pdf_url": "https://arxiv.org/pdf/2611.19110.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "AWS"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文提出了直接应用于 Meta 推荐系统的 CLEAR 架构，通过可编辑的自然语言兴趣层实现可控和可解释的推荐，属于高优先级的核心业务创新；虽非中国公司（系 Meta 研究），但其极高的相关性和落地价值使其获得满分。",
+    "translation": "CLEAR：基于落地自然语言兴趣的可读且可控推荐系统",
+    "summary_zh": "提出一种端到端推荐架构，通过引入用户可 inspect 和编辑的自然语言兴趣层，将行为事件映射为权威偏好状态，从而驱动检索、排序及曝光控制以实现可控推荐。",
+    "key_points": [
+      "提出一种端到端推荐架构，通过引入用户可 inspect 和编辑的自然语言兴趣层，将行为事件映射为权威偏好状态，从而驱动检索、排序及曝光控制以实现可控推荐"
+    ]
+  },
+  {
+    "arxiv_id": "2602.11410",
+    "title": "CADET: Context-Conditioned Ads CTR Prediction With a Decoder-Only Transformer",
+    "authors": [
+      "David Pardoe",
+      "Neil Daftary",
+      "Miro Furtado",
+      "Aditya Aiyer",
+      "Yu Wang",
+      "Liuqing Li",
+      "Tao Song",
+      "Lars Hertel",
+      "Young Jin Yun",
+      "Senthil Radhakrishnan",
+      "Zhiwei Wang",
+      "Tommy Li",
+      "Khai Tran",
+      "Ananth Nagarajan",
+      "Ali Naqvi",
+      "Yue Zhang",
+      "Renpeng Fang",
+      "Avi Romascanu",
+      "Arjun Kulothungun",
+      "Deepak Kumar",
+      "Praneeth Boda",
+      "Fedor Borisyuk",
+      "Ruoyan Wang"
+    ],
+    "summary": "Click-through rate (CTR) prediction is fundamental to online advertising systems. While Deep Learning Recommendation Models (DLRMs) with explicit feature interactions have long dominated this domain, recent advances in generative recommenders have shown promising results in content recommendation. However, adapting these transformer-based architectures to ads CTR prediction still presents unique challenges, including handling post-scoring contextual signals, maintaining offline-online consistency, and scaling to industrial workloads. We present CADET (Context-Conditioned Ads Decoder-Only Transformer), an end-to-end decoder-only transformer for ads CTR prediction deployed at LinkedIn. Our approach introduces several key innovations: (1) a context-conditioned decoding architecture with multi-tower prediction heads that explicitly model post-scoring signals such as ad position, resolving the chicken-and-egg problem between predicted CTR and ranking; (2) a self-gated attention mechanism that stabilizes training by adaptively regulating information flow at both representation and interaction levels; (3) a timestamp-based variant of Rotary Position Embedding (RoPE) that captures temporal relationships across timescales from seconds to months; (4) session masking strategies that prevent the model from learning dependencies on unavailable in-session events, addressing train-serve skew; and (5) production engineering techniques including tensor packing, sequence chunking, and custom Flash Attention kernels that enable efficient training and serving at scale. In online A/B testing, CADET achieves a 11.04\\% CTR lift compared to the production LiRank baseline model, a hybrid ensemble of DCNv2 and sequential encoders. The system has been successfully deployed on LinkedIn's advertising platform, serving the main traffic for homefeed sponsored updates.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2602.11410",
+    "pdf_url": "https://arxiv.org/pdf/2602.11410.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对广告 CTR 预测这一核心推荐/搜索任务，提出了基于 Decoder-only Transformer 的工业级解决方案并已在 LinkedIn 部署，完全符合高优先级标准；虽非中国公司（属美国 LinkedIn），但因其极高的业务相关性和核心架构创新，仍给满分。",
+    "translation": "CADET：基于上下文条件的纯解码器 Transformer 广告点击率预测",
+    "summary_zh": "提出一种端到端的纯解码器 Transformer 架构，通过上下文条件化解码、自门控注意力机制及时间戳旋转位置编码，专门解决广告排序中后验信号建模、训练服务偏差及多尺度时序依赖等核心工业难题。",
+    "key_points": [
+      "提出一种端到端的纯解码器 Transformer 架构，通过上下文条件化解码、自门控注意力机制及时间戳旋转位置编码，专门解决广告排序中后验信号建模、训练服务偏差及多尺度时序依赖等核心工业难题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.18878",
+    "title": "Label-Free Detection of Structural Bias in LLM-Based Recommender Systems via Randomized Paraphrasing: The Case of Verbosity",
+    "authors": [
+      "Carlos Peláez-González",
+      "David Herrera-Poyatos",
+      "Francisco Herrera",
+      "Andrés Herrera-Poyatos"
+    ],
+    "summary": "Large language models (LLMs) are increasingly deployed as recommenders in e-commerce and conversational shopping systems, where they select a product from a set of retrieved candidates described in natural language. Their decisions should depend on relevance to the user query, but may also be influenced by surface-level properties of the descriptions, such as their length. Detecting such structural biases is difficult because relevance labels are rarely available. We propose a label-free framework to audit LLM-based recommender systems for structural bias. Candidate descriptions are rewritten by randomly assigned paraphrasing models and presented in random order. We prove that, if the recommender's choice is invariant to these rewritings, every paraphraser is selected with equal probability, yielding a statistical test that requires no relevance labels. A four-step statistical pipeline tests this property and quantifies the contribution of each description feature while controlling for query-product relevance. We apply the framework to verbosity bias on 20{,}000 product queries and nine recommender LLMs from five model families. After controlling for the measured relevance signals, description length has a positive effect on selection in all nine models, increasing the odds of selection by up to 38% per standard deviation of length. Relevance remains the primary driver of recommendations, while verbosity acts as a consistent secondary signal whose strength depends on the model family. Since the framework needs only black-box access and no annotations, it can be run as a routine audit of deployed shopping assistants, and we provide an auditing protocol with cost and sample-size guidance.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2026-11-13",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.18878",
+    "pdf_url": "https://arxiv.org/pdf/2611.18878.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统中的结构性偏差（如冗长性偏差）提出无标签检测框架，属于 LLM 在推荐系统中的具体应用与评估，非纯 LLM 研究。",
+    "translation": "通过随机改写无标签检测基于 LLM 的推荐系统中的结构性偏差：以冗长性为例",
+    "summary_zh": "提出一种无需相关性标签的统计框架，通过随机改写候选描述并分析选择概率，来审计和量化基于 LLM 的推荐系统中由描述长度等表面特征引起的结构性偏差。",
+    "key_points": [
+      "提出一种无需相关性标签的统计框架，通过随机改写候选描述并分析选择概率，来审计和量化基于 LLM 的推荐系统中由描述长度等表面特征引起的结构性偏差"
+    ]
+  },
+  {
+    "arxiv_id": "2501.19277",
+    "title": "The Revenue Cost of Inference in Online Assortment Optimization",
+    "authors": [
+      "Jierui Zuo",
+      "Hanzhang Qin"
+    ],
+    "summary": "A seller running an assortment experiment must earn revenue while collecting data to compare future offers. For a regular finite-dimensional parametric choice model and a finite assortment family, we characterize the oracle frontier between expected revenue loss and the largest local first-order variance constant across prespecified revenue comparisons. The oracle benchmark remains finite at zero cost exactly when revenue-maximizing assortments provide information in every target-gradient direction. When costly offers can supply the missing information, we derive the exact leading coefficient of the inverse-budget variance law and the limiting optimal spending shares. A pilot-based procedure reserves reference offers to preserve information and tightens the estimated budget constraint to account for uncertainty. We give conditions for the implemented design's variance criterion to converge to the stabilized oracle value at a fixed budget and reference share. Simulations with synthetic instances and Expedia-calibrated markets show that allocating offers across the full assortment family can improve the precision of revenue comparisons under a common opportunity-cost budget. Additional experiments assess pilot spending, budget protection, and sensitivity to choice-model misspecification.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-11-13",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2501.19277",
+    "pdf_url": "https://arxiv.org/pdf/2501.19277.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 6,
+    "reasoning": "论文聚焦在线组合优化中的收入与探索权衡，虽属推荐系统核心决策问题，但偏向理论推导且未明确结合深度学习或 LLM 技术；因来自 OPPO 额外加 1 分。",
+    "translation": "在线组合优化中推断的收入成本",
+    "summary_zh": "提出一种基于试点的分配策略，通过在预算约束下保留参考商品并动态调整支出份额，以平衡实时收入损失与未来收益比较的估计精度。",
+    "key_points": [
+      "提出一种基于试点的分配策略，通过在预算约束下保留参考商品并动态调整支出份额，以平衡实时收入损失与未来收益比较的估计精度"
+    ]
+  },
+  {
+    "arxiv_id": "2608.21979",
+    "title": "Beyond Similarity: Heterogeneous Graph Learning for Multi-Objective Food Substitution in Charitable Food Agencies",
+    "authors": [
+      "Naimur Rahman Chowdhury",
+      "Limon Bin Hossain"
+    ],
+    "summary": "Charitable food agencies play an important role in alleviating food insecurity by distributing donated food to people in need. However, they rely on ad hoc in-kind donations and often face shortages of specific foods, so they offer substitutes. A good food substitution requires matching household preferences, nutritional needs, and item similarity. Agencies have limited direct records of consumption behavior due to resource constraints, making it challenging to make an appropriate substitution decision that meets multiple criteria. In this study, we propose a heterogeneous graph neural network (HeteroGNN), a source-grounded recommendation framework for food substitution in charitable food agencies. We first build a unified relational graph from large-scale public data sources, combining household behavior on food consumption and food nutrient information in the United States (US) context. We treat the substitution recommendation as a multi-objective ranking problem with three targets, including behavior affinity, health suitability, and substitution similarity. We train and validate the proposed framework under standard graph relationship and adverse cold-start settings by removing relational edges from the graph. Our results show that the proposed framework leverages relational information beyond node features in predicting consumption behavior. Additionally, the proposed framework remains robust with sparsity when the model receives incomplete information about behavior and nutrient features. Finally, we show the weak correlation among different objectives, thereby justifying the multi-objective framing as a replacement for an aggregated decision. The proposed framework can help downstream charitable agency decision-makers make contextspecific substitution recommendations with limited information available.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2608.21979",
+    "pdf_url": "https://arxiv.org/pdf/2608.21979.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "affiliation_lines": [
+      "The work was done prior to joining Amazon. Department of Industrial and Production Engineering",
+      "Department of Industrial and Systems Engineering Bangladesh University of Engineering and Technology",
+      "North Carolina State University Dhaka, Bangladesh"
+    ],
+    "relevance_score": 6,
+    "reasoning": "该文提出基于异构图神经网络的推荐框架解决食物替代问题，属于特定垂直领域的推荐系统应用，但缺乏通用电商或社交场景的广泛适用性。",
+    "translation": "超越相似性：慈善食品机构中多目标食物替代的异构图学习",
+    "summary_zh": "本文提出一种基于异构图谱的推荐框架，通过整合用户行为与营养数据，将食物替代建模为兼顾偏好、健康与相似性的多目标排序问题。",
+    "key_points": [
+      "本文提出一种基于异构图谱的推荐框架，通过整合用户行为与营养数据，将食物替代建模为兼顾偏好、健康与相似性的多目标排序问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.18617",
+    "title": "Intrinsic Attention as Navigator: A Non-Generative Retrieval Method for Multi-Hop Queries",
+    "authors": [
+      "Linwei Song",
+      "Weijie Zhang",
+      "WeiDi Chen",
+      "Huixia Lai",
+      "Shi Zhang",
+      "Ruliang Xiao"
+    ],
+    "summary": "For multi-hop queries in retrieval-augmented generation (RAG), it is crucial to accurately obtain evidence pieces. In this study, we propose a training-free method for multi-hop query retrieval, named Intrinsic Navigating-based Non-Generative Retrieval (IN-Retriever). Instead of generating intermediate reasoning text, the method extracts the bridging clue from the internal attention of the embedding model based on the current context and retrieved candidate documents. During iterative clue extraction and document retrieval, IN-Retriever strips away revealed clues from the embedded query vector and then reranks candidate documents in a targeted manner, thereby steering retrieval toward hidden next-hop evidence. In the experiments, we confirm the feasibility and effectiveness of using intrinsic attention signals to guide external multi-hop retrieval. Experimental results show that our method precisely collects sufficient documents to support multi-hop queries and significantly outperforms sparse and dense retrieval methods.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-09-09",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.18617",
+    "pdf_url": "https://arxiv.org/pdf/2611.18617.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文属于纯 NLP/RAG 检索研究，旨在解决多跳问答的证据获取问题，未涉及推荐系统或搜索产品的核心业务场景（如个性化、广告、信息流），即使有中国公司背景加分，相关性依然较低。",
+    "translation": "内在注意力作为导航：一种针对多跳查询的非生成式检索方法",
+    "summary_zh": "提出一种无需训练的 IN-Retriever 方法，通过提取嵌入模型内部注意力信号中的桥接线索来迭代引导多跳查询的文档检索，而非生成中间推理文本。",
+    "key_points": [
+      "提出一种无需训练的 IN-Retriever 方法，通过提取嵌入模型内部注意力信号中的桥接线索来迭代引导多跳查询的文档检索，而非生成中间推理文本"
+    ]
+  },
+  {
+    "arxiv_id": "2606.27539",
+    "title": "Benchmarking Multi-Modal Graph-based Social Media Popularity Prediction",
+    "authors": [
+      "Utkarsh Sahu",
+      "Zhisheng Qi",
+      "Li Zhu",
+      "Yizhao Yang",
+      "Jun Li",
+      "Ryan Rossi",
+      "Yu Wang"
+    ],
+    "summary": "Social media popularity prediction aims to forecast the future reach or influence of online content from early-stage observations. Accurate prediction enables key downstream applications, such as advertising optimization and strategic content planning by users, creators, and platforms. Despite substantial progress, existing popularity prediction works often fail to jointly consider multimodal content and temporal social interaction signals. Moreover, the literature remains highly fragmented across datasets, modalities, observation windows, prediction targets, and evaluation protocols. This fragmentation prevents fair comparison and obscures a systematic understanding of how textual, visual, temporal, and interaction-based signals jointly shape popularity dynamics. To address these challenges, we introduce MMG-Pop, a Multi-modal Graph-based Popularity Prediction benchmark, which unifies datasets, modalities, temporal interaction signals, and representative baselines under a standardized evaluation protocol. Furthermore, we propose MMG-PopNet, a unified multi-modal graph-based network that jointly models the aforementioned multi-modal signals and graph-structured social interactions. Extensive experiments on MMG-Pop across Bluesky and Reddit platforms demonstrate the superior performance of MMG-PopNet and yield new insights into cross-platform training generalization, multi-task prediction benefits, multi-modality contributions, and LLM prediction limitations. These findings establish a foundation for future research on social dynamics modeling and intervention under heterogeneous modalities and socially-aware agentic ecosystem paradigms.",
+    "categories": [
+      "cs.SI",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-11-13",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2606.27539",
+    "pdf_url": "https://arxiv.org/pdf/2606.27539.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "Adobe"
+    ],
+    "affiliation_lines": [
+      "1UniversityofOregon 2UniversityofGeorgia 3AdobeResearch",
+      "foundationforfutureresearchonsocialdynamicsmodelingandinterventionunder",
+      "MMG-PopbenchmarkandMMG-PopNetcodeareavailableatthisLink."
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注社交媒体内容流行度预测基准，虽提及广告优化作为下游应用，但核心是通用预测任务而非直接的推荐/搜索系统架构或算法创新，且未深入解决召回、排序等核心问题。",
+    "translation": "基于多模态图的社交媒体流行度预测基准研究",
+    "summary_zh": "本文提出了一个统一的多模态图流行度预测基准 MMG-Pop 及对应网络模型，旨在联合建模文本、视觉内容及时序社交交互信号以解决现有研究碎片化问题。",
+    "key_points": [
+      "本文提出了一个统一的多模态图流行度预测基准 MMG-Pop 及对应网络模型，旨在联合建模文本、视觉内容及时序社交交互信号以解决现有研究碎片化问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.18901",
+    "title": "LMEG-Doc: Layout-Grounded Multi-View Evidence Graphs for Multimodal Long-Document Retrieval",
+    "authors": [
+      "Changcheng Fu",
+      "Xiao Liu",
+      "Qi Yu",
+      "Yage Wang",
+      "Derek Young",
+      "Giri Iyengar"
+    ],
+    "summary": "Retrieving relevant evidence from multimodal long documents remains challenging, as supporting information is often distributed across different pages and modalities. Existing retrieval methods primarily rank document elements by their individual similarity to a question, often overlooking relationships among complementary evidence. Consequently, relevant figures and tables may receive low retrieval scores even when they contain essential information. To address this limitation, we introduce LMEG-Doc, a layout-grounded multi-view evidence graph framework for multimodal long-document retrieval. We first construct an evidence graph that captures structural and contextual relationships among document elements, and introduce Cross-Page Relation Refinement (CRR) to discover additional connections across distant pages through VLM-based verification. Building on this graph, we combine multimodal retrieval signals with graph-guided relevance propagation to recover connected supporting evidence at both layout and page levels. Experiments on MMDocIR, DocScope, and FinRAGBench-V demonstrate consistent retrieval improvements, including outperforming retrievers fine-tuned on MMDocIR without task-specific training. Furthermore, augmenting existing question-answering pipelines with our retrieved evidence improves answer accuracy by 7.6% on DocScope and 15.8% on FinRAGBench-V, demonstrating the effectiveness of relationship-aware multimodal retrieval.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-13",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.18901",
+    "pdf_url": "https://arxiv.org/pdf/2611.18901.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于多模态长文档检索中的证据图构建，属于通用信息检索/NLP 任务，未明确针对推荐系统或搜索广告的核心业务场景（如召回、排序、用户建模），且非纯 LLM 研究但相关性较弱。",
+    "translation": "LMEG-Doc：基于布局的多视图证据图用于多模态长文档检索",
+    "summary_zh": "提出一种基于布局的多视图证据图框架，通过跨页关系细化和图引导的相关性传播，捕捉多模态文档元素间的结构与上下文关联以增强检索效果。",
+    "key_points": [
+      "提出一种基于布局的多视图证据图框架，通过跨页关系细化和图引导的相关性传播，捕捉多模态文档元素间的结构与上下文关联以增强检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2611.19200",
+    "title": "LogT: Logically Think with Images for Visual Search",
+    "authors": [
+      "Yanjun Fu",
+      "Quanzeng You",
+      "Jiadong Guo",
+      "Yujie Lu",
+      "Sai Charitha Akula",
+      "Haiping Wu",
+      "Miao Liu",
+      "Sanghamitra Dutta",
+      "Lu Yuan"
+    ],
+    "summary": "Thinking with images empowers vision-language models (VLMs) to use an external Zoom-in tool for fine-grained visual search. Recent works employ supervised fine-tuning (SFT) and reinforcement learning (RL) with tool-specific designs to enable such capabilities. However, achieving logical reasoning alongside accurate and efficient tool use remains a significant challenge. To address this, we shift the focus away from increasing RL complexity and instead identify SFT data quality as a key bottleneck. We then propose LogT (short for Logically Think with Images), a fully automated SFT data engine that explicitly enforces logic-chain-guided reasoning. LogT generates an SFT dataset featuring challenging, visually grounded questions and structured tool-use traces with human-like logic. We validate our approach by fine-tuning two base models, Qwen2.5-VL-7B and InternVL3.5-8B, on the dataset and evaluating them across seven benchmark test sets. We show that LogT-SFT based on Qwen2.5-VL-7B outperforms the state-of-the-art trained with both SFT and RL, despite using 3.1$\\times$ less data and $>120\\times$ fewer GPU hours. Furthermore, applying a simple RL recipe without tool-specific design on LogT-SFT yields a model that surpasses prior methods with complex RL setups by a substantial 9.59-point margin. In addition to strong performance gains, our model exhibits higher tool-use accuracy and efficiency, as well as more structured and logically consistent reasoning traces, directly validating the effectiveness of our approach.",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.19200",
+    "pdf_url": "https://arxiv.org/pdf/2611.19200.pdf",
+    "prerank_score": 8,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "affiliation_lines": [
+      "1Meta Superintelligence Labs (MSL), 2University of Maryland"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/VLM 研究，专注于通过 SFT 数据引擎提升模型的逻辑推理和工具使用能力，未涉及推荐系统或搜索产品的核心架构与应用。",
+    "translation": "LogT：利用图像进行逻辑思考以支持视觉搜索",
+    "summary_zh": "提出 LogT 自动化数据引擎，通过生成包含逻辑链引导的结构化工具使用轨迹数据，对视觉语言模型进行监督微调以增强其细粒度视觉搜索中的逻辑推理能力。",
+    "key_points": [
+      "提出 LogT 自动化数据引擎，通过生成包含逻辑链引导的结构化工具使用轨迹数据，对视觉语言模型进行监督微调以增强其细粒度视觉搜索中的逻辑推理能力"
+    ]
+  },
+  {
+    "arxiv_id": "2508.12536",
+    "title": "jXBW: A Compressed Index Enabling Structure-Aware JSONL Retrieval for Structured RAG",
+    "authors": [
+      "Yasuo Tabei"
+    ],
+    "summary": "Providing structured information to large language models (LLMs) has been shown to improve multi-step reasoning and factual accuracy (e.g., StructRAG, ICLR 2025; RAS, ICLR 2026); recent retrieval-augmented generation (RAG) systems reconstruct structure from retrieved text on every query. When the corpus is already structured, as in JSON Lines (JSONL), used for LLM prompts, chemical compounds, and geospatial objects, this per-query rebuilding can be replaced by direct structural retrieval. Its core operation is substructure search: finding all JSON objects in a collection that contain a given query tree. Existing approaches index each object separately, so index space and query time grow with collection size; XML-based engines add conversion overhead and semantic mismatches. We propose jXBW, a compressed index for fast substructure search over JSONL, combining three innovations: (i) a merged tree representation that consolidates repeated structures across objects, (ii) a succinct tree encoding based on the eXtended Burrows-Wheeler Transform (XBW), and (iii) a three-phase substructure search algorithm on this encoding. Together they achieve query-dependent complexity in compressed space: the search avoids a full scan of the collection, and its cost grows with the numbers of candidate matches and results. Experiments on seven real-world datasets, including PubChem (1 million compounds) and OpenStreetMap (6.6 million objects), show that jXBW outperforms the strongest tree-based baseline by 16x on the smallest dataset and by up to 2,800x on the largest, while the XML-based engine Saxon does not complete the 1,000-query workload on PubChem within 24 hours. jXBW brings substructure search over million-object JSONL collections into the sub-millisecond range.",
+    "categories": [
+      "cs.DB",
+      "cs.DS",
+      "cs.IR"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2508.12536",
+    "pdf_url": "https://arxiv.org/pdf/2508.12536.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 基础设施研究，专注于 JSONL 数据的子结构检索索引优化，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "jXBW：一种支持结构化 RAG 中结构感知 JSONL 检索的压缩索引",
+    "summary_zh": "提出 jXBW 压缩索引，通过合并树表示和扩展 Burrows-Wheeler 变换编码，实现对大规模 JSONL 集合的快速子结构搜索，以替代每次查询时的结构重建。",
+    "key_points": [
+      "提出 jXBW 压缩索引，通过合并树表示和扩展 Burrows-Wheeler 变换编码，实现对大规模 JSONL 集合的快速子结构搜索，以替代每次查询时的结构重建"
+    ]
+  },
+  {
+    "arxiv_id": "2611.16366",
+    "title": "CURATOR: Scalable Fine-grained Evidence Selection for Retrieval-Augmented Generation using Decision Models",
+    "authors": [
+      "Shib Dasgupta",
+      "Bandish Parikh",
+      "Rashmi Gangadharaiah"
+    ],
+    "summary": "Retrieval-augmented generation (RAG) provides entire retrieved passages to the LLM, even though only a handful of spans within them contain the evidence pertaining to the question. While precise selection of these spans can improve context utilization, identifying them in isolation is challenging. A span may appear irrelevant by itself, and deciding whether to retain it may require examining other retrieved information. One can evaluate each span's candidacy with the full retrieved context, but this is computationally inefficient as the same text must be processed repeatedly. Pretrained decision model can be used to efficiently evaluate multiple spans simultaneously, allowing each decision to consider the surrounding spans as well. However, our experiments show that their ability to identify relevant evidence deteriorates as the number of simultaneous decisions increases.\n  To address this, we introduce CURATOR, a fine-tuned decision model trained to make reliable evidence-selection decisions over large candidate sets. By training a decision model to select varying numbers of supporting spans from large candidate pools, CURATOR develops the capability to select evidence for RAG while retaining the computational efficiency of joint decision-making. We observe that CURATOR maintains a strong evidence discrimination capability as the number of candidates increases, generalizes across different tasks and document domains, and improves downstream RAG performance, particularly when the available context is limited.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-14",
+    "updated": "2026-11-17",
+    "url": "https://arxiv.org/abs/2611.16366",
+    "pdf_url": "https://arxiv.org/pdf/2611.16366.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于提升生成任务的证据选择效率，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、用户建模）。",
+    "translation": "CURATOR：利用决策模型实现检索增强生成的可扩展细粒度证据选择",
+    "summary_zh": "提出 CURATOR 模型，通过训练决策模型在大规模候选集中高效联合判断并筛选关键证据片段，以优化检索增强生成（RAG）的上下文利用率。",
+    "key_points": [
+      "提出 CURATOR 模型，通过训练决策模型在大规模候选集中高效联合判断并筛选关键证据片段，以优化检索增强生成（RAG）的上下文利用率"
+    ]
+  }
+]

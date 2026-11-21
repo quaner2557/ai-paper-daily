@@ -1,0 +1,510 @@
+[
+  {
+    "arxiv_id": "2606.02883",
+    "title": "LLM-Assisted Reranking to Operationalize Nuanced Objectives in Recommender Systems",
+    "authors": [
+      "Amir Ghasemian",
+      "Homa Hosseinmardi",
+      "Upasana Dutta",
+      "Duncan J. Watts"
+    ],
+    "summary": "Recommender systems shape what information we see, raising concerns about filter bubbles, radicalization, polarization, and social inequality. Large language models (LLMs) enable more powerful personalization that may intensify these dynamics, yet most recommenders are tuned for engagement or narrow accuracy metrics, with little attention to broader social effects. We investigate whether LLM-assisted reranking, while improving personalization, inadvertently amplifies exposure to ideologically congenial, extreme, or conspiratorial political content, a risk theorized but not yet empirically characterized. Using real YouTube trajectories, we rerank the platform's sidebar candidates by zero-shot prompting across three models, alongside an embedding baseline, and evaluate relevance, ideological alignment and diversity, and exposure to conspiratorial or extremist content. We find that (i) under a pure personalization instruction, reranking improves relevance while narrowing ideological exposure and, on two of three models, promoting problematic content for users with such histories; the third model, which declines most explicitly partisan requests, points to model-specific guardrails; (ii) lightweight prompt-level constraints substantially reduce problematic exposure on all three models, while the regularized rerankers still rank above the platform baseline on relevance; and (iii) synthetic experiments varying topical and partisan cues independently show no fixed preference between them: topic dominates on abortion and immigration, while partisanship takes over on elections, where the topical signal is weaker. Our results highlight the power of LLMs to operationalize contextual nuance in high-stakes political recommendation, and underscore the need to evaluate LLM-assisted personalization beyond accuracy and to treat prompt design as a value-laden choice rather than a neutral default.",
+    "categories": [
+      "cs.HC",
+      "cs.AI",
+      "cs.CY",
+      "cs.IR"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2606.02883",
+    "pdf_url": "https://arxiv.org/pdf/2606.02883.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接研究 LLM 在推荐系统重排序环节的应用，解决了个性化与内容安全/多样性的实际业务冲突，完全符合核心领域 advances。",
+    "translation": "利用大语言模型辅助重排序以在推荐系统中实现细微目标",
+    "summary_zh": "提出一种利用大语言模型进行零样本提示重排序的方法，通过轻量级提示约束在提升推荐相关性的同时，有效抑制极端或阴谋论内容的暴露并平衡意识形态多样性。",
+    "key_points": [
+      "提出一种利用大语言模型进行零样本提示重排序的方法，通过轻量级提示约束在提升推荐相关性的同时，有效抑制极端或阴谋论内容的暴露并平衡意识形态多样性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23710",
+    "title": "CONCORD-Rec: Catalog-Conditioned Modality Utility for Semantic-ID Diffusion Recommendation",
+    "authors": [
+      "Haopeng Jin",
+      "Bingkang Shi",
+      "Tao Yu",
+      "Yifei Ma",
+      "Hao Liu",
+      "Hongzhu Yi",
+      "Jinwen Luo"
+    ],
+    "summary": "Multimodal generative recommendation with discrete semantic identifiers (SIDs) requires distinguishing historical modalities that merely alter token predictions from those that genuinely reduce catalog-level ambiguity. When audiovisual, visual, or textual streams are missing, degraded, or semantically conflicting, uniform fusion and unconstrained token gates can propagate misleading content across iterative denoising steps. We propose CONCORD-Rec, a reliability-conditioned discrete diffusion recommender supervised by counterfactual catalog-partition utility. Given a fixed tokenizer and a partially masked SID state, CONCORD-Rec evaluates out-of-fold teacher coalitions over the exact feasible catalog support and aggregates item posteriors across the target code partition at each unresolved position. Rather than distilling raw token probabilities directly, the resulting counterfactual loss differences supervise an availability-masked tokenwise gate that allocates bounded modality residuals around a behavioral denoiser while retaining an exact behavioral fallback slot. We establish theoretical fixed-support ranking stability bounds under gate perturbations and evaluate position-level and code-conditional allocation across audiovisual and image-text recommendation benchmarks under controlled missingness, signal degradation, and semantic conflict. Across 20 source-compatible protocol-dataset rows, CONCORD-Rec improves NDCG by 4%; under matched 30% conflict it improves NDCG by 14.63%. The full-vs-uniform-T=16 sweep improves quality by 2.00-3.58% while reducing p95 latency by up to 86.89%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23710",
+    "pdf_url": "https://arxiv.org/pdf/2611.23710.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "1Tencent 2UniversityofChineseAcademyofSciences",
+      "3BeijingUniversityofPostsandTelecommunications †Correspondingauthors",
+      "directly,theresultingcounterfactuallossdifferencessuperviseanavailability-maskedtokenwisegatethatallocatesbounded",
+      "Contentprovidesadditionalevidence,butavailabilitydoesnotimplyusefulness. Avideocovermayrevealitssubjectwhile"
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文提出 CONCORD-Rec，直接解决多模态推荐系统中语义 ID 扩散模型在模态缺失或冲突时的可靠性问题，属于核心推荐架构创新；且来自中国公司，按规则额外加分后满分。",
+    "translation": "CONCORD-Rec：用于语义 ID 扩散推荐的目录条件化模态效用方法",
+    "summary_zh": "提出一种基于反事实目录划分效用的可靠性条件离散扩散推荐框架，通过动态门控机制分配模态残差并保留行为回退槽，以解决多模态数据缺失或冲突导致的推荐歧义问题。",
+    "key_points": [
+      "提出一种基于反事实目录划分效用的可靠性条件离散扩散推荐框架，通过动态门控机制分配模态残差并保留行为回退槽，以解决多模态数据缺失或冲突导致的推荐歧义问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23969",
+    "title": "ReflectRec: Cycle-Consistency Preference Verification for LLM-based Recommendation",
+    "authors": [
+      "Dae Kyoo Kim",
+      "Heejung Cho",
+      "Sungmoo Hong",
+      "Eunil Park"
+    ],
+    "summary": "CoT-style LLM recommenders generate a natural-language preference note as a chain-of-thought prefix to ranking, but the note is trusted without verification, and the ranker never consults behaviorally similar users. We propose ReflectRec, organized around a preference-to-history round-trip verifier whose recall score serves as an operational signal of preference-to-history recoverability, enabling conditional regeneration for low-recoverability preferences and selection among regeneration attempts. Around this verifier, we wire a semantic Stage-1 prompt, conditional regeneration, and Forward-Look retrieval that injects future watches of behaviorally similar users as a collaborative hint. On MovieLens-100K and MovieLens-1M, the full pipeline outperforms CoT4Rec-ICL by +16.25 / +4.46 pp Hit@10, with positive gains across all ValScore buckets and three LLM backbones (Qwen3-30B, Qwen2.5-72B, and Llama-3.3-70B). We also observe a similar verifier-guided regeneration pattern on Amazon Electronics.",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23969",
+    "pdf_url": "https://arxiv.org/pdf/2611.23969.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Amazon"
+    ],
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对基于 LLM 的推荐系统，提出了偏好验证与循环一致性机制来解决生成不可靠问题，属于核心领域的高价值创新；且来自中国公司，按规定额外加分。",
+    "translation": "ReflectRec：基于 LLM 推荐的循环一致性偏好验证",
+    "summary_zh": "提出一种偏好到历史的往返验证器，通过评估偏好可恢复性来触发条件再生，并结合前向检索引入相似用户行为提示，以增强 LLM 推荐的可信度与准确性。",
+    "key_points": [
+      "提出一种偏好到历史的往返验证器，通过评估偏好可恢复性来触发条件再生，并结合前向检索引入相似用户行为提示，以增强 LLM 推荐的可信度与准确性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23339",
+    "title": "Optimize the Cob, Then the Kernel: Optimizing Beam Search for Generative Recommendation Inference",
+    "authors": [
+      "Shing Wai Pun",
+      "Kai Wu",
+      "Pengfei Xia",
+      "Hui Zang",
+      "Wei Guo",
+      "Yong Liu"
+    ],
+    "summary": "Generative recommendation (GR) inference differs substantially from conventional LLM serving, featuring long input sequences, wide beam search, and only a few fixed output tokens. Existing LLM serving engines such as vLLM process beams as batched independent sequences, causing redundant KV cache accesses over the shared prompt prefix. Furthermore, vLLM executes each beam search generation step as a separate engine invocation, incurring host-side beam processing overhead between decoding steps and substantial runtime KV block management in PagedAttention. Using Tree Attention, we concatenate beams along the sequence dimension to eliminate redundant KV accesses, and further optimize execution through pre-generated partial-attention masks, static KV cache allocation, loop-unrolled generation dispatch, TorchAir graph compilation, automatic operator fusion, and vocabulary-constrained decoding. Without the use of custom kernels, our approach reduces end-to-end latency by up to 25x over vLLM on Ascend NPUs, and achieves generation latency comparable to a SOTA solution using custom kernels, showing that the generation pipeline should be optimized holistically before resorting to custom kernel development.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-11-17",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23339",
+    "pdf_url": "https://arxiv.org/pdf/2611.23339.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对生成式推荐（Generative Recommendation）的推理延迟问题进行系统级优化，解决了长序列和宽束搜索在推荐场景下的特定痛点，属于 LLM 在推荐系统中的直接高效应用。",
+    "translation": "先优化 Cob 再优化 Kernel：面向生成式推荐推理的束搜索优化",
+    "summary_zh": "提出利用树形注意力机制将束搜索沿序列维度拼接以消除冗余 KV 缓存访问，并结合静态缓存分配与算子融合等全链路优化策略，显著提升生成式推荐系统的推理效率。",
+    "key_points": [
+      "提出利用树形注意力机制将束搜索沿序列维度拼接以消除冗余 KV 缓存访问，并结合静态缓存分配与算子融合等全链路优化策略，显著提升生成式推荐系统的推理效率"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23910",
+    "title": "MLE Agents: Autonomous ML Engineering in Large-scale Recommendation Systems",
+    "authors": [
+      "Matthew Li",
+      "Albert Liang",
+      "Dilip Raj"
+    ],
+    "summary": "The typical workflow for improving large-scale ranking and recommendation models is slow and tedious: an engineer forms a hypothesis, implements it as a code change, trains a model, and evaluates it both offline and online, often relying on their own intuition and experience along the way. Autonomous LLM agents promise to speed this up by running the loop on their own, but it is still unclear whether they can do this in industry-scale systems rather than on benchmarks or small proxy tasks. We build human-on-the-loop machine learning engineer (MLE) agents that propose, implement, train, and evaluate model changes on large-scale search rankers. Engineers retain control over objective design, search direction, and final-model review. We identify three obstacles that make this industry setting challenging: feedback takes hours per experiment, offline metrics do not always predict online impact, and improvements saturate after the early wins. We address these with parallel training runs, an objective calibrated to match online impact, and careful context engineering. In one campaign, the system ran 1,097 completed candidate experiments and accepted 325, a 29.6\\% acceptance rate compared with 15.6\\% in the earlier campaign under a different objective and search constraint. Its best model increases search volume by 0.23\\% in an A/B test of large scale. Several improvements were architectural changes the team had never tried, drawn from the broader industry and literature, suggesting that MLE agents can explore regions of the design space that human intuition overlooks. We find that the design of the harness around the model matters: intuition suggests that a stronger underlying model is enough, but in our experience, the design of the loop around it is just as critical. More broadly, our work shows that autonomous agents can do real machine-learning engineering in industry-scale systems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23910",
+    "pdf_url": "https://arxiv.org/pdf/2611.23910.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文将自主 LLM 代理直接应用于工业级搜索排序系统的模型迭代与工程优化，解决了推荐/搜索领域的实际痛点，属于 LLM 在 RecSys/Search 中的直接应用而非纯 LLM 研究。",
+    "translation": "MLE 智能体：大规模推荐系统中的自主机器学习工程",
+    "summary_zh": "提出一种人机协同的自主 MLE 智能体框架，通过并行训练、在线指标校准及上下文工程，自动完成大规模搜索排序模型的假设提出、代码实现、训练与评估闭环。",
+    "key_points": [
+      "提出一种人机协同的自主 MLE 智能体框架，通过并行训练、在线指标校准及上下文工程，自动完成大规模搜索排序模型的假设提出、代码实现、训练与评估闭环"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23236",
+    "title": "PGPO: Prototype-Guided Progressive Obfuscation for Privacy-Preserving LLM-Enhanced Recommendation",
+    "authors": [
+      "Shengxiang Lin",
+      "Jiajie Su",
+      "Pengyang Zhou",
+      "Xiang Chen",
+      "Xiaolin Zheng",
+      "Feng Tian",
+      "Chaochao Chen"
+    ],
+    "summary": "LLM-enhanced recommender systems encode item side information into semantic embeddings, but these embeddings may leak sensitive textual attributes through inversion attacks. Existing input-side defenses rely on trusted collection or local token perturbation, often disrupting the inter-item semantic topology needed for recommendation. To address it, we introduce relational fidelity as the key objective, requiring semantic shift for privacy while preserving relative item relations for utility. Based on this principle, we propose prototype-guided progressive obfuscation (PGPO), which learns topology-aware obfuscation anchors for high-influence prototype words and propagates them through a static semantic graph. PGPO is optimized with GRPO using individual dissimilarity, structural consistency, and semantic constraint rewards. Experiments on two benchmarks show strong inversion defense with near-upper-bound recommendation performance. The code is available at https://github.com/Shengxiang-Lin/PGPO.",
+    "categories": [
+      "cs.IR",
+      "cs.CL",
+      "cs.CR"
+    ],
+    "published": "2026-08-26",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23236",
+    "pdf_url": "https://arxiv.org/pdf/2611.23236.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接针对 LLM 增强推荐系统中的隐私泄露问题，提出了在保护隐私的同时保持推荐效用（物品间相对关系）的新方法，属于 LLM for RecSys 的核心应用。",
+    "translation": "PGPO：面向隐私保护型 LLM 增强推荐的原型引导渐进式混淆方法",
+    "summary_zh": "提出原型引导渐进式混淆（PGPO）方法，通过在静态语义图中学习拓扑感知的混淆锚点并传播，旨在对敏感文本属性进行语义偏移以防御反转攻击，同时严格保留物品间的相对关系以维持推荐效用。",
+    "key_points": [
+      "提出原型引导渐进式混淆（PGPO）方法，通过在静态语义图中学习拓扑感知的混淆锚点并传播，旨在对敏感文本属性进行语义偏移以防御反转攻击，同时严格保留物品间的相对关系以维持推荐效用"
+    ]
+  },
+  {
+    "arxiv_id": "2611.20794",
+    "title": "Regularizing Treatment Leakage for LLM-based Uplift Estimation",
+    "authors": [
+      "Bojing Feng",
+      "Jinqiu Deng",
+      "Zihan Hong",
+      "Yuan Xue",
+      "Wenqi Xiang",
+      "Shuhan Wang",
+      "Feng Xiao",
+      "Shiwei Wang",
+      "Zijiang Liu",
+      "Shaomin Li",
+      "Yongzhi Qi"
+    ],
+    "summary": "Large language models (LLMs) provide semantic features for uplift estimation, but treatment-revealing text can induce prediction shortcuts that do not transfer to deployment. We propose LLM-based Uplift Leakage Regularization (LULR) to address this risk. With the LLM encoder frozen, LULR penalizes dependence between the causal head's trainable shared representation and treatment while retaining separate outcome heads. The penalty uses a variational approximation to the contrastive log-ratio upper bound (CLUB) of mutual information, targeting treatment dependence rather than generic parameter shrinkage. Controlled proxy experiments provide exploratory evidence of improved ranking scores under injected treatment information relative to no regularization and the tested weight-decay setting. Structured-only benchmarks show modest, dataset-dependent effects. On an industrial pricing randomized controlled trial, mean offline lift@0.3 is 0.258 for LULR, compared with 0.106 for the same-backbone baseline. A separate one-week online A/B test of the complete deployed pricing policy records 5.45% higher sales volume and 1.91% higher gross merchandise value than the control arm. These short-term policy-level gains do not isolate the regularizer's effect.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.20794",
+    "pdf_url": "https://arxiv.org/pdf/2611.20794.pdf",
+    "prerank_score": 6,
+    "relevance_score": 8,
+    "reasoning": "该论文直接解决推荐/广告系统中的因果推断（Uplift Estimation）和排序问题，利用 LLM 进行用户建模并提出了防止治疗泄露的正则化方法，具有明确的工业界定价和销量提升应用场景。",
+    "translation": "基于大语言模型的增益估计中治疗泄露的正则化方法",
+    "summary_zh": "提出一种基于大语言模型的增益估计正则化方法（LULR），通过惩罚因果头表征与治疗信息的互信息依赖，消除因文本暴露治疗信息导致的预测捷径，从而提升离线排序和在线策略部署的鲁棒性。",
+    "key_points": [
+      "提出一种基于大语言模型的增益估计正则化方法（LULR），通过惩罚因果头表征与治疗信息的互信息依赖，消除因文本暴露治疗信息导致的预测捷径，从而提升离线排序和在线策略部署的鲁棒性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23626",
+    "title": "Two is better than one: optimizing binary rating scales for online platforms",
+    "authors": [
+      "Liren Shan",
+      "Alec Sun",
+      "Jingyan Wang"
+    ],
+    "summary": "Online platforms often struggle with inflated, uninformative user ratings. This issue can be mitigated by better design of the data collection mechanism, for example through changing the phrasing of user questions. Previous work optimizes a single rating scale to best distinguish the inherent qualities of items under binary feedback. In this paper, we demonstrate the power of utilizing different rating scales for different users. First, we show that a designer can always split a single rating scale into two to improve item rankings. Next, we formally characterize the optimal design of multiple scales as a series of 0-1 step functions whose threshold values are evenly spaced. Finally, we consider an adaptive model where subsequent rating scales can depend on the responses from previous users and items are ranked by their full sequence of responses, and show that adaptivity leads to exponentially greater distinguishing power. All in all, our theoretical results show that using multiple rating scales significantly improves item rankings on platforms.",
+    "categories": [
+      "cs.MA",
+      "cs.GT",
+      "cs.LG"
+    ],
+    "published": "2026-11-17",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23626",
+    "pdf_url": "https://arxiv.org/pdf/2611.23626.pdf",
+    "prerank_score": 8,
+    "relevance_score": 6,
+    "reasoning": "该论文针对在线平台的评分机制设计以优化物品排序，属于推荐系统中的数据收集与排序基础问题，但主要侧重理论分析而非具体的深度学习或 LLM 架构创新。",
+    "translation": "二胜于一：优化在线平台的二元评分量表",
+    "summary_zh": "本文提出通过为不同用户设计多个自适应的二元评分量表（而非单一量表），利用阈值均匀分布的阶跃函数和自适应反馈序列，理论上显著提升了平台物品排序的区分能力。",
+    "key_points": [
+      "本文提出通过为不同用户设计多个自适应的二元评分量表（而非单一量表），利用阈值均匀分布的阶跃函数和自适应反馈序列，理论上显著提升了平台物品排序的区分能力"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23606",
+    "title": "VIBRA: Backward-Compatible Cross-Modal Retrieval with Consensus Barycenters",
+    "authors": [
+      "Shubing Yang",
+      "Xutong Liu",
+      "Dongfang Zhao"
+    ],
+    "summary": "Backward-compatible retrieval enables a new encoder to query the gallery that an old model has already encoded, so that a cross-modal retrieval system can be upgraded without re-encoding billions of items. Existing compatible methods either fit the old query and stay near the accuracy of the old model, or run the old and the new encoder for every query. We propose VIBRA, which matches relevance on the old gallery, corrects the errors of a single model with the barycenter of several views, which is itself a query in the old space, and trains the new encoder to inherit this consensus, so that models absent at deployment still shape every query. We show that the barycenter gains margin over the average of its views exactly when their hardest irrelevant items differ, and we characterize the share of this gain that one encoder can reach. On five benchmarks with five upgrades among six CLIP, MetaCLIP and SigLIP2 backbones, VIBRA is the best compatible method in all 50 settings, improving Recall@1 by up to 5.6 points over the strongest baseline and by up to 18.0 points over the old model, while adding less than 1 ms to the latency of the new encoder.",
+    "categories": [
+      "cs.CV",
+      "cs.IR"
+    ],
+    "published": "2026-11-17",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23606",
+    "pdf_url": "https://arxiv.org/pdf/2611.23606.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种用于跨模态检索的后向兼容升级方法，直接解决了搜索/推荐系统中模型迭代时需避免全量重编码的工程痛点，属于多模态搜索的核心技术。",
+    "translation": "VIBRA：基于共识质心的后向兼容跨模态检索",
+    "summary_zh": "提出 VIBRA 方法，通过计算多视图的共识质心作为旧空间查询来校正单模型误差，使新编码器能在无需重新编码海量物品库的情况下实现平滑升级并保持高检索精度。",
+    "key_points": [
+      "提出 VIBRA 方法，通过计算多视图的共识质心作为旧空间查询来校正单模型误差，使新编码器能在无需重新编码海量物品库的情况下实现平滑升级并保持高检索精度"
+    ]
+  },
+  {
+    "arxiv_id": "2604.17283",
+    "title": "HorizonBench: Long-Horizon Personalization with Evolving Preferences",
+    "authors": [
+      "Shuyue Stella Li",
+      "Bhargavi Paranjape",
+      "Kerem Oktar",
+      "Zhongyao Ma",
+      "Gelin Zhou",
+      "Lin Guan",
+      "Na Zhang",
+      "Sem Park",
+      "Lin Chen",
+      "Diyi Yang",
+      "Yulia Tsvetkov",
+      "Asli Celikyilmaz"
+    ],
+    "summary": "Personal assistants now talk with the same user for months, and users' preferences change as their lives change; an assistant that keeps serving a preference the user has outgrown fails that user. Real conversations do not record when or why a preference changed, and existing benchmarks either hold preferences fixed or have the user state the change, so they cannot tell whether a model forgot what the user said or failed to update its belief about the user. We introduce HorizonBench and its data generator, which samples how a user's preferences change and generates six months of conversation from that sequence; each change follows a life event that the user mentions without stating the new preference. A human longitudinal preference dataset that we collect and release, 83,024 ratings from 160 people over 13 weeks, sets how often and how much life events change preferences. HorizonBench contains 4,245 questions from 360 users, and when a preference has changed, its earlier value is one of the answer options. All 25 frontier models we evaluate choose the outdated preference more often than evenly spread errors would predict, and the best reaches 52.8% accuracy. Two of the newest models score no higher when given only the relevant conversations than with the full history, yet one added sentence stating the change raises their accuracy by 11 to 22 points, and retrieval and memory methods do not recover the lost accuracy. Remembering what a user said and knowing what the user prefers now are therefore separate capabilities, and HorizonBench, its generator, and the human dataset support research on both.",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "published": "2026-11-17",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2604.17283",
+    "pdf_url": "https://arxiv.org/pdf/2604.17283.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Meta",
+      "OpenAI"
+    ],
+    "affiliation_lines": [
+      "1UniversityofWashington,2MetaSuperintelligenceLabs,3OpenAI,4StanfordUniversity",
+      "datasetsupportresearchonboth."
+    ],
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于通用对话助手（Chatbot）的长程记忆与偏好更新，属于纯 LLM 研究范畴，未直接涉及推荐系统或搜索引擎的核心架构（如召回、排序），虽有用户建模概念但应用场景偏离核心领域。",
+    "translation": "HorizonBench：基于演化偏好的长周期个性化基准",
+    "summary_zh": "本文提出 HorizonBench 基准及数据生成器，通过模拟生活事件引发的隐性偏好变化，评估大模型在长程对话中区分“记忆历史陈述”与“更新当前偏好”的能力。",
+    "key_points": [
+      "本文提出 HorizonBench 基准及数据生成器，通过模拟生活事件引发的隐性偏好变化，评估大模型在长程对话中区分“记忆历史陈述”与“更新当前偏好”的能力"
+    ]
+  },
+  {
+    "arxiv_id": "2410.23066",
+    "title": "Don't Pay Attention, PLANT It: Pretraining Attention via Learning-to-Rank",
+    "authors": [
+      "Debjyoti Saha Roy",
+      "Byron C. Wallace",
+      "Javed A. Aslam"
+    ],
+    "summary": "State-of-the-art Extreme Multi-Label Text Classification models rely on multi-label attention to focus on key tokens in input text, but learning good attention weights is challenging. We introduce PLANT (Pretrained and Leveraged AtteNTion), a plug-and-play strategy for initializing the label-attention module that operates on top of an LLM's output representations. PLANT works by planting label-specific attention using a Learning-to-Rank model trained on mutual information gain, before end-to-end fine-tuning. This architecture-agnostic approach integrates with LLM backbones (e.g., Mistral-7B, Llama-3.1-8B, DeepSeek-V3, and Phi-3-mini). PLANT outperforms SOTA methods across tasks like ICD coding, legal topic classification, and content recommendation, and improves fine-tuned LLMs in controlled comparisons outside the medical domain. Gains are largest on rare labels, although a training-free LLM extraction baseline remains competitive on rarely seen labels. Ablation studies confirm that attention initialization is a key driver of these gains. We make our code available at https://github.com/deb-official/plant",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2410.23066",
+    "pdf_url": "https://arxiv.org/pdf/2410.23066.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该文主要解决极端多标签文本分类（XMC）中的注意力初始化问题，虽在摘要中提及内容推荐作为应用场景之一，但核心贡献在于通用 NLP/LLM 微调方法而非专门的推荐系统架构创新，属于弱相关的通用 ML 方法。",
+    "translation": "别只关注注意力，要植入它：通过排序学习预训练注意力机制",
+    "summary_zh": "提出 PLANT 策略，利用基于互信息增益的排序学习模型预先初始化标签特定的注意力权重，再结合 LLM 进行端到端微调，以解决极端多标签分类中关键令牌聚焦难的问题。",
+    "key_points": [
+      "提出 PLANT 策略，利用基于互信息增益的排序学习模型预先初始化标签特定的注意力权重，再结合 LLM 进行端到端微调，以解决极端多标签分类中关键令牌聚焦难的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2602.21456",
+    "title": "Revisiting Text Ranking in Deep Research",
+    "authors": [
+      "Chuan Meng",
+      "Litu Ou",
+      "Sean MacAvaney",
+      "Jeff Dalton"
+    ],
+    "summary": "Deep research has emerged as an important task that aims to address hard queries that need extensive open-web exploration. To tackle it, most prior work equips large language model (LLM)-based agents with opaque web search APIs, enabling agents to iteratively issue search queries, retrieve external evidence, and reason over it. Despite search's essential role in deep research, black-box web search APIs leave the behaviour of established text ranking methods in deep research largely unclear. To fill this gap, we reproduce key findings and best practices for text ranking methods in deep research. We examine their effectiveness from three perspectives: (i) retrieval units (documents vs. passages), (ii) pipeline configurations (different retrievers, re-rankers, and re-ranking depths), and (iii) query characteristics (the mismatch between agent-issued queries and the training queries of text rankers). We perform experiments on BrowseComp-Plus, a deep research dataset with a fixed corpus, evaluating 2 open-source agents, 5 retrievers, and 3 re-rankers. We find that agent-issued queries typically follow web-search-style syntax (e.g., quoted exact matches), favouring lexical, learned sparse, and multi-vector retrievers; passage-level units are more efficient under limited context windows, and avoid the difficulties of document length normalisation in lexical retrieval; re-ranking is highly effective. We further propose a query-to-question (Q2Q) method that translates agent-issued queries into natural language questions, significantly reducing the query mismatch.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-06-19",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2602.21456",
+    "pdf_url": "https://arxiv.org/pdf/2602.21456.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要研究深度研究（Deep Research）场景下的文本排序和检索优化，虽涉及搜索组件，但核心聚焦于 LLM Agent 的研究任务而非通用推荐系统或商业搜索引擎产品，属于弱相关的边缘搜索研究。",
+    "translation": "重访深度研究中的文本排序",
+    "summary_zh": "本文分析了深度研究中代理生成查询与传统文本排序器之间的不匹配问题，并提出将查询转化为自然语言问题（Q2Q）的方法以优化检索效果。",
+    "key_points": [
+      "本文分析了深度研究中代理生成查询与传统文本排序器之间的不匹配问题，并提出将查询转化为自然语言问题（Q2Q）的方法以优化检索效果"
+    ]
+  },
+  {
+    "arxiv_id": "2611.00791",
+    "title": "PhoneValue-Bench: A Dual-Ground-Truth Scorecard Benchmark for Smartphone Recommerce Inspection",
+    "authors": [
+      "Zihan Deng",
+      "Chuanzhi Xu",
+      "Junjie Huang",
+      "Xiaozhen Zhong",
+      "Du Tiantian"
+    ],
+    "summary": "Remote smartphone recommerce is scaling quickly, and locking a repurchase offer from seller photos and diagnostic screens before the handset arrives has become a central operational task. Existing multimodal resources mainly target defect localization, catalog attributes, or screen reading. They overlook payout-facing scorecards with dual cosmetic and operational ground truth under a declared input contract. This gap stems from two challenges: (1) the lack of a large weakly labeled trade-in corpus kept separate from a compact audited ranking cut, and (2) architectures that either flatten unordered photo bags into one prompt or collapse evaluation into a single price scalar. To address these challenges, we propose PhoneValue-Bench, a dual-ground-truth recommerce framework with PhoneValue-Corpus for weak training on 21,550 orders and 278,748 images, and PV-Rank as the only leaderboard on 335 quality-gated orders. Systems are ranked by CardScore under LeadGate, with Cosmetic Fill and Operational Fill as diagnostics, while grade and price stay off the board. Notably, ValueAgent is a six-stage perception-fusion reference that canonicalizes views, detects regional defects, reads screenshots, and fuses evidence under warehouse-style rules, so bag-of-images prompting is not the only evaluation unit. On the same PV-Rank cut and frozen scorer, this full-system and input-contract comparison finds ValueAgent at 84.1 CardScore against the strongest Flat Vision-Language Model at 69.9, with the largest reported gap in CosFill, while OpsFill remains limited under the two declared contracts. CardScore measures field-fill completeness, not quote accuracy.",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.00791",
+    "pdf_url": "https://arxiv.org/pdf/2611.00791.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该论文聚焦于手机回收估价的多模态评估基准，虽涉及多模态和排序概念，但属于特定垂直领域的运营自动化任务，并非通用的推荐系统或搜索引擎核心技术研究；因来自中国公司额外加 1 分，否则为 3 分。",
+    "translation": "PhoneValue-Bench：面向智能手机回收质检的双真值评分卡基准",
+    "summary_zh": "提出一个包含弱标注语料和审计排序切片的手机回收双真值框架，通过六阶段感知融合代理替代简单的图像包提示，以解决基于照片和诊断屏幕的估价评分卡生成问题。",
+    "key_points": [
+      "提出一个包含弱标注语料和审计排序切片的手机回收双真值框架，通过六阶段感知融合代理替代简单的图像包提示，以解决基于照片和诊断屏幕的估价评分卡生成问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23716",
+    "title": "Learning through Discernment: when a small language model learns from user feedback on the job, and when it decays",
+    "authors": [
+      "Sirisilp Kongsilp"
+    ],
+    "summary": "Small language models on devices could keep improving by learning, overnight, from their own daily work. Without a true outcome, however, something must decide which attempts are worth learning from, and both the model's own judgment and the user's reaction can be wrong. We study a small model (Qwen3 0.6B and 1.7B) with a LoRA adapter, fine-tuned each night on the attempts a judge accepts, over 127 lives of up to a year on WebShop and $τ^2$-bench. We compare the true outcome, the user's stated verdict and the model's own judgment with a separate, frozen \"feedback sense\" that reads the user's reaction, built in three versions. Judging itself, the model improved and then decayed, over a year and whatever its adapter. A sense that took polite give-ups for success collapsed 3 of 5 lives; one built for discernment, which first asks whether the user gave a clear verdict, kept 4 of 5 near the oracle for two weeks, then faded on clean but scarce lessons, to the level of self-judging by day 60. When the user cannot see the outcome ($τ^2$-bench), the sense read reactions correctly, yet 80% of its lessons were failures the customer had thanked. Across 97 lives, the share of failed attempts among the lessons predicted the outcome (Spearman $ρ$ = -0.81). In our experiments, learning from users held up only where the judge kept failures out and the user could see the outcome; lopsided lessons may also narrow the model.",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2611.23716",
+    "pdf_url": "https://arxiv.org/pdf/2611.23716.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Oracle"
+    ],
+    "prerank_score": 8,
+    "relevance_score": 3,
+    "reasoning": "该文属于纯 LLM 在线学习与反馈机制研究，虽涉及用户反馈但未针对推荐/搜索核心场景（如召回、排序），且无明确 RecSys 业务应用。",
+    "translation": "通过辨别进行学习：小型语言模型何时能从工作中用户反馈学习，何时会退化",
+    "summary_zh": "提出一种基于判别机制的小型语言模型在线学习框架，通过筛选高质量用户反馈来防止模型在持续微调中因噪声数据而性能退化。",
+    "key_points": [
+      "提出一种基于判别机制的小型语言模型在线学习框架，通过筛选高质量用户反馈来防止模型在持续微调中因噪声数据而性能退化"
+    ]
+  },
+  {
+    "arxiv_id": "2610.37162",
+    "title": "Coverage Under Contradiction: A Benchmark for Negation-Aware Retrieval",
+    "authors": [
+      "Pasha Abrishamchian",
+      "Eugene Yang",
+      "Andrew Yates",
+      "Nazli Goharian",
+      "Ophir Frieder"
+    ],
+    "summary": "Coverage-evaluation benchmarks quantify whether retrieved evidence covers the different pieces of information needed to satisfy an information need. Existing benchmarks mostly consider factual claims that may already be known to pretrained retrieval components, leaving open whether retrievers find corpus evidence when it contradicts those priors. We study how retrievers behave when their parametric knowledge and the information in a corpus disagree. To do so, we develop a process to augment a nugget-based coverage benchmark with controlled contradictions. For each nugget, we create a negated counterpart and edit its supporting documents to support that negation while preserving the context. Applying this process to CoverageBench, a benchmark measuring information coverage, we create CoverageBench-Negate, spanning six datasets and roughly 63,000 original-edited evidence pairs (one per nugget-document link). We attach rich construction metadata to every pair and additionally provide out-of-family LLM judgments over all pairs and a human audit of a sample. In baseline experiments, BM25 separates original from edited near-twin evidence substantially better than dense retrievers (Qwen3 and Jina), which stay near chance. We release the benchmark on Hugging Face Datasets (nuggets, documents, pairs) together with the construction materials, including the prompts used to create it.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-10-27",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2610.37162",
+    "pdf_url": "https://arxiv.org/pdf/2610.37162.pdf",
+    "prerank_score": 5,
+    "relevance_score": 3,
+    "reasoning": "这是一篇纯 NLP/检索基准研究，专注于否定句和知识冲突评估，未涉及推荐系统核心业务场景；虽来自格力但缺乏 RecSys 直接应用，故仅给低分。",
+    "translation": "矛盾下的覆盖：一个感知否定的检索基准",
+    "summary_zh": "本文构建了包含可控否定矛盾的检索基准 CoverageBench-Negate，用于评估检索器在参数知识与语料证据冲突时的表现。",
+    "key_points": [
+      "本文构建了包含可控否定矛盾的检索基准 CoverageBench-Negate，用于评估检索器在参数知识与语料证据冲突时的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2608.25903",
+    "title": "MetaSieve: Faster Relational Deep Learning through SQL-Based Metapath Selection",
+    "authors": [
+      "Fahim Shahriar Khan",
+      "Ashraf Aboulnaga"
+    ],
+    "summary": "Relational Deep Learning (RDL) is an effective approach to machine learning over multi-table relational databases. In RDL, a database is modeled as a graph in which each row is a node and each foreign-key relation is an edge, and a graph neural network (GNN) is trained on this graph. Training a GNN requires sampling a subgraph around every seed node in the training set, and the cost of training is largely determined by the size of these subgraphs. This paper aims to reduce subgraph size by leveraging the join and aggregation capabilities of relational database systems. We observe that sampled subgraphs are obtained by following metapaths composed of foreign-key links, and that many of these metapaths can be pruned without loss of accuracy. We present MetaSieve, a metapath selection layer that determines which metapaths to retain and which to prune. For each candidate metapath extension, MetaSieve computes statistics via SQL join and aggregation queries and evaluates the extension based on a novel scoring function that prefers lightweight but informative candidates. Metapaths whose scores fall below a threshold are deemed uninformative and pruned. Metapath selection in MetaSieve is lightweight since it relies only on database statistics and task labels, and it is independent of GNN parameters, so it integrates with diverse GNN architectures for classification and regression. Our evaluation on the RelBench benchmark with multiple GNN backbones shows that MetaSieve consistently reduces per-epoch training time by large margins while maintaining and often improving accuracy.",
+    "categories": [
+      "cs.DB",
+      "cs.LG"
+    ],
+    "published": "2026-11-17",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2608.25903",
+    "pdf_url": "https://arxiv.org/pdf/2608.25903.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Meta"
+    ],
+    "prerank_score": 4,
+    "relevance_score": 3,
+    "reasoning": "该论文属于通用关系深度学习与 GNN 优化研究，未明确针对推荐系统或搜索引擎场景，且非 LLM 直接应用，相关性较弱。",
+    "translation": "MetaSieve：基于 SQL 元路径选择的加速关系深度学习",
+    "summary_zh": "提出 MetaSieve 方法，利用数据库统计信息和 SQL 聚合查询评估并剪枝无关的元路径，从而缩小 GNN 训练子图规模以降低计算成本。",
+    "key_points": [
+      "提出 MetaSieve 方法，利用数据库统计信息和 SQL 聚合查询评估并剪枝无关的元路径，从而缩小 GNN 训练子图规模以降低计算成本"
+    ]
+  },
+  {
+    "arxiv_id": "2606.29959",
+    "title": "Know Before You Fetch: When Does Confidence-Based Retrieval-Budget Allocation Pay Off?",
+    "authors": [
+      "Zhe Dong",
+      "Fang Qin",
+      "Manish Shah"
+    ],
+    "summary": "Adaptive retrieval-augmented generation uses a signal from the reader, such as its confidence when answering without retrieval (closed-book), to decide whether and how much to retrieve. We compare such methods not with always retrieving many passages but with the best simple policy under the same cap on average passages per query: a fixed depth or a random mixture of fixed depths. Policies allocate zero, one or five passages and are scored on held-out questions. Seven settings of about 2,000 questions combine TriviaQA, Natural Questions and MS MARCO, Qwen3-8B and Qwen3-32B readers, and two retrieval sources: per-question passage pools and a 3.5-million-passage Wikipedia index. Allocation by confidence could gain in three ways. It rations a scarce budget: at a cap of half a passage per query it beats the best simple policy in all seven settings, by 0.010 to 0.075 in accuracy. It avoids harmful retrieval: at caps of one passage or more, substantial gains appear only on Wikipedia, where passages often overwrite known answers, most robustly for Qwen3-8B on TriviaQA (+0.051, also under exact match and F1). It barely helps to choose depth: closed-book confidence ranks which queries a first passage helps but ranks the choice between one and five passages little better than chance, and with passage pools a fixed depth of two or three passages is as good or better. Once the probe's latency is charged, gains remain only where the gate skips retrieval for most queries; for the larger reader they also depend on the answer metric.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-19",
+    "url": "https://arxiv.org/abs/2606.29959",
+    "pdf_url": "https://arxiv.org/pdf/2606.29959.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 检索增强生成（RAG）研究，专注于通用问答场景下的检索预算分配，未涉及推荐系统或搜索引擎的核心业务逻辑与应用。",
+    "translation": "取前须知：基于置信度的检索预算分配何时有效？",
+    "summary_zh": "本文研究了利用大模型闭卷回答的置信度信号，动态决定是否为查询分配检索资源及检索数量，以在受限的检索预算下优化问答准确率。",
+    "key_points": [
+      "本文研究了利用大模型闭卷回答的置信度信号，动态决定是否为查询分配检索资源及检索数量，以在受限的检索预算下优化问答准确率"
+    ]
+  }
+]

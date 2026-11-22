@@ -1,0 +1,489 @@
+[
+  {
+    "arxiv_id": "2611.20448",
+    "title": "MMIntentFlow: An Intent-Driven Real-Time Multimodal Search System with Image-Text Queries at Xiaohongshu",
+    "authors": [
+      "Dongjia Zhao",
+      "Yuchen Ma",
+      "Chunsheng Shi",
+      "Ziqiu Gui",
+      "Chao Yuan",
+      "Jianing Zhu",
+      "Zhaoxing Zhang",
+      "Yahui Liu",
+      "Daoxin Zhang",
+      "Yi Wu",
+      "Yao Hu",
+      "Cheng Chen"
+    ],
+    "summary": "Multimodal search with image-text queries helps users find notes in user-generated content (UGC) communities and serves as a key search tool for multimodal search agents. For such queries, query-note relevance depends on the user's retrieval intent and cannot be determined by visual or topical similarity alone. Simply reranking visual search results cannot fully address this challenge, as notes relevant to the user's intent may be missing from the initial candidate set. This motivates explicit intent modeling to align candidate retrieval and reranking under consistent relevance criteria. We present MMIntentFlow, an intent-driven real-time multimodal search system deployed at Xiaohongshu over an index on the order of ten billion entries. MMIntentFlow represents retrieval objectives with a hierarchical intent taxonomy and uses intent-specific relevance criteria to guide data construction, representation learning, and reranking. An offline agentic data workflow acquires candidates and verifies their relevance under these criteria to produce training supervision. The embedding model combines intent-aware contrastive learning, graded ranking, and distribution distillation, while a compact reranker assesses query-candidate evidence conditioned on predicted hierarchical intents. Evaluations demonstrate that MMIntentFlow delivers substantial gains in search engagement while supporting real-time search at industrial scale. In a user-level A/B test on the Xiaohongshu platform, MMIntentFlow outperforms the existing production system based on visual search followed by reranking, achieving relative gains of 28.17% in Top-4 query click-through rate, 18.96% in query click-through rate, and 12.56% in average time spent on search results pages per user. Production monitoring records an end-to-end P50 latency of 1.07 s.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.20448",
+    "pdf_url": "https://arxiv.org/pdf/2611.20448.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对小红书（社交电商）的多模态搜索场景，提出了基于意图建模的工业级系统架构，完美契合核心领域 advances 且来自目标公司，适用性极高。",
+    "translation": "MMIntentFlow：小红书面向图文查询的意图驱动实时多模态搜索系统",
+    "summary_zh": "提出一种层级化意图分类体系，通过离线智能体工作流构建监督信号，并结合意图感知对比学习与条件重排序模型，实现了对十亿级索引的实时多模态意图对齐检索。",
+    "key_points": [
+      "提出一种层级化意图分类体系，通过离线智能体工作流构建监督信号，并结合意图感知对比学习与条件重排序模型，实现了对十亿级索引的实时多模态意图对齐检索"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25288",
+    "title": "Intelligent Embedding Pruning for Large-Scale Recommendation Models",
+    "authors": [
+      "Anish Khazane",
+      "Alex Saad-Falcon",
+      "Guanchu Wu",
+      "Marcio Porto",
+      "Jasper Shan",
+      "Fei Yu",
+      "Eugene Shulga",
+      "Intaik Park",
+      "Yongzhe Zhang",
+      "Xiaoyu Deng",
+      "Sheng Luo",
+      "Xiaoya Wang"
+    ],
+    "summary": "Modern recommendation systems face substantial memory pressure, largely from the sparse embedding layer that maps high-cardinality categorical features into dense vectors. In-training embedding pruning (ITEP) removes less important embedding rows during training, yielding end-to-end memory savings but sometimes degrading accuracy because per-table pruning ratios are set by size-based heuristics. We use feature importance (FI) to guide these ratios (FI-ITEP), assigning higher pruning to tables tied to less important features. Across three large-scale recommendation models, FI-ITEP achieves 20--40% total memory reduction while matching or improving accuracy relative to percentile-based ITEP. Because the feature-importance signal requires minimal resources to compute, these memory savings translate into concrete systems benefits: the same models train on fewer GPU trainers (e.g., 112 to 80) with higher per-GPU throughput, saving 1,000+ GPU-hours per model launch. We reproduce these trends on the open-source DLRM (Criteo 1TB) and quantify the end-to-end training-time and GPU-cost tradeoff---including the burden of computing FI---offering practical guidance for embedding pruning in real-world systems.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25288",
+    "pdf_url": "https://arxiv.org/pdf/2611.25288.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对大规模推荐系统中的核心嵌入层内存瓶颈提出优化方法，属于推荐系统核心架构创新，且来自中国公司额外加 1 分（基础 9 分 +1）。",
+    "translation": "面向大规模推荐模型的智能嵌入剪枝",
+    "summary_zh": "提出利用特征重要性指导训练中嵌入剪枝比率的方法，以在显著降低推荐模型内存占用的同时保持或提升预测精度。",
+    "key_points": [
+      "提出利用特征重要性指导训练中嵌入剪枝比率的方法，以在显著降低推荐模型内存占用的同时保持或提升预测精度"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25659",
+    "title": "DNA: Unlocking Depth Scaling in CTR Models",
+    "authors": [
+      "Caiyuan Li",
+      "Wenjie Wu",
+      "Yuheng Huang",
+      "Xiao Zhou",
+      "Silu Zhou",
+      "Ke Chen",
+      "Zinan Zhao",
+      "Xinrui Zeng",
+      "Hanmo Xu",
+      "Chaoqun Song",
+      "Hua Zong",
+      "Zongyuan Wu",
+      "Hongbin Zhou",
+      "Huimin Yi",
+      "Zhixuan Zhang",
+      "Dan Ou",
+      "Haihong Tang"
+    ],
+    "summary": "Long user behavior sequences are among the strongest signals for click-through rate (CTR) prediction. Cross-attention makes these sequences practical for industrial ranking by keeping compute linear in sequence length. Yet the gains from stacking cross-attention layers taper off: on Taobao search, growing a cross-attention stack from 16 to 28 layers adds only 0.02 percentage points (pt) of AUC. We argue that the key-value side is the bottleneck. Each layer projects the same behavior sequence into keys and values, so adding depth gives the model more reads of a fixed sequence. We propose DNA (Dual-stream Nexus Attention), which lets the sequence itself evolve with depth. At each layer, the request representation (the search query, user features and scene) first reads the sequence. Each behavior token then attends to the updated request representation and uses what it reads to update itself, so the next layer reads a sequence shaped by the current request. The update runs once per request, all candidates share the resulting sequence, and both the reads and the update keep linear complexity in sequence length. At comparable forward FLOPs, DNA improves AUC over cross-attention stacks by 0.08 to 0.26 pt and keeps improving in the depth range where those stacks level off. DNA-4 is deployed in Taobao search. In an online A/B test against the production model, it improves CTR by 0.8% and GMV by 0.5%.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25659",
+    "pdf_url": "https://arxiv.org/pdf/2611.25659.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "本文提出 DNA 架构解决淘宝搜索 CTR 预估中深度模型收益递减问题，属于核心推荐搜索技术且已在线部署，结合电商背景给予满分。",
+    "translation": "DNA：解锁点击率模型的深度扩展能力",
+    "summary_zh": "提出双流 Nexus 注意力机制，通过让用户行为序列随网络深度动态演化而非固定不变，解决了堆叠交叉注意力层在长序列建模中的瓶颈问题。",
+    "key_points": [
+      "提出双流 Nexus 注意力机制，通过让用户行为序列随网络深度动态演化而非固定不变，解决了堆叠交叉注意力层在长序列建模中的瓶颈问题"
+    ]
+  },
+  {
+    "arxiv_id": "2502.16759",
+    "title": "Can Explanations Improve Recommendations? Evidence from Prediction-Informed Explanations",
+    "authors": [
+      "Yuyan Wang",
+      "Pan Li",
+      "Minmin Chen"
+    ],
+    "summary": "Recommender systems are central to digital platforms, yet they face a fundamental trade-off between accuracy and explainability: Black-box models achieve strong performance but lack interpretability needed for trust and adoption, while existing explainable AI approaches often generate explanations post hoc or sacrifice accuracy. We challenge this view, proposing that explanations, when designed as an integral component of the system and aligned with predictions, can improve \\emph{both} interpretability and accuracy. We introduce RecPIE (Recommendation with Prediction-Informed Explanations), a framework that jointly optimizes recommendation predictions and natural-language explanations. RecPIE embeds explanation generation into the learning loop: predictions guide explanation generation (prediction-informed explanations), which are fed back to refine subsequent predictions (explanation-informed predictions) via alternating training. The LLM is fine-tuned using LoRA and reinforcement learning with a usefulness reward derived from recommendation accuracy. We evaluate RecPIE on large-scale point-of-interest recommendation data from Google Maps, where consumer preferences span diverse place categories. RecPIE improves predictive accuracy by 1.7-3.6\\% over state-of-the-art baselines and outperforms the strongest full-data baselines using only 25\\% of the training data. In human evaluations with 566 participants, RecPIE explanations are preferred 61.5% of the time (versus 16.6% for the best baseline) and rated closer to human-generated explanations. Together, these results suggest that insights about consumer behavior and AI decisions need not be imposed externally or generated post hoc; they can be learned as an integral component \\emph{within} the AI systems, allowing systems themselves to discover which insights are useful for improving predictive performance.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2502.16759",
+    "pdf_url": "https://arxiv.org/pdf/2502.16759.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "Google"
+    ],
+    "prerank_score": 8,
+    "affiliation_lines": [
+      "1StanfordGraduateSchoolofBusiness,2SchellerCollegeofBusiness,GeorgiaInstituteofTechnology,3GoogleInc."
+    ],
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统，提出将自然语言解释生成与预测优化联合训练的框架（RecPIE），利用 LLM 显著提升推荐准确性和可解释性，属于核心领域的高价值创新；且来自 TAL 公司，符合加分条件。",
+    "translation": "解释能否提升推荐效果？基于预测感知解释的实证研究",
+    "summary_zh": "提出 RecPIE 框架，通过将自然语言解释生成嵌入推荐学习循环，利用预测指导解释生成并反向优化预测，实现推荐准确性与可解释性的联合提升。",
+    "key_points": [
+      "提出 RecPIE 框架，通过将自然语言解释生成嵌入推荐学习循环，利用预测指导解释生成并反向优化预测，实现推荐准确性与可解释性的联合提升"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25256",
+    "title": "LQ-Rec: Late Quantization for Sequential Recommendation",
+    "authors": [
+      "Satoshi Koide",
+      "Yueqi Wang",
+      "Julian McAuley"
+    ],
+    "summary": "Generative retrieval (GR) for sequential recommendation compresses each item into a short semantic ID and trains an autoregressive decoder to generate next-item codes from a user history. While appealing for cold-start handling and storage, au- toregressive GR suffers a structural scaling limit: typically, longer semantic IDs reduce quantization error in principle but degrade ranking quality and quadratic memory usage against semantic ID length. We propose Late Quantization (LQ), a non-autoregressive paradigm that confines discretization to the output (item) side of the pipeline. The encoder and scoring rule operate in continuous space, while items are stored and matched as semantic IDs produced by an end-to-end-trained residual quantizer. This architectural shift permits an additive error decomposition and a pairwise ordering theorem that jointly bound the quantization- induced ranking drop, a structural guarantee absent in prior semantic-ID recommenders. Across four public benchmarks, the resulting recommender, LQ-Rec, delivers three capabilities simultaneously: ranking quality improves monotonically with the semantic-ID length and outperforms existing baselines; a single trained model supports anytime compression, tuning ranking quality against inference cost without retraining; and LQ-Rec shows superior generalization on a memorization/generalization partition.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25256",
+    "pdf_url": "https://arxiv.org/pdf/2611.25256.pdf",
+    "prerank_score": 8,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对序列推荐中的生成式检索瓶颈提出 Late Quantization 新架构，解决了语义 ID 长度与排序质量的矛盾，属于核心推荐系统创新；且来自中国公司，按规则额外 +1 分（上限 10）。",
+    "translation": "LQ-Rec：面向序列推荐的后期量化方法",
+    "summary_zh": "提出一种非自回归的后期量化范式，将离散化限制在输出端而编码器保持连续空间，通过理论保证实现排序质量随语义 ID 长度单调提升及无需重训的动态压缩能力。",
+    "key_points": [
+      "提出一种非自回归的后期量化范式，将离散化限制在输出端而编码器保持连续空间，通过理论保证实现排序质量随语义 ID 长度单调提升及无需重训的动态压缩能力"
+    ]
+  },
+  {
+    "arxiv_id": "2502.17057",
+    "title": "ExpandR: Teaching Dense Retrievers Beyond Queries with LLM Guidance",
+    "authors": [
+      "Sijia Yao",
+      "Pengcheng Huang",
+      "Zhenghao Liu",
+      "Yu Gu",
+      "Yukun Yan",
+      "Shi Yu",
+      "Ge Yu"
+    ],
+    "summary": "Large language models (LLMs) have demonstrated significant potential in enhancing dense retrieval through query augmentation. However, most existing methods treat the LLM and the retriever as separate modules, overlooking the alignment between generation and ranking objectives. In this work, we propose ExpandR, a unified LLM-augmented dense retrieval framework that jointly optimizes both the LLM and the retriever. ExpandR employs the LLM to generate semantically rich query expansions, which are leveraged to enhance the retriever's training. Simultaneously, the LLM is trained using Direct Preference Optimization (DPO), guided by a carefully designed reward function that balances retrieval effectiveness and generation consistency. This joint optimization paradigm enables mutual adaptation between the LLM and the retriever, resulting in query expansions that are both informative and well-suited for retrieval. Experimental results on multiple benchmarks show that ExpandR consistently outperforms strong baselines, achieving more than a 5% improvement in retrieval performance. All codes are available at https://github.com/NEUIR/ExpandR.",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "published": "2025-05-29",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2502.17057",
+    "pdf_url": "https://arxiv.org/pdf/2502.17057.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对稠密检索（搜索核心环节）提出 LLM 联合优化框架，解决了生成与排序目标对齐问题，属于高优先级的搜索核心技术；虽涉及纯 LLM 训练方法（DPO），但紧密服务于检索任务，且来自 TAL 公司额外加 1 分。",
+    "translation": "ExpandR：利用 LLM 指导扩展稠密检索器 beyond 查询的能力",
+    "summary_zh": "提出 ExpandR 框架，通过联合优化 LLM 生成与检索器排序目标，利用直接偏好优化（DPO）使 LLM 生成的查询扩展既语义丰富又适配检索需求。",
+    "key_points": [
+      "提出 ExpandR 框架，通过联合优化 LLM 生成与检索器排序目标，利用直接偏好优化（DPO）使 LLM 生成的查询扩展既语义丰富又适配检索需求"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25527",
+    "title": "Learning Generative Ranking Policies for Whole-Page Optimization",
+    "authors": [
+      "Chen Qiu",
+      "Zhigang Hua",
+      "Qi Xu",
+      "Jizhe Zhang",
+      "Sha Hua",
+      "Ren Mao",
+      "Luke Simon"
+    ],
+    "summary": "A recommendation page is consumed as a whole: the items on it compete for attention and complement one another, so the best page is not simply the individually best items placed side by side. We study whole-page optimization, which selects and orders the items on a page jointly to maximize the score of the page. The number of possible pages grows combinatorially, so good pages must be generated rather than enumerated. Some generative re-ranking methods use the same page-level training signal for every choice in a sampled page. Others imitate target pages built before training, which remain largely fixed as the generator improves. We address both limitations with one local page-level objective, which repeatedly moves the current generator toward pages with higher score. This objective splits exactly into one training target per position, and each target compares candidates at the same partial page by the scores of the complete pages they lead to. Every position therefore learns to choose the item that is better for the whole page, rather than the item that looks best on its own. We call this procedure whole-page policy improvement. On two public datasets, KuaiRand-1K and RL4RS-SeqSlate, which cover multi-objective item selection and constrained ordering, and on an industrial dataset of logged pages, our method outperforms the evaluated generative re-ranking baselines. On a synthetic benchmark with a known optimal page, it also comes closest to the optimum, showing that its improvements come from better whole-page decisions.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25527",
+    "pdf_url": "https://arxiv.org/pdf/2611.25527.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的重排序（Re-ranking）和整页优化（Whole-Page Optimization）核心问题，提出了一种生成式策略改进方法，属于高优先级的核心领域创新。",
+    "translation": "学习用于整页优化的生成式排序策略",
+    "summary_zh": "本文提出一种整页策略改进方法，通过局部页面级目标将训练信号分解至每个位置，使生成模型在重排序时能基于完整页面得分选择最优项，而非仅关注单项最优。",
+    "key_points": [
+      "本文提出一种整页策略改进方法，通过局部页面级目标将训练信号分解至每个位置，使生成模型在重排序时能基于完整页面得分选择最优项，而非仅关注单项最优"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25606",
+    "title": "Generative News Recommendation Reproduces Popularity: A Memorization-Based Analysis",
+    "authors": [
+      "Shotaro Ishihara"
+    ],
+    "summary": "Text-based generative recommenders can go beyond ranking existing items by directly generating item titles or other textual representations. In the news domain, this raises a societal concern that models may repeatedly surface already popular articles and thereby narrow the diversity of information to which users are exposed. We investigate training-data memorization as one mechanism behind this concentration. Using approximately 20 million browsing sessions from a Japanese news service, we continually trained an instruction-tuned Llama 3 8B model to generate the next article title in a session. The generated-title distribution was more concentrated and less diverse than the distribution of titles observed in the browsing logs. Frequently repeated target titles exhibited greater verbatim and approximate memorization, and more strongly memorized titles were generated in response to a wider range of prompts. These findings support a pathway in which popularity in behavioral logs becomes repeated training text, is preferentially memorized, and is subsequently reproduced by a generative recommender. An exploratory target-level deduplication condition reduced both memorization and output concentration, while substantially reducing the training-set size and recommendation accuracy. Our results suggest that popularity bias in generative recommendation may arise not only from user preferences or ranking objectives, but also from the model's tendency to reproduce frequently encountered strings, with important implications for information diversity on news platforms.",
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25606",
+    "pdf_url": "https://arxiv.org/pdf/2611.25606.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接研究生成式新闻推荐系统中的流行度偏差与记忆机制问题，属于 LLM 在推荐系统核心场景（多样性、偏差）的直接应用分析，且来自中国公司额外加 1 分。",
+    "translation": "生成式新闻推荐复现流行度：基于记忆机制的分析",
+    "summary_zh": "本文揭示了生成式推荐模型通过记忆训练数据中的高频文本，导致输出分布比用户行为日志更集中，从而加剧流行度偏差并降低信息多样性的核心机制。",
+    "key_points": [
+      "本文揭示了生成式推荐模型通过记忆训练数据中的高频文本，导致输出分布比用户行为日志更集中，从而加剧流行度偏差并降低信息多样性的核心机制"
+    ]
+  },
+  {
+    "arxiv_id": "2611.24757",
+    "title": "Variance-Optimal Counterfactual Policy Design for Sample-Efficient Online A/B Testing",
+    "authors": [
+      "Shashank Gupta",
+      "Subhadeep Maji"
+    ],
+    "summary": "Online A/B testing is the standard approach for evaluating changes to user-facing systems, such as a new recommendation or ranking policy, before deployment. While the difference-in-means estimator of a standard A/B test is unbiased, it often suffers from high variance. When the treatment and production policies choose the same actions with similar probabilities, the resulting observations can add noise while providing little information about the difference between the policies. Consequently, A/B tests can require large amounts of traffic and long durations to detect small treatment effects. Existing variance-reduction methods mainly improve the estimator after the data-collection scheme has been fixed, and recent overlap-aware designs only optimize a single traffic split between the two policies; thereby, they cannot direct traffic to the actions on which the policies disagree.\n  In this paper, we jointly optimize how actions are sampled and how the resulting observations are used to estimate the treatment effect. Our contributions are two-fold. First, building on pairwise off-policy evaluation, we derive the variance-optimal action-level logging policy for estimating the average treatment effect between two policies, which has a closed-form solution for any fixed control variate. Second, we use historical logs to jointly optimize the logging policy and a control variate to further reduce variance. Our experimental results in simulated policy A/B tests show that our designs estimate the average treatment effect more accurately than existing variance reduction methods on every evaluated setting, while generally improving statistical power and reducing how often the worse policy is selected. As a result, our designs enable practitioners to reach reliable deployment decisions with considerably less online traffic.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.24757",
+    "pdf_url": "https://arxiv.org/pdf/2611.24757.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/排序系统的在线 A/B 测试提出方差最优的反事实策略设计，属于核心工程落地问题；且来自中国公司，按规定额外 +1 分。",
+    "translation": "面向样本高效在线 A/B 测试的方差最优反事实策略设计",
+    "summary_zh": "本文提出一种联合优化动作采样策略与控制变量的方法，通过推导方差最优的记录策略来显著提升推荐系统在线 A/B 测试的估计效率与统计功效。",
+    "key_points": [
+      "本文提出一种联合优化动作采样策略与控制变量的方法，通过推导方差最优的记录策略来显著提升推荐系统在线 A/B 测试的估计效率与统计功效"
+    ]
+  },
+  {
+    "arxiv_id": "2507.23377",
+    "title": "LLM4Rail: An LLM-Augmented Personalized Railway Services Platform",
+    "authors": [
+      "Zhuo Li",
+      "Xianghuai Deng",
+      "Chiwei Feng",
+      "Hanmeng Li",
+      "Shenjie Wang",
+      "Junchao Fan",
+      "Jiaxing Shen",
+      "Zhiyuan Wen",
+      "Longxiang Gao",
+      "Linchun Wu"
+    ],
+    "summary": "Large language models (LLMs) have significantly reshaped different walks of business. To meet the increasing demands for individualized railway service, we develop LLM4Rail - a novel LLM-augmented personalized railway services platform. Empowered by the LLM, LLM4Rail provides dedicated modules for ticket and weather inquiries, food & drink recommendations, and casual conversation. In LLM4Rail, we propose the iterative \"Experience-Retrieval Question-Thought-Action-Observation (ER-QTAO)\" reasoning framework. It introduces two key mechanisms, Experience Storage and Retrieval (ESR) and Diagnostic Observation Generation (DOG), to enhance the LLM's ability to invoke appropriate external tools with complex arguments. To provide personalized onboard dining services, we first construct the Chinese Railway Food & Drink (CRFD) dataset, which covers a wide range of signature dishes categorized by city, cuisine, age group, and spiciness level, and then develop an LLM-based zero-shot conversational recommender system for railway catering. In addition, to address the unconstrained nature of generative recommendations, we design a feature-similarity-based alignment mechanism to ensure that all recommended items are aligned with entries in the CRFD dataset.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2507.23377",
+    "pdf_url": "https://arxiv.org/pdf/2507.23377.pdf",
+    "prerank_score": 9,
+    "relevance_score": 8,
+    "reasoning": "该论文构建了基于 LLM 的铁路餐饮对话推荐系统，属于垂直领域的直接推荐应用，但场景较为特定且非通用电商/社交核心架构。",
+    "translation": "LLM4Rail：一个增强型个性化铁路服务 LLM 平台",
+    "summary_zh": "提出 ER-QTAO 推理框架及特征对齐机制，构建基于大模型的零样本对话推荐系统以提供个性化铁路餐饮服务。",
+    "key_points": [
+      "提出 ER-QTAO 推理框架及特征对齐机制，构建基于大模型的零样本对话推荐系统以提供个性化铁路餐饮服务"
+    ]
+  },
+  {
+    "arxiv_id": "2603.09185",
+    "title": "DEO: Training-Free Direct Embedding Optimization for Negation-Aware Retrieval",
+    "authors": [
+      "Taegyeong Lee",
+      "Jiwon Park",
+      "Seunghyun Hwang",
+      "JooYoung Jang"
+    ],
+    "summary": "Recent advances in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) have enabled diverse retrieval methods. However, existing retrieval methods often fail to accurately retrieve results for negation and exclusion queries. To address this limitation, prior approaches rely on embedding adaptation or fine-tuning, which introduce additional computational cost and deployment complexity. We propose Direct Embedding Optimization (DEO), a training-free method for negation-aware text and multimodal retrieval. DEO decomposes queries into positive and negative components and optimizes the query embedding with a contrastive objective. Without additional training data or model updates, DEO outperforms baselines on NegConstraint, with gains of +0.0738 nDCG@10 and +0.1028 MAP@100, while improving Recall@5 by +6\\% over OpenAI CLIP in multimodal retrieval. These results demonstrate the practicality of DEO for negation- and exclusion-aware retrieval in real-world settings.",
+    "categories": [
+      "cs.CL"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2603.09185",
+    "pdf_url": "https://arxiv.org/pdf/2603.09185.pdf",
+    "is_industry": true,
+    "matched_companies": [
+      "OpenAI"
+    ],
+    "prerank_score": 7,
+    "relevance_score": 4,
+    "reasoning": "该文主要解决通用检索中的否定查询问题，虽提及多模态检索，但缺乏明确的推荐系统业务场景或直接应用，属于边缘相关的通用检索方法研究。",
+    "translation": "DEO：面向否定感知检索的免训练直接嵌入优化方法",
+    "summary_zh": "提出一种免训练的 Direct Embedding Optimization (DEO) 方法，通过将查询分解为正负分量并施加对比目标来优化嵌入，以解决文本和多模态检索中的否定与排除查询难题。",
+    "key_points": [
+      "提出一种免训练的 Direct Embedding Optimization (DEO) 方法，通过将查询分解为正负分量并施加对比目标来优化嵌入，以解决文本和多模态检索中的否定与排除查询难题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25531",
+    "title": "LM-based Personalized Travel Planner",
+    "authors": [
+      "Amandi Nimasha",
+      "Oshadha Wijerathne",
+      "Dushan Fernando",
+      "Nisansa de Silva",
+      "Srinath Perera"
+    ],
+    "summary": "Effective travel planning requires handling multiple information sources, managing constraints, and tailoring recommendations to user preferences. While LLMs have introduced dynamic, context-aware decision-making, single-agent models often struggle with complex multi-step reasoning, constraint adherence, and modular execution. To overcome these limitations, we propose a hierarchical multi-agent framework where a supervising chatbot agent coordinates specialized agents for schedule validation, user query formulation, real-time data retrieval, and constraint-aware itinerary generation. By integrating LLM reasoning, external APIs, and iterative refinement mechanisms based on a deterministic, multi-dimensional scoring framework, our approach ensures adaptability, efficiency, and personalization. Evaluations on the well-known TravelPlanner benchmark demonstrate improvements in Budget Constraint planning by 10\\%, wider constraints set-based planning by 25\\%, and personalized planning results by 45\\%. compared to the ReAct baseline. Our code is available at https://github.com/nimashaklaa/TravelPlanner_Research",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25531",
+    "pdf_url": "https://arxiv.org/pdf/2611.25531.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该论文属于纯 LLM Agent 研究，专注于通用旅行规划任务，未涉及推荐系统或搜索引擎的核心架构（如召回、排序、用户建模），不符合 RecSys/Search 直接应用标准。",
+    "translation": "基于大语言模型的个性化旅行规划器",
+    "summary_zh": "提出一种分层多智能体框架，通过监督代理协调专用代理进行约束验证、查询构建和行程生成，以解决复杂多步推理和约束遵循问题。",
+    "key_points": [
+      "提出一种分层多智能体框架，通过监督代理协调专用代理进行约束验证、查询构建和行程生成，以解决复杂多步推理和约束遵循问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25326",
+    "title": "RE-CAM: Readout-Enhanced Content-Addressable Memory for Quantitative Similarity Search",
+    "authors": [
+      "Yi-Chun Liao",
+      "Dongyoung Lee",
+      "Jiazheng Chen",
+      "Tergel Molom-Ochir",
+      "Tomohisa Kawakami",
+      "Tania Roy",
+      "Ik-Joon Chang",
+      "X. Sharon Hu",
+      "Hai \"Helen\" Li",
+      "Yiran Chen"
+    ],
+    "summary": "Similarity search is essential to many applications but incurs massive data movement when executed on conventional architectures. Content-addressable memory (CAM) is a promising hardware substrate, as it allows similarity search directly in the CAM array, minimizing data movement and offering both low latency and high energy efficiency. However, conventional CAM array readout produces only binary match results, discarding quantitative similarity information that could be further exploited. Extracting this information requires interpreting the CAM array output voltage that evolves during a CAM search, making the sensing timestamp a crucial design variable alongside the reference voltage and decoding parameter. In this work, we propose RE-CAM, a readout enhancement framework for CAM that is agnostic to memory technology and application, enabling CAM array readout to approximate linear and nonlinear functions with one CAM search. By reusing the comparators to sense the time-varying output voltage multiple times, jointly optimizing the three design variables under system constraints and hardware nonidealities, and co-designing the optimization algorithm and reconfigurable hardware, RE-CAM achieves accurate approximation with low energy and area overhead without introducing a readout throughput bottleneck. Across linear, piecewise-linear, sigmoid, and exponential functions, RE-CAM reduces normalized root mean square error by 10.89% to 24.34% for general approximation and 29.43% to 46.73% when exploiting dataset distribution, compared to a shared uniform-reference ADC baseline with the same comparison budget. Relative to the same baseline, RE-CAM also achieves $8\\times$ higher search throughput while reducing energy per search and area by 47% and 39%, respectively.",
+    "categories": [
+      "cs.AR",
+      "cs.ET",
+      "cs.LG"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25326",
+    "pdf_url": "https://arxiv.org/pdf/2611.25326.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯硬件架构研究，专注于内容寻址存储器（CAM）的读出增强技术，未涉及推荐系统或搜索引擎的具体应用与算法。",
+    "translation": "RE-CAM：用于定量相似度搜索的读出增强型内容寻址存储器",
+    "summary_zh": "提出一种名为 RE-CAM 的硬件框架，通过复用比较器多次感知时变输出电压并联合优化设计变量，使 CAM 阵列能在单次搜索中近似线性与非线性函数以提取定量相似度信息。",
+    "key_points": [
+      "提出一种名为 RE-CAM 的硬件框架，通过复用比较器多次感知时变输出电压并联合优化设计变量，使 CAM 阵列能在单次搜索中近似线性与非线性函数以提取定量相似度信息"
+    ]
+  },
+  {
+    "arxiv_id": "2606.03736",
+    "title": "Adaptive Inference for Resource-Constrained Dynamic Pricing",
+    "authors": [
+      "Ruicheng Ao",
+      "Jiashuo Jiang",
+      "David Simchi-Levi"
+    ],
+    "summary": "We study dynamic pricing over a finite selling horizon when limited resource capacity determines revenue and the observations available for inference at a prespecified price. Resource depletion can remove the target neighborhood from the feasible price set, changing the experiment generated by the pricing policy. We develop inference-aware re-solving controllers that check target-band feasibility before current covariates arrive and log the pricing mixture. Target-reserved and smooth controllers take population mean-pair geometry as a predeployment input; learned barycentric re-solving instead estimates stationary mean-consumption vectors of predeclared component kernels. On an affine binding-capacity family, an exact-input target-reserved controller assigning mass $t^{-γ}$ obtains an information clock of order $T^{1-γ}$ in probability, radius $O_p\\{T^{-(1-γ)/2}\\}$, and, under an exposed-face reward identity, a signed fluid-benchmark gap bounded above by $O(\\log T+T^{1-γ})$. Under the exogenous affine-face condition, predeclared target support, and polynomial error spending with exponent greater than one, learned barycentric re-solving has a linear information clock in probability and an $O(\\log T)$ signed-gap upper bound; centered local pricing has the same orders under slack capacity and global target optimality. An exact-input, target-compatible smooth alternative without reservation gives a linear clock in probability, an $O_p(T^{-1/2})$ deterministic-envelope radius with unconditional coverage and reporting probability tending to one, and an $O(\\log^2 T)$ signed-gap upper bound. Boundary results show when physical support is lost and why a $1/t$ target branch yields only $O_p(1)$ information if it is the sole target-local source. The policy reports an interval when its prespecified support and information conditions hold and otherwise abstains.",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2606.03736",
+    "pdf_url": "https://arxiv.org/pdf/2606.03736.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯运筹学与动态定价理论论文，专注于资源约束下的统计推断，未涉及推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），属于排除类别。",
+    "translation": "资源受限动态定价的自适应推断",
+    "summary_zh": "提出了一种感知推断的重求解控制器，通过在价格策略执行前检查目标带可行性并记录定价混合，以解决有限资源容量下因资源耗尽导致可行价格集变化的问题。",
+    "key_points": [
+      "提出了一种感知推断的重求解控制器，通过在价格策略执行前检查目标带可行性并记录定价混合，以解决有限资源容量下因资源耗尽导致可行价格集变化的问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.24999",
+    "title": "PsyWorld: Profile-Conditioned World Modeling for Human Behavior Prediction",
+    "authors": [
+      "Ziyuan Qin",
+      "Yang Qiao",
+      "Summer B. Frandsen",
+      "Michael T. Treadway",
+      "Liang Zhao"
+    ],
+    "summary": "Understanding how stable psychometric traits and time-varying states jointly inform behavior is an important problem in computational behavioral science. Existing personalized agents commonly condition actions directly on a static profile, leaving realized state transitions unused as an explicit source of supervision. We introduce a profile-conditioned state world model that uses observed environment--behavior state transitions to learn transition-informed representations for behavioral prediction. During training, a posterior encoder quantizes realized transitions, while a prior predicts the resulting codes from the psychometric profile and pre-transition context. The prior code and predicted next state then condition macro-level behavior and simulator-grounded execution. Thus, the world model provides structured transition supervision instead of treating personality as a direct action descriptor. We evaluate the framework in VEET, a controlled behavioral simulator with human trajectories, and in AgentSociety as a structurally different synthetic environment. A participant-disjoint split of 240 training, 25 validation, and 48 test participants evaluates generalization to unseen people. On VEET, the model reaches 0.904 Top-1 accuracy (95\\% CI: [0.895, 0.913]) and 0.0033 Macro KL. Ablations associate continuous next-state modeling with most of the Top-1 gain, while discrete codes and prior alignment mainly improve Top-3 and distributional alignment. These results establish transition-informed world-model supervision as useful for subject-generalized behavior prediction, without implying causal psychological mechanisms or calibrated long-horizon state dynamics.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.24999",
+    "pdf_url": "https://arxiv.org/pdf/2611.24999.pdf",
+    "prerank_score": 6,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯计算行为科学研究，专注于心理特征建模和通用智能体行为预测，未涉及推荐系统或搜索引擎的具体应用场景。",
+    "translation": "PsyWorld：基于画像条件化的世界模型用于人类行为预测",
+    "summary_zh": "该论文提出一种基于心理画像条件的状态世界模型，利用观测到的环境 - 行为状态转移来学习包含转移信息的表征，以改进通用的人类行为预测能力。",
+    "key_points": [
+      "该论文提出一种基于心理画像条件的状态世界模型，利用观测到的环境 - 行为状态转移来学习包含转移信息的表征，以改进通用的人类行为预测能力"
+    ]
+  },
+  {
+    "arxiv_id": "2611.25229",
+    "title": "LSP-RAG: Latent Scoring Perspectives for Knowledge Graph Retrieval-Augmented Generation",
+    "authors": [
+      "Haochen Liu",
+      "Guanghui Min",
+      "Song Wang",
+      "Yada Zhu",
+      "Chen Chen",
+      "Jundong Li"
+    ],
+    "summary": "Large Language Models (LLMs) have demonstrated strong capabilities in open-domain question answering, but often struggle with factual accuracy and multi-hop reasoning due to the incompleteness of the training corpora. A promising solution is Knowledge Graph Retrieval-Augmented Generation (KG-RAG), which supplements LLMs with structured knowledge retrieved from external knowledge graphs (KGs). However, existing KG-RAG methods either rely on large-scale language models (e.g., ChatGPT) to guide the retrieval process, which leads to high computational costs, or suffer from limited retrieval quality when using lightweight language models, particularly under multi-hop scenarios. We propose LSP-RAG (Latent Scoring Perspectives for Retrieval-Augmented Generation over Knowledge Graphs), a novel KG-RAG framework that enhances hop-wise KG knowledge retrieval through multi-perspective prompted scoring. Each latent scoring perspective is guided by a combination of two types of soft prompts: a perspective-specific soft prompt induces a distinct prompt-conditioned scoring function over candidate triplets, while a contextual soft prompt evolves with each reasoning hop by encoding the query and previously explored KG triplets, enabling the model to preserve consistency and relevance across multi-hop retrieval. Rather than assuming manually defined semantic roles, these latent perspectives are adaptively aggregated to capture heterogeneous relevance signals during retrieval. This design allows LSP-RAG to perform accurate and robust retrieval using lightweight language models. LSP-RAG achieves superior performance across multiple KG-based Question Answering benchmarks compared to existing retrieval systems, including those that rely on much larger language models, demonstrating its effectiveness under limited computational budgets.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-18",
+    "updated": "2026-11-20",
+    "url": "https://arxiv.org/abs/2611.25229",
+    "pdf_url": "https://arxiv.org/pdf/2611.25229.pdf",
+    "prerank_score": 6,
+    "is_industry": true,
+    "matched_companies": [
+      "IBM"
+    ],
+    "affiliation_lines": [
+      "1University of Virginia 2University of Central Florida 3IBM Research"
+    ],
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM 与知识图谱问答（KG-QA）的研究，旨在提升开放域问答的事实准确性，未涉及推荐系统或搜索引擎的核心场景（如召回、排序、用户建模）。",
+    "translation": "LSP-RAG：用于知识图谱检索增强生成的潜在评分视角",
+    "summary_zh": "提出一种基于多视角提示评分的 KG-RAG 框架，通过结合特定视角软提示和上下文软提示，引导轻量级语言模型在知识图谱中进行准确的多跳推理检索。",
+    "key_points": [
+      "提出一种基于多视角提示评分的 KG-RAG 框架，通过结合特定视角软提示和上下文软提示，引导轻量级语言模型在知识图谱中进行准确的多跳推理检索"
+    ]
+  }
+]

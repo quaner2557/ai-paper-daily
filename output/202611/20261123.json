@@ -1,0 +1,489 @@
+[
+  {
+    "arxiv_id": "2611.12180",
+    "title": "TS-GEAR: Taobao Shangou GEnerative Ad Retrieval",
+    "authors": [
+      "Guofeng Tong",
+      "Xu Zhang",
+      "Guangliang Yu",
+      "Haiqiang Wang",
+      "Guannan Cong",
+      "Xing Guo",
+      "Yang Zhou",
+      "Jingjing Duan",
+      "Shuang Li",
+      "Feng Shi",
+      "Hualei Liu"
+    ],
+    "summary": "On-demand delivery platforms such as DoorDash and Uber Eats impose a constraint absent in traditional e-commerce: merchants beyond the user's delivery range are invalid candidates rather than merely low-ranked. Generative retrieval has recently shown strong potential in large-scale retrieval systems. Adapting it to this setting, however, poses three challenges. First, existing semantic IDs encode geography only as a soft signal, so reachability can only rely on a non-differentiable post-generation hard truncation. Second, user preferences vary substantially across both regions and queries, so aggregating historical behaviors without conditioning on geography and the current query yields biased interest estimates. Third, the retrieved candidate set is evaluated by its collective value, yet autoregressive training scores each sequence independently, with no set-level signal to discourage redundant near-duplicates. To address the challenges, we propose TS-GEAR, a unified generative retrieval framework for on-demand delivery: (1) Geo-Semantic ID splits merchant identifiers into geographic prefixes and semantic suffixes, making reachability a prediction target rather than a post-hoc filter; (2) Query-Geo Target Attention aggregates historical behaviors using the real-time query and location as dual targets, while encoding each behavior's own location into its attention key; (3) GMPO (Group Marginal Policy Optimization) rewrites advantages using a deduplicated group reward and marginal advantage within GRPO, avoiding auxiliary diversity objectives. Deployed online with a lightweight 0.1B backbone, TS-GEAR serves over 150 million queries per day in the search advertising pipeline of Taobao Shangou, consistently outperforming state-of-the-art generative retrieval methods on both HitRate and geographic validity, and achieving 3.8% gains in ad impressions and 4.2% in ad revenue.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.12180",
+    "pdf_url": "https://arxiv.org/pdf/2611.12180.pdf",
+    "prerank_score": 10,
+    "relevance_score": 10,
+    "reasoning": "本文直接解决本地生活（饿了么/淘宝闪购）广告检索中的地理约束难题，提出了生成式检索新架构并已在大规模生产环境部署，完全符合核心领域高分标准。",
+    "translation": "TS-GEAR：淘宝闪购生成式广告检索框架",
+    "summary_zh": "提出一种面向即时配送场景的生成式广告检索框架，通过地理语义 ID 将可达性转化为预测目标，利用查询 - 地理双重目标注意力机制聚合用户行为，并引入组边际策略优化以消除候选集冗余。",
+    "key_points": [
+      "提出一种面向即时配送场景的生成式广告检索框架，通过地理语义 ID 将可达性转化为预测目标，利用查询 - 地理双重目标注意力机制聚合用户行为，并引入组边际策略优化以消除候选集冗余"
+    ]
+  },
+  {
+    "arxiv_id": "2607.24865",
+    "title": "Tokens are All You Need: Dual-purpose Semantic IDs for Achieving LLM-Level I/O Efficiency in recommendation systems",
+    "authors": [
+      "Baolei Li",
+      "Yiping Yuan",
+      "Yilin Zheng",
+      "Likang Yin",
+      "Ling Liu",
+      "Fabio Soldo",
+      "Romer Rosales",
+      "Xinyang Yi",
+      "Lichan Hong"
+    ],
+    "summary": "Large-scale recommendation systems face \"Memory Wall\" bottlenecks due to massive, dense embedding tables. While generative retrieval uses discrete tokens for IDs, high-dimensional context still relies on inefficient dense formats. Inspired by computer vision data compression, we propose Dual-purpose Semantic IDs to achieve LLM-level I/O efficiency. Our methodology uses hierarchical quantization to condense continuous embeddings into discrete Semantic IDs performing two concurrent roles: (1) Collaborative Identity: modeling user-item interactions via learnable embedding table; and (2) Content Reconstruction: using a lightweight Semantic Decoder for on-the-fly embedding approximation. This approach replaces massive vector storage with on-demand reconstruction, reducing system overhead and data footprints. We demonstrate the efficacy of our framework through offline evaluations and successful online deployment in production-scale ranking and retrieval systems at a major video sharing platform, showing that discrete tokens are indeed all you need for highly efficient, content-rich recommendation.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2607.24865",
+    "pdf_url": "https://arxiv.org/pdf/2607.24865.pdf",
+    "prerank_score": 9,
+    "relevance_score": 10,
+    "reasoning": "该论文直接针对推荐系统中的存储瓶颈提出创新架构（双重语义 ID），并已在大型视频平台的生产环境中部署，完美契合核心领域进展与工业落地标准；作为中国公司成果，额外加分后达到满分。",
+    "translation": "Token 即所需：用于实现推荐系统 LLM 级输入输出效率的双重用途语义 ID",
+    "summary_zh": "提出一种双重用途语义 ID 方法，通过分层量化将连续嵌入压缩为离散 Token，同时承担协同身份建模与内容重建功能，以按需重构替代大规模向量存储从而解决推荐系统的内存墙瓶颈。",
+    "key_points": [
+      "提出一种双重用途语义 ID 方法，通过分层量化将连续嵌入压缩为离散 Token，同时承担协同身份建模与内容重建功能，以按需重构替代大规模向量存储从而解决推荐系统的内存墙瓶颈"
+    ]
+  },
+  {
+    "arxiv_id": "2012.10858",
+    "title": "Reinforcement Learning-based Product Delivery Frequency Control",
+    "authors": [
+      "Yang Liu",
+      "Zhengxing Chen",
+      "Kittipat Virochsiri",
+      "Juan Wang",
+      "Jiahao Wu",
+      "Feng Liang"
+    ],
+    "summary": "Frequency control is an important problem in modern recommender systems. It dictates the delivery frequency of recommendations to maintain product quality and efficiency. For example, the frequency of delivering promotional notifications impacts daily metrics as well as the infrastructure resource consumption (e.g. CPU and memory usage). There remain open questions on what objective we should optimize to represent business values in the long term best, and how we should balance between daily metrics and resource consumption in a dynamically fluctuating environment. We propose a personalized methodology for the frequency control problem, which combines long-term value optimization using reinforcement learning (RL) with a robust volume control technique we termed \"Effective Factor\". We demonstrate statistically significant improvement in daily metrics and resource efficiency by our method in several notification applications at a scale of billions of users. To our best knowledge, our study represents the first deep RL application on the frequency control problem at such an industrial scale.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2020-12-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2012.10858",
+    "pdf_url": "https://arxiv.org/pdf/2012.10858.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决推荐系统中的核心业务问题（推送频率控制），并提出结合强化学习与鲁棒体积控制的个性化方法，具有明确的工业级 RecSys 应用场景。",
+    "translation": "基于强化学习的产品推送频率控制",
+    "summary_zh": "提出一种结合长期价值强化学习与“有效因子”鲁棒体积控制技术的个性化方法，以动态平衡推荐系统的业务指标与资源消耗。",
+    "key_points": [
+      "提出一种结合长期价值强化学习与“有效因子”鲁棒体积控制技术的个性化方法，以动态平衡推荐系统的业务指标与资源消耗"
+    ]
+  },
+  {
+    "arxiv_id": "2508.07595",
+    "title": "Towards Comprehensible Recommendation with Large Language Model Fine-tuning",
+    "authors": [
+      "Yunze Luo",
+      "Gaode Chen",
+      "Yinjie Jiang",
+      "Xinghua Zhang",
+      "Kaigui Bian"
+    ],
+    "summary": "Recommender systems have become increasingly ubiquitous in daily life. While traditional recommendation approaches primarily rely on ID-based representations or item-side content features, they often fall short in capturing the underlying semantics aligned with user preferences (e.g., recommendation reasons for items), leading to a semantic-collaborative gap. Recently emerged LLM-based feature extraction approaches also face a key challenge: how to ensure that LLMs possess recommendation-aligned reasoning capabilities and can generate accurate, personalized reasons to mitigate the semantic-collaborative gap. To address these issues, we propose a novel Content Understanding from a Collaborative Perspective framework (CURec), which generates collaborative-aligned content features for more comprehensive recommendations. CURec first adapts the LLM with recommendation objectives through post-training, equipping it with instruction-following and chain-of-thought reasoning capabilities. Next, we use the LLM-generated features to train the recommender model. Then, we treat the user-item prediction scores produced by the trained recommender model as reward signals to guide RL-based refinement of the LLM, thereby improving the quality of generated reasons and pattern. The corrected reasons are directly integrated into the recommender model to enhance comprehensibility and recommendation performance. Extensive experiments on public benchmarks demonstrate the superiority of CURec over existing methods.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2508.07595",
+    "pdf_url": "https://arxiv.org/pdf/2508.07595.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Kuaishou"
+    ],
+    "affiliation_lines": [
+      "SchoolofCS,PekingUniversity KuaishouTechnology KuaishouTechnology",
+      "Unaffiliated SchoolofCS,PekingUniversity",
+      "leadingtoasemantic-collaborativegap.RecentlyemergedLLM- Fine-tuning.InProceedingsofthe35thACMInternationalConferenceon",
+      "mitigatethesemantic-collaborativegap.Toaddresstheseissues,",
+      "weproposeanovelContentUnderstandingfromaCollaborative 1 Introduction",
+      "Perspectiveframework(CURec),whichgeneratescollaborative- Recommendersystemshavebecomeincreasinglyubiquitousin"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐系统中的语义 - 协作差距问题，提出利用 LLM 微调生成协同对齐特征及可解释理由的框架，属于 LLM 在 RecSys 中的核心应用。",
+    "translation": "面向可理解推荐的大语言模型微调研究",
+    "summary_zh": "提出 CURec 框架，通过指令微调赋予 LLM 推荐推理能力以生成协同对齐内容特征，并利用推荐模型预测分数作为奖励信号引导 RL 优化 LLM，从而提升推荐理由质量与系统可解释性。",
+    "key_points": [
+      "提出 CURec 框架，通过指令微调赋予 LLM 推荐推理能力以生成协同对齐内容特征，并利用推荐模型预测分数作为奖励信号引导 RL 优化 LLM，从而提升推荐理由质量与系统可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.22503",
+    "title": "From Relevance to Utility: Rubric Alignment in Yuanbao Search",
+    "authors": [
+      "Yu Lu",
+      "Lixin Zou",
+      "Yangqi Chen",
+      "Hui Xu",
+      "Qiaolin Xia",
+      "Hao Wang",
+      "Qianwen Ma",
+      "Reed Li",
+      "Shuang Zeng",
+      "Haijin Liang",
+      "Haibo Shi"
+    ],
+    "summary": "Agentic search demands that a search engine move beyond per document relevance ranking to assemble document sets optimized for downstream LLM reasoning. Prior work addresses this either by improving individual pipeline stages in isolation or by applying RL based selection on top of relevance trained upstream modules, leaving the full stack unaligned to utility for reasoning. We propose rubric aligned search, a framework that unifies the traditional search pipeline under a single supervision surface. For each query, we derive a rubric from coarse to fine, specifying weighted positive criteria that the document set must satisfy and negative criteria that it must avoid. From this rubric we derive two training signals. First, a lightweight labeler distills rubric grounded judgments into per document utility labels, which supervise a contrastive dual encoder for retrieval and a multi task ranker trained with four rubric aligned scoring heads. Second, a rubric conditioned evaluator produces a set level reward that drives a dual branch RL selector, combining GRPO with best rollout distillation to resolve credit assignment in subset optimization. Deployed in Yuanbao Search, the pipeline improves end to end answer quality by 8.52% over the online production baseline.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.22503",
+    "pdf_url": "https://arxiv.org/pdf/2611.22503.pdf",
+    "prerank_score": 9,
+    "is_industry": true,
+    "matched_companies": [
+      "Tencent"
+    ],
+    "affiliation_lines": [
+      "luyuresearch@foxmail.com Engineering,WuhanUniversity yangqichen@tencent.com",
+      "nals.First,alightweightlabelerdistillsrubric-groundedjudgments",
+      "into per-document utility labels,"
+    ],
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对搜索系统（Yuanbao Search），提出了一种将传统检索排序流程与大模型推理效用对齐的新框架，属于核心的搜索架构创新而非纯 LLM 研究。",
+    "translation": "从相关性到效用：元宝搜索中的准则对齐",
+    "summary_zh": "提出准则对齐搜索框架，通过推导查询准则生成文档级效用标签和集合级奖励，统一监督检索、排序及强化学习选择器，以优化面向大模型推理的文档集效用。",
+    "key_points": [
+      "提出准则对齐搜索框架，通过推导查询准则生成文档级效用标签和集合级奖励，统一监督检索、排序及强化学习选择器，以优化面向大模型推理的文档集效用"
+    ]
+  },
+  {
+    "arxiv_id": "2611.23910",
+    "title": "MLE Agents: Autonomous ML Engineering in Large-scale Recommendation Systems",
+    "authors": [
+      "Matthew Li",
+      "Albert Jiongqian Liang",
+      "Dilip Raj"
+    ],
+    "summary": "The typical workflow for improving large-scale ranking and recommendation models is slow and tedious: an engineer forms a hypothesis, implements it as a code change, trains a model, and evaluates it both offline and online, often relying on their own intuition and experience along the way. Autonomous LLM agents promise to speed this up by running the loop on their own, but it is still unclear whether they can do this in industry-scale systems rather than on benchmarks or small proxy tasks. We build human-on-the-loop machine learning engineer (MLE) agents that propose, implement, train, and evaluate model changes on large-scale search rankers. Engineers retain control over objective design, search direction, and final-model review. We identify three obstacles that make this industry setting challenging: feedback takes hours per experiment, offline metrics do not always predict online impact, and improvements saturate after the early wins. We address these with parallel training runs, an objective calibrated to match online impact, and careful context engineering. In one campaign, the system ran 1,097 completed candidate experiments and accepted 325, a 29.6\\% acceptance rate compared with 15.6\\% in the earlier campaign under a different objective and search constraint. Its best model increases search volume by 0.23\\% in an A/B test of large scale. Several improvements were architectural changes the team had never tried, drawn from the broader industry and literature, suggesting that MLE agents can explore regions of the design space that human intuition overlooks. We find that the design of the harness around the model matters: intuition suggests that a stronger underlying model is enough, but in our experience, the design of the loop around it is just as critical. More broadly, our work shows that autonomous agents can do real machine-learning engineering in industry-scale systems.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.23910",
+    "pdf_url": "https://arxiv.org/pdf/2611.23910.pdf",
+    "prerank_score": 9,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对大规模推荐/搜索系统的模型工程自动化，利用 LLM Agent 解决工业界排序模型迭代慢的实际问题，属于 LLM 在 RecSys 核心流程中的高价值应用。",
+    "translation": "MLE Agents：大规模推荐系统中的自主机器学习工程",
+    "summary_zh": "提出一种人机协同的自主 MLE Agent 框架，通过并行训练、在线指标校准及上下文工程，自动完成大规模搜索排序模型的假设提出、代码实现、训练与评估闭环。",
+    "key_points": [
+      "提出一种人机协同的自主 MLE Agent 框架，通过并行训练、在线指标校准及上下文工程，自动完成大规模搜索排序模型的假设提出、代码实现、训练与评估闭环"
+    ]
+  },
+  {
+    "arxiv_id": "2610.40112",
+    "title": "Beyond IPS: Reliable Counterfactual Evaluation in Multi-Stage Ad Systems without Logged Propensities",
+    "authors": [
+      "Mohsen Malmir",
+      "Mohamed A. Radwan",
+      "Houssam Nassif",
+      "Murat Ali Bayir"
+    ],
+    "summary": "Offline evaluation of ad-ranking policies in multi-stage delivery systems is challenging because action propensities are often unavailable, limiting inverse propensity scoring (IPS). Reward-model-based estimators such as the Direct Method (DM) avoid propensities but can be biased when candidate policies induce impression distributions that differ from the logged data. We formalize DM-based counterfactual replay and propose mixture-weighted reward modeling, which reweights logged data toward a mixture of candidate-policy distributions using density ratios from a multiclass domain classifier. We bound each candidate's value-estimation error by overlap, cold-start, and replay terms, and derive an asymptotic rule that uses the cold-start mass to decide whether to trust offline selection or route candidates to online A/B testing. On an ads-delivery simulator and on production traffic from a large-scale CTR ranking system, the mixture-weighted reward model improves policy selection over its unweighted counterpart in both settings, with the largest gains at low overlap in simulation. Combined with a doubly robust correction, it attains the highest Top-1 accuracy in production and at low and medium overlap in simulation.",
+    "categories": [
+      "cs.IR"
+    ],
+    "published": "2026-10-29",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2610.40112",
+    "pdf_url": "https://arxiv.org/pdf/2610.40112.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接解决广告排序系统中的离线评估难题，提出了无需记录倾向性的反事实评估新方法，属于核心推荐/广告技术突破。",
+    "translation": "超越 IPS：在无记录倾向性的多阶段广告系统中进行可靠的反事实评估",
+    "summary_zh": "提出一种基于混合权重奖励建模的反事实重放方法，利用密度比重新加权日志数据以解决多阶段广告系统中因缺乏倾向性数据导致的评估偏差问题。",
+    "key_points": [
+      "提出一种基于混合权重奖励建模的反事实重放方法，利用密度比重新加权日志数据以解决多阶段广告系统中因缺乏倾向性数据导致的评估偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.24757",
+    "title": "Variance-Optimal Counterfactual Policy Design for Sample-Efficient Online A/B Testing",
+    "authors": [
+      "Shashank Gupta",
+      "Subhadeep Maji"
+    ],
+    "summary": "Online A/B testing is the standard approach for evaluating changes to user-facing systems, such as a new recommendation or ranking policy, before deployment. While the difference-in-means estimator of a standard A/B test is unbiased, it often suffers from high variance. When the treatment and production policies choose the same actions with similar probabilities, the resulting observations can add noise while providing little information about the difference between the policies. Consequently, A/B tests can require large amounts of traffic and long durations to detect small treatment effects. Existing variance-reduction methods mainly improve the estimator after the data-collection scheme has been fixed, and recent overlap-aware designs only optimize a single traffic split between the two policies; thereby, they cannot direct traffic to the actions on which the policies disagree.\n  In this paper, we jointly optimize how actions are sampled and how the resulting observations are used to estimate the treatment effect. Our contributions are two-fold. First, building on pairwise off-policy evaluation, we derive the variance-optimal action-level logging policy for estimating the average treatment effect between two policies, which has a closed-form solution for any fixed control variate. Second, we use historical logs to jointly optimize the logging policy and a control variate to further reduce variance. Our experimental results in simulated policy A/B tests show that our designs estimate the average treatment effect more accurately than existing variance reduction methods on every evaluated setting, while generally improving statistical power and reducing how often the worse policy is selected. As a result, our designs enable practitioners to reach reliable deployment decisions with considerably less online traffic.",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.24757",
+    "pdf_url": "https://arxiv.org/pdf/2611.24757.pdf",
+    "prerank_score": 8,
+    "relevance_score": 9,
+    "reasoning": "该论文直接针对推荐/排序系统的在线 A/B 测试痛点，提出方差最优的反事实策略设计以显著降低流量成本，属于核心工程落地技术；且来自中国公司，按规定额外 +1 分。",
+    "translation": "面向样本高效在线 A/B 测试的方差最优反事实策略设计",
+    "summary_zh": "本文提出一种联合优化动作采样与观测利用的框架，通过推导方差最优的动作级记录策略并结合历史日志优化控制变量，以最小化在线 A/B 测试中的估计方差。",
+    "key_points": [
+      "本文提出一种联合优化动作采样与观测利用的框架，通过推导方差最优的动作级记录策略并结合历史日志优化控制变量，以最小化在线 A/B 测试中的估计方差"
+    ]
+  },
+  {
+    "arxiv_id": "2508.01115",
+    "title": "A hierarchy tree data structure for behavior-based user segment representation",
+    "authors": [
+      "Yang Liu",
+      "Xuejiao Kang",
+      "Sathya Iyer",
+      "Idris Malik",
+      "Ruixuan Li",
+      "Juan Wang",
+      "Xinchen Lu",
+      "Xiangxue Zhao",
+      "Dayong Wang",
+      "Menghan Liu",
+      "Isaac Liu",
+      "Feng Liang",
+      "Yinzhe Yu"
+    ],
+    "summary": "User attributes are essential in multiple stages of modern recommendation systems and are particularly important for mitigating the cold-start problem and improving the experience of new or infrequent users. We propose Behavior-based User Segmentation (BUS), a novel tree-based data structure that hierarchically segments the user universe with various users' categorical attributes based on the users' product-specific engagement behaviors. During the BUS tree construction, we use Normalized Discounted Cumulative Gain (NDCG) as the objective function to maximize the behavioral representativeness of marginal users relative to active users in the same segment. The constructed BUS tree undergoes further processing and aggregation across the leaf nodes and internal nodes, allowing the generation of popular social content and behavioral patterns for each node in the tree. To further mitigate bias and improve fairness, we use the social graph to derive the user's connection-based BUS segments, enabling the combination of behavioral patterns extracted from both the user's own segment and connection-based segments as the connection aware BUS-based recommendation. Our offline analysis shows that the BUS-based retrieval significantly outperforms traditional user cohort-based aggregation on ranking quality. We have successfully deployed our data structure and machine learning algorithm and tested it with various production traffic serving billions of users daily, achieving statistically significant improvements in the online product metrics, including music ranking and email notifications. To the best of our knowledge, our study represents the first list-wise learning-to-rank framework for tree-based recommendation that effectively integrates diverse user categorical attributes while preserving real-world semantic interpretability at a large industrial scale.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-02-24",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2508.01115",
+    "pdf_url": "https://arxiv.org/pdf/2508.01115.pdf",
+    "prerank_score": 6,
+    "relevance_score": 9,
+    "reasoning": "该论文提出了一种基于行为树的用户分群数据结构，直接应用于推荐系统的召回与排序环节，有效解决冷启动问题并已在工业界大规模部署。",
+    "translation": "一种用于基于行为的用户分群表示的层次树数据结构",
+    "summary_zh": "提出一种基于行为的用户分群（BUS）层次树结构，利用列表式学习排序目标构建用户细分，并结合社交图连接感知以增强推荐表征和可解释性。",
+    "key_points": [
+      "提出一种基于行为的用户分群（BUS）层次树结构，利用列表式学习排序目标构建用户细分，并结合社交图连接感知以增强推荐表征和可解释性"
+    ]
+  },
+  {
+    "arxiv_id": "2611.26919",
+    "title": "ERA: Embed, Route, Adapt for Cold-Start Cross-Model Latent Retrieval",
+    "authors": [
+      "Venkata Chivukula",
+      "Zifeng Wang",
+      "Jinsung Yoon"
+    ],
+    "summary": "Production retrieval systems are tied to the embedding model that indexed their corpus. Moving queries to a different encoder normally requires re-embedding the whole corpus, and at cold start there are no query logs while every document embedded by the new encoder incurs an API or compute cost. We present ERA (Embed, Route, Adapt), a system for cold-start cross-model latent retrieval. ERA spends a small anchor budget on maximally informative documents, selected from the existing target index via Cosine Farthest Point Sampling, trains a lightweight adapter with a Manifold Alignment Loss that couples directional alignment with orthogonal regularization to prevent representation collapse, and pairs the adapter with a deterministic router that escalates the rare, hard queries that define perceived retrieval quality. Across five BEIR datasets, ERA matches or outperforms point-wise L2 and embedding-conversion baselines, with relative gains of up to 35% nDCG@10 on Arguana, and on clustered corpora its anchor selection also improves prior methods under a fixed anchor budget. With 1.2 ms of adapter and router overhead on top of a ~20 ms local encoder, ERA at a 20% nominal escalation budget reduces end-to-end query latency from roughly 160 ms to 38-86 ms while concentrating escalations on the queries where the projection fails most.",
+    "categories": [
+      "cs.IR",
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.26919",
+    "pdf_url": "https://arxiv.org/pdf/2611.26919.pdf",
+    "prerank_score": 8,
+    "relevance_score": 8,
+    "reasoning": "该论文直接解决搜索系统中的冷启动和跨模型检索问题，提出了具体的工程架构（ERA），属于核心搜索技术优化，而非纯 LLM 理论研究。",
+    "translation": "ERA：面向冷启动跨模型潜在检索的嵌入、路由与适配方法",
+    "summary_zh": "提出一种通过选择最具信息量的锚点文档训练轻量级适配器，并结合确定性路由器处理困难查询的系统，以在不重新嵌入整个语料库的情况下实现高效的跨模型检索。",
+    "key_points": [
+      "提出一种通过选择最具信息量的锚点文档训练轻量级适配器，并结合确定性路由器处理困难查询的系统，以在不重新嵌入整个语料库的情况下实现高效的跨模型检索"
+    ]
+  },
+  {
+    "arxiv_id": "2610.06751",
+    "title": "Unifying matrix completion across domains with a synthetically pretrained foundation model",
+    "authors": [
+      "Dwaipayan Saha",
+      "Jacob Feitelberg",
+      "Kyuseong Choi",
+      "Raaz Dwivedi",
+      "Anish Agarwal"
+    ],
+    "summary": "Matrix completion underlies problems from tabular imputation to causal inference. While matrix completion provides a common setup for these domains, the best methods in each domain are still specialized and do not transfer well across domains. We introduce MatrixFormer, a pre-trained matrix-native transformer that predicts a full distribution for every missing entry in a single forward pass. MatrixFormer is trained entirely on synthetic low-rank and latent-factor matrices under diverse missingness patterns. Applied zero-shot with fixed network weights, MatrixFormer achieves competitive performance on causal inference panel-data tasks, tabular imputation, and recommendation systems matrix completion. These results position MatrixFormer as a general-purpose foundation model for matrix completion.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2610.06751",
+    "pdf_url": "https://arxiv.org/pdf/2610.06751.pdf",
+    "prerank_score": 6,
+    "relevance_score": 6,
+    "reasoning": "该论文提出了一种通用的矩阵补全基础模型，虽在摘要中提及可应用于推荐系统，但其核心是解决跨领域的通用矩阵问题而非针对 RecSys 的专用创新，且属于预训练范式而非纯 LLM 研究，故给予中等优先级评分。",
+    "translation": "利用合成预训练基础模型统一跨领域矩阵补全",
+    "summary_zh": "提出 MatrixFormer，一种仅在合成低秩矩阵上预训练的 Transformer 架构，旨在通过单次前向传播预测缺失项分布，从而作为通用基础模型解决包括推荐系统在内的多领域矩阵补全问题。",
+    "key_points": [
+      "提出 MatrixFormer，一种仅在合成低秩矩阵上预训练的 Transformer 架构，旨在通过单次前向传播预测缺失项分布，从而作为通用基础模型解决包括推荐系统在内的多领域矩阵补全问题"
+    ]
+  },
+  {
+    "arxiv_id": "2505.16319",
+    "title": "FreshRetailNet-50K: A Stockout-Annotated Censored Demand Dataset for Latent Demand Recovery and Forecasting in Fresh Retail",
+    "authors": [
+      "Yangyang Wang",
+      "Jiawei Gu",
+      "Li Long",
+      "Xin Li",
+      "Li Shen",
+      "Zhouyu Fu",
+      "Xiangjun Zhou",
+      "Xu Jiang"
+    ],
+    "summary": "Accurate demand estimation is critical for the retail business in guiding the inventory and pricing policies of perishable products. However, it faces fundamental challenges from censored sales data during stockouts, where unobserved demand creates systemic policy biases. Existing datasets lack the temporal resolution and annotations needed to address this censoring effect. To fill this gap, we present FreshRetailNet-50K, the first large-scale benchmark for censored demand estimation. It comprises 50,000 store-product time series of detailed hourly sales data from 898 stores in 18 major cities, encompassing 863 perishable SKUs meticulously annotated for stockout events. The hourly stock status records unique to this dataset, combined with rich contextual covariates, including promotional discounts, precipitation, and temporal features, enable innovative research beyond existing solutions. We demonstrate one such use case of two-stage demand modeling: first, we reconstruct the latent demand during stockouts using precise hourly annotations. We then leverage the recovered demand to train robust demand forecasting models in the second stage. Experimental results show that this approach achieves a 2.73% improvement in prediction accuracy while reducing the systematic demand underestimation from 7.37% to near-zero bias. With unprecedented temporal granularity and comprehensive real-world information, FreshRetailNet-50K opens new research directions in demand imputation, perishable inventory optimization, and causal retail analytics. The unique annotation quality and scale of the dataset address long-standing limitations in retail AI, providing immediate solutions and a platform for future methodological innovation. The data (https://huggingface.co/datasets/Dingdong-Inc/FreshRetailNet-50K) and code (https://github.com/Dingdong-Inc/frn-50k-baseline}) are openly released.",
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2505.16319",
+    "pdf_url": "https://arxiv.org/pdf/2505.16319.pdf",
+    "prerank_score": 8,
+    "relevance_score": 4,
+    "reasoning": "该论文主要关注零售库存管理和需求预测中的删失数据问题，属于供应链优化范畴，虽与电商背景相关但并非核心的推荐/搜索算法（如召回、排序、用户建模），且非纯 LLM 研究。",
+    "translation": "FreshRetailNet-50K：用于生鲜零售潜在需求恢复与预测的缺货标注删失需求数据集",
+    "summary_zh": "本文提出了一个包含详细小时级销售数据和缺货标注的大规模数据集，旨在通过两阶段建模方法解决生鲜零售中因缺货导致的潜在需求估算偏差问题。",
+    "key_points": [
+      "本文提出了一个包含详细小时级销售数据和缺货标注的大规模数据集，旨在通过两阶段建模方法解决生鲜零售中因缺货导致的潜在需求估算偏差问题"
+    ]
+  },
+  {
+    "arxiv_id": "2611.26752",
+    "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
+    "authors": [
+      "Jiangfan Zhang",
+      "Wentao Bao",
+      "Xian Wu",
+      "Xiangjun Fan",
+      "Jianpeng Cheng",
+      "Jun Xiao"
+    ],
+    "summary": "Iterative architectures such as looped language models improve parameter efficiency and reasoning capacity of transformers, yet their sequential backbone iterations introduce substantial computational latency. Conversely, parallelizable learnable special tokens (such as the register tokens in Vision Transformer) enable efficient single-pass inference, but often suffer from the absence of sequential refinement and exhibit redundant representations across tokens. To address these challenges, we introduce Depth-Linked Residual Tokens (DepThink), an efficient framework designed for multimodal retrieval and generation. Operating within a single pre-filling forward pass, DepThink appends a sequence of K learnable residual tokens whose hidden states are coupled through a lightweight, learnable residual recurrence. This mechanism enables each residual token to progressively capture complementary information missed by preceding tokens. Theoretically, we prove that DepThink provides strictly expanded geometric directional reachability over standard learnable tokens and guarantees a provable one-step descent advantage. We evaluate DepThink across multimodal retrieval and generation tasks. DepThink consistently outperforms learnable-token baselines and matches or exceeds looped architectures across dense (2B, 8B) and sparse mixture-of-experts (30B-A3B) backbones under both LoRA and full-parameter fine-tuning, while accelerating training by up to 11.9 and inference by 4.3 over looped architectures.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.26752",
+    "pdf_url": "https://arxiv.org/pdf/2611.26752.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "该文提出了一种通用的多模态检索与生成架构优化方法，虽提及检索任务，但缺乏针对推荐系统核心环节（如排序、用户建模）的具体应用或创新，属于弱相关的通用 ML 研究。",
+    "translation": "用于多模态检索与生成的深度链接残差令牌",
+    "summary_zh": "提出深度链接残差令牌（DepThink）框架，通过在单次前向传播中引入具有轻量级残差递归耦合的可学习令牌序列，以并行方式实现信息的逐步互补捕获，从而平衡计算效率与表征能力。",
+    "key_points": [
+      "提出深度链接残差令牌（DepThink）框架，通过在单次前向传播中引入具有轻量级残差递归耦合的可学习令牌序列，以并行方式实现信息的逐步互补捕获，从而平衡计算效率与表征能力"
+    ]
+  },
+  {
+    "arxiv_id": "2611.27349",
+    "title": "EcomWriteBench: A Real-World Benchmark for E-commerce Writing Tasks",
+    "authors": [
+      "Kaicheng Liang",
+      "Jingyi Cui",
+      "Hongwei Wen",
+      "Feng Wang",
+      "Simiu Gu"
+    ],
+    "summary": "Large language models (LLMs) are increasingly used throughout e-commerce workflows to generate content that informs purchasing decisions and supports customer interactions. Evaluating these systems requires accounting for user needs, product evidence, structural constraints, and business requirements that are not fully captured by general-purpose writing benchmarks. We introduce EcomWriteBench, a real-world benchmark containing 3,861 queries from 69 e-commerce writing tasks across 13 categories and five languages. Through task-level extraction, cross-task consolidation, and refinement guided by human feedback, EcomWriteBench constructs a shared pool of 37 abilities and identifies the subset applicable to each task. Ability-wise scoring enables us to compare state-of-the-art LLMs on EcomWriteBench and characterize their relative strengths and weaknesses across fine-grained e-commerce writing abilities. We further propose a preference-calibrated weight-learning framework that converts human pairwise preferences into interpretable scoring rubrics through global, category-level, and task-level aggregation weights. This framework provides a reusable approach for translating human preferences into automated evaluation by combining ability discovery, ability-wise scoring, and preference-calibrated aggregation, and can potentially be applied to a broad range of benchmarks beyond EcomWriteBench. On held-out queries, our scoring framework achieves 88.96% agreement with human preferences, compared with 78.54% for conventional LLM-as-a-judge scoring.",
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.27349",
+    "pdf_url": "https://arxiv.org/pdf/2611.27349.pdf",
+    "prerank_score": 6,
+    "relevance_score": 4,
+    "reasoning": "本文主要关注电商场景下的 LLM 写作内容生成评估基准，属于纯 NLP/LLM 评估研究，未直接涉及推荐、搜索或广告的核心算法（如召回、排序、用户建模），仅因电商背景和国内公司加分。",
+    "translation": "EcomWriteBench：面向电商写作任务的真实世界基准",
+    "summary_zh": "提出一个包含多类别电商写作任务的基准数据集 EcomWriteBench，并设计了一种基于能力发现与偏好校准权重学习的框架，用于将人类偏好转化为可解释的自动化评分标准以评估 LLM 在电商内容生成中的表现。",
+    "key_points": [
+      "提出一个包含多类别电商写作任务的基准数据集 EcomWriteBench，并设计了一种基于能力发现与偏好校准权重学习的框架，用于将人类偏好转化为可解释的自动化评分标准以评估 LLM 在电商内容生成中的表现"
+    ]
+  },
+  {
+    "arxiv_id": "2611.22537",
+    "title": "Testing World Models on Actions They Have Never Seen: Held-Out Plans, Forecast Accuracy and Price Rules in Retail",
+    "authors": [
+      "Karthik Iyer"
+    ],
+    "summary": "A world model is trusted to answer \"what if\": how its world responds to an action it has never seen. We give a test of that trust for any action-conditioned world model: actions held out of training by design and scored against a known answer; whether forecast accuracy predicts accuracy on those actions; and the same structure given to simpler models. We run it in retail, where the action is a price and promotion plan, across 2,853 fitted models. First, forecast accuracy is a fair guide between kinds of model (rank correlation with error on new plans 0.32 to 0.66) and a poor guide between versions of one world model: where merchants plan into high-demand weeks the link reverses, down to -0.69. Second, training the world model to learn the effect of actions (JEPA pretraining, a latent consistency check, adaptation at the plan date) leaves its error on new plans unchanged. Third, in generated worlds the recorded regular price and three price rules improve it. Given the same rules, a log-linear model is best when its curve can match the truth; in a world whose curve lies outside the rules, the world model with the rules is ahead of the log-linear model with the rules in 36 of 40 worlds, and does as well without its recurrent cell. On real data (Breakfast at the Frat, The Complete Journey and M5) the rules lower the world model's error on pure price cuts deeper than any it saw (0.63 to 0.56 on the Frat; 0.45 to 0.44, within chance, on The Complete Journey), but not on lasting price moves. Fourth, a small share of random test plans helps every model a little. In a generated dosing world, a stress test in a second domain, the first finding repeats, and the built-up drug level lowers the world model's error (2.86 to 1.91) though it still predicts only 0.12 to 0.32 of the true gain. The test carries to any domain where a world model is asked about actions outside its history.",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-11-20",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2611.22537",
+    "pdf_url": "https://arxiv.org/pdf/2611.22537.pdf",
+    "prerank_score": 9,
+    "relevance_score": 3,
+    "reasoning": "该文聚焦零售定价策略的世界模型评估，属于因果推断与运筹优化范畴，并非推荐系统或搜索引擎的核心技术（如召回、排序、用户建模），且非纯 LLM 研究但领域不匹配。",
+    "translation": "测试世界模型在未见动作上的表现：零售中的保留计划、预测精度与价格规则",
+    "summary_zh": "本文提出一种评估框架，通过保留训练集中的价格促销计划来测试零售领域世界模型的泛化能力，并探究预测精度与新动作误差的相关性及价格规则对模型性能的修正作用。",
+    "key_points": [
+      "本文提出一种评估框架，通过保留训练集中的价格促销计划来测试零售领域世界模型的泛化能力，并探究预测精度与新动作误差的相关性及价格规则对模型性能的修正作用"
+    ]
+  },
+  {
+    "arxiv_id": "2510.04392",
+    "title": "Improving Consistency in Retrieval-Augmented Systems with Group Similarity Rewards",
+    "authors": [
+      "Faisal Hamman",
+      "Chenyang Zhu",
+      "Anoop Kumar",
+      "Xujun Peng",
+      "Sanghamitra Dutta",
+      "Daben Liu",
+      "Alfy Samuel"
+    ],
+    "summary": "Retrieval-Augmented Generation (RAG) systems are increasingly deployed in high-stakes domains where users expect outputs to be consistent across semantically equivalent queries. However, existing systems often exhibit significant inconsistencies due to variability in both the retriever and generator, undermining trust and reliability. In this work, we focus on information consistency, i.e., the requirement that generated outputs convey the same core content across semantically equivalent inputs. We introduce a principled evaluation framework that decomposes RAG consistency into retriever-level, generator-level, and end-to-end components, enabling systematic identification of inconsistency sources. To improve consistency, we propose Paraphrased Set Group Relative Policy Optimization (PS-GRPO), an RL approach that leverages multiple rollouts across paraphrased set to assign group similarity rewards. We leverage PS-GRPO to achieve Information Consistent RAG (Con-RAG), training the generator to produce consistent outputs across paraphrased queries and remain robust to retrieval-induced variability. Because exact reward computation over paraphrase sets is computationally expensive, we also introduce a scalable approximation method that retains effectiveness while enabling efficient, large-scale training. Empirical evaluations across short-form, multi-hop, and long-form QA benchmarks demonstrate that Con-RAG significantly improves consistency while preserving accuracy compared to baselines, even in the absence of explicit ground-truth supervision. Our work provides practical solutions for evaluating and building reliable RAG systems for safety-critical deployments.",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CY",
+      "cs.LG"
+    ],
+    "published": "2026-11-19",
+    "updated": "2026-11-23",
+    "url": "https://arxiv.org/abs/2510.04392",
+    "pdf_url": "https://arxiv.org/pdf/2510.04392.pdf",
+    "prerank_score": 7,
+    "relevance_score": 2,
+    "reasoning": "这是一篇纯 LLM/RAG 研究，专注于通过强化学习提升问答一致性，未涉及推荐系统或搜索引擎的核心业务场景（如召回、排序、个性化）。",
+    "translation": "利用组相似度奖励提升检索增强生成系统的一致性",
+    "summary_zh": "提出一种基于 paraphrase 集合的组相对策略优化方法，通过组相似度奖励训练生成器，以解决检索增强生成系统在语义等价查询下的输出不一致问题。",
+    "key_points": [
+      "提出一种基于 paraphrase 集合的组相对策略优化方法，通过组相似度奖励训练生成器，以解决检索增强生成系统在语义等价查询下的输出不一致问题"
+    ]
+  }
+]
